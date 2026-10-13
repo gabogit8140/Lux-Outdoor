@@ -8,6 +8,8 @@ import {
   generateTrackSegments,
   generateTurnInstructions,
   computeElevationProfile,
+  rdpSimplify,
+  splitAndRechainSegments,
 } from '../src/lib/geoUtils';
 import type { RouteSuggestions, RouteTrace, ElevationPoint } from '../src/types';
 import type { CatalogItem } from '../src/lib/routeCatalog';
@@ -93,19 +95,6 @@ function detectRegion(country: string, coords: [number, number][]): string {
   return 'Grande Région';
 }
 
-function sampleCoordinates(coords: [number, number][], maxPoints = 60): [number, number][] {
-  if (coords.length <= maxPoints) {
-    return coords.map(([lon, lat]) => [Number(lon.toFixed(5)), Number(lat.toFixed(5))]);
-  }
-  const step = (coords.length - 1) / (maxPoints - 1);
-  const sampled: [number, number][] = [];
-  for (let i = 0; i < maxPoints; i++) {
-    const idx = Math.min(coords.length - 1, Math.round(i * step));
-    const [lon, lat] = coords[idx];
-    sampled.push([Number(lon.toFixed(5)), Number(lat.toFixed(5))]);
-  }
-  return sampled;
-}
 
 function parseGpxFile(filePath: string, rootDir: string): ParsedGpxResult | null {
   const content = fs.readFileSync(filePath, 'utf-8');
@@ -281,13 +270,30 @@ function parseGpxFile(filePath: string, rootDir: string): ParsedGpxResult | null
     ].filter(Boolean),
   };
 
-  const sampledCoords = sampleCoordinates(coords, 60);
-  const segments = generateTrackSegments(sampledCoords, roadBreakdown.carFreePercentage);
+  // 1. Sanitize trackpoints: split large cross-country jumps (> 350m) and rechain continuous segments
+  const chained = splitAndRechainSegments(coords, 350, 90);
+
+  // 2. High-precision RDP simplification (7m tolerance, preserves 100% of physical curves & turns)
+  const simplifiedSegments = chained.map((seg) => {
+    const simp = rdpSimplify(seg, 7);
+    return simp.map(([lon, lat]) => [Number(lon.toFixed(5)), Number(lat.toFixed(5))] as [number, number]);
+  });
+
+  // 3. Flat coordinates if single continuous path, multi-segment array if disconnected branches
+  const finalCoordinates: [number, number][] | [number, number][][] =
+    simplifiedSegments.length === 1 ? simplifiedSegments[0] : simplifiedSegments;
+
+  // 4. Generate road type breakdown segments per continuous sub-segment
+  const segments: TrackSegment[] = [];
+  for (const s of simplifiedSegments) {
+    const subSegs = generateTrackSegments(s, roadBreakdown.carFreePercentage);
+    segments.push(...subSegs);
+  }
 
   const trace: RouteTrace = {
     distance: Math.round(totalMeters),
     duration: durationSec,
-    coordinates: sampledCoords,
+    coordinates: finalCoordinates,
     elevationProfile: elevProfile,
     segments,
   };

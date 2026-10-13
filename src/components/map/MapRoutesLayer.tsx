@@ -237,8 +237,8 @@ export function MapRoutesLayer({
                 positions={polylinePositions}
                 pathOptions={{
                   color,
-                  weight: isSelected ? 6 : isHovered ? 5 : 4,
-                  opacity: isSelected ? 1 : selectedRouteId ? 0.45 : 0.9,
+                  weight: isSelected ? 6 : isHovered ? 5.5 : 3,
+                  opacity: isSelected ? 1 : isHovered ? 1 : selectedRouteId ? 0.25 : 0.7,
                   lineCap: 'round',
                   lineJoin: 'round',
                   dashArray: !isSelected && r.type === 'custom' ? '6, 5' : undefined,

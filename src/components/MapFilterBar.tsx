@@ -199,7 +199,10 @@ export function MapFilterBar({
   return (
     <>
       {/* Floating On-Map Bar Container */}
-      <div className="absolute top-3 left-14 right-3 sm:right-16 md:right-20 z-[420] pointer-events-none flex flex-col gap-2">
+      <div
+        className="absolute left-14 right-3 sm:right-16 md:right-20 z-[420] pointer-events-none flex flex-col gap-2 transition-all"
+        style={{ top: 'calc(env(safe-area-inset-top, 0px) + 0.75rem)' }}
+      >
         <div className="w-full max-w-4xl mx-auto flex flex-col gap-1.5">
           {/* Primary Top Island: Activity Switcher + Zone Dropdown + Distance Chip + Full Filters Button + Circuit Count */}
           <div className="pointer-events-auto bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-stone-200/90 p-1.5 flex items-center justify-between gap-1.5 sm:gap-2">

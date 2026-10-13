@@ -877,8 +877,12 @@ export function filterAndSearchOffline(params: {
 
     // Spatial check
     if (bounds) {
-      const coords = item.trace.coordinates as [number, number][];
-      const hasPointInBounds = coords.some(
+      const flatCoords = (
+        Array.isArray(item.trace.coordinates[0]?.[0])
+          ? (item.trace.coordinates as [number, number][][]).flat()
+          : (item.trace.coordinates as [number, number][])
+      );
+      const hasPointInBounds = flatCoords.some(
         ([lon, lat]) =>
           lat >= bounds.south - 0.04 &&
           lat <= bounds.north + 0.04 &&
@@ -942,9 +946,14 @@ export function filterAndSearchOffline(params: {
       if (item.route.waypoints && item.route.waypoints.length > 0) {
         return item.route.waypoints[0];
       }
-      const firstCoord = item.trace.coordinates[0];
-      if (Array.isArray(firstCoord) && typeof firstCoord[0] === 'number' && typeof firstCoord[1] === 'number') {
-        return [firstCoord[0], firstCoord[1]] as [number, number];
+      const raw = item.trace.coordinates[0];
+      if (Array.isArray(raw)) {
+        if (typeof raw[0] === 'number' && typeof raw[1] === 'number') {
+          return [raw[0], raw[1]] as [number, number];
+        }
+        if (Array.isArray(raw[0]) && typeof (raw[0] as unknown[])[0] === 'number' && typeof (raw[0] as unknown[])[1] === 'number') {
+          return [(raw[0] as [number, number])[0], (raw[0] as [number, number])[1]];
+        }
       }
       return targetCenter;
     };

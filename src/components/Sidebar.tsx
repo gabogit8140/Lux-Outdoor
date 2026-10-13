@@ -130,7 +130,10 @@ export function Sidebar({
   const activeZoneObj = REGIONAL_ZONES.find((z) => z.id === selectedZone) || REGIONAL_ZONES[0];
 
   return (
-    <div className="flex flex-col h-full bg-white p-3.5 sm:p-4 text-stone-800">
+    <div
+      className="flex flex-col h-full bg-white p-3.5 sm:p-4 text-stone-800"
+      style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1rem)' }}
+    >
       {/* Mobile Top Drag Indicator */}
       <div className="w-12 h-1 bg-stone-200 rounded-full mx-auto mb-2 md:hidden" />
 

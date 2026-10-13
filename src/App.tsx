@@ -151,7 +151,10 @@ export default function App() {
     <div className="flex flex-col md:flex-row bg-stone-50 text-stone-900 font-sans h-[100dvh] overflow-hidden select-none">
       {/* Toast Notification */}
       {notification && (
-        <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[2000] bg-stone-900/90 text-white px-4 py-2 rounded-full text-xs font-semibold shadow-xl backdrop-blur-md flex items-center gap-2 animate-in fade-in slide-in-from-top-3">
+        <div
+          className="fixed left-1/2 -translate-x-1/2 z-[2000] bg-stone-900/90 text-white px-4 py-2 rounded-full text-xs font-semibold shadow-xl backdrop-blur-md flex items-center gap-2 animate-in fade-in slide-in-from-top-3"
+          style={{ top: 'calc(env(safe-area-inset-top, 0px) + 0.75rem)' }}
+        >
           <CheckCircle className="w-4 h-4 text-emerald-400" />
           {notification}
         </div>
@@ -160,7 +163,13 @@ export default function App() {
       {/* Main Map Viewport (Full height on mobile and desktop) */}
       <main className="w-full relative flex-1 h-full z-0 overflow-hidden">
         {/* Floating Top Left Controls */}
-        <div className="absolute top-4 left-4 z-[400] flex flex-col gap-2">
+        <div
+          className="absolute z-[400] flex flex-col gap-2 transition-all"
+          style={{
+            top: 'calc(env(safe-area-inset-top, 0px) + 0.75rem)',
+            left: 'calc(env(safe-area-inset-left, 0px) + 0.75rem)',
+          }}
+        >
           <button
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             className="bg-white/95 backdrop-blur-md border border-stone-200 rounded-2xl p-2.5 shadow-md hover:border-emerald-600 hover:text-emerald-700 transition-all text-stone-600"
@@ -273,7 +282,10 @@ export default function App() {
 
         {/* Mobile Floating Quick Navigation Dock */}
         {!isSidebarOpen && !isProfileOpen && !selectedRoute && (
-          <div className="fixed bottom-4 left-3 right-3 z-[410] md:hidden pointer-events-none flex justify-center">
+          <div
+            className="fixed left-3 right-3 z-[410] md:hidden pointer-events-none flex justify-center transition-all"
+            style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 0.75rem)' }}
+          >
             <div className="pointer-events-auto bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-stone-200/90 p-1.5 flex items-center gap-1.5 max-w-sm w-full justify-between">
               <button
                 onClick={() => setIsSidebarOpen(true)}

@@ -129,16 +129,171 @@ export function haversineDistance(
 }
 
 /**
- * Computes the total distance in meters of a coordinate path
+ * Computes the total distance in meters of a coordinate path (flat or multi-segment)
  */
 export function calculatePathDistance(
-  coords: [number, number][]
+  coords: [number, number][] | [number, number][][]
 ): number {
+  if (!coords || coords.length === 0) return 0;
+  if (Array.isArray(coords[0]) && Array.isArray((coords[0] as unknown[])[0])) {
+    return (coords as [number, number][][]).reduce(
+      (sum, seg) => sum + calculatePathDistance(seg),
+      0
+    );
+  }
+  const flatCoords = coords as [number, number][];
   let total = 0;
-  for (let i = 0; i < coords.length - 1; i++) {
-    total += haversineDistance(coords[i], coords[i + 1]);
+  for (let i = 0; i < flatCoords.length - 1; i++) {
+    total += haversineDistance(flatCoords[i], flatCoords[i + 1]);
   }
   return total;
+}
+
+/**
+ * Calculates perpendicular distance in meters from point p to segment [p1, p2]
+ */
+export function perpendicularDistance(
+  p: [number, number],
+  p1: [number, number],
+  p2: [number, number]
+): number {
+  const x = p[0], y = p[1];
+  const x1 = p1[0], y1 = p1[1];
+  const x2 = p2[0], y2 = p2[1];
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  if (dx === 0 && dy === 0) {
+    return haversineDistance(p, p1);
+  }
+  const t = ((x - x1) * dx + (y - y1) * dy) / (dx * dx + dy * dy);
+  const clampedT = Math.max(0, Math.min(1, t));
+  const proj: [number, number] = [x1 + clampedT * dx, y1 + clampedT * dy];
+  return haversineDistance(p, proj);
+}
+
+/**
+ * Ramer-Douglas-Peucker (RDP) cartographic line simplification.
+ * Preserves 100% of curves, bends, switchbacks, and junctions within epsilonMeters tolerance.
+ */
+export function rdpSimplify(
+  points: [number, number][],
+  epsilonMeters = 8
+): [number, number][] {
+  if (points.length <= 2) return points;
+  let dmax = 0;
+  let index = 0;
+  for (let i = 1; i < points.length - 1; i++) {
+    const d = perpendicularDistance(points[i], points[0], points[points.length - 1]);
+    if (d > dmax) {
+      index = i;
+      dmax = d;
+    }
+  }
+  if (dmax > epsilonMeters) {
+    const rec1 = rdpSimplify(points.slice(0, index + 1), epsilonMeters);
+    const rec2 = rdpSimplify(points.slice(index), epsilonMeters);
+    return rec1.slice(0, -1).concat(rec2);
+  } else {
+    return [points[0], points[points.length - 1]];
+  }
+}
+
+/**
+ * Splits raw trackpoints at large gaps (> maxGapMeters) and rechains contiguous segments.
+ * Eliminates artificial straight lines cutting across terrain when raw ways or tracks are discontinuous.
+ */
+export function splitAndRechainSegments(
+  rawPoints: [number, number][],
+  maxGapMeters = 350,
+  maxConnectMeters = 90
+): [number, number][][] {
+  if (rawPoints.length < 2) return [rawPoints];
+  const segs: [number, number][][] = [];
+  let current: [number, number][] = [rawPoints[0]];
+
+  for (let i = 1; i < rawPoints.length; i++) {
+    const d = haversineDistance(rawPoints[i - 1], rawPoints[i]);
+    if (d > maxGapMeters) {
+      if (current.length >= 2) segs.push(current);
+      current = [rawPoints[i]];
+    } else {
+      current.push(rawPoints[i]);
+    }
+  }
+  if (current.length >= 2) segs.push(current);
+
+  if (segs.length <= 1) return segs;
+
+  const remaining = [...segs];
+  const chained: [number, number][][] = [];
+
+  while (remaining.length > 0) {
+    let currentSeg = remaining.shift()!;
+    let extended = true;
+
+    while (extended) {
+      extended = false;
+      const endPt = currentSeg[currentSeg.length - 1];
+      const startPt = currentSeg[0];
+
+      let bestIdx = -1;
+      let bestMode: 'append' | 'append_rev' | 'prepend' | 'prepend_rev' = 'append';
+      let minD = maxConnectMeters;
+
+      for (let i = 0; i < remaining.length; i++) {
+        const other = remaining[i];
+        const otherStart = other[0];
+        const otherEnd = other[other.length - 1];
+
+        const dEndToStart = haversineDistance(endPt, otherStart);
+        if (dEndToStart < minD) {
+          minD = dEndToStart;
+          bestIdx = i;
+          bestMode = 'append';
+        }
+
+        const dEndToEnd = haversineDistance(endPt, otherEnd);
+        if (dEndToEnd < minD) {
+          minD = dEndToEnd;
+          bestIdx = i;
+          bestMode = 'append_rev';
+        }
+
+        const dStartToEnd = haversineDistance(startPt, otherEnd);
+        if (dStartToEnd < minD) {
+          minD = dStartToEnd;
+          bestIdx = i;
+          bestMode = 'prepend';
+        }
+
+        const dStartToStart = haversineDistance(startPt, otherStart);
+        if (dStartToStart < minD) {
+          minD = dStartToStart;
+          bestIdx = i;
+          bestMode = 'prepend_rev';
+        }
+      }
+
+      if (bestIdx >= 0) {
+        const [matched] = remaining.splice(bestIdx, 1);
+        if (bestMode === 'append') {
+          currentSeg = currentSeg.concat(matched.slice(1));
+        } else if (bestMode === 'append_rev') {
+          currentSeg = currentSeg.concat([...matched].reverse().slice(1));
+        } else if (bestMode === 'prepend') {
+          currentSeg = matched.slice(0, -1).concat(currentSeg);
+        } else if (bestMode === 'prepend_rev') {
+          currentSeg = [...matched].reverse().slice(0, -1).concat(currentSeg);
+        }
+        extended = true;
+      }
+    }
+
+    chained.push(currentSeg);
+  }
+
+  chained.sort((a, b) => b.length - a.length);
+  return chained;
 }
 
 /**
