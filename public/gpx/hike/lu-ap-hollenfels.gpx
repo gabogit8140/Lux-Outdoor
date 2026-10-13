@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Hollenfels (Vallée des 7 Châteaux)</name>
+    <desc>Circuit en sous-bois reliant le donjon millénaire perché de Hollenfels à la vallée de l&apos;Eisch et la grotte préhistorique.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Hollenfels (Vallée des 7 Châteaux)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.71137" lon="6.05224"><ele>345</ele></trkpt>
+      <trkpt lat="49.71082" lon="6.05180"><ele>345</ele></trkpt>
+      <trkpt lat="49.71000" lon="6.05123"><ele>345</ele></trkpt>
+      <trkpt lat="49.70898" lon="6.05054"><ele>355</ele></trkpt>
+      <trkpt lat="49.70781" lon="6.04975"><ele>355</ele></trkpt>
+      <trkpt lat="49.70652" lon="6.04889"><ele>359</ele></trkpt>
+      <trkpt lat="49.70519" lon="6.04797"><ele>359</ele></trkpt>
+      <trkpt lat="49.70385" lon="6.04701"><ele>383</ele></trkpt>
+      <trkpt lat="49.70255" lon="6.04603"><ele>383</ele></trkpt>
+      <trkpt lat="49.70136" lon="6.04504"><ele>417</ele></trkpt>
+      <trkpt lat="49.70031" lon="6.04408"><ele>417</ele></trkpt>
+      <trkpt lat="49.69946" lon="6.04315"><ele>412</ele></trkpt>
+      <trkpt lat="49.69886" lon="6.04227"><ele>412</ele></trkpt>
+      <trkpt lat="49.69856" lon="6.04147"><ele>325</ele></trkpt>
+      <trkpt lat="49.69862" lon="6.04076"><ele>325</ele></trkpt>
+      <trkpt lat="49.69862" lon="6.04076"><ele>179</ele></trkpt>
+      <trkpt lat="49.69906" lon="6.04003"><ele>179</ele></trkpt>
+      <trkpt lat="49.69988" lon="6.03915"><ele>58</ele></trkpt>
+      <trkpt lat="49.70101" lon="6.03816"><ele>58</ele></trkpt>
+      <trkpt lat="49.70240" lon="6.03712"><ele>51</ele></trkpt>
+      <trkpt lat="49.70399" lon="6.03605"><ele>51</ele></trkpt>
+      <trkpt lat="49.70575" lon="6.03500"><ele>169</ele></trkpt>
+      <trkpt lat="49.70760" lon="6.03400"><ele>169</ele></trkpt>
+      <trkpt lat="49.70951" lon="6.03310"><ele>334</ele></trkpt>
+      <trkpt lat="49.71141" lon="6.03233"><ele>334</ele></trkpt>
+      <trkpt lat="49.71326" lon="6.03173"><ele>434</ele></trkpt>
+      <trkpt lat="49.71499" lon="6.03134"><ele>434</ele></trkpt>
+      <trkpt lat="49.71657" lon="6.03121"><ele>418</ele></trkpt>
+      <trkpt lat="49.71793" lon="6.03136"><ele>418</ele></trkpt>
+      <trkpt lat="49.71903" lon="6.03184"><ele>335</ele></trkpt>
+      <trkpt lat="49.71903" lon="6.03184"><ele>335</ele></trkpt>
+      <trkpt lat="49.71999" lon="6.03279"><ele>280</ele></trkpt>
+      <trkpt lat="49.72097" lon="6.03426"><ele>280</ele></trkpt>
+      <trkpt lat="49.72195" lon="6.03618"><ele>309</ele></trkpt>
+      <trkpt lat="49.72292" lon="6.03846"><ele>309</ele></trkpt>
+      <trkpt lat="49.72386" lon="6.04099"><ele>387</ele></trkpt>
+      <trkpt lat="49.72475" lon="6.04370"><ele>387</ele></trkpt>
+      <trkpt lat="49.72557" lon="6.04650"><ele>424</ele></trkpt>
+      <trkpt lat="49.72631" lon="6.04931"><ele>424</ele></trkpt>
+      <trkpt lat="49.72694" lon="6.05202"><ele>363</ele></trkpt>
+      <trkpt lat="49.72746" lon="6.05455"><ele>363</ele></trkpt>
+      <trkpt lat="49.72783" lon="6.05683"><ele>227</ele></trkpt>
+      <trkpt lat="49.72805" lon="6.05875"><ele>227</ele></trkpt>
+      <trkpt lat="49.72810" lon="6.06022"><ele>105</ele></trkpt>
+      <trkpt lat="49.72796" lon="6.06117"><ele>105</ele></trkpt>
+      <trkpt lat="49.72796" lon="6.06117"><ele>75</ele></trkpt>
+      <trkpt lat="49.72754" lon="6.06163"><ele>75</ele></trkpt>
+      <trkpt lat="49.72681" lon="6.06171"><ele>143</ele></trkpt>
+      <trkpt lat="49.72581" lon="6.06148"><ele>143</ele></trkpt>
+      <trkpt lat="49.72460" lon="6.06098"><ele>254</ele></trkpt>
+      <trkpt lat="49.72322" lon="6.06026"><ele>254</ele></trkpt>
+      <trkpt lat="49.72173" lon="6.05937"><ele>344</ele></trkpt>
+      <trkpt lat="49.72017" lon="6.05836"><ele>344</ele></trkpt>
+      <trkpt lat="49.71858" lon="6.05729"><ele>391</ele></trkpt>
+      <trkpt lat="49.71703" lon="6.05619"><ele>391</ele></trkpt>
+      <trkpt lat="49.71555" lon="6.05514"><ele>409</ele></trkpt>
+      <trkpt lat="49.71419" lon="6.05416"><ele>409</ele></trkpt>
+      <trkpt lat="49.71301" lon="6.05332"><ele>415</ele></trkpt>
+      <trkpt lat="49.71206" lon="6.05267"><ele>415</ele></trkpt>
+      <trkpt lat="49.71137" lon="6.05224"><ele>403</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

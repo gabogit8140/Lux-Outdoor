@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="VisitLuxembourg &amp; Grande-Region Outdoor"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>PC14 Piste cyclable de l’Eisch (Mamer - Koerich - Steinfort) (Tronçon 01)</name>
+    <desc>Réseau National des Pistes Cyclables (PC) du Luxembourg - Parcours officiel de 1.3 km.</desc>
+    <link href="https://www.visitluxembourg.com/fr/que-faire/nature-excursions/a-velo/pistes-cyclables">
+      <text>Réseau National des Pistes Cyclables (PC) du Luxembourg</text>
+    </link>
+    <time>2026-10-11T11:10:40.598Z</time>
+  </metadata>
+  <trk>
+    <name>PC14 Piste cyclable de l’Eisch (Mamer - Koerich - Steinfort) (Tronçon 01)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.6738096" lon="6.0271375"><ele>337.1</ele></trkpt>
+      <trkpt lat="49.6742817" lon="6.0277692"><ele>339.0</ele></trkpt>
+      <trkpt lat="49.6746570" lon="6.0283549"><ele>339.9</ele></trkpt>
+      <trkpt lat="49.6751074" lon="6.0290279"><ele>341.2</ele></trkpt>
+      <trkpt lat="49.6753254" lon="6.0292793"><ele>341.9</ele></trkpt>
+      <trkpt lat="49.6755265" lon="6.0294882"><ele>342.7</ele></trkpt>
+      <trkpt lat="49.6760144" lon="6.0298840"><ele>344.6</ele></trkpt>
+      <trkpt lat="49.6761017" lon="6.0299678"><ele>344.8</ele></trkpt>
+      <trkpt lat="49.6763333" lon="6.0302535"><ele>344.7</ele></trkpt>
+      <trkpt lat="49.6766141" lon="6.0303810"><ele>342.6</ele></trkpt>
+      <trkpt lat="49.6769768" lon="6.0304562"><ele>340.5</ele></trkpt>
+      <trkpt lat="49.6771245" lon="6.0304949"><ele>340.0</ele></trkpt>
+      <trkpt lat="49.6772246" lon="6.0306775"><ele>339.8</ele></trkpt>
+      <trkpt lat="49.6775426" lon="6.0320353"><ele>339.5</ele></trkpt>
+      <trkpt lat="49.6776753" lon="6.0326197"><ele>340.3</ele></trkpt>
+      <trkpt lat="49.6777521" lon="6.0332170"><ele>341.6</ele></trkpt>
+      <trkpt lat="49.6778047" lon="6.0333897"><ele>341.8</ele></trkpt>
+      <trkpt lat="49.6779216" lon="6.0336748"><ele>342.2</ele></trkpt>
+      <trkpt lat="49.6780992" lon="6.0342263"><ele>342.4</ele></trkpt>
+      <trkpt lat="49.6781808" lon="6.0345918"><ele>342.3</ele></trkpt>
+      <trkpt lat="49.6782377" lon="6.0352173"><ele>342.0</ele></trkpt>
+      <trkpt lat="49.6782505" lon="6.0354868"><ele>342.0</ele></trkpt>
+      <trkpt lat="49.6782618" lon="6.0357928"><ele>342.1</ele></trkpt>
+      <trkpt lat="49.6782450" lon="6.0361221"><ele>342.0</ele></trkpt>
+      <trkpt lat="49.6781521" lon="6.0367865"><ele>341.8</ele></trkpt>
+      <trkpt lat="49.6780841" lon="6.0373931"><ele>342.0</ele></trkpt>
+      <trkpt lat="49.6780667" lon="6.0378902"><ele>342.7</ele></trkpt>
+      <trkpt lat="49.6780911" lon="6.0381342"><ele>343.1</ele></trkpt>
+      <trkpt lat="49.6781445" lon="6.0383134"><ele>343.2</ele></trkpt>
+      <trkpt lat="49.6783710" lon="6.0387417"><ele>342.6</ele></trkpt>
+      <trkpt lat="49.6784223" lon="6.0388992"><ele>342.5</ele></trkpt>
+      <trkpt lat="49.6783999" lon="6.0390679"><ele>342.7</ele></trkpt>
+      <trkpt lat="49.6783421" lon="6.0391250"><ele>343.2</ele></trkpt>
+      <trkpt lat="49.6782485" lon="6.0392600"><ele>343.9</ele></trkpt>
+      <trkpt lat="49.6781550" lon="6.0394431"><ele>344.5</ele></trkpt>
+      <trkpt lat="49.6779418" lon="6.0400186"><ele>345.5</ele></trkpt>
+      <trkpt lat="49.6778624" lon="6.0402754"><ele>345.8</ele></trkpt>
+      <trkpt lat="49.6776941" lon="6.0406186"><ele>346.4</ele></trkpt>
+      <trkpt lat="49.6773387" lon="6.0410503"><ele>345.0</ele></trkpt>
+      <trkpt lat="49.6771261" lon="6.0413239"><ele>343.3</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

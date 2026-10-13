@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Boucle du Ballon d&apos;Alsace &amp; Monument des Démineurs</name>
+    <desc>Ascension du sommet emblématique des Vosges du Sud (1247m) avec vue à 360° sur les Alpes bernoises et la trouée de Belfort.</desc>
+    <link href="https://www.massif-des-vosges.com">
+      <text>Massif des Vosges Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Boucle du Ballon d&apos;Alsace &amp; Monument des Démineurs</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="47.82310" lon="6.83867"><ele>40</ele></trkpt>
+      <trkpt lat="47.82244" lon="6.83941"><ele>40</ele></trkpt>
+      <trkpt lat="47.82152" lon="6.84051"><ele>40</ele></trkpt>
+      <trkpt lat="47.82039" lon="6.84191"><ele>25</ele></trkpt>
+      <trkpt lat="47.81910" lon="6.84353"><ele>25</ele></trkpt>
+      <trkpt lat="47.81769" lon="6.84529"><ele>25</ele></trkpt>
+      <trkpt lat="47.81620" lon="6.84711"><ele>25</ele></trkpt>
+      <trkpt lat="47.81468" lon="6.84893"><ele>25</ele></trkpt>
+      <trkpt lat="47.81317" lon="6.85065"><ele>25</ele></trkpt>
+      <trkpt lat="47.81172" lon="6.85222"><ele>25</ele></trkpt>
+      <trkpt lat="47.81036" lon="6.85355"><ele>25</ele></trkpt>
+      <trkpt lat="47.80915" lon="6.85457"><ele>144</ele></trkpt>
+      <trkpt lat="47.80812" lon="6.85519"><ele>144</ele></trkpt>
+      <trkpt lat="47.80733" lon="6.85535"><ele>304</ele></trkpt>
+      <trkpt lat="47.80681" lon="6.85496"><ele>304</ele></trkpt>
+      <trkpt lat="47.80681" lon="6.85496"><ele>433</ele></trkpt>
+      <trkpt lat="47.80650" lon="6.85393"><ele>433</ele></trkpt>
+      <trkpt lat="47.80629" lon="6.85227"><ele>484</ele></trkpt>
+      <trkpt lat="47.80618" lon="6.85007"><ele>484</ele></trkpt>
+      <trkpt lat="47.80618" lon="6.84743"><ele>430</ele></trkpt>
+      <trkpt lat="47.80627" lon="6.84444"><ele>430</ele></trkpt>
+      <trkpt lat="47.80648" lon="6.84119"><ele>284</ele></trkpt>
+      <trkpt lat="47.80678" lon="6.83779"><ele>284</ele></trkpt>
+      <trkpt lat="47.80718" lon="6.83432"><ele>91</ele></trkpt>
+      <trkpt lat="47.80769" lon="6.83088"><ele>91</ele></trkpt>
+      <trkpt lat="47.80829" lon="6.82757"><ele>25</ele></trkpt>
+      <trkpt lat="47.80900" lon="6.82448"><ele>25</ele></trkpt>
+      <trkpt lat="47.80980" lon="6.82171"><ele>25</ele></trkpt>
+      <trkpt lat="47.81070" lon="6.81935"><ele>25</ele></trkpt>
+      <trkpt lat="47.81170" lon="6.81749"><ele>25</ele></trkpt>
+      <trkpt lat="47.81170" lon="6.81749"><ele>25</ele></trkpt>
+      <trkpt lat="47.81298" lon="6.81593"><ele>25</ele></trkpt>
+      <trkpt lat="47.81468" lon="6.81439"><ele>25</ele></trkpt>
+      <trkpt lat="47.81672" lon="6.81289"><ele>134</ele></trkpt>
+      <trkpt lat="47.81903" lon="6.81147"><ele>134</ele></trkpt>
+      <trkpt lat="47.82151" lon="6.81014"><ele>304</ele></trkpt>
+      <trkpt lat="47.82411" lon="6.80893"><ele>304</ele></trkpt>
+      <trkpt lat="47.82674" lon="6.80785"><ele>410</ele></trkpt>
+      <trkpt lat="47.82931" lon="6.80694"><ele>410</ele></trkpt>
+      <trkpt lat="47.83176" lon="6.80620"><ele>422</ele></trkpt>
+      <trkpt lat="47.83401" lon="6.80568"><ele>422</ele></trkpt>
+      <trkpt lat="47.83597" lon="6.80538"><ele>346</ele></trkpt>
+      <trkpt lat="47.83758" lon="6.80534"><ele>346</ele></trkpt>
+      <trkpt lat="47.83874" lon="6.80556"><ele>223</ele></trkpt>
+      <trkpt lat="47.83939" lon="6.80609"><ele>223</ele></trkpt>
+      <trkpt lat="47.83939" lon="6.80609"><ele>101</ele></trkpt>
+      <trkpt lat="47.83951" lon="6.80708"><ele>101</ele></trkpt>
+      <trkpt lat="47.83916" lon="6.80864"><ele>25</ele></trkpt>
+      <trkpt lat="47.83841" lon="6.81067"><ele>25</ele></trkpt>
+      <trkpt lat="47.83734" lon="6.81308"><ele>25</ele></trkpt>
+      <trkpt lat="47.83600" lon="6.81579"><ele>25</ele></trkpt>
+      <trkpt lat="47.83447" lon="6.81871"><ele>41</ele></trkpt>
+      <trkpt lat="47.83280" lon="6.82174"><ele>41</ele></trkpt>
+      <trkpt lat="47.83108" lon="6.82480"><ele>96</ele></trkpt>
+      <trkpt lat="47.82935" lon="6.82779"><ele>96</ele></trkpt>
+      <trkpt lat="47.82770" lon="6.83063"><ele>143</ele></trkpt>
+      <trkpt lat="47.82618" lon="6.83323"><ele>143</ele></trkpt>
+      <trkpt lat="47.82486" lon="6.83550"><ele>163</ele></trkpt>
+      <trkpt lat="47.82381" lon="6.83734"><ele>163</ele></trkpt>
+      <trkpt lat="47.82310" lon="6.83867"><ele>160</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

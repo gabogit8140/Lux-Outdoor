@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Sentier de la Colline Inspirée de Sion-Vaudémont</name>
+    <desc>Le haut lieu spirituel et panoramique de Lorraine dominant le Saintois à 542m d&apos;altitude avec le Monument Barrès.</desc>
+    <link href="https://www.tourisme-lorraine.fr">
+      <text>Tourisme Lorraine Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Sentier de la Colline Inspirée de Sion-Vaudémont</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="48.42939" lon="6.08795"><ele>201</ele></trkpt>
+      <trkpt lat="48.42855" lon="6.08658"><ele>201</ele></trkpt>
+      <trkpt lat="48.42738" lon="6.08478"><ele>201</ele></trkpt>
+      <trkpt lat="48.42594" lon="6.08260"><ele>245</ele></trkpt>
+      <trkpt lat="48.42429" lon="6.08012"><ele>245</ele></trkpt>
+      <trkpt lat="48.42249" lon="6.07739"><ele>274</ele></trkpt>
+      <trkpt lat="48.42059" lon="6.07450"><ele>274</ele></trkpt>
+      <trkpt lat="48.41865" lon="6.07149"><ele>310</ele></trkpt>
+      <trkpt lat="48.41673" lon="6.06845"><ele>310</ele></trkpt>
+      <trkpt lat="48.41488" lon="6.06544"><ele>361</ele></trkpt>
+      <trkpt lat="48.41317" lon="6.06252"><ele>361</ele></trkpt>
+      <trkpt lat="48.41164" lon="6.05977"><ele>410</ele></trkpt>
+      <trkpt lat="48.41037" lon="6.05724"><ele>410</ele></trkpt>
+      <trkpt lat="48.40939" lon="6.05502"><ele>417</ele></trkpt>
+      <trkpt lat="48.40878" lon="6.05316"><ele>417</ele></trkpt>
+      <trkpt lat="48.40878" lon="6.05316"><ele>355</ele></trkpt>
+      <trkpt lat="48.40847" lon="6.05145"><ele>355</ele></trkpt>
+      <trkpt lat="48.40836" lon="6.04966"><ele>233</ele></trkpt>
+      <trkpt lat="48.40844" lon="6.04784"><ele>233</ele></trkpt>
+      <trkpt lat="48.40869" lon="6.04601"><ele>101</ele></trkpt>
+      <trkpt lat="48.40908" lon="6.04423"><ele>101</ele></trkpt>
+      <trkpt lat="48.40961" lon="6.04253"><ele>25</ele></trkpt>
+      <trkpt lat="48.41025" lon="6.04094"><ele>25</ele></trkpt>
+      <trkpt lat="48.41099" lon="6.03951"><ele>27</ele></trkpt>
+      <trkpt lat="48.41181" lon="6.03827"><ele>27</ele></trkpt>
+      <trkpt lat="48.41269" lon="6.03727"><ele>104</ele></trkpt>
+      <trkpt lat="48.41362" lon="6.03655"><ele>104</ele></trkpt>
+      <trkpt lat="48.41458" lon="6.03614"><ele>202</ele></trkpt>
+      <trkpt lat="48.41555" lon="6.03608"><ele>202</ele></trkpt>
+      <trkpt lat="48.41651" lon="6.03641"><ele>278</ele></trkpt>
+      <trkpt lat="48.41651" lon="6.03641"><ele>278</ele></trkpt>
+      <trkpt lat="48.41762" lon="6.03725"><ele>316</ele></trkpt>
+      <trkpt lat="48.41902" lon="6.03865"><ele>316</ele></trkpt>
+      <trkpt lat="48.42065" lon="6.04052"><ele>331</ele></trkpt>
+      <trkpt lat="48.42246" lon="6.04279"><ele>331</ele></trkpt>
+      <trkpt lat="48.42439" lon="6.04538"><ele>347</ele></trkpt>
+      <trkpt lat="48.42639" lon="6.04821"><ele>347</ele></trkpt>
+      <trkpt lat="48.42840" lon="6.05120"><ele>367</ele></trkpt>
+      <trkpt lat="48.43038" lon="6.05427"><ele>367</ele></trkpt>
+      <trkpt lat="48.43226" lon="6.05733"><ele>369</ele></trkpt>
+      <trkpt lat="48.43400" lon="6.06032"><ele>369</ele></trkpt>
+      <trkpt lat="48.43554" lon="6.06315"><ele>328</ele></trkpt>
+      <trkpt lat="48.43682" lon="6.06575"><ele>328</ele></trkpt>
+      <trkpt lat="48.43780" lon="6.06803"><ele>240</ele></trkpt>
+      <trkpt lat="48.43841" lon="6.06991"><ele>240</ele></trkpt>
+      <trkpt lat="48.43841" lon="6.06991"><ele>139</ele></trkpt>
+      <trkpt lat="48.43866" lon="6.07156"><ele>139</ele></trkpt>
+      <trkpt lat="48.43859" lon="6.07320"><ele>76</ele></trkpt>
+      <trkpt lat="48.43826" lon="6.07481"><ele>76</ele></trkpt>
+      <trkpt lat="48.43771" lon="6.07639"><ele>84</ele></trkpt>
+      <trkpt lat="48.43697" lon="6.07792"><ele>84</ele></trkpt>
+      <trkpt lat="48.43610" lon="6.07940"><ele>152</ele></trkpt>
+      <trkpt lat="48.43513" lon="6.08081"><ele>152</ele></trkpt>
+      <trkpt lat="48.43412" lon="6.08214"><ele>235</ele></trkpt>
+      <trkpt lat="48.43310" lon="6.08339"><ele>235</ele></trkpt>
+      <trkpt lat="48.43211" lon="6.08454"><ele>285</ele></trkpt>
+      <trkpt lat="48.43120" lon="6.08558"><ele>285</ele></trkpt>
+      <trkpt lat="48.43042" lon="6.08650"><ele>286</ele></trkpt>
+      <trkpt lat="48.42980" lon="6.08729"><ele>286</ele></trkpt>
+      <trkpt lat="48.42939" lon="6.08795"><ele>257</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

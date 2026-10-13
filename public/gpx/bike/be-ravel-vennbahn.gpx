@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>RAVeL L47 Vennbahn (Troisvierges - Saint-Vith - Waimes)</name>
+    <desc>La mythique piste cyclable transfrontalière sur l&apos;ancienne ligne ferroviaire des Fagnes avec pentes douces (&lt; 2%) et viaducs grandioses.</desc>
+    <link href="https://www.vennbahn.eu">
+      <text>Vennbahn Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>RAVeL L47 Vennbahn (Troisvierges - Saint-Vith - Waimes)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="50.02192" lon="5.91819"><ele>736</ele></trkpt>
+      <trkpt lat="50.02670" lon="5.92218"><ele>736</ele></trkpt>
+      <trkpt lat="50.03278" lon="5.92728"><ele>736</ele></trkpt>
+      <trkpt lat="50.04002" lon="5.93334"><ele>704</ele></trkpt>
+      <trkpt lat="50.04824" lon="5.94023"><ele>704</ele></trkpt>
+      <trkpt lat="50.05728" lon="5.94781"><ele>554</ele></trkpt>
+      <trkpt lat="50.06697" lon="5.95593"><ele>554</ele></trkpt>
+      <trkpt lat="50.07716" lon="5.96445"><ele>363</ele></trkpt>
+      <trkpt lat="50.08766" lon="5.97323"><ele>363</ele></trkpt>
+      <trkpt lat="50.09832" lon="5.98213"><ele>224</ele></trkpt>
+      <trkpt lat="50.10898" lon="5.99101"><ele>224</ele></trkpt>
+      <trkpt lat="50.11947" lon="5.99972"><ele>189</ele></trkpt>
+      <trkpt lat="50.12961" lon="6.00813"><ele>189</ele></trkpt>
+      <trkpt lat="50.13926" lon="6.01609"><ele>245</ele></trkpt>
+      <trkpt lat="50.14824" lon="6.02345"><ele>245</ele></trkpt>
+      <trkpt lat="50.14824" lon="6.02345"><ele>330</ele></trkpt>
+      <trkpt lat="50.15713" lon="6.03082"><ele>330</ele></trkpt>
+      <trkpt lat="50.16657" lon="6.03878"><ele>386</ele></trkpt>
+      <trkpt lat="50.17647" lon="6.04722"><ele>386</ele></trkpt>
+      <trkpt lat="50.18673" lon="6.05602"><ele>393</ele></trkpt>
+      <trkpt lat="50.19726" lon="6.06505"><ele>393</ele></trkpt>
+      <trkpt lat="50.20797" lon="6.07419"><ele>378</ele></trkpt>
+      <trkpt lat="50.21877" lon="6.08332"><ele>378</ele></trkpt>
+      <trkpt lat="50.22957" lon="6.09232"><ele>382</ele></trkpt>
+      <trkpt lat="50.24027" lon="6.10107"><ele>382</ele></trkpt>
+      <trkpt lat="50.25078" lon="6.10945"><ele>430</ele></trkpt>
+      <trkpt lat="50.26102" lon="6.11734"><ele>430</ele></trkpt>
+      <trkpt lat="50.27088" lon="6.12461"><ele>510</ele></trkpt>
+      <trkpt lat="50.28028" lon="6.13114"><ele>510</ele></trkpt>
+      <trkpt lat="50.28912" lon="6.13681"><ele>585</ele></trkpt>
+      <trkpt lat="50.28912" lon="6.13681"><ele>585</ele></trkpt>
+      <trkpt lat="50.29785" lon="6.14180"><ele>622</ele></trkpt>
+      <trkpt lat="50.30692" lon="6.14639"><ele>622</ele></trkpt>
+      <trkpt lat="50.31624" lon="6.15061"><ele>611</ele></trkpt>
+      <trkpt lat="50.32574" lon="6.15452"><ele>611</ele></trkpt>
+      <trkpt lat="50.33535" lon="6.15815"><ele>567</ele></trkpt>
+      <trkpt lat="50.34498" lon="6.16154"><ele>567</ele></trkpt>
+      <trkpt lat="50.35457" lon="6.16475"><ele>506</ele></trkpt>
+      <trkpt lat="50.36403" lon="6.16780"><ele>506</ele></trkpt>
+      <trkpt lat="50.37328" lon="6.17075"><ele>438</ele></trkpt>
+      <trkpt lat="50.38226" lon="6.17364"><ele>438</ele></trkpt>
+      <trkpt lat="50.39087" lon="6.17650"><ele>361</ele></trkpt>
+      <trkpt lat="50.39906" lon="6.17939"><ele>361</ele></trkpt>
+      <trkpt lat="50.40673" lon="6.18234"><ele>281</ele></trkpt>
+      <trkpt lat="50.41382" lon="6.18539"><ele>281</ele></trkpt>
+      <trkpt lat="50.41382" lon="6.18539"><ele>218</ele></trkpt>
+      <trkpt lat="50.42072" lon="6.18869"><ele>218</ele></trkpt>
+      <trkpt lat="50.42784" lon="6.19229"><ele>202</ele></trkpt>
+      <trkpt lat="50.43509" lon="6.19613"><ele>202</ele></trkpt>
+      <trkpt lat="50.44239" lon="6.20012"><ele>254</ele></trkpt>
+      <trkpt lat="50.44965" lon="6.20422"><ele>254</ele></trkpt>
+      <trkpt lat="50.45680" lon="6.20834"><ele>358</ele></trkpt>
+      <trkpt lat="50.46374" lon="6.21242"><ele>358</ele></trkpt>
+      <trkpt lat="50.47040" lon="6.21638"><ele>470</ele></trkpt>
+      <trkpt lat="50.47669" lon="6.22017"><ele>470</ele></trkpt>
+      <trkpt lat="50.48252" lon="6.22371"><ele>536</ele></trkpt>
+      <trkpt lat="50.48782" lon="6.22692"><ele>536</ele></trkpt>
+      <trkpt lat="50.49249" lon="6.22975"><ele>534</ele></trkpt>
+      <trkpt lat="50.49646" lon="6.23213"><ele>534</ele></trkpt>
+      <trkpt lat="50.49964" lon="6.23398"><ele>490</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

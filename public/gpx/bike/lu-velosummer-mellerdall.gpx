@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Vëlosummer: Mëllerdall Vëlo Tour (Echternach - Beaufort - Berdorf)</name>
+    <desc>Grand circuit cycliste officiel au cœur du Géoparc UNESCO du Mëllerdall entre falaises de grès, forêts et châteaux.</desc>
+    <link href="https://www.visitluxembourg.com">
+      <text>Visit Luxembourg (Vëlosummer Officiel)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Vëlosummer: Mëllerdall Vëlo Tour (Echternach - Beaufort - Berdorf)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.81067" lon="6.44625"><ele>406</ele></trkpt>
+      <trkpt lat="49.81118" lon="6.44300"><ele>406</ele></trkpt>
+      <trkpt lat="49.81182" lon="6.43883"><ele>406</ele></trkpt>
+      <trkpt lat="49.81257" lon="6.43385"><ele>399</ele></trkpt>
+      <trkpt lat="49.81343" lon="6.42819"><ele>399</ele></trkpt>
+      <trkpt lat="49.81438" lon="6.42198"><ele>332</ele></trkpt>
+      <trkpt lat="49.81540" lon="6.41532"><ele>332</ele></trkpt>
+      <trkpt lat="49.81647" lon="6.40834"><ele>245</ele></trkpt>
+      <trkpt lat="49.81758" lon="6.40116"><ele>245</ele></trkpt>
+      <trkpt lat="49.81872" lon="6.39391"><ele>179</ele></trkpt>
+      <trkpt lat="49.81987" lon="6.38669"><ele>179</ele></trkpt>
+      <trkpt lat="49.82101" lon="6.37964"><ele>166</ele></trkpt>
+      <trkpt lat="49.82213" lon="6.37286"><ele>166</ele></trkpt>
+      <trkpt lat="49.82322" lon="6.36649"><ele>206</ele></trkpt>
+      <trkpt lat="49.82426" lon="6.36064"><ele>206</ele></trkpt>
+      <trkpt lat="49.82426" lon="6.36064"><ele>275</ele></trkpt>
+      <trkpt lat="49.82547" lon="6.35478"><ele>275</ele></trkpt>
+      <trkpt lat="49.82704" lon="6.34838"><ele>337</ele></trkpt>
+      <trkpt lat="49.82889" lon="6.34156"><ele>337</ele></trkpt>
+      <trkpt lat="49.83091" lon="6.33443"><ele>360</ele></trkpt>
+      <trkpt lat="49.83304" lon="6.32714"><ele>360</ele></trkpt>
+      <trkpt lat="49.83517" lon="6.31978"><ele>336</ele></trkpt>
+      <trkpt lat="49.83722" lon="6.31250"><ele>336</ele></trkpt>
+      <trkpt lat="49.83910" lon="6.30540"><ele>283</ele></trkpt>
+      <trkpt lat="49.84072" lon="6.29862"><ele>283</ele></trkpt>
+      <trkpt lat="49.84200" lon="6.29227"><ele>236</ele></trkpt>
+      <trkpt lat="49.84285" lon="6.28648"><ele>236</ele></trkpt>
+      <trkpt lat="49.84318" lon="6.28137"><ele>230</ele></trkpt>
+      <trkpt lat="49.84290" lon="6.27706"><ele>230</ele></trkpt>
+      <trkpt lat="49.84192" lon="6.27368"><ele>279</ele></trkpt>
+      <trkpt lat="49.84192" lon="6.27368"><ele>279</ele></trkpt>
+      <trkpt lat="49.83993" lon="6.27099"><ele>372</ele></trkpt>
+      <trkpt lat="49.83680" lon="6.26868"><ele>372</ele></trkpt>
+      <trkpt lat="49.83273" lon="6.26676"><ele>471</ele></trkpt>
+      <trkpt lat="49.82791" lon="6.26522"><ele>471</ele></trkpt>
+      <trkpt lat="49.82255" lon="6.26407"><ele>531</ele></trkpt>
+      <trkpt lat="49.81683" lon="6.26330"><ele>531</ele></trkpt>
+      <trkpt lat="49.81096" lon="6.26291"><ele>520</ele></trkpt>
+      <trkpt lat="49.80513" lon="6.26291"><ele>520</ele></trkpt>
+      <trkpt lat="49.79954" lon="6.26330"><ele>520</ele></trkpt>
+      <trkpt lat="49.79440" lon="6.26406"><ele>434</ele></trkpt>
+      <trkpt lat="49.78988" lon="6.26521"><ele>434</ele></trkpt>
+      <trkpt lat="49.78620" lon="6.26674"><ele>296</ele></trkpt>
+      <trkpt lat="49.78355" lon="6.26866"><ele>296</ele></trkpt>
+      <trkpt lat="49.78213" lon="6.27096"><ele>150</ele></trkpt>
+      <trkpt lat="49.78213" lon="6.27096"><ele>150</ele></trkpt>
+      <trkpt lat="49.78197" lon="6.27390"><ele>37</ele></trkpt>
+      <trkpt lat="49.78285" lon="6.27768"><ele>37</ele></trkpt>
+      <trkpt lat="49.78463" lon="6.28219"><ele>25</ele></trkpt>
+      <trkpt lat="49.78714" lon="6.28733"><ele>25</ele></trkpt>
+      <trkpt lat="49.79024" lon="6.29301"><ele>25</ele></trkpt>
+      <trkpt lat="49.79377" lon="6.29911"><ele>25</ele></trkpt>
+      <trkpt lat="49.79757" lon="6.30554"><ele>25</ele></trkpt>
+      <trkpt lat="49.80149" lon="6.31220"><ele>25</ele></trkpt>
+      <trkpt lat="49.80538" lon="6.31897"><ele>25</ele></trkpt>
+      <trkpt lat="49.80907" lon="6.32577"><ele>25</ele></trkpt>
+      <trkpt lat="49.81242" lon="6.33249"><ele>25</ele></trkpt>
+      <trkpt lat="49.81526" lon="6.33902"><ele>25</ele></trkpt>
+      <trkpt lat="49.81745" lon="6.34527"><ele>25</ele></trkpt>
+      <trkpt lat="49.81882" lon="6.35113"><ele>25</ele></trkpt>
+      <trkpt lat="49.81882" lon="6.35113"><ele>25</ele></trkpt>
+      <trkpt lat="49.81951" lon="6.35717"><ele>25</ele></trkpt>
+      <trkpt lat="49.81978" lon="6.36393"><ele>25</ele></trkpt>
+      <trkpt lat="49.81969" lon="6.37125"><ele>25</ele></trkpt>
+      <trkpt lat="49.81929" lon="6.37899"><ele>25</ele></trkpt>
+      <trkpt lat="49.81864" lon="6.38700"><ele>25</ele></trkpt>
+      <trkpt lat="49.81779" lon="6.39512"><ele>25</ele></trkpt>
+      <trkpt lat="49.81681" lon="6.40320"><ele>25</ele></trkpt>
+      <trkpt lat="49.81574" lon="6.41110"><ele>25</ele></trkpt>
+      <trkpt lat="49.81464" lon="6.41867"><ele>25</ele></trkpt>
+      <trkpt lat="49.81357" lon="6.42576"><ele>87</ele></trkpt>
+      <trkpt lat="49.81258" lon="6.43221"><ele>87</ele></trkpt>
+      <trkpt lat="49.81173" lon="6.43787"><ele>194</ele></trkpt>
+      <trkpt lat="49.81107" lon="6.44260"><ele>194</ele></trkpt>
+      <trkpt lat="49.81067" lon="6.44625"><ele>236</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

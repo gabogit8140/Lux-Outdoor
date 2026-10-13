@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>PC21 Piste du Nord (Troisvierges - Clervaux - Wilwerwiltz)</name>
+    <desc>Voie cyclable reliant les gares du Nord au cœur de la vallée encaissée de la Clerve.</desc>
+    <link href="https://geoportail.lu">
+      <text>Geoportail Luxembourg (PC Officielle)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>PC21 Piste du Nord (Troisvierges - Clervaux - Wilwerwiltz)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="50.17288" lon="5.97223"><ele>515</ele></trkpt>
+      <trkpt lat="50.16836" lon="5.97509"><ele>519</ele></trkpt>
+      <trkpt lat="50.16255" lon="5.97914"><ele>481</ele></trkpt>
+      <trkpt lat="50.15562" lon="5.98415"><ele>461</ele></trkpt>
+      <trkpt lat="50.14775" lon="5.98991"><ele>491</ele></trkpt>
+      <trkpt lat="50.13910" lon="5.99620"><ele>538</ele></trkpt>
+      <trkpt lat="50.12983" lon="6.00280"><ele>543</ele></trkpt>
+      <trkpt lat="50.12013" lon="6.00949"><ele>480</ele></trkpt>
+      <trkpt lat="50.11015" lon="6.01606"><ele>387</ele></trkpt>
+      <trkpt lat="50.10006" lon="6.02229"><ele>333</ele></trkpt>
+      <trkpt lat="50.09004" lon="6.02795"><ele>350</ele></trkpt>
+      <trkpt lat="50.08026" lon="6.03284"><ele>404</ele></trkpt>
+      <trkpt lat="50.07088" lon="6.03674"><ele>431</ele></trkpt>
+      <trkpt lat="50.06207" lon="6.03942"><ele>401</ele></trkpt>
+      <trkpt lat="50.05400" lon="6.04067"><ele>349</ele></trkpt>
+      <trkpt lat="50.05400" lon="6.04067"><ele>337</ele></trkpt>
+      <trkpt lat="50.04593" lon="6.04040"><ele>390</ele></trkpt>
+      <trkpt lat="50.03712" lon="6.03878"><ele>470</ele></trkpt>
+      <trkpt lat="50.02774" lon="6.03603"><ele>511</ele></trkpt>
+      <trkpt lat="50.01796" lon="6.03232"><ele>486</ele></trkpt>
+      <trkpt lat="50.00794" lon="6.02787"><ele>433</ele></trkpt>
+      <trkpt lat="49.99785" lon="6.02286"><ele>415</ele></trkpt>
+      <trkpt lat="49.98787" lon="6.01750"><ele>456</ele></trkpt>
+      <trkpt lat="49.97817" lon="6.01199"><ele>518</ele></trkpt>
+      <trkpt lat="49.96890" lon="6.00651"><ele>535</ele></trkpt>
+      <trkpt lat="49.96025" lon="6.00127"><ele>484</ele></trkpt>
+      <trkpt lat="49.95238" lon="5.99647"><ele>404</ele></trkpt>
+      <trkpt lat="49.94545" lon="5.99229"><ele>361</ele></trkpt>
+      <trkpt lat="49.93964" lon="5.98895"><ele>379</ele></trkpt>
+      <trkpt lat="49.93512" lon="5.98664"><ele>421</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

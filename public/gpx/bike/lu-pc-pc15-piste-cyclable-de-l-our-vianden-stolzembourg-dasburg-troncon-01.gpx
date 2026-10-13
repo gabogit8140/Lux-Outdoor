@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="VisitLuxembourg &amp; Grande-Region Outdoor"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>PC15 Piste cyclable de l’Our (Vianden - Stolzembourg - Dasburg) (Tronçon 01)</name>
+    <desc>Réseau National des Pistes Cyclables (PC) du Luxembourg - Parcours officiel de 0.7 km.</desc>
+    <link href="https://www.visitluxembourg.com/fr/que-faire/nature-excursions/a-velo/pistes-cyclables">
+      <text>Réseau National des Pistes Cyclables (PC) du Luxembourg</text>
+    </link>
+    <time>2026-10-11T11:10:40.609Z</time>
+  </metadata>
+  <trk>
+    <name>PC15 Piste cyclable de l’Our (Vianden - Stolzembourg - Dasburg) (Tronçon 01)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.7255776" lon="6.1159449"><ele>220.6</ele></trkpt>
+      <trkpt lat="49.7255364" lon="6.1169357"><ele>220.1</ele></trkpt>
+      <trkpt lat="49.7254687" lon="6.1170972"><ele>220.0</ele></trkpt>
+      <trkpt lat="49.7249776" lon="6.1175234"><ele>220.2</ele></trkpt>
+      <trkpt lat="49.7241163" lon="6.1182976"><ele>220.4</ele></trkpt>
+      <trkpt lat="49.7239880" lon="6.1183765"><ele>220.5</ele></trkpt>
+      <trkpt lat="49.7233782" lon="6.1183873"><ele>220.5</ele></trkpt>
+      <trkpt lat="49.7221877" lon="6.1183841"><ele>220.9</ele></trkpt>
+      <trkpt lat="49.7217892" lon="6.1183937"><ele>221.0</ele></trkpt>
+      <trkpt lat="49.7215894" lon="6.1184306"><ele>221.0</ele></trkpt>
+      <trkpt lat="49.7207130" lon="6.1188002"><ele>220.9</ele></trkpt>
+      <trkpt lat="49.7204703" lon="6.1189039"><ele>220.9</ele></trkpt>
+      <trkpt lat="49.7199761" lon="6.1191191"><ele>222.6</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

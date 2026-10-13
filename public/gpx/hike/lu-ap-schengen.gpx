@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Schengen (Markusberg &amp; Réserve des 3 Frontières)</name>
+    <desc>Montée sur le mont Markusberg dominant le confluent de la Moselle, de la Sarre et la borne des 3 pays.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Schengen (Markusberg &amp; Réserve des 3 Frontières)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.47168" lon="6.36989"><ele>118</ele></trkpt>
+      <trkpt lat="49.47214" lon="6.36911"><ele>118</ele></trkpt>
+      <trkpt lat="49.47282" lon="6.36808"><ele>118</ele></trkpt>
+      <trkpt lat="49.47366" lon="6.36685"><ele>158</ele></trkpt>
+      <trkpt lat="49.47463" lon="6.36543"><ele>158</ele></trkpt>
+      <trkpt lat="49.47569" lon="6.36388"><ele>158</ele></trkpt>
+      <trkpt lat="49.47680" lon="6.36223"><ele>158</ele></trkpt>
+      <trkpt lat="49.47791" lon="6.36052"><ele>126</ele></trkpt>
+      <trkpt lat="49.47899" lon="6.35878"><ele>126</ele></trkpt>
+      <trkpt lat="49.47999" lon="6.35706"><ele>86</ele></trkpt>
+      <trkpt lat="49.48088" lon="6.35538"><ele>86</ele></trkpt>
+      <trkpt lat="49.48160" lon="6.35379"><ele>67</ele></trkpt>
+      <trkpt lat="49.48213" lon="6.35233"><ele>67</ele></trkpt>
+      <trkpt lat="49.48242" lon="6.35103"><ele>91</ele></trkpt>
+      <trkpt lat="49.48242" lon="6.34993"><ele>91</ele></trkpt>
+      <trkpt lat="49.48242" lon="6.34993"><ele>156</ele></trkpt>
+      <trkpt lat="49.48213" lon="6.34889"><ele>156</ele></trkpt>
+      <trkpt lat="49.48155" lon="6.34777"><ele>243</ele></trkpt>
+      <trkpt lat="49.48074" lon="6.34659"><ele>243</ele></trkpt>
+      <trkpt lat="49.47972" lon="6.34539"><ele>321</ele></trkpt>
+      <trkpt lat="49.47855" lon="6.34420"><ele>321</ele></trkpt>
+      <trkpt lat="49.47725" lon="6.34305"><ele>360</ele></trkpt>
+      <trkpt lat="49.47587" lon="6.34197"><ele>360</ele></trkpt>
+      <trkpt lat="49.47444" lon="6.34100"><ele>347</ele></trkpt>
+      <trkpt lat="49.47301" lon="6.34017"><ele>347</ele></trkpt>
+      <trkpt lat="49.47161" lon="6.33951"><ele>292</ele></trkpt>
+      <trkpt lat="49.47027" lon="6.33904"><ele>292</ele></trkpt>
+      <trkpt lat="49.46905" lon="6.33882"><ele>218</ele></trkpt>
+      <trkpt lat="49.46797" lon="6.33885"><ele>218</ele></trkpt>
+      <trkpt lat="49.46707" lon="6.33919"><ele>157</ele></trkpt>
+      <trkpt lat="49.46707" lon="6.33919"><ele>157</ele></trkpt>
+      <trkpt lat="49.46625" lon="6.33993"><ele>130</ele></trkpt>
+      <trkpt lat="49.46537" lon="6.34112"><ele>130</ele></trkpt>
+      <trkpt lat="49.46445" lon="6.34268"><ele>142</ele></trkpt>
+      <trkpt lat="49.46351" lon="6.34456"><ele>142</ele></trkpt>
+      <trkpt lat="49.46259" lon="6.34668"><ele>176</ele></trkpt>
+      <trkpt lat="49.46168" lon="6.34898"><ele>176</ele></trkpt>
+      <trkpt lat="49.46083" lon="6.35137"><ele>205</ele></trkpt>
+      <trkpt lat="49.46004" lon="6.35381"><ele>205</ele></trkpt>
+      <trkpt lat="49.45933" lon="6.35620"><ele>204</ele></trkpt>
+      <trkpt lat="49.45874" lon="6.35850"><ele>204</ele></trkpt>
+      <trkpt lat="49.45828" lon="6.36063"><ele>163</ele></trkpt>
+      <trkpt lat="49.45796" lon="6.36251"><ele>163</ele></trkpt>
+      <trkpt lat="49.45782" lon="6.36409"><ele>91</ele></trkpt>
+      <trkpt lat="49.45786" lon="6.36529"><ele>91</ele></trkpt>
+      <trkpt lat="49.45786" lon="6.36529"><ele>25</ele></trkpt>
+      <trkpt lat="49.45816" lon="6.36619"><ele>25</ele></trkpt>
+      <trkpt lat="49.45874" lon="6.36695"><ele>25</ele></trkpt>
+      <trkpt lat="49.45954" lon="6.36758"><ele>25</ele></trkpt>
+      <trkpt lat="49.46054" lon="6.36809"><ele>25</ele></trkpt>
+      <trkpt lat="49.46169" lon="6.36850"><ele>25</ele></trkpt>
+      <trkpt lat="49.46294" lon="6.36881"><ele>25</ele></trkpt>
+      <trkpt lat="49.46425" lon="6.36906"><ele>25</ele></trkpt>
+      <trkpt lat="49.46559" lon="6.36924"><ele>65</ele></trkpt>
+      <trkpt lat="49.46690" lon="6.36938"><ele>65</ele></trkpt>
+      <trkpt lat="49.46815" lon="6.36948"><ele>139</ele></trkpt>
+      <trkpt lat="49.46930" lon="6.36957"><ele>139</ele></trkpt>
+      <trkpt lat="49.47030" lon="6.36966"><ele>189</ele></trkpt>
+      <trkpt lat="49.47110" lon="6.36976"><ele>189</ele></trkpt>
+      <trkpt lat="49.47168" lon="6.36989"><ele>201</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

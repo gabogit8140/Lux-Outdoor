@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Bourscheid (Château fort &amp; Boucle de la Sûre)</name>
+    <desc>Ascension spectaculaire vers la plus vaste forteresse médiévale du Luxembourg perchée 150m au-dessus de la rivière.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Bourscheid (Château fort &amp; Boucle de la Sûre)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.91077" lon="6.05673"><ele>299</ele></trkpt>
+      <trkpt lat="49.91031" lon="6.05754"><ele>299</ele></trkpt>
+      <trkpt lat="49.90964" lon="6.05857"><ele>299</ele></trkpt>
+      <trkpt lat="49.90879" lon="6.05979"><ele>208</ele></trkpt>
+      <trkpt lat="49.90782" lon="6.06118"><ele>208</ele></trkpt>
+      <trkpt lat="49.90676" lon="6.06271"><ele>167</ele></trkpt>
+      <trkpt lat="49.90566" lon="6.06436"><ele>167</ele></trkpt>
+      <trkpt lat="49.90455" lon="6.06608"><ele>209</ele></trkpt>
+      <trkpt lat="49.90347" lon="6.06786"><ele>209</ele></trkpt>
+      <trkpt lat="49.90247" lon="6.06967"><ele>320</ele></trkpt>
+      <trkpt lat="49.90159" lon="6.07148"><ele>320</ele></trkpt>
+      <trkpt lat="49.90086" lon="6.07327"><ele>442</ele></trkpt>
+      <trkpt lat="49.90034" lon="6.07500"><ele>442</ele></trkpt>
+      <trkpt lat="49.90005" lon="6.07665"><ele>507</ele></trkpt>
+      <trkpt lat="49.90004" lon="6.07819"><ele>507</ele></trkpt>
+      <trkpt lat="49.90004" lon="6.07819"><ele>492</ele></trkpt>
+      <trkpt lat="49.90033" lon="6.07981"><ele>492</ele></trkpt>
+      <trkpt lat="49.90087" lon="6.08168"><ele>442</ele></trkpt>
+      <trkpt lat="49.90163" lon="6.08375"><ele>442</ele></trkpt>
+      <trkpt lat="49.90258" lon="6.08595"><ele>434</ele></trkpt>
+      <trkpt lat="49.90369" lon="6.08823"><ele>434</ele></trkpt>
+      <trkpt lat="49.90492" lon="6.09052"><ele>515</ele></trkpt>
+      <trkpt lat="49.90624" lon="6.09278"><ele>515</ele></trkpt>
+      <trkpt lat="49.90762" lon="6.09495"><ele>651</ele></trkpt>
+      <trkpt lat="49.90904" lon="6.09696"><ele>651</ele></trkpt>
+      <trkpt lat="49.91044" lon="6.09876"><ele>746</ele></trkpt>
+      <trkpt lat="49.91181" lon="6.10029"><ele>746</ele></trkpt>
+      <trkpt lat="49.91311" lon="6.10150"><ele>708</ele></trkpt>
+      <trkpt lat="49.91431" lon="6.10233"><ele>708</ele></trkpt>
+      <trkpt lat="49.91537" lon="6.10272"><ele>527</ele></trkpt>
+      <trkpt lat="49.91537" lon="6.10272"><ele>527</ele></trkpt>
+      <trkpt lat="49.91645" lon="6.10265"><ele>293</ele></trkpt>
+      <trkpt lat="49.91771" lon="6.10219"><ele>293</ele></trkpt>
+      <trkpt lat="49.91908" lon="6.10138"><ele>137</ele></trkpt>
+      <trkpt lat="49.92054" lon="6.10027"><ele>137</ele></trkpt>
+      <trkpt lat="49.92205" lon="6.09891"><ele>140</ele></trkpt>
+      <trkpt lat="49.92355" lon="6.09734"><ele>140</ele></trkpt>
+      <trkpt lat="49.92502" lon="6.09560"><ele>271</ele></trkpt>
+      <trkpt lat="49.92641" lon="6.09375"><ele>271</ele></trkpt>
+      <trkpt lat="49.92767" lon="6.09182"><ele>416</ele></trkpt>
+      <trkpt lat="49.92877" lon="6.08988"><ele>416</ele></trkpt>
+      <trkpt lat="49.92966" lon="6.08795"><ele>463</ele></trkpt>
+      <trkpt lat="49.93031" lon="6.08610"><ele>463</ele></trkpt>
+      <trkpt lat="49.93067" lon="6.08436"><ele>387</ele></trkpt>
+      <trkpt lat="49.93070" lon="6.08279"><ele>387</ele></trkpt>
+      <trkpt lat="49.93070" lon="6.08279"><ele>272</ele></trkpt>
+      <trkpt lat="49.93033" lon="6.08119"><ele>272</ele></trkpt>
+      <trkpt lat="49.92954" lon="6.07938"><ele>239</ele></trkpt>
+      <trkpt lat="49.92840" lon="6.07740"><ele>239</ele></trkpt>
+      <trkpt lat="49.92697" lon="6.07529"><ele>353</ele></trkpt>
+      <trkpt lat="49.92532" lon="6.07310"><ele>353</ele></trkpt>
+      <trkpt lat="49.92351" lon="6.07087"><ele>568</ele></trkpt>
+      <trkpt lat="49.92160" lon="6.06864"><ele>568</ele></trkpt>
+      <trkpt lat="49.91965" lon="6.06645"><ele>758</ele></trkpt>
+      <trkpt lat="49.91774" lon="6.06436"><ele>758</ele></trkpt>
+      <trkpt lat="49.91591" lon="6.06240"><ele>806</ele></trkpt>
+      <trkpt lat="49.91424" lon="6.06061"><ele>806</ele></trkpt>
+      <trkpt lat="49.91278" lon="6.05904"><ele>691</ele></trkpt>
+      <trkpt lat="49.91161" lon="6.05773"><ele>691</ele></trkpt>
+      <trkpt lat="49.91077" lon="6.05673"><ele>495</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

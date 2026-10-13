@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Mullerthal ExtraTour C (Bech - Altrier - Consdorf)</name>
+    <desc>Circuit empruntant l&apos;ancienne voie ferrée et les plateaux boisés d&apos;Altrier, réputés pour leurs chênes millénaires.</desc>
+    <link href="https://www.mullerthal.lu">
+      <text>Mullerthal Trail (Site Officiel)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Mullerthal ExtraTour C (Bech - Altrier - Consdorf)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.75097" lon="6.36289"><ele>286</ele></trkpt>
+      <trkpt lat="49.75070" lon="6.36105"><ele>286</ele></trkpt>
+      <trkpt lat="49.75020" lon="6.35851"><ele>198</ele></trkpt>
+      <trkpt lat="49.74953" lon="6.35538"><ele>198</ele></trkpt>
+      <trkpt lat="49.74874" lon="6.35178"><ele>75</ele></trkpt>
+      <trkpt lat="49.74790" lon="6.34786"><ele>25</ele></trkpt>
+      <trkpt lat="49.74704" lon="6.34372"><ele>25</ele></trkpt>
+      <trkpt lat="49.74623" lon="6.33950"><ele>25</ele></trkpt>
+      <trkpt lat="49.74553" lon="6.33533"><ele>25</ele></trkpt>
+      <trkpt lat="49.74498" lon="6.33133"><ele>25</ele></trkpt>
+      <trkpt lat="49.74465" lon="6.32762"><ele>31</ele></trkpt>
+      <trkpt lat="49.74458" lon="6.32434"><ele>31</ele></trkpt>
+      <trkpt lat="49.74483" lon="6.32161"><ele>31</ele></trkpt>
+      <trkpt lat="49.74546" lon="6.31955"><ele>27</ele></trkpt>
+      <trkpt lat="49.74651" lon="6.31829"><ele>68</ele></trkpt>
+      <trkpt lat="49.74651" lon="6.31829"><ele>68</ele></trkpt>
+      <trkpt lat="49.74827" lon="6.31778"><ele>168</ele></trkpt>
+      <trkpt lat="49.75084" lon="6.31782"><ele>286</ele></trkpt>
+      <trkpt lat="49.75410" lon="6.31835"><ele>286</ele></trkpt>
+      <trkpt lat="49.75787" lon="6.31930"><ele>354</ele></trkpt>
+      <trkpt lat="49.76202" lon="6.32060"><ele>341</ele></trkpt>
+      <trkpt lat="49.76638" lon="6.32220"><ele>341</ele></trkpt>
+      <trkpt lat="49.77082" lon="6.32403"><ele>280</ele></trkpt>
+      <trkpt lat="49.77517" lon="6.32601"><ele>229</ele></trkpt>
+      <trkpt lat="49.77929" lon="6.32809"><ele>229</ele></trkpt>
+      <trkpt lat="49.78303" lon="6.33020"><ele>219</ele></trkpt>
+      <trkpt lat="49.78623" lon="6.33227"><ele>226</ele></trkpt>
+      <trkpt lat="49.78874" lon="6.33424"><ele>226</ele></trkpt>
+      <trkpt lat="49.79042" lon="6.33605"><ele>202</ele></trkpt>
+      <trkpt lat="49.79111" lon="6.33762"><ele>130</ele></trkpt>
+      <trkpt lat="49.79111" lon="6.33762"><ele>130</ele></trkpt>
+      <trkpt lat="49.79073" lon="6.33917"><ele>48</ele></trkpt>
+      <trkpt lat="49.78941" lon="6.34092"><ele>25</ele></trkpt>
+      <trkpt lat="49.78729" lon="6.34284"><ele>25</ele></trkpt>
+      <trkpt lat="49.78450" lon="6.34489"><ele>52</ele></trkpt>
+      <trkpt lat="49.78118" lon="6.34701"><ele>119</ele></trkpt>
+      <trkpt lat="49.77749" lon="6.34918"><ele>119</ele></trkpt>
+      <trkpt lat="49.77355" lon="6.35134"><ele>155</ele></trkpt>
+      <trkpt lat="49.76951" lon="6.35346"><ele>133</ele></trkpt>
+      <trkpt lat="49.76550" lon="6.35549"><ele>133</ele></trkpt>
+      <trkpt lat="49.76168" lon="6.35739"><ele>87</ele></trkpt>
+      <trkpt lat="49.75817" lon="6.35912"><ele>71</ele></trkpt>
+      <trkpt lat="49.75513" lon="6.36064"><ele>71</ele></trkpt>
+      <trkpt lat="49.75268" lon="6.36191"><ele>109</ele></trkpt>
+      <trkpt lat="49.75097" lon="6.36289"><ele>167</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

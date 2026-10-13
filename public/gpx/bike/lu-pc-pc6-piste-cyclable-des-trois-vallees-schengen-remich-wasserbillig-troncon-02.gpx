@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="VisitLuxembourg &amp; Grande-Region Outdoor"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>PC6 Piste cyclable des Trois Vallées (Schengen - Remich - Wasserbillig) (Tronçon 02)</name>
+    <desc>Réseau National des Pistes Cyclables (PC) du Luxembourg - Parcours officiel de 3.5 km.</desc>
+    <link href="https://www.visitluxembourg.com/fr/que-faire/nature-excursions/a-velo/pistes-cyclables">
+      <text>Réseau National des Pistes Cyclables (PC) du Luxembourg</text>
+    </link>
+    <time>2026-10-11T11:10:41.047Z</time>
+  </metadata>
+  <trk>
+    <name>PC6 Piste cyclable des Trois Vallées (Schengen - Remich - Wasserbillig) (Tronçon 02)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.4908337" lon="6.0414258"><ele>281.2</ele></trkpt>
+      <trkpt lat="49.4910810" lon="6.0416353"><ele>281.1</ele></trkpt>
+      <trkpt lat="49.4915159" lon="6.0419331"><ele>281.1</ele></trkpt>
+      <trkpt lat="49.4915163" lon="6.0419334"><ele>281.1</ele></trkpt>
+      <trkpt lat="49.4889615" lon="6.0389403"><ele>282.4</ele></trkpt>
+      <trkpt lat="49.4889620" lon="6.0389402"><ele>282.4</ele></trkpt>
+      <trkpt lat="49.4890585" lon="6.0390659"><ele>282.4</ele></trkpt>
+      <trkpt lat="49.4890947" lon="6.0395205"><ele>282.3</ele></trkpt>
+      <trkpt lat="49.4890809" lon="6.0399971"><ele>282.1</ele></trkpt>
+      <trkpt lat="49.4891741" lon="6.0403803"><ele>281.9</ele></trkpt>
+      <trkpt lat="49.4896457" lon="6.0409268"><ele>281.6</ele></trkpt>
+      <trkpt lat="49.4901884" lon="6.0411719"><ele>281.3</ele></trkpt>
+      <trkpt lat="49.4906167" lon="6.0412420"><ele>281.2</ele></trkpt>
+      <trkpt lat="49.4908335" lon="6.0414257"><ele>281.2</ele></trkpt>
+      <trkpt lat="49.4908337" lon="6.0414258"><ele>281.2</ele></trkpt>
+      <trkpt lat="49.4880612" lon="6.0391672"><ele>286.5</ele></trkpt>
+      <trkpt lat="49.4889615" lon="6.0389403"><ele>282.4</ele></trkpt>
+      <trkpt lat="49.4915163" lon="6.0419334"><ele>281.1</ele></trkpt>
+      <trkpt lat="49.4925418" lon="6.0426358"><ele>280.7</ele></trkpt>
+      <trkpt lat="49.4961132" lon="6.0454646"><ele>278.8</ele></trkpt>
+      <trkpt lat="49.4966517" lon="6.0458676"><ele>278.6</ele></trkpt>
+      <trkpt lat="49.4989650" lon="6.0467823"><ele>276.8</ele></trkpt>
+      <trkpt lat="49.5007931" lon="6.0479029"><ele>276.4</ele></trkpt>
+      <trkpt lat="49.5014764" lon="6.0461333"><ele>280.4</ele></trkpt>
+      <trkpt lat="49.5018937" lon="6.0448027"><ele>287.5</ele></trkpt>
+      <trkpt lat="49.5026536" lon="6.0434711"><ele>286.0</ele></trkpt>
+      <trkpt lat="49.5032391" lon="6.0424417"><ele>284.4</ele></trkpt>
+      <trkpt lat="49.5038284" lon="6.0417349"><ele>282.1</ele></trkpt>
+      <trkpt lat="49.5040893" lon="6.0411391"><ele>285.2</ele></trkpt>
+      <trkpt lat="49.5052134" lon="6.0394981"><ele>290.5</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

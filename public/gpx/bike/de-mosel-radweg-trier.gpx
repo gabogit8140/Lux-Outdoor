@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Mosel-Radweg (Perl - Nittel - Konz - Trier)</name>
+    <desc>Section initiale allemande longeant la Moselle face au Luxembourg, traversant les villages vignerons et les vestiges romains de Trèves.</desc>
+    <link href="https://www.visitmosel.de">
+      <text>Moselland Tourisme Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Mosel-Radweg (Perl - Nittel - Konz - Trier)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.45581" lon="6.37276"><ele>129</ele></trkpt>
+      <trkpt lat="49.46233" lon="6.37496"><ele>129</ele></trkpt>
+      <trkpt lat="49.47096" lon="6.37754"><ele>138</ele></trkpt>
+      <trkpt lat="49.48137" lon="6.38049"><ele>138</ele></trkpt>
+      <trkpt lat="49.49324" lon="6.38380"><ele>133</ele></trkpt>
+      <trkpt lat="49.50627" lon="6.38746"><ele>128</ele></trkpt>
+      <trkpt lat="49.52013" lon="6.39148"><ele>128</ele></trkpt>
+      <trkpt lat="49.53449" lon="6.39584"><ele>136</ele></trkpt>
+      <trkpt lat="49.54906" lon="6.40053"><ele>150</ele></trkpt>
+      <trkpt lat="49.56350" lon="6.40555"><ele>150</ele></trkpt>
+      <trkpt lat="49.57749" lon="6.41089"><ele>156</ele></trkpt>
+      <trkpt lat="49.59073" lon="6.41655"><ele>147</ele></trkpt>
+      <trkpt lat="49.60288" lon="6.42251"><ele>147</ele></trkpt>
+      <trkpt lat="49.61364" lon="6.42878"><ele>136</ele></trkpt>
+      <trkpt lat="49.62269" lon="6.43534"><ele>141</ele></trkpt>
+      <trkpt lat="49.62269" lon="6.43534"><ele>141</ele></trkpt>
+      <trkpt lat="49.63058" lon="6.44278"><ele>173</ele></trkpt>
+      <trkpt lat="49.63810" lon="6.45155"><ele>218</ele></trkpt>
+      <trkpt lat="49.64527" lon="6.46143"><ele>218</ele></trkpt>
+      <trkpt lat="49.65211" lon="6.47221"><ele>248</ele></trkpt>
+      <trkpt lat="49.65865" lon="6.48366"><ele>244</ele></trkpt>
+      <trkpt lat="49.66490" lon="6.49558"><ele>244</ele></trkpt>
+      <trkpt lat="49.67089" lon="6.50773"><ele>212</ele></trkpt>
+      <trkpt lat="49.67663" lon="6.51991"><ele>175</ele></trkpt>
+      <trkpt lat="49.68216" lon="6.53190"><ele>175</ele></trkpt>
+      <trkpt lat="49.68748" lon="6.54348"><ele>157</ele></trkpt>
+      <trkpt lat="49.69263" lon="6.55443"><ele>163</ele></trkpt>
+      <trkpt lat="49.69763" lon="6.56454"><ele>163</ele></trkpt>
+      <trkpt lat="49.70248" lon="6.57359"><ele>177</ele></trkpt>
+      <trkpt lat="49.70723" lon="6.58136"><ele>180</ele></trkpt>
+      <trkpt lat="49.70723" lon="6.58136"><ele>180</ele></trkpt>
+      <trkpt lat="49.71204" lon="6.58836"><ele>168</ele></trkpt>
+      <trkpt lat="49.71704" lon="6.59522"><ele>155</ele></trkpt>
+      <trkpt lat="49.72218" lon="6.60192"><ele>155</ele></trkpt>
+      <trkpt lat="49.72738" lon="6.60841"><ele>152</ele></trkpt>
+      <trkpt lat="49.73258" lon="6.61467"><ele>157</ele></trkpt>
+      <trkpt lat="49.73772" lon="6.62066"><ele>157</ele></trkpt>
+      <trkpt lat="49.74272" lon="6.62635"><ele>154</ele></trkpt>
+      <trkpt lat="49.74753" lon="6.63170"><ele>131</ele></trkpt>
+      <trkpt lat="49.75209" lon="6.63669"><ele>131</ele></trkpt>
+      <trkpt lat="49.75632" lon="6.64127"><ele>93</ele></trkpt>
+      <trkpt lat="49.76016" lon="6.64542"><ele>63</ele></trkpt>
+      <trkpt lat="49.76355" lon="6.64910"><ele>63</ele></trkpt>
+      <trkpt lat="49.76642" lon="6.65227"><ele>64</ele></trkpt>
+      <trkpt lat="49.76871" lon="6.65492"><ele>97</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

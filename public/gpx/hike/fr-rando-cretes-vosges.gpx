@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Sentier des Crêtes Vosgiennes (Col de la Schlucht - Hohneck)</name>
+    <desc>Le sentier d&apos;altitude emblématique des Vosges parcourant les hautes chaumes avec vues panoramiques sur la plaine d&apos;Alsace et les Alpes suisses.</desc>
+    <link href="https://www.massif-des-vosges.com">
+      <text>Massif des Vosges Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Sentier des Crêtes Vosgiennes (Col de la Schlucht - Hohneck)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="48.07843" lon="7.02752"><ele>290</ele></trkpt>
+      <trkpt lat="48.07710" lon="7.02696"><ele>290</ele></trkpt>
+      <trkpt lat="48.07535" lon="7.02623"><ele>290</ele></trkpt>
+      <trkpt lat="48.07325" lon="7.02535"><ele>241</ele></trkpt>
+      <trkpt lat="48.07085" lon="7.02434"><ele>241</ele></trkpt>
+      <trkpt lat="48.06822" lon="7.02323"><ele>177</ele></trkpt>
+      <trkpt lat="48.06541" lon="7.02205"><ele>177</ele></trkpt>
+      <trkpt lat="48.06250" lon="7.02083"><ele>182</ele></trkpt>
+      <trkpt lat="48.05954" lon="7.01960"><ele>182</ele></trkpt>
+      <trkpt lat="48.05660" lon="7.01838"><ele>294</ele></trkpt>
+      <trkpt lat="48.05374" lon="7.01720"><ele>294</ele></trkpt>
+      <trkpt lat="48.05102" lon="7.01610"><ele>470</ele></trkpt>
+      <trkpt lat="48.04850" lon="7.01509"><ele>470</ele></trkpt>
+      <trkpt lat="48.04624" lon="7.01420"><ele>605</ele></trkpt>
+      <trkpt lat="48.04432" lon="7.01347"><ele>605</ele></trkpt>
+      <trkpt lat="48.04432" lon="7.01347"><ele>591</ele></trkpt>
+      <trkpt lat="48.04254" lon="7.01277"><ele>591</ele></trkpt>
+      <trkpt lat="48.04069" lon="7.01197"><ele>382</ele></trkpt>
+      <trkpt lat="48.03882" lon="7.01111"><ele>382</ele></trkpt>
+      <trkpt lat="48.03694" lon="7.01022"><ele>35</ele></trkpt>
+      <trkpt lat="48.03509" lon="7.00935"><ele>35</ele></trkpt>
+      <trkpt lat="48.03329" lon="7.00851"><ele>25</ele></trkpt>
+      <trkpt lat="48.03158" lon="7.00775"><ele>25</ele></trkpt>
+      <trkpt lat="48.02997" lon="7.00710"><ele>25</ele></trkpt>
+      <trkpt lat="48.02850" lon="7.00660"><ele>25</ele></trkpt>
+      <trkpt lat="48.02720" lon="7.00628"><ele>25</ele></trkpt>
+      <trkpt lat="48.02610" lon="7.00616"><ele>25</ele></trkpt>
+      <trkpt lat="48.02522" lon="7.00630"><ele>25</ele></trkpt>
+      <trkpt lat="48.02460" lon="7.00672"><ele>25</ele></trkpt>
+      <trkpt lat="48.02425" lon="7.00745"><ele>141</ele></trkpt>
+      <trkpt lat="48.02425" lon="7.00745"><ele>141</ele></trkpt>
+      <trkpt lat="48.02418" lon="7.00868"><ele>399</ele></trkpt>
+      <trkpt lat="48.02432" lon="7.01051"><ele>399</ele></trkpt>
+      <trkpt lat="48.02467" lon="7.01283"><ele>479</ele></trkpt>
+      <trkpt lat="48.02522" lon="7.01553"><ele>479</ele></trkpt>
+      <trkpt lat="48.02595" lon="7.01852"><ele>388</ele></trkpt>
+      <trkpt lat="48.02684" lon="7.02170"><ele>388</ele></trkpt>
+      <trkpt lat="48.02789" lon="7.02496"><ele>226</ele></trkpt>
+      <trkpt lat="48.02907" lon="7.02820"><ele>226</ele></trkpt>
+      <trkpt lat="48.03038" lon="7.03132"><ele>126</ele></trkpt>
+      <trkpt lat="48.03180" lon="7.03422"><ele>126</ele></trkpt>
+      <trkpt lat="48.03332" lon="7.03680"><ele>165</ele></trkpt>
+      <trkpt lat="48.03491" lon="7.03895"><ele>165</ele></trkpt>
+      <trkpt lat="48.03658" lon="7.04057"><ele>324</ele></trkpt>
+      <trkpt lat="48.03830" lon="7.04156"><ele>324</ele></trkpt>
+      <trkpt lat="48.03830" lon="7.04156"><ele>498</ele></trkpt>
+      <trkpt lat="48.04030" lon="7.04194"><ele>498</ele></trkpt>
+      <trkpt lat="48.04276" lon="7.04184"><ele>559</ele></trkpt>
+      <trkpt lat="48.04561" lon="7.04133"><ele>559</ele></trkpt>
+      <trkpt lat="48.04875" lon="7.04046"><ele>435</ele></trkpt>
+      <trkpt lat="48.05212" lon="7.03932"><ele>435</ele></trkpt>
+      <trkpt lat="48.05561" lon="7.03796"><ele>153</ele></trkpt>
+      <trkpt lat="48.05915" lon="7.03646"><ele>153</ele></trkpt>
+      <trkpt lat="48.06266" lon="7.03488"><ele>25</ele></trkpt>
+      <trkpt lat="48.06606" lon="7.03328"><ele>25</ele></trkpt>
+      <trkpt lat="48.06926" lon="7.03175"><ele>25</ele></trkpt>
+      <trkpt lat="48.07218" lon="7.03034"><ele>25</ele></trkpt>
+      <trkpt lat="48.07474" lon="7.02912"><ele>25</ele></trkpt>
+      <trkpt lat="48.07685" lon="7.02815"><ele>25</ele></trkpt>
+      <trkpt lat="48.07843" lon="7.02752"><ele>25</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

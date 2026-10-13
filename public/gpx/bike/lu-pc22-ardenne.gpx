@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>PC22 Piste de l&apos;Ardenne (Hosingen - Kautenbach)</name>
+    <desc>Descente cyclable panoramique reliant les plateaux d&apos;altitude d&apos;Hosingen à la confluence de la Wiltz.</desc>
+    <link href="https://geoportail.lu">
+      <text>Geoportail Luxembourg (PC Officielle)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>PC22 Piste de l&apos;Ardenne (Hosingen - Kautenbach)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="50.03051" lon="6.17931"><ele>647</ele></trkpt>
+      <trkpt lat="50.02868" lon="6.17565"><ele>569</ele></trkpt>
+      <trkpt lat="50.02632" lon="6.17096"><ele>410</ele></trkpt>
+      <trkpt lat="50.02352" lon="6.16538"><ele>258</ele></trkpt>
+      <trkpt lat="50.02033" lon="6.15903"><ele>199</ele></trkpt>
+      <trkpt lat="50.01683" lon="6.15206"><ele>251</ele></trkpt>
+      <trkpt lat="50.01307" lon="6.14459"><ele>360</ele></trkpt>
+      <trkpt lat="50.00914" lon="6.13675"><ele>435</ele></trkpt>
+      <trkpt lat="50.00509" lon="6.12867"><ele>418</ele></trkpt>
+      <trkpt lat="50.00099" lon="6.12048"><ele>320</ele></trkpt>
+      <trkpt lat="49.99691" lon="6.11233"><ele>216</ele></trkpt>
+      <trkpt lat="49.99292" lon="6.10432"><ele>190</ele></trkpt>
+      <trkpt lat="49.98909" lon="6.09661"><ele>274</ele></trkpt>
+      <trkpt lat="49.98547" lon="6.08931"><ele>428</ele></trkpt>
+      <trkpt lat="49.98214" lon="6.08257"><ele>565</ele></trkpt>
+      <trkpt lat="49.98214" lon="6.08257"><ele>613</ele></trkpt>
+      <trkpt lat="49.97879" lon="6.07574"><ele>563</ele></trkpt>
+      <trkpt lat="49.97512" lon="6.06822"><ele>473</ele></trkpt>
+      <trkpt lat="49.97120" lon="6.06016"><ele>424</ele></trkpt>
+      <trkpt lat="49.96709" lon="6.05170"><ele>461</ele></trkpt>
+      <trkpt lat="49.96288" lon="6.04301"><ele>563</ele></trkpt>
+      <trkpt lat="49.95864" lon="6.03424"><ele>659</ele></trkpt>
+      <trkpt lat="49.95443" lon="6.02553"><ele>676</ele></trkpt>
+      <trkpt lat="49.95033" lon="6.01705"><ele>595</ele></trkpt>
+      <trkpt lat="49.94642" lon="6.00894"><ele>459</ele></trkpt>
+      <trkpt lat="49.94277" lon="6.00136"><ele>344</ele></trkpt>
+      <trkpt lat="49.93944" lon="5.99446"><ele>308</ele></trkpt>
+      <trkpt lat="49.93651" lon="5.98839"><ele>349</ele></trkpt>
+      <trkpt lat="49.93406" lon="5.98332"><ele>413</ele></trkpt>
+      <trkpt lat="49.93216" lon="5.97938"><ele>435</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>PC11 Piste Charly Gaul (Echternach - Consdorf - Larochette)</name>
+    <desc>Hommage au célèbre &quot;Ange de la Montagne&quot; vainqueur du Tour de France, reliant les formations rocheuses du Mullerthal au château de Larochette.</desc>
+    <link href="https://geoportail.lu">
+      <text>Geoportail Luxembourg (PC Officielle)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>PC11 Piste Charly Gaul (Echternach - Consdorf - Larochette)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.82559" lon="6.48212"><ele>492</ele></trkpt>
+      <trkpt lat="49.82360" lon="6.47708"><ele>492</ele></trkpt>
+      <trkpt lat="49.82085" lon="6.47044"><ele>428</ele></trkpt>
+      <trkpt lat="49.81749" lon="6.46245"><ele>428</ele></trkpt>
+      <trkpt lat="49.81363" lon="6.45334"><ele>346</ele></trkpt>
+      <trkpt lat="49.80941" lon="6.44335"><ele>331</ele></trkpt>
+      <trkpt lat="49.80496" lon="6.43271"><ele>331</ele></trkpt>
+      <trkpt lat="49.80041" lon="6.42165"><ele>398</ele></trkpt>
+      <trkpt lat="49.79589" lon="6.41040"><ele>469</ele></trkpt>
+      <trkpt lat="49.79154" lon="6.39921"><ele>469</ele></trkpt>
+      <trkpt lat="49.78749" lon="6.38830"><ele>429</ele></trkpt>
+      <trkpt lat="49.78386" lon="6.37792"><ele>240</ele></trkpt>
+      <trkpt lat="49.78080" lon="6.36829"><ele>240</ele></trkpt>
+      <trkpt lat="49.77842" lon="6.35964"><ele>25</ele></trkpt>
+      <trkpt lat="49.77687" lon="6.35222"><ele>25</ele></trkpt>
+      <trkpt lat="49.77687" lon="6.35222"><ele>25</ele></trkpt>
+      <trkpt lat="49.77613" lon="6.34566"><ele>25</ele></trkpt>
+      <trkpt lat="49.77603" lon="6.33943"><ele>110</ele></trkpt>
+      <trkpt lat="49.77649" lon="6.33347"><ele>110</ele></trkpt>
+      <trkpt lat="49.77740" lon="6.32773"><ele>361</ele></trkpt>
+      <trkpt lat="49.77869" lon="6.32218"><ele>506</ele></trkpt>
+      <trkpt lat="49.78025" lon="6.31676"><ele>506</ele></trkpt>
+      <trkpt lat="49.78199" lon="6.31143"><ele>511</ele></trkpt>
+      <trkpt lat="49.78382" lon="6.30614"><ele>447</ele></trkpt>
+      <trkpt lat="49.78564" lon="6.30085"><ele>447</ele></trkpt>
+      <trkpt lat="49.78737" lon="6.29550"><ele>407</ele></trkpt>
+      <trkpt lat="49.78892" lon="6.29005"><ele>419</ele></trkpt>
+      <trkpt lat="49.79018" lon="6.28446"><ele>419</ele></trkpt>
+      <trkpt lat="49.79106" lon="6.27868"><ele>437</ele></trkpt>
+      <trkpt lat="49.79149" lon="6.27265"><ele>403</ele></trkpt>
+      <trkpt lat="49.79149" lon="6.27265"><ele>403</ele></trkpt>
+      <trkpt lat="49.79150" lon="6.26595"><ele>316</ele></trkpt>
+      <trkpt lat="49.79125" lon="6.25828"><ele>232</ele></trkpt>
+      <trkpt lat="49.79078" lon="6.24984"><ele>232</ele></trkpt>
+      <trkpt lat="49.79013" lon="6.24081"><ele>204</ele></trkpt>
+      <trkpt lat="49.78933" lon="6.23140"><ele>216</ele></trkpt>
+      <trkpt lat="49.78842" lon="6.22178"><ele>216</ele></trkpt>
+      <trkpt lat="49.78744" lon="6.21216"><ele>202</ele></trkpt>
+      <trkpt lat="49.78642" lon="6.20271"><ele>117</ele></trkpt>
+      <trkpt lat="49.78541" lon="6.19365"><ele>117</ele></trkpt>
+      <trkpt lat="49.78444" lon="6.18515"><ele>25</ele></trkpt>
+      <trkpt lat="49.78355" lon="6.17740"><ele>25</ele></trkpt>
+      <trkpt lat="49.78278" lon="6.17060"><ele>25</ele></trkpt>
+      <trkpt lat="49.78217" lon="6.16494"><ele>105</ele></trkpt>
+      <trkpt lat="49.78174" lon="6.16061"><ele>371</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

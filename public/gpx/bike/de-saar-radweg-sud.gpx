@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Saar-Radweg (Merzig - Saarlouis - Völklingen)</name>
+    <desc>Poursuite de la voie cyclable fluviale de la Sarre jusqu&apos;au site UNESCO de l&apos;Usine Sidérurgique de Völklingen.</desc>
+    <link href="https://www.urlaub.saarland">
+      <text>Tourismus Zentrale Saarland</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Saar-Radweg (Merzig - Saarlouis - Völklingen)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.49224" lon="6.58763"><ele>117</ele></trkpt>
+      <trkpt lat="49.48503" lon="6.59379"><ele>120</ele></trkpt>
+      <trkpt lat="49.47547" lon="6.60175"><ele>118</ele></trkpt>
+      <trkpt lat="49.46392" lon="6.61125"><ele>129</ele></trkpt>
+      <trkpt lat="49.45074" lon="6.62206"><ele>157</ele></trkpt>
+      <trkpt lat="49.43629" lon="6.63393"><ele>190</ele></trkpt>
+      <trkpt lat="49.42093" lon="6.64663"><ele>206</ele></trkpt>
+      <trkpt lat="49.40501" lon="6.65992"><ele>197</ele></trkpt>
+      <trkpt lat="49.38889" lon="6.67354"><ele>175</ele></trkpt>
+      <trkpt lat="49.37294" lon="6.68726"><ele>161</ele></trkpt>
+      <trkpt lat="49.35750" lon="6.70084"><ele>166</ele></trkpt>
+      <trkpt lat="49.34295" lon="6.71404"><ele>180</ele></trkpt>
+      <trkpt lat="49.32963" lon="6.72660"><ele>185</ele></trkpt>
+      <trkpt lat="49.31791" lon="6.73830"><ele>174</ele></trkpt>
+      <trkpt lat="49.30815" lon="6.74889"><ele>157</ele></trkpt>
+      <trkpt lat="49.30815" lon="6.74889"><ele>151</ele></trkpt>
+      <trkpt lat="49.29961" lon="6.75932"><ele>162</ele></trkpt>
+      <trkpt lat="49.29134" lon="6.77057"><ele>175</ele></trkpt>
+      <trkpt lat="49.28337" lon="6.78244"><ele>172</ele></trkpt>
+      <trkpt lat="49.27572" lon="6.79474"><ele>147</ele></trkpt>
+      <trkpt lat="49.26843" lon="6.80726"><ele>114</ele></trkpt>
+      <trkpt lat="49.26150" lon="6.81980"><ele>94</ele></trkpt>
+      <trkpt lat="49.25498" lon="6.83217"><ele>98</ele></trkpt>
+      <trkpt lat="49.24888" lon="6.84418"><ele>114</ele></trkpt>
+      <trkpt lat="49.24322" lon="6.85561"><ele>125</ele></trkpt>
+      <trkpt lat="49.23804" lon="6.86628"><ele>125</ele></trkpt>
+      <trkpt lat="49.23335" lon="6.87598"><ele>127</ele></trkpt>
+      <trkpt lat="49.22919" lon="6.88452"><ele>145</ele></trkpt>
+      <trkpt lat="49.22557" lon="6.89169"><ele>180</ele></trkpt>
+      <trkpt lat="49.22252" lon="6.89731"><ele>216</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

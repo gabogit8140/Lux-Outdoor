@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="VisitLuxembourg &amp; Grande-Region Outdoor"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>My Liitle Switzerland Tour II</name>
+    <desc>Circuits Vélo de Course sur Route du Luxembourg - Parcours officiel de 1.1 km.</desc>
+    <link href="https://www.visitluxembourg.com/fr/que-faire/nature-excursions/a-velo">
+      <text>Circuits Vélo de Course sur Route du Luxembourg</text>
+    </link>
+    <time>2026-10-11T11:10:44.159Z</time>
+  </metadata>
+  <trk>
+    <name>My Liitle Switzerland Tour II</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.8189660" lon="6.4036002"><ele>141.0</ele></trkpt>
+      <trkpt lat="49.8188706" lon="6.4041000"><ele>154.0</ele></trkpt>
+      <trkpt lat="49.8187302" lon="6.4045926"><ele>160.0</ele></trkpt>
+      <trkpt lat="49.8185584" lon="6.4050781"><ele>162.0</ele></trkpt>
+      <trkpt lat="49.8184048" lon="6.4054594"><ele>166.0</ele></trkpt>
+      <trkpt lat="49.8182693" lon="6.4057784"><ele>173.0</ele></trkpt>
+      <trkpt lat="49.8180840" lon="6.4062499"><ele>180.0</ele></trkpt>
+      <trkpt lat="49.8179348" lon="6.4066660"><ele>183.0</ele></trkpt>
+      <trkpt lat="49.8177764" lon="6.4071863"><ele>179.0</ele></trkpt>
+      <trkpt lat="49.8176449" lon="6.4077206"><ele>158.0</ele></trkpt>
+      <trkpt lat="49.8175675" lon="6.4082135"><ele>151.0</ele></trkpt>
+      <trkpt lat="49.8174766" lon="6.4086994"><ele>152.0</ele></trkpt>
+      <trkpt lat="49.8173854" lon="6.4092965"><ele>156.0</ele></trkpt>
+      <trkpt lat="49.8173262" lon="6.4096435"><ele>158.0</ele></trkpt>
+      <trkpt lat="49.8172173" lon="6.4101571"><ele>150.0</ele></trkpt>
+      <trkpt lat="49.8171626" lon="6.4105181"><ele>133.0</ele></trkpt>
+      <trkpt lat="49.8171127" lon="6.4107124"><ele>114.0</ele></trkpt>
+      <trkpt lat="49.8174992" lon="6.4086231"><ele>104.0</ele></trkpt>
+      <trkpt lat="49.8175220" lon="6.4084773"><ele>134.0</ele></trkpt>
+      <trkpt lat="49.8177221" lon="6.4073736"><ele>168.0</ele></trkpt>
+      <trkpt lat="49.8177221" lon="6.4073528"><ele>198.0</ele></trkpt>
+      <trkpt lat="49.8178036" lon="6.4070753"><ele>212.0</ele></trkpt>
+      <trkpt lat="49.8179168" lon="6.4066659"><ele>208.0</ele></trkpt>
+      <trkpt lat="49.8183823" lon="6.4054871"><ele>190.0</ele></trkpt>
+      <trkpt lat="49.8188118" lon="6.4043012"><ele>168.0</ele></trkpt>
+      <trkpt lat="49.8189705" lon="6.4036002"><ele>152.0</ele></trkpt>
+      <trkpt lat="49.8190431" lon="6.4033018"><ele>144.0</ele></trkpt>
+      <trkpt lat="49.8190341" lon="6.4032879"><ele>143.0</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

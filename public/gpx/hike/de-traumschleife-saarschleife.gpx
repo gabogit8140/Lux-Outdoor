@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Traumschleife Cloef &amp; Boucle de la Sarre (Mettlach)</name>
+    <desc>Élu plus beau sentier de randonnée d&apos;Allemagne, surplombant le monumental méandre de la Saarschleife depuis les falaises de la Cloef.</desc>
+    <link href="https://www.saar-hunsrueck-steig.de">
+      <text>Saar-Hunsrück-Steig Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Traumschleife Cloef &amp; Boucle de la Sarre (Mettlach)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.49567" lon="6.60427"><ele>84</ele></trkpt>
+      <trkpt lat="49.49648" lon="6.60302"><ele>84</ele></trkpt>
+      <trkpt lat="49.49766" lon="6.60137"><ele>84</ele></trkpt>
+      <trkpt lat="49.49912" lon="6.59938"><ele>189</ele></trkpt>
+      <trkpt lat="49.50081" lon="6.59712"><ele>189</ele></trkpt>
+      <trkpt lat="49.50266" lon="6.59463"><ele>224</ele></trkpt>
+      <trkpt lat="49.50458" lon="6.59199"><ele>224</ele></trkpt>
+      <trkpt lat="49.50652" lon="6.58924"><ele>229</ele></trkpt>
+      <trkpt lat="49.50840" lon="6.58645"><ele>229</ele></trkpt>
+      <trkpt lat="49.51016" lon="6.58367"><ele>248</ele></trkpt>
+      <trkpt lat="49.51172" lon="6.58097"><ele>248</ele></trkpt>
+      <trkpt lat="49.51301" lon="6.57840"><ele>295</ele></trkpt>
+      <trkpt lat="49.51397" lon="6.57603"><ele>295</ele></trkpt>
+      <trkpt lat="49.51452" lon="6.57390"><ele>345</ele></trkpt>
+      <trkpt lat="49.51460" lon="6.57208"><ele>345</ele></trkpt>
+      <trkpt lat="49.51460" lon="6.57208"><ele>355</ele></trkpt>
+      <trkpt lat="49.51417" lon="6.57036"><ele>355</ele></trkpt>
+      <trkpt lat="49.51327" lon="6.56852"><ele>305</ele></trkpt>
+      <trkpt lat="49.51197" lon="6.56659"><ele>305</ele></trkpt>
+      <trkpt lat="49.51034" lon="6.56463"><ele>218</ele></trkpt>
+      <trkpt lat="49.50845" lon="6.56268"><ele>218</ele></trkpt>
+      <trkpt lat="49.50635" lon="6.56079"><ele>144</ele></trkpt>
+      <trkpt lat="49.50411" lon="6.55900"><ele>144</ele></trkpt>
+      <trkpt lat="49.50179" lon="6.55735"><ele>122</ele></trkpt>
+      <trkpt lat="49.49947" lon="6.55590"><ele>122</ele></trkpt>
+      <trkpt lat="49.49720" lon="6.55469"><ele>144</ele></trkpt>
+      <trkpt lat="49.49506" lon="6.55377"><ele>144</ele></trkpt>
+      <trkpt lat="49.49310" lon="6.55317"><ele>160</ele></trkpt>
+      <trkpt lat="49.49139" lon="6.55295"><ele>160</ele></trkpt>
+      <trkpt lat="49.48999" lon="6.55315"><ele>115</ele></trkpt>
+      <trkpt lat="49.48999" lon="6.55315"><ele>115</ele></trkpt>
+      <trkpt lat="49.48874" lon="6.55388"><ele>25</ele></trkpt>
+      <trkpt lat="49.48742" lon="6.55516"><ele>25</ele></trkpt>
+      <trkpt lat="49.48608" lon="6.55691"><ele>25</ele></trkpt>
+      <trkpt lat="49.48473" lon="6.55906"><ele>25</ele></trkpt>
+      <trkpt lat="49.48340" lon="6.56153"><ele>25</ele></trkpt>
+      <trkpt lat="49.48212" lon="6.56424"><ele>25</ele></trkpt>
+      <trkpt lat="49.48091" lon="6.56711"><ele>25</ele></trkpt>
+      <trkpt lat="49.47981" lon="6.57008"><ele>25</ele></trkpt>
+      <trkpt lat="49.47883" lon="6.57305"><ele>34</ele></trkpt>
+      <trkpt lat="49.47800" lon="6.57595"><ele>34</ele></trkpt>
+      <trkpt lat="49.47735" lon="6.57871"><ele>304</ele></trkpt>
+      <trkpt lat="49.47690" lon="6.58124"><ele>304</ele></trkpt>
+      <trkpt lat="49.47669" lon="6.58348"><ele>524</ele></trkpt>
+      <trkpt lat="49.47674" lon="6.58534"><ele>524</ele></trkpt>
+      <trkpt lat="49.47674" lon="6.58534"><ele>605</ele></trkpt>
+      <trkpt lat="49.47713" lon="6.58699"><ele>605</ele></trkpt>
+      <trkpt lat="49.47791" lon="6.58865"><ele>529</ele></trkpt>
+      <trkpt lat="49.47900" lon="6.59031"><ele>529</ele></trkpt>
+      <trkpt lat="49.48037" lon="6.59195"><ele>358</ele></trkpt>
+      <trkpt lat="49.48194" lon="6.59355"><ele>358</ele></trkpt>
+      <trkpt lat="49.48365" lon="6.59511"><ele>186</ele></trkpt>
+      <trkpt lat="49.48546" lon="6.59661"><ele>186</ele></trkpt>
+      <trkpt lat="49.48729" lon="6.59804"><ele>81</ele></trkpt>
+      <trkpt lat="49.48910" lon="6.59938"><ele>81</ele></trkpt>
+      <trkpt lat="49.49082" lon="6.60062"><ele>53</ele></trkpt>
+      <trkpt lat="49.49240" lon="6.60174"><ele>53</ele></trkpt>
+      <trkpt lat="49.49377" lon="6.60273"><ele>60</ele></trkpt>
+      <trkpt lat="49.49488" lon="6.60358"><ele>60</ele></trkpt>
+      <trkpt lat="49.49567" lon="6.60427"><ele>53</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

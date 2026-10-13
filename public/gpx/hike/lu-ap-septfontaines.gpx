@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Septfontaines (Vallée des 7 Châteaux &amp; Forêt de Simmer)</name>
+    <desc>Randonnée sous le château féodal perché de Septfontaines à travers les denses forêts de chênes et le val de l&apos;Eisch.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Septfontaines (Vallée des 7 Châteaux &amp; Forêt de Simmer)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.69881" lon="5.96824"><ele>216</ele></trkpt>
+      <trkpt lat="49.69930" lon="5.96744"><ele>216</ele></trkpt>
+      <trkpt lat="49.69993" lon="5.96632"><ele>216</ele></trkpt>
+      <trkpt lat="49.70067" lon="5.96492"><ele>240</ele></trkpt>
+      <trkpt lat="49.70151" lon="5.96332"><ele>240</ele></trkpt>
+      <trkpt lat="49.70243" lon="5.96157"><ele>252</ele></trkpt>
+      <trkpt lat="49.70343" lon="5.95973"><ele>252</ele></trkpt>
+      <trkpt lat="49.70447" lon="5.95787"><ele>253</ele></trkpt>
+      <trkpt lat="49.70555" lon="5.95604"><ele>253</ele></trkpt>
+      <trkpt lat="49.70665" lon="5.95431"><ele>256</ele></trkpt>
+      <trkpt lat="49.70775" lon="5.95274"><ele>256</ele></trkpt>
+      <trkpt lat="49.70884" lon="5.95139"><ele>272</ele></trkpt>
+      <trkpt lat="49.70990" lon="5.95031"><ele>272</ele></trkpt>
+      <trkpt lat="49.71092" lon="5.94958"><ele>305</ele></trkpt>
+      <trkpt lat="49.71187" lon="5.94924"><ele>305</ele></trkpt>
+      <trkpt lat="49.71187" lon="5.94924"><ele>346</ele></trkpt>
+      <trkpt lat="49.71289" lon="5.94929"><ele>346</ele></trkpt>
+      <trkpt lat="49.71407" lon="5.94965"><ele>383</ele></trkpt>
+      <trkpt lat="49.71539" lon="5.95027"><ele>383</ele></trkpt>
+      <trkpt lat="49.71680" lon="5.95113"><ele>402</ele></trkpt>
+      <trkpt lat="49.71826" lon="5.95219"><ele>402</ele></trkpt>
+      <trkpt lat="49.71974" lon="5.95341"><ele>397</ele></trkpt>
+      <trkpt lat="49.72119" lon="5.95475"><ele>397</ele></trkpt>
+      <trkpt lat="49.72258" lon="5.95619"><ele>371</ele></trkpt>
+      <trkpt lat="49.72386" lon="5.95768"><ele>371</ele></trkpt>
+      <trkpt lat="49.72499" lon="5.95919"><ele>331</ele></trkpt>
+      <trkpt lat="49.72595" lon="5.96067"><ele>331</ele></trkpt>
+      <trkpt lat="49.72667" lon="5.96211"><ele>289</ele></trkpt>
+      <trkpt lat="49.72714" lon="5.96346"><ele>289</ele></trkpt>
+      <trkpt lat="49.72731" lon="5.96468"><ele>250</ele></trkpt>
+      <trkpt lat="49.72731" lon="5.96468"><ele>250</ele></trkpt>
+      <trkpt lat="49.72714" lon="5.96595"><ele>215</ele></trkpt>
+      <trkpt lat="49.72667" lon="5.96745"><ele>215</ele></trkpt>
+      <trkpt lat="49.72595" lon="5.96912"><ele>186</ele></trkpt>
+      <trkpt lat="49.72499" lon="5.97092"><ele>186</ele></trkpt>
+      <trkpt lat="49.72386" lon="5.97279"><ele>165</ele></trkpt>
+      <trkpt lat="49.72258" lon="5.97469"><ele>165</ele></trkpt>
+      <trkpt lat="49.72119" lon="5.97657"><ele>160</ele></trkpt>
+      <trkpt lat="49.71974" lon="5.97837"><ele>160</ele></trkpt>
+      <trkpt lat="49.71826" lon="5.98005"><ele>179</ele></trkpt>
+      <trkpt lat="49.71680" lon="5.98156"><ele>179</ele></trkpt>
+      <trkpt lat="49.71539" lon="5.98284"><ele>229</ele></trkpt>
+      <trkpt lat="49.71407" lon="5.98385"><ele>229</ele></trkpt>
+      <trkpt lat="49.71289" lon="5.98454"><ele>304</ele></trkpt>
+      <trkpt lat="49.71187" lon="5.98486"><ele>304</ele></trkpt>
+      <trkpt lat="49.71187" lon="5.98486"><ele>387</ele></trkpt>
+      <trkpt lat="49.71092" lon="5.98475"><ele>387</ele></trkpt>
+      <trkpt lat="49.70990" lon="5.98424"><ele>451</ele></trkpt>
+      <trkpt lat="49.70884" lon="5.98338"><ele>451</ele></trkpt>
+      <trkpt lat="49.70775" lon="5.98223"><ele>473</ele></trkpt>
+      <trkpt lat="49.70665" lon="5.98086"><ele>473</ele></trkpt>
+      <trkpt lat="49.70555" lon="5.97933"><ele>444</ele></trkpt>
+      <trkpt lat="49.70447" lon="5.97768"><ele>444</ele></trkpt>
+      <trkpt lat="49.70343" lon="5.97599"><ele>372</ele></trkpt>
+      <trkpt lat="49.70243" lon="5.97432"><ele>372</ele></trkpt>
+      <trkpt lat="49.70151" lon="5.97272"><ele>284</ele></trkpt>
+      <trkpt lat="49.70067" lon="5.97125"><ele>284</ele></trkpt>
+      <trkpt lat="49.69993" lon="5.96997"><ele>213</ele></trkpt>
+      <trkpt lat="49.69930" lon="5.96895"><ele>213</ele></trkpt>
+      <trkpt lat="49.69881" lon="5.96824"><ele>182</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

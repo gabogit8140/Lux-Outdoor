@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Kylltalradweg (Gerolstein - Kyllburg - Bitburg - Trier)</name>
+    <desc>La traversée de l&apos;Eifel sauvage au fil de la rivière Kyll, serpentant entre châteaux perchés et forêts denses jusqu&apos;à Trèves.</desc>
+    <link href="https://www.eifel.info">
+      <text>Eifel Tourismus Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Kylltalradweg (Gerolstein - Kyllburg - Bitburg - Trier)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="50.26701" lon="6.67306"><ele>660</ele></trkpt>
+      <trkpt lat="50.25866" lon="6.66995"><ele>660</ele></trkpt>
+      <trkpt lat="50.24753" lon="6.66594"><ele>660</ele></trkpt>
+      <trkpt lat="50.23406" lon="6.66116"><ele>642</ele></trkpt>
+      <trkpt lat="50.21869" lon="6.65572"><ele>642</ele></trkpt>
+      <trkpt lat="50.20183" lon="6.64975"><ele>533</ele></trkpt>
+      <trkpt lat="50.18393" lon="6.64335"><ele>533</ele></trkpt>
+      <trkpt lat="50.16541" lon="6.63666"><ele>415</ele></trkpt>
+      <trkpt lat="50.14671" lon="6.62979"><ele>415</ele></trkpt>
+      <trkpt lat="50.12827" lon="6.62286"><ele>363</ele></trkpt>
+      <trkpt lat="50.11050" lon="6.61598"><ele>363</ele></trkpt>
+      <trkpt lat="50.09385" lon="6.60929"><ele>390</ele></trkpt>
+      <trkpt lat="50.07874" lon="6.60290"><ele>390</ele></trkpt>
+      <trkpt lat="50.06562" lon="6.59692"><ele>446</ele></trkpt>
+      <trkpt lat="50.05490" lon="6.59148"><ele>446</ele></trkpt>
+      <trkpt lat="50.05490" lon="6.59148"><ele>464</ele></trkpt>
+      <trkpt lat="50.04615" lon="6.58586"><ele>464</ele></trkpt>
+      <trkpt lat="50.03850" lon="6.57940"><ele>408</ele></trkpt>
+      <trkpt lat="50.03180" lon="6.57232"><ele>408</ele></trkpt>
+      <trkpt lat="50.02589" lon="6.56482"><ele>308</ele></trkpt>
+      <trkpt lat="50.02062" lon="6.55712"><ele>308</ele></trkpt>
+      <trkpt lat="50.01582" lon="6.54943"><ele>239</ele></trkpt>
+      <trkpt lat="50.01135" lon="6.54195"><ele>239</ele></trkpt>
+      <trkpt lat="50.00703" lon="6.53490"><ele>263</ele></trkpt>
+      <trkpt lat="50.00272" lon="6.52849"><ele>263</ele></trkpt>
+      <trkpt lat="49.99825" lon="6.52293"><ele>384</ele></trkpt>
+      <trkpt lat="49.99346" lon="6.51843"><ele>384</ele></trkpt>
+      <trkpt lat="49.98821" lon="6.51520"><ele>544</ele></trkpt>
+      <trkpt lat="49.98233" lon="6.51345"><ele>544</ele></trkpt>
+      <trkpt lat="49.97566" lon="6.51340"><ele>658</ele></trkpt>
+      <trkpt lat="49.97566" lon="6.51340"><ele>658</ele></trkpt>
+      <trkpt lat="49.96798" lon="6.51538"><ele>668</ele></trkpt>
+      <trkpt lat="49.95930" lon="6.51940"><ele>668</ele></trkpt>
+      <trkpt lat="49.94977" lon="6.52516"><ele>580</ele></trkpt>
+      <trkpt lat="49.93955" lon="6.53237"><ele>580</ele></trkpt>
+      <trkpt lat="49.92879" lon="6.54072"><ele>448</ele></trkpt>
+      <trkpt lat="49.91764" lon="6.54993"><ele>448</ele></trkpt>
+      <trkpt lat="49.90627" lon="6.55968"><ele>341</ele></trkpt>
+      <trkpt lat="49.89483" lon="6.56968"><ele>341</ele></trkpt>
+      <trkpt lat="49.88348" lon="6.57964"><ele>296</ele></trkpt>
+      <trkpt lat="49.87237" lon="6.58925"><ele>296</ele></trkpt>
+      <trkpt lat="49.86166" lon="6.59822"><ele>307</ele></trkpt>
+      <trkpt lat="49.85150" lon="6.60624"><ele>307</ele></trkpt>
+      <trkpt lat="49.84206" lon="6.61303"><ele>340</ele></trkpt>
+      <trkpt lat="49.83348" lon="6.61828"><ele>340</ele></trkpt>
+      <trkpt lat="49.83348" lon="6.61828"><ele>367</ele></trkpt>
+      <trkpt lat="49.82514" lon="6.62245"><ele>367</ele></trkpt>
+      <trkpt lat="49.81638" lon="6.62622"><ele>382</ele></trkpt>
+      <trkpt lat="49.80734" lon="6.62960"><ele>382</ele></trkpt>
+      <trkpt lat="49.79812" lon="6.63264"><ele>401</ele></trkpt>
+      <trkpt lat="49.78886" lon="6.63535"><ele>401</ele></trkpt>
+      <trkpt lat="49.77968" lon="6.63777"><ele>439</ele></trkpt>
+      <trkpt lat="49.77071" lon="6.63991"><ele>439</ele></trkpt>
+      <trkpt lat="49.76206" lon="6.64182"><ele>492</ele></trkpt>
+      <trkpt lat="49.75386" lon="6.64352"><ele>492</ele></trkpt>
+      <trkpt lat="49.74623" lon="6.64502"><ele>539</ele></trkpt>
+      <trkpt lat="49.73930" lon="6.64637"><ele>539</ele></trkpt>
+      <trkpt lat="49.73319" lon="6.64759"><ele>558</ele></trkpt>
+      <trkpt lat="49.72803" lon="6.64871"><ele>558</ele></trkpt>
+      <trkpt lat="49.72393" lon="6.64975"><ele>540</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

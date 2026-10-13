@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Boucle Cyclable du Lac de Madine (PNR de Lorraine)</name>
+    <desc>Tour complet du grand lac naturel de Madine, haut lieu ornithologique et de loisirs au cœur du Parc Naturel Régional de Lorraine.</desc>
+    <link href="https://www.tourisme-meuse.com">
+      <text>Tourisme Meuse Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Boucle Cyclable du Lac de Madine (PNR de Lorraine)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="48.93613" lon="5.69541"><ele>249</ele></trkpt>
+      <trkpt lat="48.93532" lon="5.69749"><ele>249</ele></trkpt>
+      <trkpt lat="48.93410" lon="5.70023"><ele>249</ele></trkpt>
+      <trkpt lat="48.93256" lon="5.70351"><ele>241</ele></trkpt>
+      <trkpt lat="48.93078" lon="5.70726"><ele>241</ele></trkpt>
+      <trkpt lat="48.92884" lon="5.71137"><ele>228</ele></trkpt>
+      <trkpt lat="48.92683" lon="5.71575"><ele>228</ele></trkpt>
+      <trkpt lat="48.92483" lon="5.72031"><ele>216</ele></trkpt>
+      <trkpt lat="48.92293" lon="5.72495"><ele>216</ele></trkpt>
+      <trkpt lat="48.92120" lon="5.72957"><ele>210</ele></trkpt>
+      <trkpt lat="48.91974" lon="5.73410"><ele>210</ele></trkpt>
+      <trkpt lat="48.91862" lon="5.73842"><ele>215</ele></trkpt>
+      <trkpt lat="48.91793" lon="5.74245"><ele>215</ele></trkpt>
+      <trkpt lat="48.91776" lon="5.74609"><ele>230</ele></trkpt>
+      <trkpt lat="48.91818" lon="5.74924"><ele>230</ele></trkpt>
+      <trkpt lat="48.91818" lon="5.74924"><ele>248</ele></trkpt>
+      <trkpt lat="48.91929" lon="5.75230"><ele>248</ele></trkpt>
+      <trkpt lat="48.92106" lon="5.75565"><ele>262</ele></trkpt>
+      <trkpt lat="48.92340" lon="5.75920"><ele>262</ele></trkpt>
+      <trkpt lat="48.92620" lon="5.76286"><ele>267</ele></trkpt>
+      <trkpt lat="48.92938" lon="5.76653"><ele>267</ele></trkpt>
+      <trkpt lat="48.93285" lon="5.77012"><ele>263</ele></trkpt>
+      <trkpt lat="48.93650" lon="5.77355"><ele>263</ele></trkpt>
+      <trkpt lat="48.94025" lon="5.77672"><ele>253</ele></trkpt>
+      <trkpt lat="48.94399" lon="5.77953"><ele>253</ele></trkpt>
+      <trkpt lat="48.94765" lon="5.78190"><ele>242</ele></trkpt>
+      <trkpt lat="48.95112" lon="5.78374"><ele>242</ele></trkpt>
+      <trkpt lat="48.95430" lon="5.78496"><ele>237</ele></trkpt>
+      <trkpt lat="48.95712" lon="5.78545"><ele>237</ele></trkpt>
+      <trkpt lat="48.95946" lon="5.78514"><ele>239</ele></trkpt>
+      <trkpt lat="48.95946" lon="5.78514"><ele>239</ele></trkpt>
+      <trkpt lat="48.96164" lon="5.78382"><ele>244</ele></trkpt>
+      <trkpt lat="48.96399" lon="5.78146"><ele>244</ele></trkpt>
+      <trkpt lat="48.96644" lon="5.77821"><ele>249</ele></trkpt>
+      <trkpt lat="48.96893" lon="5.77422"><ele>249</ele></trkpt>
+      <trkpt lat="48.97141" lon="5.76963"><ele>247</ele></trkpt>
+      <trkpt lat="48.97381" lon="5.76460"><ele>247</ele></trkpt>
+      <trkpt lat="48.97607" lon="5.75926"><ele>236</ele></trkpt>
+      <trkpt lat="48.97813" lon="5.75377"><ele>236</ele></trkpt>
+      <trkpt lat="48.97992" lon="5.74828"><ele>221</ele></trkpt>
+      <trkpt lat="48.98139" lon="5.74293"><ele>221</ele></trkpt>
+      <trkpt lat="48.98247" lon="5.73787"><ele>207</ele></trkpt>
+      <trkpt lat="48.98311" lon="5.73325"><ele>207</ele></trkpt>
+      <trkpt lat="48.98323" lon="5.72921"><ele>202</ele></trkpt>
+      <trkpt lat="48.98279" lon="5.72591"><ele>202</ele></trkpt>
+      <trkpt lat="48.98279" lon="5.72591"><ele>210</ele></trkpt>
+      <trkpt lat="48.98156" lon="5.72305"><ele>210</ele></trkpt>
+      <trkpt lat="48.97947" lon="5.72023"><ele>228</ele></trkpt>
+      <trkpt lat="48.97665" lon="5.71747"><ele>228</ele></trkpt>
+      <trkpt lat="48.97323" lon="5.71478"><ele>250</ele></trkpt>
+      <trkpt lat="48.96936" lon="5.71219"><ele>250</ele></trkpt>
+      <trkpt lat="48.96516" lon="5.70970"><ele>270</ele></trkpt>
+      <trkpt lat="48.96077" lon="5.70733"><ele>270</ele></trkpt>
+      <trkpt lat="48.95633" lon="5.70510"><ele>279</ele></trkpt>
+      <trkpt lat="48.95197" lon="5.70302"><ele>279</ele></trkpt>
+      <trkpt lat="48.94783" lon="5.70110"><ele>277</ele></trkpt>
+      <trkpt lat="48.94404" lon="5.69937"><ele>277</ele></trkpt>
+      <trkpt lat="48.94073" lon="5.69783"><ele>266</ele></trkpt>
+      <trkpt lat="48.93805" lon="5.69651"><ele>266</ele></trkpt>
+      <trkpt lat="48.93613" lon="5.69541"><ele>251</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

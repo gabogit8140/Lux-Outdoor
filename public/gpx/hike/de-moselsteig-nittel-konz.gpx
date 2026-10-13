@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Moselsteig Étape Nittel - Konz (Falaises calcaires)</name>
+    <desc>Étape spectaculaire sur les falaises de dolomie coquillière face au Luxembourg, réputées pour leurs orchidées sauvages.</desc>
+    <link href="https://www.visitmosel.de">
+      <text>Moselsteig Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Moselsteig Étape Nittel - Konz (Falaises calcaires)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.61457" lon="6.42600"><ele>449</ele></trkpt>
+      <trkpt lat="49.61614" lon="6.42801"><ele>449</ele></trkpt>
+      <trkpt lat="49.61818" lon="6.43056"><ele>394</ele></trkpt>
+      <trkpt lat="49.62062" lon="6.43358"><ele>394</ele></trkpt>
+      <trkpt lat="49.62340" lon="6.43702"><ele>231</ele></trkpt>
+      <trkpt lat="49.62645" lon="6.44080"><ele>38</ele></trkpt>
+      <trkpt lat="49.62970" lon="6.44485"><ele>38</ele></trkpt>
+      <trkpt lat="49.63310" lon="6.44912"><ele>25</ele></trkpt>
+      <trkpt lat="49.63658" lon="6.45352"><ele>25</ele></trkpt>
+      <trkpt lat="49.64007" lon="6.45800"><ele>25</ele></trkpt>
+      <trkpt lat="49.64350" lon="6.46249"><ele>25</ele></trkpt>
+      <trkpt lat="49.64682" lon="6.46692"><ele>117</ele></trkpt>
+      <trkpt lat="49.64995" lon="6.47123"><ele>117</ele></trkpt>
+      <trkpt lat="49.65283" lon="6.47534"><ele>174</ele></trkpt>
+      <trkpt lat="49.65539" lon="6.47919"><ele>123</ele></trkpt>
+      <trkpt lat="49.65539" lon="6.47919"><ele>123</ele></trkpt>
+      <trkpt lat="49.65782" lon="6.48304"><ele>25</ele></trkpt>
+      <trkpt lat="49.66032" lon="6.48717"><ele>25</ele></trkpt>
+      <trkpt lat="49.66287" lon="6.49153"><ele>25</ele></trkpt>
+      <trkpt lat="49.66545" lon="6.49607"><ele>25</ele></trkpt>
+      <trkpt lat="49.66805" lon="6.50075"><ele>25</ele></trkpt>
+      <trkpt lat="49.67064" lon="6.50552"><ele>25</ele></trkpt>
+      <trkpt lat="49.67320" lon="6.51032"><ele>62</ele></trkpt>
+      <trkpt lat="49.67572" lon="6.51511"><ele>238</ele></trkpt>
+      <trkpt lat="49.67817" lon="6.51985"><ele>238</ele></trkpt>
+      <trkpt lat="49.68054" lon="6.52449"><ele>332</ele></trkpt>
+      <trkpt lat="49.68281" lon="6.52897"><ele>311</ele></trkpt>
+      <trkpt lat="49.68495" lon="6.53325"><ele>311</ele></trkpt>
+      <trkpt lat="49.68695" lon="6.53729"><ele>212</ele></trkpt>
+      <trkpt lat="49.68879" lon="6.54103"><ele>119</ele></trkpt>
+      <trkpt lat="49.68879" lon="6.54103"><ele>119</ele></trkpt>
+      <trkpt lat="49.69056" lon="6.54473"><ele>109</ele></trkpt>
+      <trkpt lat="49.69236" lon="6.54864"><ele>204</ele></trkpt>
+      <trkpt lat="49.69417" lon="6.55270"><ele>204</ele></trkpt>
+      <trkpt lat="49.69597" lon="6.55684"><ele>360</ele></trkpt>
+      <trkpt lat="49.69775" lon="6.56102"><ele>487</ele></trkpt>
+      <trkpt lat="49.69950" lon="6.56518"><ele>487</ele></trkpt>
+      <trkpt lat="49.70118" lon="6.56925"><ele>513</ele></trkpt>
+      <trkpt lat="49.70278" lon="6.57318"><ele>418</ele></trkpt>
+      <trkpt lat="49.70429" lon="6.57690"><ele>418</ele></trkpt>
+      <trkpt lat="49.70569" lon="6.58037"><ele>255</ele></trkpt>
+      <trkpt lat="49.70696" lon="6.58353"><ele>111</ele></trkpt>
+      <trkpt lat="49.70808" lon="6.58631"><ele>111</ele></trkpt>
+      <trkpt lat="49.70904" lon="6.58865"><ele>57</ele></trkpt>
+      <trkpt lat="49.70981" lon="6.59051"><ele>106</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

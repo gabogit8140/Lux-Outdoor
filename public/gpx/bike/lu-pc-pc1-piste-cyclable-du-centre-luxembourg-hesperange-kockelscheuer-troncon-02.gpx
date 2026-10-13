@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="VisitLuxembourg &amp; Grande-Region Outdoor"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>PC1 Piste cyclable du Centre (Luxembourg - Hesperange - Kockelscheuer) (Tronçon 02)</name>
+    <desc>Réseau National des Pistes Cyclables (PC) du Luxembourg - Parcours officiel de 1.0 km.</desc>
+    <link href="https://www.visitluxembourg.com/fr/que-faire/nature-excursions/a-velo/pistes-cyclables">
+      <text>Réseau National des Pistes Cyclables (PC) du Luxembourg</text>
+    </link>
+    <time>2026-10-11T11:10:40.622Z</time>
+  </metadata>
+  <trk>
+    <name>PC1 Piste cyclable du Centre (Luxembourg - Hesperange - Kockelscheuer) (Tronçon 02)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.5897099" lon="6.0828262"><ele>293.2</ele></trkpt>
+      <trkpt lat="49.5901852" lon="6.0824610"><ele>295.2</ele></trkpt>
+      <trkpt lat="49.5901852" lon="6.0824610"><ele>295.2</ele></trkpt>
+      <trkpt lat="49.5901854" lon="6.0824609"><ele>295.2</ele></trkpt>
+      <trkpt lat="49.5905173" lon="6.0836287"><ele>294.3</ele></trkpt>
+      <trkpt lat="49.5920997" lon="6.0884748"><ele>282.0</ele></trkpt>
+      <trkpt lat="49.5932379" lon="6.0919175"><ele>283.0</ele></trkpt>
+      <trkpt lat="49.5933363" lon="6.0923245"><ele>283.0</ele></trkpt>
+      <trkpt lat="49.5933658" lon="6.0926162"><ele>283.1</ele></trkpt>
+      <trkpt lat="49.5933634" lon="6.0929009"><ele>283.2</ele></trkpt>
+      <trkpt lat="49.5932536" lon="6.0932533"><ele>283.4</ele></trkpt>
+      <trkpt lat="49.5930665" lon="6.0935280"><ele>283.7</ele></trkpt>
+      <trkpt lat="49.5929268" lon="6.0936563"><ele>283.8</ele></trkpt>
+      <trkpt lat="49.5928608" lon="6.0937681"><ele>283.9</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

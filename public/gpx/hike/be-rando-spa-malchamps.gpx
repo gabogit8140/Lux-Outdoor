@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Tour des Fagnes de Spa &amp; Malchamps (Pays des Sources)</name>
+    <desc>Randonnée sur caillebotis dans la fagne tourbeuse protégée de Malchamps et aux sources carbo-gazeuses de Spa.</desc>
+    <link href="https://visitwallonia.be">
+      <text>Visit Wallonia Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Tour des Fagnes de Spa &amp; Malchamps (Pays des Sources)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="50.49806" lon="5.85772"><ele>579</ele></trkpt>
+      <trkpt lat="50.49723" lon="5.85828"><ele>579</ele></trkpt>
+      <trkpt lat="50.49615" lon="5.85896"><ele>579</ele></trkpt>
+      <trkpt lat="50.49485" lon="5.85976"><ele>583</ele></trkpt>
+      <trkpt lat="50.49337" lon="5.86067"><ele>583</ele></trkpt>
+      <trkpt lat="50.49175" lon="5.86167"><ele>537</ele></trkpt>
+      <trkpt lat="50.49002" lon="5.86275"><ele>537</ele></trkpt>
+      <trkpt lat="50.48821" lon="5.86391"><ele>468</ele></trkpt>
+      <trkpt lat="50.48637" lon="5.86512"><ele>468</ele></trkpt>
+      <trkpt lat="50.48453" lon="5.86638"><ele>406</ele></trkpt>
+      <trkpt lat="50.48273" lon="5.86768"><ele>406</ele></trkpt>
+      <trkpt lat="50.48101" lon="5.86900"><ele>368</ele></trkpt>
+      <trkpt lat="50.47939" lon="5.87034"><ele>368</ele></trkpt>
+      <trkpt lat="50.47792" lon="5.87168"><ele>348</ele></trkpt>
+      <trkpt lat="50.47664" lon="5.87302"><ele>348</ele></trkpt>
+      <trkpt lat="50.47664" lon="5.87302"><ele>330</ele></trkpt>
+      <trkpt lat="50.47538" lon="5.87452"><ele>330</ele></trkpt>
+      <trkpt lat="50.47397" lon="5.87633"><ele>307</ele></trkpt>
+      <trkpt lat="50.47247" lon="5.87838"><ele>307</ele></trkpt>
+      <trkpt lat="50.47092" lon="5.88061"><ele>290</ele></trkpt>
+      <trkpt lat="50.46934" lon="5.88295"><ele>290</ele></trkpt>
+      <trkpt lat="50.46780" lon="5.88535"><ele>305</ele></trkpt>
+      <trkpt lat="50.46632" lon="5.88775"><ele>305</ele></trkpt>
+      <trkpt lat="50.46495" lon="5.89007"><ele>369</ele></trkpt>
+      <trkpt lat="50.46373" lon="5.89226"><ele>369</ele></trkpt>
+      <trkpt lat="50.46270" lon="5.89426"><ele>479</ele></trkpt>
+      <trkpt lat="50.46191" lon="5.89599"><ele>479</ele></trkpt>
+      <trkpt lat="50.46139" lon="5.89741"><ele>598</ele></trkpt>
+      <trkpt lat="50.46118" lon="5.89845"><ele>598</ele></trkpt>
+      <trkpt lat="50.46134" lon="5.89903"><ele>677</ele></trkpt>
+      <trkpt lat="50.46134" lon="5.89903"><ele>677</ele></trkpt>
+      <trkpt lat="50.46193" lon="5.89920"><ele>675</ele></trkpt>
+      <trkpt lat="50.46299" lon="5.89902"><ele>675</ele></trkpt>
+      <trkpt lat="50.46445" lon="5.89853"><ele>589</ele></trkpt>
+      <trkpt lat="50.46623" lon="5.89779"><ele>589</ele></trkpt>
+      <trkpt lat="50.46828" lon="5.89681"><ele>451</ele></trkpt>
+      <trkpt lat="50.47052" lon="5.89564"><ele>451</ele></trkpt>
+      <trkpt lat="50.47288" lon="5.89431"><ele>319</ele></trkpt>
+      <trkpt lat="50.47530" lon="5.89286"><ele>319</ele></trkpt>
+      <trkpt lat="50.47772" lon="5.89133"><ele>241</ele></trkpt>
+      <trkpt lat="50.48007" lon="5.88976"><ele>241</ele></trkpt>
+      <trkpt lat="50.48227" lon="5.88817"><ele>234</ele></trkpt>
+      <trkpt lat="50.48426" lon="5.88661"><ele>234</ele></trkpt>
+      <trkpt lat="50.48598" lon="5.88512"><ele>282</ele></trkpt>
+      <trkpt lat="50.48735" lon="5.88373"><ele>282</ele></trkpt>
+      <trkpt lat="50.48735" lon="5.88373"><ele>349</ele></trkpt>
+      <trkpt lat="50.48850" lon="5.88226"><ele>349</ele></trkpt>
+      <trkpt lat="50.48959" lon="5.88054"><ele>405</ele></trkpt>
+      <trkpt lat="50.49063" lon="5.87862"><ele>405</ele></trkpt>
+      <trkpt lat="50.49160" lon="5.87655"><ele>439</ele></trkpt>
+      <trkpt lat="50.49252" lon="5.87436"><ele>439</ele></trkpt>
+      <trkpt lat="50.49337" lon="5.87212"><ele>464</ele></trkpt>
+      <trkpt lat="50.49417" lon="5.86986"><ele>464</ele></trkpt>
+      <trkpt lat="50.49491" lon="5.86764"><ele>495</ele></trkpt>
+      <trkpt lat="50.49558" lon="5.86550"><ele>495</ele></trkpt>
+      <trkpt lat="50.49620" lon="5.86350"><ele>533</ele></trkpt>
+      <trkpt lat="50.49676" lon="5.86167"><ele>533</ele></trkpt>
+      <trkpt lat="50.49725" lon="5.86006"><ele>563</ele></trkpt>
+      <trkpt lat="50.49769" lon="5.85873"><ele>563</ele></trkpt>
+      <trkpt lat="50.49806" lon="5.85772"><ele>561</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

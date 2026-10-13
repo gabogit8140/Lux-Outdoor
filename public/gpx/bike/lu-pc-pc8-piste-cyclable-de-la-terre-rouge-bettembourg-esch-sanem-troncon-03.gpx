@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="VisitLuxembourg &amp; Grande-Region Outdoor"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>PC8 Piste cyclable de la Terre Rouge (Bettembourg - Esch - Sanem) (Tronçon 03)</name>
+    <desc>Réseau National des Pistes Cyclables (PC) du Luxembourg - Parcours officiel de 0.4 km.</desc>
+    <link href="https://www.visitluxembourg.com/fr/que-faire/nature-excursions/a-velo/pistes-cyclables">
+      <text>Réseau National des Pistes Cyclables (PC) du Luxembourg</text>
+    </link>
+    <time>2026-10-11T11:10:41.208Z</time>
+  </metadata>
+  <trk>
+    <name>PC8 Piste cyclable de la Terre Rouge (Bettembourg - Esch - Sanem) (Tronçon 03)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.4581314" lon="6.0311054"><ele>294.6</ele></trkpt>
+      <trkpt lat="49.4581506" lon="6.0310552"><ele>294.5</ele></trkpt>
+      <trkpt lat="49.4583922" lon="6.0304243"><ele>293.2</ele></trkpt>
+      <trkpt lat="49.4591123" lon="6.0285421"><ele>293.1</ele></trkpt>
+      <trkpt lat="49.4593201" lon="6.0279180"><ele>295.6</ele></trkpt>
+      <trkpt lat="49.4591402" lon="6.0278578"><ele>295.3</ele></trkpt>
+      <trkpt lat="49.4588129" lon="6.0278256"><ele>294.7</ele></trkpt>
+      <trkpt lat="49.4584532" lon="6.0278873"><ele>294.3</ele></trkpt>
+      <trkpt lat="49.4581044" lon="6.0279435"><ele>293.9</ele></trkpt>
+      <trkpt lat="49.4579374" lon="6.0280114"><ele>293.9</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

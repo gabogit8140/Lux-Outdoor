@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>RAVeL L45 (Trois-Ponts - Stavelot - Malmedy)</name>
+    <desc>Voie verte continue suivant la vallée de l&apos;Amblève et de la Warche, reliant la cité abbatiale de Stavelot à Malmedy.</desc>
+    <link href="https://ravel.wallonie.be">
+      <text>RAVeL Wallonie Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>RAVeL L45 (Trois-Ponts - Stavelot - Malmedy)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="50.35398" lon="5.82655"><ele>392</ele></trkpt>
+      <trkpt lat="50.35540" lon="5.82997"><ele>392</ele></trkpt>
+      <trkpt lat="50.35726" lon="5.83437"><ele>407</ele></trkpt>
+      <trkpt lat="50.35948" lon="5.83962"><ele>407</ele></trkpt>
+      <trkpt lat="50.36202" lon="5.84559"><ele>398</ele></trkpt>
+      <trkpt lat="50.36480" lon="5.85216"><ele>391</ele></trkpt>
+      <trkpt lat="50.36777" lon="5.85918"><ele>391</ele></trkpt>
+      <trkpt lat="50.37087" lon="5.86653"><ele>403</ele></trkpt>
+      <trkpt lat="50.37402" lon="5.87408"><ele>424</ele></trkpt>
+      <trkpt lat="50.37718" lon="5.88170"><ele>424</ele></trkpt>
+      <trkpt lat="50.38028" lon="5.88926"><ele>432</ele></trkpt>
+      <trkpt lat="50.38325" lon="5.89662"><ele>419</ele></trkpt>
+      <trkpt lat="50.38604" lon="5.90366"><ele>419</ele></trkpt>
+      <trkpt lat="50.38858" lon="5.91025"><ele>403</ele></trkpt>
+      <trkpt lat="50.39082" lon="5.91625"><ele>414</ele></trkpt>
+      <trkpt lat="50.39082" lon="5.91625"><ele>414</ele></trkpt>
+      <trkpt lat="50.39289" lon="5.92207"><ele>463</ele></trkpt>
+      <trkpt lat="50.39497" lon="5.92817"><ele>529</ele></trkpt>
+      <trkpt lat="50.39707" lon="5.93450"><ele>529</ele></trkpt>
+      <trkpt lat="50.39916" lon="5.94100"><ele>570</ele></trkpt>
+      <trkpt lat="50.40124" lon="5.94761"><ele>559</ele></trkpt>
+      <trkpt lat="50.40330" lon="5.95427"><ele>559</ele></trkpt>
+      <trkpt lat="50.40533" lon="5.96093"><ele>506</ele></trkpt>
+      <trkpt lat="50.40733" lon="5.96754"><ele>453</ele></trkpt>
+      <trkpt lat="50.40928" lon="5.97402"><ele>453</ele></trkpt>
+      <trkpt lat="50.41118" lon="5.98034"><ele>431</ele></trkpt>
+      <trkpt lat="50.41301" lon="5.98642"><ele>442</ele></trkpt>
+      <trkpt lat="50.41477" lon="5.99222"><ele>442</ele></trkpt>
+      <trkpt lat="50.41646" lon="5.99768"><ele>462</ele></trkpt>
+      <trkpt lat="50.41805" lon="6.00274"><ele>463</ele></trkpt>
+      <trkpt lat="50.41805" lon="6.00274"><ele>463</ele></trkpt>
+      <trkpt lat="50.41964" lon="6.00771"><ele>445</ele></trkpt>
+      <trkpt lat="50.42131" lon="6.01290"><ele>426</ele></trkpt>
+      <trkpt lat="50.42303" lon="6.01823"><ele>426</ele></trkpt>
+      <trkpt lat="50.42478" lon="6.02364"><ele>423</ele></trkpt>
+      <trkpt lat="50.42654" lon="6.02905"><ele>430</ele></trkpt>
+      <trkpt lat="50.42829" lon="6.03441"><ele>430</ele></trkpt>
+      <trkpt lat="50.42999" lon="6.03964"><ele>422</ele></trkpt>
+      <trkpt lat="50.43163" lon="6.04467"><ele>382</ele></trkpt>
+      <trkpt lat="50.43319" lon="6.04943"><ele>382</ele></trkpt>
+      <trkpt lat="50.43464" lon="6.05385"><ele>326</ele></trkpt>
+      <trkpt lat="50.43595" lon="6.05787"><ele>290</ele></trkpt>
+      <trkpt lat="50.43711" lon="6.06142"><ele>290</ele></trkpt>
+      <trkpt lat="50.43809" lon="6.06442"><ele>304</ele></trkpt>
+      <trkpt lat="50.43887" lon="6.06681"><ele>360</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

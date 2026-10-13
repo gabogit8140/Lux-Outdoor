@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>PC8 Piste de la Terre Rouge (Bettembourg - Dudelange - Belval)</name>
+    <desc>Circuit au cœur du patrimoine industriel mondial de l&apos;UNESCO, reliant les hauts-fourneaux de Belval et la réserve de la Haard.</desc>
+    <link href="https://geoportail.lu">
+      <text>Geoportail Luxembourg (PC Officielle)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>PC8 Piste de la Terre Rouge (Bettembourg - Dudelange - Belval)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.52235" lon="6.10460"><ele>256</ele></trkpt>
+      <trkpt lat="49.52042" lon="6.10477"><ele>256</ele></trkpt>
+      <trkpt lat="49.51776" lon="6.10523"><ele>256</ele></trkpt>
+      <trkpt lat="49.51448" lon="6.10589"><ele>255</ele></trkpt>
+      <trkpt lat="49.51073" lon="6.10669"><ele>255</ele></trkpt>
+      <trkpt lat="49.50663" lon="6.10753"><ele>195</ele></trkpt>
+      <trkpt lat="49.50230" lon="6.10835"><ele>195</ele></trkpt>
+      <trkpt lat="49.49788" lon="6.10907"><ele>118</ele></trkpt>
+      <trkpt lat="49.49350" lon="6.10960"><ele>118</ele></trkpt>
+      <trkpt lat="49.48929" lon="6.10988"><ele>81</ele></trkpt>
+      <trkpt lat="49.48537" lon="6.10981"><ele>81</ele></trkpt>
+      <trkpt lat="49.48188" lon="6.10933"><ele>116</ele></trkpt>
+      <trkpt lat="49.47894" lon="6.10835"><ele>116</ele></trkpt>
+      <trkpt lat="49.47668" lon="6.10680"><ele>212</ele></trkpt>
+      <trkpt lat="49.47524" lon="6.10460"><ele>212</ele></trkpt>
+      <trkpt lat="49.47524" lon="6.10460"><ele>321</ele></trkpt>
+      <trkpt lat="49.47457" lon="6.10154"><ele>321</ele></trkpt>
+      <trkpt lat="49.47450" lon="6.09754"><ele>390</ele></trkpt>
+      <trkpt lat="49.47495" lon="6.09275"><ele>390</ele></trkpt>
+      <trkpt lat="49.47584" lon="6.08729"><ele>391</ele></trkpt>
+      <trkpt lat="49.47709" lon="6.08129"><ele>391</ele></trkpt>
+      <trkpt lat="49.47863" lon="6.07489"><ele>338</ele></trkpt>
+      <trkpt lat="49.48036" lon="6.06823"><ele>338</ele></trkpt>
+      <trkpt lat="49.48221" lon="6.06142"><ele>276</ele></trkpt>
+      <trkpt lat="49.48411" lon="6.05462"><ele>276</ele></trkpt>
+      <trkpt lat="49.48596" lon="6.04794"><ele>250</ele></trkpt>
+      <trkpt lat="49.48770" lon="6.04153"><ele>250</ele></trkpt>
+      <trkpt lat="49.48923" lon="6.03551"><ele>276</ele></trkpt>
+      <trkpt lat="49.49049" lon="6.03002"><ele>276</ele></trkpt>
+      <trkpt lat="49.49139" lon="6.02519"><ele>336</ele></trkpt>
+      <trkpt lat="49.49139" lon="6.02519"><ele>336</ele></trkpt>
+      <trkpt lat="49.49203" lon="6.02076"><ele>390</ele></trkpt>
+      <trkpt lat="49.49260" lon="6.01639"><ele>390</ele></trkpt>
+      <trkpt lat="49.49309" lon="6.01206"><ele>407</ele></trkpt>
+      <trkpt lat="49.49352" lon="6.00778"><ele>407</ele></trkpt>
+      <trkpt lat="49.49389" lon="6.00353"><ele>379</ele></trkpt>
+      <trkpt lat="49.49423" lon="5.99931"><ele>379</ele></trkpt>
+      <trkpt lat="49.49453" lon="5.99512"><ele>327</ele></trkpt>
+      <trkpt lat="49.49482" lon="5.99095"><ele>327</ele></trkpt>
+      <trkpt lat="49.49510" lon="5.98678"><ele>284</ele></trkpt>
+      <trkpt lat="49.49539" lon="5.98263"><ele>284</ele></trkpt>
+      <trkpt lat="49.49568" lon="5.97848"><ele>265</ele></trkpt>
+      <trkpt lat="49.49601" lon="5.97432"><ele>265</ele></trkpt>
+      <trkpt lat="49.49637" lon="5.97015"><ele>266</ele></trkpt>
+      <trkpt lat="49.49677" lon="5.96596"><ele>266</ele></trkpt>
+      <trkpt lat="49.49677" lon="5.96596"><ele>266</ele></trkpt>
+      <trkpt lat="49.49725" lon="5.96145"><ele>266</ele></trkpt>
+      <trkpt lat="49.49779" lon="5.95640"><ele>245</ele></trkpt>
+      <trkpt lat="49.49840" lon="5.95092"><ele>245</ele></trkpt>
+      <trkpt lat="49.49904" lon="5.94513"><ele>206</ele></trkpt>
+      <trkpt lat="49.49972" lon="5.93912"><ele>206</ele></trkpt>
+      <trkpt lat="49.50042" lon="5.93303"><ele>166</ele></trkpt>
+      <trkpt lat="49.50111" lon="5.92696"><ele>166</ele></trkpt>
+      <trkpt lat="49.50180" lon="5.92103"><ele>149</ele></trkpt>
+      <trkpt lat="49.50245" lon="5.91534"><ele>149</ele></trkpt>
+      <trkpt lat="49.50307" lon="5.91002"><ele>162</ele></trkpt>
+      <trkpt lat="49.50363" lon="5.90517"><ele>162</ele></trkpt>
+      <trkpt lat="49.50413" lon="5.90092"><ele>189</ele></trkpt>
+      <trkpt lat="49.50454" lon="5.89736"><ele>189</ele></trkpt>
+      <trkpt lat="49.50485" lon="5.89462"><ele>199</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

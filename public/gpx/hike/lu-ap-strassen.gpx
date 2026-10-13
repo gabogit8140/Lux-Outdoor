@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Strassen (Forêt du Bambësch &amp; Mamer)</name>
+    <desc>Boucle officielle dans la plus grande forêt périphérique de la capitale avec chemins ombragés et ruisseaux.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Strassen (Forêt du Bambësch &amp; Mamer)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.61856" lon="6.05904"><ele>317</ele></trkpt>
+      <trkpt lat="49.61929" lon="6.05976"><ele>317</ele></trkpt>
+      <trkpt lat="49.62031" lon="6.06069"><ele>317</ele></trkpt>
+      <trkpt lat="49.62158" lon="6.06179"><ele>310</ele></trkpt>
+      <trkpt lat="49.62302" lon="6.06304"><ele>310</ele></trkpt>
+      <trkpt lat="49.62460" lon="6.06441"><ele>283</ele></trkpt>
+      <trkpt lat="49.62627" lon="6.06589"><ele>283</ele></trkpt>
+      <trkpt lat="49.62796" lon="6.06743"><ele>256</ele></trkpt>
+      <trkpt lat="49.62963" lon="6.06903"><ele>256</ele></trkpt>
+      <trkpt lat="49.63122" lon="6.07064"><ele>249</ele></trkpt>
+      <trkpt lat="49.63268" lon="6.07225"><ele>249</ele></trkpt>
+      <trkpt lat="49.63396" lon="6.07383"><ele>269</ele></trkpt>
+      <trkpt lat="49.63501" lon="6.07536"><ele>269</ele></trkpt>
+      <trkpt lat="49.63577" lon="6.07680"><ele>306</ele></trkpt>
+      <trkpt lat="49.63620" lon="6.07814"><ele>306</ele></trkpt>
+      <trkpt lat="49.63620" lon="6.07814"><ele>340</ele></trkpt>
+      <trkpt lat="49.63630" lon="6.07955"><ele>340</ele></trkpt>
+      <trkpt lat="49.63617" lon="6.08119"><ele>358</ele></trkpt>
+      <trkpt lat="49.63582" lon="6.08300"><ele>358</ele></trkpt>
+      <trkpt lat="49.63529" lon="6.08494"><ele>358</ele></trkpt>
+      <trkpt lat="49.63461" lon="6.08694"><ele>358</ele></trkpt>
+      <trkpt lat="49.63379" lon="6.08894"><ele>351</ele></trkpt>
+      <trkpt lat="49.63287" lon="6.09091"><ele>351</ele></trkpt>
+      <trkpt lat="49.63188" lon="6.09277"><ele>351</ele></trkpt>
+      <trkpt lat="49.63084" lon="6.09447"><ele>351</ele></trkpt>
+      <trkpt lat="49.62978" lon="6.09596"><ele>364</ele></trkpt>
+      <trkpt lat="49.62873" lon="6.09719"><ele>364</ele></trkpt>
+      <trkpt lat="49.62772" lon="6.09809"><ele>378</ele></trkpt>
+      <trkpt lat="49.62677" lon="6.09862"><ele>378</ele></trkpt>
+      <trkpt lat="49.62591" lon="6.09871"><ele>378</ele></trkpt>
+      <trkpt lat="49.62591" lon="6.09871"><ele>378</ele></trkpt>
+      <trkpt lat="49.62502" lon="6.09831"><ele>350</ele></trkpt>
+      <trkpt lat="49.62397" lon="6.09743"><ele>350</ele></trkpt>
+      <trkpt lat="49.62281" lon="6.09614"><ele>295</ele></trkpt>
+      <trkpt lat="49.62155" lon="6.09451"><ele>295</ele></trkpt>
+      <trkpt lat="49.62024" lon="6.09260"><ele>232</ele></trkpt>
+      <trkpt lat="49.61890" lon="6.09048"><ele>232</ele></trkpt>
+      <trkpt lat="49.61757" lon="6.08821"><ele>184</ele></trkpt>
+      <trkpt lat="49.61628" lon="6.08585"><ele>184</ele></trkpt>
+      <trkpt lat="49.61507" lon="6.08349"><ele>169</ele></trkpt>
+      <trkpt lat="49.61396" lon="6.08117"><ele>169</ele></trkpt>
+      <trkpt lat="49.61298" lon="6.07897"><ele>187</ele></trkpt>
+      <trkpt lat="49.61218" lon="6.07696"><ele>187</ele></trkpt>
+      <trkpt lat="49.61158" lon="6.07519"><ele>221</ele></trkpt>
+      <trkpt lat="49.61122" lon="6.07373"><ele>221</ele></trkpt>
+      <trkpt lat="49.61122" lon="6.07373"><ele>251</ele></trkpt>
+      <trkpt lat="49.61110" lon="6.07245"><ele>251</ele></trkpt>
+      <trkpt lat="49.61122" lon="6.07116"><ele>263</ele></trkpt>
+      <trkpt lat="49.61153" lon="6.06987"><ele>263</ele></trkpt>
+      <trkpt lat="49.61200" lon="6.06860"><ele>259</ele></trkpt>
+      <trkpt lat="49.61260" lon="6.06736"><ele>259</ele></trkpt>
+      <trkpt lat="49.61330" lon="6.06614"><ele>254</ele></trkpt>
+      <trkpt lat="49.61406" lon="6.06498"><ele>254</ele></trkpt>
+      <trkpt lat="49.61486" lon="6.06387"><ele>261</ele></trkpt>
+      <trkpt lat="49.61566" lon="6.06283"><ele>261</ele></trkpt>
+      <trkpt lat="49.61643" lon="6.06187"><ele>283</ele></trkpt>
+      <trkpt lat="49.61714" lon="6.06100"><ele>283</ele></trkpt>
+      <trkpt lat="49.61775" lon="6.06023"><ele>310</ele></trkpt>
+      <trkpt lat="49.61824" lon="6.05958"><ele>310</ele></trkpt>
+      <trkpt lat="49.61856" lon="6.05904"><ele>326</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

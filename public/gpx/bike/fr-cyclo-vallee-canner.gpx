@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Voie Verte de la Vallée de la Canner (Vigy - Aboncourt)</name>
+    <desc>Voie cyclable paisible longeant l&apos;ancien chemin de fer touristique de la Canner au cœur de la campagne lorraine.</desc>
+    <link href="https://www.tourisme-metz.com">
+      <text>Tourisme Metz Métropole</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Voie Verte de la Vallée de la Canner (Vigy - Aboncourt)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.19207" lon="6.28764"><ele>134</ele></trkpt>
+      <trkpt lat="49.19363" lon="6.28908"><ele>134</ele></trkpt>
+      <trkpt lat="49.19559" lon="6.29094"><ele>134</ele></trkpt>
+      <trkpt lat="49.19790" lon="6.29318"><ele>150</ele></trkpt>
+      <trkpt lat="49.20053" lon="6.29572"><ele>150</ele></trkpt>
+      <trkpt lat="49.20342" lon="6.29852"><ele>148</ele></trkpt>
+      <trkpt lat="49.20653" lon="6.30150"><ele>148</ele></trkpt>
+      <trkpt lat="49.20981" lon="6.30462"><ele>140</ele></trkpt>
+      <trkpt lat="49.21322" lon="6.30781"><ele>140</ele></trkpt>
+      <trkpt lat="49.21672" lon="6.31102"><ele>141</ele></trkpt>
+      <trkpt lat="49.22025" lon="6.31418"><ele>141</ele></trkpt>
+      <trkpt lat="49.22377" lon="6.31724"><ele>158</ele></trkpt>
+      <trkpt lat="49.22723" lon="6.32014"><ele>158</ele></trkpt>
+      <trkpt lat="49.23060" lon="6.32281"><ele>186</ele></trkpt>
+      <trkpt lat="49.23382" lon="6.32521"><ele>186</ele></trkpt>
+      <trkpt lat="49.23382" lon="6.32521"><ele>210</ele></trkpt>
+      <trkpt lat="49.23733" lon="6.32760"><ele>210</ele></trkpt>
+      <trkpt lat="49.24150" lon="6.33027"><ele>218</ele></trkpt>
+      <trkpt lat="49.24619" lon="6.33313"><ele>218</ele></trkpt>
+      <trkpt lat="49.25124" lon="6.33612"><ele>205</ele></trkpt>
+      <trkpt lat="49.25651" lon="6.33916"><ele>205</ele></trkpt>
+      <trkpt lat="49.26186" lon="6.34219"><ele>179</ele></trkpt>
+      <trkpt lat="49.26713" lon="6.34512"><ele>179</ele></trkpt>
+      <trkpt lat="49.27217" lon="6.34790"><ele>150</ele></trkpt>
+      <trkpt lat="49.27684" lon="6.35045"><ele>150</ele></trkpt>
+      <trkpt lat="49.28100" lon="6.35269"><ele>126</ele></trkpt>
+      <trkpt lat="49.28449" lon="6.35456"><ele>126</ele></trkpt>
+      <trkpt lat="49.28716" lon="6.35599"><ele>109</ele></trkpt>
+      <trkpt lat="49.28887" lon="6.35689"><ele>109</ele></trkpt>
+      <trkpt lat="49.28948" lon="6.35721"><ele>96</ele></trkpt>
+      <trkpt lat="49.28948" lon="6.35721"><ele>96</ele></trkpt>
+      <trkpt lat="49.28887" lon="6.35689"><ele>90</ele></trkpt>
+      <trkpt lat="49.28716" lon="6.35599"><ele>90</ele></trkpt>
+      <trkpt lat="49.28449" lon="6.35456"><ele>96</ele></trkpt>
+      <trkpt lat="49.28100" lon="6.35269"><ele>96</ele></trkpt>
+      <trkpt lat="49.27684" lon="6.35045"><ele>121</ele></trkpt>
+      <trkpt lat="49.27217" lon="6.34790"><ele>121</ele></trkpt>
+      <trkpt lat="49.26713" lon="6.34512"><ele>164</ele></trkpt>
+      <trkpt lat="49.26186" lon="6.34219"><ele>164</ele></trkpt>
+      <trkpt lat="49.25651" lon="6.33916"><ele>212</ele></trkpt>
+      <trkpt lat="49.25124" lon="6.33612"><ele>212</ele></trkpt>
+      <trkpt lat="49.24619" lon="6.33313"><ele>245</ele></trkpt>
+      <trkpt lat="49.24150" lon="6.33027"><ele>245</ele></trkpt>
+      <trkpt lat="49.23733" lon="6.32760"><ele>246</ele></trkpt>
+      <trkpt lat="49.23382" lon="6.32521"><ele>246</ele></trkpt>
+      <trkpt lat="49.23382" lon="6.32521"><ele>212</ele></trkpt>
+      <trkpt lat="49.23060" lon="6.32281"><ele>212</ele></trkpt>
+      <trkpt lat="49.22723" lon="6.32014"><ele>160</ele></trkpt>
+      <trkpt lat="49.22377" lon="6.31724"><ele>160</ele></trkpt>
+      <trkpt lat="49.22025" lon="6.31418"><ele>116</ele></trkpt>
+      <trkpt lat="49.21672" lon="6.31102"><ele>116</ele></trkpt>
+      <trkpt lat="49.21322" lon="6.30781"><ele>99</ele></trkpt>
+      <trkpt lat="49.20981" lon="6.30462"><ele>99</ele></trkpt>
+      <trkpt lat="49.20653" lon="6.30150"><ele>114</ele></trkpt>
+      <trkpt lat="49.20342" lon="6.29852"><ele>114</ele></trkpt>
+      <trkpt lat="49.20053" lon="6.29572"><ele>141</ele></trkpt>
+      <trkpt lat="49.19790" lon="6.29318"><ele>141</ele></trkpt>
+      <trkpt lat="49.19559" lon="6.29094"><ele>159</ele></trkpt>
+      <trkpt lat="49.19363" lon="6.28908"><ele>159</ele></trkpt>
+      <trkpt lat="49.19207" lon="6.28764"><ele>151</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

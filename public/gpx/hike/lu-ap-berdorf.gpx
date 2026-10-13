@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Berdorf (Wanterbaach &amp; Perekop)</name>
+    <desc>Circuit officiel au sommet du plateau du grès, longeant les parois d&apos;escalade réputées de la Wanterbaach et le donjon rocheux du Perekop.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Berdorf (Wanterbaach &amp; Perekop)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.81587" lon="6.34750"><ele>146</ele></trkpt>
+      <trkpt lat="49.81625" lon="6.34654"><ele>146</ele></trkpt>
+      <trkpt lat="49.81675" lon="6.34516"><ele>146</ele></trkpt>
+      <trkpt lat="49.81736" lon="6.34343"><ele>65</ele></trkpt>
+      <trkpt lat="49.81805" lon="6.34144"><ele>65</ele></trkpt>
+      <trkpt lat="49.81881" lon="6.33928"><ele>25</ele></trkpt>
+      <trkpt lat="49.81961" lon="6.33701"><ele>25</ele></trkpt>
+      <trkpt lat="49.82045" lon="6.33473"><ele>25</ele></trkpt>
+      <trkpt lat="49.82130" lon="6.33251"><ele>25</ele></trkpt>
+      <trkpt lat="49.82215" lon="6.33044"><ele>25</ele></trkpt>
+      <trkpt lat="49.82297" lon="6.32860"><ele>25</ele></trkpt>
+      <trkpt lat="49.82375" lon="6.32706"><ele>131</ele></trkpt>
+      <trkpt lat="49.82447" lon="6.32591"><ele>131</ele></trkpt>
+      <trkpt lat="49.82512" lon="6.32524"><ele>239</ele></trkpt>
+      <trkpt lat="49.82566" lon="6.32511"><ele>239</ele></trkpt>
+      <trkpt lat="49.82566" lon="6.32511"><ele>298</ele></trkpt>
+      <trkpt lat="49.82618" lon="6.32558"><ele>298</ele></trkpt>
+      <trkpt lat="49.82674" lon="6.32656"><ele>289</ele></trkpt>
+      <trkpt lat="49.82733" lon="6.32800"><ele>289</ele></trkpt>
+      <trkpt lat="49.82793" lon="6.32982"><ele>236</ele></trkpt>
+      <trkpt lat="49.82852" lon="6.33194"><ele>236</ele></trkpt>
+      <trkpt lat="49.82910" lon="6.33430"><ele>181</ele></trkpt>
+      <trkpt lat="49.82964" lon="6.33682"><ele>181</ele></trkpt>
+      <trkpt lat="49.83014" lon="6.33944"><ele>153</ele></trkpt>
+      <trkpt lat="49.83057" lon="6.34208"><ele>153</ele></trkpt>
+      <trkpt lat="49.83092" lon="6.34466"><ele>154</ele></trkpt>
+      <trkpt lat="49.83118" lon="6.34713"><ele>154</ele></trkpt>
+      <trkpt lat="49.83134" lon="6.34941"><ele>159</ele></trkpt>
+      <trkpt lat="49.83137" lon="6.35142"><ele>159</ele></trkpt>
+      <trkpt lat="49.83126" lon="6.35309"><ele>146</ele></trkpt>
+      <trkpt lat="49.83126" lon="6.35309"><ele>146</ele></trkpt>
+      <trkpt lat="49.83097" lon="6.35465"><ele>113</ele></trkpt>
+      <trkpt lat="49.83050" lon="6.35633"><ele>113</ele></trkpt>
+      <trkpt lat="49.82985" lon="6.35808"><ele>82</ele></trkpt>
+      <trkpt lat="49.82908" lon="6.35988"><ele>82</ele></trkpt>
+      <trkpt lat="49.82819" lon="6.36167"><ele>76</ele></trkpt>
+      <trkpt lat="49.82723" lon="6.36342"><ele>76</ele></trkpt>
+      <trkpt lat="49.82621" lon="6.36510"><ele>101</ele></trkpt>
+      <trkpt lat="49.82518" lon="6.36666"><ele>101</ele></trkpt>
+      <trkpt lat="49.82415" lon="6.36805"><ele>136</ele></trkpt>
+      <trkpt lat="49.82315" lon="6.36925"><ele>136</ele></trkpt>
+      <trkpt lat="49.82221" lon="6.37022"><ele>158</ele></trkpt>
+      <trkpt lat="49.82137" lon="6.37090"><ele>158</ele></trkpt>
+      <trkpt lat="49.82065" lon="6.37127"><ele>157</ele></trkpt>
+      <trkpt lat="49.82007" lon="6.37128"><ele>157</ele></trkpt>
+      <trkpt lat="49.82007" lon="6.37128"><ele>151</ele></trkpt>
+      <trkpt lat="49.81959" lon="6.37083"><ele>151</ele></trkpt>
+      <trkpt lat="49.81914" lon="6.36989"><ele>166</ele></trkpt>
+      <trkpt lat="49.81872" lon="6.36853"><ele>166</ele></trkpt>
+      <trkpt lat="49.81834" lon="6.36682"><ele>213</ele></trkpt>
+      <trkpt lat="49.81798" lon="6.36485"><ele>213</ele></trkpt>
+      <trkpt lat="49.81764" lon="6.36269"><ele>272</ele></trkpt>
+      <trkpt lat="49.81734" lon="6.36041"><ele>272</ele></trkpt>
+      <trkpt lat="49.81706" lon="6.35809"><ele>302</ele></trkpt>
+      <trkpt lat="49.81680" lon="6.35580"><ele>302</ele></trkpt>
+      <trkpt lat="49.81657" lon="6.35363"><ele>268</ele></trkpt>
+      <trkpt lat="49.81637" lon="6.35163"><ele>268</ele></trkpt>
+      <trkpt lat="49.81618" lon="6.34989"><ele>174</ele></trkpt>
+      <trkpt lat="49.81601" lon="6.34849"><ele>174</ele></trkpt>
+      <trkpt lat="49.81587" lon="6.34750"><ele>61</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

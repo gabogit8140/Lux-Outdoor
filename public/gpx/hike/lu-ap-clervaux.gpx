@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Clervaux (Abbaye Saint-Maurice &amp; Éislek)</name>
+    <desc>Circuit officiel grimpant à l&apos;Abbaye bénédictine Saint-Maurice et surplombant le château millénaire de Clervaux.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Clervaux (Abbaye Saint-Maurice &amp; Éislek)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="50.04505" lon="6.03112"><ele>446</ele></trkpt>
+      <trkpt lat="50.04561" lon="6.02994"><ele>446</ele></trkpt>
+      <trkpt lat="50.04629" lon="6.02826"><ele>446</ele></trkpt>
+      <trkpt lat="50.04708" lon="6.02618"><ele>494</ele></trkpt>
+      <trkpt lat="50.04799" lon="6.02378"><ele>494</ele></trkpt>
+      <trkpt lat="50.04898" lon="6.02117"><ele>444</ele></trkpt>
+      <trkpt lat="50.05006" lon="6.01843"><ele>444</ele></trkpt>
+      <trkpt lat="50.05120" lon="6.01565"><ele>353</ele></trkpt>
+      <trkpt lat="50.05240" lon="6.01293"><ele>353</ele></trkpt>
+      <trkpt lat="50.05364" lon="6.01035"><ele>305</ele></trkpt>
+      <trkpt lat="50.05492" lon="6.00802"><ele>305</ele></trkpt>
+      <trkpt lat="50.05621" lon="6.00602"><ele>356</ele></trkpt>
+      <trkpt lat="50.05752" lon="6.00444"><ele>356</ele></trkpt>
+      <trkpt lat="50.05881" lon="6.00338"><ele>498</ele></trkpt>
+      <trkpt lat="50.06009" lon="6.00292"><ele>498</ele></trkpt>
+      <trkpt lat="50.06009" lon="6.00292"><ele>668</ele></trkpt>
+      <trkpt lat="50.06153" lon="6.00307"><ele>668</ele></trkpt>
+      <trkpt lat="50.06327" lon="6.00370"><ele>780</ele></trkpt>
+      <trkpt lat="50.06524" lon="6.00476"><ele>780</ele></trkpt>
+      <trkpt lat="50.06738" lon="6.00619"><ele>779</ele></trkpt>
+      <trkpt lat="50.06963" lon="6.00793"><ele>779</ele></trkpt>
+      <trkpt lat="50.07193" lon="6.00991"><ele>669</ele></trkpt>
+      <trkpt lat="50.07422" lon="6.01208"><ele>669</ele></trkpt>
+      <trkpt lat="50.07642" lon="6.01437"><ele>511</ele></trkpt>
+      <trkpt lat="50.07849" lon="6.01673"><ele>511</ele></trkpt>
+      <trkpt lat="50.08035" lon="6.01909"><ele>381</ele></trkpt>
+      <trkpt lat="50.08195" lon="6.02139"><ele>381</ele></trkpt>
+      <trkpt lat="50.08322" lon="6.02358"><ele>331</ele></trkpt>
+      <trkpt lat="50.08411" lon="6.02559"><ele>331</ele></trkpt>
+      <trkpt lat="50.08453" lon="6.02736"><ele>358</ele></trkpt>
+      <trkpt lat="50.08453" lon="6.02736"><ele>358</ele></trkpt>
+      <trkpt lat="50.08450" lon="6.02915"><ele>414</ele></trkpt>
+      <trkpt lat="50.08407" lon="6.03119"><ele>414</ele></trkpt>
+      <trkpt lat="50.08329" lon="6.03343"><ele>436</ele></trkpt>
+      <trkpt lat="50.08221" lon="6.03581"><ele>436</ele></trkpt>
+      <trkpt lat="50.08088" lon="6.03827"><ele>391</ele></trkpt>
+      <trkpt lat="50.07935" lon="6.04074"><ele>391</ele></trkpt>
+      <trkpt lat="50.07767" lon="6.04317"><ele>290</ele></trkpt>
+      <trkpt lat="50.07589" lon="6.04548"><ele>290</ele></trkpt>
+      <trkpt lat="50.07405" lon="6.04763"><ele>186</ele></trkpt>
+      <trkpt lat="50.07220" lon="6.04955"><ele>186</ele></trkpt>
+      <trkpt lat="50.07040" lon="6.05118"><ele>134</ele></trkpt>
+      <trkpt lat="50.06868" lon="6.05245"><ele>134</ele></trkpt>
+      <trkpt lat="50.06711" lon="6.05330"><ele>167</ele></trkpt>
+      <trkpt lat="50.06573" lon="6.05368"><ele>167</ele></trkpt>
+      <trkpt lat="50.06573" lon="6.05368"><ele>271</ele></trkpt>
+      <trkpt lat="50.06438" lon="6.05351"><ele>271</ele></trkpt>
+      <trkpt lat="50.06289" lon="6.05279"><ele>403</ele></trkpt>
+      <trkpt lat="50.06128" lon="6.05161"><ele>403</ele></trkpt>
+      <trkpt lat="50.05959" lon="6.05005"><ele>509</ele></trkpt>
+      <trkpt lat="50.05785" lon="6.04819"><ele>509</ele></trkpt>
+      <trkpt lat="50.05609" lon="6.04611"><ele>561</ele></trkpt>
+      <trkpt lat="50.05434" lon="6.04388"><ele>561</ele></trkpt>
+      <trkpt lat="50.05263" lon="6.04160"><ele>563</ele></trkpt>
+      <trkpt lat="50.05100" lon="6.03934"><ele>563</ele></trkpt>
+      <trkpt lat="50.04948" lon="6.03717"><ele>544</ele></trkpt>
+      <trkpt lat="50.04809" lon="6.03519"><ele>544</ele></trkpt>
+      <trkpt lat="50.04687" lon="6.03347"><ele>537</ele></trkpt>
+      <trkpt lat="50.04585" lon="6.03209"><ele>537</ele></trkpt>
+      <trkpt lat="50.04505" lon="6.03112"><ele>556</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Circuit VTT Houffalize Coupe du Monde (Deux Ourthes)</name>
+    <desc>Tracé mythique de la coupe du monde de mountain bike sur les versants escarpés de l&apos;Ourthe orientale.</desc>
+    <link href="https://visitwallonia.be">
+      <text>Visit Wallonia Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Circuit VTT Houffalize Coupe du Monde (Deux Ourthes)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="50.13864" lon="5.84046"><ele>1051</ele></trkpt>
+      <trkpt lat="50.14055" lon="5.83736"><ele>1051</ele></trkpt>
+      <trkpt lat="50.14334" lon="5.83337"><ele>1051</ele></trkpt>
+      <trkpt lat="50.14684" lon="5.82861"><ele>1062</ele></trkpt>
+      <trkpt lat="50.15087" lon="5.82320"><ele>1062</ele></trkpt>
+      <trkpt lat="50.15526" lon="5.81725"><ele>850</ele></trkpt>
+      <trkpt lat="50.15985" lon="5.81088"><ele>850</ele></trkpt>
+      <trkpt lat="50.16445" lon="5.80422"><ele>506</ele></trkpt>
+      <trkpt lat="50.16889" lon="5.79738"><ele>506</ele></trkpt>
+      <trkpt lat="50.17301" lon="5.79048"><ele>178</ele></trkpt>
+      <trkpt lat="50.17662" lon="5.78364"><ele>178</ele></trkpt>
+      <trkpt lat="50.17957" lon="5.77697"><ele>25</ele></trkpt>
+      <trkpt lat="50.18166" lon="5.77060"><ele>25</ele></trkpt>
+      <trkpt lat="50.18274" lon="5.76465"><ele>25</ele></trkpt>
+      <trkpt lat="50.18264" lon="5.75923"><ele>25</ele></trkpt>
+      <trkpt lat="50.18264" lon="5.75923"><ele>81</ele></trkpt>
+      <trkpt lat="50.18121" lon="5.75362"><ele>81</ele></trkpt>
+      <trkpt lat="50.17857" lon="5.74714"><ele>216</ele></trkpt>
+      <trkpt lat="50.17488" lon="5.74002"><ele>216</ele></trkpt>
+      <trkpt lat="50.17033" lon="5.73248"><ele>298</ele></trkpt>
+      <trkpt lat="50.16508" lon="5.72473"><ele>298</ele></trkpt>
+      <trkpt lat="50.15930" lon="5.71698"><ele>307</ele></trkpt>
+      <trkpt lat="50.15317" lon="5.70946"><ele>307</ele></trkpt>
+      <trkpt lat="50.14686" lon="5.70239"><ele>283</ele></trkpt>
+      <trkpt lat="50.14055" lon="5.69597"><ele>283</ele></trkpt>
+      <trkpt lat="50.13441" lon="5.69043"><ele>293</ele></trkpt>
+      <trkpt lat="50.12860" lon="5.68599"><ele>293</ele></trkpt>
+      <trkpt lat="50.12331" lon="5.68285"><ele>378</ele></trkpt>
+      <trkpt lat="50.11870" lon="5.68125"><ele>378</ele></trkpt>
+      <trkpt lat="50.11495" lon="5.68139"><ele>529</ele></trkpt>
+      <trkpt lat="50.11495" lon="5.68139"><ele>529</ele></trkpt>
+      <trkpt lat="50.11159" lon="5.68362"><ele>696</ele></trkpt>
+      <trkpt lat="50.10809" lon="5.68793"><ele>696</ele></trkpt>
+      <trkpt lat="50.10453" lon="5.69401"><ele>819</ele></trkpt>
+      <trkpt lat="50.10096" lon="5.70158"><ele>819</ele></trkpt>
+      <trkpt lat="50.09747" lon="5.71033"><ele>860</ele></trkpt>
+      <trkpt lat="50.09412" lon="5.71997"><ele>860</ele></trkpt>
+      <trkpt lat="50.09098" lon="5.73019"><ele>818</ele></trkpt>
+      <trkpt lat="50.08814" lon="5.74070"><ele>818</ele></trkpt>
+      <trkpt lat="50.08565" lon="5.75120"><ele>718</ele></trkpt>
+      <trkpt lat="50.08360" lon="5.76139"><ele>718</ele></trkpt>
+      <trkpt lat="50.08204" lon="5.77097"><ele>586</ele></trkpt>
+      <trkpt lat="50.08106" lon="5.77964"><ele>586</ele></trkpt>
+      <trkpt lat="50.08073" lon="5.78711"><ele>439</ele></trkpt>
+      <trkpt lat="50.08111" lon="5.79307"><ele>439</ele></trkpt>
+      <trkpt lat="50.08111" lon="5.79307"><ele>282</ele></trkpt>
+      <trkpt lat="50.08248" lon="5.79807"><ele>282</ele></trkpt>
+      <trkpt lat="50.08496" lon="5.80284"><ele>130</ele></trkpt>
+      <trkpt lat="50.08838" lon="5.80737"><ele>130</ele></trkpt>
+      <trkpt lat="50.09256" lon="5.81166"><ele>25</ele></trkpt>
+      <trkpt lat="50.09733" lon="5.81570"><ele>25</ele></trkpt>
+      <trkpt lat="50.10253" lon="5.81950"><ele>25</ele></trkpt>
+      <trkpt lat="50.10797" lon="5.82305"><ele>25</ele></trkpt>
+      <trkpt lat="50.11349" lon="5.82634"><ele>29</ele></trkpt>
+      <trkpt lat="50.11892" lon="5.82936"><ele>29</ele></trkpt>
+      <trkpt lat="50.12408" lon="5.83213"><ele>181</ele></trkpt>
+      <trkpt lat="50.12881" lon="5.83462"><ele>181</ele></trkpt>
+      <trkpt lat="50.13292" lon="5.83684"><ele>369</ele></trkpt>
+      <trkpt lat="50.13626" lon="5.83879"><ele>369</ele></trkpt>
+      <trkpt lat="50.13864" lon="5.84046"><ele>522</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

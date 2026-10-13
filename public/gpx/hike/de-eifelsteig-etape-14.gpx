@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Eifelsteig Étape 14 (Kordel - Butzweiler - Trier)</name>
+    <desc>L&apos;apothéose du grand sentier de randonnée Eifelsteig, plongeant dans les gorges de la Butzerbachtal avec ponts suspendus et grottes romaines.</desc>
+    <link href="https://www.eifelsteig.de">
+      <text>Eifelsteig (Site Officiel)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Eifelsteig Étape 14 (Kordel - Butzweiler - Trier)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.87534" lon="6.63414"><ele>502</ele></trkpt>
+      <trkpt lat="49.87351" lon="6.63494"><ele>502</ele></trkpt>
+      <trkpt lat="49.87117" lon="6.63612"><ele>583</ele></trkpt>
+      <trkpt lat="49.86840" lon="6.63762"><ele>583</ele></trkpt>
+      <trkpt lat="49.86524" lon="6.63934"><ele>562</ele></trkpt>
+      <trkpt lat="49.86178" lon="6.64122"><ele>482</ele></trkpt>
+      <trkpt lat="49.85806" lon="6.64318"><ele>482</ele></trkpt>
+      <trkpt lat="49.85415" lon="6.64513"><ele>412</ele></trkpt>
+      <trkpt lat="49.85012" lon="6.64699"><ele>405</ele></trkpt>
+      <trkpt lat="49.84603" lon="6.64870"><ele>405</ele></trkpt>
+      <trkpt lat="49.84195" lon="6.65017"><ele>472</ele></trkpt>
+      <trkpt lat="49.83793" lon="6.65132"><ele>582</ele></trkpt>
+      <trkpt lat="49.83404" lon="6.65207"><ele>582</ele></trkpt>
+      <trkpt lat="49.83034" lon="6.65235"><ele>683</ele></trkpt>
+      <trkpt lat="49.82691" lon="6.65208"><ele>733</ele></trkpt>
+      <trkpt lat="49.82691" lon="6.65208"><ele>733</ele></trkpt>
+      <trkpt lat="49.82351" lon="6.65107"><ele>721</ele></trkpt>
+      <trkpt lat="49.81990" lon="6.64928"><ele>665</ele></trkpt>
+      <trkpt lat="49.81613" lon="6.64686"><ele>665</ele></trkpt>
+      <trkpt lat="49.81221" lon="6.64393"><ele>596</ele></trkpt>
+      <trkpt lat="49.80820" lon="6.64062"><ele>534</ele></trkpt>
+      <trkpt lat="49.80412" lon="6.63708"><ele>534</ele></trkpt>
+      <trkpt lat="49.80000" lon="6.63343"><ele>482</ele></trkpt>
+      <trkpt lat="49.79588" lon="6.62981"><ele>428</ele></trkpt>
+      <trkpt lat="49.79180" lon="6.62636"><ele>428</ele></trkpt>
+      <trkpt lat="49.78779" lon="6.62320"><ele>363</ele></trkpt>
+      <trkpt lat="49.78387" lon="6.62047"><ele>292</ele></trkpt>
+      <trkpt lat="49.78010" lon="6.61830"><ele>292</ele></trkpt>
+      <trkpt lat="49.77649" lon="6.61683"><ele>237</ele></trkpt>
+      <trkpt lat="49.77309" lon="6.61620"><ele>220</ele></trkpt>
+      <trkpt lat="49.77309" lon="6.61620"><ele>220</ele></trkpt>
+      <trkpt lat="49.76966" lon="6.61643"><ele>245</ele></trkpt>
+      <trkpt lat="49.76596" lon="6.61740"><ele>288</ele></trkpt>
+      <trkpt lat="49.76207" lon="6.61899"><ele>288</ele></trkpt>
+      <trkpt lat="49.75805" lon="6.62109"><ele>312</ele></trkpt>
+      <trkpt lat="49.75397" lon="6.62361"><ele>283</ele></trkpt>
+      <trkpt lat="49.74988" lon="6.62642"><ele>283</ele></trkpt>
+      <trkpt lat="49.74585" lon="6.62943"><ele>201</ele></trkpt>
+      <trkpt lat="49.74194" lon="6.63252"><ele>104</ele></trkpt>
+      <trkpt lat="49.73822" lon="6.63558"><ele>104</ele></trkpt>
+      <trkpt lat="49.73476" lon="6.63851"><ele>52</ele></trkpt>
+      <trkpt lat="49.73160" lon="6.64119"><ele>95</ele></trkpt>
+      <trkpt lat="49.72883" lon="6.64352"><ele>95</ele></trkpt>
+      <trkpt lat="49.72649" lon="6.64539"><ele>241</ele></trkpt>
+      <trkpt lat="49.72466" lon="6.64669"><ele>443</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

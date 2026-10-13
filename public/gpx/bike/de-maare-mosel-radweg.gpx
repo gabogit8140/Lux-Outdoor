@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Maare-Mosel-Radweg (Daun - Wittlich - Bernkastel-Kues)</name>
+    <desc>L&apos;une des plus célèbres voies vertes d&apos;Allemagne aménagée sur une ancienne voie ferrée reliant les lacs volcaniques de Daun aux vignobles de la Moselle.</desc>
+    <link href="https://www.eifel.info">
+      <text>Eifel Tourismus Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Maare-Mosel-Radweg (Daun - Wittlich - Bernkastel-Kues)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="50.27544" lon="6.79656"><ele>470</ele></trkpt>
+      <trkpt lat="50.27099" lon="6.79947"><ele>470</ele></trkpt>
+      <trkpt lat="50.26549" lon="6.80342"><ele>470</ele></trkpt>
+      <trkpt lat="50.25902" lon="6.80824"><ele>389</ele></trkpt>
+      <trkpt lat="50.25170" lon="6.81375"><ele>389</ele></trkpt>
+      <trkpt lat="50.24364" lon="6.81978"><ele>277</ele></trkpt>
+      <trkpt lat="50.23493" lon="6.82616"><ele>277</ele></trkpt>
+      <trkpt lat="50.22569" lon="6.83272"><ele>204</ele></trkpt>
+      <trkpt lat="50.21601" lon="6.83929"><ele>204</ele></trkpt>
+      <trkpt lat="50.20602" lon="6.84569"><ele>226</ele></trkpt>
+      <trkpt lat="50.19580" lon="6.85175"><ele>226</ele></trkpt>
+      <trkpt lat="50.18547" lon="6.85731"><ele>343</ele></trkpt>
+      <trkpt lat="50.17513" lon="6.86218"><ele>343</ele></trkpt>
+      <trkpt lat="50.16489" lon="6.86620"><ele>501</ele></trkpt>
+      <trkpt lat="50.15486" lon="6.86920"><ele>501</ele></trkpt>
+      <trkpt lat="50.15486" lon="6.86920"><ele>620</ele></trkpt>
+      <trkpt lat="50.14409" lon="6.87112"><ele>620</ele></trkpt>
+      <trkpt lat="50.13179" lon="6.87213"><ele>646</ele></trkpt>
+      <trkpt lat="50.11824" lon="6.87239"><ele>646</ele></trkpt>
+      <trkpt lat="50.10371" lon="6.87207"><ele>579</ele></trkpt>
+      <trkpt lat="50.08850" lon="6.87131"><ele>579</ele></trkpt>
+      <trkpt lat="50.07288" lon="6.87030"><ele>474</ele></trkpt>
+      <trkpt lat="50.05715" lon="6.86918"><ele>474</ele></trkpt>
+      <trkpt lat="50.04157" lon="6.86813"><ele>400</ele></trkpt>
+      <trkpt lat="50.02645" lon="6.86729"><ele>400</ele></trkpt>
+      <trkpt lat="50.01205" lon="6.86684"><ele>396</ele></trkpt>
+      <trkpt lat="49.99867" lon="6.86694"><ele>396</ele></trkpt>
+      <trkpt lat="49.98659" lon="6.86774"><ele>448</ele></trkpt>
+      <trkpt lat="49.97609" lon="6.86941"><ele>448</ele></trkpt>
+      <trkpt lat="49.96745" lon="6.87211"><ele>499</ele></trkpt>
+      <trkpt lat="49.96745" lon="6.87211"><ele>499</ele></trkpt>
+      <trkpt lat="49.96038" lon="6.87578"><ele>493</ele></trkpt>
+      <trkpt lat="49.95434" lon="6.88023"><ele>493</ele></trkpt>
+      <trkpt lat="49.94919" lon="6.88539"><ele>411</ele></trkpt>
+      <trkpt lat="49.94483" lon="6.89120"><ele>411</ele></trkpt>
+      <trkpt lat="49.94113" lon="6.89759"><ele>293</ele></trkpt>
+      <trkpt lat="49.93797" lon="6.90449"><ele>293</ele></trkpt>
+      <trkpt lat="49.93523" lon="6.91186"><ele>205</ele></trkpt>
+      <trkpt lat="49.93281" lon="6.91962"><ele>205</ele></trkpt>
+      <trkpt lat="49.93057" lon="6.92771"><ele>207</ele></trkpt>
+      <trkpt lat="49.92840" lon="6.93606"><ele>207</ele></trkpt>
+      <trkpt lat="49.92618" lon="6.94462"><ele>305</ele></trkpt>
+      <trkpt lat="49.92380" lon="6.95333"><ele>305</ele></trkpt>
+      <trkpt lat="49.92113" lon="6.96210"><ele>452</ele></trkpt>
+      <trkpt lat="49.91805" lon="6.97090"><ele>452</ele></trkpt>
+      <trkpt lat="49.91805" lon="6.97090"><ele>575</ele></trkpt>
+      <trkpt lat="49.91453" lon="6.98064"><ele>575</ele></trkpt>
+      <trkpt lat="49.91063" lon="6.99208"><ele>618</ele></trkpt>
+      <trkpt lat="49.90644" lon="7.00491"><ele>618</ele></trkpt>
+      <trkpt lat="49.90204" lon="7.01880"><ele>577</ele></trkpt>
+      <trkpt lat="49.89751" lon="7.03343"><ele>577</ele></trkpt>
+      <trkpt lat="49.89294" lon="7.04848"><ele>495</ele></trkpt>
+      <trkpt lat="49.88840" lon="7.06362"><ele>495</ele></trkpt>
+      <trkpt lat="49.88397" lon="7.07854"><ele>432</ele></trkpt>
+      <trkpt lat="49.87974" lon="7.09290"><ele>432</ele></trkpt>
+      <trkpt lat="49.87578" lon="7.10640"><ele>426</ele></trkpt>
+      <trkpt lat="49.87217" lon="7.11870"><ele>426</ele></trkpt>
+      <trkpt lat="49.86901" lon="7.12949"><ele>467</ele></trkpt>
+      <trkpt lat="49.86635" lon="7.13844"><ele>467</ele></trkpt>
+      <trkpt lat="49.86430" lon="7.14523"><ele>509</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

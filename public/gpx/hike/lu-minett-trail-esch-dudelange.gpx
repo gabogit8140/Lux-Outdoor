@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Minett Trail (Esch-sur-Alzette - Kayl - Dudelange)</name>
+    <desc>Sentier officiel de la Réserve de Biosphère UNESCO Minett parcourant canyons rouges, forêts recolonisatrices et anciens chevalements miniers.</desc>
+    <link href="https://www.visitminett.lu">
+      <text>Visit Minett (Sentier Officiel)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Minett Trail (Esch-sur-Alzette - Kayl - Dudelange)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.50771" lon="5.93347"><ele>280</ele></trkpt>
+      <trkpt lat="49.50672" lon="5.93652"><ele>280</ele></trkpt>
+      <trkpt lat="49.50541" lon="5.94047"><ele>307</ele></trkpt>
+      <trkpt lat="49.50383" lon="5.94520"><ele>307</ele></trkpt>
+      <trkpt lat="49.50204" lon="5.95059"><ele>303</ele></trkpt>
+      <trkpt lat="49.50006" lon="5.95650"><ele>309</ele></trkpt>
+      <trkpt lat="49.49796" lon="5.96282"><ele>309</ele></trkpt>
+      <trkpt lat="49.49579" lon="5.96941"><ele>354</ele></trkpt>
+      <trkpt lat="49.49358" lon="5.97616"><ele>418</ele></trkpt>
+      <trkpt lat="49.49139" lon="5.98294"><ele>418</ele></trkpt>
+      <trkpt lat="49.48928" lon="5.98962"><ele>451</ele></trkpt>
+      <trkpt lat="49.48727" lon="5.99608"><ele>404</ele></trkpt>
+      <trkpt lat="49.48544" lon="6.00219"><ele>404</ele></trkpt>
+      <trkpt lat="49.48381" lon="6.00783"><ele>280</ele></trkpt>
+      <trkpt lat="49.48245" lon="6.01286"><ele>131</ele></trkpt>
+      <trkpt lat="49.48245" lon="6.01286"><ele>131</ele></trkpt>
+      <trkpt lat="49.48122" lon="6.01766"><ele>25</ele></trkpt>
+      <trkpt lat="49.47998" lon="6.02263"><ele>25</ele></trkpt>
+      <trkpt lat="49.47876" lon="6.02772"><ele>25</ele></trkpt>
+      <trkpt lat="49.47755" lon="6.03289"><ele>41</ele></trkpt>
+      <trkpt lat="49.47638" lon="6.03811"><ele>102</ele></trkpt>
+      <trkpt lat="49.47526" lon="6.04332"><ele>102</ele></trkpt>
+      <trkpt lat="49.47420" lon="6.04848"><ele>143</ele></trkpt>
+      <trkpt lat="49.47322" lon="6.05355"><ele>166</ele></trkpt>
+      <trkpt lat="49.47234" lon="6.05848"><ele>166</ele></trkpt>
+      <trkpt lat="49.47156" lon="6.06324"><ele>206</ele></trkpt>
+      <trkpt lat="49.47091" lon="6.06778"><ele>293</ele></trkpt>
+      <trkpt lat="49.47039" lon="6.07205"><ele>293</ele></trkpt>
+      <trkpt lat="49.47002" lon="6.07601"><ele>416</ele></trkpt>
+      <trkpt lat="49.46982" lon="6.07962"><ele>520</ele></trkpt>
+      <trkpt lat="49.46982" lon="6.07962"><ele>520</ele></trkpt>
+      <trkpt lat="49.46983" lon="6.08307"><ele>544</ele></trkpt>
+      <trkpt lat="49.47007" lon="6.08654"><ele>468</ele></trkpt>
+      <trkpt lat="49.47052" lon="6.09000"><ele>468</ele></trkpt>
+      <trkpt lat="49.47113" lon="6.09344"><ele>327</ele></trkpt>
+      <trkpt lat="49.47187" lon="6.09680"><ele>190</ele></trkpt>
+      <trkpt lat="49.47271" lon="6.10008"><ele>190</ele></trkpt>
+      <trkpt lat="49.47362" lon="6.10323"><ele>109</ele></trkpt>
+      <trkpt lat="49.47455" lon="6.10622"><ele>89</ele></trkpt>
+      <trkpt lat="49.47547" lon="6.10904"><ele>89</ele></trkpt>
+      <trkpt lat="49.47636" lon="6.11164"><ele>94</ele></trkpt>
+      <trkpt lat="49.47718" lon="6.11400"><ele>87</ele></trkpt>
+      <trkpt lat="49.47788" lon="6.11608"><ele>87</ele></trkpt>
+      <trkpt lat="49.47845" lon="6.11787"><ele>62</ele></trkpt>
+      <trkpt lat="49.47884" lon="6.11932"><ele>56</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Remerschen (Haff Réimech &amp; Étangs)</name>
+    <desc>Parcours plat officiel autour des 30 étangs de la réserve de biodiversité Haff Réimech et du centre nature Biodiversum.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Remerschen (Haff Réimech &amp; Étangs)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.49307" lon="6.36186"><ele>152</ele></trkpt>
+      <trkpt lat="49.49347" lon="6.36127"><ele>152</ele></trkpt>
+      <trkpt lat="49.49405" lon="6.36049"><ele>152</ele></trkpt>
+      <trkpt lat="49.49479" lon="6.35955"><ele>159</ele></trkpt>
+      <trkpt lat="49.49564" lon="6.35848"><ele>159</ele></trkpt>
+      <trkpt lat="49.49657" lon="6.35731"><ele>157</ele></trkpt>
+      <trkpt lat="49.49753" lon="6.35605"><ele>157</ele></trkpt>
+      <trkpt lat="49.49850" lon="6.35475"><ele>148</ele></trkpt>
+      <trkpt lat="49.49943" lon="6.35343"><ele>148</ele></trkpt>
+      <trkpt lat="49.50029" lon="6.35212"><ele>141</ele></trkpt>
+      <trkpt lat="49.50104" lon="6.35084"><ele>141</ele></trkpt>
+      <trkpt lat="49.50165" lon="6.34962"><ele>141</ele></trkpt>
+      <trkpt lat="49.50207" lon="6.34849"><ele>141</ele></trkpt>
+      <trkpt lat="49.50227" lon="6.34748"><ele>151</ele></trkpt>
+      <trkpt lat="49.50222" lon="6.34662"><ele>151</ele></trkpt>
+      <trkpt lat="49.50222" lon="6.34662"><ele>168</ele></trkpt>
+      <trkpt lat="49.50188" lon="6.34578"><ele>168</ele></trkpt>
+      <trkpt lat="49.50128" lon="6.34487"><ele>185</ele></trkpt>
+      <trkpt lat="49.50045" lon="6.34391"><ele>185</ele></trkpt>
+      <trkpt lat="49.49943" lon="6.34292"><ele>194</ele></trkpt>
+      <trkpt lat="49.49827" lon="6.34193"><ele>194</ele></trkpt>
+      <trkpt lat="49.49698" lon="6.34098"><ele>192</ele></trkpt>
+      <trkpt lat="49.49562" lon="6.34007"><ele>192</ele></trkpt>
+      <trkpt lat="49.49422" lon="6.33924"><ele>181</ele></trkpt>
+      <trkpt lat="49.49281" lon="6.33853"><ele>181</ele></trkpt>
+      <trkpt lat="49.49143" lon="6.33794"><ele>165</ele></trkpt>
+      <trkpt lat="49.49012" lon="6.33752"><ele>165</ele></trkpt>
+      <trkpt lat="49.48892" lon="6.33728"><ele>152</ele></trkpt>
+      <trkpt lat="49.48785" lon="6.33725"><ele>152</ele></trkpt>
+      <trkpt lat="49.48697" lon="6.33747"><ele>147</ele></trkpt>
+      <trkpt lat="49.48697" lon="6.33747"><ele>147</ele></trkpt>
+      <trkpt lat="49.48615" lon="6.33800"><ele>150</ele></trkpt>
+      <trkpt lat="49.48526" lon="6.33888"><ele>150</ele></trkpt>
+      <trkpt lat="49.48434" lon="6.34005"><ele>156</ele></trkpt>
+      <trkpt lat="49.48339" lon="6.34146"><ele>156</ele></trkpt>
+      <trkpt lat="49.48246" lon="6.34306"><ele>160</ele></trkpt>
+      <trkpt lat="49.48154" lon="6.34479"><ele>160</ele></trkpt>
+      <trkpt lat="49.48068" lon="6.34661"><ele>157</ele></trkpt>
+      <trkpt lat="49.47988" lon="6.34846"><ele>157</ele></trkpt>
+      <trkpt lat="49.47918" lon="6.35028"><ele>147</ele></trkpt>
+      <trkpt lat="49.47859" lon="6.35204"><ele>147</ele></trkpt>
+      <trkpt lat="49.47814" lon="6.35367"><ele>133</ele></trkpt>
+      <trkpt lat="49.47785" lon="6.35512"><ele>133</ele></trkpt>
+      <trkpt lat="49.47773" lon="6.35635"><ele>122</ele></trkpt>
+      <trkpt lat="49.47782" lon="6.35729"><ele>122</ele></trkpt>
+      <trkpt lat="49.47782" lon="6.35729"><ele>119</ele></trkpt>
+      <trkpt lat="49.47818" lon="6.35802"><ele>119</ele></trkpt>
+      <trkpt lat="49.47883" lon="6.35866"><ele>125</ele></trkpt>
+      <trkpt lat="49.47974" lon="6.35921"><ele>125</ele></trkpt>
+      <trkpt lat="49.48084" lon="6.35968"><ele>138</ele></trkpt>
+      <trkpt lat="49.48211" lon="6.36007"><ele>138</ele></trkpt>
+      <trkpt lat="49.48349" lon="6.36041"><ele>153</ele></trkpt>
+      <trkpt lat="49.48493" lon="6.36069"><ele>153</ele></trkpt>
+      <trkpt lat="49.48639" lon="6.36093"><ele>163</ele></trkpt>
+      <trkpt lat="49.48783" lon="6.36113"><ele>163</ele></trkpt>
+      <trkpt lat="49.48920" lon="6.36130"><ele>167</ele></trkpt>
+      <trkpt lat="49.49046" lon="6.36145"><ele>167</ele></trkpt>
+      <trkpt lat="49.49155" lon="6.36159"><ele>165</ele></trkpt>
+      <trkpt lat="49.49244" lon="6.36172"><ele>165</ele></trkpt>
+      <trkpt lat="49.49307" lon="6.36186"><ele>161</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

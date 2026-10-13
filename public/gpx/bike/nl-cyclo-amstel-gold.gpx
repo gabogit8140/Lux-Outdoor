@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Boucle Amstel Gold Race (Valkenburg - Gulpen - Vaals)</name>
+    <desc>La classique cycliste du Heuvelland néerlandais grimpant les célèbres côtes du Cauberg et du Keutenberg dans des paysages bucoliques.</desc>
+    <link href="https://www.visitzuidlimburg.nl">
+      <text>Visit Zuid-Limburg Officieel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Boucle Amstel Gold Race (Valkenburg - Gulpen - Vaals)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="50.87910" lon="5.80581"><ele>835</ele></trkpt>
+      <trkpt lat="50.87648" lon="5.80877"><ele>835</ele></trkpt>
+      <trkpt lat="50.87302" lon="5.81247"><ele>835</ele></trkpt>
+      <trkpt lat="50.86883" lon="5.81683"><ele>784</ele></trkpt>
+      <trkpt lat="50.86406" lon="5.82177"><ele>784</ele></trkpt>
+      <trkpt lat="50.85883" lon="5.82721"><ele>638</ele></trkpt>
+      <trkpt lat="50.85326" lon="5.83307"><ele>638</ele></trkpt>
+      <trkpt lat="50.84749" lon="5.83927"><ele>486</ele></trkpt>
+      <trkpt lat="50.84164" lon="5.84574"><ele>486</ele></trkpt>
+      <trkpt lat="50.83583" lon="5.85238"><ele>414</ele></trkpt>
+      <trkpt lat="50.83021" lon="5.85913"><ele>414</ele></trkpt>
+      <trkpt lat="50.82489" lon="5.86590"><ele>456</ele></trkpt>
+      <trkpt lat="50.82000" lon="5.87261"><ele>456</ele></trkpt>
+      <trkpt lat="50.81567" lon="5.87918"><ele>580</ele></trkpt>
+      <trkpt lat="50.81203" lon="5.88554"><ele>580</ele></trkpt>
+      <trkpt lat="50.81203" lon="5.88554"><ele>709</ele></trkpt>
+      <trkpt lat="50.80888" lon="5.89223"><ele>709</ele></trkpt>
+      <trkpt lat="50.80592" lon="5.89974"><ele>769</ele></trkpt>
+      <trkpt lat="50.80314" lon="5.90793"><ele>769</ele></trkpt>
+      <trkpt lat="50.80051" lon="5.91664"><ele>738</ele></trkpt>
+      <trkpt lat="50.79800" lon="5.92573"><ele>738</ele></trkpt>
+      <trkpt lat="50.79561" lon="5.93503"><ele>655</ele></trkpt>
+      <trkpt lat="50.79331" lon="5.94441"><ele>655</ele></trkpt>
+      <trkpt lat="50.79107" lon="5.95372"><ele>591</ele></trkpt>
+      <trkpt lat="50.78888" lon="5.96279"><ele>591</ele></trkpt>
+      <trkpt lat="50.78671" lon="5.97148"><ele>600</ele></trkpt>
+      <trkpt lat="50.78454" lon="5.97964"><ele>600</ele></trkpt>
+      <trkpt lat="50.78236" lon="5.98712"><ele>684</ele></trkpt>
+      <trkpt lat="50.78014" lon="5.99377"><ele>684</ele></trkpt>
+      <trkpt lat="50.77786" lon="5.99944"><ele>783</ele></trkpt>
+      <trkpt lat="50.77786" lon="5.99944"><ele>783</ele></trkpt>
+      <trkpt lat="50.77515" lon="6.00471"><ele>810</ele></trkpt>
+      <trkpt lat="50.77175" lon="6.01019"><ele>810</ele></trkpt>
+      <trkpt lat="50.76785" lon="6.01575"><ele>709</ele></trkpt>
+      <trkpt lat="50.76361" lon="6.02126"><ele>709</ele></trkpt>
+      <trkpt lat="50.75920" lon="6.02658"><ele>484</ele></trkpt>
+      <trkpt lat="50.75479" lon="6.03160"><ele>484</ele></trkpt>
+      <trkpt lat="50.75055" lon="6.03617"><ele>209</ele></trkpt>
+      <trkpt lat="50.74665" lon="6.04018"><ele>209</ele></trkpt>
+      <trkpt lat="50.74326" lon="6.04348"><ele>209</ele></trkpt>
+      <trkpt lat="50.74055" lon="6.04596"><ele>25</ele></trkpt>
+      <trkpt lat="50.73869" lon="6.04748"><ele>25</ele></trkpt>
+      <trkpt lat="50.73784" lon="6.04791"><ele>25</ele></trkpt>
+      <trkpt lat="50.73819" lon="6.04713"><ele>25</ele></trkpt>
+      <trkpt lat="50.73989" lon="6.04500"><ele>25</ele></trkpt>
+      <trkpt lat="50.73989" lon="6.04500"><ele>25</ele></trkpt>
+      <trkpt lat="50.74336" lon="6.04110"><ele>25</ele></trkpt>
+      <trkpt lat="50.74869" lon="6.03527"><ele>25</ele></trkpt>
+      <trkpt lat="50.75560" lon="6.02777"><ele>36</ele></trkpt>
+      <trkpt lat="50.76380" lon="6.01887"><ele>36</ele></trkpt>
+      <trkpt lat="50.77301" lon="6.00883"><ele>50</ele></trkpt>
+      <trkpt lat="50.78293" lon="5.99792"><ele>50</ele></trkpt>
+      <trkpt lat="50.79328" lon="5.98640"><ele>25</ele></trkpt>
+      <trkpt lat="50.80378" lon="5.97453"><ele>25</ele></trkpt>
+      <trkpt lat="50.81414" lon="5.96258"><ele>25</ele></trkpt>
+      <trkpt lat="50.82407" lon="5.95081"><ele>25</ele></trkpt>
+      <trkpt lat="50.83329" lon="5.93949"><ele>49</ele></trkpt>
+      <trkpt lat="50.84150" lon="5.92888"><ele>49</ele></trkpt>
+      <trkpt lat="50.84843" lon="5.91925"><ele>213</ele></trkpt>
+      <trkpt lat="50.85379" lon="5.91085"><ele>213</ele></trkpt>
+      <trkpt lat="50.85379" lon="5.91085"><ele>448</ele></trkpt>
+      <trkpt lat="50.85796" lon="5.90292"><ele>448</ele></trkpt>
+      <trkpt lat="50.86157" lon="5.89457"><ele>670</ele></trkpt>
+      <trkpt lat="50.86466" lon="5.88592"><ele>670</ele></trkpt>
+      <trkpt lat="50.86728" lon="5.87710"><ele>793</ele></trkpt>
+      <trkpt lat="50.86948" lon="5.86822"><ele>793</ele></trkpt>
+      <trkpt lat="50.87132" lon="5.85941"><ele>778</ele></trkpt>
+      <trkpt lat="50.87285" lon="5.85079"><ele>778</ele></trkpt>
+      <trkpt lat="50.87412" lon="5.84247"><ele>658</ele></trkpt>
+      <trkpt lat="50.87518" lon="5.83459"><ele>658</ele></trkpt>
+      <trkpt lat="50.87608" lon="5.82725"><ele>518</ele></trkpt>
+      <trkpt lat="50.87687" lon="5.82059"><ele>518</ele></trkpt>
+      <trkpt lat="50.87760" lon="5.81471"><ele>444</ele></trkpt>
+      <trkpt lat="50.87833" lon="5.80975"><ele>444</ele></trkpt>
+      <trkpt lat="50.87910" lon="5.80581"><ele>474</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

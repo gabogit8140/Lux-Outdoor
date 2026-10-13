@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>PC15 Piste de l&apos;Alzette Nord (Mersch - Colmar-Berg - Ettelbruck)</name>
+    <desc>Voie verte en bord d&apos;eau reliant les deux pôles économiques du centre et du nord à travers la confluence des rivières.</desc>
+    <link href="https://geoportail.lu">
+      <text>Geoportail Luxembourg (PC Officielle)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>PC15 Piste de l&apos;Alzette Nord (Mersch - Colmar-Berg - Ettelbruck)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.73108" lon="6.10801"><ele>357</ele></trkpt>
+      <trkpt lat="49.73432" lon="6.10741"><ele>331</ele></trkpt>
+      <trkpt lat="49.73858" lon="6.10655"><ele>279</ele></trkpt>
+      <trkpt lat="49.74373" lon="6.10548"><ele>237</ele></trkpt>
+      <trkpt lat="49.74959" lon="6.10426"><ele>229</ele></trkpt>
+      <trkpt lat="49.75603" lon="6.10292"><ele>251</ele></trkpt>
+      <trkpt lat="49.76287" lon="6.10152"><ele>280</ele></trkpt>
+      <trkpt lat="49.76998" lon="6.10010"><ele>292</ele></trkpt>
+      <trkpt lat="49.77720" lon="6.09871"><ele>288</ele></trkpt>
+      <trkpt lat="49.78436" lon="6.09739"><ele>282</ele></trkpt>
+      <trkpt lat="49.79132" lon="6.09619"><ele>290</ele></trkpt>
+      <trkpt lat="49.79793" lon="6.09516"><ele>310</ele></trkpt>
+      <trkpt lat="49.80403" lon="6.09434"><ele>328</ele></trkpt>
+      <trkpt lat="49.80946" lon="6.09378"><ele>332</ele></trkpt>
+      <trkpt lat="49.81407" lon="6.09352"><ele>322</ele></trkpt>
+      <trkpt lat="49.81407" lon="6.09352"><ele>305</ele></trkpt>
+      <trkpt lat="49.81822" lon="6.09360"><ele>288</ele></trkpt>
+      <trkpt lat="49.82235" lon="6.09396"><ele>271</ele></trkpt>
+      <trkpt lat="49.82644" lon="6.09458"><ele>253</ele></trkpt>
+      <trkpt lat="49.83046" lon="6.09539"><ele>240</ele></trkpt>
+      <trkpt lat="49.83438" lon="6.09637"><ele>242</ele></trkpt>
+      <trkpt lat="49.83816" lon="6.09746"><ele>265</ele></trkpt>
+      <trkpt lat="49.84178" lon="6.09864"><ele>300</ele></trkpt>
+      <trkpt lat="49.84522" lon="6.09984"><ele>324</ele></trkpt>
+      <trkpt lat="49.84843" lon="6.10104"><ele>324</ele></trkpt>
+      <trkpt lat="49.85139" lon="6.10218"><ele>306</ele></trkpt>
+      <trkpt lat="49.85407" lon="6.10323"><ele>292</ele></trkpt>
+      <trkpt lat="49.85645" lon="6.10414"><ele>300</ele></trkpt>
+      <trkpt lat="49.85849" lon="6.10487"><ele>322</ele></trkpt>
+      <trkpt lat="49.86017" lon="6.10538"><ele>333</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

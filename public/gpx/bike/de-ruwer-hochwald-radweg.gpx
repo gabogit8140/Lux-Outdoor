@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Ruwer-Hochwald-Radweg (Trier-Ruwer - Hermeskeil)</name>
+    <desc>Voie verte remarquable aménagée sur ancienne ligne ferroviaire grimpant de la Moselle vers les forêts denses du Hunsrück.</desc>
+    <link href="https://www.ruwer-hochwald-radweg.de">
+      <text>Ruwer-Hochwald-Radweg Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Ruwer-Hochwald-Radweg (Trier-Ruwer - Hermeskeil)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.86405" lon="6.56965"><ele>352</ele></trkpt>
+      <trkpt lat="49.85858" lon="6.57624"><ele>352</ele></trkpt>
+      <trkpt lat="49.85132" lon="6.58476"><ele>240</ele></trkpt>
+      <trkpt lat="49.84255" lon="6.59493"><ele>240</ele></trkpt>
+      <trkpt lat="49.83253" lon="6.60651"><ele>129</ele></trkpt>
+      <trkpt lat="49.82156" lon="6.61922"><ele>63</ele></trkpt>
+      <trkpt lat="49.80989" lon="6.63282"><ele>63</ele></trkpt>
+      <trkpt lat="49.79780" lon="6.64705"><ele>76</ele></trkpt>
+      <trkpt lat="49.78557" lon="6.66164"><ele>171</ele></trkpt>
+      <trkpt lat="49.77347" lon="6.67634"><ele>171</ele></trkpt>
+      <trkpt lat="49.76177" lon="6.69090"><ele>315</ele></trkpt>
+      <trkpt lat="49.75076" lon="6.70505"><ele>455</ele></trkpt>
+      <trkpt lat="49.74069" lon="6.71854"><ele>455</ele></trkpt>
+      <trkpt lat="49.73186" lon="6.73110"><ele>537</ele></trkpt>
+      <trkpt lat="49.72452" lon="6.74249"><ele>538</ele></trkpt>
+      <trkpt lat="49.72452" lon="6.74249"><ele>538</ele></trkpt>
+      <trkpt lat="49.71827" lon="6.75333"><ele>470</ele></trkpt>
+      <trkpt lat="49.71246" lon="6.76440"><ele>379</ele></trkpt>
+      <trkpt lat="49.70705" lon="6.77568"><ele>379</ele></trkpt>
+      <trkpt lat="49.70200" lon="6.78712"><ele>323</ele></trkpt>
+      <trkpt lat="49.69727" lon="6.79869"><ele>342</ele></trkpt>
+      <trkpt lat="49.69282" lon="6.81035"><ele>342</ele></trkpt>
+      <trkpt lat="49.68860" lon="6.82208"><ele>440</ele></trkpt>
+      <trkpt lat="49.68457" lon="6.83382"><ele>583</ele></trkpt>
+      <trkpt lat="49.68069" lon="6.84556"><ele>583</ele></trkpt>
+      <trkpt lat="49.67692" lon="6.85725"><ele>713</ele></trkpt>
+      <trkpt lat="49.67321" lon="6.86886"><ele>776</ele></trkpt>
+      <trkpt lat="49.66953" lon="6.88035"><ele>776</ele></trkpt>
+      <trkpt lat="49.66582" lon="6.89168"><ele>748</ele></trkpt>
+      <trkpt lat="49.66205" lon="6.90283"><ele>639</ele></trkpt>
+      <trkpt lat="49.66205" lon="6.90283"><ele>639</ele></trkpt>
+      <trkpt lat="49.65806" lon="6.91464"><ele>495</ele></trkpt>
+      <trkpt lat="49.65377" lon="6.92777"><ele>368</ele></trkpt>
+      <trkpt lat="49.64926" lon="6.94195"><ele>368</ele></trkpt>
+      <trkpt lat="49.64459" lon="6.95690"><ele>298</ele></trkpt>
+      <trkpt lat="49.63985" lon="6.97232"><ele>292</ele></trkpt>
+      <trkpt lat="49.63510" lon="6.98794"><ele>292</ele></trkpt>
+      <trkpt lat="49.63042" lon="7.00348"><ele>331</ele></trkpt>
+      <trkpt lat="49.62589" lon="7.01865"><ele>375</ele></trkpt>
+      <trkpt lat="49.62157" lon="7.03317"><ele>375</ele></trkpt>
+      <trkpt lat="49.61754" lon="7.04675"><ele>392</ele></trkpt>
+      <trkpt lat="49.61388" lon="7.05912"><ele>366</ele></trkpt>
+      <trkpt lat="49.61066" lon="7.06999"><ele>366</ele></trkpt>
+      <trkpt lat="49.60795" lon="7.07907"><ele>308</ele></trkpt>
+      <trkpt lat="49.60582" lon="7.08609"><ele>243</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>La Voie Bleue Moselle V50 (Thionville - Uckange - Metz)</name>
+    <desc>Tronçon mythique de la V50 reliant les parcs industriels transformés de l&apos;U4 au port de plaisance et à la cathédrale de Metz.</desc>
+    <link href="https://www.lavoiebleue.com">
+      <text>La Voie Bleue V50 Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>La Voie Bleue Moselle V50 (Thionville - Uckange - Metz)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.38727" lon="6.17527"><ele>234</ele></trkpt>
+      <trkpt lat="49.38474" lon="6.17453"><ele>234</ele></trkpt>
+      <trkpt lat="49.38160" lon="6.17345"><ele>242</ele></trkpt>
+      <trkpt lat="49.37791" lon="6.17208"><ele>242</ele></trkpt>
+      <trkpt lat="49.37373" lon="6.17051"><ele>237</ele></trkpt>
+      <trkpt lat="49.36913" lon="6.16879"><ele>230</ele></trkpt>
+      <trkpt lat="49.36416" lon="6.16701"><ele>230</ele></trkpt>
+      <trkpt lat="49.35890" lon="6.16522"><ele>233</ele></trkpt>
+      <trkpt lat="49.35339" lon="6.16350"><ele>250</ele></trkpt>
+      <trkpt lat="49.34771" lon="6.16192"><ele>250</ele></trkpt>
+      <trkpt lat="49.34193" lon="6.16054"><ele>271</ele></trkpt>
+      <trkpt lat="49.33609" lon="6.15944"><ele>282</ele></trkpt>
+      <trkpt lat="49.33027" lon="6.15869"><ele>282</ele></trkpt>
+      <trkpt lat="49.32452" lon="6.15835"><ele>276</ele></trkpt>
+      <trkpt lat="49.31892" lon="6.15850"><ele>257</ele></trkpt>
+      <trkpt lat="49.31892" lon="6.15850"><ele>257</ele></trkpt>
+      <trkpt lat="49.31317" lon="6.15926"><ele>235</ele></trkpt>
+      <trkpt lat="49.30698" lon="6.16062"><ele>217</ele></trkpt>
+      <trkpt lat="49.30040" lon="6.16249"><ele>217</ele></trkpt>
+      <trkpt lat="49.29347" lon="6.16477"><ele>207</ele></trkpt>
+      <trkpt lat="49.28625" lon="6.16736"><ele>201</ele></trkpt>
+      <trkpt lat="49.27878" lon="6.17016"><ele>201</ele></trkpt>
+      <trkpt lat="49.27111" lon="6.17307"><ele>201</ele></trkpt>
+      <trkpt lat="49.26328" lon="6.17599"><ele>209</ele></trkpt>
+      <trkpt lat="49.25535" lon="6.17882"><ele>209</ele></trkpt>
+      <trkpt lat="49.24735" lon="6.18146"><ele>230</ele></trkpt>
+      <trkpt lat="49.23935" lon="6.18382"><ele>261</ele></trkpt>
+      <trkpt lat="49.23138" lon="6.18579"><ele>261</ele></trkpt>
+      <trkpt lat="49.22350" lon="6.18727"><ele>290</ele></trkpt>
+      <trkpt lat="49.21575" lon="6.18816"><ele>299</ele></trkpt>
+      <trkpt lat="49.21575" lon="6.18816"><ele>299</ele></trkpt>
+      <trkpt lat="49.20745" lon="6.18850"><ele>283</ele></trkpt>
+      <trkpt lat="49.19805" lon="6.18843"><ele>249</ele></trkpt>
+      <trkpt lat="49.18776" lon="6.18799"><ele>249</ele></trkpt>
+      <trkpt lat="49.17681" lon="6.18726"><ele>218</ele></trkpt>
+      <trkpt lat="49.16542" lon="6.18628"><ele>205</ele></trkpt>
+      <trkpt lat="49.15383" lon="6.18512"><ele>205</ele></trkpt>
+      <trkpt lat="49.14224" lon="6.18384"><ele>215</ele></trkpt>
+      <trkpt lat="49.13090" lon="6.18248"><ele>234</ele></trkpt>
+      <trkpt lat="49.12001" lon="6.18112"><ele>234</ele></trkpt>
+      <trkpt lat="49.10981" lon="6.17980"><ele>243</ele></trkpt>
+      <trkpt lat="49.10052" lon="6.17859"><ele>233</ele></trkpt>
+      <trkpt lat="49.09236" lon="6.17754"><ele>233</ele></trkpt>
+      <trkpt lat="49.08556" lon="6.17672"><ele>213</ele></trkpt>
+      <trkpt lat="49.08034" lon="6.17617"><ele>203</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

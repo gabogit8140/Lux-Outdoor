@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>RAVeL L126 (Ciney - Havelange - Marchin - Huy)</name>
+    <desc>Voie verte vallonnée du Condroz serpentant entre châteaux-fermes en pierre calcaire et bocages mosans.</desc>
+    <link href="https://ravel.wallonie.be">
+      <text>RAVeL Wallonie Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>RAVeL L126 (Ciney - Havelange - Marchin - Huy)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="50.25823" lon="5.07080"><ele>553</ele></trkpt>
+      <trkpt lat="50.26277" lon="5.07505"><ele>553</ele></trkpt>
+      <trkpt lat="50.26869" lon="5.08062"><ele>470</ele></trkpt>
+      <trkpt lat="50.27579" lon="5.08731"><ele>470</ele></trkpt>
+      <trkpt lat="50.28389" lon="5.09493"><ele>397</ele></trkpt>
+      <trkpt lat="50.29277" lon="5.10330"><ele>372</ele></trkpt>
+      <trkpt lat="50.30225" lon="5.11222"><ele>372</ele></trkpt>
+      <trkpt lat="50.31212" lon="5.12150"><ele>403</ele></trkpt>
+      <trkpt lat="50.32220" lon="5.13095"><ele>458</ele></trkpt>
+      <trkpt lat="50.33228" lon="5.14039"><ele>458</ele></trkpt>
+      <trkpt lat="50.34217" lon="5.14961"><ele>485</ele></trkpt>
+      <trkpt lat="50.35167" lon="5.15843"><ele>448</ele></trkpt>
+      <trkpt lat="50.36058" lon="5.16666"><ele>448</ele></trkpt>
+      <trkpt lat="50.36871" lon="5.17411"><ele>356</ele></trkpt>
+      <trkpt lat="50.37586" lon="5.18058"><ele>257</ele></trkpt>
+      <trkpt lat="50.37586" lon="5.18058"><ele>257</ele></trkpt>
+      <trkpt lat="50.38245" lon="5.18664"><ele>210</ele></trkpt>
+      <trkpt lat="50.38903" lon="5.19290"><ele>244</ele></trkpt>
+      <trkpt lat="50.39559" lon="5.19929"><ele>244</ele></trkpt>
+      <trkpt lat="50.40212" lon="5.20573"><ele>334</ele></trkpt>
+      <trkpt lat="50.40860" lon="5.21213"><ele>420</ele></trkpt>
+      <trkpt lat="50.41504" lon="5.21842"><ele>420</ele></trkpt>
+      <trkpt lat="50.42141" lon="5.22452"><ele>446</ele></trkpt>
+      <trkpt lat="50.42771" lon="5.23035"><ele>396</ele></trkpt>
+      <trkpt lat="50.43392" lon="5.23582"><ele>396</ele></trkpt>
+      <trkpt lat="50.44005" lon="5.24086"><ele>312</ele></trkpt>
+      <trkpt lat="50.44607" lon="5.24538"><ele>260</ele></trkpt>
+      <trkpt lat="50.45198" lon="5.24932"><ele>260</ele></trkpt>
+      <trkpt lat="50.45777" lon="5.25257"><ele>289</ele></trkpt>
+      <trkpt lat="50.46343" lon="5.25508"><ele>394</ele></trkpt>
+      <trkpt lat="50.46343" lon="5.25508"><ele>394</ele></trkpt>
+      <trkpt lat="50.46932" lon="5.25678"><ele>519</ele></trkpt>
+      <trkpt lat="50.47573" lon="5.25773"><ele>594</ele></trkpt>
+      <trkpt lat="50.48256" lon="5.25804"><ele>594</ele></trkpt>
+      <trkpt lat="50.48966" lon="5.25779"><ele>583</ele></trkpt>
+      <trkpt lat="50.49694" lon="5.25709"><ele>507</ele></trkpt>
+      <trkpt lat="50.50425" lon="5.25603"><ele>507</ele></trkpt>
+      <trkpt lat="50.51148" lon="5.25470"><ele>429</ele></trkpt>
+      <trkpt lat="50.51851" lon="5.25319"><ele>411</ele></trkpt>
+      <trkpt lat="50.52522" lon="5.25162"><ele>411</ele></trkpt>
+      <trkpt lat="50.53149" lon="5.25006"><ele>472</ele></trkpt>
+      <trkpt lat="50.53719" lon="5.24862"><ele>573</ele></trkpt>
+      <trkpt lat="50.54220" lon="5.24738"><ele>573</ele></trkpt>
+      <trkpt lat="50.54641" lon="5.24646"><ele>648</ele></trkpt>
+      <trkpt lat="50.54968" lon="5.24593"><ele>645</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

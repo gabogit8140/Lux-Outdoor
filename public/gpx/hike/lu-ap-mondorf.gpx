@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Mondorf (Parc Thermal &amp; Vallée de la Gander)</name>
+    <desc>Flânerie officielle dans le domaine thermal centenaire et le long de la rivière frontière de la Gander.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Mondorf (Parc Thermal &amp; Vallée de la Gander)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.50251" lon="6.28135"><ele>186</ele></trkpt>
+      <trkpt lat="49.50287" lon="6.28057"><ele>186</ele></trkpt>
+      <trkpt lat="49.50331" lon="6.27948"><ele>186</ele></trkpt>
+      <trkpt lat="49.50384" lon="6.27813"><ele>129</ele></trkpt>
+      <trkpt lat="49.50443" lon="6.27658"><ele>129</ele></trkpt>
+      <trkpt lat="49.50509" lon="6.27489"><ele>66</ele></trkpt>
+      <trkpt lat="49.50580" lon="6.27312"><ele>66</ele></trkpt>
+      <trkpt lat="49.50654" lon="6.27131"><ele>38</ele></trkpt>
+      <trkpt lat="49.50731" lon="6.26953"><ele>38</ele></trkpt>
+      <trkpt lat="49.50810" lon="6.26784"><ele>61</ele></trkpt>
+      <trkpt lat="49.50889" lon="6.26628"><ele>61</ele></trkpt>
+      <trkpt lat="49.50968" lon="6.26492"><ele>111</ele></trkpt>
+      <trkpt lat="49.51045" lon="6.26382"><ele>111</ele></trkpt>
+      <trkpt lat="49.51119" lon="6.26302"><ele>147</ele></trkpt>
+      <trkpt lat="49.51189" lon="6.26259"><ele>147</ele></trkpt>
+      <trkpt lat="49.51189" lon="6.26259"><ele>146</ele></trkpt>
+      <trkpt lat="49.51265" lon="6.26250"><ele>146</ele></trkpt>
+      <trkpt lat="49.51354" lon="6.26263"><ele>121</ele></trkpt>
+      <trkpt lat="49.51453" lon="6.26299"><ele>121</ele></trkpt>
+      <trkpt lat="49.51560" lon="6.26353"><ele>105</ele></trkpt>
+      <trkpt lat="49.51671" lon="6.26425"><ele>105</ele></trkpt>
+      <trkpt lat="49.51783" lon="6.26510"><ele>116</ele></trkpt>
+      <trkpt lat="49.51894" lon="6.26608"><ele>116</ele></trkpt>
+      <trkpt lat="49.51999" lon="6.26716"><ele>141</ele></trkpt>
+      <trkpt lat="49.52097" lon="6.26830"><ele>141</ele></trkpt>
+      <trkpt lat="49.52184" lon="6.26950"><ele>156</ele></trkpt>
+      <trkpt lat="49.52257" lon="6.27072"><ele>156</ele></trkpt>
+      <trkpt lat="49.52313" lon="6.27195"><ele>155</ele></trkpt>
+      <trkpt lat="49.52348" lon="6.27315"><ele>155</ele></trkpt>
+      <trkpt lat="49.52361" lon="6.27431"><ele>158</ele></trkpt>
+      <trkpt lat="49.52361" lon="6.27431"><ele>158</ele></trkpt>
+      <trkpt lat="49.52348" lon="6.27562"><ele>188</ele></trkpt>
+      <trkpt lat="49.52313" lon="6.27722"><ele>188</ele></trkpt>
+      <trkpt lat="49.52257" lon="6.27906"><ele>241</ele></trkpt>
+      <trkpt lat="49.52184" lon="6.28108"><ele>241</ele></trkpt>
+      <trkpt lat="49.52097" lon="6.28322"><ele>282</ele></trkpt>
+      <trkpt lat="49.51999" lon="6.28542"><ele>282</ele></trkpt>
+      <trkpt lat="49.51894" lon="6.28762"><ele>277</ele></trkpt>
+      <trkpt lat="49.51783" lon="6.28975"><ele>277</ele></trkpt>
+      <trkpt lat="49.51671" lon="6.29175"><ele>225</ele></trkpt>
+      <trkpt lat="49.51560" lon="6.29357"><ele>225</ele></trkpt>
+      <trkpt lat="49.51453" lon="6.29514"><ele>161</ele></trkpt>
+      <trkpt lat="49.51354" lon="6.29640"><ele>161</ele></trkpt>
+      <trkpt lat="49.51265" lon="6.29729"><ele>126</ele></trkpt>
+      <trkpt lat="49.51189" lon="6.29776"><ele>126</ele></trkpt>
+      <trkpt lat="49.51189" lon="6.29776"><ele>132</ele></trkpt>
+      <trkpt lat="49.51119" lon="6.29775"><ele>132</ele></trkpt>
+      <trkpt lat="49.51045" lon="6.29731"><ele>155</ele></trkpt>
+      <trkpt lat="49.50968" lon="6.29650"><ele>155</ele></trkpt>
+      <trkpt lat="49.50889" lon="6.29539"><ele>161</ele></trkpt>
+      <trkpt lat="49.50810" lon="6.29404"><ele>161</ele></trkpt>
+      <trkpt lat="49.50731" lon="6.29252"><ele>143</ele></trkpt>
+      <trkpt lat="49.50654" lon="6.29087"><ele>143</ele></trkpt>
+      <trkpt lat="49.50580" lon="6.28917"><ele>119</ele></trkpt>
+      <trkpt lat="49.50509" lon="6.28748"><ele>119</ele></trkpt>
+      <trkpt lat="49.50443" lon="6.28586"><ele>112</ele></trkpt>
+      <trkpt lat="49.50384" lon="6.28438"><ele>112</ele></trkpt>
+      <trkpt lat="49.50331" lon="6.28309"><ele>120</ele></trkpt>
+      <trkpt lat="49.50287" lon="6.28206"><ele>120</ele></trkpt>
+      <trkpt lat="49.50251" lon="6.28135"><ele>120</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

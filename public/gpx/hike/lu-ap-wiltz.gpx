@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Wiltz (Sanctuaire &amp; Sentier des Légendes)</name>
+    <desc>Promenade officielle autour de la cité de la genêt reliant le château comtal au sanctuaire Notre-Dame de Fatima.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Wiltz (Sanctuaire &amp; Sentier des Légendes)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.96519" lon="5.93063"><ele>579</ele></trkpt>
+      <trkpt lat="49.96558" lon="5.92983"><ele>579</ele></trkpt>
+      <trkpt lat="49.96609" lon="5.92865"><ele>579</ele></trkpt>
+      <trkpt lat="49.96670" lon="5.92716"><ele>597</ele></trkpt>
+      <trkpt lat="49.96740" lon="5.92544"><ele>597</ele></trkpt>
+      <trkpt lat="49.96816" lon="5.92357"><ele>569</ele></trkpt>
+      <trkpt lat="49.96897" lon="5.92162"><ele>569</ele></trkpt>
+      <trkpt lat="49.96983" lon="5.91967"><ele>539</ele></trkpt>
+      <trkpt lat="49.97070" lon="5.91781"><ele>539</ele></trkpt>
+      <trkpt lat="49.97157" lon="5.91610"><ele>533</ele></trkpt>
+      <trkpt lat="49.97244" lon="5.91463"><ele>533</ele></trkpt>
+      <trkpt lat="49.97328" lon="5.91346"><ele>527</ele></trkpt>
+      <trkpt lat="49.97408" lon="5.91269"><ele>527</ele></trkpt>
+      <trkpt lat="49.97481" lon="5.91239"><ele>477</ele></trkpt>
+      <trkpt lat="49.97548" lon="5.91263"><ele>477</ele></trkpt>
+      <trkpt lat="49.97548" lon="5.91263"><ele>373</ele></trkpt>
+      <trkpt lat="49.97616" lon="5.91350"><ele>373</ele></trkpt>
+      <trkpt lat="49.97695" lon="5.91499"><ele>261</ele></trkpt>
+      <trkpt lat="49.97781" lon="5.91701"><ele>261</ele></trkpt>
+      <trkpt lat="49.97873" lon="5.91946"><ele>210</ele></trkpt>
+      <trkpt lat="49.97967" lon="5.92224"><ele>210</ele></trkpt>
+      <trkpt lat="49.98060" lon="5.92528"><ele>251</ele></trkpt>
+      <trkpt lat="49.98149" lon="5.92847"><ele>251</ele></trkpt>
+      <trkpt lat="49.98233" lon="5.93172"><ele>346</ele></trkpt>
+      <trkpt lat="49.98308" lon="5.93493"><ele>346</ele></trkpt>
+      <trkpt lat="49.98370" lon="5.93803"><ele>421</ele></trkpt>
+      <trkpt lat="49.98419" lon="5.94091"><ele>421</ele></trkpt>
+      <trkpt lat="49.98449" lon="5.94349"><ele>428</ele></trkpt>
+      <trkpt lat="49.98460" lon="5.94566"><ele>428</ele></trkpt>
+      <trkpt lat="49.98448" lon="5.94734"><ele>384</ele></trkpt>
+      <trkpt lat="49.98448" lon="5.94734"><ele>384</ele></trkpt>
+      <trkpt lat="49.98406" lon="5.94872"><ele>349</ele></trkpt>
+      <trkpt lat="49.98334" lon="5.95004"><ele>349</ele></trkpt>
+      <trkpt lat="49.98236" lon="5.95128"><ele>363</ele></trkpt>
+      <trkpt lat="49.98116" lon="5.95243"><ele>363</ele></trkpt>
+      <trkpt lat="49.97980" lon="5.95349"><ele>415</ele></trkpt>
+      <trkpt lat="49.97832" lon="5.95443"><ele>415</ele></trkpt>
+      <trkpt lat="49.97677" lon="5.95524"><ele>458</ele></trkpt>
+      <trkpt lat="49.97519" lon="5.95592"><ele>458</ele></trkpt>
+      <trkpt lat="49.97363" lon="5.95644"><ele>466</ele></trkpt>
+      <trkpt lat="49.97214" lon="5.95680"><ele>466</ele></trkpt>
+      <trkpt lat="49.97076" lon="5.95699"><ele>461</ele></trkpt>
+      <trkpt lat="49.96954" lon="5.95698"><ele>461</ele></trkpt>
+      <trkpt lat="49.96852" lon="5.95677"><ele>488</ele></trkpt>
+      <trkpt lat="49.96776" lon="5.95634"><ele>488</ele></trkpt>
+      <trkpt lat="49.96776" lon="5.95634"><ele>563</ele></trkpt>
+      <trkpt lat="49.96719" lon="5.95556"><ele>563</ele></trkpt>
+      <trkpt lat="49.96673" lon="5.95433"><ele>645</ele></trkpt>
+      <trkpt lat="49.96635" lon="5.95273"><ele>645</ele></trkpt>
+      <trkpt lat="49.96605" lon="5.95082"><ele>666</ele></trkpt>
+      <trkpt lat="49.96582" lon="5.94869"><ele>666</ele></trkpt>
+      <trkpt lat="49.96566" lon="5.94638"><ele>592</ele></trkpt>
+      <trkpt lat="49.96553" lon="5.94399"><ele>592</ele></trkpt>
+      <trkpt lat="49.96545" lon="5.94158"><ele>461</ele></trkpt>
+      <trkpt lat="49.96540" lon="5.93922"><ele>461</ele></trkpt>
+      <trkpt lat="49.96536" lon="5.93697"><ele>348</ele></trkpt>
+      <trkpt lat="49.96533" lon="5.93492"><ele>348</ele></trkpt>
+      <trkpt lat="49.96530" lon="5.93313"><ele>308</ele></trkpt>
+      <trkpt lat="49.96526" lon="5.93168"><ele>308</ele></trkpt>
+      <trkpt lat="49.96519" lon="5.93063"><ele>331</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

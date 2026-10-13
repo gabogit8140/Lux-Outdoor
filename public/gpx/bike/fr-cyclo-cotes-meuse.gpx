@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Boucle des Côtes de Meuse &amp; Mirabelles (Hattonchâtel - Vigneulles)</name>
+    <desc>Circuit cycliste au pied des vergers de mirabelliers et du village perché médiéval d&apos;Hattonchâtel.</desc>
+    <link href="https://www.tourisme-meuse.com">
+      <text>Tourisme Meuse Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Boucle des Côtes de Meuse &amp; Mirabelles (Hattonchâtel - Vigneulles)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="48.95097" lon="5.68629"><ele>275</ele></trkpt>
+      <trkpt lat="48.95354" lon="5.68334"><ele>275</ele></trkpt>
+      <trkpt lat="48.95683" lon="5.67902"><ele>275</ele></trkpt>
+      <trkpt lat="48.96077" lon="5.67359"><ele>244</ele></trkpt>
+      <trkpt lat="48.96524" lon="5.66733"><ele>244</ele></trkpt>
+      <trkpt lat="48.97015" lon="5.66051"><ele>193</ele></trkpt>
+      <trkpt lat="48.97541" lon="5.65340"><ele>193</ele></trkpt>
+      <trkpt lat="48.98092" lon="5.64627"><ele>143</ele></trkpt>
+      <trkpt lat="48.98659" lon="5.63940"><ele>143</ele></trkpt>
+      <trkpt lat="48.99232" lon="5.63306"><ele>121</ele></trkpt>
+      <trkpt lat="48.99801" lon="5.62752"><ele>121</ele></trkpt>
+      <trkpt lat="49.00356" lon="5.62305"><ele>142</ele></trkpt>
+      <trkpt lat="49.00889" lon="5.61992"><ele>142</ele></trkpt>
+      <trkpt lat="49.01389" lon="5.61841"><ele>199</ele></trkpt>
+      <trkpt lat="49.01847" lon="5.61879"><ele>199</ele></trkpt>
+      <trkpt lat="49.01847" lon="5.61879"><ele>270</ele></trkpt>
+      <trkpt lat="49.02325" lon="5.62124"><ele>270</ele></trkpt>
+      <trkpt lat="49.02878" lon="5.62562"><ele>328</ele></trkpt>
+      <trkpt lat="49.03487" lon="5.63165"><ele>328</ele></trkpt>
+      <trkpt lat="49.04133" lon="5.63905"><ele>350</ele></trkpt>
+      <trkpt lat="49.04799" lon="5.64757"><ele>350</ele></trkpt>
+      <trkpt lat="49.05466" lon="5.65694"><ele>333</ele></trkpt>
+      <trkpt lat="49.06115" lon="5.66688"><ele>333</ele></trkpt>
+      <trkpt lat="49.06728" lon="5.67714"><ele>292</ele></trkpt>
+      <trkpt lat="49.07285" lon="5.68743"><ele>292</ele></trkpt>
+      <trkpt lat="49.07769" lon="5.69750"><ele>250</ele></trkpt>
+      <trkpt lat="49.08161" lon="5.70708"><ele>250</ele></trkpt>
+      <trkpt lat="49.08442" lon="5.71590"><ele>228</ele></trkpt>
+      <trkpt lat="49.08594" lon="5.72368"><ele>228</ele></trkpt>
+      <trkpt lat="49.08598" lon="5.73017"><ele>235</ele></trkpt>
+      <trkpt lat="49.08598" lon="5.73017"><ele>235</ele></trkpt>
+      <trkpt lat="49.08429" lon="5.73621"><ele>257</ele></trkpt>
+      <trkpt lat="49.08088" lon="5.74270"><ele>257</ele></trkpt>
+      <trkpt lat="49.07601" lon="5.74950"><ele>275</ele></trkpt>
+      <trkpt lat="49.06991" lon="5.75644"><ele>275</ele></trkpt>
+      <trkpt lat="49.06282" lon="5.76335"><ele>267</ele></trkpt>
+      <trkpt lat="49.05500" lon="5.77008"><ele>267</ele></trkpt>
+      <trkpt lat="49.04668" lon="5.77645"><ele>227</ele></trkpt>
+      <trkpt lat="49.03810" lon="5.78232"><ele>227</ele></trkpt>
+      <trkpt lat="49.02951" lon="5.78751"><ele>166</ele></trkpt>
+      <trkpt lat="49.02115" lon="5.79187"><ele>166</ele></trkpt>
+      <trkpt lat="49.01326" lon="5.79522"><ele>112</ele></trkpt>
+      <trkpt lat="49.00609" lon="5.79742"><ele>112</ele></trkpt>
+      <trkpt lat="48.99987" lon="5.79829"><ele>90</ele></trkpt>
+      <trkpt lat="48.99485" lon="5.79768"><ele>90</ele></trkpt>
+      <trkpt lat="48.99485" lon="5.79768"><ele>117</ele></trkpt>
+      <trkpt lat="48.99056" lon="5.79507"><ele>117</ele></trkpt>
+      <trkpt lat="48.98639" lon="5.79031"><ele>188</ele></trkpt>
+      <trkpt lat="48.98234" lon="5.78372"><ele>188</ele></trkpt>
+      <trkpt lat="48.97844" lon="5.77564"><ele>279</ele></trkpt>
+      <trkpt lat="48.97471" lon="5.76640"><ele>279</ele></trkpt>
+      <trkpt lat="48.97115" lon="5.75633"><ele>357</ele></trkpt>
+      <trkpt lat="48.96778" lon="5.74578"><ele>357</ele></trkpt>
+      <trkpt lat="48.96462" lon="5.73507"><ele>397</ele></trkpt>
+      <trkpt lat="48.96169" lon="5.72454"><ele>397</ele></trkpt>
+      <trkpt lat="48.95900" lon="5.71453"><ele>388</ele></trkpt>
+      <trkpt lat="48.95657" lon="5.70536"><ele>388</ele></trkpt>
+      <trkpt lat="48.95441" lon="5.69738"><ele>344</ele></trkpt>
+      <trkpt lat="48.95254" lon="5.69091"><ele>344</ele></trkpt>
+      <trkpt lat="48.95097" lon="5.68629"><ele>286</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

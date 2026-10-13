@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>La Voie Bleue Moselle V50 (Apach - Sierck - Thionville)</name>
+    <desc>Véloroute nationale officielle longeant le cours large de la Moselle depuis les trois frontières jusqu&apos;à la cité historique de Thionville.</desc>
+    <link href="https://www.lavoiebleue.com">
+      <text>La Voie Bleue V50 Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>La Voie Bleue Moselle V50 (Apach - Sierck - Thionville)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.50158" lon="6.40747"><ele>182</ele></trkpt>
+      <trkpt lat="49.50022" lon="6.40704"><ele>182</ele></trkpt>
+      <trkpt lat="49.49864" lon="6.40679"><ele>177</ele></trkpt>
+      <trkpt lat="49.49684" lon="6.40665"><ele>177</ele></trkpt>
+      <trkpt lat="49.49483" lon="6.40655"><ele>162</ele></trkpt>
+      <trkpt lat="49.49259" lon="6.40640"><ele>151</ele></trkpt>
+      <trkpt lat="49.49014" lon="6.40613"><ele>151</ele></trkpt>
+      <trkpt lat="49.48747" lon="6.40566"><ele>154</ele></trkpt>
+      <trkpt lat="49.48457" lon="6.40492"><ele>166</ele></trkpt>
+      <trkpt lat="49.48145" lon="6.40382"><ele>166</ele></trkpt>
+      <trkpt lat="49.47810" lon="6.40231"><ele>174</ele></trkpt>
+      <trkpt lat="49.47453" lon="6.40029"><ele>167</ele></trkpt>
+      <trkpt lat="49.47073" lon="6.39769"><ele>167</ele></trkpt>
+      <trkpt lat="49.46670" lon="6.39443"><ele>146</ele></trkpt>
+      <trkpt lat="49.46244" lon="6.39045"><ele>123</ele></trkpt>
+      <trkpt lat="49.46244" lon="6.39045"><ele>123</ele></trkpt>
+      <trkpt lat="49.45756" lon="6.38559"><ele>115</ele></trkpt>
+      <trkpt lat="49.45176" lon="6.37983"><ele>126</ele></trkpt>
+      <trkpt lat="49.44520" lon="6.37325"><ele>126</ele></trkpt>
+      <trkpt lat="49.43803" lon="6.36594"><ele>149</ele></trkpt>
+      <trkpt lat="49.43039" lon="6.35798"><ele>170</ele></trkpt>
+      <trkpt lat="49.42244" lon="6.34945"><ele>170</ele></trkpt>
+      <trkpt lat="49.41432" lon="6.34046"><ele>180</ele></trkpt>
+      <trkpt lat="49.40618" lon="6.33107"><ele>180</ele></trkpt>
+      <trkpt lat="49.39819" lon="6.32137"><ele>180</ele></trkpt>
+      <trkpt lat="49.39047" lon="6.31146"><ele>177</ele></trkpt>
+      <trkpt lat="49.38319" lon="6.30141"><ele>178</ele></trkpt>
+      <trkpt lat="49.37649" lon="6.29131"><ele>178</ele></trkpt>
+      <trkpt lat="49.37052" lon="6.28125"><ele>177</ele></trkpt>
+      <trkpt lat="49.36543" lon="6.27132"><ele>166</ele></trkpt>
+      <trkpt lat="49.36543" lon="6.27132"><ele>166</ele></trkpt>
+      <trkpt lat="49.36090" lon="6.26050"><ele>141</ele></trkpt>
+      <trkpt lat="49.35650" lon="6.24795"><ele>112</ele></trkpt>
+      <trkpt lat="49.35224" lon="6.23402"><ele>112</ele></trkpt>
+      <trkpt lat="49.34815" lon="6.21902"><ele>94</ele></trkpt>
+      <trkpt lat="49.34424" lon="6.20330"><ele>103</ele></trkpt>
+      <trkpt lat="49.34052" lon="6.18719"><ele>103</ele></trkpt>
+      <trkpt lat="49.33700" lon="6.17102"><ele>137</ele></trkpt>
+      <trkpt lat="49.33371" lon="6.15512"><ele>180</ele></trkpt>
+      <trkpt lat="49.33066" lon="6.13982"><ele>180</ele></trkpt>
+      <trkpt lat="49.32786" lon="6.12547"><ele>211</ele></trkpt>
+      <trkpt lat="49.32532" lon="6.11239"><ele>216</ele></trkpt>
+      <trkpt lat="49.32307" lon="6.10092"><ele>216</ele></trkpt>
+      <trkpt lat="49.32112" lon="6.09138"><ele>197</ele></trkpt>
+      <trkpt lat="49.31948" lon="6.08411"><ele>170</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

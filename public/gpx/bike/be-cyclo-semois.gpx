@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Boucle Cyclable de la Semois (Bouillon - Poupehan - Corbion)</name>
+    <desc>Grand circuit cycliste longeant les méandres les plus spectaculaires de la Semois entre châteaux féodaux et séchoirs à tabac traditionnels.</desc>
+    <link href="https://visitwallonia.be">
+      <text>Visit Wallonia Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Boucle Cyclable de la Semois (Bouillon - Poupehan - Corbion)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.77683" lon="5.15220"><ele>324</ele></trkpt>
+      <trkpt lat="49.77889" lon="5.14643"><ele>324</ele></trkpt>
+      <trkpt lat="49.78161" lon="5.13878"><ele>324</ele></trkpt>
+      <trkpt lat="49.78490" lon="5.12955"><ele>316</ele></trkpt>
+      <trkpt lat="49.78865" lon="5.11902"><ele>316</ele></trkpt>
+      <trkpt lat="49.79277" lon="5.10747"><ele>273</ele></trkpt>
+      <trkpt lat="49.79715" lon="5.09518"><ele>273</ele></trkpt>
+      <trkpt lat="49.80169" lon="5.08245"><ele>203</ele></trkpt>
+      <trkpt lat="49.80628" lon="5.06956"><ele>203</ele></trkpt>
+      <trkpt lat="49.81084" lon="5.05678"><ele>124</ele></trkpt>
+      <trkpt lat="49.81526" lon="5.04442"><ele>124</ele></trkpt>
+      <trkpt lat="49.81944" lon="5.03274"><ele>60</ele></trkpt>
+      <trkpt lat="49.82327" lon="5.02204"><ele>60</ele></trkpt>
+      <trkpt lat="49.82666" lon="5.01260"><ele>25</ele></trkpt>
+      <trkpt lat="49.82950" lon="5.00471"><ele>25</ele></trkpt>
+      <trkpt lat="49.82950" lon="5.00471"><ele>25</ele></trkpt>
+      <trkpt lat="49.83222" lon="4.99765"><ele>25</ele></trkpt>
+      <trkpt lat="49.83523" lon="4.99059"><ele>25</ele></trkpt>
+      <trkpt lat="49.83843" lon="4.98360"><ele>25</ele></trkpt>
+      <trkpt lat="49.84171" lon="4.97675"><ele>37</ele></trkpt>
+      <trkpt lat="49.84496" lon="4.97014"><ele>37</ele></trkpt>
+      <trkpt lat="49.84808" lon="4.96382"><ele>75</ele></trkpt>
+      <trkpt lat="49.85097" lon="4.95789"><ele>75</ele></trkpt>
+      <trkpt lat="49.85352" lon="4.95242"><ele>137</ele></trkpt>
+      <trkpt lat="49.85563" lon="4.94749"><ele>137</ele></trkpt>
+      <trkpt lat="49.85719" lon="4.94317"><ele>227</ele></trkpt>
+      <trkpt lat="49.85809" lon="4.93954"><ele>227</ele></trkpt>
+      <trkpt lat="49.85824" lon="4.93668"><ele>333</ele></trkpt>
+      <trkpt lat="49.85752" lon="4.93468"><ele>333</ele></trkpt>
+      <trkpt lat="49.85584" lon="4.93360"><ele>433</ele></trkpt>
+      <trkpt lat="49.85584" lon="4.93360"><ele>433</ele></trkpt>
+      <trkpt lat="49.85273" lon="4.93339"><ele>498</ele></trkpt>
+      <trkpt lat="49.84798" lon="4.93392"><ele>498</ele></trkpt>
+      <trkpt lat="49.84185" lon="4.93517"><ele>511</ele></trkpt>
+      <trkpt lat="49.83463" lon="4.93709"><ele>511</ele></trkpt>
+      <trkpt lat="49.82657" lon="4.93966"><ele>478</ele></trkpt>
+      <trkpt lat="49.81794" lon="4.94284"><ele>478</ele></trkpt>
+      <trkpt lat="49.80903" lon="4.94660"><ele>428</ele></trkpt>
+      <trkpt lat="49.80009" lon="4.95090"><ele>428</ele></trkpt>
+      <trkpt lat="49.79139" lon="4.95571"><ele>400</ele></trkpt>
+      <trkpt lat="49.78321" lon="4.96100"><ele>400</ele></trkpt>
+      <trkpt lat="49.77581" lon="4.96674"><ele>423</ele></trkpt>
+      <trkpt lat="49.76947" lon="4.97288"><ele>423</ele></trkpt>
+      <trkpt lat="49.76445" lon="4.97940"><ele>495</ele></trkpt>
+      <trkpt lat="49.76103" lon="4.98627"><ele>495</ele></trkpt>
+      <trkpt lat="49.76103" lon="4.98627"><ele>578</ele></trkpt>
+      <trkpt lat="49.75903" lon="4.99439"><ele>578</ele></trkpt>
+      <trkpt lat="49.75805" lon="5.00448"><ele>619</ele></trkpt>
+      <trkpt lat="49.75793" lon="5.01618"><ele>619</ele></trkpt>
+      <trkpt lat="49.75856" lon="5.02915"><ele>572</ele></trkpt>
+      <trkpt lat="49.75980" lon="5.04304"><ele>572</ele></trkpt>
+      <trkpt lat="49.76152" lon="5.05751"><ele>429</ele></trkpt>
+      <trkpt lat="49.76360" lon="5.07220"><ele>429</ele></trkpt>
+      <trkpt lat="49.76588" lon="5.08677"><ele>226</ele></trkpt>
+      <trkpt lat="49.76826" lon="5.10087"><ele>226</ele></trkpt>
+      <trkpt lat="49.77059" lon="5.11415"><ele>34</ele></trkpt>
+      <trkpt lat="49.77274" lon="5.12628"><ele>34</ele></trkpt>
+      <trkpt lat="49.77459" lon="5.13689"><ele>25</ele></trkpt>
+      <trkpt lat="49.77599" lon="5.14565"><ele>25</ele></trkpt>
+      <trkpt lat="49.77683" lon="5.15220"><ele>25</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

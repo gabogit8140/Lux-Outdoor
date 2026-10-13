@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Esch-sur-Sûre (Méandre &amp; Ruines)</name>
+    <desc>Le circuit le plus pittoresque des Ardennes enserré dans une boucle presque parfaite de la rivière Sûre dominée par son donjon en ruine.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Esch-sur-Sûre (Méandre &amp; Ruines)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.90643" lon="5.93262"><ele>502</ele></trkpt>
+      <trkpt lat="49.90689" lon="5.93187"><ele>502</ele></trkpt>
+      <trkpt lat="49.90748" lon="5.93076"><ele>502</ele></trkpt>
+      <trkpt lat="49.90818" lon="5.92937"><ele>513</ele></trkpt>
+      <trkpt lat="49.90898" lon="5.92777"><ele>513</ele></trkpt>
+      <trkpt lat="49.90985" lon="5.92602"><ele>517</ele></trkpt>
+      <trkpt lat="49.91079" lon="5.92420"><ele>517</ele></trkpt>
+      <trkpt lat="49.91178" lon="5.92238"><ele>550</ele></trkpt>
+      <trkpt lat="49.91279" lon="5.92063"><ele>550</ele></trkpt>
+      <trkpt lat="49.91381" lon="5.91901"><ele>599</ele></trkpt>
+      <trkpt lat="49.91482" lon="5.91760"><ele>599</ele></trkpt>
+      <trkpt lat="49.91581" lon="5.91646"><ele>599</ele></trkpt>
+      <trkpt lat="49.91676" lon="5.91568"><ele>599</ele></trkpt>
+      <trkpt lat="49.91765" lon="5.91531"><ele>492</ele></trkpt>
+      <trkpt lat="49.91847" lon="5.91543"><ele>492</ele></trkpt>
+      <trkpt lat="49.91847" lon="5.91543"><ele>301</ele></trkpt>
+      <trkpt lat="49.91932" lon="5.91609"><ele>301</ele></trkpt>
+      <trkpt lat="49.92032" lon="5.91726"><ele>132</ele></trkpt>
+      <trkpt lat="49.92141" lon="5.91887"><ele>132</ele></trkpt>
+      <trkpt lat="49.92257" lon="5.92084"><ele>104</ele></trkpt>
+      <trkpt lat="49.92377" lon="5.92310"><ele>104</ele></trkpt>
+      <trkpt lat="49.92497" lon="5.92558"><ele>246</ele></trkpt>
+      <trkpt lat="49.92613" lon="5.92821"><ele>246</ele></trkpt>
+      <trkpt lat="49.92723" lon="5.93091"><ele>463</ele></trkpt>
+      <trkpt lat="49.92823" lon="5.93361"><ele>463</ele></trkpt>
+      <trkpt lat="49.92909" lon="5.93625"><ele>611</ele></trkpt>
+      <trkpt lat="49.92978" lon="5.93874"><ele>611</ele></trkpt>
+      <trkpt lat="49.93027" lon="5.94102"><ele>610</ele></trkpt>
+      <trkpt lat="49.93053" lon="5.94302"><ele>610</ele></trkpt>
+      <trkpt lat="49.93051" lon="5.94466"><ele>506</ele></trkpt>
+      <trkpt lat="49.93051" lon="5.94466"><ele>506</ele></trkpt>
+      <trkpt lat="49.93016" lon="5.94615"><ele>421</ele></trkpt>
+      <trkpt lat="49.92950" lon="5.94772"><ele>421</ele></trkpt>
+      <trkpt lat="49.92856" lon="5.94934"><ele>442</ele></trkpt>
+      <trkpt lat="49.92739" lon="5.95098"><ele>442</ele></trkpt>
+      <trkpt lat="49.92604" lon="5.95259"><ele>542</ele></trkpt>
+      <trkpt lat="49.92455" lon="5.95414"><ele>542</ele></trkpt>
+      <trkpt lat="49.92297" lon="5.95559"><ele>609</ele></trkpt>
+      <trkpt lat="49.92135" lon="5.95691"><ele>609</ele></trkpt>
+      <trkpt lat="49.91973" lon="5.95807"><ele>553</ele></trkpt>
+      <trkpt lat="49.91816" lon="5.95903"><ele>553</ele></trkpt>
+      <trkpt lat="49.91669" lon="5.95975"><ele>385</ele></trkpt>
+      <trkpt lat="49.91536" lon="5.96020"><ele>385</ele></trkpt>
+      <trkpt lat="49.91422" lon="5.96034"><ele>211</ele></trkpt>
+      <trkpt lat="49.91331" lon="5.96014"><ele>211</ele></trkpt>
+      <trkpt lat="49.91331" lon="5.96014"><ele>141</ele></trkpt>
+      <trkpt lat="49.91256" lon="5.95946"><ele>141</ele></trkpt>
+      <trkpt lat="49.91185" lon="5.95826"><ele>206</ele></trkpt>
+      <trkpt lat="49.91118" lon="5.95662"><ele>206</ele></trkpt>
+      <trkpt lat="49.91055" lon="5.95461"><ele>347</ele></trkpt>
+      <trkpt lat="49.90996" lon="5.95233"><ele>347</ele></trkpt>
+      <trkpt lat="49.90941" lon="5.94985"><ele>478</ele></trkpt>
+      <trkpt lat="49.90891" lon="5.94725"><ele>478</ele></trkpt>
+      <trkpt lat="49.90844" lon="5.94462"><ele>552</ele></trkpt>
+      <trkpt lat="49.90801" lon="5.94203"><ele>552</ele></trkpt>
+      <trkpt lat="49.90762" lon="5.93957"><ele>582</ele></trkpt>
+      <trkpt lat="49.90726" lon="5.93731"><ele>582</ele></trkpt>
+      <trkpt lat="49.90695" lon="5.93535"><ele>593</ele></trkpt>
+      <trkpt lat="49.90667" lon="5.93376"><ele>593</ele></trkpt>
+      <trkpt lat="49.90643" lon="5.93262"><ele>586</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

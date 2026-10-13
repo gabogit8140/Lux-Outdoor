@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Escapardenne Lee Trail Étape 3 (Hoscheid - Kautenbach)</name>
+    <desc>Dernière étape du Lee Trail plongeant dans les vallées sauvages de la Wiltz et de la Clerve jusqu&apos;au carrefour ferroviaire de Kautenbach.</desc>
+    <link href="https://escapardenne.eu">
+      <text>Escapardenne (Site Officiel)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Escapardenne Lee Trail Étape 3 (Hoscheid - Kautenbach)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.96235" lon="6.14757"><ele>611</ele></trkpt>
+      <trkpt lat="49.96181" lon="6.14414"><ele>578</ele></trkpt>
+      <trkpt lat="49.96107" lon="6.13979"><ele>568</ele></trkpt>
+      <trkpt lat="49.96016" lon="6.13465"><ele>605</ele></trkpt>
+      <trkpt lat="49.95913" lon="6.12882"><ele>677</ele></trkpt>
+      <trkpt lat="49.95799" lon="6.12240"><ele>740</ele></trkpt>
+      <trkpt lat="49.95679" lon="6.11550"><ele>742</ele></trkpt>
+      <trkpt lat="49.95556" lon="6.10823"><ele>655</ele></trkpt>
+      <trkpt lat="49.95433" lon="6.10069"><ele>498</ele></trkpt>
+      <trkpt lat="49.95313" lon="6.09300"><ele>330</ele></trkpt>
+      <trkpt lat="49.95200" lon="6.08525"><ele>216</ele></trkpt>
+      <trkpt lat="49.95096" lon="6.07756"><ele>193</ele></trkpt>
+      <trkpt lat="49.95006" lon="6.07004"><ele>247</ele></trkpt>
+      <trkpt lat="49.94932" lon="6.06278"><ele>319</ele></trkpt>
+      <trkpt lat="49.94877" lon="6.05590"><ele>342</ele></trkpt>
+      <trkpt lat="49.94877" lon="6.05590"><ele>286</ele></trkpt>
+      <trkpt lat="49.94840" lon="6.04872"><ele>176</ele></trkpt>
+      <trkpt lat="49.94813" lon="6.04063"><ele>80</ele></trkpt>
+      <trkpt lat="49.94796" lon="6.03181"><ele>73</ele></trkpt>
+      <trkpt lat="49.94788" lon="6.02246"><ele>185</ele></trkpt>
+      <trkpt lat="49.94787" lon="6.01275"><ele>383</ele></trkpt>
+      <trkpt lat="49.94792" lon="6.00287"><ele>582</ele></trkpt>
+      <trkpt lat="49.94801" lon="5.99302"><ele>698</ele></trkpt>
+      <trkpt lat="49.94813" lon="5.98338"><ele>693</ele></trkpt>
+      <trkpt lat="49.94827" lon="5.97414"><ele>599</ele></trkpt>
+      <trkpt lat="49.94842" lon="5.96549"><ele>498</ele></trkpt>
+      <trkpt lat="49.94855" lon="5.95760"><ele>475</ele></trkpt>
+      <trkpt lat="49.94866" lon="5.95068"><ele>559</ele></trkpt>
+      <trkpt lat="49.94874" lon="5.94490"><ele>706</ele></trkpt>
+      <trkpt lat="49.94877" lon="5.94046"><ele>823</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

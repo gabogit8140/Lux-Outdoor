@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Vulkanpfad Daun &amp; Lacs de Maare (Vulkaneifel)</name>
+    <desc>Randonnée officielle autour des trois &quot;yeux bleus&quot; de l&apos;Eifel, les lacs de cratère volcaniques éteints de Daun.</desc>
+    <link href="https://www.eifel.info">
+      <text>Eifel Tourismus Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Vulkanpfad Daun &amp; Lacs de Maare (Vulkaneifel)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="50.20448" lon="6.82795"><ele>538</ele></trkpt>
+      <trkpt lat="50.20376" lon="6.82890"><ele>538</ele></trkpt>
+      <trkpt lat="50.20283" lon="6.83012"><ele>538</ele></trkpt>
+      <trkpt lat="50.20172" lon="6.83158"><ele>461</ele></trkpt>
+      <trkpt lat="50.20046" lon="6.83325"><ele>461</ele></trkpt>
+      <trkpt lat="50.19908" lon="6.83507"><ele>310</ele></trkpt>
+      <trkpt lat="50.19759" lon="6.83702"><ele>310</ele></trkpt>
+      <trkpt lat="50.19604" lon="6.83907"><ele>147</ele></trkpt>
+      <trkpt lat="50.19444" lon="6.84116"><ele>147</ele></trkpt>
+      <trkpt lat="50.19283" lon="6.84328"><ele>50</ele></trkpt>
+      <trkpt lat="50.19123" lon="6.84537"><ele>50</ele></trkpt>
+      <trkpt lat="50.18966" lon="6.84741"><ele>73</ele></trkpt>
+      <trkpt lat="50.18816" lon="6.84936"><ele>73</ele></trkpt>
+      <trkpt lat="50.18675" lon="6.85117"><ele>216</ele></trkpt>
+      <trkpt lat="50.18546" lon="6.85282"><ele>216</ele></trkpt>
+      <trkpt lat="50.18546" lon="6.85282"><ele>429</ele></trkpt>
+      <trkpt lat="50.18414" lon="6.85452"><ele>429</ele></trkpt>
+      <trkpt lat="50.18265" lon="6.85647"><ele>631</ele></trkpt>
+      <trkpt lat="50.18103" lon="6.85862"><ele>631</ele></trkpt>
+      <trkpt lat="50.17931" lon="6.86089"><ele>746</ele></trkpt>
+      <trkpt lat="50.17756" lon="6.86322"><ele>746</ele></trkpt>
+      <trkpt lat="50.17579" lon="6.86555"><ele>741</ele></trkpt>
+      <trkpt lat="50.17406" lon="6.86781"><ele>741</ele></trkpt>
+      <trkpt lat="50.17241" lon="6.86993"><ele>639</ele></trkpt>
+      <trkpt lat="50.17088" lon="6.87186"><ele>639</ele></trkpt>
+      <trkpt lat="50.16951" lon="6.87352"><ele>503</ele></trkpt>
+      <trkpt lat="50.16834" lon="6.87485"><ele>503</ele></trkpt>
+      <trkpt lat="50.16741" lon="6.87579"><ele>405</ele></trkpt>
+      <trkpt lat="50.16677" lon="6.87627"><ele>405</ele></trkpt>
+      <trkpt lat="50.16645" lon="6.87622"><ele>391</ele></trkpt>
+      <trkpt lat="50.16645" lon="6.87622"><ele>391</ele></trkpt>
+      <trkpt lat="50.16646" lon="6.87555"><ele>454</ele></trkpt>
+      <trkpt lat="50.16675" lon="6.87425"><ele>454</ele></trkpt>
+      <trkpt lat="50.16730" lon="6.87242"><ele>544</ele></trkpt>
+      <trkpt lat="50.16806" lon="6.87014"><ele>544</ele></trkpt>
+      <trkpt lat="50.16902" lon="6.86751"><ele>593</ele></trkpt>
+      <trkpt lat="50.17013" lon="6.86461"><ele>593</ele></trkpt>
+      <trkpt lat="50.17138" lon="6.86154"><ele>550</ele></trkpt>
+      <trkpt lat="50.17272" lon="6.85837"><ele>550</ele></trkpt>
+      <trkpt lat="50.17412" lon="6.85521"><ele>412</ele></trkpt>
+      <trkpt lat="50.17557" lon="6.85214"><ele>412</ele></trkpt>
+      <trkpt lat="50.17701" lon="6.84926"><ele>228</ele></trkpt>
+      <trkpt lat="50.17843" lon="6.84664"><ele>228</ele></trkpt>
+      <trkpt lat="50.17980" lon="6.84438"><ele>75</ele></trkpt>
+      <trkpt lat="50.18108" lon="6.84258"><ele>75</ele></trkpt>
+      <trkpt lat="50.18108" lon="6.84258"><ele>25</ele></trkpt>
+      <trkpt lat="50.18242" lon="6.84106"><ele>25</ele></trkpt>
+      <trkpt lat="50.18398" lon="6.83960"><ele>104</ele></trkpt>
+      <trkpt lat="50.18572" lon="6.83821"><ele>104</ele></trkpt>
+      <trkpt lat="50.18760" lon="6.83690"><ele>286</ele></trkpt>
+      <trkpt lat="50.18956" lon="6.83565"><ele>286</ele></trkpt>
+      <trkpt lat="50.19158" lon="6.83447"><ele>499</ele></trkpt>
+      <trkpt lat="50.19360" lon="6.83337"><ele>499</ele></trkpt>
+      <trkpt lat="50.19559" lon="6.83235"><ele>661</ele></trkpt>
+      <trkpt lat="50.19750" lon="6.83141"><ele>661</ele></trkpt>
+      <trkpt lat="50.19930" lon="6.83054"><ele>716</ele></trkpt>
+      <trkpt lat="50.20094" lon="6.82977"><ele>716</ele></trkpt>
+      <trkpt lat="50.20238" lon="6.82907"><ele>662</ele></trkpt>
+      <trkpt lat="50.20357" lon="6.82847"><ele>662</ele></trkpt>
+      <trkpt lat="50.20448" lon="6.82795"><ele>546</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

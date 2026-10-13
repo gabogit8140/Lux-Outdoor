@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Moselsteig Étape Trier - Schweich (Falaises rouges de la Moselle)</name>
+    <desc>Étape panoramique sur les crêtes de grès bigarré dominant la boucle de la Moselle et la vallée de Trèves.</desc>
+    <link href="https://www.visitmosel.de">
+      <text>Moselsteig Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Moselsteig Étape Trier - Schweich (Falaises rouges de la Moselle)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.73342" lon="6.59844"><ele>429</ele></trkpt>
+      <trkpt lat="49.73498" lon="6.60125"><ele>429</ele></trkpt>
+      <trkpt lat="49.73700" lon="6.60488"><ele>366</ele></trkpt>
+      <trkpt lat="49.73942" lon="6.60922"><ele>366</ele></trkpt>
+      <trkpt lat="49.74216" lon="6.61415"><ele>189</ele></trkpt>
+      <trkpt lat="49.74517" lon="6.61957"><ele>25</ele></trkpt>
+      <trkpt lat="49.74840" lon="6.62537"><ele>25</ele></trkpt>
+      <trkpt lat="49.75177" lon="6.63144"><ele>25</ele></trkpt>
+      <trkpt lat="49.75524" lon="6.63766"><ele>25</ele></trkpt>
+      <trkpt lat="49.75873" lon="6.64393"><ele>25</ele></trkpt>
+      <trkpt lat="49.76220" lon="6.65014"><ele>25</ele></trkpt>
+      <trkpt lat="49.76557" lon="6.65618"><ele>25</ele></trkpt>
+      <trkpt lat="49.76880" lon="6.66193"><ele>25</ele></trkpt>
+      <trkpt lat="49.77182" lon="6.66729"><ele>38</ele></trkpt>
+      <trkpt lat="49.77456" lon="6.67215"><ele>84</ele></trkpt>
+      <trkpt lat="49.77456" lon="6.67215"><ele>84</ele></trkpt>
+      <trkpt lat="49.77722" lon="6.67684"><ele>146</ele></trkpt>
+      <trkpt lat="49.78001" lon="6.68173"><ele>235</ele></trkpt>
+      <trkpt lat="49.78290" lon="6.68677"><ele>235</ele></trkpt>
+      <trkpt lat="49.78586" lon="6.69193"><ele>318</ele></trkpt>
+      <trkpt lat="49.78888" lon="6.69717"><ele>349</ele></trkpt>
+      <trkpt lat="49.79191" lon="6.70244"><ele>349</ele></trkpt>
+      <trkpt lat="49.79495" lon="6.70769"><ele>311</ele></trkpt>
+      <trkpt lat="49.79796" lon="6.71290"><ele>240</ele></trkpt>
+      <trkpt lat="49.80091" lon="6.71801"><ele>240</ele></trkpt>
+      <trkpt lat="49.80379" lon="6.72299"><ele>204</ele></trkpt>
+      <trkpt lat="49.80656" lon="6.72780"><ele>244</ele></trkpt>
+      <trkpt lat="49.80920" lon="6.73238"><ele>244</ele></trkpt>
+      <trkpt lat="49.81169" lon="6.73670"><ele>334</ele></trkpt>
+      <trkpt lat="49.81399" lon="6.74073"><ele>390</ele></trkpt>
+      <trkpt lat="49.81399" lon="6.74073"><ele>390</ele></trkpt>
+      <trkpt lat="49.81625" lon="6.74469"><ele>330</ele></trkpt>
+      <trkpt lat="49.81861" lon="6.74884"><ele>142</ele></trkpt>
+      <trkpt lat="49.82104" lon="6.75311"><ele>142</ele></trkpt>
+      <trkpt lat="49.82350" lon="6.75745"><ele>25</ele></trkpt>
+      <trkpt lat="49.82597" lon="6.76179"><ele>25</ele></trkpt>
+      <trkpt lat="49.82840" lon="6.76610"><ele>25</ele></trkpt>
+      <trkpt lat="49.83078" lon="6.77030"><ele>25</ele></trkpt>
+      <trkpt lat="49.83307" lon="6.77434"><ele>25</ele></trkpt>
+      <trkpt lat="49.83523" lon="6.77817"><ele>25</ele></trkpt>
+      <trkpt lat="49.83724" lon="6.78174"><ele>99</ele></trkpt>
+      <trkpt lat="49.83907" lon="6.78497"><ele>236</ele></trkpt>
+      <trkpt lat="49.84068" lon="6.78782"><ele>236</ele></trkpt>
+      <trkpt lat="49.84205" lon="6.79024"><ele>256</ele></trkpt>
+      <trkpt lat="49.84313" lon="6.79216"><ele>196</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

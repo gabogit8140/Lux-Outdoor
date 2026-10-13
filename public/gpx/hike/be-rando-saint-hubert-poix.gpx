@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Boucle de la Forêt de Saint-Hubert &amp; Val de Poix</name>
+    <desc>Grande randonnée au cœur de la capitale européenne de la chasse et de la nature, entre futaies denses et cours d&apos;eau cristallins.</desc>
+    <link href="https://visitwallonia.be">
+      <text>Visit Wallonia Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Boucle de la Forêt de Saint-Hubert &amp; Val de Poix</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="50.02222" lon="5.38412"><ele>538</ele></trkpt>
+      <trkpt lat="50.02149" lon="5.38259"><ele>538</ele></trkpt>
+      <trkpt lat="50.02040" lon="5.38059"><ele>538</ele></trkpt>
+      <trkpt lat="50.01903" lon="5.37818"><ele>619</ele></trkpt>
+      <trkpt lat="50.01745" lon="5.37543"><ele>619</ele></trkpt>
+      <trkpt lat="50.01573" lon="5.37242"><ele>646</ele></trkpt>
+      <trkpt lat="50.01393" lon="5.36920"><ele>646</ele></trkpt>
+      <trkpt lat="50.01215" lon="5.36586"><ele>651</ele></trkpt>
+      <trkpt lat="50.01043" lon="5.36246"><ele>651</ele></trkpt>
+      <trkpt lat="50.00887" lon="5.35907"><ele>664</ele></trkpt>
+      <trkpt lat="50.00752" lon="5.35575"><ele>664</ele></trkpt>
+      <trkpt lat="50.00647" lon="5.35258"><ele>677</ele></trkpt>
+      <trkpt lat="50.00578" lon="5.34963"><ele>677</ele></trkpt>
+      <trkpt lat="50.00552" lon="5.34696"><ele>650</ele></trkpt>
+      <trkpt lat="50.00577" lon="5.34464"><ele>650</ele></trkpt>
+      <trkpt lat="50.00577" lon="5.34464"><ele>550</ele></trkpt>
+      <trkpt lat="50.00661" lon="5.34239"><ele>550</ele></trkpt>
+      <trkpt lat="50.00802" lon="5.33990"><ele>392</ele></trkpt>
+      <trkpt lat="50.00991" lon="5.33725"><ele>392</ele></trkpt>
+      <trkpt lat="50.01221" lon="5.33451"><ele>241</ele></trkpt>
+      <trkpt lat="50.01482" lon="5.33175"><ele>241</ele></trkpt>
+      <trkpt lat="50.01766" lon="5.32906"><ele>173</ele></trkpt>
+      <trkpt lat="50.02065" lon="5.32649"><ele>173</ele></trkpt>
+      <trkpt lat="50.02370" lon="5.32413"><ele>217</ele></trkpt>
+      <trkpt lat="50.02674" lon="5.32204"><ele>217</ele></trkpt>
+      <trkpt lat="50.02967" lon="5.32031"><ele>334</ele></trkpt>
+      <trkpt lat="50.03241" lon="5.31900"><ele>334</ele></trkpt>
+      <trkpt lat="50.03488" lon="5.31818"><ele>434</ele></trkpt>
+      <trkpt lat="50.03699" lon="5.31793"><ele>434</ele></trkpt>
+      <trkpt lat="50.03867" lon="5.31833"><ele>442</ele></trkpt>
+      <trkpt lat="50.03867" lon="5.31833"><ele>442</ele></trkpt>
+      <trkpt lat="50.04010" lon="5.31955"><ele>349</ele></trkpt>
+      <trkpt lat="50.04153" lon="5.32163"><ele>349</ele></trkpt>
+      <trkpt lat="50.04294" lon="5.32446"><ele>223</ele></trkpt>
+      <trkpt lat="50.04430" lon="5.32789"><ele>223</ele></trkpt>
+      <trkpt lat="50.04558" lon="5.33182"><ele>157</ele></trkpt>
+      <trkpt lat="50.04677" lon="5.33609"><ele>157</ele></trkpt>
+      <trkpt lat="50.04785" lon="5.34059"><ele>207</ele></trkpt>
+      <trkpt lat="50.04878" lon="5.34520"><ele>207</ele></trkpt>
+      <trkpt lat="50.04956" lon="5.34977"><ele>357</ele></trkpt>
+      <trkpt lat="50.05014" lon="5.35418"><ele>357</ele></trkpt>
+      <trkpt lat="50.05052" lon="5.35830"><ele>533</ele></trkpt>
+      <trkpt lat="50.05067" lon="5.36201"><ele>533</ele></trkpt>
+      <trkpt lat="50.05056" lon="5.36518"><ele>657</ele></trkpt>
+      <trkpt lat="50.05018" lon="5.36767"><ele>657</ele></trkpt>
+      <trkpt lat="50.05018" lon="5.36767"><ele>696</ele></trkpt>
+      <trkpt lat="50.04938" lon="5.36970"><ele>696</ele></trkpt>
+      <trkpt lat="50.04808" lon="5.37156"><ele>677</ele></trkpt>
+      <trkpt lat="50.04635" lon="5.37326"><ele>677</ele></trkpt>
+      <trkpt lat="50.04429" lon="5.37482"><ele>645</ele></trkpt>
+      <trkpt lat="50.04197" lon="5.37623"><ele>645</ele></trkpt>
+      <trkpt lat="50.03946" lon="5.37751"><ele>627</ele></trkpt>
+      <trkpt lat="50.03685" lon="5.37867"><ele>627</ele></trkpt>
+      <trkpt lat="50.03421" lon="5.37972"><ele>605</ele></trkpt>
+      <trkpt lat="50.03162" lon="5.38066"><ele>605</ele></trkpt>
+      <trkpt lat="50.02917" lon="5.38151"><ele>544</ele></trkpt>
+      <trkpt lat="50.02692" lon="5.38227"><ele>544</ele></trkpt>
+      <trkpt lat="50.02496" lon="5.38295"><ele>433</ele></trkpt>
+      <trkpt lat="50.02337" lon="5.38356"><ele>433</ele></trkpt>
+      <trkpt lat="50.02222" lon="5.38412"><ele>304</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

@@ -1,0 +1,1432 @@
+{
+  "generatedAt": "2026-10-11T11:06:45.014Z",
+  "totalTracks": 178,
+  "bikeTracks": 105,
+  "hikeTracks": 73,
+  "tracks": [
+    {
+      "id": "be-cyclo-ravel-l126",
+      "name": "RAVeL L126 (Ciney - Havelange - Marchin - Huy)",
+      "file": "bike/be-cyclo-ravel-l126.gpx",
+      "activity": "bike",
+      "country": "BE",
+      "distanceKm": 36
+    },
+    {
+      "id": "be-cyclo-semois",
+      "name": "Boucle Cyclable de la Semois (Bouillon - Poupehan - Corbion)",
+      "file": "bike/be-cyclo-semois.gpx",
+      "activity": "bike",
+      "country": "BE",
+      "distanceKm": 42
+    },
+    {
+      "id": "be-cyclo-vtt-houffalize",
+      "name": "Circuit VTT Houffalize Coupe du Monde (Deux Ourthes)",
+      "file": "bike/be-cyclo-vtt-houffalize.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 34
+    },
+    {
+      "id": "be-ravel-l150",
+      "name": "RAVeL L150 (Houyet - Rochefort - Ciney)",
+      "file": "bike/be-ravel-l150.gpx",
+      "activity": "bike",
+      "country": "BE",
+      "distanceKm": 38
+    },
+    {
+      "id": "be-ravel-l163",
+      "name": "RAVeL L163 (Bastogne - Gouvy)",
+      "file": "bike/be-ravel-l163.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 31
+    },
+    {
+      "id": "be-ravel-l45",
+      "name": "RAVeL L45 (Trois-Ponts - Stavelot - Malmedy)",
+      "file": "bike/be-ravel-l45.gpx",
+      "activity": "bike",
+      "country": "BE",
+      "distanceKm": 19.5
+    },
+    {
+      "id": "be-ravel-vennbahn",
+      "name": "RAVeL L47 Vennbahn (Troisvierges - Saint-Vith - Waimes)",
+      "file": "bike/be-ravel-vennbahn.gpx",
+      "activity": "bike",
+      "country": "BE",
+      "distanceKm": 58
+    },
+    {
+      "id": "de-kylltalradweg",
+      "name": "Kylltalradweg (Gerolstein - Kyllburg - Bitburg - Trier)",
+      "file": "bike/de-kylltalradweg.gpx",
+      "activity": "bike",
+      "country": "DE",
+      "distanceKm": 65
+    },
+    {
+      "id": "de-maare-mosel-radweg",
+      "name": "Maare-Mosel-Radweg (Daun - Wittlich - Bernkastel-Kues)",
+      "file": "bike/de-maare-mosel-radweg.gpx",
+      "activity": "bike",
+      "country": "DE",
+      "distanceKm": 58.5
+    },
+    {
+      "id": "de-mosel-radweg-bernkastel",
+      "name": "Mosel-Radweg (Trier - Schweich - Neumagen - Bernkastel)",
+      "file": "bike/de-mosel-radweg-bernkastel.gpx",
+      "activity": "bike",
+      "country": "DE",
+      "distanceKm": 52
+    },
+    {
+      "id": "de-mosel-radweg-trier",
+      "name": "Mosel-Radweg (Perl - Nittel - Konz - Trier)",
+      "file": "bike/de-mosel-radweg-trier.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 42
+    },
+    {
+      "id": "de-ruwer-hochwald-radweg",
+      "name": "Ruwer-Hochwald-Radweg (Trier-Ruwer - Hermeskeil)",
+      "file": "bike/de-ruwer-hochwald-radweg.gpx",
+      "activity": "bike",
+      "country": "DE",
+      "distanceKm": 48
+    },
+    {
+      "id": "de-saar-radweg-sud",
+      "name": "Saar-Radweg (Merzig - Saarlouis - Völklingen)",
+      "file": "bike/de-saar-radweg-sud.gpx",
+      "activity": "bike",
+      "country": "DE",
+      "distanceKm": 38
+    },
+    {
+      "id": "de-saar-radweg",
+      "name": "Saar-Radweg (Konz - Saarburg - Mettlach - Merzig)",
+      "file": "bike/de-saar-radweg.gpx",
+      "activity": "bike",
+      "country": "DE",
+      "distanceKm": 46
+    },
+    {
+      "id": "fr-cyclo-cotes-meuse",
+      "name": "Boucle des Côtes de Meuse & Mirabelles (Hattonchâtel - Vigneulles)",
+      "file": "bike/fr-cyclo-cotes-meuse.gpx",
+      "activity": "bike",
+      "country": "FR",
+      "distanceKm": 42
+    },
+    {
+      "id": "fr-cyclo-foret-haye",
+      "name": "Circuit VTT Forêt de Haye & Boucle des Forts (Nancy)",
+      "file": "bike/fr-cyclo-foret-haye.gpx",
+      "activity": "bike",
+      "country": "FR",
+      "distanceKm": 28
+    },
+    {
+      "id": "fr-cyclo-lac-madine",
+      "name": "Boucle Cyclable du Lac de Madine (PNR de Lorraine)",
+      "file": "bike/fr-cyclo-lac-madine.gpx",
+      "activity": "bike",
+      "country": "FR",
+      "distanceKm": 21
+    },
+    {
+      "id": "fr-cyclo-vallee-canner",
+      "name": "Voie Verte de la Vallée de la Canner (Vigy - Aboncourt)",
+      "file": "bike/fr-cyclo-vallee-canner.gpx",
+      "activity": "bike",
+      "country": "FR",
+      "distanceKm": 24
+    },
+    {
+      "id": "fr-voie-bleue-v50-metz",
+      "name": "La Voie Bleue Moselle V50 (Thionville - Uckange - Metz)",
+      "file": "bike/fr-voie-bleue-v50-metz.gpx",
+      "activity": "bike",
+      "country": "FR",
+      "distanceKm": 34.5
+    },
+    {
+      "id": "fr-voie-bleue-v50-nord",
+      "name": "La Voie Bleue Moselle V50 (Apach - Sierck - Thionville)",
+      "file": "bike/fr-voie-bleue-v50-nord.gpx",
+      "activity": "bike",
+      "country": "FR",
+      "distanceKm": 33
+    },
+    {
+      "id": "fr-voie-bleue-v50-sud",
+      "name": "La Voie Bleue Moselle V50 (Metz - Pont-à-Mousson - Nancy)",
+      "file": "bike/fr-voie-bleue-v50-sud.gpx",
+      "activity": "bike",
+      "country": "FR",
+      "distanceKm": 58
+    },
+    {
+      "id": "lu-pc-pc0-liaison-urbaine-luxembourg-troncon-01",
+      "name": "PC0 Liaison Urbaine Luxembourg (Tronçon 01)",
+      "file": "bike/lu-pc-pc0-liaison-urbaine-luxembourg-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.8
+    },
+    {
+      "id": "lu-pc-pc0-liaison-urbaine-luxembourg",
+      "name": "PC0 Liaison Urbaine Luxembourg",
+      "file": "bike/lu-pc-pc0-liaison-urbaine-luxembourg.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 4
+    },
+    {
+      "id": "lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-01",
+      "name": "PC1 Piste cyclable du Centre (Luxembourg - Hesperange - Kockelscheuer) (Tronçon 01)",
+      "file": "bike/lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.6
+    },
+    {
+      "id": "lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-02",
+      "name": "PC1 Piste cyclable du Centre (Luxembourg - Hesperange - Kockelscheuer) (Tronçon 02)",
+      "file": "bike/lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-02.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.1
+    },
+    {
+      "id": "lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-03",
+      "name": "PC1 Piste cyclable du Centre (Luxembourg - Hesperange - Kockelscheuer) (Tronçon 03)",
+      "file": "bike/lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-03.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 6.1
+    },
+    {
+      "id": "lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-04",
+      "name": "PC1 Piste cyclable du Centre (Luxembourg - Hesperange - Kockelscheuer) (Tronçon 04)",
+      "file": "bike/lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-04.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 1
+    },
+    {
+      "id": "lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-05",
+      "name": "PC1 Piste cyclable du Centre (Luxembourg - Hesperange - Kockelscheuer) (Tronçon 05)",
+      "file": "bike/lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-05.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.7
+    },
+    {
+      "id": "lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer",
+      "name": "PC1 Piste cyclable du Centre (Luxembourg - Hesperange - Kockelscheuer)",
+      "file": "bike/lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 1.5
+    },
+    {
+      "id": "lu-pc-pc10-piste-cyclable-francois-faber-leudelange-schifflange",
+      "name": "PC10 Piste cyclable François Faber (Leudelange - Schifflange)",
+      "file": "bike/lu-pc-pc10-piste-cyclable-francois-faber-leudelange-schifflange.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 2
+    },
+    {
+      "id": "lu-pc-pc11-piste-cyclable-charly-gaul-fentange-huncherange",
+      "name": "PC11 Piste cyclable Charly Gaul (Fentange - Huncherange)",
+      "file": "bike/lu-pc-pc11-piste-cyclable-charly-gaul-fentange-huncherange.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 18.4
+    },
+    {
+      "id": "lu-pc-pc12-piste-cyclable-de-l-attert-petange-steinfort-colmar-berg",
+      "name": "PC12 Piste cyclable de l’Attert (Pétange - Steinfort - Colmar-Berg)",
+      "file": "bike/lu-pc-pc12-piste-cyclable-de-l-attert-petange-steinfort-colmar-berg.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 2.5
+    },
+    {
+      "id": "lu-pc-pc13-piste-cyclable-nicolas-frantz-strassen-mamer-kahler",
+      "name": "PC13 Piste cyclable Nicolas Frantz (Strassen - Mamer - Kahler)",
+      "file": "bike/lu-pc-pc13-piste-cyclable-nicolas-frantz-strassen-mamer-kahler.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.5
+    },
+    {
+      "id": "lu-pc-pc14-piste-cyclable-de-l-eisch-mamer-koerich-steinfort-troncon-01",
+      "name": "PC14 Piste cyclable de l’Eisch (Mamer - Koerich - Steinfort) (Tronçon 01)",
+      "file": "bike/lu-pc-pc14-piste-cyclable-de-l-eisch-mamer-koerich-steinfort-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 1.3
+    },
+    {
+      "id": "lu-pc-pc14-piste-cyclable-de-l-eisch-mamer-koerich-steinfort-troncon-2",
+      "name": "PC14 Piste cyclable de l’Eisch (Mamer - Koerich - Steinfort) (Tronçon 2)",
+      "file": "bike/lu-pc-pc14-piste-cyclable-de-l-eisch-mamer-koerich-steinfort-troncon-2.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 3.1
+    },
+    {
+      "id": "lu-pc-pc14-piste-cyclable-de-l-eisch-mamer-koerich-steinfort",
+      "name": "PC14 Piste cyclable de l’Eisch (Mamer - Koerich - Steinfort)",
+      "file": "bike/lu-pc-pc14-piste-cyclable-de-l-eisch-mamer-koerich-steinfort.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.5
+    },
+    {
+      "id": "lu-pc-pc15-piste-cyclable-de-l-our-vianden-stolzembourg-dasburg-troncon-01",
+      "name": "PC15 Piste cyclable de l’Our (Vianden - Stolzembourg - Dasburg) (Tronçon 01)",
+      "file": "bike/lu-pc-pc15-piste-cyclable-de-l-our-vianden-stolzembourg-dasburg-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.7
+    },
+    {
+      "id": "lu-pc-pc15-piste-cyclable-de-l-our-vianden-stolzembourg-dasburg-troncon-02",
+      "name": "PC15 Piste cyclable de l’Our (Vianden - Stolzembourg - Dasburg) (Tronçon 02)",
+      "file": "bike/lu-pc-pc15-piste-cyclable-de-l-our-vianden-stolzembourg-dasburg-troncon-02.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.3
+    },
+    {
+      "id": "lu-pc-pc15-piste-cyclable-de-l-our-vianden-stolzembourg-dasburg",
+      "name": "PC15 Piste cyclable de l’Our (Vianden - Stolzembourg - Dasburg)",
+      "file": "bike/lu-pc-pc15-piste-cyclable-de-l-our-vianden-stolzembourg-dasburg.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.4
+    },
+    {
+      "id": "lu-pc-pc16-piste-cyclable-de-la-moyenne-sure-reisdorf-diekirch-ettelbruck-troncon-02",
+      "name": "PC16 Piste cyclable de la Moyenne Sûre (Reisdorf - Diekirch - Ettelbruck) (Tronçon 02)",
+      "file": "bike/lu-pc-pc16-piste-cyclable-de-la-moyenne-sure-reisdorf-diekirch-ettelbruck-troncon-02.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 6.7
+    },
+    {
+      "id": "lu-pc-pc17-piste-cyclable-de-l-ouest-noerdange-arsdorf-martelange-troncon-01",
+      "name": "PC17 Piste cyclable de l’Ouest (Noerdange - Arsdorf - Martelange) (Tronçon 01)",
+      "file": "bike/lu-pc-pc17-piste-cyclable-de-l-ouest-noerdange-arsdorf-martelange-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.2
+    },
+    {
+      "id": "lu-pc-pc17-piste-cyclable-de-l-ouest-noerdange-arsdorf-martelange-troncon-02",
+      "name": "PC17 Piste cyclable de l’Ouest (Noerdange - Arsdorf - Martelange) (Tronçon 02)",
+      "file": "bike/lu-pc-pc17-piste-cyclable-de-l-ouest-noerdange-arsdorf-martelange-troncon-02.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 3.3
+    },
+    {
+      "id": "lu-pc-pc17-piste-cyclable-de-l-ouest-noerdange-arsdorf-martelange-troncon-03",
+      "name": "PC17 Piste cyclable de l’Ouest (Noerdange - Arsdorf - Martelange) (Tronçon 03)",
+      "file": "bike/lu-pc-pc17-piste-cyclable-de-l-ouest-noerdange-arsdorf-martelange-troncon-03.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 6.8
+    },
+    {
+      "id": "lu-pc-pc18-piste-cyclable-des-ardoisieres-koetschette-martelange",
+      "name": "PC18 Piste cyclable des Ardoisières (Koetschette - Martelange)",
+      "file": "bike/lu-pc-pc18-piste-cyclable-des-ardoisieres-koetschette-martelange.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 1.1
+    },
+    {
+      "id": "lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach-troncon-01",
+      "name": "PC2 Piste cyclable d’Echternach (Luxembourg - Junglinster - Echternach) (Tronçon 01)",
+      "file": "bike/lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.3
+    },
+    {
+      "id": "lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach-troncon-02",
+      "name": "PC2 Piste cyclable d’Echternach (Luxembourg - Junglinster - Echternach) (Tronçon 02)",
+      "file": "bike/lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach-troncon-02.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 3
+    },
+    {
+      "id": "lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach-troncon-03",
+      "name": "PC2 Piste cyclable d’Echternach (Luxembourg - Junglinster - Echternach) (Tronçon 03)",
+      "file": "bike/lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach-troncon-03.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.1
+    },
+    {
+      "id": "lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach",
+      "name": "PC2 Piste cyclable d’Echternach (Luxembourg - Junglinster - Echternach)",
+      "file": "bike/lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 1.4
+    },
+    {
+      "id": "lu-pc-pc20-piste-cyclable-de-la-wiltz-wiltz-kautenbach-bastogne-troncon-01",
+      "name": "PC20 Piste cyclable de la Wiltz (Wiltz - Kautenbach - Bastogne) (Tronçon 01)",
+      "file": "bike/lu-pc-pc20-piste-cyclable-de-la-wiltz-wiltz-kautenbach-bastogne-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 5.9
+    },
+    {
+      "id": "lu-pc-pc20-piste-cyclable-de-la-wiltz-wiltz-kautenbach-bastogne",
+      "name": "PC20 Piste cyclable de la Wiltz (Wiltz - Kautenbach - Bastogne)",
+      "file": "bike/lu-pc-pc20-piste-cyclable-de-la-wiltz-wiltz-kautenbach-bastogne.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.1
+    },
+    {
+      "id": "lu-pc-pc21-piste-cyclable-du-nord-kautenbach-clervaux-troisvierges-troncon-01",
+      "name": "PC21 Piste cyclable du Nord (Kautenbach - Clervaux - Troisvierges) (Tronçon 01)",
+      "file": "bike/lu-pc-pc21-piste-cyclable-du-nord-kautenbach-clervaux-troisvierges-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.5
+    },
+    {
+      "id": "lu-pc-pc21-piste-cyclable-du-nord-kautenbach-clervaux-troisvierges-troncon-02",
+      "name": "PC21 Piste cyclable du Nord (Kautenbach - Clervaux - Troisvierges) (Tronçon 02)",
+      "file": "bike/lu-pc-pc21-piste-cyclable-du-nord-kautenbach-clervaux-troisvierges-troncon-02.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 8.4
+    },
+    {
+      "id": "lu-pc-pc21-piste-cyclable-du-nord-kautenbach-clervaux-troisvierges",
+      "name": "PC21 Piste cyclable du Nord (Kautenbach - Clervaux - Troisvierges)",
+      "file": "bike/lu-pc-pc21-piste-cyclable-du-nord-kautenbach-clervaux-troisvierges.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 5.7
+    },
+    {
+      "id": "lu-pc-pc22-piste-cyclable-de-l-ardenne-troisvierges-huldange-gouvy",
+      "name": "PC22 Piste cyclable de l’Ardenne (Troisvierges - Huldange - Gouvy)",
+      "file": "bike/lu-pc-pc22-piste-cyclable-de-l-ardenne-troisvierges-huldange-gouvy.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 1.5
+    },
+    {
+      "id": "lu-pc-pc3-piste-cyclable-des-trois-cantons-schengen-mondorf-petange",
+      "name": "PC3 Piste cyclable des Trois Cantons (Schengen - Mondorf - Pétange)",
+      "file": "bike/lu-pc-pc3-piste-cyclable-des-trois-cantons-schengen-mondorf-petange.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.5
+    },
+    {
+      "id": "lu-pc-pc4-piste-cyclable-de-la-syre-ernster-mertert-wasserbillig",
+      "name": "PC4 Piste cyclable de la Syre (Ernster - Mertert - Wasserbillig)",
+      "file": "bike/lu-pc-pc4-piste-cyclable-de-la-syre-ernster-mertert-wasserbillig.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 2.6
+    },
+    {
+      "id": "lu-pc-pc5-piste-cyclable-de-l-alzette-luxembourg-mersch-ettelbruck",
+      "name": "PC5 Piste cyclable de l’Alzette (Luxembourg - Mersch - Ettelbruck)",
+      "file": "bike/lu-pc-pc5-piste-cyclable-de-l-alzette-luxembourg-mersch-ettelbruck.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 2
+    },
+    {
+      "id": "lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig-troncon-01",
+      "name": "PC6 Piste cyclable des Trois Vallées (Schengen - Remich - Wasserbillig) (Tronçon 01)",
+      "file": "bike/lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.5
+    },
+    {
+      "id": "lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig-troncon-02",
+      "name": "PC6 Piste cyclable des Trois Vallées (Schengen - Remich - Wasserbillig) (Tronçon 02)",
+      "file": "bike/lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig-troncon-02.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.1
+    },
+    {
+      "id": "lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig-troncon-05",
+      "name": "PC6 Piste cyclable des Trois Vallées (Schengen - Remich - Wasserbillig) (Tronçon 05)",
+      "file": "bike/lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig-troncon-05.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.4
+    },
+    {
+      "id": "lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig",
+      "name": "PC6 Piste cyclable des Trois Vallées (Schengen - Remich - Wasserbillig)",
+      "file": "bike/lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.1
+    },
+    {
+      "id": "lu-pc-pc7-piste-cyclable-jangeli-remich-mondorf-les-bains-troncon-01",
+      "name": "PC7 Piste cyclable Jangeli (Remich - Mondorf-les-Bains) (Tronçon 01)",
+      "file": "bike/lu-pc-pc7-piste-cyclable-jangeli-remich-mondorf-les-bains-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 8.6
+    },
+    {
+      "id": "lu-pc-pc7-piste-cyclable-jangeli-remich-mondorf-les-bains-troncon-02",
+      "name": "PC7 Piste cyclable Jangeli (Remich - Mondorf-les-Bains) (Tronçon 02)",
+      "file": "bike/lu-pc-pc7-piste-cyclable-jangeli-remich-mondorf-les-bains-troncon-02.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 2.9
+    },
+    {
+      "id": "lu-pc-pc7-piste-cyclable-jangeli-remich-mondorf-les-bains-troncon-03",
+      "name": "PC7 Piste cyclable Jangeli (Remich - Mondorf-les-Bains) (Tronçon 03)",
+      "file": "bike/lu-pc-pc7-piste-cyclable-jangeli-remich-mondorf-les-bains-troncon-03.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 6.3
+    },
+    {
+      "id": "lu-pc-pc7-piste-cyclable-jangeli-remich-mondorf-les-bains-troncon-04",
+      "name": "PC7 Piste cyclable Jangeli (Remich - Mondorf-les-Bains) (Tronçon 04)",
+      "file": "bike/lu-pc-pc7-piste-cyclable-jangeli-remich-mondorf-les-bains-troncon-04.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 2.2
+    },
+    {
+      "id": "lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-01",
+      "name": "PC8 Piste cyclable de la Terre Rouge (Bettembourg - Esch - Sanem) (Tronçon 01)",
+      "file": "bike/lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.2
+    },
+    {
+      "id": "lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-02",
+      "name": "PC8 Piste cyclable de la Terre Rouge (Bettembourg - Esch - Sanem) (Tronçon 02)",
+      "file": "bike/lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-02.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 1.5
+    },
+    {
+      "id": "lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-03",
+      "name": "PC8 Piste cyclable de la Terre Rouge (Bettembourg - Esch - Sanem) (Tronçon 03)",
+      "file": "bike/lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-03.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.4
+    },
+    {
+      "id": "lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-04",
+      "name": "PC8 Piste cyclable de la Terre Rouge (Bettembourg - Esch - Sanem) (Tronçon 04)",
+      "file": "bike/lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-04.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 9.4
+    },
+    {
+      "id": "lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem",
+      "name": "PC8 Piste cyclable de la Terre Rouge (Bettembourg - Esch - Sanem)",
+      "file": "bike/lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.5
+    },
+    {
+      "id": "lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange-troncon-01",
+      "name": "PC9 Piste cyclable du Faubourg Minier (Sanem - Differdange - Pétange) (Tronçon 01)",
+      "file": "bike/lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange-troncon-01.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.3
+    },
+    {
+      "id": "lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange-troncon-02",
+      "name": "PC9 Piste cyclable du Faubourg Minier (Sanem - Differdange - Pétange) (Tronçon 02)",
+      "file": "bike/lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange-troncon-02.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.3
+    },
+    {
+      "id": "lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange",
+      "name": "PC9 Piste cyclable du Faubourg Minier (Sanem - Differdange - Pétange)",
+      "file": "bike/lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.3
+    },
+    {
+      "id": "lu-pc-piste-cyclable-nationale-pc22a",
+      "name": "Piste Cyclable Nationale PC22a",
+      "file": "bike/lu-pc-piste-cyclable-nationale-pc22a.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 2.1
+    },
+    {
+      "id": "lu-pc-piste-cyclable-nationale-pc27",
+      "name": "Piste Cyclable Nationale PC27",
+      "file": "bike/lu-pc-piste-cyclable-nationale-pc27.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 0.4
+    },
+    {
+      "id": "lu-pc-piste-cyclable-nationale-pc29",
+      "name": "Piste Cyclable Nationale PC29",
+      "file": "bike/lu-pc-piste-cyclable-nationale-pc29.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 1.7
+    },
+    {
+      "id": "lu-pc1-centre",
+      "name": "PC1 Piste Cyclable du Centre (Luxembourg-Ville - Leudelange)",
+      "file": "bike/lu-pc1-centre.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 18.5
+    },
+    {
+      "id": "lu-pc10-wiltz",
+      "name": "PC10 Piste de la Wiltz (Kautenbach - Wiltz - Bastogne frontière)",
+      "file": "bike/lu-pc10-wiltz.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 27.5
+    },
+    {
+      "id": "lu-pc11-charly-gaul",
+      "name": "PC11 Piste Charly Gaul (Echternach - Consdorf - Larochette)",
+      "file": "bike/lu-pc11-charly-gaul.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 25
+    },
+    {
+      "id": "lu-pc12-attert",
+      "name": "PC12 Piste de l&apos;Attert (Pétange - Steinfort - Colmar-Berg)",
+      "file": "bike/lu-pc12-attert.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 52
+    },
+    {
+      "id": "lu-pc13-nicolas-frantz",
+      "name": "PC13 Piste Nicolas Frantz (Mamer - Strassen - Kahler)",
+      "file": "bike/lu-pc13-nicolas-frantz.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 16
+    },
+    {
+      "id": "lu-pc14-eisch-chateaux",
+      "name": "PC14 Piste de l&apos;Eisch (Vallée des Sept Châteaux)",
+      "file": "bike/lu-pc14-eisch-chateaux.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 26.5
+    },
+    {
+      "id": "lu-pc15-alzette-nord",
+      "name": "PC15 Piste de l&apos;Alzette Nord (Mersch - Colmar-Berg - Ettelbruck)",
+      "file": "bike/lu-pc15-alzette-nord.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 14.5
+    },
+    {
+      "id": "lu-pc16-moyenne-sure",
+      "name": "PC16 Piste de la Moyenne Sûre (Ettelbruck - Diekirch - Reisdorf)",
+      "file": "bike/lu-pc16-moyenne-sure.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 19
+    },
+    {
+      "id": "lu-pc17-our",
+      "name": "PC17 Piste de l&apos;Our (Reisdorf - Vianden - Stolzembourg)",
+      "file": "bike/lu-pc17-our.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 22
+    },
+    {
+      "id": "lu-pc18-mines",
+      "name": "PC18 Piste des Mines (Belval - Fond-de-Gras - Pétange)",
+      "file": "bike/lu-pc18-mines.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 13.5
+    },
+    {
+      "id": "lu-pc19-lac-haute-sure",
+      "name": "PC19 Piste du Lac de la Haute-Sûre (Lultzhausen - Liefrange)",
+      "file": "bike/lu-pc19-lac-haute-sure.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 16.5
+    },
+    {
+      "id": "lu-pc2-echternach",
+      "name": "PC2 Piste Cyclable d&apos;Echternach (Kirchberg - Junglinster - Echternach)",
+      "file": "bike/lu-pc2-echternach.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 43
+    },
+    {
+      "id": "lu-pc20-faience",
+      "name": "PC20 Piste de la Faïence (Septfontaines - Kopstal - Rollingergrund)",
+      "file": "bike/lu-pc20-faience.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 15
+    },
+    {
+      "id": "lu-pc21-nord",
+      "name": "PC21 Piste du Nord (Troisvierges - Clervaux - Wilwerwiltz)",
+      "file": "bike/lu-pc21-nord.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 28
+    },
+    {
+      "id": "lu-pc22-ardenne",
+      "name": "PC22 Piste de l&apos;Ardenne (Hosingen - Kautenbach)",
+      "file": "bike/lu-pc22-ardenne.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 18
+    },
+    {
+      "id": "lu-pc23-drosbach",
+      "name": "PC23 Piste de la Drosbach (Cloche d&apos;Or - Gasperich - Cessange)",
+      "file": "bike/lu-pc23-drosbach.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 11
+    },
+    {
+      "id": "lu-pc3-trois-rivieres-nord",
+      "name": "PC3 Piste des Trois Rivières (Wasserbillig - Echternach - Reisdorf - Vianden)",
+      "file": "bike/lu-pc3-trois-rivieres-nord.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 42
+    },
+    {
+      "id": "lu-pc3-trois-rivieres-sud",
+      "name": "PC3 Piste des Trois Rivières (Schengen - Remich - Wasserbillig)",
+      "file": "bike/lu-pc3-trois-rivieres-sud.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 38
+    },
+    {
+      "id": "lu-pc5-alzette",
+      "name": "PC5 Piste de l&apos;Alzette (Luxembourg - Walferdange - Mersch)",
+      "file": "bike/lu-pc5-alzette.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 19.5
+    },
+    {
+      "id": "lu-pc6-trois-cantons",
+      "name": "PC6 Piste des Trois Cantons (Sanem - Bettembourg - Remich)",
+      "file": "bike/lu-pc6-trois-cantons.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 34
+    },
+    {
+      "id": "lu-pc7-jangeli",
+      "name": "PC7 Piste de la Jangeli (Remich - Mondorf - Aspelt)",
+      "file": "bike/lu-pc7-jangeli.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 14.5
+    },
+    {
+      "id": "lu-pc8-terre-rouge",
+      "name": "PC8 Piste de la Terre Rouge (Bettembourg - Dudelange - Belval)",
+      "file": "bike/lu-pc8-terre-rouge.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 21
+    },
+    {
+      "id": "lu-pc9-haute-sure",
+      "name": "PC9 Piste de la Haute-Sûre (Esch-sur-Sûre - Bavigne - Boulaide)",
+      "file": "bike/lu-pc9-haute-sure.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 26
+    },
+    {
+      "id": "lu-velosummer-eislek",
+      "name": "Vëlosummer: Éislek Ardennes Challenge (Clervaux - Wiltz - Vianden)",
+      "file": "bike/lu-velosummer-eislek.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 68
+    },
+    {
+      "id": "lu-velosummer-mellerdall",
+      "name": "Vëlosummer: Mëllerdall Vëlo Tour (Echternach - Beaufort - Berdorf)",
+      "file": "bike/lu-velosummer-mellerdall.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 34
+    },
+    {
+      "id": "lu-velosummer-musel",
+      "name": "Vëlosummer: Musel Vëlo Express (Remich - Grevenmacher - Wasserbillig)",
+      "file": "bike/lu-velosummer-musel.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 42
+    },
+    {
+      "id": "lu-velosummer-schlass",
+      "name": "Vëlosummer: Mam Vëlo op d&apos;Schlass (Mersch - Ansembourg - Koerich)",
+      "file": "bike/lu-velosummer-schlass.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 36.5
+    },
+    {
+      "id": "lu-vtt-redrock",
+      "name": "Circuit VTT RedRock Challenge (Esch - Dudelange - Belval)",
+      "file": "bike/lu-vtt-redrock.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 28.5
+    },
+    {
+      "id": "nl-cyclo-amstel-gold",
+      "name": "Boucle Amstel Gold Race (Valkenburg - Gulpen - Vaals)",
+      "file": "bike/nl-cyclo-amstel-gold.gpx",
+      "activity": "bike",
+      "country": "NL",
+      "distanceKm": 48
+    },
+    {
+      "id": "be-rando-durbuy",
+      "name": "Boucle médiévale de Durbuy & Falaises de l&apos;Ourthe",
+      "file": "hike/be-rando-durbuy.gpx",
+      "activity": "hike",
+      "country": "BE",
+      "distanceKm": 11
+    },
+    {
+      "id": "be-rando-echelles-rochehaut",
+      "name": "Promenade des Échelles de Rochehaut (Semois vertigineuse)",
+      "file": "hike/be-rando-echelles-rochehaut.gpx",
+      "activity": "hike",
+      "country": "BE",
+      "distanceKm": 6.2
+    },
+    {
+      "id": "be-rando-hautes-fagnes",
+      "name": "Boucle des Hautes Fagnes (Signal de Botrange - Baraque Michel)",
+      "file": "hike/be-rando-hautes-fagnes.gpx",
+      "activity": "hike",
+      "country": "BE",
+      "distanceKm": 14.5
+    },
+    {
+      "id": "be-rando-herou-nadrin",
+      "name": "Randonnée du Hérou & Méandre de l&apos;Ourthe (Nadrin)",
+      "file": "hike/be-rando-herou-nadrin.gpx",
+      "activity": "hike",
+      "country": "BE",
+      "distanceKm": 8.9
+    },
+    {
+      "id": "be-rando-la-roche-cretes",
+      "name": "Sentier des Crêtes de La Roche-en-Ardenne (Parc des Deux Ourthes)",
+      "file": "hike/be-rando-la-roche-cretes.gpx",
+      "activity": "hike",
+      "country": "BE",
+      "distanceKm": 12.5
+    },
+    {
+      "id": "be-rando-ninglinspo",
+      "name": "Rando du Ninglinspo & Fonds de Quarreux (Aywaille)",
+      "file": "hike/be-rando-ninglinspo.gpx",
+      "activity": "hike",
+      "country": "BE",
+      "distanceKm": 8.5
+    },
+    {
+      "id": "be-rando-orval-gaume",
+      "name": "Sentier de l&apos;Abbaye d&apos;Orval & Bois des Chenelles (Villers)",
+      "file": "hike/be-rando-orval-gaume.gpx",
+      "activity": "hike",
+      "country": "BE",
+      "distanceKm": 9.2
+    },
+    {
+      "id": "be-rando-saint-hubert-poix",
+      "name": "Boucle de la Forêt de Saint-Hubert & Val de Poix",
+      "file": "hike/be-rando-saint-hubert-poix.gpx",
+      "activity": "hike",
+      "country": "BE",
+      "distanceKm": 15
+    },
+    {
+      "id": "be-rando-spa-malchamps",
+      "name": "Tour des Fagnes de Spa & Malchamps (Pays des Sources)",
+      "file": "hike/be-rando-spa-malchamps.gpx",
+      "activity": "hike",
+      "country": "BE",
+      "distanceKm": 10.5
+    },
+    {
+      "id": "be-rando-tombeau-geant",
+      "name": "Boucle du Tombeau du Géant & Semois (Bouillon - Botassart)",
+      "file": "hike/be-rando-tombeau-geant.gpx",
+      "activity": "hike",
+      "country": "BE",
+      "distanceKm": 12.8
+    },
+    {
+      "id": "be-rando-virton-rabais",
+      "name": "Promenade de Virton & Vallée du Rabais (Gaume Méridionale)",
+      "file": "hike/be-rando-virton-rabais.gpx",
+      "activity": "hike",
+      "country": "BE",
+      "distanceKm": 8.8
+    },
+    {
+      "id": "de-eifelsteig-etape-14",
+      "name": "Eifelsteig Étape 14 (Kordel - Butzweiler - Trier)",
+      "file": "hike/de-eifelsteig-etape-14.gpx",
+      "activity": "hike",
+      "country": "DE",
+      "distanceKm": 18
+    },
+    {
+      "id": "de-eifelsteig-manderscheid",
+      "name": "Eifelsteig Manderscheid (Burgenstieg & Vallée de la Lieser)",
+      "file": "hike/de-eifelsteig-manderscheid.gpx",
+      "activity": "hike",
+      "country": "DE",
+      "distanceKm": 13.5
+    },
+    {
+      "id": "de-felsenpfad-kastel",
+      "name": "Felsenpfad Kastel-Staadt & Ermitage de la Klause (Saarburger Land)",
+      "file": "hike/de-felsenpfad-kastel.gpx",
+      "activity": "hike",
+      "country": "DE",
+      "distanceKm": 8.5
+    },
+    {
+      "id": "de-lieserpfad",
+      "name": "Lieserpfad (Daun - Manderscheid - Wittlich)",
+      "file": "hike/de-lieserpfad.gpx",
+      "activity": "hike",
+      "country": "DE",
+      "distanceKm": 26
+    },
+    {
+      "id": "de-moselsteig-nittel-konz",
+      "name": "Moselsteig Étape Nittel - Konz (Falaises calcaires)",
+      "file": "hike/de-moselsteig-nittel-konz.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 16
+    },
+    {
+      "id": "de-moselsteig-trier-schweich",
+      "name": "Moselsteig Étape Trier - Schweich (Falaises rouges de la Moselle)",
+      "file": "hike/de-moselsteig-trier-schweich.gpx",
+      "activity": "hike",
+      "country": "DE",
+      "distanceKm": 18.5
+    },
+    {
+      "id": "de-rando-dreiborn-eifel",
+      "name": "Dreiborn Plateau & Cité fantôme de Wollseifen (Nationalpark Eifel)",
+      "file": "hike/de-rando-dreiborn-eifel.gpx",
+      "activity": "hike",
+      "country": "DE",
+      "distanceKm": 12
+    },
+    {
+      "id": "de-rando-teufelsschlucht",
+      "name": "Teufelsschlucht & Irreler Wasserfälle (Ernzen / Eifel)",
+      "file": "hike/de-rando-teufelsschlucht.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9
+    },
+    {
+      "id": "de-traumschleife-saarschleife",
+      "name": "Traumschleife Cloef & Boucle de la Sarre (Mettlach)",
+      "file": "hike/de-traumschleife-saarschleife.gpx",
+      "activity": "hike",
+      "country": "DE",
+      "distanceKm": 11.8
+    },
+    {
+      "id": "de-vulkanpfad-daun",
+      "name": "Vulkanpfad Daun & Lacs de Maare (Vulkaneifel)",
+      "file": "hike/de-vulkanpfad-daun.gpx",
+      "activity": "hike",
+      "country": "DE",
+      "distanceKm": 11.2
+    },
+    {
+      "id": "fr-rando-ballon-alsace",
+      "name": "Boucle du Ballon d&apos;Alsace & Monument des Démineurs",
+      "file": "hike/fr-rando-ballon-alsace.gpx",
+      "activity": "hike",
+      "country": "FR",
+      "distanceKm": 11.5
+    },
+    {
+      "id": "fr-rando-cretes-vosges",
+      "name": "Sentier des Crêtes Vosgiennes (Col de la Schlucht - Hohneck)",
+      "file": "hike/fr-rando-cretes-vosges.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 14
+    },
+    {
+      "id": "fr-rando-gerardmer",
+      "name": "Tour du Lac de Gérardmer & Tour de Mérelle",
+      "file": "hike/fr-rando-gerardmer.gpx",
+      "activity": "hike",
+      "country": "FR",
+      "distanceKm": 9.5
+    },
+    {
+      "id": "fr-rando-malbrouck",
+      "name": "Circuit du Château de Malbrouck & Pays Sierckois",
+      "file": "hike/fr-rando-malbrouck.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9
+    },
+    {
+      "id": "fr-rando-roches-hohneck",
+      "name": "Sentier des Roches du Hohneck (Club Vosgien)",
+      "file": "hike/fr-rando-roches-hohneck.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.2
+    },
+    {
+      "id": "fr-rando-roches-saint-mihiel",
+      "name": "Sentier des Roches de Saint-Mihiel (Falaises de la Meuse)",
+      "file": "hike/fr-rando-roches-saint-mihiel.gpx",
+      "activity": "hike",
+      "country": "FR",
+      "distanceKm": 8.4
+    },
+    {
+      "id": "fr-rando-sion-vaudemont",
+      "name": "Sentier de la Colline Inspirée de Sion-Vaudémont",
+      "file": "hike/fr-rando-sion-vaudemont.gpx",
+      "activity": "hike",
+      "country": "FR",
+      "distanceKm": 10.5
+    },
+    {
+      "id": "fr-rando-stromberg-sierck",
+      "name": "Sentier des Falaises de Sierck & Réserve du Stromberg",
+      "file": "hike/fr-rando-stromberg-sierck.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.3
+    },
+    {
+      "id": "fr-rando-verdun-memoire",
+      "name": "Circuit historique de Verdun (Mémorial, Douaumont, Vaux)",
+      "file": "hike/fr-rando-verdun-memoire.gpx",
+      "activity": "hike",
+      "country": "FR",
+      "distanceKm": 15.2
+    },
+    {
+      "id": "lu-ap-ahn-palmberg",
+      "name": "Auto-Pédestre Ahn (Réserve naturelle du Palmberg)",
+      "file": "hike/lu-ap-ahn-palmberg.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.4
+    },
+    {
+      "id": "lu-ap-ansembourg",
+      "name": "Auto-Pédestre Ansembourg (Grand Château & Jardins Baroques)",
+      "file": "hike/lu-ap-ansembourg.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.5
+    },
+    {
+      "id": "lu-ap-beaufort",
+      "name": "Auto-Pédestre Beaufort (Châteaux féodaux & Vallée du Hallerbach)",
+      "file": "hike/lu-ap-beaufort.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.5
+    },
+    {
+      "id": "lu-ap-berdorf",
+      "name": "Auto-Pédestre Berdorf (Wanterbaach & Perekop)",
+      "file": "hike/lu-ap-berdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.8
+    },
+    {
+      "id": "lu-ap-bourscheid",
+      "name": "Auto-Pédestre Bourscheid (Château fort & Boucle de la Sûre)",
+      "file": "hike/lu-ap-bourscheid.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.8
+    },
+    {
+      "id": "lu-ap-clervaux",
+      "name": "Auto-Pédestre Clervaux (Abbaye Saint-Maurice & Éislek)",
+      "file": "hike/lu-ap-clervaux.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.8
+    },
+    {
+      "id": "lu-ap-consdorf",
+      "name": "Auto-Pédestre Consdorf (Fente rocheuse de Kuelscheier)",
+      "file": "hike/lu-ap-consdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.8
+    },
+    {
+      "id": "lu-ap-differdange",
+      "name": "Auto-Pédestre Differdange (Val des Oiseaux & Fond-de-Gras)",
+      "file": "hike/lu-ap-differdange.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.3
+    },
+    {
+      "id": "lu-ap-dudelange-haard",
+      "name": "Auto-Pédestre Dudelange (Réserve naturelle Haard)",
+      "file": "hike/lu-ap-dudelange-haard.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.2
+    },
+    {
+      "id": "lu-ap-echternach",
+      "name": "Auto-Pédestre Echternach (Gorge du Loup & Hohllay)",
+      "file": "hike/lu-ap-echternach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.5
+    },
+    {
+      "id": "lu-ap-esch-sure",
+      "name": "Auto-Pédestre Esch-sur-Sûre (Méandre & Ruines)",
+      "file": "hike/lu-ap-esch-sure.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.9
+    },
+    {
+      "id": "lu-ap-grevenmacher",
+      "name": "Auto-Pédestre Grevenmacher (Réserve du Kelsbaach)",
+      "file": "hike/lu-ap-grevenmacher.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.2
+    },
+    {
+      "id": "lu-ap-hollenfels",
+      "name": "Auto-Pédestre Hollenfels (Vallée des 7 Châteaux)",
+      "file": "hike/lu-ap-hollenfels.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.5
+    },
+    {
+      "id": "lu-ap-insenborn",
+      "name": "Auto-Pédestre Insenborn (Corniche du Lac de la Haute-Sûre)",
+      "file": "hike/lu-ap-insenborn.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.9
+    },
+    {
+      "id": "lu-ap-junglinster",
+      "name": "Auto-Pédestre Junglinster (Bourglinster & Forêt de Buchholz)",
+      "file": "hike/lu-ap-junglinster.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9
+    },
+    {
+      "id": "lu-ap-kautenbach",
+      "name": "Auto-Pédestre Kautenbach (Sentier des Crêtes & Val de Wiltz)",
+      "file": "hike/lu-ap-kautenbach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.4
+    },
+    {
+      "id": "lu-ap-larochette",
+      "name": "Auto-Pédestre Larochette (Château & Manzebaach)",
+      "file": "hike/lu-ap-larochette.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.2
+    },
+    {
+      "id": "lu-ap-lasauvage",
+      "name": "Auto-Pédestre Lasauvage (Val des Forges & Frontière)",
+      "file": "hike/lu-ap-lasauvage.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.8
+    },
+    {
+      "id": "lu-ap-mersch",
+      "name": "Auto-Pédestre Mersch (Menhir de Reckange & Hunnebuer)",
+      "file": "hike/lu-ap-mersch.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.1
+    },
+    {
+      "id": "lu-ap-mondorf",
+      "name": "Auto-Pédestre Mondorf (Parc Thermal & Vallée de la Gander)",
+      "file": "hike/lu-ap-mondorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.2
+    },
+    {
+      "id": "lu-ap-remerschen",
+      "name": "Auto-Pédestre Remerschen (Haff Réimech & Étangs)",
+      "file": "hike/lu-ap-remerschen.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7
+    },
+    {
+      "id": "lu-ap-remich",
+      "name": "Auto-Pédestre Remich (Coteaux viticoles & Moselle)",
+      "file": "hike/lu-ap-remich.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.7
+    },
+    {
+      "id": "lu-ap-rumelange",
+      "name": "Auto-Pédestre Rumelange (Sentier des Mines de Fer)",
+      "file": "hike/lu-ap-rumelange.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.1
+    },
+    {
+      "id": "lu-ap-schengen",
+      "name": "Auto-Pédestre Schengen (Markusberg & Réserve des 3 Frontières)",
+      "file": "hike/lu-ap-schengen.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.7
+    },
+    {
+      "id": "lu-ap-schoenfels",
+      "name": "Auto-Pédestre Schoenfels (Donjon Médiéval & Forêt de Mersch)",
+      "file": "hike/lu-ap-schoenfels.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8
+    },
+    {
+      "id": "lu-ap-septfontaines",
+      "name": "Auto-Pédestre Septfontaines (Vallée des 7 Châteaux & Forêt de Simmer)",
+      "file": "hike/lu-ap-septfontaines.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.4
+    },
+    {
+      "id": "lu-ap-strassen",
+      "name": "Auto-Pédestre Strassen (Forêt du Bambësch & Mamer)",
+      "file": "hike/lu-ap-strassen.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.3
+    },
+    {
+      "id": "lu-ap-troisvierges",
+      "name": "Auto-Pédestre Troisvierges (Jardin des Découvertes & Woltz)",
+      "file": "hike/lu-ap-troisvierges.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.8
+    },
+    {
+      "id": "lu-ap-vianden",
+      "name": "Auto-Pédestre Vianden (Château & Vallée de l&apos;Our)",
+      "file": "hike/lu-ap-vianden.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.2
+    },
+    {
+      "id": "lu-ap-wellenstein",
+      "name": "Auto-Pédestre Wellenstein (Caves & Coteaux Saint-Roch)",
+      "file": "hike/lu-ap-wellenstein.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.9
+    },
+    {
+      "id": "lu-ap-wiltz",
+      "name": "Auto-Pédestre Wiltz (Sanctuaire & Sentier des Légendes)",
+      "file": "hike/lu-ap-wiltz.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.5
+    },
+    {
+      "id": "lu-escapardenne-eislek-1",
+      "name": "Escapardenne Eislek Trail Étape 1 (Kautenbach - Clervaux)",
+      "file": "hike/lu-escapardenne-eislek-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 25.5
+    },
+    {
+      "id": "lu-escapardenne-lee-1",
+      "name": "Escapardenne Lee Trail Étape 1 (Ettelbruck - Bourscheid-Moulin)",
+      "file": "hike/lu-escapardenne-lee-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 18
+    },
+    {
+      "id": "lu-escapardenne-lee-2",
+      "name": "Escapardenne Lee Trail Étape 2 (Bourscheid-Moulin - Hoscheid)",
+      "file": "hike/lu-escapardenne-lee-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 19.5
+    },
+    {
+      "id": "lu-escapardenne-lee-3",
+      "name": "Escapardenne Lee Trail Étape 3 (Hoscheid - Kautenbach)",
+      "file": "hike/lu-escapardenne-lee-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 15
+    },
+    {
+      "id": "lu-minett-trail-esch-dudelange",
+      "name": "Minett Trail (Esch-sur-Alzette - Kayl - Dudelange)",
+      "file": "hike/lu-minett-trail-esch-dudelange.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 14.5
+    },
+    {
+      "id": "lu-mullerthal-extratour-a",
+      "name": "Mullerthal ExtraTour A (Larochette - Nommern - Meysembourg)",
+      "file": "hike/lu-mullerthal-extratour-a.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 21.5
+    },
+    {
+      "id": "lu-mullerthal-extratour-b",
+      "name": "Mullerthal ExtraTour B (Beaufort - Bigelbach - Reisdorf)",
+      "file": "hike/lu-mullerthal-extratour-b.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 13
+    },
+    {
+      "id": "lu-mullerthal-extratour-c",
+      "name": "Mullerthal ExtraTour C (Bech - Altrier - Consdorf)",
+      "file": "hike/lu-mullerthal-extratour-c.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 13.5
+    },
+    {
+      "id": "lu-mullerthal-route-1",
+      "name": "Mullerthal Trail Route 1 (Echternach - Rosport - Mompach - Herborn)",
+      "file": "hike/lu-mullerthal-route-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 37
+    },
+    {
+      "id": "lu-mullerthal-route-2",
+      "name": "Mullerthal Trail Route 2 (Echternach - Berdorf - Consdorf - Scheidgen)",
+      "file": "hike/lu-mullerthal-route-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 38
+    },
+    {
+      "id": "lu-mullerthal-route-3",
+      "name": "Mullerthal Trail Route 3 (Müllerthal - Beaufort - Larochette - Medernach)",
+      "file": "hike/lu-mullerthal-route-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 39
+    },
+    {
+      "id": "nl-rando-mergelland",
+      "name": "Sentier du Mergelland & Carrières de Craie (Valkenburg)",
+      "file": "hike/nl-rando-mergelland.gpx",
+      "activity": "hike",
+      "country": "NL",
+      "distanceKm": 9.8
+    }
+  ]
+}

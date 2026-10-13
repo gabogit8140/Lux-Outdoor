@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Mosel-Radweg (Trier - Schweich - Neumagen - Bernkastel)</name>
+    <desc>Le cœur viticole de la Moselle allemande serpentant au pied des pentes les plus abruptes d&apos;Europe (Calmont).</desc>
+    <link href="https://www.visitmosel.de">
+      <text>Moselland Tourisme Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Mosel-Radweg (Trier - Schweich - Neumagen - Bernkastel)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.72326" lon="6.55680"><ele>193</ele></trkpt>
+      <trkpt lat="49.72687" lon="6.56290"><ele>193</ele></trkpt>
+      <trkpt lat="49.73166" lon="6.57063"><ele>191</ele></trkpt>
+      <trkpt lat="49.73744" lon="6.57979"><ele>191</ele></trkpt>
+      <trkpt lat="49.74404" lon="6.59018"><ele>185</ele></trkpt>
+      <trkpt lat="49.75127" lon="6.60162"><ele>174</ele></trkpt>
+      <trkpt lat="49.75896" lon="6.61390"><ele>174</ele></trkpt>
+      <trkpt lat="49.76693" lon="6.62684"><ele>155</ele></trkpt>
+      <trkpt lat="49.77500" lon="6.64025"><ele>132</ele></trkpt>
+      <trkpt lat="49.78299" lon="6.65392"><ele>132</ele></trkpt>
+      <trkpt lat="49.79072" lon="6.66767"><ele>111</ele></trkpt>
+      <trkpt lat="49.79801" lon="6.68131"><ele>103</ele></trkpt>
+      <trkpt lat="49.80468" lon="6.69463"><ele>103</ele></trkpt>
+      <trkpt lat="49.81056" lon="6.70745"><ele>110</ele></trkpt>
+      <trkpt lat="49.81546" lon="6.71958"><ele>131</ele></trkpt>
+      <trkpt lat="49.81546" lon="6.71958"><ele>131</ele></trkpt>
+      <trkpt lat="49.81956" lon="6.73164"><ele>157</ele></trkpt>
+      <trkpt lat="49.82319" lon="6.74434"><ele>178</ele></trkpt>
+      <trkpt lat="49.82645" lon="6.75761"><ele>178</ele></trkpt>
+      <trkpt lat="49.82940" lon="6.77138"><ele>188</ele></trkpt>
+      <trkpt lat="49.83211" lon="6.78558"><ele>187</ele></trkpt>
+      <trkpt lat="49.83467" lon="6.80014"><ele>187</ele></trkpt>
+      <trkpt lat="49.83715" lon="6.81499"><ele>182</ele></trkpt>
+      <trkpt lat="49.83963" lon="6.83007"><ele>178</ele></trkpt>
+      <trkpt lat="49.84218" lon="6.84530"><ele>178</ele></trkpt>
+      <trkpt lat="49.84487" lon="6.86060"><ele>176</ele></trkpt>
+      <trkpt lat="49.84780" lon="6.87592"><ele>173</ele></trkpt>
+      <trkpt lat="49.85102" lon="6.89119"><ele>173</ele></trkpt>
+      <trkpt lat="49.85462" lon="6.90632"><ele>162</ele></trkpt>
+      <trkpt lat="49.85868" lon="6.92126"><ele>140</ele></trkpt>
+      <trkpt lat="49.85868" lon="6.92126"><ele>140</ele></trkpt>
+      <trkpt lat="49.86352" lon="6.93727"><ele>113</ele></trkpt>
+      <trkpt lat="49.86932" lon="6.95536"><ele>93</ele></trkpt>
+      <trkpt lat="49.87590" lon="6.97511"><ele>93</ele></trkpt>
+      <trkpt lat="49.88308" lon="6.99611"><ele>93</ele></trkpt>
+      <trkpt lat="49.89069" lon="7.01791"><ele>117</ele></trkpt>
+      <trkpt lat="49.89855" lon="7.04011"><ele>117</ele></trkpt>
+      <trkpt lat="49.90649" lon="7.06226"><ele>158</ele></trkpt>
+      <trkpt lat="49.91433" lon="7.08395"><ele>199</ele></trkpt>
+      <trkpt lat="49.92189" lon="7.10476"><ele>199</ele></trkpt>
+      <trkpt lat="49.92900" lon="7.12425"><ele>221</ele></trkpt>
+      <trkpt lat="49.93549" lon="7.14200"><ele>217</ele></trkpt>
+      <trkpt lat="49.94117" lon="7.15759"><ele>217</ele></trkpt>
+      <trkpt lat="49.94588" lon="7.17058"><ele>190</ele></trkpt>
+      <trkpt lat="49.94943" lon="7.18057"><ele>158</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

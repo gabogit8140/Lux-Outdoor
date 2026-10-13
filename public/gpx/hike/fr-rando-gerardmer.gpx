@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Tour du Lac de Gérardmer &amp; Tour de Mérelle</name>
+    <desc>Sentier longeant les berges calmes du plus grand lac naturel des Vosges puis grimpant à la tour panoramique de Mérelle.</desc>
+    <link href="https://www.gerardmer.net">
+      <text>Gérardmer Hautes-Vosges Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Tour du Lac de Gérardmer &amp; Tour de Mérelle</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="48.06690" lon="6.87103"><ele>468</ele></trkpt>
+      <trkpt lat="48.06654" lon="6.86998"><ele>468</ele></trkpt>
+      <trkpt lat="48.06602" lon="6.86860"><ele>468</ele></trkpt>
+      <trkpt lat="48.06536" lon="6.86693"><ele>409</ele></trkpt>
+      <trkpt lat="48.06460" lon="6.86504"><ele>409</ele></trkpt>
+      <trkpt lat="48.06378" lon="6.86296"><ele>285</ele></trkpt>
+      <trkpt lat="48.06292" lon="6.86074"><ele>285</ele></trkpt>
+      <trkpt lat="48.06205" lon="6.85843"><ele>149</ele></trkpt>
+      <trkpt lat="48.06122" lon="6.85609"><ele>149</ele></trkpt>
+      <trkpt lat="48.06046" lon="6.85375"><ele>49</ele></trkpt>
+      <trkpt lat="48.05979" lon="6.85146"><ele>49</ele></trkpt>
+      <trkpt lat="48.05925" lon="6.84928"><ele>25</ele></trkpt>
+      <trkpt lat="48.05887" lon="6.84726"><ele>25</ele></trkpt>
+      <trkpt lat="48.05869" lon="6.84543"><ele>25</ele></trkpt>
+      <trkpt lat="48.05874" lon="6.84385"><ele>25</ele></trkpt>
+      <trkpt lat="48.05874" lon="6.84385"><ele>25</ele></trkpt>
+      <trkpt lat="48.05903" lon="6.84232"><ele>25</ele></trkpt>
+      <trkpt lat="48.05954" lon="6.84067"><ele>25</ele></trkpt>
+      <trkpt lat="48.06023" lon="6.83893"><ele>25</ele></trkpt>
+      <trkpt lat="48.06108" lon="6.83715"><ele>25</ele></trkpt>
+      <trkpt lat="48.06206" lon="6.83536"><ele>25</ele></trkpt>
+      <trkpt lat="48.06315" lon="6.83361"><ele>25</ele></trkpt>
+      <trkpt lat="48.06431" lon="6.83195"><ele>25</ele></trkpt>
+      <trkpt lat="48.06553" lon="6.83041"><ele>25</ele></trkpt>
+      <trkpt lat="48.06677" lon="6.82904"><ele>25</ele></trkpt>
+      <trkpt lat="48.06800" lon="6.82787"><ele>102</ele></trkpt>
+      <trkpt lat="48.06920" lon="6.82696"><ele>102</ele></trkpt>
+      <trkpt lat="48.07034" lon="6.82635"><ele>240</ele></trkpt>
+      <trkpt lat="48.07139" lon="6.82607"><ele>240</ele></trkpt>
+      <trkpt lat="48.07233" lon="6.82617"><ele>349</ele></trkpt>
+      <trkpt lat="48.07233" lon="6.82617"><ele>349</ele></trkpt>
+      <trkpt lat="48.07330" lon="6.82674"><ele>385</ele></trkpt>
+      <trkpt lat="48.07441" lon="6.82777"><ele>385</ele></trkpt>
+      <trkpt lat="48.07565" lon="6.82922"><ele>348</ele></trkpt>
+      <trkpt lat="48.07696" lon="6.83101"><ele>348</ele></trkpt>
+      <trkpt lat="48.07830" lon="6.83308"><ele>274</ele></trkpt>
+      <trkpt lat="48.07965" lon="6.83535"><ele>274</ele></trkpt>
+      <trkpt lat="48.08097" lon="6.83778"><ele>211</ele></trkpt>
+      <trkpt lat="48.08220" lon="6.84028"><ele>211</ele></trkpt>
+      <trkpt lat="48.08333" lon="6.84281"><ele>191</ele></trkpt>
+      <trkpt lat="48.08430" lon="6.84528"><ele>191</ele></trkpt>
+      <trkpt lat="48.08509" lon="6.84763"><ele>207</ele></trkpt>
+      <trkpt lat="48.08565" lon="6.84981"><ele>207</ele></trkpt>
+      <trkpt lat="48.08594" lon="6.85174"><ele>223</ele></trkpt>
+      <trkpt lat="48.08593" lon="6.85336"><ele>223</ele></trkpt>
+      <trkpt lat="48.08593" lon="6.85336"><ele>206</ele></trkpt>
+      <trkpt lat="48.08554" lon="6.85482"><ele>206</ele></trkpt>
+      <trkpt lat="48.08477" lon="6.85632"><ele>148</ele></trkpt>
+      <trkpt lat="48.08367" lon="6.85783"><ele>148</ele></trkpt>
+      <trkpt lat="48.08230" lon="6.85934"><ele>75</ele></trkpt>
+      <trkpt lat="48.08072" lon="6.86084"><ele>75</ele></trkpt>
+      <trkpt lat="48.07899" lon="6.86231"><ele>30</ele></trkpt>
+      <trkpt lat="48.07718" lon="6.86373"><ele>30</ele></trkpt>
+      <trkpt lat="48.07533" lon="6.86508"><ele>38</ele></trkpt>
+      <trkpt lat="48.07351" lon="6.86636"><ele>38</ele></trkpt>
+      <trkpt lat="48.07178" lon="6.86755"><ele>90</ele></trkpt>
+      <trkpt lat="48.07019" lon="6.86862"><ele>90</ele></trkpt>
+      <trkpt lat="48.06881" lon="6.86957"><ele>146</ele></trkpt>
+      <trkpt lat="48.06769" lon="6.87038"><ele>146</ele></trkpt>
+      <trkpt lat="48.06690" lon="6.87103"><ele>163</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

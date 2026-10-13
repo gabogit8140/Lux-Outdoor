@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Teufelsschlucht &amp; Irreler Wasserfälle (Ernzen / Eifel)</name>
+    <desc>Sentier spectaculaire descendant dans les entrailles de la &quot;Gorge du Diable&quot; étroite creusée à l&apos;ère glaciaire et longeant les cascades de l&apos;Irrel.</desc>
+    <link href="https://www.naturpark-suedeifel.de">
+      <text>Naturpark Südeifel Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Teufelsschlucht &amp; Irreler Wasserfälle (Ernzen / Eifel)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.85089" lon="6.41975"><ele>442</ele></trkpt>
+      <trkpt lat="49.85047" lon="6.42065"><ele>442</ele></trkpt>
+      <trkpt lat="49.84985" lon="6.42181"><ele>442</ele></trkpt>
+      <trkpt lat="49.84907" lon="6.42320"><ele>406</ele></trkpt>
+      <trkpt lat="49.84816" lon="6.42479"><ele>406</ele></trkpt>
+      <trkpt lat="49.84718" lon="6.42653"><ele>294</ele></trkpt>
+      <trkpt lat="49.84615" lon="6.42840"><ele>294</ele></trkpt>
+      <trkpt lat="49.84513" lon="6.43034"><ele>203</ele></trkpt>
+      <trkpt lat="49.84415" lon="6.43232"><ele>203</ele></trkpt>
+      <trkpt lat="49.84324" lon="6.43430"><ele>215</ele></trkpt>
+      <trkpt lat="49.84246" lon="6.43625"><ele>215</ele></trkpt>
+      <trkpt lat="49.84184" lon="6.43812"><ele>338</ele></trkpt>
+      <trkpt lat="49.84143" lon="6.43988"><ele>338</ele></trkpt>
+      <trkpt lat="49.84125" lon="6.44149"><ele>501</ele></trkpt>
+      <trkpt lat="49.84136" lon="6.44291"><ele>501</ele></trkpt>
+      <trkpt lat="49.84136" lon="6.44291"><ele>602</ele></trkpt>
+      <trkpt lat="49.84179" lon="6.44432"><ele>602</ele></trkpt>
+      <trkpt lat="49.84251" lon="6.44590"><ele>580</ele></trkpt>
+      <trkpt lat="49.84349" lon="6.44759"><ele>580</ele></trkpt>
+      <trkpt lat="49.84469" lon="6.44935"><ele>456</ele></trkpt>
+      <trkpt lat="49.84606" lon="6.45114"><ele>456</ele></trkpt>
+      <trkpt lat="49.84756" lon="6.45290"><ele>320</ele></trkpt>
+      <trkpt lat="49.84914" lon="6.45460"><ele>320</ele></trkpt>
+      <trkpt lat="49.85077" lon="6.45618"><ele>265</ele></trkpt>
+      <trkpt lat="49.85240" lon="6.45760"><ele>265</ele></trkpt>
+      <trkpt lat="49.85398" lon="6.45881"><ele>326</ele></trkpt>
+      <trkpt lat="49.85549" lon="6.45976"><ele>326</ele></trkpt>
+      <trkpt lat="49.85686" lon="6.46041"><ele>452</ele></trkpt>
+      <trkpt lat="49.85807" lon="6.46071"><ele>452</ele></trkpt>
+      <trkpt lat="49.85907" lon="6.46062"><ele>544</ele></trkpt>
+      <trkpt lat="49.85907" lon="6.46062"><ele>544</ele></trkpt>
+      <trkpt lat="49.85998" lon="6.46005"><ele>524</ele></trkpt>
+      <trkpt lat="49.86095" lon="6.45898"><ele>524</ele></trkpt>
+      <trkpt lat="49.86195" lon="6.45750"><ele>391</ele></trkpt>
+      <trkpt lat="49.86296" lon="6.45567"><ele>391</ele></trkpt>
+      <trkpt lat="49.86396" lon="6.45355"><ele>219</ele></trkpt>
+      <trkpt lat="49.86492" lon="6.45123"><ele>219</ele></trkpt>
+      <trkpt lat="49.86583" lon="6.44876"><ele>110</ele></trkpt>
+      <trkpt lat="49.86665" lon="6.44622"><ele>110</ele></trkpt>
+      <trkpt lat="49.86737" lon="6.44368"><ele>122</ele></trkpt>
+      <trkpt lat="49.86796" lon="6.44121"><ele>122</ele></trkpt>
+      <trkpt lat="49.86841" lon="6.43887"><ele>226</ele></trkpt>
+      <trkpt lat="49.86868" lon="6.43674"><ele>226</ele></trkpt>
+      <trkpt lat="49.86875" lon="6.43488"><ele>332</ele></trkpt>
+      <trkpt lat="49.86860" lon="6.43338"><ele>332</ele></trkpt>
+      <trkpt lat="49.86860" lon="6.43338"><ele>349</ele></trkpt>
+      <trkpt lat="49.86816" lon="6.43207"><ele>349</ele></trkpt>
+      <trkpt lat="49.86738" lon="6.43080"><ele>251</ele></trkpt>
+      <trkpt lat="49.86631" lon="6.42956"><ele>251</ele></trkpt>
+      <trkpt lat="49.86502" lon="6.42835"><ele>93</ele></trkpt>
+      <trkpt lat="49.86355" lon="6.42719"><ele>93</ele></trkpt>
+      <trkpt lat="49.86196" lon="6.42608"><ele>25</ele></trkpt>
+      <trkpt lat="49.86029" lon="6.42503"><ele>25</ele></trkpt>
+      <trkpt lat="49.85859" lon="6.42404"><ele>25</ele></trkpt>
+      <trkpt lat="49.85693" lon="6.42312"><ele>25</ele></trkpt>
+      <trkpt lat="49.85535" lon="6.42227"><ele>94</ele></trkpt>
+      <trkpt lat="49.85391" lon="6.42151"><ele>94</ele></trkpt>
+      <trkpt lat="49.85265" lon="6.42083"><ele>243</ele></trkpt>
+      <trkpt lat="49.85163" lon="6.42024"><ele>243</ele></trkpt>
+      <trkpt lat="49.85089" lon="6.41975"><ele>327</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

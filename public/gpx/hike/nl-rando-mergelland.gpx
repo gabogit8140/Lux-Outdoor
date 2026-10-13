@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Sentier du Mergelland &amp; Carrières de Craie (Valkenburg)</name>
+    <desc>Promenade panoramique dans les vallons du Limbourg méridional entre carrières de marne souterraines et châteaux néerlandais.</desc>
+    <link href="https://www.visitzuidlimburg.nl">
+      <text>Visit Zuid-Limburg Officieel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Sentier du Mergelland &amp; Carrières de Craie (Valkenburg)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="50.86442" lon="5.82466"><ele>531</ele></trkpt>
+      <trkpt lat="50.86400" lon="5.82589"><ele>531</ele></trkpt>
+      <trkpt lat="50.86340" lon="5.82748"><ele>531</ele></trkpt>
+      <trkpt lat="50.86264" lon="5.82940"><ele>512</ele></trkpt>
+      <trkpt lat="50.86176" lon="5.83159"><ele>512</ele></trkpt>
+      <trkpt lat="50.86081" lon="5.83399"><ele>474</ele></trkpt>
+      <trkpt lat="50.85981" lon="5.83654"><ele>474</ele></trkpt>
+      <trkpt lat="50.85881" lon="5.83921"><ele>438</ele></trkpt>
+      <trkpt lat="50.85785" lon="5.84193"><ele>438</ele></trkpt>
+      <trkpt lat="50.85694" lon="5.84465"><ele>423</ele></trkpt>
+      <trkpt lat="50.85615" lon="5.84732"><ele>423</ele></trkpt>
+      <trkpt lat="50.85550" lon="5.84988"><ele>437</ele></trkpt>
+      <trkpt lat="50.85502" lon="5.85229"><ele>437</ele></trkpt>
+      <trkpt lat="50.85477" lon="5.85448"><ele>474</ele></trkpt>
+      <trkpt lat="50.85476" lon="5.85640"><ele>474</ele></trkpt>
+      <trkpt lat="50.85476" lon="5.85640"><ele>517</ele></trkpt>
+      <trkpt lat="50.85503" lon="5.85830"><ele>517</ele></trkpt>
+      <trkpt lat="50.85554" lon="5.86042"><ele>542</ele></trkpt>
+      <trkpt lat="50.85625" lon="5.86268"><ele>542</ele></trkpt>
+      <trkpt lat="50.85715" lon="5.86504"><ele>534</ele></trkpt>
+      <trkpt lat="50.85819" lon="5.86742"><ele>534</ele></trkpt>
+      <trkpt lat="50.85934" lon="5.86976"><ele>487</ele></trkpt>
+      <trkpt lat="50.86057" lon="5.87201"><ele>487</ele></trkpt>
+      <trkpt lat="50.86185" lon="5.87410"><ele>415</ele></trkpt>
+      <trkpt lat="50.86313" lon="5.87597"><ele>415</ele></trkpt>
+      <trkpt lat="50.86439" lon="5.87756"><ele>340</ele></trkpt>
+      <trkpt lat="50.86560" lon="5.87881"><ele>340</ele></trkpt>
+      <trkpt lat="50.86672" lon="5.87965"><ele>285</ele></trkpt>
+      <trkpt lat="50.86772" lon="5.88002"><ele>285</ele></trkpt>
+      <trkpt lat="50.86856" lon="5.87986"><ele>266</ele></trkpt>
+      <trkpt lat="50.86856" lon="5.87986"><ele>266</ele></trkpt>
+      <trkpt lat="50.86936" lon="5.87905"><ele>284</ele></trkpt>
+      <trkpt lat="50.87024" lon="5.87758"><ele>284</ele></trkpt>
+      <trkpt lat="50.87116" lon="5.87554"><ele>329</ele></trkpt>
+      <trkpt lat="50.87212" lon="5.87302"><ele>329</ele></trkpt>
+      <trkpt lat="50.87309" lon="5.87012"><ele>382</ele></trkpt>
+      <trkpt lat="50.87404" lon="5.86693"><ele>382</ele></trkpt>
+      <trkpt lat="50.87494" lon="5.86356"><ele>426</ele></trkpt>
+      <trkpt lat="50.87579" lon="5.86009"><ele>426</ele></trkpt>
+      <trkpt lat="50.87654" lon="5.85662"><ele>453</ele></trkpt>
+      <trkpt lat="50.87719" lon="5.85325"><ele>453</ele></trkpt>
+      <trkpt lat="50.87771" lon="5.85006"><ele>462</ele></trkpt>
+      <trkpt lat="50.87807" lon="5.84716"><ele>462</ele></trkpt>
+      <trkpt lat="50.87824" lon="5.84464"><ele>464</ele></trkpt>
+      <trkpt lat="50.87822" lon="5.84260"><ele>464</ele></trkpt>
+      <trkpt lat="50.87822" lon="5.84260"><ele>466</ele></trkpt>
+      <trkpt lat="50.87793" lon="5.84085"><ele>466</ele></trkpt>
+      <trkpt lat="50.87737" lon="5.83914"><ele>475</ele></trkpt>
+      <trkpt lat="50.87657" lon="5.83749"><ele>475</ele></trkpt>
+      <trkpt lat="50.87557" lon="5.83589"><ele>489</ele></trkpt>
+      <trkpt lat="50.87443" lon="5.83437"><ele>489</ele></trkpt>
+      <trkpt lat="50.87318" lon="5.83291"><ele>501</ele></trkpt>
+      <trkpt lat="50.87186" lon="5.83153"><ele>501</ele></trkpt>
+      <trkpt lat="50.87053" lon="5.83024"><ele>505</ele></trkpt>
+      <trkpt lat="50.86921" lon="5.82905"><ele>505</ele></trkpt>
+      <trkpt lat="50.86795" lon="5.82795"><ele>496</ele></trkpt>
+      <trkpt lat="50.86680" lon="5.82695"><ele>496</ele></trkpt>
+      <trkpt lat="50.86580" lon="5.82607"><ele>479</ele></trkpt>
+      <trkpt lat="50.86499" lon="5.82530"><ele>479</ele></trkpt>
+      <trkpt lat="50.86442" lon="5.82466"><ele>460</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

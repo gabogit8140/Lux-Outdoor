@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>La Voie Bleue Moselle V50 (Metz - Pont-à-Mousson - Nancy)</name>
+    <desc>Section royale de la véloroute nationale longeant les méandres sauvages de la Moselle et la place Stanislas à Nancy.</desc>
+    <link href="https://www.lavoiebleue.com">
+      <text>La Voie Bleue V50 Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>La Voie Bleue Moselle V50 (Metz - Pont-à-Mousson - Nancy)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.14790" lon="6.18381"><ele>296</ele></trkpt>
+      <trkpt lat="49.13865" lon="6.17802"><ele>305</ele></trkpt>
+      <trkpt lat="49.12677" lon="6.16973"><ele>297</ele></trkpt>
+      <trkpt lat="49.11260" lon="6.15942"><ele>281</ele></trkpt>
+      <trkpt lat="49.09648" lon="6.14755"><ele>266</ele></trkpt>
+      <trkpt lat="49.07877" lon="6.13460"><ele>260</ele></trkpt>
+      <trkpt lat="49.05982" lon="6.12104"><ele>260</ele></trkpt>
+      <trkpt lat="49.03996" lon="6.10735"><ele>258</ele></trkpt>
+      <trkpt lat="49.01955" lon="6.09400"><ele>252</ele></trkpt>
+      <trkpt lat="48.99893" lon="6.08145"><ele>245</ele></trkpt>
+      <trkpt lat="48.97846" lon="6.07019"><ele>243</ele></trkpt>
+      <trkpt lat="48.95847" lon="6.06068"><ele>246</ele></trkpt>
+      <trkpt lat="48.93933" lon="6.05340"><ele>249</ele></trkpt>
+      <trkpt lat="48.92137" lon="6.04882"><ele>242</ele></trkpt>
+      <trkpt lat="48.90494" lon="6.04742"><ele>223</ele></trkpt>
+      <trkpt lat="48.90494" lon="6.04742"><ele>195</ele></trkpt>
+      <trkpt lat="48.88854" lon="6.04954"><ele>175</ele></trkpt>
+      <trkpt lat="48.87066" lon="6.05489"><ele>174</ele></trkpt>
+      <trkpt lat="48.85163" lon="6.06300"><ele>195</ele></trkpt>
+      <trkpt lat="48.83181" lon="6.07338"><ele>225</ele></trkpt>
+      <trkpt lat="48.81152" lon="6.08552"><ele>243</ele></trkpt>
+      <trkpt lat="48.79111" lon="6.09896"><ele>237</ele></trkpt>
+      <trkpt lat="48.77092" lon="6.11320"><ele>211</ele></trkpt>
+      <trkpt lat="48.75129" lon="6.12775"><ele>183</ele></trkpt>
+      <trkpt lat="48.73256" lon="6.14212"><ele>173</ele></trkpt>
+      <trkpt lat="48.71506" lon="6.15584"><ele>190</ele></trkpt>
+      <trkpt lat="48.69914" lon="6.16840"><ele>226</ele></trkpt>
+      <trkpt lat="48.68514" lon="6.17933"><ele>261</ele></trkpt>
+      <trkpt lat="48.67339" lon="6.18813"><ele>278</ele></trkpt>
+      <trkpt lat="48.66424" lon="6.19432"><ele>273</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

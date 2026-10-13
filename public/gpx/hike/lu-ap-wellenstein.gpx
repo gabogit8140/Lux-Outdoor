@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Wellenstein (Caves &amp; Coteaux Saint-Roch)</name>
+    <desc>Circuit traditionnel à travers les plus réputés terroirs viticoles de la Moselle et la chapelle Sainte-Croix.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Wellenstein (Caves &amp; Coteaux Saint-Roch)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.52760" lon="6.34471"><ele>158</ele></trkpt>
+      <trkpt lat="49.52724" lon="6.34395"><ele>158</ele></trkpt>
+      <trkpt lat="49.52680" lon="6.34284"><ele>158</ele></trkpt>
+      <trkpt lat="49.52627" lon="6.34146"><ele>187</ele></trkpt>
+      <trkpt lat="49.52567" lon="6.33987"><ele>187</ele></trkpt>
+      <trkpt lat="49.52501" lon="6.33814"><ele>163</ele></trkpt>
+      <trkpt lat="49.52430" lon="6.33632"><ele>163</ele></trkpt>
+      <trkpt lat="49.52355" lon="6.33450"><ele>115</ele></trkpt>
+      <trkpt lat="49.52276" lon="6.33272"><ele>115</ele></trkpt>
+      <trkpt lat="49.52196" lon="6.33106"><ele>85</ele></trkpt>
+      <trkpt lat="49.52114" lon="6.32958"><ele>85</ele></trkpt>
+      <trkpt lat="49.52032" lon="6.32835"><ele>105</ele></trkpt>
+      <trkpt lat="49.51951" lon="6.32742"><ele>105</ele></trkpt>
+      <trkpt lat="49.51871" lon="6.32688"><ele>177</ele></trkpt>
+      <trkpt lat="49.51794" lon="6.32677"><ele>177</ele></trkpt>
+      <trkpt lat="49.51794" lon="6.32677"><ele>269</ele></trkpt>
+      <trkpt lat="49.51707" lon="6.32713"><ele>269</ele></trkpt>
+      <trkpt lat="49.51602" lon="6.32790"><ele>339</ele></trkpt>
+      <trkpt lat="49.51482" lon="6.32904"><ele>339</ele></trkpt>
+      <trkpt lat="49.51352" lon="6.33048"><ele>353</ele></trkpt>
+      <trkpt lat="49.51215" lon="6.33216"><ele>353</ele></trkpt>
+      <trkpt lat="49.51077" lon="6.33403"><ele>305</ele></trkpt>
+      <trkpt lat="49.50940" lon="6.33603"><ele>305</ele></trkpt>
+      <trkpt lat="49.50811" lon="6.33810"><ele>223</ele></trkpt>
+      <trkpt lat="49.50692" lon="6.34018"><ele>223</ele></trkpt>
+      <trkpt lat="49.50589" lon="6.34223"><ele>147</ele></trkpt>
+      <trkpt lat="49.50505" lon="6.34418"><ele>147</ele></trkpt>
+      <trkpt lat="49.50445" lon="6.34597"><ele>108</ele></trkpt>
+      <trkpt lat="49.50413" lon="6.34755"><ele>108</ele></trkpt>
+      <trkpt lat="49.50413" lon="6.34886"><ele>113</ele></trkpt>
+      <trkpt lat="49.50413" lon="6.34886"><ele>113</ele></trkpt>
+      <trkpt lat="49.50452" lon="6.35006"><ele>142</ele></trkpt>
+      <trkpt lat="49.50528" lon="6.35135"><ele>142</ele></trkpt>
+      <trkpt lat="49.50636" lon="6.35269"><ele>163</ele></trkpt>
+      <trkpt lat="49.50771" lon="6.35406"><ele>163</ele></trkpt>
+      <trkpt lat="49.50927" lon="6.35542"><ele>151</ele></trkpt>
+      <trkpt lat="49.51098" lon="6.35675"><ele>151</ele></trkpt>
+      <trkpt lat="49.51279" lon="6.35801"><ele>103</ele></trkpt>
+      <trkpt lat="49.51464" lon="6.35918"><ele>103</ele></trkpt>
+      <trkpt lat="49.51647" lon="6.36024"><ele>40</ele></trkpt>
+      <trkpt lat="49.51823" lon="6.36114"><ele>40</ele></trkpt>
+      <trkpt lat="49.51987" lon="6.36186"><ele>25</ele></trkpt>
+      <trkpt lat="49.52132" lon="6.36238"><ele>25</ele></trkpt>
+      <trkpt lat="49.52254" lon="6.36265"><ele>25</ele></trkpt>
+      <trkpt lat="49.52346" lon="6.36266"><ele>25</ele></trkpt>
+      <trkpt lat="49.52346" lon="6.36266"><ele>34</ele></trkpt>
+      <trkpt lat="49.52416" lon="6.36232"><ele>34</ele></trkpt>
+      <trkpt lat="49.52477" lon="6.36161"><ele>103</ele></trkpt>
+      <trkpt lat="49.52528" lon="6.36059"><ele>103</ele></trkpt>
+      <trkpt lat="49.52571" lon="6.35930"><ele>171</ele></trkpt>
+      <trkpt lat="49.52607" lon="6.35782"><ele>171</ele></trkpt>
+      <trkpt lat="49.52637" lon="6.35619"><ele>214</ele></trkpt>
+      <trkpt lat="49.52662" lon="6.35447"><ele>214</ele></trkpt>
+      <trkpt lat="49.52682" lon="6.35271"><ele>226</ele></trkpt>
+      <trkpt lat="49.52699" lon="6.35099"><ele>226</ele></trkpt>
+      <trkpt lat="49.52713" lon="6.34934"><ele>216</ele></trkpt>
+      <trkpt lat="49.52725" lon="6.34783"><ele>216</ele></trkpt>
+      <trkpt lat="49.52736" lon="6.34652"><ele>206</ele></trkpt>
+      <trkpt lat="49.52748" lon="6.34546"><ele>206</ele></trkpt>
+      <trkpt lat="49.52760" lon="6.34471"><ele>209</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

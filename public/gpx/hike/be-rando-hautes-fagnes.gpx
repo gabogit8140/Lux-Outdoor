@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Boucle des Hautes Fagnes (Signal de Botrange - Baraque Michel)</name>
+    <desc>Randonnée officielle sur caillebotis au point culminant de Belgique (694m), à travers la tourbière mystique de la Fagne Wallonne.</desc>
+    <link href="https://visitwallonia.be">
+      <text>Visit Wallonia Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Boucle des Hautes Fagnes (Signal de Botrange - Baraque Michel)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="50.49362" lon="6.10959"><ele>530</ele></trkpt>
+      <trkpt lat="50.49466" lon="6.10799"><ele>530</ele></trkpt>
+      <trkpt lat="50.49604" lon="6.10592"><ele>530</ele></trkpt>
+      <trkpt lat="50.49772" lon="6.10346"><ele>525</ele></trkpt>
+      <trkpt lat="50.49963" lon="6.10066"><ele>525</ele></trkpt>
+      <trkpt lat="50.50172" lon="6.09758"><ele>495</ele></trkpt>
+      <trkpt lat="50.50394" lon="6.09429"><ele>495</ele></trkpt>
+      <trkpt lat="50.50624" lon="6.09084"><ele>476</ele></trkpt>
+      <trkpt lat="50.50857" lon="6.08730"><ele>476</ele></trkpt>
+      <trkpt lat="50.51087" lon="6.08373"><ele>488</ele></trkpt>
+      <trkpt lat="50.51309" lon="6.08019"><ele>488</ele></trkpt>
+      <trkpt lat="50.51517" lon="6.07674"><ele>509</ele></trkpt>
+      <trkpt lat="50.51707" lon="6.07344"><ele>509</ele></trkpt>
+      <trkpt lat="50.51873" lon="6.07036"><ele>495</ele></trkpt>
+      <trkpt lat="50.52009" lon="6.06755"><ele>495</ele></trkpt>
+      <trkpt lat="50.52009" lon="6.06755"><ele>427</ele></trkpt>
+      <trkpt lat="50.52131" lon="6.06466"><ele>427</ele></trkpt>
+      <trkpt lat="50.52254" lon="6.06136"><ele>333</ele></trkpt>
+      <trkpt lat="50.52376" lon="6.05775"><ele>333</ele></trkpt>
+      <trkpt lat="50.52495" lon="6.05394"><ele>265</ele></trkpt>
+      <trkpt lat="50.52610" lon="6.05003"><ele>265</ele></trkpt>
+      <trkpt lat="50.52718" lon="6.04612"><ele>258</ele></trkpt>
+      <trkpt lat="50.52817" lon="6.04231"><ele>258</ele></trkpt>
+      <trkpt lat="50.52906" lon="6.03871"><ele>299</ele></trkpt>
+      <trkpt lat="50.52981" lon="6.03541"><ele>299</ele></trkpt>
+      <trkpt lat="50.53043" lon="6.03251"><ele>344</ele></trkpt>
+      <trkpt lat="50.53087" lon="6.03013"><ele>344</ele></trkpt>
+      <trkpt lat="50.53112" lon="6.02836"><ele>359</ele></trkpt>
+      <trkpt lat="50.53117" lon="6.02730"><ele>359</ele></trkpt>
+      <trkpt lat="50.53099" lon="6.02706"><ele>349</ele></trkpt>
+      <trkpt lat="50.53099" lon="6.02706"><ele>349</ele></trkpt>
+      <trkpt lat="50.53052" lon="6.02774"><ele>352</ele></trkpt>
+      <trkpt lat="50.52972" lon="6.02929"><ele>352</ele></trkpt>
+      <trkpt lat="50.52865" lon="6.03161"><ele>390</ele></trkpt>
+      <trkpt lat="50.52735" lon="6.03456"><ele>390</ele></trkpt>
+      <trkpt lat="50.52585" lon="6.03805"><ele>448</ele></trkpt>
+      <trkpt lat="50.52420" lon="6.04194"><ele>448</ele></trkpt>
+      <trkpt lat="50.52245" lon="6.04613"><ele>482</ele></trkpt>
+      <trkpt lat="50.52063" lon="6.05049"><ele>482</ele></trkpt>
+      <trkpt lat="50.51879" lon="6.05490"><ele>464</ele></trkpt>
+      <trkpt lat="50.51697" lon="6.05926"><ele>464</ele></trkpt>
+      <trkpt lat="50.51521" lon="6.06345"><ele>411</ele></trkpt>
+      <trkpt lat="50.51356" lon="6.06734"><ele>411</ele></trkpt>
+      <trkpt lat="50.51206" lon="6.07082"><ele>372</ele></trkpt>
+      <trkpt lat="50.51075" lon="6.07377"><ele>372</ele></trkpt>
+      <trkpt lat="50.51075" lon="6.07377"><ele>386</ele></trkpt>
+      <trkpt lat="50.50950" lon="6.07651"><ele>386</ele></trkpt>
+      <trkpt lat="50.50817" lon="6.07937"><ele>449</ele></trkpt>
+      <trkpt lat="50.50678" lon="6.08233"><ele>449</ele></trkpt>
+      <trkpt lat="50.50535" lon="6.08535"><ele>516</ele></trkpt>
+      <trkpt lat="50.50391" lon="6.08838"><ele>516</ele></trkpt>
+      <trkpt lat="50.50246" lon="6.09138"><ele>547</ele></trkpt>
+      <trkpt lat="50.50105" lon="6.09431"><ele>547</ele></trkpt>
+      <trkpt lat="50.49968" lon="6.09714"><ele>540</ele></trkpt>
+      <trkpt lat="50.49837" lon="6.09981"><ele>540</ele></trkpt>
+      <trkpt lat="50.49716" lon="6.10230"><ele>528</ele></trkpt>
+      <trkpt lat="50.49606" lon="6.10457"><ele>528</ele></trkpt>
+      <trkpt lat="50.49509" lon="6.10656"><ele>541</ele></trkpt>
+      <trkpt lat="50.49427" lon="6.10825"><ele>541</ele></trkpt>
+      <trkpt lat="50.49362" lon="6.10959"><ele>572</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>RAVeL L163 (Bastogne - Gouvy)</name>
+    <desc>Balade sécurisée à travers l&apos;Ardenne centrale reliant la ville historique de Bastogne au nœud frontalier de Gouvy.</desc>
+    <link href="https://ravel.wallonie.be">
+      <text>RAVeL Wallonie Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>RAVeL L163 (Bastogne - Gouvy)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.98442" lon="5.69949"><ele>677</ele></trkpt>
+      <trkpt lat="49.98800" lon="5.70249"><ele>677</ele></trkpt>
+      <trkpt lat="49.99265" lon="5.70634"><ele>645</ele></trkpt>
+      <trkpt lat="49.99823" lon="5.71094"><ele>645</ele></trkpt>
+      <trkpt lat="50.00458" lon="5.71617"><ele>565</ele></trkpt>
+      <trkpt lat="50.01156" lon="5.72191"><ele>469</ele></trkpt>
+      <trkpt lat="50.01900" lon="5.72806"><ele>469</ele></trkpt>
+      <trkpt lat="50.02677" lon="5.73451"><ele>391</ele></trkpt>
+      <trkpt lat="50.03471" lon="5.74113"><ele>347</ele></trkpt>
+      <trkpt lat="50.04267" lon="5.74783"><ele>347</ele></trkpt>
+      <trkpt lat="50.05049" lon="5.75448"><ele>331</ele></trkpt>
+      <trkpt lat="50.05804" lon="5.76097"><ele>322</ele></trkpt>
+      <trkpt lat="50.06515" lon="5.76720"><ele>322</ele></trkpt>
+      <trkpt lat="50.07168" lon="5.77305"><ele>301</ele></trkpt>
+      <trkpt lat="50.07747" lon="5.77841"><ele>266</ele></trkpt>
+      <trkpt lat="50.07747" lon="5.77841"><ele>266</ele></trkpt>
+      <trkpt lat="50.08293" lon="5.78354"><ele>238</ele></trkpt>
+      <trkpt lat="50.08853" lon="5.78878"><ele>242</ele></trkpt>
+      <trkpt lat="50.09422" lon="5.79412"><ele>242</ele></trkpt>
+      <trkpt lat="50.09997" lon="5.79955"><ele>294</ele></trkpt>
+      <trkpt lat="50.10574" lon="5.80507"><ele>388</ele></trkpt>
+      <trkpt lat="50.11148" lon="5.81067"><ele>388</ele></trkpt>
+      <trkpt lat="50.11716" lon="5.81634"><ele>494</ele></trkpt>
+      <trkpt lat="50.12273" lon="5.82207"><ele>574</ele></trkpt>
+      <trkpt lat="50.12816" lon="5.82786"><ele>574</ele></trkpt>
+      <trkpt lat="50.13340" lon="5.83369"><ele>603</ele></trkpt>
+      <trkpt lat="50.13841" lon="5.83956"><ele>583</ele></trkpt>
+      <trkpt lat="50.14316" lon="5.84546"><ele>583</ele></trkpt>
+      <trkpt lat="50.14759" lon="5.85139"><ele>536</ele></trkpt>
+      <trkpt lat="50.15168" lon="5.85732"><ele>494</ele></trkpt>
+      <trkpt lat="50.15168" lon="5.85732"><ele>494</ele></trkpt>
+      <trkpt lat="50.15563" lon="5.86377"><ele>479</ele></trkpt>
+      <trkpt lat="50.15965" lon="5.87110"><ele>486</ele></trkpt>
+      <trkpt lat="50.16370" lon="5.87913"><ele>486</ele></trkpt>
+      <trkpt lat="50.16774" lon="5.88769"><ele>497</ele></trkpt>
+      <trkpt lat="50.17174" lon="5.89660"><ele>487</ele></trkpt>
+      <trkpt lat="50.17564" lon="5.90569"><ele>487</ele></trkpt>
+      <trkpt lat="50.17941" lon="5.91477"><ele>447</ele></trkpt>
+      <trkpt lat="50.18301" lon="5.92367"><ele>387</ele></trkpt>
+      <trkpt lat="50.18641" lon="5.93221"><ele>387</ele></trkpt>
+      <trkpt lat="50.18955" lon="5.94022"><ele>337</ele></trkpt>
+      <trkpt lat="50.19240" lon="5.94751"><ele>322</ele></trkpt>
+      <trkpt lat="50.19491" lon="5.95391"><ele>322</ele></trkpt>
+      <trkpt lat="50.19706" lon="5.95925"><ele>346</ele></trkpt>
+      <trkpt lat="50.19880" lon="5.96334"><ele>394</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

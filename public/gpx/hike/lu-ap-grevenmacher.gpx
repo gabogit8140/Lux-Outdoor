@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Grevenmacher (Réserve du Kelsbaach)</name>
+    <desc>Randonnée dans la réserve naturelle du Kelsbaach abritant orchidées rares et vignobles en terrasses sur la Moselle.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Grevenmacher (Réserve du Kelsbaach)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.68320" lon="6.44183"><ele>76</ele></trkpt>
+      <trkpt lat="49.68278" lon="6.44089"><ele>76</ele></trkpt>
+      <trkpt lat="49.68225" lon="6.43955"><ele>76</ele></trkpt>
+      <trkpt lat="49.68161" lon="6.43790"><ele>25</ele></trkpt>
+      <trkpt lat="49.68090" lon="6.43600"><ele>25</ele></trkpt>
+      <trkpt lat="49.68011" lon="6.43393"><ele>25</ele></trkpt>
+      <trkpt lat="49.67926" lon="6.43175"><ele>25</ele></trkpt>
+      <trkpt lat="49.67837" lon="6.42954"><ele>49</ele></trkpt>
+      <trkpt lat="49.67744" lon="6.42738"><ele>49</ele></trkpt>
+      <trkpt lat="49.67649" lon="6.42533"><ele>121</ele></trkpt>
+      <trkpt lat="49.67554" lon="6.42346"><ele>121</ele></trkpt>
+      <trkpt lat="49.67460" lon="6.42186"><ele>200</ele></trkpt>
+      <trkpt lat="49.67368" lon="6.42058"><ele>200</ele></trkpt>
+      <trkpt lat="49.67279" lon="6.41971"><ele>261</ele></trkpt>
+      <trkpt lat="49.67194" lon="6.41931"><ele>261</ele></trkpt>
+      <trkpt lat="49.67194" lon="6.41931"><ele>284</ele></trkpt>
+      <trkpt lat="49.67103" lon="6.41938"><ele>284</ele></trkpt>
+      <trkpt lat="49.66993" lon="6.41983"><ele>269</ele></trkpt>
+      <trkpt lat="49.66871" lon="6.42061"><ele>269</ele></trkpt>
+      <trkpt lat="49.66738" lon="6.42167"><ele>226</ele></trkpt>
+      <trkpt lat="49.66600" lon="6.42297"><ele>226</ele></trkpt>
+      <trkpt lat="49.66461" lon="6.42446"><ele>171</ele></trkpt>
+      <trkpt lat="49.66325" lon="6.42609"><ele>171</ele></trkpt>
+      <trkpt lat="49.66195" lon="6.42782"><ele>121</ele></trkpt>
+      <trkpt lat="49.66076" lon="6.42960"><ele>121</ele></trkpt>
+      <trkpt lat="49.65972" lon="6.43138"><ele>86</ele></trkpt>
+      <trkpt lat="49.65887" lon="6.43312"><ele>86</ele></trkpt>
+      <trkpt lat="49.65825" lon="6.43477"><ele>67</ele></trkpt>
+      <trkpt lat="49.65790" lon="6.43628"><ele>67</ele></trkpt>
+      <trkpt lat="49.65787" lon="6.43761"><ele>64</ele></trkpt>
+      <trkpt lat="49.65787" lon="6.43761"><ele>64</ele></trkpt>
+      <trkpt lat="49.65820" lon="6.43894"><ele>76</ele></trkpt>
+      <trkpt lat="49.65888" lon="6.44046"><ele>76</ele></trkpt>
+      <trkpt lat="49.65987" lon="6.44213"><ele>103</ele></trkpt>
+      <trkpt lat="49.66111" lon="6.44390"><ele>103</ele></trkpt>
+      <trkpt lat="49.66255" lon="6.44572"><ele>144</ele></trkpt>
+      <trkpt lat="49.66414" lon="6.44756"><ele>144</ele></trkpt>
+      <trkpt lat="49.66583" lon="6.44936"><ele>194</ele></trkpt>
+      <trkpt lat="49.66757" lon="6.45109"><ele>194</ele></trkpt>
+      <trkpt lat="49.66931" lon="6.45269"><ele>241</ele></trkpt>
+      <trkpt lat="49.67099" lon="6.45413"><ele>241</ele></trkpt>
+      <trkpt lat="49.67257" lon="6.45535"><ele>271</ele></trkpt>
+      <trkpt lat="49.67399" lon="6.45632"><ele>271</ele></trkpt>
+      <trkpt lat="49.67521" lon="6.45699"><ele>270</ele></trkpt>
+      <trkpt lat="49.67617" lon="6.45731"><ele>270</ele></trkpt>
+      <trkpt lat="49.67617" lon="6.45731"><ele>233</ele></trkpt>
+      <trkpt lat="49.67696" lon="6.45724"><ele>233</ele></trkpt>
+      <trkpt lat="49.67770" lon="6.45678"><ele>169</ele></trkpt>
+      <trkpt lat="49.67839" lon="6.45599"><ele>169</ele></trkpt>
+      <trkpt lat="49.67904" lon="6.45493"><ele>98</ele></trkpt>
+      <trkpt lat="49.67964" lon="6.45365"><ele>98</ele></trkpt>
+      <trkpt lat="49.68020" lon="6.45222"><ele>45</ele></trkpt>
+      <trkpt lat="49.68071" lon="6.45068"><ele>45</ele></trkpt>
+      <trkpt lat="49.68119" lon="6.44910"><ele>28</ele></trkpt>
+      <trkpt lat="49.68162" lon="6.44753"><ele>28</ele></trkpt>
+      <trkpt lat="49.68201" lon="6.44603"><ele>51</ele></trkpt>
+      <trkpt lat="49.68236" lon="6.44465"><ele>51</ele></trkpt>
+      <trkpt lat="49.68268" lon="6.44345"><ele>104</ele></trkpt>
+      <trkpt lat="49.68296" lon="6.44250"><ele>104</ele></trkpt>
+      <trkpt lat="49.68320" lon="6.44183"><ele>165</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

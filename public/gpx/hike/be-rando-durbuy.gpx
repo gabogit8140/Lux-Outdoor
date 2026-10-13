@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Boucle médiévale de Durbuy &amp; Falaises de l&apos;Ourthe</name>
+    <desc>Randonnée parcourant la &quot;plus petite ville du monde&quot;, le grand anticlinal géologique et les sentiers forestiers dominant l&apos;Ourthe.</desc>
+    <link href="https://visitwallonia.be">
+      <text>Visit Wallonia Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Boucle médiévale de Durbuy &amp; Falaises de l&apos;Ourthe</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="50.34656" lon="5.45365"><ele>624</ele></trkpt>
+      <trkpt lat="50.34735" lon="5.45269"><ele>624</ele></trkpt>
+      <trkpt lat="50.34838" lon="5.45127"><ele>624</ele></trkpt>
+      <trkpt lat="50.34963" lon="5.44949"><ele>660</ele></trkpt>
+      <trkpt lat="50.35106" lon="5.44744"><ele>660</ele></trkpt>
+      <trkpt lat="50.35263" lon="5.44520"><ele>634</ele></trkpt>
+      <trkpt lat="50.35429" lon="5.44287"><ele>634</ele></trkpt>
+      <trkpt lat="50.35602" lon="5.44054"><ele>575</ele></trkpt>
+      <trkpt lat="50.35777" lon="5.43831"><ele>575</ele></trkpt>
+      <trkpt lat="50.35951" lon="5.43625"><ele>526</ele></trkpt>
+      <trkpt lat="50.36120" lon="5.43448"><ele>526</ele></trkpt>
+      <trkpt lat="50.36280" lon="5.43307"><ele>505</ele></trkpt>
+      <trkpt lat="50.36427" lon="5.43212"><ele>505</ele></trkpt>
+      <trkpt lat="50.36558" lon="5.43172"><ele>502</ele></trkpt>
+      <trkpt lat="50.36669" lon="5.43197"><ele>502</ele></trkpt>
+      <trkpt lat="50.36669" lon="5.43197"><ele>496</ele></trkpt>
+      <trkpt lat="50.36773" lon="5.43296"><ele>496</ele></trkpt>
+      <trkpt lat="50.36884" lon="5.43467"><ele>476</ele></trkpt>
+      <trkpt lat="50.36999" lon="5.43700"><ele>476</ele></trkpt>
+      <trkpt lat="50.37116" lon="5.43983"><ele>451</ele></trkpt>
+      <trkpt lat="50.37231" lon="5.44305"><ele>451</ele></trkpt>
+      <trkpt lat="50.37342" lon="5.44657"><ele>441</ele></trkpt>
+      <trkpt lat="50.37446" lon="5.45027"><ele>441</ele></trkpt>
+      <trkpt lat="50.37541" lon="5.45404"><ele>452</ele></trkpt>
+      <trkpt lat="50.37623" lon="5.45778"><ele>452</ele></trkpt>
+      <trkpt lat="50.37691" lon="5.46138"><ele>464</ele></trkpt>
+      <trkpt lat="50.37740" lon="5.46473"><ele>464</ele></trkpt>
+      <trkpt lat="50.37769" lon="5.46773"><ele>445</ele></trkpt>
+      <trkpt lat="50.37774" lon="5.47026"><ele>445</ele></trkpt>
+      <trkpt lat="50.37753" lon="5.47223"><ele>378</ele></trkpt>
+      <trkpt lat="50.37753" lon="5.47223"><ele>378</ele></trkpt>
+      <trkpt lat="50.37698" lon="5.47384"><ele>281</ele></trkpt>
+      <trkpt lat="50.37606" lon="5.47539"><ele>281</ele></trkpt>
+      <trkpt lat="50.37483" lon="5.47685"><ele>204</ele></trkpt>
+      <trkpt lat="50.37333" lon="5.47821"><ele>204</ele></trkpt>
+      <trkpt lat="50.37163" lon="5.47947"><ele>196</ele></trkpt>
+      <trkpt lat="50.36978" lon="5.48059"><ele>196</ele></trkpt>
+      <trkpt lat="50.36782" lon="5.48157"><ele>263</ele></trkpt>
+      <trkpt lat="50.36582" lon="5.48238"><ele>263</ele></trkpt>
+      <trkpt lat="50.36383" lon="5.48302"><ele>366</ele></trkpt>
+      <trkpt lat="50.36190" lon="5.48348"><ele>366</ele></trkpt>
+      <trkpt lat="50.36008" lon="5.48372"><ele>436</ele></trkpt>
+      <trkpt lat="50.35843" lon="5.48374"><ele>436</ele></trkpt>
+      <trkpt lat="50.35700" lon="5.48353"><ele>425</ele></trkpt>
+      <trkpt lat="50.35585" lon="5.48307"><ele>425</ele></trkpt>
+      <trkpt lat="50.35585" lon="5.48307"><ele>339</ele></trkpt>
+      <trkpt lat="50.35488" lon="5.48218"><ele>339</ele></trkpt>
+      <trkpt lat="50.35395" lon="5.48079"><ele>236</ele></trkpt>
+      <trkpt lat="50.35306" lon="5.47896"><ele>236</ele></trkpt>
+      <trkpt lat="50.35222" lon="5.47679"><ele>190</ele></trkpt>
+      <trkpt lat="50.35143" lon="5.47434"><ele>190</ele></trkpt>
+      <trkpt lat="50.35068" lon="5.47171"><ele>238</ele></trkpt>
+      <trkpt lat="50.34999" lon="5.46897"><ele>238</ele></trkpt>
+      <trkpt lat="50.34934" lon="5.46620"><ele>359</ele></trkpt>
+      <trkpt lat="50.34875" lon="5.46349"><ele>359</ele></trkpt>
+      <trkpt lat="50.34820" lon="5.46092"><ele>487</ele></trkpt>
+      <trkpt lat="50.34771" lon="5.45857"><ele>487</ele></trkpt>
+      <trkpt lat="50.34727" lon="5.45652"><ele>557</ele></trkpt>
+      <trkpt lat="50.34689" lon="5.45485"><ele>557</ele></trkpt>
+      <trkpt lat="50.34656" lon="5.45365"><ele>548</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

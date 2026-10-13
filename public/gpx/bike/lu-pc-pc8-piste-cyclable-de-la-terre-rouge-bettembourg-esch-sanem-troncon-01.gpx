@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="VisitLuxembourg &amp; Grande-Region Outdoor"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>PC8 Piste cyclable de la Terre Rouge (Bettembourg - Esch - Sanem) (Tronçon 01)</name>
+    <desc>Réseau National des Pistes Cyclables (PC) du Luxembourg - Parcours officiel de 0.4 km.</desc>
+    <link href="https://www.visitluxembourg.com/fr/que-faire/nature-excursions/a-velo/pistes-cyclables">
+      <text>Réseau National des Pistes Cyclables (PC) du Luxembourg</text>
+    </link>
+    <time>2026-10-11T11:10:41.208Z</time>
+  </metadata>
+  <trk>
+    <name>PC8 Piste cyclable de la Terre Rouge (Bettembourg - Esch - Sanem) (Tronçon 01)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.4867244" lon="6.0409792"><ele>280.9</ele></trkpt>
+      <trkpt lat="49.4867244" lon="6.0409793"><ele>280.9</ele></trkpt>
+      <trkpt lat="49.4865285" lon="6.0409368"><ele>280.9</ele></trkpt>
+      <trkpt lat="49.4863256" lon="6.0408944"><ele>280.8</ele></trkpt>
+      <trkpt lat="49.4860038" lon="6.0408308"><ele>280.9</ele></trkpt>
+      <trkpt lat="49.4858568" lon="6.0407990"><ele>280.8</ele></trkpt>
+      <trkpt lat="49.4857659" lon="6.0407885"><ele>280.8</ele></trkpt>
+      <trkpt lat="49.4855910" lon="6.0407996"><ele>280.8</ele></trkpt>
+      <trkpt lat="49.4854441" lon="6.0408108"><ele>280.7</ele></trkpt>
+      <trkpt lat="49.4853607" lon="6.0408206"><ele>280.6</ele></trkpt>
+      <trkpt lat="49.4867645" lon="6.0394864"><ele>282.2</ele></trkpt>
+      <trkpt lat="49.4867856" lon="6.0395682"><ele>282.0</ele></trkpt>
+      <trkpt lat="49.4867860" lon="6.0397443"><ele>281.7</ele></trkpt>
+      <trkpt lat="49.4867794" lon="6.0400557"><ele>281.3</ele></trkpt>
+      <trkpt lat="49.4867517" lon="6.0402812"><ele>281.2</ele></trkpt>
+      <trkpt lat="49.4867310" lon="6.0405927"><ele>281.1</ele></trkpt>
+      <trkpt lat="49.4867244" lon="6.0409792"><ele>280.9</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

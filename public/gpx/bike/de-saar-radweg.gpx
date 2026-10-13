@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Saar-Radweg (Konz - Saarburg - Mettlach - Merzig)</name>
+    <desc>Voie verte fluviale longeant la Sarre romantique, ses cascades urbaines à Saarburg et le canyon spectaculaire de la Saarschleife.</desc>
+    <link href="https://www.urlaub.saarland">
+      <text>Tourismus Zentrale Saarland</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Saar-Radweg (Konz - Saarburg - Mettlach - Merzig)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.77813" lon="6.57154"><ele>218</ele></trkpt>
+      <trkpt lat="49.77273" lon="6.56986"><ele>218</ele></trkpt>
+      <trkpt lat="49.76587" lon="6.56741"><ele>203</ele></trkpt>
+      <trkpt lat="49.75774" lon="6.56432"><ele>203</ele></trkpt>
+      <trkpt lat="49.74851" lon="6.56077"><ele>162</ele></trkpt>
+      <trkpt lat="49.73836" lon="6.55689"><ele>116</ele></trkpt>
+      <trkpt lat="49.72745" lon="6.55285"><ele>116</ele></trkpt>
+      <trkpt lat="49.71598" lon="6.54881"><ele>87</ele></trkpt>
+      <trkpt lat="49.70410" lon="6.54491"><ele>83</ele></trkpt>
+      <trkpt lat="49.69201" lon="6.54131"><ele>83</ele></trkpt>
+      <trkpt lat="49.67987" lon="6.53817"><ele>98</ele></trkpt>
+      <trkpt lat="49.66786" lon="6.53565"><ele>116</ele></trkpt>
+      <trkpt lat="49.65616" lon="6.53389"><ele>116</ele></trkpt>
+      <trkpt lat="49.64494" lon="6.53306"><ele>129</ele></trkpt>
+      <trkpt lat="49.63438" lon="6.53330"><ele>140</ele></trkpt>
+      <trkpt lat="49.63438" lon="6.53330"><ele>140</ele></trkpt>
+      <trkpt lat="49.62362" lon="6.53468"><ele>154</ele></trkpt>
+      <trkpt lat="49.61183" lon="6.53707"><ele>175</ele></trkpt>
+      <trkpt lat="49.59920" lon="6.54032"><ele>175</ele></trkpt>
+      <trkpt lat="49.58593" lon="6.54433"><ele>193</ele></trkpt>
+      <trkpt lat="49.57222" lon="6.54896"><ele>200</ele></trkpt>
+      <trkpt lat="49.55827" lon="6.55408"><ele>200</ele></trkpt>
+      <trkpt lat="49.54427" lon="6.55957"><ele>190</ele></trkpt>
+      <trkpt lat="49.53042" lon="6.56530"><ele>174</ele></trkpt>
+      <trkpt lat="49.51692" lon="6.57113"><ele>174</ele></trkpt>
+      <trkpt lat="49.50397" lon="6.57696"><ele>166</ele></trkpt>
+      <trkpt lat="49.49176" lon="6.58263"><ele>177</ele></trkpt>
+      <trkpt lat="49.48049" lon="6.58804"><ele>177</ele></trkpt>
+      <trkpt lat="49.47036" lon="6.59305"><ele>198</ele></trkpt>
+      <trkpt lat="49.46156" lon="6.59753"><ele>209</ele></trkpt>
+      <trkpt lat="49.46156" lon="6.59753"><ele>209</ele></trkpt>
+      <trkpt lat="49.45364" lon="6.60196"><ele>192</ele></trkpt>
+      <trkpt lat="49.44601" lon="6.60680"><ele>147</ele></trkpt>
+      <trkpt lat="49.43869" lon="6.61197"><ele>147</ele></trkpt>
+      <trkpt lat="49.43169" lon="6.61737"><ele>93</ele></trkpt>
+      <trkpt lat="49.42504" lon="6.62291"><ele>59</ele></trkpt>
+      <trkpt lat="49.41875" lon="6.62850"><ele>59</ele></trkpt>
+      <trkpt lat="49.41284" lon="6.63403"><ele>64</ele></trkpt>
+      <trkpt lat="49.40733" lon="6.63941"><ele>101</ele></trkpt>
+      <trkpt lat="49.40223" lon="6.64455"><ele>101</ele></trkpt>
+      <trkpt lat="49.39757" lon="6.64936"><ele>147</ele></trkpt>
+      <trkpt lat="49.39335" lon="6.65373"><ele>176</ele></trkpt>
+      <trkpt lat="49.38960" lon="6.65757"><ele>176</ele></trkpt>
+      <trkpt lat="49.38633" lon="6.66079"><ele>178</ele></trkpt>
+      <trkpt lat="49.38357" lon="6.66330"><ele>163</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

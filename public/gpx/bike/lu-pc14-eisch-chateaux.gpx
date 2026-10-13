@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>PC14 Piste de l&apos;Eisch (Vallée des Sept Châteaux)</name>
+    <desc>Liaison féerique suivant la rivière Eisch entre Koerich, Septfontaines, les deux châteaux d&apos;Ansembourg, Hollenfels et Mersch.</desc>
+    <link href="https://geoportail.lu">
+      <text>Geoportail Luxembourg (PC Officielle)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>PC14 Piste de l&apos;Eisch (Vallée des Sept Châteaux)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.64848" lon="5.90710"><ele>566</ele></trkpt>
+      <trkpt lat="49.65045" lon="5.90790"><ele>566</ele></trkpt>
+      <trkpt lat="49.65313" lon="5.90863"><ele>566</ele></trkpt>
+      <trkpt lat="49.65639" lon="5.90936"><ele>518</ele></trkpt>
+      <trkpt lat="49.66013" lon="5.91015"><ele>518</ele></trkpt>
+      <trkpt lat="49.66422" lon="5.91105"><ele>414</ele></trkpt>
+      <trkpt lat="49.66854" lon="5.91211"><ele>414</ele></trkpt>
+      <trkpt lat="49.67299" lon="5.91339"><ele>297</ele></trkpt>
+      <trkpt lat="49.67744" lon="5.91496"><ele>297</ele></trkpt>
+      <trkpt lat="49.68177" lon="5.91685"><ele>209</ele></trkpt>
+      <trkpt lat="49.68588" lon="5.91914"><ele>209</ele></trkpt>
+      <trkpt lat="49.68964" lon="5.92188"><ele>167</ele></trkpt>
+      <trkpt lat="49.69294" lon="5.92512"><ele>167</ele></trkpt>
+      <trkpt lat="49.69566" lon="5.92892"><ele>158</ele></trkpt>
+      <trkpt lat="49.69768" lon="5.93334"><ele>158</ele></trkpt>
+      <trkpt lat="49.69768" lon="5.93334"><ele>153</ele></trkpt>
+      <trkpt lat="49.69907" lon="5.93891"><ele>153</ele></trkpt>
+      <trkpt lat="49.70003" lon="5.94596"><ele>131</ele></trkpt>
+      <trkpt lat="49.70061" lon="5.95425"><ele>131</ele></trkpt>
+      <trkpt lat="49.70087" lon="5.96351"><ele>101</ele></trkpt>
+      <trkpt lat="49.70087" lon="5.97350"><ele>101</ele></trkpt>
+      <trkpt lat="49.70067" lon="5.98397"><ele>88</ele></trkpt>
+      <trkpt lat="49.70034" lon="5.99466"><ele>88</ele></trkpt>
+      <trkpt lat="49.69994" lon="6.00533"><ele>124</ele></trkpt>
+      <trkpt lat="49.69952" lon="6.01572"><ele>124</ele></trkpt>
+      <trkpt lat="49.69914" lon="6.02558"><ele>216</ele></trkpt>
+      <trkpt lat="49.69888" lon="6.03466"><ele>216</ele></trkpt>
+      <trkpt lat="49.69878" lon="6.04271"><ele>337</ele></trkpt>
+      <trkpt lat="49.69890" lon="6.04947"><ele>337</ele></trkpt>
+      <trkpt lat="49.69932" lon="6.05470"><ele>441</ele></trkpt>
+      <trkpt lat="49.69932" lon="6.05470"><ele>441</ele></trkpt>
+      <trkpt lat="49.69989" lon="6.05846"><ele>490</ele></trkpt>
+      <trkpt lat="49.70047" lon="6.06112"><ele>490</ele></trkpt>
+      <trkpt lat="49.70108" lon="6.06284"><ele>473</ele></trkpt>
+      <trkpt lat="49.70173" lon="6.06380"><ele>473</ele></trkpt>
+      <trkpt lat="49.70245" lon="6.06417"><ele>414</ele></trkpt>
+      <trkpt lat="49.70327" lon="6.06412"><ele>414</ele></trkpt>
+      <trkpt lat="49.70420" lon="6.06383"><ele>355</ele></trkpt>
+      <trkpt lat="49.70526" lon="6.06347"><ele>355</ele></trkpt>
+      <trkpt lat="49.70648" lon="6.06320"><ele>328</ele></trkpt>
+      <trkpt lat="49.70788" lon="6.06322"><ele>328</ele></trkpt>
+      <trkpt lat="49.70949" lon="6.06368"><ele>335</ele></trkpt>
+      <trkpt lat="49.71131" lon="6.06475"><ele>335</ele></trkpt>
+      <trkpt lat="49.71338" lon="6.06662"><ele>352</ele></trkpt>
+      <trkpt lat="49.71572" lon="6.06946"><ele>352</ele></trkpt>
+      <trkpt lat="49.71572" lon="6.06946"><ele>346</ele></trkpt>
+      <trkpt lat="49.71861" lon="6.07349"><ele>346</ele></trkpt>
+      <trkpt lat="49.72224" lon="6.07870"><ele>304</ele></trkpt>
+      <trkpt lat="49.72649" lon="6.08489"><ele>304</ele></trkpt>
+      <trkpt lat="49.73121" lon="6.09186"><ele>239</ele></trkpt>
+      <trkpt lat="49.73629" lon="6.09940"><ele>239</ele></trkpt>
+      <trkpt lat="49.74159" lon="6.10731"><ele>187</ele></trkpt>
+      <trkpt lat="49.74698" lon="6.11538"><ele>187</ele></trkpt>
+      <trkpt lat="49.75233" lon="6.12343"><ele>177</ele></trkpt>
+      <trkpt lat="49.75752" lon="6.13124"><ele>177</ele></trkpt>
+      <trkpt lat="49.76241" lon="6.13861"><ele>212</ele></trkpt>
+      <trkpt lat="49.76687" lon="6.14534"><ele>212</ele></trkpt>
+      <trkpt lat="49.77078" lon="6.15122"><ele>266</ele></trkpt>
+      <trkpt lat="49.77400" lon="6.15606"><ele>266</ele></trkpt>
+      <trkpt lat="49.77640" lon="6.15965"><ele>299</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Rando du Ninglinspo &amp; Fonds de Quarreux (Aywaille)</name>
+    <desc>L&apos;unique torrent de montagne de Belgique, serpentant dans un ravin escarpé avec bassins naturels (Bains de Diane, Cascade de la Chaudière).</desc>
+    <link href="https://visitwallonia.be">
+      <text>Visit Wallonia Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Rando du Ninglinspo &amp; Fonds de Quarreux (Aywaille)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.97631" lon="5.68703"><ele>678</ele></trkpt>
+      <trkpt lat="49.97637" lon="5.68705"><ele>678</ele></trkpt>
+      <trkpt lat="49.97655" lon="5.68707"><ele>678</ele></trkpt>
+      <trkpt lat="49.97681" lon="5.68710"><ele>694</ele></trkpt>
+      <trkpt lat="49.97712" lon="5.68713"><ele>694</ele></trkpt>
+      <trkpt lat="49.97746" lon="5.68716"><ele>622</ele></trkpt>
+      <trkpt lat="49.97778" lon="5.68720"><ele>622</ele></trkpt>
+      <trkpt lat="49.97805" lon="5.68723"><ele>526</ele></trkpt>
+      <trkpt lat="49.97826" lon="5.68727"><ele>526</ele></trkpt>
+      <trkpt lat="49.97836" lon="5.68731"><ele>466</ele></trkpt>
+      <trkpt lat="49.97832" lon="5.68735"><ele>466</ele></trkpt>
+      <trkpt lat="49.97811" lon="5.68738"><ele>458</ele></trkpt>
+      <trkpt lat="49.97770" lon="5.68742"><ele>458</ele></trkpt>
+      <trkpt lat="49.97705" lon="5.68745"><ele>468</ele></trkpt>
+      <trkpt lat="49.97615" lon="5.68748"><ele>468</ele></trkpt>
+      <trkpt lat="49.97615" lon="5.68748"><ele>459</ele></trkpt>
+      <trkpt lat="49.97484" lon="5.68752"><ele>459</ele></trkpt>
+      <trkpt lat="49.97306" lon="5.68755"><ele>429</ele></trkpt>
+      <trkpt lat="49.97089" lon="5.68759"><ele>429</ele></trkpt>
+      <trkpt lat="49.96841" lon="5.68764"><ele>402</ele></trkpt>
+      <trkpt lat="49.96570" lon="5.68768"><ele>402</ele></trkpt>
+      <trkpt lat="49.96283" lon="5.68772"><ele>398</ele></trkpt>
+      <trkpt lat="49.95988" lon="5.68777"><ele>398</ele></trkpt>
+      <trkpt lat="49.95693" lon="5.68781"><ele>398</ele></trkpt>
+      <trkpt lat="49.95407" lon="5.68784"><ele>398</ele></trkpt>
+      <trkpt lat="49.95136" lon="5.68788"><ele>367</ele></trkpt>
+      <trkpt lat="49.94888" lon="5.68790"><ele>367</ele></trkpt>
+      <trkpt lat="49.94672" lon="5.68792"><ele>287</ele></trkpt>
+      <trkpt lat="49.94496" lon="5.68793"><ele>287</ele></trkpt>
+      <trkpt lat="49.94366" lon="5.68794"><ele>199</ele></trkpt>
+      <trkpt lat="49.94366" lon="5.68794"><ele>199</ele></trkpt>
+      <trkpt lat="49.94270" lon="5.68793"><ele>167</ele></trkpt>
+      <trkpt lat="49.94190" lon="5.68791"><ele>167</ele></trkpt>
+      <trkpt lat="49.94125" lon="5.68788"><ele>231</ele></trkpt>
+      <trkpt lat="49.94075" lon="5.68785"><ele>231</ele></trkpt>
+      <trkpt lat="49.94040" lon="5.68780"><ele>358</ele></trkpt>
+      <trkpt lat="49.94021" lon="5.68776"><ele>358</ele></trkpt>
+      <trkpt lat="49.94016" lon="5.68771"><ele>460</ele></trkpt>
+      <trkpt lat="49.94026" lon="5.68766"><ele>460</ele></trkpt>
+      <trkpt lat="49.94051" lon="5.68760"><ele>464</ele></trkpt>
+      <trkpt lat="49.94091" lon="5.68755"><ele>464</ele></trkpt>
+      <trkpt lat="49.94145" lon="5.68751"><ele>376</ele></trkpt>
+      <trkpt lat="49.94214" lon="5.68746"><ele>376</ele></trkpt>
+      <trkpt lat="49.94297" lon="5.68742"><ele>277</ele></trkpt>
+      <trkpt lat="49.94395" lon="5.68739"><ele>277</ele></trkpt>
+      <trkpt lat="49.94395" lon="5.68739"><ele>262</ele></trkpt>
+      <trkpt lat="49.94526" lon="5.68736"><ele>262</ele></trkpt>
+      <trkpt lat="49.94703" lon="5.68733"><ele>363</ele></trkpt>
+      <trkpt lat="49.94919" lon="5.68730"><ele>363</ele></trkpt>
+      <trkpt lat="49.95166" lon="5.68727"><ele>521</ele></trkpt>
+      <trkpt lat="49.95436" lon="5.68724"><ele>521</ele></trkpt>
+      <trkpt lat="49.95721" lon="5.68721"><ele>638</ele></trkpt>
+      <trkpt lat="49.96015" lon="5.68718"><ele>638</ele></trkpt>
+      <trkpt lat="49.96308" lon="5.68715"><ele>654</ele></trkpt>
+      <trkpt lat="49.96593" lon="5.68713"><ele>654</ele></trkpt>
+      <trkpt lat="49.96863" lon="5.68710"><ele>587</ele></trkpt>
+      <trkpt lat="49.97109" lon="5.68708"><ele>587</ele></trkpt>
+      <trkpt lat="49.97324" lon="5.68706"><ele>510</ele></trkpt>
+      <trkpt lat="49.97501" lon="5.68705"><ele>510</ele></trkpt>
+      <trkpt lat="49.97631" lon="5.68703"><ele>486</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

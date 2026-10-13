@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Lieserpfad (Daun - Manderscheid - Wittlich)</name>
+    <desc>Élu &quot;plus beau sentier de randonnée d&apos;Allemagne&quot; par le célèbre guide Manuel Andrack, suivant la rivière sauvage de la Lieser.</desc>
+    <link href="https://www.eifel.info">
+      <text>Eifel Tourismus Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Lieserpfad (Daun - Manderscheid - Wittlich)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="50.20168" lon="6.83518"><ele>539</ele></trkpt>
+      <trkpt lat="50.19958" lon="6.83466"><ele>539</ele></trkpt>
+      <trkpt lat="50.19689" lon="6.83398"><ele>416</ele></trkpt>
+      <trkpt lat="50.19367" lon="6.83317"><ele>416</ele></trkpt>
+      <trkpt lat="50.19001" lon="6.83224"><ele>212</ele></trkpt>
+      <trkpt lat="50.18599" lon="6.83122"><ele>32</ele></trkpt>
+      <trkpt lat="50.18169" lon="6.83013"><ele>32</ele></trkpt>
+      <trkpt lat="50.17718" lon="6.82900"><ele>25</ele></trkpt>
+      <trkpt lat="50.17254" lon="6.82784"><ele>101</ele></trkpt>
+      <trkpt lat="50.16786" lon="6.82668"><ele>101</ele></trkpt>
+      <trkpt lat="50.16320" lon="6.82554"><ele>353</ele></trkpt>
+      <trkpt lat="50.15866" lon="6.82444"><ele>627</ele></trkpt>
+      <trkpt lat="50.15430" lon="6.82341"><ele>627</ele></trkpt>
+      <trkpt lat="50.15021" lon="6.82247"><ele>806</ele></trkpt>
+      <trkpt lat="50.14646" lon="6.82164"><ele>822</ele></trkpt>
+      <trkpt lat="50.14646" lon="6.82164"><ele>822</ele></trkpt>
+      <trkpt lat="50.14294" lon="6.82068"><ele>696</ele></trkpt>
+      <trkpt lat="50.13949" lon="6.81939"><ele>516</ele></trkpt>
+      <trkpt lat="50.13605" lon="6.81788"><ele>516</ele></trkpt>
+      <trkpt lat="50.13261" lon="6.81622"><ele>388</ele></trkpt>
+      <trkpt lat="50.12913" lon="6.81451"><ele>376</ele></trkpt>
+      <trkpt lat="50.12559" lon="6.81283"><ele>376</ele></trkpt>
+      <trkpt lat="50.12195" lon="6.81127"><ele>463</ele></trkpt>
+      <trkpt lat="50.11818" lon="6.80992"><ele>568</ele></trkpt>
+      <trkpt lat="50.11426" lon="6.80887"><ele>568</ele></trkpt>
+      <trkpt lat="50.11015" lon="6.80821"><ele>596</ele></trkpt>
+      <trkpt lat="50.10582" lon="6.80803"><ele>494</ele></trkpt>
+      <trkpt lat="50.10125" lon="6.80841"><ele>494</ele></trkpt>
+      <trkpt lat="50.09639" lon="6.80944"><ele>288</ele></trkpt>
+      <trkpt lat="50.09123" lon="6.81122"><ele>73</ele></trkpt>
+      <trkpt lat="50.09123" lon="6.81122"><ele>73</ele></trkpt>
+      <trkpt lat="50.08527" lon="6.81407"><ele>25</ele></trkpt>
+      <trkpt lat="50.07816" lon="6.81813"><ele>25</ele></trkpt>
+      <trkpt lat="50.07012" lon="6.82321"><ele>25</ele></trkpt>
+      <trkpt lat="50.06137" lon="6.82910"><ele>227</ele></trkpt>
+      <trkpt lat="50.05210" lon="6.83562"><ele>498</ele></trkpt>
+      <trkpt lat="50.04254" lon="6.84255"><ele>498</ele></trkpt>
+      <trkpt lat="50.03290" lon="6.84971"><ele>711</ele></trkpt>
+      <trkpt lat="50.02338" lon="6.85689"><ele>783</ele></trkpt>
+      <trkpt lat="50.01421" lon="6.86389"><ele>783</ele></trkpt>
+      <trkpt lat="50.00558" lon="6.87052"><ele>709</ele></trkpt>
+      <trkpt lat="49.99771" lon="6.87659"><ele>559</ele></trkpt>
+      <trkpt lat="49.99081" lon="6.88188"><ele>559</ele></trkpt>
+      <trkpt lat="49.98510" lon="6.88621"><ele>434</ele></trkpt>
+      <trkpt lat="49.98078" lon="6.88937"><ele>408</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

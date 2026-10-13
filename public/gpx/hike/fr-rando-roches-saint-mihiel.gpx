@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Sentier des Roches de Saint-Mihiel (Falaises de la Meuse)</name>
+    <desc>Falaises coralliennes monumentales (les Sept Roches) surplombant la Meuse et la cité de la Renaissance.</desc>
+    <link href="https://www.tourisme-meuse.com">
+      <text>Tourisme Meuse Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Sentier des Roches de Saint-Mihiel (Falaises de la Meuse)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="48.89094" lon="5.54086"><ele>152</ele></trkpt>
+      <trkpt lat="48.89166" lon="5.54152"><ele>152</ele></trkpt>
+      <trkpt lat="48.89267" lon="5.54237"><ele>152</ele></trkpt>
+      <trkpt lat="48.89392" lon="5.54338"><ele>138</ele></trkpt>
+      <trkpt lat="48.89535" lon="5.54452"><ele>138</ele></trkpt>
+      <trkpt lat="48.89691" lon="5.54579"><ele>120</ele></trkpt>
+      <trkpt lat="48.89855" lon="5.54714"><ele>120</ele></trkpt>
+      <trkpt lat="48.90023" lon="5.54855"><ele>133</ele></trkpt>
+      <trkpt lat="48.90188" lon="5.55002"><ele>133</ele></trkpt>
+      <trkpt lat="48.90346" lon="5.55150"><ele>198</ele></trkpt>
+      <trkpt lat="48.90491" lon="5.55297"><ele>198</ele></trkpt>
+      <trkpt lat="48.90619" lon="5.55442"><ele>296</ele></trkpt>
+      <trkpt lat="48.90724" lon="5.55582"><ele>296</ele></trkpt>
+      <trkpt lat="48.90801" lon="5.55715"><ele>382</ele></trkpt>
+      <trkpt lat="48.90846" lon="5.55837"><ele>382</ele></trkpt>
+      <trkpt lat="48.90846" lon="5.55837"><ele>415</ele></trkpt>
+      <trkpt lat="48.90860" lon="5.55967"><ele>415</ele></trkpt>
+      <trkpt lat="48.90853" lon="5.56120"><ele>390</ele></trkpt>
+      <trkpt lat="48.90826" lon="5.56290"><ele>390</ele></trkpt>
+      <trkpt lat="48.90782" lon="5.56471"><ele>338</ele></trkpt>
+      <trkpt lat="48.90724" lon="5.56659"><ele>338</ele></trkpt>
+      <trkpt lat="48.90653" lon="5.56847"><ele>300</ele></trkpt>
+      <trkpt lat="48.90571" lon="5.57031"><ele>300</ele></trkpt>
+      <trkpt lat="48.90481" lon="5.57204"><ele>297</ele></trkpt>
+      <trkpt lat="48.90386" lon="5.57362"><ele>297</ele></trkpt>
+      <trkpt lat="48.90287" lon="5.57498"><ele>313</ele></trkpt>
+      <trkpt lat="48.90187" lon="5.57608"><ele>313</ele></trkpt>
+      <trkpt lat="48.90088" lon="5.57686"><ele>316</ele></trkpt>
+      <trkpt lat="48.89993" lon="5.57726"><ele>316</ele></trkpt>
+      <trkpt lat="48.89902" lon="5.57724"><ele>287</ele></trkpt>
+      <trkpt lat="48.89902" lon="5.57724"><ele>287</ele></trkpt>
+      <trkpt lat="48.89804" lon="5.57670"><ele>241</ele></trkpt>
+      <trkpt lat="48.89684" lon="5.57565"><ele>241</ele></trkpt>
+      <trkpt lat="48.89548" lon="5.57416"><ele>213</ele></trkpt>
+      <trkpt lat="48.89400" lon="5.57232"><ele>213</ele></trkpt>
+      <trkpt lat="48.89243" lon="5.57019"><ele>227</ele></trkpt>
+      <trkpt lat="48.89081" lon="5.56784"><ele>227</ele></trkpt>
+      <trkpt lat="48.88921" lon="5.56535"><ele>271</ele></trkpt>
+      <trkpt lat="48.88764" lon="5.56280"><ele>271</ele></trkpt>
+      <trkpt lat="48.88616" lon="5.56026"><ele>306</ele></trkpt>
+      <trkpt lat="48.88480" lon="5.55781"><ele>306</ele></trkpt>
+      <trkpt lat="48.88362" lon="5.55551"><ele>292</ele></trkpt>
+      <trkpt lat="48.88265" lon="5.55344"><ele>292</ele></trkpt>
+      <trkpt lat="48.88193" lon="5.55167"><ele>225</ele></trkpt>
+      <trkpt lat="48.88151" lon="5.55029"><ele>225</ele></trkpt>
+      <trkpt lat="48.88151" lon="5.55029"><ele>139</ele></trkpt>
+      <trkpt lat="48.88140" lon="5.54916"><ele>139</ele></trkpt>
+      <trkpt lat="48.88157" lon="5.54812"><ele>79</ele></trkpt>
+      <trkpt lat="48.88199" lon="5.54716"><ele>79</ele></trkpt>
+      <trkpt lat="48.88260" lon="5.54628"><ele>70</ele></trkpt>
+      <trkpt lat="48.88337" lon="5.54547"><ele>70</ele></trkpt>
+      <trkpt lat="48.88427" lon="5.54473"><ele>99</ele></trkpt>
+      <trkpt lat="48.88524" lon="5.54406"><ele>99</ele></trkpt>
+      <trkpt lat="48.88625" lon="5.54345"><ele>133</ele></trkpt>
+      <trkpt lat="48.88727" lon="5.54289"><ele>133</ele></trkpt>
+      <trkpt lat="48.88824" lon="5.54239"><ele>145</ele></trkpt>
+      <trkpt lat="48.88913" lon="5.54194"><ele>145</ele></trkpt>
+      <trkpt lat="48.88991" lon="5.54154"><ele>144</ele></trkpt>
+      <trkpt lat="48.89052" lon="5.54118"><ele>144</ele></trkpt>
+      <trkpt lat="48.89094" lon="5.54086"><ele>158</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Felsenpfad Kastel-Staadt &amp; Ermitage de la Klause (Saarburger Land)</name>
+    <desc>Spectaculaire sentier sur les falaises de grès rouge de la Sarre menant à l&apos;ermitage séculaire taillé dans la roche.</desc>
+    <link href="https://www.saar-obermosel.de">
+      <text>Saar-Obermosel Tourisme</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Felsenpfad Kastel-Staadt &amp; Ermitage de la Klause (Saarburger Land)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.56930" lon="6.55633"><ele>88</ele></trkpt>
+      <trkpt lat="49.56861" lon="6.55720"><ele>88</ele></trkpt>
+      <trkpt lat="49.56761" lon="6.55834"><ele>154</ele></trkpt>
+      <trkpt lat="49.56635" lon="6.55971"><ele>154</ele></trkpt>
+      <trkpt lat="49.56490" lon="6.56127"><ele>183</ele></trkpt>
+      <trkpt lat="49.56332" lon="6.56298"><ele>194</ele></trkpt>
+      <trkpt lat="49.56167" lon="6.56481"><ele>194</ele></trkpt>
+      <trkpt lat="49.56002" lon="6.56671"><ele>211</ele></trkpt>
+      <trkpt lat="49.55842" lon="6.56864"><ele>243</ele></trkpt>
+      <trkpt lat="49.55694" lon="6.57058"><ele>243</ele></trkpt>
+      <trkpt lat="49.55565" lon="6.57247"><ele>278</ele></trkpt>
+      <trkpt lat="49.55459" lon="6.57429"><ele>292</ele></trkpt>
+      <trkpt lat="49.55385" lon="6.57598"><ele>292</ele></trkpt>
+      <trkpt lat="49.55347" lon="6.57752"><ele>269</ele></trkpt>
+      <trkpt lat="49.55352" lon="6.57886"><ele>218</ele></trkpt>
+      <trkpt lat="49.55352" lon="6.57886"><ele>218</ele></trkpt>
+      <trkpt lat="49.55410" lon="6.58020"><ele>164</ele></trkpt>
+      <trkpt lat="49.55520" lon="6.58172"><ele>136</ele></trkpt>
+      <trkpt lat="49.55673" lon="6.58337"><ele>136</ele></trkpt>
+      <trkpt lat="49.55861" lon="6.58509"><ele>142</ele></trkpt>
+      <trkpt lat="49.56077" lon="6.58683"><ele>163</ele></trkpt>
+      <trkpt lat="49.56310" lon="6.58855"><ele>163</ele></trkpt>
+      <trkpt lat="49.56554" lon="6.59017"><ele>163</ele></trkpt>
+      <trkpt lat="49.56799" lon="6.59165"><ele>116</ele></trkpt>
+      <trkpt lat="49.57037" lon="6.59295"><ele>116</ele></trkpt>
+      <trkpt lat="49.57260" lon="6.59399"><ele>28</ele></trkpt>
+      <trkpt lat="49.57459" lon="6.59473"><ele>25</ele></trkpt>
+      <trkpt lat="49.57626" lon="6.59513"><ele>25</ele></trkpt>
+      <trkpt lat="49.57753" lon="6.59511"><ele>25</ele></trkpt>
+      <trkpt lat="49.57831" lon="6.59463"><ele>25</ele></trkpt>
+      <trkpt lat="49.57831" lon="6.59463"><ele>25</ele></trkpt>
+      <trkpt lat="49.57864" lon="6.59353"><ele>89</ele></trkpt>
+      <trkpt lat="49.57863" lon="6.59175"><ele>257</ele></trkpt>
+      <trkpt lat="49.57833" lon="6.58939"><ele>257</ele></trkpt>
+      <trkpt lat="49.57779" lon="6.58657"><ele>392</ele></trkpt>
+      <trkpt lat="49.57706" lon="6.58338"><ele>443</ele></trkpt>
+      <trkpt lat="49.57618" lon="6.57995"><ele>443</ele></trkpt>
+      <trkpt lat="49.57520" lon="6.57637"><ele>401</ele></trkpt>
+      <trkpt lat="49.57416" lon="6.57275"><ele>300</ele></trkpt>
+      <trkpt lat="49.57311" lon="6.56921"><ele>300</ele></trkpt>
+      <trkpt lat="49.57209" lon="6.56584"><ele>193</ele></trkpt>
+      <trkpt lat="49.57115" lon="6.56276"><ele>121</ele></trkpt>
+      <trkpt lat="49.57035" lon="6.56008"><ele>121</ele></trkpt>
+      <trkpt lat="49.56971" lon="6.55790"><ele>96</ele></trkpt>
+      <trkpt lat="49.56930" lon="6.55633"><ele>97</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

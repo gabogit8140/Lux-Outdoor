@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Circuit du Château de Malbrouck &amp; Pays Sierckois</name>
+    <desc>Promenade sous les imposantes tours du château fort de Malbrouck dominant les collines frontalières du pays de Sierck.</desc>
+    <link href="https://www.chateaumalbrouck.com">
+      <text>Château de Malbrouck Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Circuit du Château de Malbrouck &amp; Pays Sierckois</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.45516" lon="6.43340"><ele>278</ele></trkpt>
+      <trkpt lat="49.45569" lon="6.43261"><ele>278</ele></trkpt>
+      <trkpt lat="49.45638" lon="6.43143"><ele>278</ele></trkpt>
+      <trkpt lat="49.45722" lon="6.42994"><ele>260</ele></trkpt>
+      <trkpt lat="49.45817" lon="6.42822"><ele>260</ele></trkpt>
+      <trkpt lat="49.45921" lon="6.42635"><ele>194</ele></trkpt>
+      <trkpt lat="49.46032" lon="6.42440"><ele>194</ele></trkpt>
+      <trkpt lat="49.46148" lon="6.42246"><ele>141</ele></trkpt>
+      <trkpt lat="49.46266" lon="6.42060"><ele>141</ele></trkpt>
+      <trkpt lat="49.46384" lon="6.41890"><ele>144</ele></trkpt>
+      <trkpt lat="49.46500" lon="6.41744"><ele>144</ele></trkpt>
+      <trkpt lat="49.46610" lon="6.41630"><ele>193</ele></trkpt>
+      <trkpt lat="49.46714" lon="6.41555"><ele>193</ele></trkpt>
+      <trkpt lat="49.46807" lon="6.41527"><ele>236</ele></trkpt>
+      <trkpt lat="49.46889" lon="6.41554"><ele>236</ele></trkpt>
+      <trkpt lat="49.46889" lon="6.41554"><ele>222</ele></trkpt>
+      <trkpt lat="49.46970" lon="6.41647"><ele>222</ele></trkpt>
+      <trkpt lat="49.47060" lon="6.41804"><ele>141</ele></trkpt>
+      <trkpt lat="49.47157" lon="6.42015"><ele>141</ele></trkpt>
+      <trkpt lat="49.47258" lon="6.42271"><ele>39</ele></trkpt>
+      <trkpt lat="49.47360" lon="6.42562"><ele>39</ele></trkpt>
+      <trkpt lat="49.47460" lon="6.42878"><ele>25</ele></trkpt>
+      <trkpt lat="49.47555" lon="6.43209"><ele>25</ele></trkpt>
+      <trkpt lat="49.47643" lon="6.43545"><ele>25</ele></trkpt>
+      <trkpt lat="49.47720" lon="6.43877"><ele>25</ele></trkpt>
+      <trkpt lat="49.47784" lon="6.44194"><ele>94</ele></trkpt>
+      <trkpt lat="49.47832" lon="6.44488"><ele>94</ele></trkpt>
+      <trkpt lat="49.47861" lon="6.44747"><ele>193</ele></trkpt>
+      <trkpt lat="49.47868" lon="6.44963"><ele>193</ele></trkpt>
+      <trkpt lat="49.47851" lon="6.45126"><ele>253</ele></trkpt>
+      <trkpt lat="49.47851" lon="6.45126"><ele>253</ele></trkpt>
+      <trkpt lat="49.47801" lon="6.45252"><ele>263</ele></trkpt>
+      <trkpt lat="49.47717" lon="6.45365"><ele>263</ele></trkpt>
+      <trkpt lat="49.47604" lon="6.45465"><ele>252</ele></trkpt>
+      <trkpt lat="49.47468" lon="6.45552"><ele>252</ele></trkpt>
+      <trkpt lat="49.47312" lon="6.45625"><ele>250</ele></trkpt>
+      <trkpt lat="49.47144" lon="6.45686"><ele>250</ele></trkpt>
+      <trkpt lat="49.46966" lon="6.45733"><ele>257</ele></trkpt>
+      <trkpt lat="49.46786" lon="6.45766"><ele>257</ele></trkpt>
+      <trkpt lat="49.46608" lon="6.45785"><ele>241</ele></trkpt>
+      <trkpt lat="49.46437" lon="6.45791"><ele>241</ele></trkpt>
+      <trkpt lat="49.46278" lon="6.45783"><ele>169</ele></trkpt>
+      <trkpt lat="49.46137" lon="6.45761"><ele>169</ele></trkpt>
+      <trkpt lat="49.46018" lon="6.45725"><ele>45</ele></trkpt>
+      <trkpt lat="49.45928" lon="6.45675"><ele>45</ele></trkpt>
+      <trkpt lat="49.45928" lon="6.45675"><ele>25</ele></trkpt>
+      <trkpt lat="49.45858" lon="6.45596"><ele>25</ele></trkpt>
+      <trkpt lat="49.45798" lon="6.45480"><ele>25</ele></trkpt>
+      <trkpt lat="49.45747" lon="6.45331"><ele>25</ele></trkpt>
+      <trkpt lat="49.45704" lon="6.45156"><ele>25</ele></trkpt>
+      <trkpt lat="49.45668" lon="6.44962"><ele>25</ele></trkpt>
+      <trkpt lat="49.45638" lon="6.44754"><ele>126</ele></trkpt>
+      <trkpt lat="49.45613" lon="6.44538"><ele>126</ele></trkpt>
+      <trkpt lat="49.45593" lon="6.44322"><ele>310</ele></trkpt>
+      <trkpt lat="49.45577" lon="6.44110"><ele>310</ele></trkpt>
+      <trkpt lat="49.45563" lon="6.43909"><ele>422</ele></trkpt>
+      <trkpt lat="49.45551" lon="6.43726"><ele>422</ele></trkpt>
+      <trkpt lat="49.45539" lon="6.43566"><ele>419</ele></trkpt>
+      <trkpt lat="49.45528" lon="6.43435"><ele>419</ele></trkpt>
+      <trkpt lat="49.45516" lon="6.43340"><ele>328</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

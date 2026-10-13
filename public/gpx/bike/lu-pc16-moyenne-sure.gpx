@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>PC16 Piste de la Moyenne Sûre (Ettelbruck - Diekirch - Reisdorf)</name>
+    <desc>Liaison cyclable populaire longeant les grands méandres de la Sûre avec parcs urbains, plages et terrasses.</desc>
+    <link href="https://geoportail.lu">
+      <text>Geoportail Luxembourg (PC Officielle)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>PC16 Piste de la Moyenne Sûre (Ettelbruck - Diekirch - Reisdorf)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.83789" lon="6.05991"><ele>341</ele></trkpt>
+      <trkpt lat="49.83920" lon="6.06288"><ele>341</ele></trkpt>
+      <trkpt lat="49.84100" lon="6.06665"><ele>319</ele></trkpt>
+      <trkpt lat="49.84320" lon="6.07112"><ele>319</ele></trkpt>
+      <trkpt lat="49.84572" lon="6.07620"><ele>286</ele></trkpt>
+      <trkpt lat="49.84848" lon="6.08179"><ele>255</ele></trkpt>
+      <trkpt lat="49.85139" lon="6.08779"><ele>255</ele></trkpt>
+      <trkpt lat="49.85437" lon="6.09410"><ele>239</ele></trkpt>
+      <trkpt lat="49.85735" lon="6.10062"><ele>241</ele></trkpt>
+      <trkpt lat="49.86023" lon="6.10726"><ele>241</ele></trkpt>
+      <trkpt lat="49.86293" lon="6.11391"><ele>255</ele></trkpt>
+      <trkpt lat="49.86538" lon="6.12049"><ele>269</ele></trkpt>
+      <trkpt lat="49.86748" lon="6.12688"><ele>269</ele></trkpt>
+      <trkpt lat="49.86917" lon="6.13299"><ele>274</ele></trkpt>
+      <trkpt lat="49.87034" lon="6.13872"><ele>270</ele></trkpt>
+      <trkpt lat="49.87034" lon="6.13872"><ele>270</ele></trkpt>
+      <trkpt lat="49.87104" lon="6.14447"><ele>262</ele></trkpt>
+      <trkpt lat="49.87140" lon="6.15062"><ele>258</ele></trkpt>
+      <trkpt lat="49.87145" lon="6.15712"><ele>258</ele></trkpt>
+      <trkpt lat="49.87125" lon="6.16390"><ele>262</ele></trkpt>
+      <trkpt lat="49.87084" lon="6.17088"><ele>270</ele></trkpt>
+      <trkpt lat="49.87027" lon="6.17799"><ele>270</ele></trkpt>
+      <trkpt lat="49.86959" lon="6.18517"><ele>274</ele></trkpt>
+      <trkpt lat="49.86884" lon="6.19235"><ele>269</ele></trkpt>
+      <trkpt lat="49.86808" lon="6.19945"><ele>269</ele></trkpt>
+      <trkpt lat="49.86735" lon="6.20641"><ele>256</ele></trkpt>
+      <trkpt lat="49.86670" lon="6.21316"><ele>247</ele></trkpt>
+      <trkpt lat="49.86618" lon="6.21963"><ele>247</ele></trkpt>
+      <trkpt lat="49.86583" lon="6.22575"><ele>249</ele></trkpt>
+      <trkpt lat="49.86570" lon="6.23145"><ele>270</ele></trkpt>
+      <trkpt lat="49.86570" lon="6.23145"><ele>270</ele></trkpt>
+      <trkpt lat="49.86576" lon="6.23712"><ele>302</ele></trkpt>
+      <trkpt lat="49.86592" lon="6.24315"><ele>333</ele></trkpt>
+      <trkpt lat="49.86618" lon="6.24943"><ele>333</ele></trkpt>
+      <trkpt lat="49.86650" lon="6.25589"><ele>351</ele></trkpt>
+      <trkpt lat="49.86688" lon="6.26241"><ele>349</ele></trkpt>
+      <trkpt lat="49.86731" lon="6.26891"><ele>349</ele></trkpt>
+      <trkpt lat="49.86776" lon="6.27529"><ele>333</ele></trkpt>
+      <trkpt lat="49.86822" lon="6.28146"><ele>315</ele></trkpt>
+      <trkpt lat="49.86868" lon="6.28733"><ele>315</ele></trkpt>
+      <trkpt lat="49.86912" lon="6.29279"><ele>305</ele></trkpt>
+      <trkpt lat="49.86952" lon="6.29775"><ele>306</ele></trkpt>
+      <trkpt lat="49.86986" lon="6.30212"><ele>306</ele></trkpt>
+      <trkpt lat="49.87014" lon="6.30581"><ele>314</ele></trkpt>
+      <trkpt lat="49.87034" lon="6.30871"><ele>320</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

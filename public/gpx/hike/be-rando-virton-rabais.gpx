@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Promenade de Virton &amp; Vallée du Rabais (Gaume Méridionale)</name>
+    <desc>Boucle familiale sous le doux climat gaumais autour des lacs du Rabais et des falaises de grès hettangien.</desc>
+    <link href="https://visitwallonia.be">
+      <text>Visit Wallonia Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Promenade de Virton &amp; Vallée du Rabais (Gaume Méridionale)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.56837" lon="5.52480"><ele>278</ele></trkpt>
+      <trkpt lat="49.56881" lon="5.52571"><ele>278</ele></trkpt>
+      <trkpt lat="49.56944" lon="5.52688"><ele>278</ele></trkpt>
+      <trkpt lat="49.57021" lon="5.52829"><ele>252</ele></trkpt>
+      <trkpt lat="49.57111" lon="5.52988"><ele>252</ele></trkpt>
+      <trkpt lat="49.57208" lon="5.53164"><ele>223</ele></trkpt>
+      <trkpt lat="49.57310" lon="5.53351"><ele>223</ele></trkpt>
+      <trkpt lat="49.57413" lon="5.53547"><ele>208</ele></trkpt>
+      <trkpt lat="49.57514" lon="5.53748"><ele>208</ele></trkpt>
+      <trkpt lat="49.57609" lon="5.53950"><ele>220</ele></trkpt>
+      <trkpt lat="49.57695" lon="5.54149"><ele>220</ele></trkpt>
+      <trkpt lat="49.57768" lon="5.54342"><ele>255</ele></trkpt>
+      <trkpt lat="49.57824" lon="5.54526"><ele>255</ele></trkpt>
+      <trkpt lat="49.57860" lon="5.54695"><ele>290</ele></trkpt>
+      <trkpt lat="49.57873" lon="5.54848"><ele>290</ele></trkpt>
+      <trkpt lat="49.57873" lon="5.54848"><ele>301</ele></trkpt>
+      <trkpt lat="49.57863" lon="5.55002"><ele>301</ele></trkpt>
+      <trkpt lat="49.57836" lon="5.55176"><ele>285</ele></trkpt>
+      <trkpt lat="49.57792" lon="5.55364"><ele>285</ele></trkpt>
+      <trkpt lat="49.57734" lon="5.55561"><ele>258</ele></trkpt>
+      <trkpt lat="49.57664" lon="5.55763"><ele>258</ele></trkpt>
+      <trkpt lat="49.57584" lon="5.55964"><ele>249</ele></trkpt>
+      <trkpt lat="49.57497" lon="5.56158"><ele>249</ele></trkpt>
+      <trkpt lat="49.57403" lon="5.56342"><ele>277</ele></trkpt>
+      <trkpt lat="49.57306" lon="5.56509"><ele>277</ele></trkpt>
+      <trkpt lat="49.57208" lon="5.56655"><ele>337</ele></trkpt>
+      <trkpt lat="49.57109" lon="5.56774"><ele>337</ele></trkpt>
+      <trkpt lat="49.57013" lon="5.56861"><ele>401</ele></trkpt>
+      <trkpt lat="49.56922" lon="5.56911"><ele>401</ele></trkpt>
+      <trkpt lat="49.56837" lon="5.56920"><ele>433</ele></trkpt>
+      <trkpt lat="49.56837" lon="5.56920"><ele>433</ele></trkpt>
+      <trkpt lat="49.56746" lon="5.56880"><ele>415</ele></trkpt>
+      <trkpt lat="49.56636" lon="5.56794"><ele>415</ele></trkpt>
+      <trkpt lat="49.56513" lon="5.56668"><ele>356</ele></trkpt>
+      <trkpt lat="49.56379" lon="5.56508"><ele>356</ele></trkpt>
+      <trkpt lat="49.56239" lon="5.56321"><ele>286</ele></trkpt>
+      <trkpt lat="49.56096" lon="5.56111"><ele>286</ele></trkpt>
+      <trkpt lat="49.55956" lon="5.55887"><ele>232</ele></trkpt>
+      <trkpt lat="49.55821" lon="5.55653"><ele>232</ele></trkpt>
+      <trkpt lat="49.55696" lon="5.55416"><ele>206</ele></trkpt>
+      <trkpt lat="49.55585" lon="5.55182"><ele>206</ele></trkpt>
+      <trkpt lat="49.55491" lon="5.54958"><ele>201</ele></trkpt>
+      <trkpt lat="49.55420" lon="5.54749"><ele>201</ele></trkpt>
+      <trkpt lat="49.55374" lon="5.54563"><ele>201</ele></trkpt>
+      <trkpt lat="49.55357" lon="5.54404"><ele>201</ele></trkpt>
+      <trkpt lat="49.55357" lon="5.54404"><ele>198</ele></trkpt>
+      <trkpt lat="49.55376" lon="5.54257"><ele>198</ele></trkpt>
+      <trkpt lat="49.55428" lon="5.54103"><ele>200</ele></trkpt>
+      <trkpt lat="49.55508" lon="5.53944"><ele>200</ele></trkpt>
+      <trkpt lat="49.55612" lon="5.53782"><ele>224</ele></trkpt>
+      <trkpt lat="49.55734" lon="5.53619"><ele>224</ele></trkpt>
+      <trkpt lat="49.55870" lon="5.53458"><ele>276</ele></trkpt>
+      <trkpt lat="49.56014" lon="5.53301"><ele>276</ele></trkpt>
+      <trkpt lat="49.56162" lon="5.53149"><ele>344</ele></trkpt>
+      <trkpt lat="49.56308" lon="5.53005"><ele>344</ele></trkpt>
+      <trkpt lat="49.56447" lon="5.52871"><ele>398</ele></trkpt>
+      <trkpt lat="49.56574" lon="5.52750"><ele>398</ele></trkpt>
+      <trkpt lat="49.56685" lon="5.52643"><ele>414</ele></trkpt>
+      <trkpt lat="49.56775" lon="5.52552"><ele>414</ele></trkpt>
+      <trkpt lat="49.56837" lon="5.52480"><ele>384</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

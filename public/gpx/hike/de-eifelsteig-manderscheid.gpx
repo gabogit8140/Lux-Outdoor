@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Eifelsteig Manderscheid (Burgenstieg &amp; Vallée de la Lieser)</name>
+    <desc>L&apos;un des parcours de randonnée les plus primés d&apos;Allemagne encerclant les deux châteaux féodaux rivaux de Manderscheid.</desc>
+    <link href="https://www.eifelsteig.de">
+      <text>Eifelsteig (Site Officiel)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Eifelsteig Manderscheid (Burgenstieg &amp; Vallée de la Lieser)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="50.10163" lon="6.81122"><ele>647</ele></trkpt>
+      <trkpt lat="50.10077" lon="6.81251"><ele>647</ele></trkpt>
+      <trkpt lat="50.09964" lon="6.81443"><ele>647</ele></trkpt>
+      <trkpt lat="50.09829" lon="6.81686"><ele>549</ele></trkpt>
+      <trkpt lat="50.09675" lon="6.81966"><ele>549</ele></trkpt>
+      <trkpt lat="50.09506" lon="6.82271"><ele>427</ele></trkpt>
+      <trkpt lat="50.09326" lon="6.82588"><ele>427</ele></trkpt>
+      <trkpt lat="50.09139" lon="6.82904"><ele>358</ele></trkpt>
+      <trkpt lat="50.08948" lon="6.83207"><ele>358</ele></trkpt>
+      <trkpt lat="50.08757" lon="6.83482"><ele>383</ele></trkpt>
+      <trkpt lat="50.08570" lon="6.83719"><ele>383</ele></trkpt>
+      <trkpt lat="50.08391" lon="6.83903"><ele>470</ele></trkpt>
+      <trkpt lat="50.08224" lon="6.84021"><ele>470</ele></trkpt>
+      <trkpt lat="50.08072" lon="6.84062"><ele>533</ele></trkpt>
+      <trkpt lat="50.07940" lon="6.84012"><ele>533</ele></trkpt>
+      <trkpt lat="50.07940" lon="6.84012"><ele>502</ele></trkpt>
+      <trkpt lat="50.07809" lon="6.83843"><ele>502</ele></trkpt>
+      <trkpt lat="50.07665" lon="6.83550"><ele>377</ele></trkpt>
+      <trkpt lat="50.07509" lon="6.83154"><ele>377</ele></trkpt>
+      <trkpt lat="50.07348" lon="6.82676"><ele>226</ele></trkpt>
+      <trkpt lat="50.07186" lon="6.82137"><ele>226</ele></trkpt>
+      <trkpt lat="50.07026" lon="6.81558"><ele>137</ele></trkpt>
+      <trkpt lat="50.06874" lon="6.80961"><ele>137</ele></trkpt>
+      <trkpt lat="50.06734" lon="6.80365"><ele>151</ele></trkpt>
+      <trkpt lat="50.06609" lon="6.79792"><ele>151</ele></trkpt>
+      <trkpt lat="50.06506" lon="6.79264"><ele>238</ele></trkpt>
+      <trkpt lat="50.06427" lon="6.78800"><ele>238</ele></trkpt>
+      <trkpt lat="50.06377" lon="6.78423"><ele>334</ele></trkpt>
+      <trkpt lat="50.06361" lon="6.78152"><ele>334</ele></trkpt>
+      <trkpt lat="50.06384" lon="6.78010"><ele>398</ele></trkpt>
+      <trkpt lat="50.06384" lon="6.78010"><ele>398</ele></trkpt>
+      <trkpt lat="50.06455" lon="6.77997"><ele>441</ele></trkpt>
+      <trkpt lat="50.06577" lon="6.78090"><ele>441</ele></trkpt>
+      <trkpt lat="50.06743" lon="6.78273"><ele>501</ele></trkpt>
+      <trkpt lat="50.06945" lon="6.78531"><ele>501</ele></trkpt>
+      <trkpt lat="50.07175" lon="6.78849"><ele>597</ele></trkpt>
+      <trkpt lat="50.07427" lon="6.79210"><ele>597</ele></trkpt>
+      <trkpt lat="50.07691" lon="6.79599"><ele>695</ele></trkpt>
+      <trkpt lat="50.07961" lon="6.80000"><ele>695</ele></trkpt>
+      <trkpt lat="50.08229" lon="6.80398"><ele>731</ele></trkpt>
+      <trkpt lat="50.08488" lon="6.80777"><ele>731</ele></trkpt>
+      <trkpt lat="50.08729" lon="6.81121"><ele>664</ele></trkpt>
+      <trkpt lat="50.08945" lon="6.81415"><ele>664</ele></trkpt>
+      <trkpt lat="50.09129" lon="6.81643"><ele>520</ele></trkpt>
+      <trkpt lat="50.09274" lon="6.81789"><ele>520</ele></trkpt>
+      <trkpt lat="50.09274" lon="6.81789"><ele>382</ele></trkpt>
+      <trkpt lat="50.09389" lon="6.81867"><ele>382</ele></trkpt>
+      <trkpt lat="50.09494" lon="6.81904"><ele>329</ele></trkpt>
+      <trkpt lat="50.09589" lon="6.81906"><ele>329</ele></trkpt>
+      <trkpt lat="50.09674" lon="6.81878"><ele>377</ele></trkpt>
+      <trkpt lat="50.09751" lon="6.81826"><ele>377</ele></trkpt>
+      <trkpt lat="50.09819" lon="6.81754"><ele>465</ele></trkpt>
+      <trkpt lat="50.09881" lon="6.81668"><ele>465</ele></trkpt>
+      <trkpt lat="50.09935" lon="6.81573"><ele>507</ele></trkpt>
+      <trkpt lat="50.09984" lon="6.81475"><ele>507</ele></trkpt>
+      <trkpt lat="50.10027" lon="6.81379"><ele>456</ele></trkpt>
+      <trkpt lat="50.10066" lon="6.81291"><ele>456</ele></trkpt>
+      <trkpt lat="50.10101" lon="6.81215"><ele>339</ele></trkpt>
+      <trkpt lat="50.10133" lon="6.81157"><ele>339</ele></trkpt>
+      <trkpt lat="50.10163" lon="6.81122"><ele>231</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

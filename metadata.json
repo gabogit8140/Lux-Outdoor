@@ -1,0 +1,6 @@
+{
+  "name": "Trace Outdoor",
+  "description": "Création automatique d'itinéraires et traces GPX pour vélo et randonnée, adaptés à vos envies.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

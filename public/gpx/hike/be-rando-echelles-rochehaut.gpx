@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Promenade des Échelles de Rochehaut (Semois vertigineuse)</name>
+    <desc>L&apos;un des circuits les plus exaltants d&apos;Ardenne avec échelles métalliques fixées à flanc de falaise abrupte au-dessus de la Semois.</desc>
+    <link href="https://visitwallonia.be">
+      <text>Visit Wallonia Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Promenade des Échelles de Rochehaut (Semois vertigineuse)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.82414" lon="4.99029"><ele>341</ele></trkpt>
+      <trkpt lat="49.82459" lon="4.98950"><ele>341</ele></trkpt>
+      <trkpt lat="49.82523" lon="4.98845"><ele>341</ele></trkpt>
+      <trkpt lat="49.82601" lon="4.98719"><ele>406</ele></trkpt>
+      <trkpt lat="49.82690" lon="4.98575"><ele>406</ele></trkpt>
+      <trkpt lat="49.82788" lon="4.98417"><ele>464</ele></trkpt>
+      <trkpt lat="49.82891" lon="4.98249"><ele>464</ele></trkpt>
+      <trkpt lat="49.82996" lon="4.98075"><ele>515</ele></trkpt>
+      <trkpt lat="49.83100" lon="4.97898"><ele>515</ele></trkpt>
+      <trkpt lat="49.83199" lon="4.97722"><ele>563</ele></trkpt>
+      <trkpt lat="49.83289" lon="4.97552"><ele>563</ele></trkpt>
+      <trkpt lat="49.83369" lon="4.97390"><ele>606</ele></trkpt>
+      <trkpt lat="49.83434" lon="4.97241"><ele>606</ele></trkpt>
+      <trkpt lat="49.83482" lon="4.97109"><ele>632</ele></trkpt>
+      <trkpt lat="49.83508" lon="4.96997"><ele>632</ele></trkpt>
+      <trkpt lat="49.83508" lon="4.96997"><ele>627</ele></trkpt>
+      <trkpt lat="49.83516" lon="4.96892"><ele>627</ele></trkpt>
+      <trkpt lat="49.83509" lon="4.96778"><ele>583</ele></trkpt>
+      <trkpt lat="49.83490" lon="4.96659"><ele>583</ele></trkpt>
+      <trkpt lat="49.83460" lon="4.96538"><ele>507</ele></trkpt>
+      <trkpt lat="49.83421" lon="4.96419"><ele>507</ele></trkpt>
+      <trkpt lat="49.83373" lon="4.96303"><ele>423</ele></trkpt>
+      <trkpt lat="49.83319" lon="4.96195"><ele>423</ele></trkpt>
+      <trkpt lat="49.83260" lon="4.96097"><ele>360</ele></trkpt>
+      <trkpt lat="49.83197" lon="4.96013"><ele>360</ele></trkpt>
+      <trkpt lat="49.83132" lon="4.95945"><ele>338</ele></trkpt>
+      <trkpt lat="49.83067" lon="4.95898"><ele>338</ele></trkpt>
+      <trkpt lat="49.83003" lon="4.95872"><ele>357</ele></trkpt>
+      <trkpt lat="49.82941" lon="4.95873"><ele>357</ele></trkpt>
+      <trkpt lat="49.82883" lon="4.95903"><ele>394</ele></trkpt>
+      <trkpt lat="49.82883" lon="4.95903"><ele>394</ele></trkpt>
+      <trkpt lat="49.82820" lon="4.95972"><ele>413</ele></trkpt>
+      <trkpt lat="49.82745" lon="4.96083"><ele>413</ele></trkpt>
+      <trkpt lat="49.82659" lon="4.96231"><ele>390</ele></trkpt>
+      <trkpt lat="49.82566" lon="4.96409"><ele>390</ele></trkpt>
+      <trkpt lat="49.82467" lon="4.96610"><ele>323</ele></trkpt>
+      <trkpt lat="49.82366" lon="4.96828"><ele>323</ele></trkpt>
+      <trkpt lat="49.82266" lon="4.97057"><ele>239</ele></trkpt>
+      <trkpt lat="49.82168" lon="4.97289"><ele>239</ele></trkpt>
+      <trkpt lat="49.82075" lon="4.97519"><ele>186</ele></trkpt>
+      <trkpt lat="49.81991" lon="4.97740"><ele>186</ele></trkpt>
+      <trkpt lat="49.81918" lon="4.97945"><ele>202</ele></trkpt>
+      <trkpt lat="49.81858" lon="4.98129"><ele>202</ele></trkpt>
+      <trkpt lat="49.81814" lon="4.98284"><ele>300</ele></trkpt>
+      <trkpt lat="49.81789" lon="4.98404"><ele>300</ele></trkpt>
+      <trkpt lat="49.81789" lon="4.98404"><ele>457</ele></trkpt>
+      <trkpt lat="49.81784" lon="4.98498"><ele>457</ele></trkpt>
+      <trkpt lat="49.81796" lon="4.98581"><ele>617</ele></trkpt>
+      <trkpt lat="49.81825" lon="4.98654"><ele>617</ele></trkpt>
+      <trkpt lat="49.81866" lon="4.98717"><ele>722</ele></trkpt>
+      <trkpt lat="49.81917" lon="4.98771"><ele>722</ele></trkpt>
+      <trkpt lat="49.81976" lon="4.98818"><ele>736</ele></trkpt>
+      <trkpt lat="49.82040" lon="4.98857"><ele>736</ele></trkpt>
+      <trkpt lat="49.82106" lon="4.98892"><ele>660</ele></trkpt>
+      <trkpt lat="49.82173" lon="4.98921"><ele>660</ele></trkpt>
+      <trkpt lat="49.82237" lon="4.98946"><ele>535</ele></trkpt>
+      <trkpt lat="49.82295" lon="4.98969"><ele>535</ele></trkpt>
+      <trkpt lat="49.82346" lon="4.98990"><ele>420</ele></trkpt>
+      <trkpt lat="49.82387" lon="4.99010"><ele>420</ele></trkpt>
+      <trkpt lat="49.82414" lon="4.99029"><ele>361</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

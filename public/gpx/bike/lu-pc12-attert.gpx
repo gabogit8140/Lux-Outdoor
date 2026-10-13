@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>PC12 Piste de l&apos;Attert (Pétange - Steinfort - Colmar-Berg)</name>
+    <desc>La plus longue voie verte continue du pays (54 km), aménagée sur l&apos;ancienne Ligne de l&apos;Attert traversant de paisibles villages de l&apos;Ouest.</desc>
+    <link href="https://geoportail.lu">
+      <text>Geoportail Luxembourg (PC Officielle)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>PC12 Piste de l&apos;Attert (Pétange - Steinfort - Colmar-Berg)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="49.50520" lon="5.85524"><ele>230</ele></trkpt>
+      <trkpt lat="49.51023" lon="5.85754"><ele>230</ele></trkpt>
+      <trkpt lat="49.51668" lon="5.86077"><ele>230</ele></trkpt>
+      <trkpt lat="49.52435" lon="5.86476"><ele>239</ele></trkpt>
+      <trkpt lat="49.53308" lon="5.86933"><ele>239</ele></trkpt>
+      <trkpt lat="49.54267" lon="5.87434"><ele>186</ele></trkpt>
+      <trkpt lat="49.55295" lon="5.87959"><ele>186</ele></trkpt>
+      <trkpt lat="49.56372" lon="5.88493"><ele>112</ele></trkpt>
+      <trkpt lat="49.57481" lon="5.89019"><ele>112</ele></trkpt>
+      <trkpt lat="49.58604" lon="5.89520"><ele>81</ele></trkpt>
+      <trkpt lat="49.59721" lon="5.89979"><ele>81</ele></trkpt>
+      <trkpt lat="49.60815" lon="5.90379"><ele>132</ele></trkpt>
+      <trkpt lat="49.61867" lon="5.90703"><ele>132</ele></trkpt>
+      <trkpt lat="49.62859" lon="5.90935"><ele>258</ele></trkpt>
+      <trkpt lat="49.63773" lon="5.91057"><ele>258</ele></trkpt>
+      <trkpt lat="49.63773" lon="5.91057"><ele>401</ele></trkpt>
+      <trkpt lat="49.64682" lon="5.91040"><ele>401</ele></trkpt>
+      <trkpt lat="49.65663" lon="5.90881"><ele>488</ele></trkpt>
+      <trkpt lat="49.66700" lon="5.90607"><ele>488</ele></trkpt>
+      <trkpt lat="49.67778" lon="5.90243"><ele>477</ele></trkpt>
+      <trkpt lat="49.68883" lon="5.89817"><ele>477</ele></trkpt>
+      <trkpt lat="49.70000" lon="5.89353"><ele>379</ele></trkpt>
+      <trkpt lat="49.71113" lon="5.88879"><ele>379</ele></trkpt>
+      <trkpt lat="49.72207" lon="5.88421"><ele>254</ele></trkpt>
+      <trkpt lat="49.73267" lon="5.88003"><ele>254</ele></trkpt>
+      <trkpt lat="49.74279" lon="5.87654"><ele>172</ele></trkpt>
+      <trkpt lat="49.75227" lon="5.87398"><ele>172</ele></trkpt>
+      <trkpt lat="49.76097" lon="5.87262"><ele>168</ele></trkpt>
+      <trkpt lat="49.76873" lon="5.87272"><ele>168</ele></trkpt>
+      <trkpt lat="49.77540" lon="5.87454"><ele>225</ele></trkpt>
+      <trkpt lat="49.77540" lon="5.87454"><ele>225</ele></trkpt>
+      <trkpt lat="49.78127" lon="5.87815"><ele>285</ele></trkpt>
+      <trkpt lat="49.78671" lon="5.88331"><ele>285</ele></trkpt>
+      <trkpt lat="49.79176" lon="5.88983"><ele>287</ele></trkpt>
+      <trkpt lat="49.79643" lon="5.89751"><ele>287</ele></trkpt>
+      <trkpt lat="49.80074" lon="5.90617"><ele>213</ele></trkpt>
+      <trkpt lat="49.80471" lon="5.91562"><ele>213</ele></trkpt>
+      <trkpt lat="49.80837" lon="5.92567"><ele>97</ele></trkpt>
+      <trkpt lat="49.81174" lon="5.93613"><ele>97</ele></trkpt>
+      <trkpt lat="49.81483" lon="5.94680"><ele>25</ele></trkpt>
+      <trkpt lat="49.81766" lon="5.95750"><ele>25</ele></trkpt>
+      <trkpt lat="49.82026" lon="5.96804"><ele>25</ele></trkpt>
+      <trkpt lat="49.82265" lon="5.97823"><ele>25</ele></trkpt>
+      <trkpt lat="49.82485" lon="5.98787"><ele>99</ele></trkpt>
+      <trkpt lat="49.82687" lon="5.99678"><ele>99</ele></trkpt>
+      <trkpt lat="49.82687" lon="5.99678"><ele>249</ele></trkpt>
+      <trkpt lat="49.82866" lon="6.00585"><ele>249</ele></trkpt>
+      <trkpt lat="49.83015" lon="6.01596"><ele>380</ele></trkpt>
+      <trkpt lat="49.83139" lon="6.02689"><ele>380</ele></trkpt>
+      <trkpt lat="49.83239" lon="6.03843"><ele>431</ele></trkpt>
+      <trkpt lat="49.83318" lon="6.05034"><ele>431</ele></trkpt>
+      <trkpt lat="49.83380" lon="6.06241"><ele>392</ele></trkpt>
+      <trkpt lat="49.83427" lon="6.07442"><ele>392</ele></trkpt>
+      <trkpt lat="49.83462" lon="6.08615"><ele>306</ele></trkpt>
+      <trkpt lat="49.83488" lon="6.09738"><ele>306</ele></trkpt>
+      <trkpt lat="49.83509" lon="6.10789"><ele>239</ele></trkpt>
+      <trkpt lat="49.83526" lon="6.11746"><ele>239</ele></trkpt>
+      <trkpt lat="49.83543" lon="6.12586"><ele>237</ele></trkpt>
+      <trkpt lat="49.83562" lon="6.13289"><ele>237</ele></trkpt>
+      <trkpt lat="49.83588" lon="6.13831"><ele>297</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

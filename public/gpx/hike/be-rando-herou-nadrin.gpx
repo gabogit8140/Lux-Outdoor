@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Randonnée du Hérou &amp; Méandre de l&apos;Ourthe (Nadrin)</name>
+    <desc>L&apos;un des sites géologiques majeurs de Belgique : arête de schiste vertigineuse plongeant à pic dans l&apos;Ourthe.</desc>
+    <link href="https://visitwallonia.be">
+      <text>Visit Wallonia Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Randonnée du Hérou &amp; Méandre de l&apos;Ourthe (Nadrin)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="50.14340" lon="5.67984"><ele>264</ele></trkpt>
+      <trkpt lat="50.14384" lon="5.67893"><ele>264</ele></trkpt>
+      <trkpt lat="50.14449" lon="5.67773"><ele>264</ele></trkpt>
+      <trkpt lat="50.14530" lon="5.67630"><ele>223</ele></trkpt>
+      <trkpt lat="50.14624" lon="5.67467"><ele>223</ele></trkpt>
+      <trkpt lat="50.14726" lon="5.67288"><ele>172</ele></trkpt>
+      <trkpt lat="50.14833" lon="5.67097"><ele>172</ele></trkpt>
+      <trkpt lat="50.14940" lon="5.66899"><ele>173</ele></trkpt>
+      <trkpt lat="50.15043" lon="5.66696"><ele>173</ele></trkpt>
+      <trkpt lat="50.15138" lon="5.66494"><ele>262</ele></trkpt>
+      <trkpt lat="50.15221" lon="5.66295"><ele>262</ele></trkpt>
+      <trkpt lat="50.15288" lon="5.66105"><ele>411</ele></trkpt>
+      <trkpt lat="50.15335" lon="5.65927"><ele>411</ele></trkpt>
+      <trkpt lat="50.15357" lon="5.65765"><ele>541</ele></trkpt>
+      <trkpt lat="50.15351" lon="5.65624"><ele>541</ele></trkpt>
+      <trkpt lat="50.15351" lon="5.65624"><ele>580</ele></trkpt>
+      <trkpt lat="50.15313" lon="5.65485"><ele>580</ele></trkpt>
+      <trkpt lat="50.15247" lon="5.65330"><ele>521</ele></trkpt>
+      <trkpt lat="50.15155" lon="5.65165"><ele>521</ele></trkpt>
+      <trkpt lat="50.15043" lon="5.64994"><ele>425</ele></trkpt>
+      <trkpt lat="50.14914" lon="5.64820"><ele>425</ele></trkpt>
+      <trkpt lat="50.14772" lon="5.64650"><ele>380</ele></trkpt>
+      <trkpt lat="50.14622" lon="5.64487"><ele>380</ele></trkpt>
+      <trkpt lat="50.14467" lon="5.64336"><ele>429</ele></trkpt>
+      <trkpt lat="50.14311" lon="5.64202"><ele>429</ele></trkpt>
+      <trkpt lat="50.14159" lon="5.64089"><ele>543</ele></trkpt>
+      <trkpt lat="50.14014" lon="5.64002"><ele>543</ele></trkpt>
+      <trkpt lat="50.13881" lon="5.63944"><ele>645</ele></trkpt>
+      <trkpt lat="50.13763" lon="5.63922"><ele>645</ele></trkpt>
+      <trkpt lat="50.13665" lon="5.63938"><ele>671</ele></trkpt>
+      <trkpt lat="50.13665" lon="5.63938"><ele>671</ele></trkpt>
+      <trkpt lat="50.13574" lon="5.64004"><ele>616</ele></trkpt>
+      <trkpt lat="50.13477" lon="5.64121"><ele>616</ele></trkpt>
+      <trkpt lat="50.13374" lon="5.64281"><ele>536</ele></trkpt>
+      <trkpt lat="50.13270" lon="5.64478"><ele>536</ele></trkpt>
+      <trkpt lat="50.13166" lon="5.64703"><ele>487</ele></trkpt>
+      <trkpt lat="50.13066" lon="5.64949"><ele>487</ele></trkpt>
+      <trkpt lat="50.12970" lon="5.65210"><ele>482</ele></trkpt>
+      <trkpt lat="50.12882" lon="5.65477"><ele>482</ele></trkpt>
+      <trkpt lat="50.12804" lon="5.65743"><ele>477</ele></trkpt>
+      <trkpt lat="50.12739" lon="5.66001"><ele>477</ele></trkpt>
+      <trkpt lat="50.12689" lon="5.66244"><ele>410</ele></trkpt>
+      <trkpt lat="50.12657" lon="5.66463"><ele>410</ele></trkpt>
+      <trkpt lat="50.12644" lon="5.66653"><ele>267</ele></trkpt>
+      <trkpt lat="50.12654" lon="5.66804"><ele>267</ele></trkpt>
+      <trkpt lat="50.12654" lon="5.66804"><ele>101</ele></trkpt>
+      <trkpt lat="50.12694" lon="5.66931"><ele>101</ele></trkpt>
+      <trkpt lat="50.12766" lon="5.67051"><ele>25</ele></trkpt>
+      <trkpt lat="50.12866" lon="5.67165"><ele>25</ele></trkpt>
+      <trkpt lat="50.12988" lon="5.67272"><ele>38</ele></trkpt>
+      <trkpt lat="50.13128" lon="5.67373"><ele>38</ele></trkpt>
+      <trkpt lat="50.13280" lon="5.67467"><ele>193</ele></trkpt>
+      <trkpt lat="50.13440" lon="5.67555"><ele>193</ele></trkpt>
+      <trkpt lat="50.13602" lon="5.67636"><ele>389</ele></trkpt>
+      <trkpt lat="50.13761" lon="5.67711"><ele>389</ele></trkpt>
+      <trkpt lat="50.13912" lon="5.67779"><ele>537</ele></trkpt>
+      <trkpt lat="50.14051" lon="5.67840"><ele>537</ele></trkpt>
+      <trkpt lat="50.14172" lon="5.67895"><ele>597</ele></trkpt>
+      <trkpt lat="50.14270" lon="5.67943"><ele>597</ele></trkpt>
+      <trkpt lat="50.14340" lon="5.67984"><ele>600</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

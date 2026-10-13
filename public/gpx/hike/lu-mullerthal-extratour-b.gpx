@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Mullerthal ExtraTour B (Beaufort - Bigelbach - Reisdorf)</name>
+    <desc>Parcours reliant les hauteurs de Beaufort aux vergers de la vallée de la Sûre avec des panoramas plongeants.</desc>
+    <link href="https://www.mullerthal.lu">
+      <text>Mullerthal Trail (Site Officiel)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Mullerthal ExtraTour B (Beaufort - Bigelbach - Reisdorf)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.83209" lon="6.29185"><ele>485</ele></trkpt>
+      <trkpt lat="49.83251" lon="6.29312"><ele>485</ele></trkpt>
+      <trkpt lat="49.83301" lon="6.29502"><ele>485</ele></trkpt>
+      <trkpt lat="49.83357" lon="6.29742"><ele>456</ele></trkpt>
+      <trkpt lat="49.83420" lon="6.30020"><ele>456</ele></trkpt>
+      <trkpt lat="49.83491" lon="6.30322"><ele>357</ele></trkpt>
+      <trkpt lat="49.83567" lon="6.30636"><ele>357</ele></trkpt>
+      <trkpt lat="49.83651" lon="6.30948"><ele>232</ele></trkpt>
+      <trkpt lat="49.83740" lon="6.31248"><ele>232</ele></trkpt>
+      <trkpt lat="49.83836" lon="6.31520"><ele>141</ele></trkpt>
+      <trkpt lat="49.83937" lon="6.31754"><ele>141</ele></trkpt>
+      <trkpt lat="49.84045" lon="6.31936"><ele>124</ele></trkpt>
+      <trkpt lat="49.84158" lon="6.32053"><ele>124</ele></trkpt>
+      <trkpt lat="49.84276" lon="6.32093"><ele>176</ele></trkpt>
+      <trkpt lat="49.84400" lon="6.32042"><ele>176</ele></trkpt>
+      <trkpt lat="49.84400" lon="6.32042"><ele>254</ele></trkpt>
+      <trkpt lat="49.84547" lon="6.31880"><ele>254</ele></trkpt>
+      <trkpt lat="49.84731" lon="6.31604"><ele>303</ele></trkpt>
+      <trkpt lat="49.84944" lon="6.31232"><ele>303</ele></trkpt>
+      <trkpt lat="49.85179" lon="6.30784"><ele>285</ele></trkpt>
+      <trkpt lat="49.85429" lon="6.30277"><ele>285</ele></trkpt>
+      <trkpt lat="49.85686" lon="6.29729"><ele>206</ele></trkpt>
+      <trkpt lat="49.85944" lon="6.29159"><ele>206</ele></trkpt>
+      <trkpt lat="49.86194" lon="6.28586"><ele>112</ele></trkpt>
+      <trkpt lat="49.86430" lon="6.28026"><ele>112</ele></trkpt>
+      <trkpt lat="49.86644" lon="6.27500"><ele>60</ele></trkpt>
+      <trkpt lat="49.86830" lon="6.27025"><ele>60</ele></trkpt>
+      <trkpt lat="49.86979" lon="6.26619"><ele>85</ele></trkpt>
+      <trkpt lat="49.87084" lon="6.26301"><ele>85</ele></trkpt>
+      <trkpt lat="49.87139" lon="6.26088"><ele>179</ele></trkpt>
+      <trkpt lat="49.87139" lon="6.26088"><ele>179</ele></trkpt>
+      <trkpt lat="49.87143" lon="6.25967"><ele>298</ele></trkpt>
+      <trkpt lat="49.87104" lon="6.25905"><ele>298</ele></trkpt>
+      <trkpt lat="49.87027" lon="6.25895"><ele>383</ele></trkpt>
+      <trkpt lat="49.86919" lon="6.25931"><ele>383</ele></trkpt>
+      <trkpt lat="49.86784" lon="6.26005"><ele>397</ele></trkpt>
+      <trkpt lat="49.86627" lon="6.26111"><ele>397</ele></trkpt>
+      <trkpt lat="49.86454" lon="6.26242"><ele>348</ele></trkpt>
+      <trkpt lat="49.86270" lon="6.26391"><ele>348</ele></trkpt>
+      <trkpt lat="49.86081" lon="6.26551"><ele>278</ele></trkpt>
+      <trkpt lat="49.85891" lon="6.26715"><ele>278</ele></trkpt>
+      <trkpt lat="49.85706" lon="6.26877"><ele>243</ele></trkpt>
+      <trkpt lat="49.85531" lon="6.27030"><ele>243</ele></trkpt>
+      <trkpt lat="49.85372" lon="6.27166"><ele>276</ele></trkpt>
+      <trkpt lat="49.85234" lon="6.27279"><ele>276</ele></trkpt>
+      <trkpt lat="49.85234" lon="6.27279"><ele>367</ele></trkpt>
+      <trkpt lat="49.85100" lon="6.27389"><ele>367</ele></trkpt>
+      <trkpt lat="49.84952" lon="6.27516"><ele>471</ele></trkpt>
+      <trkpt lat="49.84794" lon="6.27658"><ele>471</ele></trkpt>
+      <trkpt lat="49.84628" lon="6.27810"><ele>531</ele></trkpt>
+      <trkpt lat="49.84457" lon="6.27970"><ele>531</ele></trkpt>
+      <trkpt lat="49.84285" lon="6.28134"><ele>514</ele></trkpt>
+      <trkpt lat="49.84114" lon="6.28299"><ele>514</ele></trkpt>
+      <trkpt lat="49.83948" lon="6.28461"><ele>428</ele></trkpt>
+      <trkpt lat="49.83789" lon="6.28617"><ele>428</ele></trkpt>
+      <trkpt lat="49.83640" lon="6.28763"><ele>321</ele></trkpt>
+      <trkpt lat="49.83505" lon="6.28896"><ele>321</ele></trkpt>
+      <trkpt lat="49.83386" lon="6.29013"><ele>248</ele></trkpt>
+      <trkpt lat="49.83287" lon="6.29111"><ele>248</ele></trkpt>
+      <trkpt lat="49.83209" lon="6.29185"><ele>241</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

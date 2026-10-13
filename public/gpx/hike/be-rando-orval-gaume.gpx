@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Sentier de l&apos;Abbaye d&apos;Orval &amp; Bois des Chenelles (Villers)</name>
+    <desc>Promenade dans la douce lumière de la Gaume autour de la célèbre abbaye trappiste d&apos;Orval et de ses étangs.</desc>
+    <link href="https://visitwallonia.be">
+      <text>Visit Wallonia Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Sentier de l&apos;Abbaye d&apos;Orval &amp; Bois des Chenelles (Villers)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.63948" lon="5.35542"><ele>271</ele></trkpt>
+      <trkpt lat="49.63998" lon="5.35438"><ele>271</ele></trkpt>
+      <trkpt lat="49.64074" lon="5.35301"><ele>271</ele></trkpt>
+      <trkpt lat="49.64168" lon="5.35135"><ele>314</ele></trkpt>
+      <trkpt lat="49.64278" lon="5.34945"><ele>314</ele></trkpt>
+      <trkpt lat="49.64397" lon="5.34737"><ele>340</ele></trkpt>
+      <trkpt lat="49.64521" lon="5.34517"><ele>340</ele></trkpt>
+      <trkpt lat="49.64645" lon="5.34288"><ele>367</ele></trkpt>
+      <trkpt lat="49.64764" lon="5.34057"><ele>367</ele></trkpt>
+      <trkpt lat="49.64873" lon="5.33828"><ele>404</ele></trkpt>
+      <trkpt lat="49.64968" lon="5.33607"><ele>404</ele></trkpt>
+      <trkpt lat="49.65043" lon="5.33399"><ele>430</ele></trkpt>
+      <trkpt lat="49.65093" lon="5.33209"><ele>430</ele></trkpt>
+      <trkpt lat="49.65114" lon="5.33042"><ele>411</ele></trkpt>
+      <trkpt lat="49.65101" lon="5.32905"><ele>411</ele></trkpt>
+      <trkpt lat="49.65101" lon="5.32905"><ele>332</ele></trkpt>
+      <trkpt lat="49.65049" lon="5.32779"><ele>332</ele></trkpt>
+      <trkpt lat="49.64958" lon="5.32649"><ele>218</ele></trkpt>
+      <trkpt lat="49.64835" lon="5.32516"><ele>218</ele></trkpt>
+      <trkpt lat="49.64685" lon="5.32384"><ele>125</ele></trkpt>
+      <trkpt lat="49.64514" lon="5.32256"><ele>125</ele></trkpt>
+      <trkpt lat="49.64328" lon="5.32134"><ele>102</ele></trkpt>
+      <trkpt lat="49.64132" lon="5.32022"><ele>102</ele></trkpt>
+      <trkpt lat="49.63932" lon="5.31922"><ele>155</ele></trkpt>
+      <trkpt lat="49.63733" lon="5.31838"><ele>155</ele></trkpt>
+      <trkpt lat="49.63541" lon="5.31772"><ele>245</ele></trkpt>
+      <trkpt lat="49.63362" lon="5.31727"><ele>245</ele></trkpt>
+      <trkpt lat="49.63202" lon="5.31707"><ele>323</ele></trkpt>
+      <trkpt lat="49.63065" lon="5.31714"><ele>323</ele></trkpt>
+      <trkpt lat="49.62959" lon="5.31751"><ele>360</ele></trkpt>
+      <trkpt lat="49.62959" lon="5.31751"><ele>360</ele></trkpt>
+      <trkpt lat="49.62869" lon="5.31829"><ele>368</ele></trkpt>
+      <trkpt lat="49.62782" lon="5.31954"><ele>368</ele></trkpt>
+      <trkpt lat="49.62698" lon="5.32118"><ele>373</ele></trkpt>
+      <trkpt lat="49.62618" lon="5.32315"><ele>373</ele></trkpt>
+      <trkpt lat="49.62544" lon="5.32537"><ele>383</ele></trkpt>
+      <trkpt lat="49.62476" lon="5.32778"><ele>383</ele></trkpt>
+      <trkpt lat="49.62416" lon="5.33031"><ele>385</ele></trkpt>
+      <trkpt lat="49.62364" lon="5.33289"><ele>385</ele></trkpt>
+      <trkpt lat="49.62323" lon="5.33545"><ele>351</ele></trkpt>
+      <trkpt lat="49.62292" lon="5.33792"><ele>351</ele></trkpt>
+      <trkpt lat="49.62273" lon="5.34023"><ele>279</ele></trkpt>
+      <trkpt lat="49.62267" lon="5.34231"><ele>279</ele></trkpt>
+      <trkpt lat="49.62276" lon="5.34410"><ele>200</ele></trkpt>
+      <trkpt lat="49.62299" lon="5.34553"><ele>200</ele></trkpt>
+      <trkpt lat="49.62299" lon="5.34553"><ele>160</ele></trkpt>
+      <trkpt lat="49.62347" lon="5.34670"><ele>160</ele></trkpt>
+      <trkpt lat="49.62424" lon="5.34779"><ele>181</ele></trkpt>
+      <trkpt lat="49.62526" lon="5.34879"><ele>181</ele></trkpt>
+      <trkpt lat="49.62648" lon="5.34971"><ele>247</ele></trkpt>
+      <trkpt lat="49.62785" lon="5.35056"><ele>247</ele></trkpt>
+      <trkpt lat="49.62933" lon="5.35134"><ele>309</ele></trkpt>
+      <trkpt lat="49.63086" lon="5.35205"><ele>309</ele></trkpt>
+      <trkpt lat="49.63242" lon="5.35269"><ele>329</ele></trkpt>
+      <trkpt lat="49.63394" lon="5.35327"><ele>329</ele></trkpt>
+      <trkpt lat="49.63539" lon="5.35380"><ele>309</ele></trkpt>
+      <trkpt lat="49.63671" lon="5.35427"><ele>309</ele></trkpt>
+      <trkpt lat="49.63786" lon="5.35470"><ele>282</ele></trkpt>
+      <trkpt lat="49.63880" lon="5.35508"><ele>282</ele></trkpt>
+      <trkpt lat="49.63948" lon="5.35542"><ele>285</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

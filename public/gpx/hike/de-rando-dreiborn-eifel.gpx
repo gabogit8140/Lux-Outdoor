@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Dreiborn Plateau &amp; Cité fantôme de Wollseifen (Nationalpark Eifel)</name>
+    <desc>Randonnée dans le cœur sauvage du Parc National de l&apos;Eifel à travers les landes de genêts et le village abandonné de Wollseifen.</desc>
+    <link href="https://www.nationalpark-eifel.de">
+      <text>Nationalpark Eifel Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Dreiborn Plateau &amp; Cité fantôme de Wollseifen (Nationalpark Eifel)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="50.57637" lon="6.41446"><ele>280</ele></trkpt>
+      <trkpt lat="50.57685" lon="6.41547"><ele>280</ele></trkpt>
+      <trkpt lat="50.57755" lon="6.41674"><ele>280</ele></trkpt>
+      <trkpt lat="50.57842" lon="6.41824"><ele>306</ele></trkpt>
+      <trkpt lat="50.57943" lon="6.41994"><ele>306</ele></trkpt>
+      <trkpt lat="50.58053" lon="6.42181"><ele>365</ele></trkpt>
+      <trkpt lat="50.58168" lon="6.42382"><ele>365</ele></trkpt>
+      <trkpt lat="50.58284" lon="6.42594"><ele>453</ele></trkpt>
+      <trkpt lat="50.58396" lon="6.42815"><ele>453</ele></trkpt>
+      <trkpt lat="50.58500" lon="6.43042"><ele>551</ele></trkpt>
+      <trkpt lat="50.58591" lon="6.43271"><ele>551</ele></trkpt>
+      <trkpt lat="50.58667" lon="6.43500"><ele>623</ele></trkpt>
+      <trkpt lat="50.58721" lon="6.43725"><ele>623</ele></trkpt>
+      <trkpt lat="50.58751" lon="6.43944"><ele>633</ele></trkpt>
+      <trkpt lat="50.58752" lon="6.44155"><ele>633</ele></trkpt>
+      <trkpt lat="50.58752" lon="6.44155"><ele>566</ele></trkpt>
+      <trkpt lat="50.58722" lon="6.44386"><ele>566</ele></trkpt>
+      <trkpt lat="50.58666" lon="6.44664"><ele>443</ele></trkpt>
+      <trkpt lat="50.58587" lon="6.44977"><ele>443</ele></trkpt>
+      <trkpt lat="50.58488" lon="6.45316"><ele>319</ele></trkpt>
+      <trkpt lat="50.58373" lon="6.45670"><ele>319</ele></trkpt>
+      <trkpt lat="50.58245" lon="6.46029"><ele>249</ele></trkpt>
+      <trkpt lat="50.58108" lon="6.46382"><ele>249</ele></trkpt>
+      <trkpt lat="50.57964" lon="6.46718"><ele>262</ele></trkpt>
+      <trkpt lat="50.57817" lon="6.47029"><ele>262</ele></trkpt>
+      <trkpt lat="50.57671" lon="6.47302"><ele>340</ele></trkpt>
+      <trkpt lat="50.57529" lon="6.47528"><ele>340</ele></trkpt>
+      <trkpt lat="50.57394" lon="6.47697"><ele>429</ele></trkpt>
+      <trkpt lat="50.57269" lon="6.47797"><ele>429</ele></trkpt>
+      <trkpt lat="50.57159" lon="6.47819"><ele>479</ele></trkpt>
+      <trkpt lat="50.57159" lon="6.47819"><ele>479</ele></trkpt>
+      <trkpt lat="50.57046" lon="6.47753"><ele>472</ele></trkpt>
+      <trkpt lat="50.56916" lon="6.47601"><ele>472</ele></trkpt>
+      <trkpt lat="50.56773" lon="6.47377"><ele>435</ele></trkpt>
+      <trkpt lat="50.56621" lon="6.47092"><ele>435</ele></trkpt>
+      <trkpt lat="50.56465" lon="6.46758"><ele>419</ele></trkpt>
+      <trkpt lat="50.56308" lon="6.46387"><ele>419</ele></trkpt>
+      <trkpt lat="50.56156" lon="6.45991"><ele>455</ele></trkpt>
+      <trkpt lat="50.56012" lon="6.45582"><ele>455</ele></trkpt>
+      <trkpt lat="50.55880" lon="6.45172"><ele>533</ele></trkpt>
+      <trkpt lat="50.55766" lon="6.44772"><ele>533</ele></trkpt>
+      <trkpt lat="50.55673" lon="6.44395"><ele>597</ele></trkpt>
+      <trkpt lat="50.55606" lon="6.44052"><ele>597</ele></trkpt>
+      <trkpt lat="50.55568" lon="6.43755"><ele>587</ele></trkpt>
+      <trkpt lat="50.55565" lon="6.43518"><ele>587</ele></trkpt>
+      <trkpt lat="50.55565" lon="6.43518"><ele>480</ele></trkpt>
+      <trkpt lat="50.55604" lon="6.43315"><ele>480</ele></trkpt>
+      <trkpt lat="50.55686" lon="6.43118"><ele>316</ele></trkpt>
+      <trkpt lat="50.55805" lon="6.42927"><ele>316</ele></trkpt>
+      <trkpt lat="50.55953" lon="6.42743"><ele>177</ele></trkpt>
+      <trkpt lat="50.56124" lon="6.42567"><ele>177</ele></trkpt>
+      <trkpt lat="50.56313" lon="6.42399"><ele>144</ele></trkpt>
+      <trkpt lat="50.56511" lon="6.42240"><ele>144</ele></trkpt>
+      <trkpt lat="50.56713" lon="6.42091"><ele>242</ele></trkpt>
+      <trkpt lat="50.56913" lon="6.41952"><ele>242</ele></trkpt>
+      <trkpt lat="50.57103" lon="6.41825"><ele>425</ele></trkpt>
+      <trkpt lat="50.57276" lon="6.41711"><ele>425</ele></trkpt>
+      <trkpt lat="50.57428" lon="6.41609"><ele>603</ele></trkpt>
+      <trkpt lat="50.57550" lon="6.41520"><ele>603</ele></trkpt>
+      <trkpt lat="50.57637" lon="6.41446"><ele>689</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

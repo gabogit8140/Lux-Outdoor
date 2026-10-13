@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Circuit historique de Verdun (Mémorial, Douaumont, Vaux)</name>
+    <desc>Boucle mémorielle officielle à travers la forêt domaniale d&apos;exception de Verdun, jalonnée de forts, tranchées et villages détruits.</desc>
+    <link href="https://www.tourisme-verdun.com">
+      <text>Office de Tourisme de Verdun</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Circuit historique de Verdun (Mémorial, Douaumont, Vaux)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.20590" lon="5.41021"><ele>453</ele></trkpt>
+      <trkpt lat="49.20691" lon="5.41081"><ele>453</ele></trkpt>
+      <trkpt lat="49.20832" lon="5.41146"><ele>453</ele></trkpt>
+      <trkpt lat="49.21006" lon="5.41219"><ele>460</ele></trkpt>
+      <trkpt lat="49.21206" lon="5.41300"><ele>460</ele></trkpt>
+      <trkpt lat="49.21424" lon="5.41391"><ele>416</ele></trkpt>
+      <trkpt lat="49.21654" lon="5.41491"><ele>416</ele></trkpt>
+      <trkpt lat="49.21888" lon="5.41603"><ele>360</ele></trkpt>
+      <trkpt lat="49.22119" lon="5.41727"><ele>360</ele></trkpt>
+      <trkpt lat="49.22340" lon="5.41863"><ele>330</ele></trkpt>
+      <trkpt lat="49.22544" lon="5.42014"><ele>330</ele></trkpt>
+      <trkpt lat="49.22724" lon="5.42180"><ele>335</ele></trkpt>
+      <trkpt lat="49.22873" lon="5.42362"><ele>335</ele></trkpt>
+      <trkpt lat="49.22983" lon="5.42560"><ele>353</ele></trkpt>
+      <trkpt lat="49.23047" lon="5.42777"><ele>353</ele></trkpt>
+      <trkpt lat="49.23047" lon="5.42777"><ele>353</ele></trkpt>
+      <trkpt lat="49.23072" lon="5.43042"><ele>353</ele></trkpt>
+      <trkpt lat="49.23070" lon="5.43377"><ele>318</ele></trkpt>
+      <trkpt lat="49.23044" lon="5.43768"><ele>318</ele></trkpt>
+      <trkpt lat="49.22995" lon="5.44203"><ele>267</ele></trkpt>
+      <trkpt lat="49.22926" lon="5.44669"><ele>267</ele></trkpt>
+      <trkpt lat="49.22840" lon="5.45151"><ele>235</ele></trkpt>
+      <trkpt lat="49.22739" lon="5.45637"><ele>235</ele></trkpt>
+      <trkpt lat="49.22626" lon="5.46114"><ele>250</ele></trkpt>
+      <trkpt lat="49.22502" lon="5.46569"><ele>250</ele></trkpt>
+      <trkpt lat="49.22371" lon="5.46988"><ele>308</ele></trkpt>
+      <trkpt lat="49.22234" lon="5.47358"><ele>308</ele></trkpt>
+      <trkpt lat="49.22095" lon="5.47666"><ele>370</ele></trkpt>
+      <trkpt lat="49.21956" lon="5.47899"><ele>370</ele></trkpt>
+      <trkpt lat="49.21818" lon="5.48043"><ele>390</ele></trkpt>
+      <trkpt lat="49.21818" lon="5.48043"><ele>390</ele></trkpt>
+      <trkpt lat="49.21661" lon="5.48108"><ele>343</ele></trkpt>
+      <trkpt lat="49.21464" lon="5.48113"><ele>343</ele></trkpt>
+      <trkpt lat="49.21235" lon="5.48066"><ele>245</ele></trkpt>
+      <trkpt lat="49.20983" lon="5.47971"><ele>245</ele></trkpt>
+      <trkpt lat="49.20714" lon="5.47835"><ele>141</ele></trkpt>
+      <trkpt lat="49.20437" lon="5.47665"><ele>141</ele></trkpt>
+      <trkpt lat="49.20158" lon="5.47465"><ele>74</ele></trkpt>
+      <trkpt lat="49.19887" lon="5.47243"><ele>74</ele></trkpt>
+      <trkpt lat="49.19630" lon="5.47003"><ele>61</ele></trkpt>
+      <trkpt lat="49.19396" lon="5.46753"><ele>61</ele></trkpt>
+      <trkpt lat="49.19191" lon="5.46497"><ele>81</ele></trkpt>
+      <trkpt lat="49.19024" lon="5.46243"><ele>81</ele></trkpt>
+      <trkpt lat="49.18903" lon="5.45995"><ele>100</ele></trkpt>
+      <trkpt lat="49.18834" lon="5.45761"><ele>100</ele></trkpt>
+      <trkpt lat="49.18834" lon="5.45761"><ele>94</ele></trkpt>
+      <trkpt lat="49.18822" lon="5.45508"><ele>94</ele></trkpt>
+      <trkpt lat="49.18859" lon="5.45204"><ele>71</ele></trkpt>
+      <trkpt lat="49.18940" lon="5.44860"><ele>71</ele></trkpt>
+      <trkpt lat="49.19055" lon="5.44485"><ele>62</ele></trkpt>
+      <trkpt lat="49.19199" lon="5.44088"><ele>62</ele></trkpt>
+      <trkpt lat="49.19365" lon="5.43677"><ele>94</ele></trkpt>
+      <trkpt lat="49.19544" lon="5.43263"><ele>94</ele></trkpt>
+      <trkpt lat="49.19730" lon="5.42854"><ele>167</ele></trkpt>
+      <trkpt lat="49.19916" lon="5.42459"><ele>167</ele></trkpt>
+      <trkpt lat="49.20094" lon="5.42088"><ele>247</ele></trkpt>
+      <trkpt lat="49.20258" lon="5.41749"><ele>247</ele></trkpt>
+      <trkpt lat="49.20400" lon="5.41452"><ele>290</ele></trkpt>
+      <trkpt lat="49.20513" lon="5.41207"><ele>290</ele></trkpt>
+      <trkpt lat="49.20590" lon="5.41021"><ele>273</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

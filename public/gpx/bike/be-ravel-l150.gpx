@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>RAVeL L150 (Houyet - Rochefort - Ciney)</name>
+    <desc>Voie verte suivant la rivière Lesse à travers les collines du Condroz et les grottes de Han-sur-Lesse.</desc>
+    <link href="https://ravel.wallonie.be">
+      <text>RAVeL Wallonie Officiel</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>RAVeL L150 (Houyet - Rochefort - Ciney)</name>
+    <type>Cycling</type>
+    <trkseg>
+      <trkpt lat="50.18515" lon="4.99698"><ele>368</ele></trkpt>
+      <trkpt lat="50.18413" lon="5.00183"><ele>368</ele></trkpt>
+      <trkpt lat="50.18277" lon="5.00812"><ele>368</ele></trkpt>
+      <trkpt lat="50.18112" lon="5.01566"><ele>368</ele></trkpt>
+      <trkpt lat="50.17923" lon="5.02423"><ele>365</ele></trkpt>
+      <trkpt lat="50.17716" lon="5.03365"><ele>369</ele></trkpt>
+      <trkpt lat="50.17497" lon="5.04372"><ele>369</ele></trkpt>
+      <trkpt lat="50.17270" lon="5.05422"><ele>391</ele></trkpt>
+      <trkpt lat="50.17042" lon="5.06498"><ele>435</ele></trkpt>
+      <trkpt lat="50.16817" lon="5.07578"><ele>435</ele></trkpt>
+      <trkpt lat="50.16602" lon="5.08644"><ele>496</ele></trkpt>
+      <trkpt lat="50.16401" lon="5.09674"><ele>559</ele></trkpt>
+      <trkpt lat="50.16219" lon="5.10650"><ele>559</ele></trkpt>
+      <trkpt lat="50.16063" lon="5.11551"><ele>605</ele></trkpt>
+      <trkpt lat="50.15938" lon="5.12357"><ele>618</ele></trkpt>
+      <trkpt lat="50.15938" lon="5.12357"><ele>618</ele></trkpt>
+      <trkpt lat="50.15802" lon="5.13169"><ele>590</ele></trkpt>
+      <trkpt lat="50.15619" lon="5.14080"><ele>525</ele></trkpt>
+      <trkpt lat="50.15403" lon="5.15065"><ele>525</ele></trkpt>
+      <trkpt lat="50.15171" lon="5.16096"><ele>440</ele></trkpt>
+      <trkpt lat="50.14936" lon="5.17147"><ele>356</ele></trkpt>
+      <trkpt lat="50.14714" lon="5.18192"><ele>356</ele></trkpt>
+      <trkpt lat="50.14519" lon="5.19203"><ele>293</ele></trkpt>
+      <trkpt lat="50.14365" lon="5.20154"><ele>263</ele></trkpt>
+      <trkpt lat="50.14269" lon="5.21019"><ele>263</ele></trkpt>
+      <trkpt lat="50.14244" lon="5.21771"><ele>266</ele></trkpt>
+      <trkpt lat="50.14305" lon="5.22382"><ele>293</ele></trkpt>
+      <trkpt lat="50.14467" lon="5.22828"><ele>293</ele></trkpt>
+      <trkpt lat="50.14745" lon="5.23080"><ele>332</ele></trkpt>
+      <trkpt lat="50.15154" lon="5.23112"><ele>370</ele></trkpt>
+      <trkpt lat="50.15154" lon="5.23112"><ele>370</ele></trkpt>
+      <trkpt lat="50.15762" lon="5.22870"><ele>403</ele></trkpt>
+      <trkpt lat="50.16603" lon="5.22346"><ele>430</ele></trkpt>
+      <trkpt lat="50.17638" lon="5.21583"><ele>430</ele></trkpt>
+      <trkpt lat="50.18829" lon="5.20623"><ele>460</ele></trkpt>
+      <trkpt lat="50.20137" lon="5.19510"><ele>496</ele></trkpt>
+      <trkpt lat="50.21525" lon="5.18287"><ele>496</ele></trkpt>
+      <trkpt lat="50.22952" lon="5.16995"><ele>539</ele></trkpt>
+      <trkpt lat="50.24381" lon="5.15679"><ele>580</ele></trkpt>
+      <trkpt lat="50.25774" lon="5.14382"><ele>580</ele></trkpt>
+      <trkpt lat="50.27091" lon="5.13145"><ele>605</ele></trkpt>
+      <trkpt lat="50.28294" lon="5.12012"><ele>602</ele></trkpt>
+      <trkpt lat="50.29346" lon="5.11027"><ele>602</ele></trkpt>
+      <trkpt lat="50.30207" lon="5.10231"><ele>563</ele></trkpt>
+      <trkpt lat="50.30838" lon="5.09668"><ele>491</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

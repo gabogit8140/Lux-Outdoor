@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="CycloRando GPX Engine - Official Tourism Importer" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata>
+    <name>Auto-Pédestre Mersch (Menhir de Reckange &amp; Hunnebuer)</name>
+    <desc>Circuit officiel reliant le menhir néolithique de Reckange à la source légendaire du Hunnebuer et aux bois de Mersch.</desc>
+    <link href="https://geoportail.lu">
+      <text>Tourisme Geoportail (Auto-Pédestre)</text>
+    </link>
+  </metadata>
+  <trk>
+    <name>Auto-Pédestre Mersch (Menhir de Reckange &amp; Hunnebuer)</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.74943" lon="6.11095"><ele>475</ele></trkpt>
+      <trkpt lat="49.74993" lon="6.10974"><ele>475</ele></trkpt>
+      <trkpt lat="49.75065" lon="6.10813"><ele>475</ele></trkpt>
+      <trkpt lat="49.75156" lon="6.10619"><ele>410</ele></trkpt>
+      <trkpt lat="49.75261" lon="6.10397"><ele>410</ele></trkpt>
+      <trkpt lat="49.75375" lon="6.10154"><ele>306</ele></trkpt>
+      <trkpt lat="49.75494" lon="6.09896"><ele>306</ele></trkpt>
+      <trkpt lat="49.75613" lon="6.09629"><ele>203</ele></trkpt>
+      <trkpt lat="49.75729" lon="6.09358"><ele>203</ele></trkpt>
+      <trkpt lat="49.75837" lon="6.09091"><ele>140</ele></trkpt>
+      <trkpt lat="49.75932" lon="6.08833"><ele>140</ele></trkpt>
+      <trkpt lat="49.76009" lon="6.08591"><ele>132</ele></trkpt>
+      <trkpt lat="49.76066" lon="6.08370"><ele>132</ele></trkpt>
+      <trkpt lat="49.76096" lon="6.08177"><ele>165</ele></trkpt>
+      <trkpt lat="49.76096" lon="6.08018"><ele>165</ele></trkpt>
+      <trkpt lat="49.76096" lon="6.08018"><ele>209</ele></trkpt>
+      <trkpt lat="49.76063" lon="6.07875"><ele>209</ele></trkpt>
+      <trkpt lat="49.76000" lon="6.07728"><ele>233</ele></trkpt>
+      <trkpt lat="49.75911" lon="6.07581"><ele>233</ele></trkpt>
+      <trkpt lat="49.75800" lon="6.07435"><ele>227</ele></trkpt>
+      <trkpt lat="49.75671" lon="6.07294"><ele>227</ele></trkpt>
+      <trkpt lat="49.75529" lon="6.07161"><ele>203</ele></trkpt>
+      <trkpt lat="49.75379" lon="6.07039"><ele>203</ele></trkpt>
+      <trkpt lat="49.75223" lon="6.06930"><ele>184</ele></trkpt>
+      <trkpt lat="49.75067" lon="6.06839"><ele>184</ele></trkpt>
+      <trkpt lat="49.74915" lon="6.06767"><ele>188</ele></trkpt>
+      <trkpt lat="49.74771" lon="6.06718"><ele>188</ele></trkpt>
+      <trkpt lat="49.74639" lon="6.06695"><ele>211</ele></trkpt>
+      <trkpt lat="49.74524" lon="6.06700"><ele>211</ele></trkpt>
+      <trkpt lat="49.74430" lon="6.06737"><ele>232</ele></trkpt>
+      <trkpt lat="49.74430" lon="6.06737"><ele>232</ele></trkpt>
+      <trkpt lat="49.74345" lon="6.06817"><ele>230</ele></trkpt>
+      <trkpt lat="49.74255" lon="6.06944"><ele>230</ele></trkpt>
+      <trkpt lat="49.74163" lon="6.07113"><ele>196</ele></trkpt>
+      <trkpt lat="49.74071" lon="6.07316"><ele>196</ele></trkpt>
+      <trkpt lat="49.73979" lon="6.07546"><ele>148</ele></trkpt>
+      <trkpt lat="49.73891" lon="6.07796"><ele>148</ele></trkpt>
+      <trkpt lat="49.73808" lon="6.08059"><ele>118</ele></trkpt>
+      <trkpt lat="49.73733" lon="6.08329"><ele>118</ele></trkpt>
+      <trkpt lat="49.73666" lon="6.08597"><ele>136</ele></trkpt>
+      <trkpt lat="49.73610" lon="6.08858"><ele>136</ele></trkpt>
+      <trkpt lat="49.73567" lon="6.09104"><ele>210</ele></trkpt>
+      <trkpt lat="49.73538" lon="6.09329"><ele>210</ele></trkpt>
+      <trkpt lat="49.73526" lon="6.09524"><ele>316</ele></trkpt>
+      <trkpt lat="49.73533" lon="6.09685"><ele>316</ele></trkpt>
+      <trkpt lat="49.73533" lon="6.09685"><ele>416</ele></trkpt>
+      <trkpt lat="49.73565" lon="6.09823"><ele>416</ele></trkpt>
+      <trkpt lat="49.73624" lon="6.09957"><ele>471</ele></trkpt>
+      <trkpt lat="49.73707" lon="6.10088"><ele>471</ele></trkpt>
+      <trkpt lat="49.73809" lon="6.10213"><ele>468</ele></trkpt>
+      <trkpt lat="49.73926" lon="6.10333"><ele>468</ele></trkpt>
+      <trkpt lat="49.74053" lon="6.10447"><ele>423</ele></trkpt>
+      <trkpt lat="49.74187" lon="6.10555"><ele>423</ele></trkpt>
+      <trkpt lat="49.74323" lon="6.10657"><ele>371</ele></trkpt>
+      <trkpt lat="49.74457" lon="6.10751"><ele>371</ele></trkpt>
+      <trkpt lat="49.74584" lon="6.10837"><ele>342</ele></trkpt>
+      <trkpt lat="49.74701" lon="6.10915"><ele>342</ele></trkpt>
+      <trkpt lat="49.74802" lon="6.10984"><ele>347</ele></trkpt>
+      <trkpt lat="49.74884" lon="6.11044"><ele>347</ele></trkpt>
+      <trkpt lat="49.74943" lon="6.11095"><ele>373</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
