@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-11T11:06:45.014Z",
-  "totalTracks": 178,
-  "bikeTracks": 105,
-  "hikeTracks": 73,
+  "generatedAt": "2026-10-13T11:51:34.610Z",
+  "totalTracks": 312,
+  "bikeTracks": 179,
+  "hikeTracks": 133,
   "tracks": [
     {
       "id": "be-cyclo-ravel-l126",
@@ -173,6 +173,142 @@
       "distanceKm": 58
     },
     {
+      "id": "lu-course-l1-for-beginners",
+      "name": "L1 For Beginners",
+      "file": "bike/lu-course-l1-for-beginners.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 29.9
+    },
+    {
+      "id": "lu-course-l2-panorama-tour",
+      "name": "L2 Panorama Tour",
+      "file": "bike/lu-course-l2-panorama-tour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 46.5
+    },
+    {
+      "id": "lu-course-l3-mullerthal-light",
+      "name": "L3 Mullerthal Light",
+      "file": "bike/lu-course-l3-mullerthal-light.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 54.1
+    },
+    {
+      "id": "lu-course-l4-the-border-tour",
+      "name": "L4 The Border Tour",
+      "file": "bike/lu-course-l4-the-border-tour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 55.7
+    },
+    {
+      "id": "lu-course-l5-the-discovery-tour",
+      "name": "L5 The Discovery Tour",
+      "file": "bike/lu-course-l5-the-discovery-tour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 58.7
+    },
+    {
+      "id": "lu-course-m1-the-castle-tour",
+      "name": "M1 The Castle Tour",
+      "file": "bike/lu-course-m1-the-castle-tour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 65.3
+    },
+    {
+      "id": "lu-course-m2-up-and-down",
+      "name": "M2 Up and Down",
+      "file": "bike/lu-course-m2-up-and-down.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 67.2
+    },
+    {
+      "id": "lu-course-m3-through-the-valley-of-the-black-ernz",
+      "name": "M3 Through the Valley of the Black Ernz",
+      "file": "bike/lu-course-m3-through-the-valley-of-the-black-ernz.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 71.4
+    },
+    {
+      "id": "lu-course-m4-through-fields-woods-meadows",
+      "name": "M4 Through fields, woods & meadows",
+      "file": "bike/lu-course-m4-through-fields-woods-meadows.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 72
+    },
+    {
+      "id": "lu-course-m5-on-the-rocks",
+      "name": "M5 On-the-rocks!",
+      "file": "bike/lu-course-m5-on-the-rocks.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 71.7
+    },
+    {
+      "id": "lu-course-my-liitle-switzerland-tour-ii",
+      "name": "My Liitle Switzerland Tour II",
+      "file": "bike/lu-course-my-liitle-switzerland-tour-ii.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 1.1
+    },
+    {
+      "id": "lu-course-s1-highlight-tour",
+      "name": "S1 Highlight Tour",
+      "file": "bike/lu-course-s1-highlight-tour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 73.7
+    },
+    {
+      "id": "lu-course-s2-mullerthal-classics",
+      "name": "S2 Mullerthal Classics",
+      "file": "bike/lu-course-s2-mullerthal-classics.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 78.5
+    },
+    {
+      "id": "lu-course-s3-the-valley-of-the-sure",
+      "name": "S3 The Valley of the Sûre",
+      "file": "bike/lu-course-s3-the-valley-of-the-sure.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 99.9
+    },
+    {
+      "id": "lu-course-s4-mullerthal-x-treme",
+      "name": "S4 Mullerthal X-treme",
+      "file": "bike/lu-course-s4-mullerthal-x-treme.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 126.8
+    },
+    {
+      "id": "lu-course-s5-charyl-gaul-b",
+      "name": "S5 Charyl Gaul B",
+      "file": "bike/lu-course-s5-charyl-gaul-b.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 104.6
+    },
+    {
+      "id": "lu-course-s6-charly-gaul-a",
+      "name": "S6 Charly Gaul A",
+      "file": "bike/lu-course-s6-charly-gaul-a.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 161.6
+    },
+    {
       "id": "lu-pc-pc0-liaison-urbaine-luxembourg-troncon-01",
       "name": "PC0 Liaison Urbaine Luxembourg (Tronçon 01)",
       "file": "bike/lu-pc-pc0-liaison-urbaine-luxembourg-troncon-01.gpx",
@@ -186,7 +322,7 @@
       "file": "bike/lu-pc-pc0-liaison-urbaine-luxembourg.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 4
+      "distanceKm": 7.7
     },
     {
       "id": "lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-01",
@@ -194,7 +330,7 @@
       "file": "bike/lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-01.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.6
+      "distanceKm": 4.9
     },
     {
       "id": "lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-02",
@@ -202,7 +338,7 @@
       "file": "bike/lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-02.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.1
+      "distanceKm": 1
     },
     {
       "id": "lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer-troncon-03",
@@ -234,7 +370,7 @@
       "file": "bike/lu-pc-pc1-piste-cyclable-du-centre-luxembourg-hesperange-kockelscheuer.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 1.5
+      "distanceKm": 292.7
     },
     {
       "id": "lu-pc-pc10-piste-cyclable-francois-faber-leudelange-schifflange",
@@ -242,7 +378,7 @@
       "file": "bike/lu-pc-pc10-piste-cyclable-francois-faber-leudelange-schifflange.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 2
+      "distanceKm": 12.9
     },
     {
       "id": "lu-pc-pc11-piste-cyclable-charly-gaul-fentange-huncherange",
@@ -258,7 +394,7 @@
       "file": "bike/lu-pc-pc12-piste-cyclable-de-l-attert-petange-steinfort-colmar-berg.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 2.5
+      "distanceKm": 626.1
     },
     {
       "id": "lu-pc-pc13-piste-cyclable-nicolas-frantz-strassen-mamer-kahler",
@@ -266,7 +402,7 @@
       "file": "bike/lu-pc-pc13-piste-cyclable-nicolas-frantz-strassen-mamer-kahler.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.5
+      "distanceKm": 59.9
     },
     {
       "id": "lu-pc-pc14-piste-cyclable-de-l-eisch-mamer-koerich-steinfort-troncon-01",
@@ -282,7 +418,7 @@
       "file": "bike/lu-pc-pc14-piste-cyclable-de-l-eisch-mamer-koerich-steinfort-troncon-2.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 3.1
+      "distanceKm": 10.8
     },
     {
       "id": "lu-pc-pc14-piste-cyclable-de-l-eisch-mamer-koerich-steinfort",
@@ -290,7 +426,7 @@
       "file": "bike/lu-pc-pc14-piste-cyclable-de-l-eisch-mamer-koerich-steinfort.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.5
+      "distanceKm": 38.6
     },
     {
       "id": "lu-pc-pc15-piste-cyclable-de-l-our-vianden-stolzembourg-dasburg-troncon-01",
@@ -314,7 +450,7 @@
       "file": "bike/lu-pc-pc15-piste-cyclable-de-l-our-vianden-stolzembourg-dasburg.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.4
+      "distanceKm": 482.1
     },
     {
       "id": "lu-pc-pc16-piste-cyclable-de-la-moyenne-sure-reisdorf-diekirch-ettelbruck-troncon-02",
@@ -322,7 +458,7 @@
       "file": "bike/lu-pc-pc16-piste-cyclable-de-la-moyenne-sure-reisdorf-diekirch-ettelbruck-troncon-02.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 6.7
+      "distanceKm": 66.6
     },
     {
       "id": "lu-pc-pc17-piste-cyclable-de-l-ouest-noerdange-arsdorf-martelange-troncon-01",
@@ -330,7 +466,7 @@
       "file": "bike/lu-pc-pc17-piste-cyclable-de-l-ouest-noerdange-arsdorf-martelange-troncon-01.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.2
+      "distanceKm": 104.5
     },
     {
       "id": "lu-pc-pc17-piste-cyclable-de-l-ouest-noerdange-arsdorf-martelange-troncon-02",
@@ -346,7 +482,7 @@
       "file": "bike/lu-pc-pc17-piste-cyclable-de-l-ouest-noerdange-arsdorf-martelange-troncon-03.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 6.8
+      "distanceKm": 20.4
     },
     {
       "id": "lu-pc-pc18-piste-cyclable-des-ardoisieres-koetschette-martelange",
@@ -354,7 +490,7 @@
       "file": "bike/lu-pc-pc18-piste-cyclable-des-ardoisieres-koetschette-martelange.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 1.1
+      "distanceKm": 7.5
     },
     {
       "id": "lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach-troncon-01",
@@ -362,7 +498,7 @@
       "file": "bike/lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach-troncon-01.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.3
+      "distanceKm": 7.8
     },
     {
       "id": "lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach-troncon-02",
@@ -386,7 +522,7 @@
       "file": "bike/lu-pc-pc2-piste-cyclable-d-echternach-luxembourg-junglinster-echternach.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 1.4
+      "distanceKm": 443.1
     },
     {
       "id": "lu-pc-pc20-piste-cyclable-de-la-wiltz-wiltz-kautenbach-bastogne-troncon-01",
@@ -402,7 +538,7 @@
       "file": "bike/lu-pc-pc20-piste-cyclable-de-la-wiltz-wiltz-kautenbach-bastogne.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.1
+      "distanceKm": 28.8
     },
     {
       "id": "lu-pc-pc21-piste-cyclable-du-nord-kautenbach-clervaux-troisvierges-troncon-01",
@@ -410,7 +546,7 @@
       "file": "bike/lu-pc-pc21-piste-cyclable-du-nord-kautenbach-clervaux-troisvierges-troncon-01.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.5
+      "distanceKm": 20.2
     },
     {
       "id": "lu-pc-pc21-piste-cyclable-du-nord-kautenbach-clervaux-troisvierges-troncon-02",
@@ -434,7 +570,7 @@
       "file": "bike/lu-pc-pc22-piste-cyclable-de-l-ardenne-troisvierges-huldange-gouvy.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 1.5
+      "distanceKm": 131.3
     },
     {
       "id": "lu-pc-pc3-piste-cyclable-des-trois-cantons-schengen-mondorf-petange",
@@ -442,7 +578,7 @@
       "file": "bike/lu-pc-pc3-piste-cyclable-des-trois-cantons-schengen-mondorf-petange.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.5
+      "distanceKm": 861.2
     },
     {
       "id": "lu-pc-pc4-piste-cyclable-de-la-syre-ernster-mertert-wasserbillig",
@@ -450,7 +586,7 @@
       "file": "bike/lu-pc-pc4-piste-cyclable-de-la-syre-ernster-mertert-wasserbillig.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 2.6
+      "distanceKm": 147.6
     },
     {
       "id": "lu-pc-pc5-piste-cyclable-de-l-alzette-luxembourg-mersch-ettelbruck",
@@ -458,7 +594,7 @@
       "file": "bike/lu-pc-pc5-piste-cyclable-de-l-alzette-luxembourg-mersch-ettelbruck.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 2
+      "distanceKm": 27.3
     },
     {
       "id": "lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig-troncon-01",
@@ -474,7 +610,7 @@
       "file": "bike/lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig-troncon-02.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.1
+      "distanceKm": 3.5
     },
     {
       "id": "lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig-troncon-05",
@@ -482,7 +618,7 @@
       "file": "bike/lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig-troncon-05.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.4
+      "distanceKm": 9.1
     },
     {
       "id": "lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig",
@@ -490,7 +626,7 @@
       "file": "bike/lu-pc-pc6-piste-cyclable-des-trois-vallees-schengen-remich-wasserbillig.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.1
+      "distanceKm": 346.6
     },
     {
       "id": "lu-pc-pc7-piste-cyclable-jangeli-remich-mondorf-les-bains-troncon-01",
@@ -530,7 +666,7 @@
       "file": "bike/lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-01.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.2
+      "distanceKm": 0.4
     },
     {
       "id": "lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-02",
@@ -538,7 +674,7 @@
       "file": "bike/lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-02.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 1.5
+      "distanceKm": 2.8
     },
     {
       "id": "lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem-troncon-03",
@@ -562,7 +698,7 @@
       "file": "bike/lu-pc-pc8-piste-cyclable-de-la-terre-rouge-bettembourg-esch-sanem.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.5
+      "distanceKm": 102.4
     },
     {
       "id": "lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange-troncon-01",
@@ -570,7 +706,7 @@
       "file": "bike/lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange-troncon-01.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.3
+      "distanceKm": 10.8
     },
     {
       "id": "lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange-troncon-02",
@@ -578,7 +714,7 @@
       "file": "bike/lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange-troncon-02.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.3
+      "distanceKm": 9.4
     },
     {
       "id": "lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange",
@@ -586,7 +722,7 @@
       "file": "bike/lu-pc-pc9-piste-cyclable-du-faubourg-minier-sanem-differdange-petange.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.3
+      "distanceKm": 105.6
     },
     {
       "id": "lu-pc-piste-cyclable-nationale-pc22a",
@@ -602,7 +738,7 @@
       "file": "bike/lu-pc-piste-cyclable-nationale-pc27.gpx",
       "activity": "bike",
       "country": "LU",
-      "distanceKm": 0.4
+      "distanceKm": 3.1
     },
     {
       "id": "lu-pc-piste-cyclable-nationale-pc29",
@@ -797,6 +933,166 @@
       "distanceKm": 26
     },
     {
+      "id": "lu-velo-beauforter-plateau",
+      "name": "Beauforter Plateau",
+      "file": "bike/lu-velo-beauforter-plateau.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 16
+    },
+    {
+      "id": "lu-velo-circuit-cyclables-pc1",
+      "name": "Circuit cyclables PC1",
+      "file": "bike/lu-velo-circuit-cyclables-pc1.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 43.4
+    },
+    {
+      "id": "lu-velo-dallchen-west-tour",
+      "name": "Dällchen West Tour",
+      "file": "bike/lu-velo-dallchen-west-tour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 25.9
+    },
+    {
+      "id": "lu-velo-defouss-velotour-beetebuerg",
+      "name": "DeFouss VëloTour Beetebuerg",
+      "file": "bike/lu-velo-defouss-velotour-beetebuerg.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 14
+    },
+    {
+      "id": "lu-velo-der-westen-luxemburgs",
+      "name": "Der Westen Luxemburgs",
+      "file": "bike/lu-velo-der-westen-luxemburgs.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 84.3
+    },
+    {
+      "id": "lu-velo-dici4you",
+      "name": "DICI4YOU",
+      "file": "bike/lu-velo-dici4you.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 38.1
+    },
+    {
+      "id": "lu-velo-family-tour",
+      "name": "Family Tour",
+      "file": "bike/lu-velo-family-tour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 5.3
+    },
+    {
+      "id": "lu-velo-felsenroute",
+      "name": "Felsenroute",
+      "file": "bike/lu-velo-felsenroute.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 106.3
+    },
+    {
+      "id": "lu-velo-fluss-tour-luxemburg",
+      "name": "Fluss-Tour Luxemburg",
+      "file": "bike/lu-velo-fluss-tour-luxemburg.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 154.1
+    },
+    {
+      "id": "lu-velo-genzentour",
+      "name": "Gënzentour",
+      "file": "bike/lu-velo-genzentour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 61.6
+    },
+    {
+      "id": "lu-velo-grenztour",
+      "name": "Grenztour",
+      "file": "bike/lu-velo-grenztour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 70.8
+    },
+    {
+      "id": "lu-velo-jangeli-tour",
+      "name": "Jangeli Tour",
+      "file": "bike/lu-velo-jangeli-tour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 11.3
+    },
+    {
+      "id": "lu-velo-looss-d-kierch-am-duerf",
+      "name": "Looss d'Kierch am Duerf",
+      "file": "bike/lu-velo-looss-d-kierch-am-duerf.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 62.7
+    },
+    {
+      "id": "lu-velo-mondorf-la-commune-a-velo",
+      "name": "Mondorf 'La Commune à Vélo'",
+      "file": "bike/lu-velo-mondorf-la-commune-a-velo.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 13.1
+    },
+    {
+      "id": "lu-velo-rondwee-gemeng-dippech",
+      "name": "Rondwee Gemeng Dippech",
+      "file": "bike/lu-velo-rondwee-gemeng-dippech.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 7.2
+    },
+    {
+      "id": "lu-velo-tudor-tour",
+      "name": "Tudor Tour",
+      "file": "bike/lu-velo-tudor-tour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 130.8
+    },
+    {
+      "id": "lu-velo-velo-pomarium",
+      "name": "Velo Pomarium",
+      "file": "bike/lu-velo-velo-pomarium.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 39.7
+    },
+    {
+      "id": "lu-velo-velo-romanum",
+      "name": "Velo Romanum",
+      "file": "bike/lu-velo-velo-romanum.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 36.4
+    },
+    {
+      "id": "lu-velo-velo-vinum",
+      "name": "Velo Vinum",
+      "file": "bike/lu-velo-velo-vinum.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 16.3
+    },
+    {
+      "id": "lu-velo-wisen-west-tour",
+      "name": "Wisen West Tour",
+      "file": "bike/lu-velo-wisen-west-tour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 37.9
+    },
+    {
       "id": "lu-velosummer-eislek",
       "name": "Vëlosummer: Éislek Ardennes Challenge (Clervaux - Wiltz - Vianden)",
       "file": "bike/lu-velosummer-eislek.gpx",
@@ -829,12 +1125,308 @@
       "distanceKm": 36.5
     },
     {
+      "id": "lu-vtt-circuit-vtt-02-lieler",
+      "name": "Circuit VTT 02 Lieler",
+      "file": "bike/lu-vtt-circuit-vtt-02-lieler.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 12
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-03-clervaux",
+      "name": "Circuit VTT 03 Clervaux",
+      "file": "bike/lu-vtt-circuit-vtt-03-clervaux.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 24.6
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-04-hosingen-lellingen",
+      "name": "Circuit VTT 04 Hosingen-Lellingen",
+      "file": "bike/lu-vtt-circuit-vtt-04-hosingen-lellingen.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 21.7
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-05-hosingen",
+      "name": "Circuit VTT 05 Hosingen",
+      "file": "bike/lu-vtt-circuit-vtt-05-hosingen.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 12.5
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-06-winseler",
+      "name": "Circuit VTT 06 Winseler",
+      "file": "bike/lu-vtt-circuit-vtt-06-winseler.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 22.1
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-07-wiltz-1",
+      "name": "Circuit VTT 07 Wiltz 1",
+      "file": "bike/lu-vtt-circuit-vtt-07-wiltz-1.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 25.1
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-08-wiltz-2",
+      "name": "Circuit VTT 08 Wiltz 2",
+      "file": "bike/lu-vtt-circuit-vtt-08-wiltz-2.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 10.9
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-09-hoscheid",
+      "name": "Circuit VTT 09 Hoscheid",
+      "file": "bike/lu-vtt-circuit-vtt-09-hoscheid.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 24.9
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-10-goesdorf",
+      "name": "Circuit VTT 10 Goesdorf",
+      "file": "bike/lu-vtt-circuit-vtt-10-goesdorf.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 35.7
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-11-vianden-vtt",
+      "name": "Circuit VTT 11 Vianden VTT",
+      "file": "bike/lu-vtt-circuit-vtt-11-vianden-vtt.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 22.3
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-12-bavigne",
+      "name": "Circuit VTT 12 Bavigne",
+      "file": "bike/lu-vtt-circuit-vtt-12-bavigne.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 33.3
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-13-erpeldange",
+      "name": "Circuit VTT 13 Erpeldange",
+      "file": "bike/lu-vtt-circuit-vtt-13-erpeldange.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 21.6
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-14-bettendorf-reisdorf",
+      "name": "Circuit VTT 14 Bettendorf-Reisdorf",
+      "file": "bike/lu-vtt-circuit-vtt-14-bettendorf-reisdorf.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 21.7
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-15-ingeldorf-ettelbruck",
+      "name": "Circuit VTT 15 Ingeldorf-Ettelbrück",
+      "file": "bike/lu-vtt-circuit-vtt-15-ingeldorf-ettelbruck.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 20.1
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-16-preizerdaul",
+      "name": "Circuit VTT 16 Préizerdaul",
+      "file": "bike/lu-vtt-circuit-vtt-16-preizerdaul.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 32.8
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-17-rambrouch",
+      "name": "Circuit VTT 17 Rambrouch",
+      "file": "bike/lu-vtt-circuit-vtt-17-rambrouch.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 43.6
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-bech",
+      "name": "Circuit VTT Bech",
+      "file": "bike/lu-vtt-circuit-vtt-bech.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 13.3
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-beckerich-12-km",
+      "name": "Circuit VTT Beckerich 12 km",
+      "file": "bike/lu-vtt-circuit-vtt-beckerich-12-km.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 13.8
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-beckerich-18-km",
+      "name": "Circuit VTT Beckerich 18 km",
+      "file": "bike/lu-vtt-circuit-vtt-beckerich-18-km.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 19.7
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-beckerich-boucle-5km-houbierg",
+      "name": "Circuit VTT Beckerich; boucle 5km \"Houbierg\"",
+      "file": "bike/lu-vtt-circuit-vtt-beckerich-boucle-5km-houbierg.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 5.4
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-beckerich-boucle-5km-tunnel",
+      "name": "Circuit VTT Beckerich; boucle 5km \"Tunnel\"",
+      "file": "bike/lu-vtt-circuit-vtt-beckerich-boucle-5km-tunnel.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 4.3
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-belvaux",
+      "name": "Circuit VTT Belvaux",
+      "file": "bike/lu-vtt-circuit-vtt-belvaux.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 2.7
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-berdorf-beaufort",
+      "name": "Circuit VTT Berdorf-Beaufort",
+      "file": "bike/lu-vtt-circuit-vtt-berdorf-beaufort.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 39.1
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-dalheim",
+      "name": "Circuit VTT Dalheim",
+      "file": "bike/lu-vtt-circuit-vtt-dalheim.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 23.3
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-echternach",
+      "name": "Circuit VTT Echternach",
+      "file": "bike/lu-vtt-circuit-vtt-echternach.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 22.7
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-greiveldange",
+      "name": "Circuit VTT Greiveldange",
+      "file": "bike/lu-vtt-circuit-vtt-greiveldange.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 22.1
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-grevenmacher",
+      "name": "Circuit VTT Grevenmacher",
+      "file": "bike/lu-vtt-circuit-vtt-grevenmacher.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 14.4
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-larochette",
+      "name": "Circuit VTT Larochette",
+      "file": "bike/lu-vtt-circuit-vtt-larochette.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 26.5
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-manternach",
+      "name": "Circuit VTT Manternach",
+      "file": "bike/lu-vtt-circuit-vtt-manternach.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 17.7
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-redrock-mountain-bike-trail-belvaux-differdange",
+      "name": "Circuit VTT RedRock Mountain Bike Trail - \"Belvaux - Differdange\"",
+      "file": "bike/lu-vtt-circuit-vtt-redrock-mountain-bike-trail-belvaux-differdange.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 29.6
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-redrock-mountain-bike-trail-lallengerbierg-gaalgebierg",
+      "name": "Circuit VTT RedRock Mountain Bike Trail - Lalléngerbierg - Gaalgebierg",
+      "file": "bike/lu-vtt-circuit-vtt-redrock-mountain-bike-trail-lallengerbierg-gaalgebierg.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 75
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-redrock-mountainbike-trail-ellergronn-red",
+      "name": "Circuit VTT RedRock Mountainbike Trail \"Ellergronn - red\"",
+      "file": "bike/lu-vtt-circuit-vtt-redrock-mountainbike-trail-ellergronn-red.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 33.6
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-redrock-mountainbike-trail-haard-black",
+      "name": "Circuit VTT RedRock Mountainbike Trail \"Haard - black\"",
+      "file": "bike/lu-vtt-circuit-vtt-redrock-mountainbike-trail-haard-black.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 31.1
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-redrock-mountainbike-trail-haard-red",
+      "name": "Circuit VTT RedRock Mountainbike Trail \"Haard - red\"",
+      "file": "bike/lu-vtt-circuit-vtt-redrock-mountainbike-trail-haard-red.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 28.9
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-weiler-la-tour",
+      "name": "Circuit VTT Weiler-la-Tour",
+      "file": "bike/lu-vtt-circuit-vtt-weiler-la-tour.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 21.2
+    },
+    {
+      "id": "lu-vtt-circuit-vtt-wormeldange",
+      "name": "Circuit VTT Wormeldange",
+      "file": "bike/lu-vtt-circuit-vtt-wormeldange.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 24.3
+    },
+    {
       "id": "lu-vtt-redrock",
       "name": "Circuit VTT RedRock Challenge (Esch - Dudelange - Belval)",
       "file": "bike/lu-vtt-redrock.gpx",
       "activity": "bike",
       "country": "LU",
       "distanceKm": 28.5
+    },
+    {
+      "id": "lu-vtt-vtt-grengewald",
+      "name": "VTT Gréngewald",
+      "file": "bike/lu-vtt-vtt-grengewald.gpx",
+      "activity": "bike",
+      "country": "LU",
+      "distanceKm": 23
     },
     {
       "id": "nl-cyclo-amstel-gold",
@@ -1085,6 +1677,30 @@
       "distanceKm": 15.2
     },
     {
+      "id": "lu-adrien-ries-sentier-adrien-ries-nordlicher-teil-partie-nord",
+      "name": "Sentier Adrien Ries (nördlicher Teil / partie nord)",
+      "file": "hike/lu-adrien-ries-sentier-adrien-ries-nordlicher-teil-partie-nord.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 20.8
+    },
+    {
+      "id": "lu-adrien-ries-sentier-adrien-ries-ostlicher-teil-partie-est",
+      "name": "Sentier Adrien Ries (östlicher Teil / partie est)",
+      "file": "hike/lu-adrien-ries-sentier-adrien-ries-ostlicher-teil-partie-est.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 13.2
+    },
+    {
+      "id": "lu-adrien-ries-sentier-adrien-ries-sudlicher-teil-partie-sud",
+      "name": "Sentier Adrien Ries (südlicher Teil / partie sud)",
+      "file": "hike/lu-adrien-ries-sentier-adrien-ries-sudlicher-teil-partie-sud.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 22.9
+    },
+    {
       "id": "lu-ap-ahn-palmberg",
       "name": "Auto-Pédestre Ahn (Réserve naturelle du Palmberg)",
       "file": "hike/lu-ap-ahn-palmberg.gpx",
@@ -1099,6 +1715,462 @@
       "activity": "hike",
       "country": "LU",
       "distanceKm": 7.5
+    },
+    {
+      "id": "lu-ap-auto-pedestre-abweiler",
+      "name": "Auto-Pédestre Abweiler",
+      "file": "hike/lu-ap-auto-pedestre-abweiler.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.2
+    },
+    {
+      "id": "lu-ap-auto-pedestre-ahn",
+      "name": "Auto-Pédestre Ahn",
+      "file": "hike/lu-ap-auto-pedestre-ahn.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.8
+    },
+    {
+      "id": "lu-ap-auto-pedestre-altrier",
+      "name": "Auto-Pédestre Altrier",
+      "file": "hike/lu-ap-auto-pedestre-altrier.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 12.7
+    },
+    {
+      "id": "lu-ap-auto-pedestre-arsdorf",
+      "name": "Auto-Pédestre Arsdorf",
+      "file": "hike/lu-ap-auto-pedestre-arsdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.8
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bascharage",
+      "name": "Auto-Pédestre Bascharage",
+      "file": "hike/lu-ap-auto-pedestre-bascharage.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.7
+    },
+    {
+      "id": "lu-ap-auto-pedestre-baschleiden",
+      "name": "Auto-Pédestre Baschleiden",
+      "file": "hike/lu-ap-auto-pedestre-baschleiden.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.5
+    },
+    {
+      "id": "lu-ap-auto-pedestre-beaufort",
+      "name": "Auto-Pédestre Beaufort",
+      "file": "hike/lu-ap-auto-pedestre-beaufort.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.7
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bech-kleinmacher",
+      "name": "Auto-Pédestre Bech-Kleinmacher",
+      "file": "hike/lu-ap-auto-pedestre-bech-kleinmacher.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.2
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bech",
+      "name": "Auto-Pédestre Bech",
+      "file": "hike/lu-ap-auto-pedestre-bech.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.8
+    },
+    {
+      "id": "lu-ap-auto-pedestre-beckerich",
+      "name": "Auto-Pédestre Beckerich",
+      "file": "hike/lu-ap-auto-pedestre-beckerich.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.6
+    },
+    {
+      "id": "lu-ap-auto-pedestre-belvaux",
+      "name": "Auto-Pédestre Belvaux",
+      "file": "hike/lu-ap-auto-pedestre-belvaux.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.1
+    },
+    {
+      "id": "lu-ap-auto-pedestre-berbourg",
+      "name": "Auto-Pédestre Berbourg",
+      "file": "hike/lu-ap-auto-pedestre-berbourg.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.3
+    },
+    {
+      "id": "lu-ap-auto-pedestre-berdorf",
+      "name": "Auto-Pédestre Berdorf",
+      "file": "hike/lu-ap-auto-pedestre-berdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.6
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bereldange",
+      "name": "Auto-Pédestre Bereldange",
+      "file": "hike/lu-ap-auto-pedestre-bereldange.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.5
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bergem",
+      "name": "Auto-Pédestre Bergem",
+      "file": "hike/lu-ap-auto-pedestre-bergem.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.1
+    },
+    {
+      "id": "lu-ap-auto-pedestre-beringen",
+      "name": "Auto-Pédestre Beringen",
+      "file": "hike/lu-ap-auto-pedestre-beringen.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.8
+    },
+    {
+      "id": "lu-ap-auto-pedestre-berle",
+      "name": "Auto-Pédestre Berlé",
+      "file": "hike/lu-ap-auto-pedestre-berle.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.4
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bertrange",
+      "name": "Auto-Pédestre Bertrange",
+      "file": "hike/lu-ap-auto-pedestre-bertrange.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.6
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bettborn",
+      "name": "Auto-Pédestre Bettborn",
+      "file": "hike/lu-ap-auto-pedestre-bettborn.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.8
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bettel",
+      "name": "Auto-Pédestre Bettel",
+      "file": "hike/lu-ap-auto-pedestre-bettel.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.8
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bettendorf",
+      "name": "Auto-Pédestre Bettendorf",
+      "file": "hike/lu-ap-auto-pedestre-bettendorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.7
+    },
+    {
+      "id": "lu-ap-auto-pedestre-betzdorf",
+      "name": "Auto-Pédestre Betzdorf",
+      "file": "hike/lu-ap-auto-pedestre-betzdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bigonville",
+      "name": "Auto-Pédestre Bigonville",
+      "file": "hike/lu-ap-auto-pedestre-bigonville.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 12.3
+    },
+    {
+      "id": "lu-ap-auto-pedestre-binsfeld",
+      "name": "Auto-Pédestre Binsfeld",
+      "file": "hike/lu-ap-auto-pedestre-binsfeld.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.8
+    },
+    {
+      "id": "lu-ap-auto-pedestre-boevange",
+      "name": "Auto-Pédestre Boevange",
+      "file": "hike/lu-ap-auto-pedestre-boevange.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bollendorf-pont",
+      "name": "Auto-Pédestre Bollendorf-Pont",
+      "file": "hike/lu-ap-auto-pedestre-bollendorf-pont.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.7
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bonnevoie",
+      "name": "Auto-Pédestre Bonnevoie",
+      "file": "hike/lu-ap-auto-pedestre-bonnevoie.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.9
+    },
+    {
+      "id": "lu-ap-auto-pedestre-born",
+      "name": "Auto-Pédestre Born",
+      "file": "hike/lu-ap-auto-pedestre-born.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.4
+    },
+    {
+      "id": "lu-ap-auto-pedestre-boulaide",
+      "name": "Auto-Pédestre Boulaide",
+      "file": "hike/lu-ap-auto-pedestre-boulaide.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.1
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bourglinster",
+      "name": "Auto-Pédestre Bourglinster",
+      "file": "hike/lu-ap-auto-pedestre-bourglinster.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.2
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bourscheid",
+      "name": "Auto-Pédestre Bourscheid",
+      "file": "hike/lu-ap-auto-pedestre-bourscheid.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.8
+    },
+    {
+      "id": "lu-ap-auto-pedestre-boxhorn",
+      "name": "Auto-Pédestre Boxhorn",
+      "file": "hike/lu-ap-auto-pedestre-boxhorn.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.9
+    },
+    {
+      "id": "lu-ap-auto-pedestre-bridel",
+      "name": "Auto-Pédestre Bridel",
+      "file": "hike/lu-ap-auto-pedestre-bridel.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.3
+    },
+    {
+      "id": "lu-ap-auto-pedestre-brouch",
+      "name": "Auto-Pédestre Brouch",
+      "file": "hike/lu-ap-auto-pedestre-brouch.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.1
+    },
+    {
+      "id": "lu-ap-auto-pedestre-buderscheid",
+      "name": "Auto-Pédestre Büderscheid",
+      "file": "hike/lu-ap-auto-pedestre-buderscheid.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.6
+    },
+    {
+      "id": "lu-ap-auto-pedestre-burden",
+      "name": "Auto-Pédestre Bürden",
+      "file": "hike/lu-ap-auto-pedestre-burden.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.6
+    },
+    {
+      "id": "lu-ap-auto-pedestre-buschdorf",
+      "name": "Auto-Pédestre Buschdorf",
+      "file": "hike/lu-ap-auto-pedestre-buschdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.7
+    },
+    {
+      "id": "lu-ap-auto-pedestre-canach",
+      "name": "Auto-Pédestre Canach",
+      "file": "hike/lu-ap-auto-pedestre-canach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 12.9
+    },
+    {
+      "id": "lu-ap-auto-pedestre-clemency",
+      "name": "Auto-Pédestre Clemency",
+      "file": "hike/lu-ap-auto-pedestre-clemency.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.4
+    },
+    {
+      "id": "lu-ap-auto-pedestre-colmar-berg",
+      "name": "Auto-Pédestre Colmar-Berg",
+      "file": "hike/lu-ap-auto-pedestre-colmar-berg.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.2
+    },
+    {
+      "id": "lu-ap-auto-pedestre-consdorf-mullerthal",
+      "name": "Auto-Pédestre Consdorf-Müllerthal",
+      "file": "hike/lu-ap-auto-pedestre-consdorf-mullerthal.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.3
+    },
+    {
+      "id": "lu-ap-auto-pedestre-consthum",
+      "name": "Auto-Pédestre Consthum",
+      "file": "hike/lu-ap-auto-pedestre-consthum.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.7
+    },
+    {
+      "id": "lu-ap-auto-pedestre-dahl",
+      "name": "Auto-Pédestre Dahl",
+      "file": "hike/lu-ap-auto-pedestre-dahl.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.9
+    },
+    {
+      "id": "lu-ap-auto-pedestre-dalheim",
+      "name": "Auto-Pédestre Dalheim",
+      "file": "hike/lu-ap-auto-pedestre-dalheim.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.9
+    },
+    {
+      "id": "lu-ap-auto-pedestre-derenbach",
+      "name": "Auto-Pédestre Derenbach",
+      "file": "hike/lu-ap-auto-pedestre-derenbach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 12.1
+    },
+    {
+      "id": "lu-ap-auto-pedestre-differdange-lasauvage",
+      "name": "Auto-Pédestre Differdange-Lasauvage",
+      "file": "hike/lu-ap-auto-pedestre-differdange-lasauvage.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11
+    },
+    {
+      "id": "lu-ap-auto-pedestre-dippach",
+      "name": "Auto-Pédestre Dippach",
+      "file": "hike/lu-ap-auto-pedestre-dippach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.8
+    },
+    {
+      "id": "lu-ap-auto-pedestre-dudelange-ginzebierg",
+      "name": "Auto-Pédestre Dudelange Ginzebierg",
+      "file": "hike/lu-ap-auto-pedestre-dudelange-ginzebierg.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.7
+    },
+    {
+      "id": "lu-ap-auto-pedestre-dudelange-haard",
+      "name": "Auto-Pédestre Dudelange Haard",
+      "file": "hike/lu-ap-auto-pedestre-dudelange-haard.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.3
+    },
+    {
+      "id": "lu-ap-auto-pedestre-echternach-centre",
+      "name": "Auto-Pédestre Echternach Centre",
+      "file": "hike/lu-ap-auto-pedestre-echternach-centre.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.7
+    },
+    {
+      "id": "lu-ap-auto-pedestre-echternach-lac",
+      "name": "Auto-Pédestre Echternach / Lac",
+      "file": "hike/lu-ap-auto-pedestre-echternach-lac.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.4
+    },
+    {
+      "id": "lu-ap-auto-pedestre-ehnen",
+      "name": "Auto-Pédestre Ehnen",
+      "file": "hike/lu-ap-auto-pedestre-ehnen.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.6
+    },
+    {
+      "id": "lu-ap-auto-pedestre-eischen",
+      "name": "Auto-Pédestre Eischen",
+      "file": "hike/lu-ap-auto-pedestre-eischen.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.5
+    },
+    {
+      "id": "lu-ap-auto-pedestre-ermsdorf",
+      "name": "Auto-Pédestre Ermsdorf",
+      "file": "hike/lu-ap-auto-pedestre-ermsdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.1
+    },
+    {
+      "id": "lu-ap-auto-pedestre-esch-sur-alzette",
+      "name": "Auto-Pédestre Esch-sur-Alzette",
+      "file": "hike/lu-ap-auto-pedestre-esch-sur-alzette.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.7
+    },
+    {
+      "id": "lu-ap-auto-pedestre-esch-sur-sure",
+      "name": "Auto-Pédestre Esch-sur-Sûre",
+      "file": "hike/lu-ap-auto-pedestre-esch-sur-sure.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.5
+    },
+    {
+      "id": "lu-ap-auto-pedestre-eschweiler",
+      "name": "Auto-Pédestre Eschweiler",
+      "file": "hike/lu-ap-auto-pedestre-eschweiler.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7
     },
     {
       "id": "lu-ap-beaufort",

@@ -38,6 +38,8 @@ jobs:
         run: npm ci || npm install
 
       - name: Build production bundle
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
         run: npm run build
 
       - name: Setup Pages
