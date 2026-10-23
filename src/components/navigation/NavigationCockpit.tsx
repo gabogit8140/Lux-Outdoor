@@ -91,7 +91,7 @@ export function NavigationCockpit({ navigation, onRecenter }: NavigationCockpitP
       {/* 1. Bandeau supérieur tête-haute (Manoeuvre & Alerte hors-sentier) */}
       <div
         className="fixed left-2 right-2 sm:left-1/2 sm:-translate-x-1/2 sm:max-w-md z-[500] pointer-events-none flex flex-col items-center gap-1.5 transition-all"
-        style={{ top: 'calc(env(safe-area-inset-top, 0px) + 0.65rem)' }}
+        style={{ top: 'calc(env(safe-area-inset-top, 0px) + 1.4rem)' }}
       >
         {/* Alerte Hors-Sentier Flottante (si déviation > 35m) */}
         {isOffTrack && (

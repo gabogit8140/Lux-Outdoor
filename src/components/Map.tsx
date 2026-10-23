@@ -180,8 +180,11 @@ export function MapDisplay({
             - Dedicated Hunting Rifle Button: Quick 1-click hunting battues toggle
         */}
         <div
-          className="absolute top-14 sm:top-16 md:top-3 right-2.5 md:right-4 z-[450] flex flex-col gap-2 pointer-events-auto"
-          style={{ pointerEvents: 'auto' }}
+          className="absolute right-2.5 md:right-4 z-[450] flex flex-col gap-2 pointer-events-auto"
+          style={{
+            top: 'calc(env(safe-area-inset-top, 0px) + 1.4rem)',
+            pointerEvents: 'auto',
+          }}
         >
           <DesktopZoomControl />
           <LocateControl

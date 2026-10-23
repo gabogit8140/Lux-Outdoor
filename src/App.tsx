@@ -281,7 +281,7 @@ export default function App() {
       {notification && (
         <div
           className="fixed left-1/2 -translate-x-1/2 z-[2000] bg-slate-900/95 dark:bg-slate-800/95 text-white px-4 py-2.5 rounded-full text-xs font-semibold shadow-[0_12px_32px_rgba(0,0,0,0.3)] border border-white/10 backdrop-blur-xl flex items-center gap-2.5 animate-in fade-in slide-in-from-top-3"
-          style={{ top: 'calc(env(safe-area-inset-top, 0px) + 0.75rem)' }}
+          style={{ top: 'calc(env(safe-area-inset-top, 0px) + 1.4rem)' }}
         >
           <span className="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center shrink-0">
             <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
@@ -296,7 +296,7 @@ export default function App() {
         <div
           className="absolute z-[400] flex flex-col gap-1 sm:gap-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-white/70 dark:border-slate-700/80 rounded-2xl p-1 sm:p-1.5 shadow-[0_8px_32px_rgba(15,23,42,0.14)] transition-all"
           style={{
-            top: 'calc(env(safe-area-inset-top, 0px) + 0.65rem)',
+            top: 'calc(env(safe-area-inset-top, 0px) + 1.4rem)',
             left: 'calc(env(safe-area-inset-left, 0px) + 0.65rem)',
           }}
         >

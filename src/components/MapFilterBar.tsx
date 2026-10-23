@@ -216,7 +216,7 @@ export function MapFilterBar({
       {/* Floating On-Map Bar Container */}
       <div
         className="absolute left-14 sm:left-16 right-14 sm:right-14 md:right-16 z-[420] pointer-events-none flex flex-col gap-1.5 transition-all"
-        style={{ top: 'calc(env(safe-area-inset-top, 0px) + 0.65rem)' }}
+        style={{ top: 'calc(env(safe-area-inset-top, 0px) + 1.4rem)' }}
       >
         <div className="w-full max-w-4xl mx-auto flex flex-col gap-1.5">
           {/* Primary Top Island: Activity Switcher + Zone Dropdown + Distance Chip + Full Filters Button + Circuit Count */}
@@ -278,7 +278,10 @@ export function MapFilterBar({
 
                 {/* Distance Dropdown Popover (Mobile full-width card, Tablet/Desktop anchored popover) */}
                 {isDistanceOpen && (
-                  <div className="fixed inset-x-3 top-16 sm:absolute sm:inset-x-auto sm:top-11 sm:right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-4 sm:w-80 z-[500] animate-in fade-in zoom-in-95">
+                  <div
+                    className="fixed inset-x-3 sm:absolute sm:inset-x-auto sm:top-11 sm:right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-4 sm:w-80 z-[500] animate-in fade-in zoom-in-95"
+                    style={{ top: 'calc(env(safe-area-inset-top, 0px) + 5rem)' }}
+                  >
                     <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-100 dark:border-slate-800">
                       <span className="text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
                         <span>Distance souhaitée</span>
@@ -341,7 +344,10 @@ export function MapFilterBar({
 
                 {/* Zone Dropdown Popover */}
                 {isZoneOpen && (
-                  <div className="fixed inset-x-3 top-16 sm:absolute sm:inset-x-auto sm:top-11 sm:right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-2.5 sm:w-64 z-[500] animate-in fade-in zoom-in-95">
+                  <div
+                    className="fixed inset-x-3 sm:absolute sm:inset-x-auto sm:top-11 sm:right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-2.5 sm:w-64 z-[500] animate-in fade-in zoom-in-95"
+                    style={{ top: 'calc(env(safe-area-inset-top, 0px) + 5rem)' }}
+                  >
                     <div className="px-2 py-1 mb-1.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                       <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
                         <Globe className="w-3 h-3 text-emerald-600" />

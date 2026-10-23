@@ -74,7 +74,10 @@ export function SearchAreaControl({
   if (!visible) return null;
 
   return (
-    <div className="absolute top-28 sm:top-24 left-1/2 -translate-x-1/2 z-[400] animate-in fade-in slide-in-from-top-2">
+    <div
+      className="absolute left-1/2 -translate-x-1/2 z-[400] animate-in fade-in slide-in-from-top-2"
+      style={{ top: 'calc(env(safe-area-inset-top, 0px) + 7.2rem)' }}
+    >
       <button
         onClick={handleSearch}
         disabled={isGenerating}
