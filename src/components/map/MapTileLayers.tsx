@@ -1,5 +1,5 @@
 import React from 'react';
-import { TileLayer, Circle } from 'react-leaflet';
+import { TileLayer, Circle, WMSTileLayer } from 'react-leaflet';
 
 export type MapLayerType = 'cyclosm' | 'osmfr' | 'topo' | 'osm';
 export const LUXEMBOURG_CENTER: [number, number] = [49.6116, 6.1319]; // Luxembourg-Ville
@@ -9,6 +9,7 @@ interface MapTileLayersProps {
   mapLayer: MapLayerType;
   showNetwork: boolean;
   show200kmRadius: boolean;
+  showHuntingBattues?: boolean;
 }
 
 /**
@@ -22,6 +23,7 @@ export function MapTileLayers({
   mapLayer,
   showNetwork,
   show200kmRadius,
+  showHuntingBattues = false,
 }: MapTileLayersProps) {
   // Enforce hiking safety: if in hike mode and CyclOSM is selected, seamlessly fall back to OSM France
   const effectiveLayer: MapLayerType =
@@ -94,6 +96,18 @@ export function MapTileLayers({
           url="https://tile.waymarkedtrails.org/hiking/{z}/{x}/{y}.png"
           maxNativeZoom={18}
           maxZoom={19}
+        />
+      )}
+      {/* Geoportail.lu Official Battues / Hunting Overlay Layer 444 */}
+      {showHuntingBattues && (
+        <WMSTileLayer
+          attribution='&copy; <a href="https://map.geoportail.lu">Geoportail.lu (ANF / Cadastre)</a>'
+          url="https://wms.geoportail.lu/public_map_layers/service"
+          layers="444"
+          format="image/png"
+          transparent={true}
+          version="1.3.0"
+          opacity={0.75}
         />
       )}
     </>

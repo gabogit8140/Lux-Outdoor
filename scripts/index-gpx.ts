@@ -11,8 +11,9 @@ import {
   rdpSimplify,
   splitAndRechainSegments,
 } from '../src/lib/geoUtils';
-import type { RouteSuggestions, RouteTrace, ElevationPoint } from '../src/types';
+import type { RouteSuggestions, RouteTrace, ElevationPoint, TrackSegment } from '../src/types';
 import type { CatalogItem } from '../src/lib/routeCatalog';
+import { resolveRouteSource } from '../src/lib/routeSourceResolver';
 
 interface ParsedGpxResult {
   catalogItem: CatalogItem;
@@ -34,7 +35,23 @@ function parseXmlLink(xml: string): { href: string; text?: string } | null {
   return null;
 }
 
-function detectCountry(coords: [number, number][]): 'LU' | 'BE' | 'DE' | 'NL' | 'FR' {
+function detectCountry(
+  coords: [number, number][],
+  fileId = '',
+  metadataCountry?: string | null
+): 'LU' | 'BE' | 'DE' | 'NL' | 'FR' {
+  const upperMeta = metadataCountry?.trim().toUpperCase();
+  if (upperMeta === 'LU' || upperMeta === 'BE' || upperMeta === 'DE' || upperMeta === 'NL' || upperMeta === 'FR') {
+    return upperMeta;
+  }
+
+  const lowerId = fileId.toLowerCase();
+  if (lowerId.startsWith('be-') || lowerId.startsWith('be_')) return 'BE';
+  if (lowerId.startsWith('de-') || lowerId.startsWith('de_')) return 'DE';
+  if (lowerId.startsWith('fr-') || lowerId.startsWith('fr_')) return 'FR';
+  if (lowerId.startsWith('nl-') || lowerId.startsWith('nl_')) return 'NL';
+  if (lowerId.startsWith('lu-') || lowerId.startsWith('lu_')) return 'LU';
+
   if (coords.length === 0) return 'LU';
   const cLon = coords.reduce((acc, c) => acc + c[0], 0) / coords.length;
   const cLat = coords.reduce((acc, c) => acc + c[1], 0) / coords.length;
@@ -44,26 +61,29 @@ function detectCountry(coords: [number, number][]): 'LU' | 'BE' | 'DE' | 'NL' | 
     return 'LU';
   }
   // Netherlands (Zuid-Limburg)
-  if (cLat >= 50.75 && cLon >= 5.60 && cLon <= 6.10) {
+  if (cLat >= 50.70 && cLon >= 5.55 && cLon <= 6.15) {
     return 'NL';
   }
   // Germany (East of Moselle / Our / Sauer)
-  if (cLon >= 6.40 && cLat >= 49.30) {
+  if (cLon >= 6.36 && cLat >= 49.15) {
     return 'DE';
   }
   // France (South of Luxembourg border)
-  if (cLat <= 49.52 && cLon <= 7.00) {
+  if (cLat <= 49.55 && cLon <= 7.60) {
     return 'FR';
   }
   // Belgium (Ardennes / Gaume / Wallonie)
-  if (cLon <= 6.20 && cLat >= 49.50) {
+  if (cLon <= 6.40 && cLat >= 49.50) {
     return 'BE';
   }
 
   return 'LU';
 }
 
-function detectRegion(country: string, coords: [number, number][]): string {
+function detectRegion(country: string, coords: [number, number][], metaRegion?: string | null): string {
+  if (metaRegion && metaRegion.trim().length > 0) {
+    return metaRegion.trim();
+  }
   const cLat = coords.reduce((acc, c) => acc + c[1], 0) / coords.length;
   const cLon = coords.reduce((acc, c) => acc + c[0], 0) / coords.length;
 
@@ -75,22 +95,22 @@ function detectRegion(country: string, coords: [number, number][]): string {
     return 'Centre / Guttland';
   }
   if (country === 'BE') {
-    if (cLat > 50.35) return 'Hautes Fagnes / Cantons de l\'Est';
-    if (cLat < 49.85) return 'Gaume / Vallée de la Semois';
-    return 'Ardenne belge & Ourthe';
+    if (cLat > 50.32) return 'Hautes Fagnes & Cantons de l\'Est (BE)';
+    if (cLat < 49.82) return 'Gaume, Pays d\'Arlon & Vallée de la Semois (BE)';
+    return 'Ardenne belge, Bastogne & Vallée de l\'Ourthe (BE)';
   }
   if (country === 'FR') {
-    if (cLat < 48.5) return 'Massif des Vosges';
-    if (cLon < 5.8) return 'Meuse & Côtes de Meuse';
-    return 'Lorraine & Vallée de la Moselle';
+    if (cLat < 48.75) return 'Vosges Mosellanes, Nancy & Côtes de Toul (FR)';
+    if (cLon < 5.65) return 'Meuse, Verdun & Argonne (FR)';
+    return 'Lorraine, Pays des Trois Frontières & Vallée de la Moselle (FR)';
   }
   if (country === 'DE') {
-    if (cLat > 50.0) return 'Vulkaneifel & Südeifel';
-    if (cLat < 49.6) return 'Sarre & Saarschleife';
-    return 'Vallée de la Moselle (Moselland)';
+    if (cLat > 49.95) return 'Südeifel, Bitburger Gutland & Vulkaneifel (DE)';
+    if (cLat < 49.62) return 'Sarre, Saarschleife & Hunsrück (DE)';
+    return 'Vallée de la Moselle & Trèves (DE)';
   }
   if (country === 'NL') {
-    return 'Zuid-Limburg & Heuvelland';
+    return 'Zuid-Limburg, Maastricht & Heuvelland (NL)';
   }
   return 'Grande Région';
 }
@@ -99,10 +119,11 @@ function detectRegion(country: string, coords: [number, number][]): string {
 function parseGpxFile(filePath: string, rootDir: string): ParsedGpxResult | null {
   const content = fs.readFileSync(filePath, 'utf-8');
   const relativePath = path.relative(rootDir, filePath).replace(/\\/g, '/');
+  const fileBaseId = path.basename(filePath, '.gpx');
 
   // Extract metadata
   const metadataBlock = parseXmlTag(content, 'metadata') || '';
-  const rawMetaName = parseXmlTag(metadataBlock, 'name') || parseXmlTag(content, 'name') || path.basename(filePath, '.gpx');
+  const rawMetaName = parseXmlTag(metadataBlock, 'name') || parseXmlTag(content, 'name') || fileBaseId;
   const metaName = rawMetaName
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
@@ -116,6 +137,11 @@ function parseGpxFile(filePath: string, rootDir: string): ParsedGpxResult | null
     .replace(/&gt;/g, '>')
     .trim();
   const linkInfo = parseXmlLink(metadataBlock) || parseXmlLink(content);
+  const metaCountry = parseXmlTag(metadataBlock, 'country');
+  const metaRegion = parseXmlTag(metadataBlock, 'region');
+  const metaCarFree = parseXmlTag(metadataBlock, 'carfree');
+  const metaSurface = parseXmlTag(metadataBlock, 'surface');
+  const metaTagsRaw = parseXmlTag(metadataBlock, 'tags') || parseXmlTag(metadataBlock, 'keywords');
 
   // Extract coordinates and elevations (supports standard & self-closing trkpt)
   const trkptRegex = /<trkpt\b([^>]*?)>(?:([\s\S]*?)<\/trkpt>)?|<trkpt\b([^>]*?)\/>/gi;
@@ -162,8 +188,8 @@ function parseGpxFile(filePath: string, rootDir: string): ParsedGpxResult | null
     activity = calculatePathDistance(coords) > 28000 ? 'bike' : 'hike';
   }
 
-  const country = detectCountry(coords);
-  const region = detectRegion(country, coords);
+  const country = detectCountry(coords, fileBaseId, metaCountry);
+  const region = detectRegion(country, coords, metaRegion);
   const totalMeters = calculatePathDistance(coords);
   const totalKm = Number((totalMeters / 1000).toFixed(1));
 
@@ -177,17 +203,64 @@ function parseGpxFile(filePath: string, rootDir: string): ParsedGpxResult | null
   let elevProfile: ElevationPoint[] = [];
 
   if (foundRealEle && rawElevations.filter((e) => !isNaN(e)).length > coords.length * 0.5) {
-    // Use genuine GPX elevation tags
-    const validElevs = rawElevations.map((e, idx) => (isNaN(e) ? (idx > 0 && !isNaN(rawElevations[idx - 1]) ? rawElevations[idx - 1] : 250) : e));
+    // Use genuine GPX elevation tags with a smoothing window to remove coarse DEM staircase jitter
+    const rawValid = rawElevations.map((e, idx) =>
+      isNaN(e) ? (idx > 0 && !isNaN(rawElevations[idx - 1]) ? rawElevations[idx - 1] : 250) : e
+    );
+    const windowRadius = Math.max(2, Math.min(8, Math.floor(coords.length / 45)));
+    const validElevs = rawValid.map((_, idx) => {
+      let sum = 0;
+      let count = 0;
+      for (let k = Math.max(0, idx - windowRadius); k <= Math.min(rawValid.length - 1, idx + windowRadius); k++) {
+        sum += rawValid[k];
+        count++;
+      }
+      return sum / count;
+    });
+
+    let lastGainElev = validElevs[0];
+    let lastLossElev = validElevs[0];
+    const thresholdM = 4.0; // Filter out GPS/DEM altitude noise jitter (< 4m)
+
     for (let i = 0; i < coords.length; i++) {
       const ele = validElevs[i];
       minElev = Math.min(minElev, ele);
       maxElev = Math.max(maxElev, ele);
 
       if (i > 0) {
-        const dEle = ele - validElevs[i - 1];
-        if (dEle > 0) runningGain += dEle;
-        else runningLoss += Math.abs(dEle);
+        const dGain = ele - lastGainElev;
+        if (dGain >= thresholdM) {
+          runningGain += dGain;
+          lastGainElev = ele;
+        } else if (ele < lastGainElev) {
+          lastGainElev = ele;
+        }
+
+        const dLoss = lastLossElev - ele;
+        if (dLoss >= thresholdM) {
+          runningLoss += dLoss;
+          lastLossElev = ele;
+        } else if (ele > lastLossElev) {
+          lastLossElev = ele;
+        }
+      }
+    }
+
+    // If explicit <gain> tag exists in metadata, use it directly; otherwise normalize SRTM/DEM steps
+    const metaGainVal = parseXmlTag(metadataBlock, 'gain');
+    if (metaGainVal && !isNaN(parseFloat(metaGainVal))) {
+      runningGain = Math.round(parseFloat(metaGainVal));
+      runningLoss = runningGain;
+    } else {
+      const rawDpk = totalKm > 0 ? runningGain / totalKm : 0;
+      if (activity === 'hike' && rawDpk > 20) {
+        const normalizedDpk = 11 + Math.min(30, Math.max(0, (rawDpk - 55) * 0.48));
+        runningGain = Math.round(totalKm * normalizedDpk);
+        runningLoss = runningGain;
+      } else if (activity === 'bike' && rawDpk > 22) {
+        const normalizedDpk = 7 + Math.min(18, Math.max(0, (rawDpk - 20) * 0.32));
+        runningGain = Math.round(totalKm * normalizedDpk);
+        runningLoss = runningGain;
       }
     }
 
@@ -201,9 +274,26 @@ function parseGpxFile(filePath: string, rootDir: string): ParsedGpxResult | null
       });
     }
   } else {
-    // Generate realistic, natural elevation profile
-    const estGain = activity === 'bike' ? Math.round(totalKm * 15 + 45) : Math.round(totalKm * 28 + 65);
-    const synthElev = computeElevationProfile(coords, estGain);
+    // Generate realistic, region-aware elevation profile when GPX lacks <ele> tags
+    let idHash = 0;
+    const baseName = path.basename(filePath, '.gpx');
+    for (let i = 0; i < baseName.length; i++) {
+      idHash = (idHash * 31 + baseName.charCodeAt(i)) >>> 0;
+    }
+    const metaGainVal = parseXmlTag(metadataBlock, 'gain');
+    const regionBaseDpk =
+      region.includes('Éislek') || region.includes('Ardenne') || region.includes('Fagnes') || region.includes('Vosges')
+        ? activity === 'bike' ? 17 : 31
+        : region.includes('Mullerthal') || region.includes('Eifel') || region.includes('Moselle') || region.includes('Sarre')
+        ? activity === 'bike' ? 14 : 26
+        : activity === 'bike' ? 10 : 19;
+    const terrainSpread = ((idHash % 100) / 100 - 0.45) * (activity === 'bike' ? 16 : 26);
+    const targetDpk = Math.max(activity === 'bike' ? 5 : 10, regionBaseDpk + terrainSpread);
+    const estGain =
+      metaGainVal && !isNaN(parseFloat(metaGainVal))
+        ? Math.round(parseFloat(metaGainVal))
+        : Math.round(totalKm * targetDpk);
+    const synthElev = computeElevationProfile(coords, estGain, undefined, (idHash % 97) + 1);
     runningGain = synthElev.gain;
     runningLoss = synthElev.loss;
     minElev = synthElev.minElevation;
@@ -216,22 +306,101 @@ function parseGpxFile(filePath: string, rootDir: string): ParsedGpxResult | null
   const difficulty = calculateRouteDifficulty(totalKm, roundedGain, activity);
 
   // Surface and car-free calculations
+  const id = path.basename(filePath, '.gpx').toLowerCase().replace(/[^a-z0-9_-]/g, '-');
   const isBike = activity === 'bike';
-  const carFreePct = isBike ? Math.min(95, Math.max(45, 80 - Math.round(totalKm * 0.4))) : 90;
+  let carFreePct = 85;
+  if (metaCarFree && !isNaN(parseFloat(metaCarFree))) {
+    carFreePct = Math.max(10, Math.min(99, Math.round(parseFloat(metaCarFree))));
+  } else if (isBike) {
+    if (id.includes('course') || metaName.toLowerCase().includes('course') || id.includes('col-') || id.includes('cotes-')) {
+      // Road racing circuit on shared automobile roads
+      carFreePct = Math.max(15, Math.min(35, Math.round(35 - totalKm * 0.15)));
+    } else if (
+      id.includes('pc-') ||
+      id.startsWith('lu-pc') ||
+      id.includes('ravel') ||
+      id.includes('vennbahn') ||
+      id.includes('radweg') ||
+      id.includes('voie-bleue') ||
+      id.includes('voie-verte') ||
+      metaName.toLowerCase().includes('piste cyclable') ||
+      metaName.toLowerCase().includes('ravel') ||
+      metaName.toLowerCase().includes('radweg') ||
+      metaName.toLowerCase().includes('voie verte')
+    ) {
+      // Dedicated greenway / cycleway / RAVeL / Bahntrassenradweg
+      carFreePct = Math.max(85, Math.min(98, Math.round(95 - totalKm * 0.05)));
+    } else if (id.includes('vtt') || id.includes('mtb') || id.includes('gravel') || metaName.toLowerCase().includes('vtt') || metaName.toLowerCase().includes('gravel')) {
+      // Mountain bike / gravel trail on forest tracks
+      carFreePct = 90;
+    } else {
+      carFreePct = Math.max(50, Math.min(78, Math.round(74 - totalKm * 0.18)));
+    }
+  } else {
+    // Hike
+    if (id.includes('ville') || metaName.toLowerCase().includes('ville') || metaName.toLowerCase().includes('urbain')) {
+      carFreePct = 55;
+    } else {
+      carFreePct = 92;
+    }
+  }
+
   const surfaceDistribution = [
-    { type: isBike ? 'Voie cyclable réservée' : 'Sentier pédestre balisé', percentage: carFreePct },
-    { type: isBike ? 'Petites voies riveraines partagées' : 'Chemin forestier', percentage: 100 - carFreePct },
+    {
+      type: isBike
+        ? (carFreePct >= 70 ? 'Piste cyclable réservée & voie verte' : 'Sections cyclables protégées')
+        : 'Sentier pédestre balisé & chemin forestier',
+      percentage: carFreePct,
+    },
+    {
+      type: isBike
+        ? (carFreePct >= 70 ? 'Petite voirie partagée à circulation très faible' : 'Route ouverte à la circulation motorisée')
+        : 'Liaison sur voirie partagée',
+      percentage: 100 - carFreePct,
+    },
   ];
   const roadBreakdown = computeRoadBreakdown(totalKm, surfaceDistribution, activity);
 
   const speedKmH = isBike ? 20 : 4.5;
   const durationSec = Math.round((totalKm / speedKmH) * 3600 + (roundedGain / 400) * 1800);
 
-  const id = path.basename(filePath, '.gpx').toLowerCase().replace(/[^a-z0-9_-]/g, '-');
-  const sourceUrl = linkInfo?.href || (country === 'LU' ? 'https://geoportail.lu' : country === 'BE' ? 'https://visitwallonia.be' : country === 'FR' ? 'https://www.lavoiebleue.com' : 'https://www.eifel.info');
-  const sourceLabel = linkInfo?.text || (country === 'LU' ? 'Geoportail & Visit Luxembourg Officiel' : country === 'BE' ? 'Visit Wallonia Officiel' : country === 'FR' ? 'Tourisme Grand Est & Voies Vertes' : 'Eifel & Mosel Tourismus Officiel');
+  const resolvedSource = resolveRouteSource({
+    id,
+    title: metaName,
+    activity,
+    country,
+    coords,
+    customUrl: linkInfo?.href,
+    customLabel: linkInfo?.text,
+  });
+  const sourceUrl = resolvedSource.sourceUrl;
+  const sourceLabel = resolvedSource.sourceLabel;
+  const geoportailUrl = resolvedSource.geoportailUrl;
 
   const waypoints: [number, number][] = [coords[0], coords[coords.length - 1]];
+
+  const extraTags = metaTagsRaw
+    ? metaTagsRaw
+        .split(',')
+        .map((t) => t.trim().toLowerCase())
+        .filter(Boolean)
+    : [];
+
+  const computedTags = Array.from(
+    new Set(
+      [
+        country.toLowerCase(),
+        activity,
+        carFreePct >= 75 ? 'low_traffic' : '',
+        roundedGain < 200 ? 'flat' : roundedGain > 450 ? 'hilly' : '',
+        id.includes('confort') || id.includes('ravel') || id.includes('radweg') || id.includes('voie-bleue')
+          ? 'paved'
+          : 'gravel',
+        'official',
+        ...extraTags,
+      ].filter(Boolean)
+    )
+  );
 
   const route: RouteSuggestions = {
     id,
@@ -243,7 +412,15 @@ function parseGpxFile(filePath: string, rootDir: string): ParsedGpxResult | null
       `${carFreePct}% sur voies sans voiture / site propre`,
       `Dénivelé officiel : +${roundedGain}m / -${roundedLoss}m`,
     ],
-    surfaceType: isBike ? (carFreePct > 70 ? 'Piste cyclable enrobée & Voie verte' : 'Voies vertes & petites routes calmes') : 'Sentier naturel battu & sous-bois',
+    surfaceType:
+      metaSurface ||
+      (isBike
+        ? carFreePct >= 75
+          ? 'Piste cyclable enrobée & Voie verte'
+          : 'Voies vertes & petites routes calmes'
+        : id.includes('confort')
+        ? '100% asphalte & enrobé lisse'
+        : 'Sentier naturel battu & sous-bois'),
     difficulty,
     elevationGain: roundedGain,
     elevationLoss: roundedLoss,
@@ -252,26 +429,18 @@ function parseGpxFile(filePath: string, rootDir: string): ParsedGpxResult | null
     activity,
     country,
     regionName: region,
-    surfaceDistribution: [
-      { type: isBike ? 'Voie cyclable réservée' : 'Sentier pédestre balisé', percentage: carFreePct },
-      { type: isBike ? 'Petites voies riveraines partagées' : 'Chemin forestier', percentage: 100 - carFreePct },
-    ],
+    surfaceDistribution,
     roadBreakdown,
     waypoints,
     instructions: [],
     sourceUrl,
     sourceLabel,
-    tags: [
-      country.toLowerCase(),
-      activity,
-      carFreePct > 70 ? 'low_traffic' : '',
-      roundedGain < 200 ? 'flat' : roundedGain > 450 ? 'hilly' : '',
-      'official',
-    ].filter(Boolean),
+    geoportailUrl,
+    tags: computedTags,
   };
 
-  // 1. Sanitize trackpoints: split large cross-country jumps (> 350m) and rechain continuous segments
-  const chained = splitAndRechainSegments(coords, 350, 90);
+  // 1. Sanitize trackpoints: split large cross-country jumps (> 1200m) and rechain continuous segments
+  const chained = splitAndRechainSegments(coords, 1200, 90);
 
   // 2. High-precision RDP simplification (7m tolerance, preserves 100% of physical curves & turns)
   const simplifiedSegments = chained.map((seg) => {

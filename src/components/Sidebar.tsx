@@ -6,12 +6,17 @@ import {
   Smartphone,
   FolderGit2,
   X,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
 import type { RouteSuggestions, RouteTrace } from '../types';
 import { REGIONAL_ZONES } from '../lib/localRouting';
 import { PlanTabContent } from './sidebar/PlanTabContent';
 import { RouteDetailView } from './sidebar/RouteDetailView';
 import { RouteCatalogList } from './sidebar/RouteCatalogList';
+import { BrandLogo } from './ui/BrandLogo';
+
+export type MobileSheetSize = 'compact' | 'split' | 'tall';
 
 interface SidebarProps {
   onGenerate: (
@@ -53,6 +58,19 @@ interface SidebarProps {
   onLocationChange?: (loc: string) => void;
   clickedCoord?: { lat: number; lng: number; name: string } | null;
   onClose?: () => void;
+  isTraceVisible?: boolean;
+  onToggleTraceVisibility?: () => void;
+  onDeselectRoute?: () => void;
+  hoveredRouteId?: string | null;
+  onHoverRoute?: (id: string | null) => void;
+  onHoverDistance?: (distanceKm: number | null) => void;
+  isHoverPreview?: boolean;
+  mapInteractedTrigger?: number;
+  mobileSheetSize?: MobileSheetSize;
+  onChangeMobileSheetSize?: (size: MobileSheetSize) => void;
+  onClearAllFilters?: () => void;
+  showHuntingBattues?: boolean;
+  onToggleHuntingBattues?: () => void;
 }
 
 export function Sidebar({
@@ -80,11 +98,25 @@ export function Sidebar({
   onOpenInstallModal,
   isInstalled,
   currentLocation,
+  onLocationChange,
   clickedCoord,
   onClose,
+  isTraceVisible = true,
+  onToggleTraceVisibility,
+  onDeselectRoute,
+  hoveredRouteId,
+  onHoverRoute,
+  onHoverDistance,
+  isHoverPreview = false,
+  mapInteractedTrigger = 0,
+  mobileSheetSize = 'split',
+  onChangeMobileSheetSize,
+  onClearAllFilters,
+  showHuntingBattues,
+  onToggleHuntingBattues,
 }: SidebarProps) {
   const [location, setLocation] = useState(currentLocation || 'Luxembourg');
-  const [tab, setTab] = useState<'plan' | 'result' | 'catalog'>('plan');
+  const [tab, setTab] = useState<'plan' | 'result' | 'catalog'>('catalog');
 
   // Sync location with parent state
   useEffect(() => {
@@ -99,15 +131,23 @@ export function Sidebar({
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Sync personal notes when selected route changes
+  // Sync personal notes and automatically open the right-hand profile when a route is selected or hovered on the map
   useEffect(() => {
     if (route) {
       setPendingRating(route.userRating || 0);
       setPendingNotes(route.userNotes || '');
-      if (tab === 'plan') setTab('result');
-      if (scrollRef.current) scrollRef.current.scrollTop = 0;
+    } else if (!route && tab === 'result') {
+      setTab('catalog');
     }
   }, [route?.id]);
+
+  // Whenever the user clicks or hovers a trace on the map, or selects a route, display the profile tab on the right
+  useEffect(() => {
+    if (route && (selectedRouteId || mapInteractedTrigger > 0)) {
+      setTab('result');
+      if (scrollRef.current) scrollRef.current.scrollTop = 0;
+    }
+  }, [selectedRouteId, mapInteractedTrigger]);
 
   const handleGenerate = (isMapTracesOnly: boolean) => {
     onGenerate(location, distance, activeFilters, activity, isMapTracesOnly);
@@ -119,35 +159,134 @@ export function Sidebar({
     setTab('catalog');
   };
 
+  const handleSelectLocation = (
+    locName: string,
+    targetCountry?: 'LU' | 'BE' | 'DE' | 'NL' | 'FR'
+  ) => {
+    setLocation(locName);
+    if (onLocationChange) onLocationChange(locName);
+    onFilterMap(locName, distance, activeFilters, activity, targetCountry || selectedZone);
+  };
+
   const toggleFilter = (id: string) => {
-    if (activeFilters.includes(id)) {
-      setActiveFilters(activeFilters.filter((f) => f !== id));
-    } else {
-      setActiveFilters([...activeFilters, id]);
-    }
+    const nextFilters = activeFilters.includes(id)
+      ? activeFilters.filter((f) => f !== id)
+      : [...activeFilters, id];
+    setActiveFilters(nextFilters);
+    onFilterMap(location, distance, nextFilters, activity, selectedZone);
   };
 
   const activeZoneObj = REGIONAL_ZONES.find((z) => z.id === selectedZone) || REGIONAL_ZONES[0];
 
+  const cycleMobileSize = () => {
+    if (!onChangeMobileSheetSize) return;
+    if (mobileSheetSize === 'compact') onChangeMobileSheetSize('split');
+    else if (mobileSheetSize === 'split') onChangeMobileSheetSize('tall');
+    else onChangeMobileSheetSize('compact');
+  };
+
   return (
     <div
-      className="flex flex-col h-full bg-white p-3.5 sm:p-4 text-stone-800"
-      style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1rem)' }}
+      className="flex flex-col h-full bg-white dark:bg-slate-900 px-3 pt-2 pb-3 sm:p-4 text-slate-800 dark:text-slate-100 transition-colors"
+      style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 0.75rem)' }}
     >
-      {/* Mobile Top Drag Indicator */}
-      <div className="w-12 h-1 bg-stone-200 rounded-full mx-auto mb-2 md:hidden" />
+      {/* Mobile Interactive Split-View Bar (Tap to resize sheet while keeping map visible) */}
+      <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-100 dark:border-slate-800/80 md:hidden shrink-0">
+        <div className="flex items-center gap-1.5 min-w-0">
+          <BrandLogo size="sm" />
+          <span className="font-extrabold text-xs text-slate-900 dark:text-white truncate">
+            Trace Outdoor
+          </span>
+          <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate">
+            · {activeZoneObj.flag} {activeZoneObj.name.split(' ')[0]}
+          </span>
+        </div>
 
-      {/* Header */}
-      <div className="flex items-center justify-between pb-3 border-b border-stone-100 shrink-0">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-base shadow-sm">
-            ⛰️
-          </div>
+        {/* Mobile Sheet Height Presets + Close Button */}
+        <div className="flex items-center gap-1 shrink-0">
+          {onChangeMobileSheetSize && (
+            <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200/70 dark:border-slate-700">
+              <button
+                type="button"
+                onClick={() => onChangeMobileSheetSize('compact')}
+                className={`px-1.5 py-0.5 rounded-md text-[10px] font-bold transition-all cursor-pointer ${
+                  mobileSheetSize === 'compact'
+                    ? 'bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-2xs'
+                    : 'text-slate-500 dark:text-slate-400'
+                }`}
+                title="Vue compacte (70% carte visible)"
+              >
+                Mini
+              </button>
+              <button
+                type="button"
+                onClick={() => onChangeMobileSheetSize('split')}
+                className={`px-1.5 py-0.5 rounded-md text-[10px] font-bold transition-all cursor-pointer ${
+                  mobileSheetSize === 'split'
+                    ? 'bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-2xs'
+                    : 'text-slate-500 dark:text-slate-400'
+                }`}
+                title="Vue partagée 50/50 (carte + profil)"
+              >
+                50/50
+              </button>
+              <button
+                type="button"
+                onClick={() => onChangeMobileSheetSize('tall')}
+                className={`px-1.5 py-0.5 rounded-md text-[10px] font-bold transition-all cursor-pointer ${
+                  mobileSheetSize === 'tall'
+                    ? 'bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-2xs'
+                    : 'text-slate-500 dark:text-slate-400'
+                }`}
+                title="Vue détaillée (carte toujours visible en haut)"
+              >
+                Détails
+              </button>
+            </div>
+          )}
+
+          <button
+            type="button"
+            onClick={cycleMobileSize}
+            className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-emerald-600 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+            title="Ajuster la hauteur du panneau"
+            aria-label="Ajuster la hauteur du panneau"
+          >
+            {mobileSheetSize === 'tall' ? (
+              <Minimize2 className="w-3.5 h-3.5" />
+            ) : (
+              <Maximize2 className="w-3.5 h-3.5" />
+            )}
+          </button>
+
+          {onClose && (
+            <button
+              type="button"
+              onClick={onClose}
+              className="p-1.5 text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+              title="Replier le panneau (100% carte)"
+              aria-label="Fermer le panneau"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Studio Brand Header (Tablet & Desktop >= 768px) */}
+      <div className="hidden md:flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-slate-800/80 shrink-0">
+        <div className="flex items-center gap-2.5">
+          <BrandLogo size="md" />
           <div>
-            <h1 className="font-extrabold text-sm text-stone-900 leading-tight">
-              Grande Région Plein Air
-            </h1>
-            <p className="text-[10px] text-stone-400 font-semibold flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
+              <h1 className="font-extrabold text-sm tracking-tight text-slate-900 dark:text-white leading-tight">
+                Trace Outdoor
+              </h1>
+              <span className="text-[9px] font-extrabold uppercase tracking-widest px-1.5 py-0.5 rounded-md bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+                PRO
+              </span>
+            </div>
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1 mt-0.5">
               <span>{activeZoneObj.flag}</span>
               <span>{activeZoneObj.name}</span>
             </p>
@@ -158,17 +297,17 @@ export function Sidebar({
           {onOpenGpxModal && (
             <button
               onClick={onOpenGpxModal}
-              className="p-1.5 text-stone-500 hover:text-emerald-700 hover:bg-stone-50 rounded-xl transition-colors cursor-pointer"
+              className="p-2 text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
               title="Base GPX & Dépose de traces"
               aria-label="Base GPX"
             >
-              <FolderGit2 className="w-4 h-4 text-emerald-700" />
+              <FolderGit2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             </button>
           )}
           {onOpenInstallModal && !isInstalled && (
             <button
               onClick={onOpenInstallModal}
-              className="p-1.5 text-stone-500 hover:text-emerald-700 hover:bg-stone-50 rounded-xl transition-colors cursor-pointer"
+              className="p-2 text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
               title="Installer l'application hors-ligne"
               aria-label="Installer l'application"
             >
@@ -178,52 +317,56 @@ export function Sidebar({
           {onClose && (
             <button
               onClick={onClose}
-              className="p-1.5 text-stone-400 hover:text-stone-700 md:hidden cursor-pointer"
+              className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              title="Masquer le panneau latéral (plein écran carte)"
               aria-label="Fermer le panneau"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
           )}
         </div>
       </div>
 
-      {/* Tabs */}
-      <div className="flex border-b border-stone-100 my-2.5 shrink-0 text-xs font-bold">
+      {/* Segmented Pill Navigation Control */}
+      <div className="grid grid-cols-3 gap-1 bg-slate-100/90 dark:bg-slate-800/90 p-1 rounded-2xl my-1.5 md:my-3 shrink-0 text-xs font-bold border border-slate-200/60 dark:border-slate-700/60">
         <button
           onClick={() => setTab('plan')}
-          className={`flex-1 py-2 flex items-center justify-center gap-1.5 border-b-2 transition-colors cursor-pointer ${
+          className={`py-2 px-2 rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
             tab === 'plan'
-              ? 'border-emerald-600 text-emerald-800'
-              : 'border-transparent text-stone-400 hover:text-stone-600'
+              ? 'bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm ring-1 ring-slate-900/5 dark:ring-white/10'
+              : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
           }`}
         >
           <Compass className="w-3.5 h-3.5" />
-          Planifier
+          <span>Planifier</span>
         </button>
 
         <button
           onClick={() => setTab('result')}
           disabled={!route}
-          className={`flex-1 py-2 flex items-center justify-center gap-1.5 border-b-2 transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
+          className={`py-2 px-2 rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed ${
             tab === 'result'
-              ? 'border-emerald-600 text-emerald-800'
-              : 'border-transparent text-stone-400 hover:text-stone-600'
+              ? 'bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm ring-1 ring-slate-900/5 dark:ring-white/10'
+              : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
           }`}
         >
           <Navigation className="w-3.5 h-3.5" />
-          Itinéraire
+          <span>Itinéraire</span>
         </button>
 
         <button
           onClick={() => setTab('catalog')}
-          className={`flex-1 py-2 flex items-center justify-center gap-1.5 border-b-2 transition-colors cursor-pointer ${
+          className={`py-2 px-2 rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
             tab === 'catalog'
-              ? 'border-emerald-600 text-emerald-800'
-              : 'border-transparent text-stone-400 hover:text-stone-600'
+              ? 'bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 shadow-sm ring-1 ring-slate-900/5 dark:ring-white/10'
+              : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
           }`}
         >
           <ListOrdered className="w-3.5 h-3.5" />
-          Traces ({routes.length})
+          <span>Traces</span>
+          <span className="text-[10px] font-mono-kpi px-1.5 py-0.2 rounded-full bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-700 dark:text-emerald-300">
+            {routes.length}
+          </span>
         </button>
       </div>
 
@@ -235,12 +378,14 @@ export function Sidebar({
             onActivityChange={onActivityChange}
             location={location}
             setLocation={setLocation}
+            onSelectLocation={handleSelectLocation}
             distance={distance}
             setDistance={setDistance}
             activeFilters={activeFilters}
             toggleFilter={toggleFilter}
             onImportGPX={onImportGPX}
             onFilterMap={handleFilter}
+            onClearAllFilters={onClearAllFilters}
             onGenerate={handleGenerate}
             isGenerating={isGenerating}
           />
@@ -257,6 +402,15 @@ export function Sidebar({
             setPendingNotes={setPendingNotes}
             onSaveFavorite={onSaveFavorite}
             onReverseRoute={onReverseRoute}
+            isTraceVisible={isTraceVisible}
+            onToggleTraceVisibility={onToggleTraceVisibility}
+            onDeselect={onDeselectRoute}
+            onHoverDistance={onHoverDistance}
+            isHoverPreview={isHoverPreview}
+            onLockRoute={(id) => onSelectRoute(id)}
+            onBackToCatalog={() => setTab('catalog')}
+            showHuntingBattues={showHuntingBattues}
+            onToggleHuntingBattues={onToggleHuntingBattues}
           />
         )}
 
@@ -265,14 +419,17 @@ export function Sidebar({
             routes={routes}
             traces={traces}
             selectedRouteId={selectedRouteId}
+            hoveredRouteId={hoveredRouteId}
             onSelectRoute={(id) => {
               onSelectRoute(id);
               setTab('result');
             }}
+            onHoverRoute={onHoverRoute}
             location={location}
             distance={distance}
             activity={activity}
             clickedCoord={clickedCoord}
+            onClearAllFilters={onClearAllFilters}
           />
         )}
       </div>

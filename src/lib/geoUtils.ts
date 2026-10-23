@@ -12,37 +12,37 @@ export function calculateRouteDifficulty(
   const dPlusPerKm = distanceKm > 0 ? Math.round(elevationGainM / distanceKm) : 0;
 
   if (activity === 'hike') {
-    // Hike effort: distance in km + (D+ in meters / 100)
-    const effort = distanceKm + elevationGainM / 100;
-    const score = Math.min(100, Math.round(effort * 2.8));
+    // Combine steepness intensity (D+/km) with distance fatigue so both short steep hikes and long hikes are accurately graded
+    const effort = dPlusPerKm * 0.75 + distanceKm * 0.65;
+    const score = Math.min(100, Math.max(10, Math.round(effort * 2.4)));
 
-    if (effort < 12) {
+    if (effort < 18.5) {
       return {
         level: 'easy',
         label: 'Facile',
-        dotColor: '#10b981',
-        badgeBg: 'bg-emerald-50 border-emerald-200',
-        badgeText: 'text-emerald-800',
+        dotColor: '#059669', // Emerald Green
+        badgeBg: 'bg-emerald-50 border-emerald-200 dark:bg-emerald-950/60 dark:border-emerald-800',
+        badgeText: 'text-emerald-800 dark:text-emerald-300',
         dPlusPerKm,
         effortScore: score,
       };
-    } else if (effort < 20) {
+    } else if (effort < 24.5) {
       return {
         level: 'moderate',
         label: 'Modéré',
-        dotColor: '#3b82f6',
-        badgeBg: 'bg-blue-50 border-blue-200',
-        badgeText: 'text-blue-800',
+        dotColor: '#2563eb', // Royal Blue
+        badgeBg: 'bg-blue-50 border-blue-200 dark:bg-blue-950/60 dark:border-blue-800',
+        badgeText: 'text-blue-800 dark:text-blue-300',
         dPlusPerKm,
         effortScore: score,
       };
-    } else if (effort < 30) {
+    } else if (effort < 31.0) {
       return {
         level: 'hard',
         label: 'Sportif',
-        dotColor: '#f97316',
-        badgeBg: 'bg-orange-50 border-orange-200',
-        badgeText: 'text-orange-800',
+        dotColor: '#ea580c', // Burnt Orange
+        badgeBg: 'bg-orange-50 border-orange-200 dark:bg-orange-950/60 dark:border-orange-800',
+        badgeText: 'text-orange-800 dark:text-orange-300',
         dPlusPerKm,
         effortScore: score,
       };
@@ -50,45 +50,45 @@ export function calculateRouteDifficulty(
       return {
         level: 'expert',
         label: 'Expert',
-        dotColor: '#ef4444',
-        badgeBg: 'bg-rose-50 border-rose-200',
-        badgeText: 'text-rose-800',
+        dotColor: '#dc2626', // Crimson Red
+        badgeBg: 'bg-rose-50 border-rose-200 dark:bg-rose-950/60 dark:border-rose-800',
+        badgeText: 'text-rose-800 dark:text-rose-300',
         dPlusPerKm,
         effortScore: score,
       };
     }
   } else {
-    // Bike effort: (distance in km * 0.4) + (D+ in meters / 50)
-    const effort = distanceKm * 0.4 + elevationGainM / 50;
-    const score = Math.min(100, Math.round(effort * 1.5));
+    // Bike effort combining climbing gradient (D+/km) and distance endurance
+    const effort = dPlusPerKm * 1.35 + distanceKm * 0.25;
+    const score = Math.min(100, Math.max(10, Math.round(effort * 2.1)));
 
     if (effort < 20) {
       return {
         level: 'easy',
         label: 'Facile',
-        dotColor: '#10b981',
-        badgeBg: 'bg-emerald-50 border-emerald-200',
-        badgeText: 'text-emerald-800',
+        dotColor: '#059669', // Emerald Green
+        badgeBg: 'bg-emerald-50 border-emerald-200 dark:bg-emerald-950/60 dark:border-emerald-800',
+        badgeText: 'text-emerald-800 dark:text-emerald-300',
+        dPlusPerKm,
+        effortScore: score,
+      };
+    } else if (effort < 29) {
+      return {
+        level: 'moderate',
+        label: 'Modéré',
+        dotColor: '#2563eb', // Royal Blue
+        badgeBg: 'bg-blue-50 border-blue-200 dark:bg-blue-950/60 dark:border-blue-800',
+        badgeText: 'text-blue-800 dark:text-blue-300',
         dPlusPerKm,
         effortScore: score,
       };
     } else if (effort < 38) {
       return {
-        level: 'moderate',
-        label: 'Modéré',
-        dotColor: '#3b82f6',
-        badgeBg: 'bg-blue-50 border-blue-200',
-        badgeText: 'text-blue-800',
-        dPlusPerKm,
-        effortScore: score,
-      };
-    } else if (effort < 60) {
-      return {
         level: 'hard',
         label: 'Sportif',
-        dotColor: '#f97316',
-        badgeBg: 'bg-orange-50 border-orange-200',
-        badgeText: 'text-orange-800',
+        dotColor: '#ea580c', // Burnt Orange
+        badgeBg: 'bg-orange-50 border-orange-200 dark:bg-orange-950/60 dark:border-orange-800',
+        badgeText: 'text-orange-800 dark:text-orange-300',
         dPlusPerKm,
         effortScore: score,
       };
@@ -96,9 +96,9 @@ export function calculateRouteDifficulty(
       return {
         level: 'expert',
         label: 'Expert',
-        dotColor: '#ef4444',
-        badgeBg: 'bg-rose-50 border-rose-200',
-        badgeText: 'text-rose-800',
+        dotColor: '#dc2626', // Crimson Red
+        badgeBg: 'bg-rose-50 border-rose-200 dark:bg-rose-950/60 dark:border-rose-800',
+        badgeText: 'text-rose-800 dark:text-rose-300',
         dPlusPerKm,
         effortScore: score,
       };
@@ -411,26 +411,36 @@ export function computeElevationProfile(
   // Seeded multi-frequency terrain profile synthesis so each variation has a distinct shape & height
   const seed =
     variationSeed || (coords.length > 0 ? Math.abs(coords[0][0] * 31.7 + coords[0][1] * 19.3) : 1);
-  const freq1 = 1.6 + ((seed * 1.37) % 3.2);
-  const freq2 = 3.8 + ((seed * 2.11) % 4.3);
-  const freq3 = 6.2 + ((seed * 3.49) % 3.7);
+  const freq1 = 1.6 + ((seed * 1.37) % 2.4);
+  const freq2 = 3.2 + ((seed * 2.11) % 3.1);
+  const freq3 = 5.0 + ((seed * 3.49) % 2.8);
   const phase1 = (seed * 0.83) % (Math.PI * 2);
   const phase2 = (seed * 1.57) % (Math.PI * 2);
-  const gainScale = 0.85 + ((seed * 0.35) % 0.45);
-  const adjustedGain = Math.round(baseGain * gainScale);
+  const gainScale = 0.88 + ((seed * 0.35) % 0.28);
+  const adjustedGain = Math.max(20, Math.round(baseGain * gainScale));
 
+  const unitWaves: number[] = [];
+  let rawUnitGain = 0;
+  for (let i = 0; i < numSamples; i++) {
+    const progress = i / (numSamples - 1);
+    const w =
+      Math.sin(progress * Math.PI * freq1 + phase1) * 0.5 +
+      Math.sin(progress * Math.PI * freq2 + phase2) * 0.3 +
+      Math.cos(progress * Math.PI * freq3) * 0.2;
+    unitWaves.push(w);
+    if (i > 0 && w > unitWaves[i - 1]) {
+      rawUnitGain += w - unitWaves[i - 1];
+    }
+  }
+
+  const amplitudeFactor = rawUnitGain > 0.01 ? adjustedGain / rawUnitGain : adjustedGain * 0.35;
   let prevElev = actualBaseElev;
 
   for (let i = 0; i < numSamples; i++) {
     const progress = i / (numSamples - 1);
     const distKm = progress * totalDistKm;
 
-    // Natural undulating terrain with distinct harmonics per variation
-    const wave =
-      Math.sin(progress * Math.PI * freq1 + phase1) * (adjustedGain * 0.45) +
-      Math.sin(progress * Math.PI * freq2 + phase2) * (adjustedGain * 0.28) +
-      Math.cos(progress * Math.PI * freq3) * (adjustedGain * 0.22);
-
+    const wave = unitWaves[i] * amplitudeFactor;
     const elev = Math.max(25, Math.round(actualBaseElev + wave));
 
     minElev = Math.min(minElev, elev);
@@ -745,6 +755,9 @@ export function computeRoadBreakdown(
       text.includes('route') ||
       text.includes('liaison') ||
       text.includes('village') ||
+      text.includes('circulation') ||
+      text.includes('partagé') ||
+      text.includes('partage') ||
       (text.includes('asphalte') && !text.includes('voie verte') && !text.includes('piste'));
 
     if (!isShared) {

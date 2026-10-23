@@ -1,13 +1,105 @@
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
-body {
-  background-color: #f8fafc; /* Tailwind slate-50 */
-  color: #1c1917; /* Tailwind stone-900 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .font-mono-kpi {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
 }
 
 .leaflet-container {
   width: 100%;
   height: 100%;
   z-index: 10;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Cartographic tile softening so road shields and background colors never overpower GPX traces */
+.leaflet-tile-pane {
+  filter: saturate(0.72) contrast(0.95) brightness(1.03);
+}
+
+/* Dark mode subtle map filter so bright map tiles blend harmoniously with dark cockpit UI */
+html.dark .leaflet-tile-pane {
+  filter: brightness(0.88) contrast(1.04) saturate(0.75);
+}
+
+/* Custom Slim macOS-style Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.45);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.6);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.85);
+}
+
+/* Hide scrollbars for horizontal pill navigation */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Premium Leaflet Tooltip Overrides */
+.leaflet-tooltip {
+  background: rgba(15, 23, 42, 0.92) !important;
+  backdrop-filter: blur(12px) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 12px !important;
+  padding: 6px 10px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3) !important;
+}
+
+.leaflet-tooltip-top:before {
+  border-top-color: rgba(15, 23, 42, 0.92) !important;
+}
+.leaflet-tooltip-bottom:before {
+  border-bottom-color: rgba(15, 23, 42, 0.92) !important;
+}
+.leaflet-tooltip-left:before {
+  border-left-color: rgba(15, 23, 42, 0.92) !important;
+}
+.leaflet-tooltip-right:before {
+  border-right-color: rgba(15, 23, 42, 0.92) !important;
 }

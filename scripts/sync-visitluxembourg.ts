@@ -353,6 +353,9 @@ export function syncVisitLuxembourgGpx() {
 
       // Generate unique slug
       let baseSlug = slugify(cleanName) || slugify(path.basename(filename, '.gpx'));
+      if (cat.dir === 'autopedestres') {
+        baseSlug = baseSlug.replace(/^auto-pedestre-/, '');
+      }
       let gpxSlug = `${cat.prefix}-${baseSlug}`;
       let counter = 2;
       while (usedSlugs.has(gpxSlug)) {

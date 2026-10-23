@@ -75,6 +75,7 @@ export interface RouteSuggestions {
   tags?: string[];
   sourceUrl?: string;   // Link to the source website / official tourism board / GPX origin
   sourceLabel?: string; // Friendly label for the source (e.g. 'Mullerthal.lu', 'VisitWallonia.be')
+  geoportailUrl?: string; // Direct topographic cadastral map link on map.geoportail.lu
 }
 
 export interface RouteTrace {

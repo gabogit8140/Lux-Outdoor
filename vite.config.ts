@@ -25,8 +25,8 @@ export default defineConfig(() => {
           name: 'Trace Outdoor',
           short_name: 'TraceOutdoor',
           description: "Création d'itinéraires et traces GPX vélo et rando (Belgique, Allemagne, Pays-Bas, Luxembourg)",
-          theme_color: '#059669',
-          background_color: '#059669',
+          theme_color: '#064e3b',
+          background_color: '#022c22',
           display: 'standalone',
           orientation: 'portrait-primary',
           start_url: './',
@@ -53,7 +53,7 @@ export default defineConfig(() => {
           ],
         },
         workbox: {
-          maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
+          maximumFileSizeToCacheInBytes: 15 * 1024 * 1024,
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
           runtimeCaching: [
             {
@@ -84,7 +84,15 @@ export default defineConfig(() => {
       },
     },
     server: {
+      host: '0.0.0.0',
+      port: 3000,
+      open: true,
       hmr: process.env.DISABLE_HMR !== 'true',
+    },
+    preview: {
+      host: '0.0.0.0',
+      port: 3000,
+      open: true,
     },
   };
 });

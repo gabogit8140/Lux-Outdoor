@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="VisitLuxembourg &amp; Grande-Region Outdoor"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>Komfort Wanderweg Eschweiler / Op der Déckt</name>
+    <desc>Sentiers Pédestres Confort & Accessibilité Facile - Parcours officiel de 1.5 km.</desc>
+    <link href="https://www.visitluxembourg.com">
+      <text>Sentiers Pédestres Confort & Accessibilité Facile</text>
+    </link>
+    <time>2026-10-15T07:10:18.982Z</time>
+  </metadata>
+  <trk>
+    <name>Komfort Wanderweg Eschweiler / Op der Déckt</name>
+    <type>Hiking</type>
+    <trkseg>
+      <trkpt lat="49.7049134" lon="6.2884728"><ele>188.0</ele></trkpt>
+      <trkpt lat="49.7049065" lon="6.2884457"><ele>188.0</ele></trkpt>
+      <trkpt lat="49.7047889" lon="6.2884610"><ele>170.0</ele></trkpt>
+      <trkpt lat="49.7047221" lon="6.2884834"><ele>170.0</ele></trkpt>
+      <trkpt lat="49.7046605" lon="6.2885254"><ele>147.0</ele></trkpt>
+      <trkpt lat="49.7045747" lon="6.2886247"><ele>145.0</ele></trkpt>
+      <trkpt lat="49.7044366" lon="6.2888186"><ele>145.0</ele></trkpt>
+      <trkpt lat="49.7039525" lon="6.2895007"><ele>172.0</ele></trkpt>
+      <trkpt lat="49.7035940" lon="6.2899941"><ele>172.0</ele></trkpt>
+      <trkpt lat="49.7034712" lon="6.2901842"><ele>213.0</ele></trkpt>
+      <trkpt lat="49.7033906" lon="6.2903621"><ele>241.0</ele></trkpt>
+      <trkpt lat="49.7033453" lon="6.2905030"><ele>241.0</ele></trkpt>
+      <trkpt lat="49.7033201" lon="6.2906691"><ele>238.0</ele></trkpt>
+      <trkpt lat="49.7033304" lon="6.2908871"><ele>238.0</ele></trkpt>
+      <trkpt lat="49.7038289" lon="6.2922986"><ele>209.0</ele></trkpt>
+      <trkpt lat="49.7038660" lon="6.2924036"><ele>177.0</ele></trkpt>
+      <trkpt lat="49.7043682" lon="6.2939044"><ele>177.0</ele></trkpt>
+      <trkpt lat="49.7054159" lon="6.2973484"><ele>162.0</ele></trkpt>
+      <trkpt lat="49.7043266" lon="6.2937757"><ele>165.0</ele></trkpt>
+      <trkpt lat="49.7046926" lon="6.2934599"><ele>165.0</ele></trkpt>
+      <trkpt lat="49.7047491" lon="6.2934165"><ele>171.0</ele></trkpt>
+      <trkpt lat="49.7050201" lon="6.2932043"><ele>171.0</ele></trkpt>
+      <trkpt lat="49.7052435" lon="6.2929823"><ele>167.0</ele></trkpt>
+      <trkpt lat="49.7053824" lon="6.2927434"><ele>156.0</ele></trkpt>
+      <trkpt lat="49.7054679" lon="6.2925349"><ele>156.0</ele></trkpt>
+      <trkpt lat="49.7055632" lon="6.2922296"><ele>149.0</ele></trkpt>
+      <trkpt lat="49.7055921" lon="6.2920997"><ele>149.0</ele></trkpt>
+      <trkpt lat="49.7056466" lon="6.2918553"><ele>155.0</ele></trkpt>
+      <trkpt lat="49.7057006" lon="6.2915446"><ele>165.0</ele></trkpt>
+      <trkpt lat="49.7057280" lon="6.2914344"><ele>165.0</ele></trkpt>
+      <trkpt lat="49.7057912" lon="6.2913649"><ele>162.0</ele></trkpt>
+      <trkpt lat="49.7057615" lon="6.2912932"><ele>162.0</ele></trkpt>
+      <trkpt lat="49.7056947" lon="6.2911334"><ele>135.0</ele></trkpt>
+      <trkpt lat="49.7056106" lon="6.2909150"><ele>96.0</ele></trkpt>
+      <trkpt lat="49.7055746" lon="6.2908189"><ele>96.0</ele></trkpt>
+      <trkpt lat="49.7055613" lon="6.2907835"><ele>69.0</ele></trkpt>
+      <trkpt lat="49.7055130" lon="6.2906526"><ele>73.0</ele></trkpt>
+      <trkpt lat="49.7055004" lon="6.2906150"><ele>73.0</ele></trkpt>
+      <trkpt lat="49.7054801" lon="6.2905545"><ele>106.0</ele></trkpt>
+      <trkpt lat="49.7054466" lon="6.2904545"><ele>106.0</ele></trkpt>
+      <trkpt lat="49.7053813" lon="6.2902324"><ele>141.0</ele></trkpt>
+      <trkpt lat="49.7053524" lon="6.2901339"><ele>156.0</ele></trkpt>
+      <trkpt lat="49.7053113" lon="6.2899785"><ele>156.0</ele></trkpt>
+      <trkpt lat="49.7053023" lon="6.2899448"><ele>145.0</ele></trkpt>
+      <trkpt lat="49.7052590" lon="6.2897811"><ele>145.0</ele></trkpt>
+      <trkpt lat="49.7052417" lon="6.2897163"><ele>124.0</ele></trkpt>
+      <trkpt lat="49.7051387" lon="6.2893309"><ele>114.0</ele></trkpt>
+      <trkpt lat="49.7050612" lon="6.2890427"><ele>114.0</ele></trkpt>
+      <trkpt lat="49.7050055" lon="6.2888356"><ele>121.0</ele></trkpt>
+      <trkpt lat="49.7049134" lon="6.2884728"><ele>121.0</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

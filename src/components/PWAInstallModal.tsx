@@ -1,5 +1,6 @@
 import React from 'react';
-import { X, Smartphone, Share, PlusSquare, CheckCircle2, Download } from 'lucide-react';
+import { X, Share, PlusSquare, CheckCircle2, Download } from 'lucide-react';
+import { BrandLogo } from './ui/BrandLogo';
 
 interface PWAInstallModalProps {
   isOpen: boolean;
@@ -27,17 +28,15 @@ export function PWAInstallModal({
       />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in-95 duration-200 border border-stone-100 flex flex-col p-6">
-        <div className="flex items-center justify-between pb-3 border-b border-stone-100">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-600/30">
-              <Smartphone className="w-5 h-5" />
-            </div>
+      <div className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in-95 duration-200 border border-stone-100 dark:border-slate-800 flex flex-col p-6">
+        <div className="flex items-center justify-between pb-3 border-b border-stone-100 dark:border-slate-800">
+          <div className="flex items-center gap-3">
+            <BrandLogo size="lg" />
             <div>
-              <h2 className="text-base font-bold text-stone-900">
+              <h2 className="text-base font-bold text-stone-900 dark:text-white">
                 Installer l'application
               </h2>
-              <p className="text-xs text-emerald-700 font-semibold">
+              <p className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold">
                 Trace Outdoor sur votre écran d'accueil
               </p>
             </div>

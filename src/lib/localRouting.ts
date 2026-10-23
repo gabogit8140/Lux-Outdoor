@@ -33,6 +33,18 @@ export function resolveLocationOffline(locationName: string): [number, number] {
       return place.coords;
     }
   }
+
+  // Fallback to route catalog locations (title, region or id)
+  const matchingRoute = CATALOG_ROUTES.find(
+    (c) =>
+      c.route.title.toLowerCase().includes(norm) ||
+      c.route.id.toLowerCase().includes(norm) ||
+      (c.route.regionName && c.route.regionName.toLowerCase().includes(norm))
+  );
+  if (matchingRoute && matchingRoute.route.waypoints && matchingRoute.route.waypoints[0]) {
+    return matchingRoute.route.waypoints[0];
+  }
+
   return GAZETTEER[0].coords; // Default Luxembourg
 }
 
@@ -822,6 +834,181 @@ export async function generateRealOutdoorRoute(params: {
 
 export const generateRealOSRMRoute = generateRealOutdoorRoute;
 
+const WATER_REGEX = /\b(lac|lacs|lake|lakes|see|rivière|riviere|rivières|rivieres|fleuve|fluvial|fluviale|rives|berges|cascade|cascades|source|sources|méandre|meandre|méandres|meandres|canal|canaux|our|sûre|sure|alzette|moselle|musel|syre|wiltz|clerve|eisch|gander|blees|mamer|attert|semois|meuse|rur|saar|sarre|kyll|weiher|weier|wasser|trois-rivieres|trois-vallees)\b/i;
+
+const FOREST_REGEX = /\b(forêt|foret|forêts|forets|forest|wald|wälder|fiels|mullerthal|mëllerdall|eislek|haard|aarnescht|gréngewald|grengewald|bambësch|bambesch|kallék|futaie|hollenfels|septfontaines|consdorf|beaufort|berdorf|larochette|kautenbach|clervaux|fischbach|schoenfels|tuntange|manternach|differdange|lasauvage|kopstal|bissen|eschweiler|lellingen|boulaide|baschleiden|asselborn|heinerscheid|hoscheid|tadler|kalborn|bavigne|felsenweg|fautelfiels|mamerleeen)\b/i;
+
+/**
+ * Determines whether a route is a closed loop circuit (returns to its starting area)
+ * vs a point-to-point linear route (such as national PC cycle paths).
+ */
+export function isRouteLoop(item: {
+  route: RouteSuggestions;
+  trace?: RouteTrace;
+  tags?: string[];
+}): boolean {
+  if ((item.tags || []).includes('loop') || (item.route.tags || []).includes('loop')) {
+    return true;
+  }
+
+  const distM = item.trace?.distance || 10000;
+  const maxGapMeters = Math.max(1500, distM * 0.08);
+  let hasGeometry = false;
+
+  // 1. Check waypoints [start, ..., end] if present
+  const wp = item.route.waypoints;
+  if (wp && wp.length >= 2) {
+    const firstWp = wp[0];
+    const lastWp = wp[wp.length - 1];
+    if (
+      firstWp &&
+      lastWp &&
+      typeof firstWp[0] === 'number' &&
+      typeof lastWp[0] === 'number'
+    ) {
+      hasGeometry = true;
+      const wpGap = haversineDistance(firstWp, lastWp);
+      if (wpGap <= maxGapMeters) {
+        return true;
+      }
+    }
+  }
+
+  // 2. Check full trace coordinates (supports both 1D and 2D multi-segment arrays)
+  const rawCoords = item.trace?.coordinates;
+  if (rawCoords && rawCoords.length > 0) {
+    const flatCoords: [number, number][] = Array.isArray(rawCoords[0]?.[0])
+      ? (rawCoords as [number, number][][]).flat()
+      : (rawCoords as [number, number][]);
+
+    if (flatCoords.length >= 2) {
+      hasGeometry = true;
+      const startPt = flatCoords[0];
+      const endPt = flatCoords[flatCoords.length - 1];
+      const coordGap = haversineDistance(startPt, endPt);
+      if (coordGap <= maxGapMeters) {
+        return true;
+      }
+    }
+  }
+
+  if (hasGeometry) {
+    return false;
+  }
+
+  // 3. Fallback to semantic title/description check only when no geometry is attached
+  const text = `${item.route.title} ${item.route.description}`.toLowerCase();
+  return /\b(boucle|circuit|rundweg|auto-pédestre|autopedestre)\b/i.test(text);
+}
+
+export function routeMatchesFilter(item: { route: RouteSuggestions; trace: RouteTrace; tags?: string[] }, filterId: string): boolean {
+  const fullText = `${item.route.title} ${item.route.description} ${item.route.surfaceType} ${(item.route.highlights || []).join(' ')} ${item.route.id}`;
+  const isBike = item.route.activity === 'bike';
+  const distM = item.trace.distance || 1;
+  const gain = item.route.elevationGain;
+  const slopeRatio = gain / distM;
+
+  switch (filterId) {
+    case 'loop':
+      return isRouteLoop(item);
+
+    case 'water':
+      return WATER_REGEX.test(fullText) || (item.tags || []).includes('water') || (item.route.tags || []).includes('water');
+
+    case 'forest':
+      return (
+        FOREST_REGEX.test(fullText) ||
+        (item.tags || []).includes('forest') ||
+        (item.route.tags || []).includes('forest')
+      );
+
+    case 'paved':
+      if (isBike) {
+        return (
+          item.route.id.includes('pc') ||
+          item.route.id.includes('course') ||
+          item.route.surfaceType.toLowerCase().includes('enrobé') ||
+          item.route.surfaceType.toLowerCase().includes('asphalte') ||
+          item.route.surfaceType.toLowerCase().includes('piste cyclable') ||
+          (item.tags || []).includes('paved') ||
+          (item.route.tags || []).includes('paved')
+        ) && !item.route.id.includes('vtt') && !item.route.title.toLowerCase().includes('vtt');
+      } else {
+        return (
+          item.route.id.includes('confort') ||
+          item.route.surfaceType.toLowerCase().includes('enrobé') ||
+          item.route.surfaceType.toLowerCase().includes('asphalte') ||
+          (item.tags || []).includes('paved') ||
+          (item.route.tags || []).includes('paved')
+        );
+      }
+
+    case 'gravel':
+      if (isBike) {
+        return (
+          item.route.id.includes('vtt') ||
+          item.route.title.toLowerCase().includes('vtt') ||
+          item.route.surfaceType.toLowerCase().includes('gravel') ||
+          item.route.surfaceType.toLowerCase().includes('chemin') ||
+          item.route.surfaceType.toLowerCase().includes('naturel') ||
+          item.route.surfaceType.toLowerCase().includes('terre') ||
+          (item.tags || []).includes('gravel') ||
+          (item.route.tags || []).includes('gravel')
+        );
+      } else {
+        return (
+          !item.route.id.includes('confort') &&
+          !item.route.surfaceType.toLowerCase().includes('100% asphalte')
+        );
+      }
+
+    case 'flat':
+      return isBike
+        ? slopeRatio < 0.018 || gain < 350
+        : slopeRatio < 0.030 || gain < 250;
+
+    case 'hilly':
+      return isBike
+        ? slopeRatio >= 0.024 || gain >= 600
+        : slopeRatio >= 0.038 || gain >= 400;
+
+    case 'low_traffic': {
+      const carFree = item.route.roadBreakdown?.carFreePercentage ?? 80;
+      if (isBike) {
+        const isRoadCourse =
+          item.route.id.includes('course') ||
+          item.route.title.toLowerCase().includes('course') ||
+          item.route.description.toLowerCase().includes('vélo de course') ||
+          item.route.description.toLowerCase().includes('velo de course');
+        return !isRoadCourse && carFree >= 70;
+      } else {
+        return carFree >= 80;
+      }
+    }
+
+    default:
+      return true;
+  }
+}
+
+/**
+ * Returns true if the location string represents a broad regional zone (or empty)
+ * rather than a specific city/village search.
+ */
+export function isRegionalZoneLocation(location?: string): boolean {
+  if (!location || location.trim().length === 0) return true;
+  const norm = location.toLowerCase().trim();
+  if (
+    norm.includes('grande région') ||
+    norm.includes('toute la région') ||
+    norm.includes('tous les pays') ||
+    norm.includes('200 km')
+  ) {
+    return true;
+  }
+  return REGIONAL_ZONES.some((z) => z.name.toLowerCase().trim() === norm);
+}
+
 /**
  * Local offline filter and search engine for the 200km zone around Luxembourg.
  */
@@ -839,7 +1026,13 @@ export function filterAndSearchOffline(params: {
   const minD = distanceKm[0];
   const maxD = distanceKm[1];
 
+  // When the distance slider is opened to its extremities (15–120 km for bike, 3–35 km for hike),
+  // treat that extremity as unbounded so shorter or longer official tracks are never excluded.
+  const effectiveMinD = minD <= (activity === 'bike' ? 15 : 3) ? 0 : minD;
+  const effectiveMaxD = maxD >= (activity === 'bike' ? 120 : 35) ? Infinity : maxD;
+
   let targetCenter: [number, number] = GAZETTEER[0].coords;
+  const hasSpecificLocation = !isRegionalZoneLocation(location);
 
   if (params.center && !isNaN(params.center[0]) && !isNaN(params.center[1])) {
     targetCenter = params.center;
@@ -855,11 +1048,11 @@ export function filterAndSearchOffline(params: {
     !isNaN(bounds.west)
   ) {
     targetCenter = [(bounds.west + bounds.east) / 2, (bounds.south + bounds.north) / 2];
+  } else if (hasSpecificLocation && location) {
+    targetCenter = resolveLocationOffline(location);
   } else if (country && country !== 'ALL') {
     const zone = REGIONAL_ZONES.find((z) => z.id === country);
     if (zone) targetCenter = zone.center;
-  } else if (location && location.trim().length > 0) {
-    targetCenter = resolveLocationOffline(location);
   }
 
   const nearestLoc = findNearestLocationOffline(targetCenter);
@@ -871,9 +1064,9 @@ export function filterAndSearchOffline(params: {
     // Activity match
     if (item.route.activity !== activity) return false;
 
-    // Distance match
+    // Distance match within [effectiveMinD, effectiveMaxD]
     const distKm = item.trace.distance / 1000;
-    if (distKm < minD * 0.7 || distKm > maxD * 1.35) return false;
+    if (distKm < effectiveMinD || distKm > effectiveMaxD) return false;
 
     // Spatial check
     if (bounds) {
@@ -893,35 +1086,25 @@ export function filterAndSearchOffline(params: {
     } else if (params.center) {
       const startCoord = item.route.waypoints[0];
       const distToCenter = haversineDistance(startCoord, params.center) / 1000;
-      if (distToCenter > 35) return false;
-    } else if (country && country !== 'ALL' && item.country !== country) {
-      return false;
-    } else if (country === 'ALL' || !country) {
+      const maxRadius = activity === 'bike' ? 35 : 25;
+      if (distToCenter > maxRadius) return false;
+    } else if (hasSpecificLocation) {
       const startCoord = item.route.waypoints[0];
-      const distFromLux = haversineDistance(startCoord, GAZETTEER[0].coords) / 1000;
-      if (distFromLux > 200) return false;
-    } else {
-      const startCoord = item.route.waypoints[0];
-      const distToCenter = haversineDistance(startCoord, targetCenter) / 1000;
-      if (distToCenter > 75) return false;
+      const distToLoc = haversineDistance(startCoord, targetCenter) / 1000;
+      const maxRadius = activity === 'bike' ? 35 : 22;
+      if (distToLoc > maxRadius) return false;
+    } else if (country && country !== 'ALL') {
+      if (item.country !== country) return false;
     }
+    // When country === 'ALL' and no specific city/bounds/click is active, NO geographic filter is applied:
+    // all catalog traces across the entire Greater Region are included.
 
-    // Strict filter consistency
+    // Strict filter consistency: each active preference must be satisfied
     if (filters && filters.length > 0) {
-      if (filters.includes('flat') && (item.tags.includes('hilly') || item.route.elevationGain > 280)) {
-        return false;
-      }
-      if (filters.includes('hilly') && (item.tags.includes('flat') || item.route.elevationGain < 160)) {
-        return false;
-      }
-      if (filters.includes('paved') && item.tags.includes('gravel') && !item.tags.includes('paved')) {
-        return false;
-      }
-      if (filters.includes('gravel') && !item.tags.includes('gravel') && item.tags.includes('paved')) {
-        return false;
-      }
-      if (filters.includes('low_traffic') && item.route.roadBreakdown && item.route.roadBreakdown.carFreePercentage < 50) {
-        return false;
+      for (const filterId of filters) {
+        if (!routeMatchesFilter(item, filterId)) {
+          return false;
+        }
       }
     }
 
@@ -933,43 +1116,6 @@ export function filterAndSearchOffline(params: {
   matchedCatalog.forEach((c) => {
     traces[c.route.id] = c.trace;
   });
-
-  // If no routes strictly match within narrow bounds/distance, find the closest authentic curated routes from the catalog
-  if (routes.length === 0) {
-    const activityMatches = CATALOG_ROUTES.filter((item) => {
-      if (item.route.activity !== activity) return false;
-      if (country && country !== 'ALL' && item.country !== country) return false;
-      return true;
-    });
-
-    const getFirstPoint = (item: CatalogItem): [number, number] => {
-      if (item.route.waypoints && item.route.waypoints.length > 0) {
-        return item.route.waypoints[0];
-      }
-      const raw = item.trace.coordinates[0];
-      if (Array.isArray(raw)) {
-        if (typeof raw[0] === 'number' && typeof raw[1] === 'number') {
-          return [raw[0], raw[1]] as [number, number];
-        }
-        if (Array.isArray(raw[0]) && typeof (raw[0] as unknown[])[0] === 'number' && typeof (raw[0] as unknown[])[1] === 'number') {
-          return [(raw[0] as [number, number])[0], (raw[0] as [number, number])[1]];
-        }
-      }
-      return targetCenter;
-    };
-
-    activityMatches.sort((a, b) => {
-      const distA = haversineDistance(getFirstPoint(a), targetCenter);
-      const distB = haversineDistance(getFirstPoint(b), targetCenter);
-      return distA - distB;
-    });
-
-    const fallbackPicks = activityMatches.slice(0, 3);
-    fallbackPicks.forEach((item) => {
-      routes.push(item.route);
-      traces[item.route.id] = item.trace;
-    });
-  }
 
   // Sort: routes matching user's selected filters come first, then closest match to desired distance
   const targetMid = (minD + maxD) / 2;
@@ -992,8 +1138,8 @@ export function filterAndSearchOffline(params: {
 }
 
 /**
- * Searches curated catalog routes and generates authentic outdoor circuits
- * strictly adhering to user's active filters and visible bounds.
+ * Searches curated catalog routes strictly adhering to user's active filters and visible bounds.
+ * Never fabricates synthetic or procedural routes on the fly.
  */
 export async function searchAndGenerateRoutes(params: {
   location?: string;
@@ -1004,35 +1150,6 @@ export async function searchAndGenerateRoutes(params: {
   country?: 'LU' | 'BE' | 'DE' | 'NL' | 'FR' | 'ALL';
   bounds?: { north: number; south: number; east: number; west: number };
 }): Promise<{ routes: RouteSuggestions[]; traces: Record<string, RouteTrace>; locationName?: string }> {
-  // 1. First search real curated catalog routes (100% authentic OSM tracks)
-  const offlineResult = filterAndSearchOffline(params);
-  const routes = [...offlineResult.routes];
-  const traces = { ...offlineResult.traces };
-
-  // 2. When a specific click coordinate or custom search is requested, generate an authentic circuit snapped to OSM trails
-  const targetCenter =
-    params.center ||
-    (params.location && params.location.trim().length > 0 ? resolveLocationOffline(params.location) : undefined);
-
-  if (targetCenter && (params.center || routes.length < 3)) {
-    try {
-      const generated = await generateRealOutdoorRoute({
-        center: targetCenter,
-        distanceKm: params.distanceKm,
-        activity: params.activity,
-        filters: params.filters,
-        locationName: offlineResult.locationName,
-        country: params.country && params.country !== 'ALL' ? params.country : undefined,
-        variationIndex: 0,
-      });
-      if (generated && generated.trace.coordinates.length >= 8) {
-        routes.unshift(generated.route);
-        traces[generated.route.id] = generated.trace;
-      }
-    } catch (_err) {
-      // Fall back to curated routes cleanly
-    }
-  }
-
-  return { routes, traces, locationName: offlineResult.locationName };
+  return filterAndSearchOffline(params);
 }
+

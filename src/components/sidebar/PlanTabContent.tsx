@@ -10,10 +10,14 @@ import {
   Mountain,
   Map as MapIcon,
   Sparkles,
+  RotateCcw,
+  Repeat,
 } from 'lucide-react';
 import { TouchDistanceSelector } from '../TouchDistanceSelector';
+import { getCountryFlag } from '../ui/PremiumPrimitives';
 
 export const FILTER_OPTIONS = [
+  { id: 'loop', label: 'Parcours en Boucle', icon: Repeat },
   { id: 'water', label: 'Rivières & Lacs', icon: Droplets },
   { id: 'forest', label: 'Forêts & Bois', icon: TreePine },
   { id: 'gravel', label: 'Gravier & Chemins', icon: Navigation },
@@ -24,46 +28,31 @@ export const FILTER_OPTIONS = [
 ];
 
 export const POPULAR_LOCATIONS = [
-  { name: 'Luxembourg', country: 'LU' },
+  { name: 'Luxembourg-Ville', country: 'LU' },
+  { name: 'Echternach', country: 'LU' },
+  { name: 'Clervaux', country: 'LU' },
   { name: 'Bastogne', country: 'BE' },
   { name: 'Bouillon', country: 'BE' },
   { name: 'Spa', country: 'BE' },
   { name: 'Trier', country: 'DE' },
   { name: 'Saarschleife', country: 'DE' },
   { name: 'Maastricht', country: 'NL' },
-  { name: 'Valkenburg', country: 'NL' },
   { name: 'Thionville', country: 'FR' },
-  { name: 'Metz', country: 'FR' },
 ];
-
-const getCountryFlag = (country?: string) => {
-  switch (country) {
-    case 'LU':
-      return '🇱🇺';
-    case 'BE':
-      return '🇧🇪';
-    case 'DE':
-      return '🇩🇪';
-    case 'NL':
-      return '🇳🇱';
-    case 'FR':
-      return '🇫🇷';
-    default:
-      return '🇪🇺';
-  }
-};
 
 interface PlanTabContentProps {
   activity: 'bike' | 'hike';
   onActivityChange: (activity: 'bike' | 'hike') => void;
   location: string;
   setLocation: (loc: string) => void;
+  onSelectLocation?: (loc: string, country?: 'LU' | 'BE' | 'DE' | 'NL' | 'FR') => void;
   distance: [number, number];
   setDistance: (d: [number, number]) => void;
   activeFilters: string[];
   toggleFilter: (id: string) => void;
   onImportGPX: (content: string) => boolean;
   onFilterMap: () => void;
+  onClearAllFilters?: () => void;
   onGenerate: (isMapTracesOnly: boolean) => void;
   isGenerating: boolean;
 }
@@ -73,12 +62,14 @@ export function PlanTabContent({
   onActivityChange,
   location,
   setLocation,
+  onSelectLocation,
   distance,
   setDistance,
   activeFilters,
   toggleFilter,
   onImportGPX,
   onFilterMap,
+  onClearAllFilters,
   onGenerate,
   isGenerating,
 }: PlanTabContentProps) {
@@ -103,72 +94,106 @@ export function PlanTabContent({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3.5">
       {/* Activity Toggle */}
-      <section>
-        <h3 className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1.5">
-          Activité sportive
-        </h3>
+      <section className="bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-3">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-bold">
+            Activité sportive
+          </h3>
+          {onClearAllFilters && (
+            <button
+              type="button"
+              onClick={onClearAllFilters}
+              className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-rose-50 dark:bg-rose-950/60 hover:bg-rose-100 dark:hover:bg-rose-900/80 border border-rose-200/80 dark:border-rose-800 text-rose-700 dark:text-rose-300 font-bold text-[10px] transition-colors cursor-pointer"
+              title="Enlever tous les filtres (distances, critères, zone et lieu)"
+            >
+              <RotateCcw className="w-2.5 h-2.5" />
+              <span>Enlever tous les filtres</span>
+            </button>
+          )}
+        </div>
         <div className="grid grid-cols-2 gap-2">
           <button
             onClick={() => onActivityChange('bike')}
-            className={`py-2 px-3 flex items-center justify-center gap-2 text-xs font-semibold rounded-xl transition-all border cursor-pointer ${
+            className={`py-2.5 px-3 flex items-center justify-center gap-2 text-xs font-bold rounded-xl transition-all border cursor-pointer ${
               activity === 'bike'
-                ? 'bg-emerald-50 border-emerald-500 text-emerald-800 shadow-2xs'
-                : 'bg-white border-stone-200 text-stone-600 hover:bg-stone-50'
+                ? 'bg-gradient-to-r from-emerald-600 to-teal-600 border-emerald-600 text-white shadow-md shadow-emerald-600/20'
+                : 'bg-white dark:bg-slate-800 border-slate-200/90 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/80'
             }`}
           >
             <Bike className="w-4 h-4" /> Vélo / Gravel
           </button>
           <button
             onClick={() => onActivityChange('hike')}
-            className={`py-2 px-3 flex items-center justify-center gap-2 text-xs font-semibold rounded-xl transition-all border cursor-pointer ${
+            className={`py-2.5 px-3 flex items-center justify-center gap-2 text-xs font-bold rounded-xl transition-all border cursor-pointer ${
               activity === 'hike'
-                ? 'bg-emerald-50 border-emerald-500 text-emerald-800 shadow-2xs'
-                : 'bg-white border-stone-200 text-stone-600 hover:bg-stone-50'
+                ? 'bg-gradient-to-r from-emerald-600 to-teal-600 border-emerald-600 text-white shadow-md shadow-emerald-600/20'
+                : 'bg-white dark:bg-slate-800 border-slate-200/90 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/80'
             }`}
           >
-            <Footprints className="w-4 h-4" /> Randonnée à pied
+            <Footprints className="w-4 h-4" /> Rando à pied
           </button>
         </div>
       </section>
 
       {/* Location Input & Popular Shortcuts */}
-      <section>
-        <h3 className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1.5">
-          Lieu ou Ville (200 km)
+      <section className="bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-3">
+        <h3 className="text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-bold mb-2">
+          Lieu ou Ville (Rayon 200 km)
         </h3>
-        <div className="relative mb-2">
-          <MapPin className="absolute left-3 top-2.5 h-4 w-4 text-stone-400" />
+        <div className="relative mb-2.5">
+          <MapPin className="absolute left-3 top-2.5 h-4 w-4 text-emerald-600 dark:text-emerald-400" />
           <input
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            placeholder="ex: Luxembourg, Bastogne, Trier, Bouillon..."
-            className="pl-9 w-full bg-stone-50 border border-stone-200 rounded-xl p-2 text-xs text-stone-900 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all placeholder:text-stone-400"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                if (onSelectLocation) onSelectLocation(location);
+                else onFilterMap();
+              }
+            }}
+            onBlur={() => {
+              if (location && location.trim().length > 0) {
+                if (onSelectLocation) onSelectLocation(location);
+              }
+            }}
+            placeholder="ex: Luxembourg, Bastogne, Trier, Echternach..."
+            className="pl-9 w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl py-2 pr-3 text-xs font-medium text-slate-900 dark:text-slate-100 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all placeholder:text-slate-400"
           />
         </div>
 
         <div className="flex flex-wrap gap-1.5">
-          {POPULAR_LOCATIONS.map((loc) => (
-            <button
-              key={loc.name}
-              onClick={() => setLocation(loc.name)}
-              className={`text-[10px] px-2 py-0.5 rounded-lg border transition-colors flex items-center gap-1 cursor-pointer ${
-                location.toLowerCase() === loc.name.toLowerCase()
-                  ? 'bg-emerald-100 border-emerald-300 text-emerald-800 font-bold'
-                  : 'bg-stone-100 border-stone-200 text-stone-600 hover:bg-stone-200'
-              }`}
-            >
-              <span>{getCountryFlag(loc.country)}</span>
-              <span>{loc.name}</span>
-            </button>
-          ))}
+          {POPULAR_LOCATIONS.map((loc) => {
+            const isSelected = location.toLowerCase() === loc.name.toLowerCase();
+            return (
+              <button
+                key={loc.name}
+                onClick={() => {
+                  setLocation(loc.name);
+                  if (onSelectLocation) {
+                    onSelectLocation(loc.name, loc.country as any);
+                  } else {
+                    onFilterMap();
+                  }
+                }}
+                className={`text-[10px] px-2.5 py-1 rounded-lg border transition-all flex items-center gap-1 cursor-pointer ${
+                  isSelected
+                    ? 'bg-emerald-500/15 dark:bg-emerald-500/25 border-emerald-500/40 text-emerald-800 dark:text-emerald-200 font-bold shadow-2xs'
+                    : 'bg-white dark:bg-slate-800/90 border-slate-200/80 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-emerald-300 dark:hover:border-emerald-600'
+                }`}
+              >
+                <span>{getCountryFlag(loc.country)}</span>
+                <span>{loc.name}</span>
+              </button>
+            );
+          })}
         </div>
       </section>
 
       {/* Touch Distance Selector */}
-      <section>
+      <section className="bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-3">
         <TouchDistanceSelector
           activity={activity}
           distance={distance}
@@ -177,8 +202,8 @@ export function PlanTabContent({
       </section>
 
       {/* Surface & Experience Filters */}
-      <section>
-        <h3 className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1.5">
+      <section className="bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-3">
+        <h3 className="text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-bold mb-2">
           Critères & Préférences
         </h3>
         <div className="flex flex-wrap gap-1.5">
@@ -189,14 +214,14 @@ export function PlanTabContent({
               <button
                 key={opt.id}
                 onClick={() => toggleFilter(opt.id)}
-                className={`flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-xl transition-all border cursor-pointer ${
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-xl transition-all border cursor-pointer ${
                   isActive
-                    ? 'border-emerald-600 bg-emerald-50 text-emerald-800 font-semibold shadow-2xs'
-                    : 'border-stone-200 bg-white text-stone-600 hover:border-emerald-200 hover:bg-emerald-50/50'
+                    ? 'border-emerald-600 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-sm shadow-emerald-600/20'
+                    : 'border-slate-200/90 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-300 dark:hover:border-emerald-600'
                 }`}
               >
-                <Icon className="w-3 h-3" />
-                {opt.label}
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'}`} />
+                <span>{opt.label}</span>
               </button>
             );
           })}
@@ -214,34 +239,45 @@ export function PlanTabContent({
         />
         <button
           onClick={() => fileInputRef.current?.click()}
-          className="w-full py-2 px-3 border border-dashed border-stone-300 hover:border-emerald-500 rounded-xl text-stone-600 hover:text-emerald-700 text-xs font-semibold flex items-center justify-center gap-1.5 bg-stone-50/60 transition-colors cursor-pointer"
+          className="w-full py-2.5 px-3 border border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-500 rounded-2xl text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 text-xs font-semibold flex items-center justify-center gap-2 bg-slate-50/50 dark:bg-slate-800/30 transition-all cursor-pointer"
         >
-          <Upload className="w-3.5 h-3.5 text-stone-400" />
+          <Upload className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
           <span>Importer un fichier GPX existant</span>
         </button>
       </section>
 
       {/* Plan Action Buttons */}
-      <div className="flex flex-col gap-2 pt-2">
+      <div className="flex flex-col gap-2 pt-1">
+        {onClearAllFilters && (
+          <button
+            type="button"
+            onClick={onClearAllFilters}
+            disabled={isGenerating}
+            className="w-full py-2.5 bg-rose-50 dark:bg-rose-950/50 hover:bg-rose-100 dark:hover:bg-rose-900/70 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 font-bold uppercase tracking-wider text-xs rounded-xl flex items-center justify-center gap-2 transition-all shadow-2xs cursor-pointer disabled:opacity-50"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Enlever tous les filtres (Tout afficher)</span>
+          </button>
+        )}
         <button
           onClick={onFilterMap}
           disabled={isGenerating || !location}
-          className="w-full py-2.5 bg-stone-100 hover:bg-stone-200 border border-stone-200 text-stone-800 font-bold uppercase tracking-wider text-xs rounded-xl flex items-center justify-center gap-2 transition-colors shadow-2xs cursor-pointer disabled:opacity-50"
+          className="w-full py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200/80 dark:hover:bg-slate-700 border border-slate-200/90 dark:border-slate-700 text-slate-800 dark:text-slate-100 font-bold uppercase tracking-wider text-xs rounded-xl flex items-center justify-center gap-2 transition-all shadow-2xs cursor-pointer disabled:opacity-50"
         >
-          <MapIcon className="w-4 h-4 text-emerald-700" />
-          Filtrer les circuits ({distance[0]}–{distance[1]} km)
+          <MapIcon className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+          <span>Filtrer les circuits ({distance[0]}–{distance[1]} km)</span>
         </button>
         <button
           onClick={() => onGenerate(false)}
           disabled={isGenerating || !location}
-          className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold uppercase tracking-wider text-xs rounded-xl shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2 transition-colors cursor-pointer disabled:opacity-50"
+          className="w-full py-3 bg-gradient-to-r from-emerald-600 via-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold uppercase tracking-wider text-xs rounded-xl shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 transition-all active:scale-[0.99] cursor-pointer disabled:opacity-50"
         >
           {isGenerating ? (
             <span className="animate-spin h-4 w-4 border-2 border-white rounded-full border-t-transparent" />
           ) : (
             <Sparkles className="w-4 h-4" />
           )}
-          Générer circuit sur mesure
+          <span>Générer circuit sur mesure</span>
         </button>
       </div>
     </div>

@@ -12,6 +12,7 @@ import {
 } from './geoUtils';
 
 import { GENERATED_GPX_CATALOG } from './generatedGpxCatalog';
+import { resolveRouteSource } from './routeSourceResolver';
 
 export interface CatalogItem {
   route: RouteSuggestions;
@@ -137,8 +138,31 @@ function buildCuratedRoute(params: {
         ? [finalCoords[0], finalCoords[Math.floor(finalCoords.length / 2)], finalCoords[finalCoords.length - 1]]
         : params.anchors,
     tags: params.tags,
-    sourceUrl: params.sourceUrl || getDefaultSourceUrl(params.country),
-    sourceLabel: params.sourceLabel || getDefaultSourceLabel(params.country),
+    sourceUrl:
+      params.sourceUrl ||
+      resolveRouteSource({
+        id: params.id,
+        title: params.title,
+        activity: params.activity,
+        country: params.country,
+        coords: finalCoords,
+      }).sourceUrl,
+    sourceLabel:
+      params.sourceLabel ||
+      resolveRouteSource({
+        id: params.id,
+        title: params.title,
+        activity: params.activity,
+        country: params.country,
+        coords: finalCoords,
+      }).sourceLabel,
+    geoportailUrl: resolveRouteSource({
+      id: params.id,
+      title: params.title,
+      activity: params.activity,
+      country: params.country,
+      coords: finalCoords,
+    }).geoportailUrl,
   };
 
   const trace: RouteTrace = {
@@ -880,9 +904,9 @@ const CURATED_STATIC_ROUTES: CatalogItem[] = [
   }),
 ];
 
-// Combine all 123 official GPX traces parsed from public/gpx/ with curated circuits
+// Export all official GPX traces parsed from public/gpx/
 export const CATALOG_ROUTES: CatalogItem[] = [
   ...GENERATED_GPX_CATALOG,
-  ...CURATED_STATIC_ROUTES,
 ];
+
 

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Polyline, Marker, Popup, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import type { RouteSuggestions, RouteTrace } from '../../types';
+import { getSemanticRouteColor } from '../ui/PremiumPrimitives';
 
 const createIcon = (color: string, label?: string) => {
   const size = 16;
@@ -23,42 +24,117 @@ const createStartIcon = () =>
     iconAnchor: [11, 11],
   });
 
+const createRouteStartPin = (color: string, isHovered: boolean) => {
+  const size = isHovered ? 14 : 10;
+  return L.divIcon({
+    className: 'route-start-dot',
+    html: `<div style="background-color: ${color}; width: ${size}px; height: ${size}px; border-radius: 50%; border: 2px solid white; box-shadow: 0 1px 4px rgba(0,0,0,0.35); transition: all 150ms ease;"></div>`,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+  });
+};
+
 interface MapRoutesLayerProps {
   routes: RouteSuggestions[];
   traces: Record<string, RouteTrace>;
   selectedRouteId: string | null;
+  hoveredRouteId?: string | null;
   onSelectRoute: (id: string) => void;
+  onHoverRoute?: (id: string | null) => void;
   hoveredDistanceKm?: number | null;
   clickedCoord?: { lat: number; lng: number; name: string } | null;
   lastLayerClickTimeRef: React.MutableRefObject<number>;
   activity: 'bike' | 'hike';
+  isTraceVisible?: boolean;
 }
 
 export function MapRoutesLayer({
   routes,
   traces,
   selectedRouteId,
+  hoveredRouteId: externalHoveredRouteId,
   onSelectRoute,
+  onHoverRoute,
   hoveredDistanceKm,
   clickedCoord,
   lastLayerClickTimeRef,
   activity,
+  isTraceVisible = true,
 }: MapRoutesLayerProps) {
-  const [hoveredRouteId, setHoveredRouteId] = useState<string | null>(null);
+  const [internalHoveredId, setInternalHoveredId] = useState<string | null>(null);
+  const hoveredRouteId =
+    externalHoveredRouteId !== undefined ? externalHoveredRouteId : internalHoveredId;
 
+  const handleHoverChange = (id: string | null) => {
+    setInternalHoveredId(id);
+    if (onHoverRoute) {
+      onHoverRoute(id);
+    }
+  };
+
+  const activeRouteIdForElevation = selectedRouteId || hoveredRouteId;
   const selectedRoute = routes.find((r) => r.id === selectedRouteId) || null;
-  const selectedTrace = selectedRouteId ? traces[selectedRouteId] || null : null;
+  const activeTraceForElevation = activeRouteIdForElevation
+    ? traces[activeRouteIdForElevation] || null
+    : null;
+
+  // Precompute Leaflet [lat, lon] positions and semantic colors once per route list update
+  const preparedRoutes = useMemo(() => {
+    return routes
+      .map((r) => {
+        const t = traces[r.id];
+        if (!t || !t.coordinates || t.coordinates.length === 0) return null;
+
+        let polylinePositions: [number, number][] | [number, number][][] = [];
+        let startPos: [number, number] | null = null;
+
+        if (Array.isArray(t.coordinates[0][0])) {
+          polylinePositions = (t.coordinates as [number, number][][]).map((segment) =>
+            segment.map((c) => [c[1], c[0]] as [number, number])
+          );
+          if (polylinePositions.length > 0 && polylinePositions[0].length > 0) {
+            startPos = polylinePositions[0][0] as [number, number];
+          }
+        } else {
+          polylinePositions = (t.coordinates as [number, number][]).map(
+            (c) => [c[1], c[0]] as [number, number]
+          );
+          if (polylinePositions.length > 0) {
+            startPos = polylinePositions[0] as [number, number];
+          }
+        }
+
+        const semanticColor = getSemanticRouteColor(r.difficulty?.level);
+        return { r, t, polylinePositions, startPos, semanticColor };
+      })
+      .filter((item): item is NonNullable<typeof item> => item !== null);
+  }, [routes, traces]);
+
+  const selectedPrepared = useMemo(
+    () => preparedRoutes.find((item) => item.r.id === selectedRouteId) || null,
+    [preparedRoutes, selectedRouteId]
+  );
+
+  const hoveredPrepared = useMemo(
+    () =>
+      hoveredRouteId && hoveredRouteId !== selectedRouteId
+        ? preparedRoutes.find((item) => item.r.id === hoveredRouteId) || null
+        : null,
+    [preparedRoutes, hoveredRouteId, selectedRouteId]
+  );
 
   // Calculate coordinates of the hovered point on the elevation chart
   let hoverPointCoord: [number, number] | null = null;
-  if (selectedTrace && hoveredDistanceKm !== null && hoveredDistanceKm !== undefined) {
-    const coords = (
-      Array.isArray(selectedTrace.coordinates[0]?.[0])
-        ? (selectedTrace.coordinates as [number, number][][]).flat()
-        : (selectedTrace.coordinates as [number, number][])
-    );
+  if (
+    activeTraceForElevation &&
+    hoveredDistanceKm !== null &&
+    hoveredDistanceKm !== undefined
+  ) {
+    const coords = Array.isArray(activeTraceForElevation.coordinates[0]?.[0])
+      ? (activeTraceForElevation.coordinates as [number, number][][]).flat()
+      : (activeTraceForElevation.coordinates as [number, number][]);
     if (coords && coords.length > 0) {
-      const totalDistKm = selectedTrace.distance / 1000;
+      const totalDistKm = activeTraceForElevation.distance / 1000;
       const ratio = Math.max(0, Math.min(1, hoveredDistanceKm / (totalDistKm || 1)));
       const idx = Math.min(coords.length - 1, Math.floor(ratio * (coords.length - 1)));
       const c = coords[idx];
@@ -78,54 +154,39 @@ export function MapRoutesLayer({
 
   return (
     <>
-      {/* Route Traces */}
-      {routes.map((r) => {
-        const t = traces[r.id];
-        if (!t || !t.coordinates || t.coordinates.length === 0) return null;
-
+      {/* PASS 1 (Bottom SVG Layer): Permanently mounted white under-casings for all routes */}
+      {preparedRoutes.map(({ r, polylinePositions }) => {
         const isSelected = selectedRouteId === r.id;
-        let polylinePositions: [number, number][] | [number, number][][] = [];
-        let startPos: [number, number] | null = null;
-
-        if (t.coordinates.length > 0) {
-          if (Array.isArray(t.coordinates[0][0])) {
-            polylinePositions = (t.coordinates as [number, number][][]).map((segment) =>
-              segment.map((c) => [c[1], c[0]] as [number, number])
-            );
-            if (polylinePositions.length > 0 && polylinePositions[0].length > 0) {
-              startPos = polylinePositions[0][0] as [number, number];
-            }
-          } else {
-            polylinePositions = (t.coordinates as [number, number][]).map(
-              (c) => [c[1], c[0]] as [number, number]
-            );
-            if (polylinePositions.length > 0) {
-              startPos = polylinePositions[0] as [number, number];
-            }
-          }
-        }
-
         const isHovered = hoveredRouteId === r.id;
-        const isCustom = r.type === 'custom';
+        const isAnotherFocused =
+          Boolean(selectedRouteId && !isSelected) ||
+          Boolean(hoveredRouteId && !isHovered && !isSelected);
 
-        // Vibrant colors for each region and activity
-        let color = isCustom ? '#059669' : '#2563eb';
-        if (r.country === 'BE') color = isCustom ? '#059669' : '#d97706'; // Ardennes
-        if (r.country === 'DE') color = isCustom ? '#059669' : '#dc2626'; // Eifel / Mosel
-        if (r.country === 'NL') color = isCustom ? '#059669' : '#ea580c'; // Limburg
-        if (r.country === 'FR') color = isCustom ? '#059669' : '#7c3aed'; // Lorraine
+        return (
+          <Polyline
+            key={`casing-${r.id}`}
+            positions={polylinePositions}
+            pathOptions={{
+              color: '#ffffff',
+              weight: isSelected || isHovered ? 0 : isAnotherFocused ? 3.5 : 5.5,
+              opacity: isSelected || isHovered ? 0 : isAnotherFocused ? 0.28 : 0.75,
+              lineCap: 'round',
+              lineJoin: 'round',
+              interactive: false,
+            }}
+          />
+        );
+      })}
 
-        // When in hiking mode, give pedestrian trails high visibility
-        if (activity === 'hike' && !isSelected && !selectedRouteId) {
-          if (r.country === 'LU') color = '#0284c7';
-        }
+      {/* PASS 2 (Middle SVG Layer): Permanently mounted semantic colored strokes + interactive hit targets */}
+      {preparedRoutes.map(({ r, t, polylinePositions, startPos, semanticColor }) => {
+        const isSelected = selectedRouteId === r.id;
+        const isHovered = hoveredRouteId === r.id;
+        const isAnotherFocused =
+          Boolean(selectedRouteId && !isSelected) ||
+          Boolean(hoveredRouteId && !isHovered && !isSelected);
 
-        if (selectedRouteId && !isSelected) {
-          color = '#94a3b8'; // Muted slate so selected trace pops
-        }
-        if (isHovered && !isSelected) {
-          color = '#10b981';
-        }
+        const strokeColor = selectedRouteId && !isSelected ? '#94a3b8' : semanticColor;
 
         const handleSelect = (e: L.LeafletMouseEvent) => {
           lastLayerClickTimeRef.current = Date.now();
@@ -137,134 +198,221 @@ export function MapRoutesLayer({
         };
 
         return (
-          <React.Fragment key={`route-${r.id}`}>
-            {/* Wide invisible tap target for finger touches on mobile */}
+          <React.Fragment key={`route-fg-${r.id}`}>
+            {/* Foreground polyline (unconditionally mounted so SVG DOM z-order is permanently above Pass 1) */}
             <Polyline
               positions={polylinePositions}
               pathOptions={{
-                weight: 32,
+                color: strokeColor,
+                weight: isSelected || isHovered ? 0 : isAnotherFocused ? 2.2 : 3.2,
+                opacity: isSelected || isHovered ? 0 : isAnotherFocused ? 0.42 : 0.92,
+                lineCap: 'round',
+                lineJoin: 'round',
+                dashArray: r.type === 'custom' ? '6, 5' : undefined,
+                interactive: false,
+              }}
+            />
+
+            {/* Permanently mounted wide invisible tap/hover target */}
+            <Polyline
+              positions={polylinePositions}
+              pathOptions={{
+                weight: 24,
                 color: 'transparent',
                 interactive: true,
-                className: isSelected ? 'cursor-default' : 'cursor-pointer',
+                className: 'cursor-pointer',
               }}
               eventHandlers={{
                 click: handleSelect,
                 mouseover: () => {
-                  if (!isSelected) setHoveredRouteId(r.id!);
+                  if (!isSelected) handleHoverChange(r.id!);
                 },
-                mouseout: () => setHoveredRouteId(null),
+                mouseout: () => {
+                  if (hoveredRouteId === r.id) handleHoverChange(null);
+                },
               }}
             >
-              <Tooltip
-                sticky
-                direction="top"
-                className="rounded-xl shadow-lg !p-2 font-sans border border-stone-100"
-              >
-                <div className="font-bold text-stone-900 text-xs flex items-center gap-1.5">
+              <Tooltip sticky direction="top">
+                <div className="font-bold text-white text-xs flex items-center gap-1.5">
+                  <span
+                    className="w-2.5 h-2.5 rounded-full shrink-0 border border-white/80"
+                    style={{ backgroundColor: semanticColor }}
+                  />
                   {r.country && (
-                    <span className="text-[10px] uppercase font-bold px-1 rounded bg-stone-100 text-stone-600">
+                    <span className="text-[10px] uppercase font-bold px-1.5 py-0.2 rounded bg-white/15 text-emerald-300">
                       {r.country}
                     </span>
                   )}
-                  {r.title}
+                  <span>{r.title}</span>
                 </div>
-                <div className="text-[11px] text-stone-500 font-semibold mt-0.5">
-                  {(t.distance / 1000).toFixed(1)} km · {r.elevationGain}m D+
+                <div className="text-[11px] text-emerald-400 font-bold font-mono-kpi mt-0.5 flex items-center gap-1.5">
+                  <span>
+                    {(t.distance / 1000).toFixed(1)} km · +{r.elevationGain}m D+
+                  </span>
+                  {r.difficulty && (
+                    <span
+                      className="px-1.5 py-0.2 rounded text-[10px] text-white font-extrabold"
+                      style={{ backgroundColor: semanticColor }}
+                    >
+                      {r.difficulty.label}
+                    </span>
+                  )}
                 </div>
               </Tooltip>
             </Polyline>
 
-            {/* Glowing outline for selected route */}
-            {isSelected && (
-              <Polyline
-                positions={polylinePositions}
-                pathOptions={{
-                  color: '#ffffff',
-                  weight: 11,
-                  opacity: 0.9,
-                  lineCap: 'round',
-                  lineJoin: 'round',
-                  interactive: false,
-                }}
-              />
-            )}
-
-            {/* Segment breakdown for selected route (Car-free vs Shared roads) */}
-            {isSelected && t.segments && t.segments.length > 0 ? (
-              t.segments.map((seg, sIdx) => {
-                const isCarFree = seg.roadType === 'car_free';
-                const segPositions = seg.coordinates.map((c) => [c[1], c[0]] as [number, number]);
-                return (
-                  <Polyline
-                    key={`seg-${r.id}-${sIdx}`}
-                    positions={segPositions}
-                    pathOptions={{
-                      color: isCarFree ? '#059669' : '#ea580c',
-                      weight: 7,
-                      opacity: 1,
-                      dashArray: isCarFree ? undefined : '10, 7',
-                      lineCap: 'round',
-                      lineJoin: 'round',
-                      interactive: true,
-                    }}
-                  >
-                    <Tooltip
-                      sticky
-                      direction="top"
-                      className="rounded-xl shadow-lg !p-2 font-sans border border-stone-100 text-xs"
-                    >
-                      <div className="font-bold flex items-center gap-1.5">
-                        <span
-                          className={`w-2.5 h-2.5 rounded-full ${
-                            isCarFree ? 'bg-emerald-600' : 'bg-orange-500'
-                          }`}
-                        />
-                        <span>
-                          {isCarFree
-                            ? activity === 'hike'
-                              ? '🌿 Sentier 0 voiture'
-                              : '🌿 Voie sans voiture'
-                            : '🚗 Route ouverte aux voitures'}
-                        </span>
-                      </div>
-                      <div className="text-[11px] text-stone-500 mt-0.5">{seg.label}</div>
-                    </Tooltip>
-                  </Polyline>
-                );
-              })
-            ) : (
-              <Polyline
-                positions={polylinePositions}
-                pathOptions={{
-                  color,
-                  weight: isSelected ? 6 : isHovered ? 5.5 : 3,
-                  opacity: isSelected ? 1 : isHovered ? 1 : selectedRouteId ? 0.25 : 0.7,
-                  lineCap: 'round',
-                  lineJoin: 'round',
-                  dashArray: !isSelected && r.type === 'custom' ? '6, 5' : undefined,
-                  interactive: true,
-                }}
+            {/* Start dot marker on unselected routes */}
+            {!isSelected && !selectedRouteId && startPos && (!hoveredRouteId || isHovered) && (
+              <Marker
+                position={startPos}
+                icon={createRouteStartPin(semanticColor, isHovered)}
                 eventHandlers={{
                   click: handleSelect,
-                  mouseover: () => {
-                    if (!isSelected) setHoveredRouteId(r.id!);
+                  mouseover: () => handleHoverChange(r.id!),
+                  mouseout: () => {
+                    if (hoveredRouteId === r.id) handleHoverChange(null);
                   },
-                  mouseout: () => setHoveredRouteId(null),
                 }}
-              />
-            )}
-
-            {/* Start marker on selected route */}
-            {isSelected && startPos && (
-              <Marker position={startPos} icon={createStartIcon()} interactive={false}>
-                <Tooltip direction="top" offset={[0, -10]}>
-                  Point de départ
+              >
+                <Tooltip direction="top" offset={[0, -6]}>
+                  <span className="font-bold text-white">{r.title}</span>
+                  <span className="text-emerald-400 font-mono-kpi ml-1.5">
+                    ({(t.distance / 1000).toFixed(1)} km · {r.difficulty?.label})
+                  </span>
                 </Tooltip>
               </Marker>
             )}
           </React.Fragment>
         );
       })}
+
+      {/* PASS 3 (Top Active SVG Layer): Hovered and Selected routes rendered last so they ALWAYS sit on top of all other traces */}
+      {hoveredPrepared && (
+        <React.Fragment key={`top-hovered-${hoveredPrepared.r.id}`}>
+          <Polyline
+            positions={hoveredPrepared.polylinePositions}
+            pathOptions={{
+              color: '#ffffff',
+              weight: 9,
+              opacity: 0.96,
+              lineCap: 'round',
+              lineJoin: 'round',
+              interactive: false,
+            }}
+          />
+          <Polyline
+            positions={hoveredPrepared.polylinePositions}
+            pathOptions={{
+              color: hoveredPrepared.semanticColor,
+              weight: 5.5,
+              opacity: 1,
+              lineCap: 'round',
+              lineJoin: 'round',
+              interactive: false,
+            }}
+          />
+        </React.Fragment>
+      )}
+
+      {selectedPrepared && (
+        <React.Fragment key={`top-selected-${selectedPrepared.r.id}-${isTraceVisible ? 'vis' : 'hid'}`}>
+          {isTraceVisible ? (
+            <>
+              <Polyline
+                positions={selectedPrepared.polylinePositions}
+                pathOptions={{
+                  color: '#ffffff',
+                  weight: 11,
+                  opacity: 0.95,
+                  lineCap: 'round',
+                  lineJoin: 'round',
+                  interactive: false,
+                }}
+              />
+              {selectedPrepared.t.segments && selectedPrepared.t.segments.length > 0 ? (
+                selectedPrepared.t.segments.map((seg, sIdx) => {
+                  const isCarFree = seg.roadType === 'car_free';
+                  const segPositions = seg.coordinates.map(
+                    (c) => [c[1], c[0]] as [number, number]
+                  );
+                  return (
+                    <Polyline
+                      key={`seg-${selectedPrepared.r.id}-${sIdx}`}
+                      positions={segPositions}
+                      pathOptions={{
+                        color: isCarFree ? '#059669' : '#ea580c',
+                        weight: 6.5,
+                        opacity: 1,
+                        dashArray: isCarFree ? undefined : '10, 7',
+                        lineCap: 'round',
+                        lineJoin: 'round',
+                        interactive: true,
+                      }}
+                    >
+                      <Tooltip sticky direction="top">
+                        <div className="font-bold text-white flex items-center gap-1.5">
+                          <span
+                            className={`w-2.5 h-2.5 rounded-full ${
+                              isCarFree ? 'bg-emerald-400' : 'bg-orange-400'
+                            }`}
+                          />
+                          <span>
+                            {isCarFree
+                              ? activity === 'hike'
+                                ? '🌿 Sentier 0 voiture'
+                                : '🌿 Voie sans voiture'
+                              : '🚗 Route ouverte aux voitures'}
+                          </span>
+                        </div>
+                        <div className="text-[11px] text-slate-300 mt-0.5">{seg.label}</div>
+                      </Tooltip>
+                    </Polyline>
+                  );
+                })
+              ) : (
+                <Polyline
+                  positions={selectedPrepared.polylinePositions}
+                  pathOptions={{
+                    color: selectedPrepared.semanticColor,
+                    weight: 6.5,
+                    opacity: 1,
+                    lineCap: 'round',
+                    lineJoin: 'round',
+                    interactive: true,
+                  }}
+                />
+              )}
+            </>
+          ) : (
+            <Polyline
+              positions={selectedPrepared.polylinePositions}
+              pathOptions={{
+                color: '#059669',
+                weight: 2,
+                opacity: 0.35,
+                dashArray: '3, 8',
+                lineCap: 'round',
+                lineJoin: 'round',
+                interactive: true,
+              }}
+            >
+              <Tooltip sticky direction="top">
+                <span className="text-emerald-300 font-bold">
+                  Trace masquée (routes visibles dessous)
+                </span>
+              </Tooltip>
+            </Polyline>
+          )}
+
+          {selectedPrepared.startPos && (
+            <Marker position={selectedPrepared.startPos} icon={createStartIcon()} interactive={false}>
+              <Tooltip direction="top" offset={[0, -10]}>
+                Point de départ ({selectedPrepared.r.title})
+              </Tooltip>
+            </Marker>
+          )}
+        </React.Fragment>
+      )}
 
       {/* Waypoint Markers on Selected Route */}
       {selectedRoute &&

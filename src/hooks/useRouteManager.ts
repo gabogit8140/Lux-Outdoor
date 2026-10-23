@@ -7,6 +7,8 @@ import {
   resolveLocationOffline,
   findNearestLocationOffline,
   REGIONAL_ZONES,
+  routeMatchesFilter,
+  isRegionalZoneLocation,
 } from '../lib/localRouting';
 import {
   parseGPXString,
@@ -23,10 +25,11 @@ export function useRouteManager() {
   const [traces, setTraces] = useState<Record<string, RouteTrace>>({});
   const [selectedRouteId, setSelectedRouteId] = useState<string | null>(null);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [activity, setActivity] = useState<'bike' | 'hike'>('bike');
+  const [activity, setActivity] = useState<'bike' | 'hike'>('hike');
   const [focusTrigger, setFocusTrigger] = useState(0);
   const [showNetwork, setShowNetwork] = useState(false);
-  const [mapLayer, setMapLayer] = useState<MapLayerType>('cyclosm');
+  const [showHuntingBattues, setShowHuntingBattues] = useState(false);
+  const [mapLayer, setMapLayer] = useState<MapLayerType>('osmfr');
   const [exploredBounds, setExploredBounds] = useState<{
     north: number;
     south: number;
@@ -34,7 +37,7 @@ export function useRouteManager() {
     west: number;
   } | null>(null);
 
-  const [currentLocation, setCurrentLocation] = useState<string>('Luxembourg');
+  const [currentLocation, setCurrentLocation] = useState<string>(REGIONAL_ZONES[0].name);
   const [clickedCoord, setClickedCoord] = useState<{
     lat: number;
     lng: number;
@@ -52,8 +55,8 @@ export function useRouteManager() {
     trigger: 0,
   });
 
-  const [distance, setDistance] = useState<[number, number]>([25, 60]);
-  const [activeFilters, setActiveFilters] = useState<string[]>(['low_traffic']);
+  const [distance, setDistance] = useState<[number, number]>([7, 10]);
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
   // Nouveaux filtres personnels
   const [sourceFilter, setSourceFilter] = useState<'all' | 'imported' | 'official'>('all');
@@ -84,11 +87,15 @@ export function useRouteManager() {
       dPlus: 'all' | 'flat' | 'moderate' | 'hilly',
       query: string
     ) => {
+      const effectiveMinD = distRange[0] <= (currentActivity === 'bike' ? 15 : 3) ? 0 : distRange[0];
+      const effectiveMaxD =
+        distRange[1] >= (currentActivity === 'bike' ? 120 : 35) ? Infinity : distRange[1];
+
       return tracks.filter((t) => {
         if (t.activity !== currentActivity) return false;
 
-        // Filtre de distance (avec marge tolérante de 15%)
-        if (t.distanceKm < distRange[0] * 0.85 || t.distanceKm > distRange[1] * 1.2) {
+        // Filtre de distance (ouvert aux extrémités du curseur)
+        if (t.distanceKm < effectiveMinD || t.distanceKm > effectiveMaxD) {
           return false;
         }
 
@@ -110,15 +117,31 @@ export function useRouteManager() {
           if (!matchTitle && !matchDesc && !matchTrip && !matchNotes) return false;
         }
 
-        // Filtres d'ambiance
-        if (filters.includes('flat') && t.elevationGain > 280) return false;
-        if (filters.includes('hilly') && t.elevationGain < 160) return false;
-        if (
-          filters.includes('low_traffic') &&
-          t.roadBreakdown &&
-          t.roadBreakdown.carFreePercentage < 50
-        ) {
-          return false;
+        // Filtres d'ambiance et préférences
+        if (filters && filters.length > 0) {
+          const fakeItem = {
+            route: {
+              id: t.id,
+              title: t.title,
+              description: t.description || '',
+              surfaceType: (t as any).surfaceType || '',
+              highlights: [],
+              elevationGain: t.elevationGain,
+              activity: t.activity,
+              roadBreakdown: t.roadBreakdown,
+              tags: [],
+            } as any,
+            trace: {
+              distance: Math.round(t.distanceKm * 1000),
+              coordinates: t.coordinates,
+            } as any,
+            tags: [],
+          };
+          for (const f of filters) {
+            if (!routeMatchesFilter(fakeItem, f)) {
+              return false;
+            }
+          }
         }
 
         return true;
@@ -138,7 +161,8 @@ export function useRouteManager() {
       srcFilterToUse = sourceFilter,
       tripToUse = selectedTrip,
       dPlusToUse = dPlusFilter,
-      queryToUse = searchQuery
+      queryToUse = searchQuery,
+      boundsToUse: { north: number; south: number; east: number; west: number } | null | undefined = exploredBounds,
     ) => {
       setIsGenerating(true);
       try {
@@ -172,7 +196,7 @@ export function useRouteManager() {
             filters: filtersToUse,
             activity: activityToUse,
             country: countryToUse || selectedZone,
-            bounds: exploredBounds || undefined,
+            bounds: boundsToUse || undefined,
           });
 
           // Application des critères personnalisés sur les routes officielles
@@ -245,14 +269,21 @@ export function useRouteManager() {
       sourceFilter,
       selectedTrip,
       dPlusFilter,
-      searchQuery
+      searchQuery,
+      exploredBounds
     );
   }, [userTracks]);
 
-  const selectRoute = useCallback((id: string) => {
+  const [isTraceVisibleOnMap, setIsTraceVisibleOnMap] = useState<boolean>(true);
+
+  const selectRoute = useCallback((id: string | null) => {
     setSelectedRouteId(id);
-    setIsProfileOpen(true);
-    setFocusTrigger((prev) => prev + 1);
+    setIsTraceVisibleOnMap(true);
+    if (id) {
+      setFocusTrigger((prev) => prev + 1);
+    } else {
+      setIsProfileOpen(false);
+    }
   }, []);
 
   const changeRegionalZone = useCallback(
@@ -278,7 +309,8 @@ export function useRouteManager() {
         sourceFilter,
         selectedTrip,
         dPlusFilter,
-        searchQuery
+        searchQuery,
+        null
       );
       setClickedCoord(null);
     },
@@ -295,46 +327,49 @@ export function useRouteManager() {
     ]
   );
 
+  const clearAllFilters = useCallback(() => {
+    const fullDist: [number, number] = activity === 'bike' ? [15, 120] : [3, 35];
+    const allZone = REGIONAL_ZONES[0];
+    setActiveFilters([]);
+    setDistance(fullDist);
+    setSelectedZone('ALL');
+    setCurrentLocation(allZone.name);
+    setClickedCoord(null);
+    setExploredBounds(null);
+    setSourceFilter('all');
+    setSelectedTrip(null);
+    setDPlusFilter('all');
+    setSearchQuery('');
+
+    setMapCenterTarget({
+      center: [allZone.center[1], allZone.center[0]],
+      zoom: allZone.zoom,
+      trigger: Date.now(),
+    });
+
+    applyCombinedFilter(
+      allZone.name,
+      fullDist,
+      [],
+      activity,
+      'ALL',
+      'all',
+      null,
+      'all',
+      '',
+      null
+    );
+  }, [activity, applyCombinedFilter]);
+
   const selectRouteFromClick = useCallback(
-    async (lat: number, lng: number) => {
-      setIsGenerating(true);
-      try {
-        const nearest = findNearestLocationOffline([lng, lat]);
-        const locLabel = nearest.distanceKm <= 20 ? nearest.name : `Secteur ${nearest.name}`;
-
-        const result = await searchAndGenerateRoutes({
-          center: [lng, lat],
-          distanceKm: distance,
-          filters: activeFilters,
-          activity,
-        });
-
-        setRoutes(result.routes);
-        setTraces(result.traces);
-
-        if (result.routes.length > 0) {
-          setSelectedRouteId(result.routes[0].id);
-          setIsProfileOpen(true);
-        } else {
-          setSelectedRouteId(null);
-          setIsProfileOpen(false);
-        }
-
-        setCurrentLocation(locLabel);
-        setClickedCoord({
-          lat,
-          lng,
-          name: `${locLabel} (${nearest.country})`,
-        });
-
-        setFocusTrigger((prev) => prev + 1);
-      } catch (err) {
-        console.error('Erreur clic carte:', err);
-      } finally {
-        setIsGenerating(false);
-      }
+    (_lat: number, _lng: number) => {
+      // Clicking on the map background outside a trace simply deselects the active trace
+      // without altering the visible catalog or generating new traces.
+      setSelectedRouteId(null);
+      setIsProfileOpen(false);
+      setClickedCoord(null);
     },
-    [distance, activity, activeFilters]
+    []
   );
 
   const generateRoute = useCallback(
@@ -366,7 +401,6 @@ export function useRouteManager() {
 
         if (result.routes.length > 0) {
           setSelectedRouteId(result.routes[0].id);
-          setIsProfileOpen(true);
         } else {
           setSelectedRouteId(null);
           setIsProfileOpen(false);
@@ -397,6 +431,18 @@ export function useRouteManager() {
       country?: 'ALL' | 'LU' | 'BE' | 'DE' | 'NL' | 'FR'
     ) => {
       setActivity(currentActivity);
+      let nextBounds = exploredBounds;
+      if (!isRegionalZoneLocation(location)) {
+        setCurrentLocation(location);
+        const center = resolveLocationOffline(location);
+        setMapCenterTarget({
+          center: [center[1], center[0]],
+          zoom: 11,
+          trigger: Date.now(),
+        });
+        setExploredBounds(null);
+        nextBounds = null;
+      }
       await applyCombinedFilter(
         location,
         distanceKm,
@@ -406,10 +452,11 @@ export function useRouteManager() {
         sourceFilter,
         selectedTrip,
         dPlusFilter,
-        searchQuery
+        searchQuery,
+        nextBounds
       );
     },
-    [applyCombinedFilter, selectedZone, sourceFilter, selectedTrip, dPlusFilter, searchQuery]
+    [applyCombinedFilter, selectedZone, sourceFilter, selectedTrip, dPlusFilter, searchQuery, exploredBounds]
   );
 
   const searchPublic = useCallback(
@@ -428,7 +475,8 @@ export function useRouteManager() {
         sourceFilter,
         selectedTrip,
         dPlusFilter,
-        searchQuery
+        searchQuery,
+        bounds
       );
     },
     [
@@ -561,10 +609,15 @@ export function useRouteManager() {
     selectRoute,
     isProfileOpen,
     setIsProfileOpen,
+    isTraceVisibleOnMap,
+    setIsTraceVisibleOnMap,
+    toggleTraceVisibility: () => setIsTraceVisibleOnMap((prev) => !prev),
+    deselectRoute: () => selectRoute(null),
     activity,
     setActivity,
     generateRoute,
     filterMap,
+    clearAllFilters,
     searchPublic,
     selectRouteFromClick,
     importGPX,
@@ -574,6 +627,8 @@ export function useRouteManager() {
     focusTrigger,
     showNetwork,
     setShowNetwork,
+    showHuntingBattues,
+    setShowHuntingBattues,
     mapLayer,
     setMapLayer,
     distance,

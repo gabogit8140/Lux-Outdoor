@@ -16,9 +16,10 @@ import {
   ShieldCheck,
   Gauge,
   Layers,
+  Repeat,
 } from 'lucide-react';
 import { TouchDistanceSelector } from './TouchDistanceSelector';
-import { REGIONAL_ZONES } from '../lib/localRouting';
+import { REGIONAL_ZONES, isRegionalZoneLocation } from '../lib/localRouting';
 
 export interface MapFilterOption {
   id: string;
@@ -30,6 +31,14 @@ export interface MapFilterOption {
 }
 
 export const MAP_FILTER_OPTIONS: MapFilterOption[] = [
+  {
+    id: 'loop',
+    label: 'Parcours en boucle',
+    shortLabel: 'Boucle',
+    icon: Repeat,
+    description: 'Circuit fermé revenant au point de départ (idéal parking ou gare)',
+    category: 'safety',
+  },
   {
     id: 'low_traffic',
     label: 'Voies sans voiture',
@@ -161,19 +170,21 @@ export function MapFilterBar({
   const activeZoneObj = REGIONAL_ZONES.find((z) => z.id === selectedZone) || REGIONAL_ZONES[0];
 
   const bikeDistancePresets: { label: string; range: [number, number]; desc: string }[] = [
-    { label: 'Toutes', range: [15, 120], desc: 'Vue panoramique (toutes les traces)' },
+    { label: '45–60 km', range: [45, 60], desc: 'Sortie classique (défaut)' },
     { label: '< 30 km', range: [15, 30], desc: 'Balade rapide (1h–1h30)' },
-    { label: '25–60 km', range: [25, 60], desc: 'Sortie classique (2h–3h)' },
-    { label: '55–85 km', range: [55, 85], desc: 'Endurance sportive (3h–4h30)' },
+    { label: '30–45 km', range: [30, 45], desc: 'Sortie modérée (2h)' },
+    { label: '60–85 km', range: [60, 85], desc: 'Endurance sportive (3h–4h30)' },
     { label: '85+ km', range: [85, 120], desc: 'Grande aventure / Gran Fondo' },
+    { label: 'Toutes', range: [15, 120], desc: 'Vue panoramique (toutes les traces)' },
   ];
 
   const hikeDistancePresets: { label: string; range: [number, number]; desc: string }[] = [
-    { label: 'Toutes', range: [3, 35], desc: 'Vue panoramique (toutes les traces)' },
-    { label: '5–18 km', range: [5, 18], desc: 'Classique & demi-journée (2h–4h)' },
-    { label: '< 7 km', range: [3, 7], desc: 'Promenade courte (1h)' },
-    { label: '7–12 km', range: [7, 12], desc: 'Auto-pédestres officiels (2h–3h)' },
+    { label: '7–10 km', range: [7, 10], desc: 'Rando classique (défaut)' },
+    { label: '< 7 km', range: [3, 7], desc: 'Promenade courte (1h–1h30)' },
+    { label: '10–15 km', range: [10, 15], desc: 'Demi-journée (2h30–3h30)' },
+    { label: '15–22 km', range: [15, 22], desc: 'Randonnée sportive' },
     { label: '18+ km', range: [18, 35], desc: 'Grande randonnée / Trail' },
+    { label: 'Toutes', range: [3, 35], desc: 'Vue panoramique (toutes les traces)' },
   ];
 
   const distancePresets = activity === 'bike' ? bikeDistancePresets : hikeDistancePresets;
@@ -189,48 +200,52 @@ export function MapFilterBar({
     (selectedTrip ? 1 : 0) +
     (dPlusFilter !== 'all' ? 1 : 0) +
     (searchQuery.trim().length > 0 ? 1 : 0);
-  const hasActiveCustomFilters =
+
+  const isFullDistanceRange = distance[0] <= minRange && distance[1] >= maxRange;
+  const hasLocationFilter = !isRegionalZoneLocation(currentLocation);
+
+  // True whenever any filter, distance bracket, zone, or city restriction is active
+  const hasAnyActiveFilter =
     nonDefaultFiltersCount > 0 ||
     selectedZone !== 'ALL' ||
-    (activity === 'bike'
-      ? distance[0] !== 30 || distance[1] !== 50
-      : distance[0] !== 7 || distance[1] !== 10);
+    !isFullDistanceRange ||
+    hasLocationFilter;
 
   return (
     <>
       {/* Floating On-Map Bar Container */}
       <div
-        className="absolute left-14 right-3 sm:right-16 md:right-20 z-[420] pointer-events-none flex flex-col gap-2 transition-all"
-        style={{ top: 'calc(env(safe-area-inset-top, 0px) + 0.75rem)' }}
+        className="absolute left-14 sm:left-16 right-14 sm:right-14 md:right-16 z-[420] pointer-events-none flex flex-col gap-1.5 transition-all"
+        style={{ top: 'calc(env(safe-area-inset-top, 0px) + 0.65rem)' }}
       >
         <div className="w-full max-w-4xl mx-auto flex flex-col gap-1.5">
           {/* Primary Top Island: Activity Switcher + Zone Dropdown + Distance Chip + Full Filters Button + Circuit Count */}
-          <div className="pointer-events-auto bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-stone-200/90 p-1.5 flex items-center justify-between gap-1.5 sm:gap-2">
+          <div className="pointer-events-auto bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-2xl shadow-[0_10px_35px_-5px_rgba(15,23,42,0.16)] border border-white/70 dark:border-slate-700/80 p-1 sm:p-1.5 flex items-center justify-between gap-1 sm:gap-2 overflow-x-auto no-scrollbar min-w-0">
             {/* Left: Sport / Activity Segmented Control */}
-            <div className="flex items-center bg-stone-100/90 p-0.5 rounded-xl shrink-0">
+            <div className="flex items-center bg-slate-100/90 dark:bg-slate-800/90 p-0.5 rounded-xl shrink-0">
               <button
                 onClick={() => onActivityChange('bike')}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activity === 'bike'
-                    ? 'bg-emerald-600 text-white shadow-xs'
-                    : 'text-stone-600 hover:text-stone-900 hover:bg-white/60'
+                    ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-600/25'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-700/60'
                 }`}
                 title="Circuits à vélo (cyclotourisme, gravel, route)"
               >
                 <Bike className="w-3.5 h-3.5" />
-                <span className="hidden xs:inline">Vélo</span>
+                <span className="hidden sm:inline">Vélo</span>
               </button>
               <button
                 onClick={() => onActivityChange('hike')}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activity === 'hike'
-                    ? 'bg-emerald-600 text-white shadow-xs'
-                    : 'text-stone-600 hover:text-stone-900 hover:bg-white/60'
+                    ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-600/25'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-700/60'
                 }`}
                 title="Randonnées à pied et sentiers pédestres"
               >
                 <Footprints className="w-3.5 h-3.5" />
-                <span className="hidden xs:inline">À pied</span>
+                <span className="hidden sm:inline">À pied</span>
               </button>
             </div>
 
@@ -243,37 +258,37 @@ export function MapFilterBar({
                     setIsDistanceOpen(!isDistanceOpen);
                     setIsZoneOpen(false);
                   }}
-                  className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold border transition-all ${
+                  className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
                     isDistanceOpen
-                      ? 'bg-emerald-50 border-emerald-400 text-emerald-800 shadow-xs'
-                      : 'bg-white border-stone-200/80 text-stone-700 hover:border-emerald-300 hover:bg-stone-50'
+                      ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-400 dark:border-emerald-600 text-emerald-800 dark:text-emerald-300 shadow-xs'
+                      : 'bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-emerald-300 dark:hover:border-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800'
                   }`}
                   title="Ajuster la distance recherchée"
                 >
-                  <span className="text-[11px] font-bold text-emerald-700">⚡</span>
-                  <span className="whitespace-nowrap font-bold text-stone-800">
+                  <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 hidden xs:inline">⚡</span>
+                  <span className="whitespace-nowrap font-bold font-mono-kpi text-slate-800 dark:text-slate-100 text-[11px] sm:text-xs">
                     {distance[0]}–{distance[1]} km
                   </span>
                   <ChevronDown
-                    className={`w-3 h-3 text-stone-400 transition-transform ${
+                    className={`w-3 h-3 text-slate-400 transition-transform ${
                       isDistanceOpen ? 'rotate-180 text-emerald-600' : ''
                     }`}
                   />
                 </button>
 
-                {/* Distance Dropdown Popover */}
+                {/* Distance Dropdown Popover (Mobile full-width card, Tablet/Desktop anchored popover) */}
                 {isDistanceOpen && (
-                  <div className="absolute top-11 left-0 sm:left-auto sm:right-0 bg-white/98 backdrop-blur-md rounded-2xl shadow-2xl border border-stone-200 p-4 w-72 sm:w-80 z-[500] animate-in fade-in zoom-in-95">
-                    <div className="flex items-center justify-between mb-3 pb-2 border-b border-stone-100">
-                      <span className="text-xs font-bold text-stone-800 flex items-center gap-1.5">
+                  <div className="fixed inset-x-3 top-16 sm:absolute sm:inset-x-auto sm:top-11 sm:right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-4 sm:w-80 z-[500] animate-in fade-in zoom-in-95">
+                    <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-100 dark:border-slate-800">
+                      <span className="text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
                         <span>Distance souhaitée</span>
-                        <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                        <span className="text-[11px] font-bold font-mono-kpi text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">
                           {distance[0]} à {distance[1]} km
                         </span>
                       </span>
                       <button
                         onClick={() => setIsDistanceOpen(false)}
-                        className="text-stone-400 hover:text-stone-600 p-1"
+                        className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
                       >
                         <X className="w-3.5 h-3.5" />
                       </button>
@@ -287,10 +302,10 @@ export function MapFilterBar({
                       compact={true}
                     />
 
-                    <div className="mt-4 pt-3 border-t border-stone-100 flex justify-end">
+                    <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-end">
                       <button
                         onClick={() => setIsDistanceOpen(false)}
-                        className="px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 transition-colors shadow-xs"
+                        className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold hover:from-emerald-500 hover:to-teal-500 transition-all shadow-sm"
                       >
                         Appliquer
                       </button>
@@ -306,19 +321,19 @@ export function MapFilterBar({
                     setIsZoneOpen(!isZoneOpen);
                     setIsDistanceOpen(false);
                   }}
-                  className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold border transition-all ${
+                  className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
                     isZoneOpen
-                      ? 'bg-emerald-50 border-emerald-400 text-emerald-800 shadow-xs'
-                      : 'bg-white border-stone-200/80 text-stone-700 hover:border-emerald-300 hover:bg-stone-50'
+                      ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-400 dark:border-emerald-600 text-emerald-800 dark:text-emerald-300 shadow-xs'
+                      : 'bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-emerald-300 dark:hover:border-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800'
                   }`}
                   title="Changer de zone transfrontalière (200 km)"
                 >
                   <span className="text-sm">{activeZoneObj.flag}</span>
-                  <span className="hidden md:inline font-bold text-stone-800">
+                  <span className="hidden lg:inline font-bold text-slate-800 dark:text-slate-100">
                     {activeZoneObj.id === 'ALL' ? 'Grande Région' : activeZoneObj.name.split(' ')[0]}
                   </span>
                   <ChevronDown
-                    className={`w-3 h-3 text-stone-400 transition-transform ${
+                    className={`w-3 h-3 text-slate-400 transition-transform ${
                       isZoneOpen ? 'rotate-180 text-emerald-600' : ''
                     }`}
                   />
@@ -326,13 +341,13 @@ export function MapFilterBar({
 
                 {/* Zone Dropdown Popover */}
                 {isZoneOpen && (
-                  <div className="absolute top-11 left-0 sm:left-auto sm:right-0 bg-white/98 backdrop-blur-md rounded-2xl shadow-2xl border border-stone-200 p-2.5 w-64 z-[500] animate-in fade-in zoom-in-95">
-                    <div className="px-2 py-1 mb-1.5 border-b border-stone-100 flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-stone-400 uppercase tracking-wider flex items-center gap-1">
+                  <div className="fixed inset-x-3 top-16 sm:absolute sm:inset-x-auto sm:top-11 sm:right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-2.5 sm:w-64 z-[500] animate-in fade-in zoom-in-95">
+                    <div className="px-2 py-1 mb-1.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
                         <Globe className="w-3 h-3 text-emerald-600" />
                         Zone (Rayon 200 km)
                       </span>
-                      <span className="text-[10px] font-semibold text-emerald-700">BE · DE · NL · LU · FR</span>
+                      <span className="text-[10px] font-semibold text-emerald-700 dark:text-emerald-400">BE · DE · NL · LU · FR</span>
                     </div>
 
                     <div className="space-y-1">
@@ -345,17 +360,17 @@ export function MapFilterBar({
                               onSelectZone(zone.id);
                               setIsZoneOpen(false);
                             }}
-                            className={`w-full text-left px-2.5 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center justify-between ${
+                            className={`w-full text-left px-2.5 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center justify-between cursor-pointer ${
                               isSelected
-                                ? 'bg-emerald-50 text-emerald-900 border border-emerald-200'
-                                : 'hover:bg-stone-100 text-stone-700'
+                                ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800'
+                                : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200'
                             }`}
                           >
                             <div className="flex items-center gap-2">
                               <span className="text-base">{zone.flag}</span>
                               <span>{zone.name}</span>
                             </div>
-                            {isSelected && <Check className="w-3.5 h-3.5 text-emerald-600" />}
+                            {isSelected && <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
                           </button>
                         );
                       })}
@@ -370,18 +385,18 @@ export function MapFilterBar({
                   onClick={() =>
                     onSourceFilterChange(sourceFilter === 'imported' ? 'all' : 'imported')
                   }
-                  className={`flex items-center gap-1 px-2 py-1.5 rounded-xl text-xs font-bold border transition-all ${
+                  className={`hidden sm:flex items-center gap-1 px-2 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                     sourceFilter === 'imported'
-                      ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
-                      : 'bg-emerald-50 text-emerald-800 border-emerald-200/80 hover:bg-emerald-100'
+                      ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white border-emerald-600 shadow-xs'
+                      : 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 border-emerald-200/80 dark:border-emerald-800 hover:bg-emerald-100'
                   }`}
                   title="Afficher uniquement mes traces importées"
                 >
                   <span className="text-xs">📍</span>
                   <span className="hidden lg:inline text-[11px]">Mes Traces</span>
                   <span
-                    className={`text-[10px] font-black px-1.5 rounded-full ${
-                      sourceFilter === 'imported' ? 'bg-white text-emerald-800' : 'bg-emerald-200/60'
+                    className={`text-[10px] font-black font-mono-kpi px-1.5 rounded-full ${
+                      sourceFilter === 'imported' ? 'bg-white text-emerald-800' : 'bg-emerald-200/60 dark:bg-emerald-900'
                     }`}
                   >
                     {userTracksCount}
@@ -390,23 +405,35 @@ export function MapFilterBar({
               )}
             </div>
 
-            {/* Right: Full Filters Modal Button + Circuit Counter */}
-            <div className="flex items-center gap-1.5 shrink-0">
+            {/* Right: Clear All Filters + Full Filters Modal Button + Circuit Counter */}
+            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+              {/* Direct 1-Click "Enlever tous les filtres" Button in Top Bar */}
+              {hasAnyActiveFilter && (
+                <button
+                  onClick={onClearFilters}
+                  className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl text-xs font-bold border border-rose-200/90 dark:border-rose-800/80 bg-rose-50/90 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 hover:bg-rose-100 dark:hover:bg-rose-900/80 hover:border-rose-300 transition-all shadow-2xs active:scale-95 cursor-pointer"
+                  title="Enlever tous les filtres et afficher toutes les traces"
+                >
+                  <RotateCcw className="w-3.5 h-3.5 shrink-0" />
+                  <span className="hidden md:inline whitespace-nowrap">Sans filtre</span>
+                </button>
+              )}
+
               {/* Full Filters Button with Badge */}
               <button
                 onClick={() => setIsAllFiltersOpen(true)}
-                className={`relative flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${
+                className={`relative flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                   nonDefaultFiltersCount > 0
-                    ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
-                    : 'bg-white border-stone-200/90 text-stone-700 hover:border-emerald-300 hover:bg-stone-50'
+                    ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white border-emerald-600 shadow-md shadow-emerald-600/20'
+                    : 'bg-white/80 dark:bg-slate-800/80 border-slate-200/90 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-emerald-300 dark:hover:border-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800'
                 }`}
                 title="Ouvrir tous les filtres de sélection de circuits"
               >
                 <SlidersHorizontal className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Filtres</span>
+                <span className="hidden md:inline">Filtres</span>
                 {nonDefaultFiltersCount > 0 && (
                   <span
-                    className={`text-[10px] font-black px-1.5 py-0.2 rounded-full ${
+                    className={`text-[10px] font-black font-mono-kpi px-1.5 py-0.2 rounded-full ${
                       nonDefaultFiltersCount > 0
                         ? 'bg-white text-emerald-800'
                         : 'bg-emerald-600 text-white'
@@ -419,23 +446,35 @@ export function MapFilterBar({
 
               {/* Circuits Counter Badge */}
               <div
-                className="hidden xs:flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-stone-100/90 border border-stone-200 text-stone-700 text-xs font-bold shrink-0"
+                className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-[11px] sm:text-xs font-bold font-mono-kpi shrink-0"
                 title={`${routesCount} circuits trouvés dans ce secteur`}
               >
                 {isGenerating ? (
                   <span className="animate-spin h-3 w-3 border-2 border-emerald-600 rounded-full border-t-transparent" />
                 ) : (
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse" />
                 )}
                 <span>
-                  {routesCount} <span className="hidden sm:inline">{routesCount > 1 ? 'circuits' : 'circuit'}</span>
+                  {routesCount} <span className="hidden lg:inline font-sans">{routesCount > 1 ? 'circuits' : 'circuit'}</span>
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Secondary Horizontal Scrollable Quick-Filter Chips Bar (Desktop only, hidden on mobile) */}
-          <div className="pointer-events-auto hidden md:flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 px-0.5 scroll-smooth">
+          {/* Secondary Horizontal Scrollable Quick-Filter Chips Bar (Visible on Phone, Tablet & Desktop) */}
+          <div className="pointer-events-auto flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 px-0.5 scroll-smooth">
+            {/* Prominent "Enlever tous les filtres" Pill at the front of the bar whenever any filter is active */}
+            {hasAnyActiveFilter && (
+              <button
+                onClick={onClearFilters}
+                className="flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold text-rose-700 dark:text-rose-300 bg-white/95 dark:bg-slate-900/95 border border-rose-300/90 dark:border-rose-700/80 hover:bg-rose-50 dark:hover:bg-rose-950/60 transition-all whitespace-nowrap shrink-0 shadow-sm cursor-pointer active:scale-95"
+                title="Enlever tous les filtres (distances, critères, zone et lieu)"
+              >
+                <RotateCcw className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
+                <span>Enlever tous les filtres</span>
+              </button>
+            )}
+
             {MAP_FILTER_OPTIONS.map((opt) => {
               const isActive = activeFilters.includes(opt.id);
               const Icon = opt.icon;
@@ -443,16 +482,16 @@ export function MapFilterBar({
                 <button
                   key={opt.id}
                   onClick={() => onToggleFilter(opt.id)}
-                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-bold whitespace-nowrap transition-all shrink-0 border backdrop-blur-md shadow-xs ${
+                  className={`flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold whitespace-nowrap transition-all shrink-0 border backdrop-blur-xl cursor-pointer ${
                     isActive
-                      ? 'bg-emerald-600 text-white border-emerald-600 shadow-emerald-700/20 shadow-md ring-1 ring-emerald-500/30'
-                      : 'bg-white/95 text-stone-700 border-stone-200/90 hover:bg-stone-50 hover:border-emerald-300'
+                      ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white border-emerald-500 shadow-lg shadow-emerald-600/25 ring-1 ring-emerald-400/30'
+                      : 'bg-white/90 dark:bg-slate-900/90 text-slate-700 dark:text-slate-200 border-white/70 dark:border-slate-700/80 hover:bg-white dark:hover:bg-slate-800 hover:border-emerald-300 dark:hover:border-emerald-600 shadow-xs'
                   }`}
                   title={opt.description}
                 >
                   <Icon
                     className={`w-3.5 h-3.5 ${
-                      isActive ? 'text-white' : 'text-emerald-700'
+                      isActive ? 'text-white' : 'text-emerald-600 dark:text-emerald-400'
                     }`}
                   />
                   <span>{opt.shortLabel}</span>
@@ -460,18 +499,6 @@ export function MapFilterBar({
                 </button>
               );
             })}
-
-            {/* Quick Reset Button if customized */}
-            {hasActiveCustomFilters && (
-              <button
-                onClick={onClearFilters}
-                className="flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-semibold text-stone-500 hover:text-stone-800 bg-white/90 border border-stone-200/80 hover:bg-stone-100 transition-colors whitespace-nowrap shrink-0 shadow-2xs"
-                title="Réinitialiser tous les filtres"
-              >
-                <RotateCcw className="w-3 h-3" />
-                <span>Effacer</span>
-              </button>
-            )}
           </div>
         </div>
       </div>
@@ -809,14 +836,14 @@ export function MapFilterBar({
             <div className="px-5 py-3.5 border-t border-stone-100 bg-stone-50 flex items-center justify-between shrink-0">
               <button
                 onClick={onClearFilters}
-                className="text-stone-500 hover:text-stone-900 font-bold text-xs flex items-center gap-1.5 transition-colors"
+                className="px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 hover:text-rose-900 font-bold text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
-                <span>Réinitialiser</span>
+                <span>Enlever tous les filtres</span>
               </button>
               <button
                 onClick={() => setIsAllFiltersOpen(false)}
-                className="px-5 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-colors shadow-md shadow-emerald-700/20 flex items-center gap-2"
+                className="px-5 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition-colors shadow-md shadow-emerald-700/20 flex items-center gap-2 cursor-pointer"
               >
                 <span>Voir les {routesCount} circuits</span>
               </button>

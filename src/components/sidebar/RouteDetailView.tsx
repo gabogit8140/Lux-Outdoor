@@ -12,9 +12,23 @@ import {
   Bike,
   Globe,
   ExternalLink,
+  MapPin,
+  Eye,
+  EyeOff,
+  X,
+  Route,
+  Mountain,
+  Clock,
 } from 'lucide-react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
 import { downloadGPX } from '../../lib/gpx';
+import { HuntingSafetyAlert } from '../ui/HuntingSafetyAlert';
+import {
+  KpiTelemetryCard,
+  getCountryFlag,
+  SidebarElevationChart,
+  getSemanticRouteColor,
+} from '../ui/PremiumPrimitives';
 
 interface RouteDetailViewProps {
   route: RouteSuggestions;
@@ -26,6 +40,15 @@ interface RouteDetailViewProps {
   setPendingNotes: (notes: string) => void;
   onSaveFavorite: (userRating?: number, userNotes?: string) => void;
   onReverseRoute: () => void;
+  isTraceVisible?: boolean;
+  onToggleTraceVisibility?: () => void;
+  onDeselect?: () => void;
+  onHoverDistance?: (distanceKm: number | null) => void;
+  isHoverPreview?: boolean;
+  onLockRoute?: (id: string) => void;
+  onBackToCatalog?: () => void;
+  showHuntingBattues?: boolean;
+  onToggleHuntingBattues?: () => void;
 }
 
 export function RouteDetailView({
@@ -38,8 +61,18 @@ export function RouteDetailView({
   setPendingNotes,
   onSaveFavorite,
   onReverseRoute,
+  isTraceVisible = true,
+  onToggleTraceVisibility,
+  onDeselect,
+  onHoverDistance,
+  isHoverPreview = false,
+  onLockRoute,
+  onBackToCatalog,
+  showHuntingBattues,
+  onToggleHuntingBattues,
 }: RouteDetailViewProps) {
   const [showRoadbook, setShowRoadbook] = useState(false);
+  const semanticColor = getSemanticRouteColor(route.difficulty?.level);
 
   const handleExportGPX = () => {
     if (!trace) return;
@@ -66,25 +99,57 @@ export function RouteDetailView({
   };
 
   return (
-    <div className="space-y-4">
-      {/* Route Header Card */}
-      <div className="bg-stone-50 border border-stone-200/90 rounded-2xl p-3.5 space-y-2">
+    <div className="space-y-3.5">
+      {/* Top quick navigation & Hover Preview banner */}
+      <div className="flex items-center justify-between gap-2">
+        {onBackToCatalog && (
+          <button
+            onClick={onBackToCatalog}
+            className="text-[11px] font-bold text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 flex items-center gap-1 px-2.5 py-1 rounded-xl bg-slate-100/90 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 transition-colors cursor-pointer"
+          >
+            <span>← Liste des traces</span>
+          </button>
+        )}
+        {isHoverPreview ? (
+          <div className="flex items-center gap-1.5 ml-auto">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
+              Aperçu au survol
+            </span>
+            {onLockRoute && (
+              <button
+                onClick={() => onLockRoute(route.id)}
+                className="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xs transition-colors cursor-pointer"
+              >
+                Sélectionner
+              </button>
+            )}
+          </div>
+        ) : (
+          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 ml-auto">
+            ✓ Tracé sélectionné
+          </span>
+        )}
+      </div>
+
+      {/* Route Hero Header Card */}
+      <div className="bg-gradient-to-br from-slate-50 via-white to-emerald-50/40 dark:from-slate-800/80 dark:via-slate-800/50 dark:to-emerald-950/30 border border-slate-200/90 dark:border-slate-700/80 rounded-2xl p-3.5 space-y-2.5 shadow-2xs">
         <div className="flex items-start justify-between gap-2">
-          <div className="space-y-0.5">
+          <div className="space-y-1">
             <div className="flex items-center gap-1.5 flex-wrap">
               {route.isUserImported && (
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-600 text-white shadow-2xs">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-2xs">
                   📍 Mon Tracé
                 </span>
               )}
               {route.tripName && (
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
                   ✈️ {route.tripName}
                 </span>
               )}
               {route.country && (
-                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-stone-200 text-stone-700 uppercase">
-                  {route.country}
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 uppercase flex items-center gap-1">
+                  <span>{getCountryFlag(route.country)}</span>
+                  <span>{route.country}</span>
                 </span>
               )}
               <span
@@ -92,7 +157,7 @@ export function RouteDetailView({
               >
                 {route.difficulty.label}
               </span>
-              <span className="text-[10px] bg-emerald-50 text-emerald-800 font-semibold px-2 py-0.5 rounded-full border border-emerald-200/60 flex items-center gap-1">
+              <span className="text-[10px] bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-800 dark:text-emerald-300 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/20 flex items-center gap-1">
                 {activity === 'hike' ? (
                   <>
                     <Footprints className="w-3 h-3" /> Rando
@@ -104,101 +169,173 @@ export function RouteDetailView({
                 )}
               </span>
             </div>
-            <h2 className="text-sm font-bold text-stone-900 leading-snug">{route.title}</h2>
+            <h2 className="text-sm font-extrabold text-slate-900 dark:text-white leading-snug pt-0.5">
+              {route.title}
+            </h2>
           </div>
         </div>
 
-        <p className="text-xs text-stone-600 leading-relaxed">{route.description}</p>
+        <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+          {route.description}
+        </p>
 
         {/* Surface type description */}
-        <div className="text-[11px] text-stone-500 font-medium pt-1 border-t border-stone-200/60 flex items-center gap-1">
-          <span className="font-semibold text-stone-700">Revêtement :</span>
+        <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium pt-1.5 border-t border-slate-200/60 dark:border-slate-700/60 flex items-center gap-1.5">
+          <span className="font-semibold text-slate-700 dark:text-slate-200">Revêtement :</span>
           <span>{route.surfaceType}</span>
+        </div>
+
+        {/* Visibility on Map & Deselect Route Controls */}
+        <div className="flex items-center gap-2 pt-2 border-t border-slate-200/60 dark:border-slate-700/60">
+          {onToggleTraceVisibility && (
+            <button
+              onClick={onToggleTraceVisibility}
+              className={`flex-1 py-1.5 px-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all border cursor-pointer ${
+                isTraceVisible
+                  ? 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700'
+                  : 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white border-emerald-600 shadow-sm font-extrabold'
+              }`}
+              title={
+                isTraceVisible
+                  ? 'Masquer la trace pour voir les routes dessous'
+                  : 'Afficher la trace sur la carte'
+              }
+            >
+              {isTraceVisible ? (
+                <>
+                  <EyeOff className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+                  <span>Masquer la trace (voir routes)</span>
+                </>
+              ) : (
+                <>
+                  <Eye className="w-3.5 h-3.5 text-white" />
+                  <span>Réafficher la trace</span>
+                </>
+              )}
+            </button>
+          )}
+
+          {onDeselect && (
+            <button
+              onClick={onDeselect}
+              className="py-1.5 px-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-rose-50 dark:hover:bg-rose-950/50 hover:text-rose-600 dark:hover:text-rose-400 border border-slate-200 dark:border-slate-700 hover:border-rose-300 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-1 transition-colors cursor-pointer"
+              title="Enlever la sélection et revenir à la liste"
+            >
+              <X className="w-3.5 h-3.5" />
+              <span>Enlever</span>
+            </button>
+          )}
         </div>
       </div>
 
-      {/* Official Source Website for the GPX */}
-      {(route.sourceUrl || route.sourceLabel) && (
-        <div className="bg-emerald-50/70 border border-emerald-200/90 rounded-2xl p-3 flex items-center justify-between gap-2.5">
-          <div className="flex items-center gap-2.5 min-w-0">
-            <div className="w-8 h-8 rounded-xl bg-white text-emerald-700 border border-emerald-200/80 flex items-center justify-center shrink-0 shadow-2xs">
-              <Globe className="w-4 h-4" />
+      {/* Official Source Website & Cadastral Geoportail.lu for the GPX */}
+      {(route.sourceUrl || route.sourceLabel || route.geoportailUrl) && (
+        <div className="bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/90 dark:border-emerald-800/70 rounded-2xl p-3 flex flex-col gap-2.5">
+          <div className="flex items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-700 flex items-center justify-center shrink-0 shadow-2xs">
+                <Globe className="w-4 h-4" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-[10px] uppercase font-bold text-emerald-800/80 dark:text-emerald-400 tracking-wider block">
+                  Fiche officielle & Source du tracé
+                </span>
+                <span className="text-xs font-bold text-slate-900 dark:text-white truncate block">
+                  {route.sourceLabel || 'Page officielle du parcours'}
+                </span>
+              </div>
             </div>
-            <div className="min-w-0">
-              <span className="text-[10px] uppercase font-bold text-emerald-800/80 tracking-wider block">
-                Site officiel source du tracé GPX
-              </span>
-              <span className="text-xs font-bold text-stone-900 truncate block">
-                {route.sourceLabel || 'Site officiel'}
-              </span>
-            </div>
+            {route.sourceUrl && (
+              <a
+                href={route.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2.5 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shrink-0 shadow-sm active:scale-95 transition-all cursor-pointer"
+                title="Ouvrir la page officielle dédiée à ce tracé"
+              >
+                <span>Fiche officielle</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
           </div>
-          {route.sourceUrl && (
-            <a
-              href={route.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shrink-0 shadow-2xs hover:shadow-xs active:scale-95 transition-all cursor-pointer"
-              title="Ouvrir le site source officiel du tracé"
-            >
-              <span>Consulter</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+
+          {route.geoportailUrl && (
+            <div className="pt-2 border-t border-emerald-200/60 dark:border-emerald-800/60 flex items-center justify-between text-xs">
+              <span className="text-[11px] text-emerald-900/80 dark:text-emerald-300 font-medium flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
+                <span>Cadastre & Topographie (ACT) :</span>
+              </span>
+              <a
+                href={route.geoportailUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:text-emerald-900 underline flex items-center gap-1"
+                title="Consulter le tracé sur la carte topographique officielle de Geoportail.lu"
+              >
+                <span>Geoportail.lu</span>
+                <ExternalLink className="w-3 h-3 opacity-70" />
+              </a>
+            </div>
           )}
         </div>
       )}
 
-      {/* Key Metric Cards */}
+      {/* High-Density Bento KPI Telemetry Cards */}
       <div className="grid grid-cols-3 gap-2">
-        <div className="p-2.5 bg-stone-50 border border-stone-100 rounded-xl flex flex-col items-center justify-center text-center">
-          <span className="text-[9px] text-stone-400 uppercase tracking-wider font-bold mb-0.5">
-            Distance
-          </span>
-          <span className="text-sm font-extrabold text-stone-900">
-            {trace ? (trace.distance / 1000).toFixed(1) : '--'}
-            <span className="text-[10px] text-stone-500 ml-0.5 font-semibold">km</span>
-          </span>
-        </div>
-
-        <div className="p-2.5 bg-stone-50 border border-stone-100 rounded-xl flex flex-col items-center justify-center text-center">
-          <span className="text-[9px] text-stone-400 uppercase tracking-wider font-bold mb-0.5">
-            Dénivelé D+
-          </span>
-          <span className="text-sm font-extrabold text-emerald-700">
-            {route.elevationGain}
-            <span className="text-[10px] text-stone-500 ml-0.5 font-semibold">m</span>
-          </span>
-        </div>
-
-        <div className="p-2.5 bg-stone-50 border border-stone-100 rounded-xl flex flex-col items-center justify-center text-center">
-          <span className="text-[9px] text-stone-400 uppercase tracking-wider font-bold mb-0.5">
-            Durée estim.
-          </span>
-          <span className="text-sm font-extrabold text-stone-900">
-            {trace
+        <KpiTelemetryCard
+          label="Distance"
+          value={trace ? (trace.distance / 1000).toFixed(1) : '--'}
+          unit="km"
+          icon={<Route className="w-3 h-3" />}
+        />
+        <KpiTelemetryCard
+          label="Dénivelé D+"
+          value={`+${route.elevationGain}`}
+          unit="m"
+          accent="emerald"
+          icon={<Mountain className="w-3 h-3" />}
+        />
+        <KpiTelemetryCard
+          label="Durée estim."
+          value={
+            trace
               ? `${Math.floor(trace.duration / 3600)}h${String(
                   Math.round((trace.duration % 3600) / 60)
                 ).padStart(2, '0')}`
-              : '--'}
-          </span>
-        </div>
+              : '--'
+          }
+          icon={<Clock className="w-3 h-3" />}
+        />
       </div>
+
+      {/* Interactive Elevation Profile Chart inside Right Sidebar */}
+      {trace?.elevationProfile && trace.elevationProfile.length >= 2 && (
+        <SidebarElevationChart
+          profile={trace.elevationProfile}
+          routeId={route.id}
+          color={semanticColor}
+          elevationGain={route.elevationGain}
+          minElevation={route.minElevation}
+          maxElevation={route.maxElevation}
+          onHoverDistance={onHoverDistance}
+        />
+      )}
 
       {/* Road Breakdown & Traffic Safety (Wording adapted strictly to activity) */}
       {route.roadBreakdown && (
-        <section className="bg-stone-50/80 p-3 rounded-xl border border-stone-200 flex flex-col gap-2.5">
+        <section className="bg-slate-50/80 dark:bg-slate-800/50 p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-700/70 flex flex-col gap-2.5">
           <div className="flex items-center justify-between">
-            <h3 className="text-[10px] uppercase tracking-widest text-stone-500 font-bold flex items-center gap-1.5">
+            <h3 className="text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold flex items-center gap-1.5">
               <Car className="w-3.5 h-3.5 text-orange-500" />
               Sécurité & Trafic routier
             </h3>
             <span
-              className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+              className={`text-[10px] font-bold font-mono-kpi px-2 py-0.5 rounded-full ${
                 route.roadBreakdown.safetyRating === 'maximal'
-                  ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                  ? 'bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
                   : route.roadBreakdown.safetyRating === 'high'
-                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-100'
-                  : 'bg-amber-50 text-amber-800 border border-amber-200'
+                  ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-800'
+                  : 'bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800'
               }`}
             >
               {route.roadBreakdown.carFreePercentage}% sans voiture
@@ -206,9 +343,9 @@ export function RouteDetailView({
           </div>
 
           {/* Segmented color bar */}
-          <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex shadow-inner">
+          <div className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden flex shadow-inner">
             <div
-              className="h-full bg-emerald-600 transition-all"
+              className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all"
               style={{ width: `${route.roadBreakdown.carFreePercentage}%` }}
               title={`Voie sans voiture : ${route.roadBreakdown.carFreeKm} km (${route.roadBreakdown.carFreePercentage}%)`}
             />
@@ -220,37 +357,37 @@ export function RouteDetailView({
           </div>
 
           {/* Detailed cards for car-free vs shared road */}
-          <div className="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-stone-200/60">
-            <div className="p-2 rounded-lg bg-emerald-50/70 border border-emerald-200/80">
-              <div className="flex items-center gap-1.5 font-bold text-emerald-900 text-[11px]">
-                <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0" />
+          <div className="grid grid-cols-2 gap-2 text-xs pt-1.5 border-t border-slate-200/60 dark:border-slate-700/60">
+            <div className="p-2.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-800/70">
+              <div className="flex items-center gap-1.5 font-bold text-emerald-900 dark:text-emerald-300 text-[11px]">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
                 <span>Voie sans voiture</span>
               </div>
-              <div className="text-emerald-700 font-extrabold text-sm mt-0.5">
+              <div className="text-emerald-700 dark:text-emerald-400 font-extrabold font-mono-kpi text-sm mt-0.5">
                 {route.roadBreakdown.carFreeKm} km
-                <span className="text-[10px] font-normal text-emerald-600 ml-1">
+                <span className="text-[10px] font-normal text-emerald-600 dark:text-emerald-400/80 ml-1">
                   ({route.roadBreakdown.carFreePercentage}%)
                 </span>
               </div>
-              <div className="text-[10px] text-emerald-800/80 mt-0.5 leading-tight">
+              <div className="text-[10px] text-emerald-800/80 dark:text-emerald-300/70 mt-0.5 leading-tight">
                 {activity === 'hike'
                   ? 'Sentiers pédestres, chemins de terre & voies sans voiture'
                   : 'Voies vertes, pistes cyclables & sentiers réservés'}
               </div>
             </div>
 
-            <div className="p-2 rounded-lg bg-orange-50/70 border border-orange-200/80">
-              <div className="flex items-center gap-1.5 font-bold text-orange-950 text-[11px]">
+            <div className="p-2.5 rounded-xl bg-orange-50/70 dark:bg-orange-950/30 border border-orange-200/80 dark:border-orange-800/70">
+              <div className="flex items-center gap-1.5 font-bold text-orange-950 dark:text-orange-300 text-[11px]">
                 <span className="w-2 h-2 rounded-full bg-orange-500 shrink-0" />
                 <span>Route partagée</span>
               </div>
-              <div className="text-orange-700 font-extrabold text-sm mt-0.5">
+              <div className="text-orange-700 dark:text-orange-400 font-extrabold font-mono-kpi text-sm mt-0.5">
                 {route.roadBreakdown.sharedRoadKm} km
-                <span className="text-[10px] font-normal text-orange-600 ml-1">
+                <span className="text-[10px] font-normal text-orange-600 dark:text-orange-400/80 ml-1">
                   ({route.roadBreakdown.sharedRoadPercentage}%)
                 </span>
               </div>
-              <div className="text-[10px] text-orange-800/80 mt-0.5 leading-tight">
+              <div className="text-[10px] text-orange-800/80 dark:text-orange-300/70 mt-0.5 leading-tight">
                 Petites routes ouvertes à la circulation automobile
               </div>
             </div>
@@ -258,16 +395,25 @@ export function RouteDetailView({
         </section>
       )}
 
+      {/* Hunting & Battue Safety Information (Luxembourg & Greater Region) */}
+      <HuntingSafetyAlert
+        country={route.country}
+        coords={route.waypoints}
+        regionName={route.regionName}
+        showHuntingBattues={showHuntingBattues}
+        onToggleHuntingBattues={onToggleHuntingBattues}
+      />
+
       {/* Highlights */}
       {route.highlights && route.highlights.length > 0 && (
-        <section className="bg-stone-50/70 p-3 rounded-xl border border-stone-100">
-          <h3 className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1.5">
+        <section className="bg-slate-50/70 dark:bg-slate-800/40 p-3.5 rounded-2xl border border-slate-200/80 dark:border-slate-700/70">
+          <h3 className="text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-bold mb-1.5">
             Points d'intérêt & Atouts
           </h3>
           <ul className="space-y-1">
             {route.highlights.map((h, i) => (
-              <li key={i} className="flex gap-2 text-xs text-stone-700 items-start">
-                <span className="text-emerald-600 font-bold leading-none mt-0.5">•</span>
+              <li key={i} className="flex gap-2 text-xs text-slate-700 dark:text-slate-200 items-start">
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold leading-none mt-0.5">•</span>
                 <span>{h}</span>
               </li>
             ))}
@@ -276,9 +422,9 @@ export function RouteDetailView({
       )}
 
       {/* Personal Rating & Field Notes */}
-      <section className="bg-stone-50/80 p-3 rounded-xl border border-stone-200/70 flex flex-col gap-2">
+      <section className="bg-slate-50/80 dark:bg-slate-800/40 p-3.5 rounded-2xl border border-slate-200/70 dark:border-slate-700/70 flex flex-col gap-2">
         <div className="flex items-center justify-between">
-          <span className="text-[10px] uppercase font-bold text-stone-500 tracking-wider flex items-center gap-1">
+          <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider flex items-center gap-1">
             <Star className="w-3.5 h-3.5 text-amber-500" />
             Votre avis personnel :
           </span>
@@ -294,7 +440,7 @@ export function RouteDetailView({
                   className={`w-4 h-4 ${
                     pendingRating >= star
                       ? 'text-amber-400 fill-amber-400'
-                      : 'text-stone-300 hover:text-amber-300'
+                      : 'text-slate-300 dark:text-slate-600 hover:text-amber-300'
                   }`}
                 />
               </button>
@@ -308,33 +454,33 @@ export function RouteDetailView({
             onChange={(e) => setPendingNotes(e.target.value)}
             placeholder="Notes de terrain personnelles (ex: vue panoramique au km 6, fontaine d'eau potable, passages ombragés...)"
             rows={2}
-            className="w-full text-xs p-2 bg-white border border-stone-200 rounded-lg outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 text-stone-800 placeholder:text-stone-400 resize-none"
+            className="w-full text-xs p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 resize-none"
           />
         </div>
       </section>
 
       {/* Roadbook / Turn-by-Turn Accordion */}
       {route.instructions && route.instructions.length > 0 && (
-        <section className="border border-stone-200 rounded-xl overflow-hidden">
+        <section className="border border-slate-200/80 dark:border-slate-700/80 rounded-2xl overflow-hidden">
           <button
             onClick={() => setShowRoadbook(!showRoadbook)}
-            className="w-full px-3 py-2 bg-stone-50 hover:bg-stone-100 flex items-center justify-between text-xs font-semibold text-stone-700 transition-colors cursor-pointer"
+            className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/70 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between text-xs font-semibold text-slate-700 dark:text-slate-200 transition-colors cursor-pointer"
           >
             <span className="flex items-center gap-1.5">
-              <ListOrdered className="w-3.5 h-3.5 text-emerald-600" />
+              <ListOrdered className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
               Feuille de route ({route.instructions.length} étapes)
             </span>
             <ChevronRight
-              className={`w-4 h-4 text-stone-400 transition-transform ${
+              className={`w-4 h-4 text-slate-400 transition-transform ${
                 showRoadbook ? 'rotate-90' : ''
               }`}
             />
           </button>
           {showRoadbook && (
-            <div className="p-3 bg-white space-y-2 max-h-48 overflow-y-auto text-xs">
+            <div className="p-3 bg-white dark:bg-slate-900 space-y-2 max-h-48 overflow-y-auto text-xs">
               {route.instructions.map((inst, i) => (
-                <div key={i} className="flex items-start gap-2 text-stone-600">
-                  <span className="font-mono font-bold text-[10px] text-emerald-700 shrink-0 w-12 text-right">
+                <div key={i} className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                  <span className="font-mono-kpi font-bold text-[10px] text-emerald-700 dark:text-emerald-400 shrink-0 w-12 text-right">
                     {inst.distanceKm} km
                   </span>
                   <span>{inst.text}</span>
@@ -349,17 +495,17 @@ export function RouteDetailView({
       <div className="space-y-2 pt-1">
         <button
           onClick={onReverseRoute}
-          className="w-full py-2 px-3 border border-stone-200 hover:border-stone-300 bg-white hover:bg-stone-50 text-stone-700 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+          className="w-full py-2.5 px-3 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/80 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
           title="Inverser le sens de parcours du circuit"
         >
-          <RefreshCw className="w-3.5 h-3.5 text-stone-500" />
+          <RefreshCw className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
           <span>Inverser le sens du circuit</span>
         </button>
 
         <div className="grid grid-cols-2 gap-2">
           <button
             onClick={handleExportGPX}
-            className="py-2.5 px-3 border border-emerald-600 text-emerald-700 hover:bg-emerald-50 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+            className="py-2.5 px-3 border border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
             title="Exporter au format GPX pour GPS Garmin / Wahoo / Komoot"
           >
             <Download className="w-3.5 h-3.5" />
@@ -368,7 +514,7 @@ export function RouteDetailView({
 
           <button
             onClick={() => onSaveFavorite(pendingRating, pendingNotes)}
-            className="py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer"
+            className="py-2.5 px-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 active:scale-95 transition-all cursor-pointer"
             title="Enregistrer ce tracé dans vos favoris"
           >
             <Bookmark className="w-3.5 h-3.5" />
@@ -378,7 +524,7 @@ export function RouteDetailView({
 
         <button
           onClick={handleShare}
-          className="w-full py-1.5 text-stone-500 hover:text-stone-800 text-[11px] font-medium flex items-center justify-center gap-1 transition-colors cursor-pointer"
+          className="w-full py-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white text-[11px] font-medium flex items-center justify-center gap-1 transition-colors cursor-pointer"
         >
           <Share2 className="w-3 h-3" />
           <span>Partager ce parcours</span>

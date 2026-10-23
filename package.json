@@ -5,11 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
+    "start": "node scripts/start-local.mjs",
+    "local": "node scripts/start-local.mjs",
     "index-gpx": "tsx scripts/index-gpx.ts",
+    "generate-icons": "tsx scripts/generate-icons.ts",
     "sync-visitluxembourg": "tsx scripts/sync-visitluxembourg.ts",
     "generate-gpx": "tsx scripts/generate-official-gpx.ts",
     "build": "tsx scripts/index-gpx.ts && vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --port=3000 --host=0.0.0.0",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
   },

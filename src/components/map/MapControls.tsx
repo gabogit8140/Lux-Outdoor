@@ -13,7 +13,7 @@ export function DesktopZoomControl() {
   const map = useMap();
 
   return (
-    <div className="hidden md:flex flex-col shadow-md rounded-xl overflow-hidden border border-stone-200 bg-white">
+    <div className="hidden md:flex flex-col shadow-lg rounded-2xl overflow-hidden border border-white/70 dark:border-slate-700/80 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl">
       <button
         type="button"
         onClick={(e) => {
@@ -21,7 +21,7 @@ export function DesktopZoomControl() {
           e.stopPropagation();
           map.zoomIn();
         }}
-        className="w-8 h-8 flex items-center justify-center text-stone-700 hover:bg-stone-100 hover:text-stone-900 border-b border-stone-100 text-base font-bold transition-colors cursor-pointer select-none"
+        className="w-9 h-9 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 border-b border-slate-200/70 dark:border-slate-800 text-base font-bold transition-colors cursor-pointer select-none"
         title="Zoom avant"
         aria-label="Zoom avant"
       >
@@ -34,7 +34,7 @@ export function DesktopZoomControl() {
           e.stopPropagation();
           map.zoomOut();
         }}
-        className="w-8 h-8 flex items-center justify-center text-stone-700 hover:bg-stone-100 hover:text-stone-900 text-base font-bold transition-colors cursor-pointer select-none"
+        className="w-9 h-9 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 text-base font-bold transition-colors cursor-pointer select-none"
         title="Zoom arrière"
         aria-label="Zoom arrière"
       >
@@ -77,12 +77,12 @@ export function SearchAreaControl({
       <button
         onClick={handleSearch}
         disabled={isGenerating}
-        className="bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2 rounded-full shadow-xl text-xs font-bold flex items-center gap-2 hover:shadow-2xl disabled:opacity-50 transition-all border border-emerald-600/60 ring-2 ring-emerald-500/20 active:scale-95 cursor-pointer"
+        className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white px-4 py-2 rounded-full shadow-xl shadow-emerald-600/25 text-xs font-bold flex items-center gap-2 hover:shadow-2xl disabled:opacity-50 transition-all border border-emerald-400/40 ring-2 ring-emerald-500/20 active:scale-95 cursor-pointer"
       >
         {isGenerating ? (
           <span className="animate-spin h-3.5 w-3.5 border-2 border-white rounded-full border-t-transparent" />
         ) : (
-          <Search className="w-3.5 h-3.5 text-emerald-200" />
+          <Search className="w-3.5 h-3.5 text-emerald-100" />
         )}
         <span>Explorer cette zone</span>
       </button>
@@ -224,27 +224,42 @@ export function MapController({
     );
 
     if (latLngs.length > 0) {
-      try {
-        const bounds = L.latLngBounds(latLngs);
-        if (bounds.isValid()) {
-          const size = map.getSize();
-          if (!size || size.x === 0 || size.y === 0) {
-            map.invalidateSize();
-            map.fitBounds(bounds, { padding: [50, 50] });
-          } else {
-            map.flyToBounds(bounds, { padding: [50, 50], duration: 1.2 });
-          }
-        }
-      } catch {
+      // Wait one animation frame in case the mobile/tablet split sheet just opened and resized the map container
+      const timer = setTimeout(() => {
         try {
+          map.invalidateSize();
           const bounds = L.latLngBounds(latLngs);
           if (bounds.isValid()) {
-            map.fitBounds(bounds, { padding: [50, 50] });
+            const size = map.getSize();
+            const isCompactPane = !size || size.x < 640 || size.y < 420;
+            const padTopLeft: [number, number] = isCompactPane ? [28, 56] : [50, 68];
+            const padBottomRight: [number, number] = isCompactPane ? [28, 36] : [50, 44];
+            if (!size || size.x === 0 || size.y === 0) {
+              map.fitBounds(bounds, {
+                paddingTopLeft: padTopLeft,
+                paddingBottomRight: padBottomRight,
+              });
+            } else {
+              map.flyToBounds(bounds, {
+                paddingTopLeft: padTopLeft,
+                paddingBottomRight: padBottomRight,
+                duration: 0.9,
+              });
+            }
           }
         } catch {
-          // ignore safe
+          try {
+            const bounds = L.latLngBounds(latLngs);
+            if (bounds.isValid()) {
+              map.fitBounds(bounds, { padding: [32, 32] });
+            }
+          } catch {
+            // ignore safe
+          }
         }
-      }
+      }, 60);
+
+      return () => clearTimeout(timer);
     }
   }, [selectedTrace, map, focusTrigger]);
 
