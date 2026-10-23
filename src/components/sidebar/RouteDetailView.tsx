@@ -35,6 +35,7 @@ import type { UseRouteEditorReturn } from '../../hooks/useRouteEditor';
 import { openWazeNavigation, getRouteStartCoordinates } from '../../lib/navigation/wazeNavigation';
 import { exportToKomoot } from '../../lib/navigation/komootExport';
 import { KomootIcon } from '../ui/KomootIcon';
+import { KomootExportModal } from '../navigation/KomootExportModal';
 
 interface RouteDetailViewProps {
   route: RouteSuggestions;
@@ -87,6 +88,7 @@ export function RouteDetailView({
 }: RouteDetailViewProps) {
   const [showRoadbook, setShowRoadbook] = useState(false);
   const [isExportingKomoot, setIsExportingKomoot] = useState(false);
+  const [isKomootModalOpen, setIsKomootModalOpen] = useState(false);
   const semanticColor = getSemanticRouteColor(route.difficulty?.level);
 
   const handleExportGPX = () => {
@@ -97,8 +99,11 @@ export function RouteDetailView({
   const handleExportKomoot = async () => {
     if (!trace) return;
     setIsExportingKomoot(true);
+    setIsKomootModalOpen(true);
     try {
       await exportToKomoot(route.title, trace.coordinates, trace.elevationProfile);
+    } catch {
+      // Modal provides the direct buttons
     } finally {
       setIsExportingKomoot(false);
     }
@@ -594,18 +599,23 @@ export function RouteDetailView({
         )}
 
         {trace && (
-          <button
-            type="button"
-            onClick={handleExportKomoot}
-            disabled={isExportingKomoot}
-            className="w-full py-2.5 px-3 bg-gradient-to-r from-[#7DB434] via-[#6ca028] to-[#588523] hover:from-[#71a52e] hover:to-[#4e771c] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-lime-950/25 active:scale-95 transition-all cursor-pointer border border-lime-300/35 disabled:opacity-60"
-            title="Ouvrir directement dans Komoot pour guidage Apple Watch & GPS (2 taps)"
-          >
-            <KomootIcon className="w-4 h-4 shrink-0" />
-            <span className="truncate">
-              {isExportingKomoot ? 'Préparation pour Komoot...' : 'Envoyer vers Komoot (Apple Watch & GPS)'}
-            </span>
-          </button>
+          <div className="space-y-1">
+            <button
+              type="button"
+              onClick={handleExportKomoot}
+              disabled={isExportingKomoot}
+              className="w-full py-2.5 px-3 bg-gradient-to-r from-[#7DB434] via-[#6ca028] to-[#588523] hover:from-[#71a52e] hover:to-[#4e771c] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-lime-950/25 active:scale-95 transition-all cursor-pointer border border-lime-300/35 disabled:opacity-60"
+              title="Ouvrir directement dans Komoot pour guidage Apple Watch & GPS (2 taps)"
+            >
+              <KomootIcon className="w-4 h-4 shrink-0" />
+              <span className="truncate">
+                {isExportingKomoot ? 'Préparation pour Komoot...' : 'Envoyer vers Komoot (Apple Watch & GPS)'}
+              </span>
+            </button>
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 text-center leading-tight">
+              💡 Dans le menu de partage iOS, touchez <strong>Komoot</strong> (ou faites défiler jusqu'à <strong>« Plus (...) »</strong>)
+            </p>
+          </div>
         )}
 
         {onEditRoute && trace && (
@@ -656,6 +666,14 @@ export function RouteDetailView({
           <span>Partager ce parcours</span>
         </button>
       </div>
+
+      {/* Modale d'exportation assistée vers Komoot */}
+      <KomootExportModal
+        isOpen={isKomootModalOpen}
+        onClose={() => setIsKomootModalOpen(false)}
+        route={route}
+        trace={trace}
+      />
     </div>
   );
 }

@@ -39,9 +39,10 @@ export async function exportToKomoot(
       });
 
       if (navigator.canShare({ files: [file] })) {
+        // IMPORTANT pour iOS : Ne JAMAIS passer 'text' ou 'title' avec un fichier GPX.
+        // Si 'text' est fourni, iOS filtre les apps de documents (comme Komoot, Garmin, WorkOutDoors)
+        // et n'affiche que les messageries (SMS, WhatsApp, Mail).
         await navigator.share({
-          title: cleanTitle,
-          text: `Itinéraire ${cleanTitle} pour Komoot`,
           files: [file],
         });
         return { success: true, method: 'share' };

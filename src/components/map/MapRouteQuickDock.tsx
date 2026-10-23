@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
 import { Navigation, Car, X, Footprints, Bike, ChevronRight, MapPin } from 'lucide-react';
 import {
@@ -8,6 +8,7 @@ import {
 } from '../../lib/navigation/wazeNavigation';
 import { exportToKomoot } from '../../lib/navigation/komootExport';
 import { KomootIcon } from '../ui/KomootIcon';
+import { KomootExportModal } from '../navigation/KomootExportModal';
 
 interface MapRouteQuickDockProps {
   route: RouteSuggestions;
@@ -41,8 +42,15 @@ export function MapRouteQuickDock({
     return calculateDistanceKm(userCoords, startCoords);
   }, [userCoords, startCoords]);
 
+  const [isKomootModalOpen, setIsKomootModalOpen] = useState(false);
+
   const handleExportKomoot = async () => {
-    await exportToKomoot(route.title, trace.coordinates, trace.elevationProfile);
+    setIsKomootModalOpen(true);
+    try {
+      await exportToKomoot(route.title, trace.coordinates, trace.elevationProfile);
+    } catch {
+      // Modal handles fallback
+    }
   };
 
   return (
@@ -147,6 +155,13 @@ export function MapRouteQuickDock({
           </button>
         )}
       </div>
+
+      <KomootExportModal
+        isOpen={isKomootModalOpen}
+        onClose={() => setIsKomootModalOpen(false)}
+        route={route}
+        trace={trace}
+      />
     </div>
   );
 }

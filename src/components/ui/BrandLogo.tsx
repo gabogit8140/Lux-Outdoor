@@ -26,7 +26,7 @@ export function BrandLogo({ size = 'md', className = '' }: BrandLogoProps) {
       aria-hidden="true"
     >
       <img
-        src="/pwa-192x192.png"
+        src="./pwa-192x192.png"
         alt={`${APP_CONFIG.name} — Roude Léiw`}
         className="w-full h-full object-cover block"
         loading="eager"
