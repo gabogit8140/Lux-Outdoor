@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MapContainer } from 'react-leaflet';
+import { MapContainer, useMap } from 'react-leaflet';
 import { HuntingRifleIcon } from './ui/HuntingRifleIcon';
 import type { RouteSuggestions, RouteTrace } from '../types';
 import {
   MapTileLayers,
   type MapLayerType,
   LUXEMBOURG_CENTER,
+  LUXEMBOURG_BOUNDS,
 } from './map/MapTileLayers';
 import { MapLayersMenu } from './map/MapLayersMenu';
 import {
@@ -24,10 +25,29 @@ import { MapEditorLayer } from './map/MapEditorLayer';
 import { TraceEditorBar } from './editor/TraceEditorBar';
 import { NavigationMapLayer } from './navigation/NavigationMapLayer';
 import { ROUTE_DIFFICULTY_LEGEND } from './ui/PremiumPrimitives';
+import { SAFE_AREA_TOP_BAR } from '../lib/layout/safeArea';
+import { fitMapToLuxembourg } from '../lib/layout/mapViewport';
 import type { UseRouteEditorReturn } from '../hooks/useRouteEditor';
 import type { UseOutdoorNavigationReturn } from '../hooks/useOutdoorNavigation';
 
-export { LUXEMBOURG_CENTER, type MapLayerType };
+export { LUXEMBOURG_CENTER, LUXEMBOURG_BOUNDS, type MapLayerType };
+
+/**
+ * Cadre automatiquement l'ensemble du territoire luxembourgeois à l'ouverture,
+ * avec une marge supérieure réservée pour dégager la barre de filtres flottante.
+ */
+function InitialLuxembourgFitter() {
+  const map = useMap();
+  const hasFittedRef = useRef(false);
+
+  useEffect(() => {
+    if (hasFittedRef.current) return;
+    hasFittedRef.current = true;
+    fitMapToLuxembourg(map, false);
+  }, [map]);
+
+  return null;
+}
 
 interface MapProps {
   routes: RouteSuggestions[];
@@ -113,11 +133,13 @@ export function MapDisplay({
     <div className="w-full h-full relative z-0">
       <MapContainer
         center={LUXEMBOURG_CENTER}
-        zoom={9}
+        zoom={9.75}
+        zoomSnap={0.25}
         zoomControl={false}
         touchZoom={true}
         className="w-full h-full"
       >
+        <InitialLuxembourgFitter />
         <MapResizer />
         <MapClicker
           onMapClick={onMapClick}
@@ -182,7 +204,7 @@ export function MapDisplay({
         <div
           className="absolute right-2.5 md:right-4 z-[450] flex flex-col gap-2 pointer-events-auto"
           style={{
-            top: 'calc(env(safe-area-inset-top, 0px) + 1.4rem)',
+            top: SAFE_AREA_TOP_BAR,
             pointerEvents: 'auto',
           }}
         >

@@ -1,4 +1,4 @@
-# Guide de Déploiement Gratuit — Trace Outdoor PWA
+# Guide de Déploiement Gratuit — Lux Outdoor PWA
 
 Ce document détaille la publication de votre application PWA sur des plateformes **100% gratuites**, sans serveur payant et sans aucune clé d'API.
 
@@ -16,7 +16,7 @@ L'application est déjà prête pour GitHub Pages :
    ```bash
    git init
    git add .
-   git commit -m "Initial commit Trace Outdoor PWA"
+   git commit -m "Initial commit Lux Outdoor PWA"
    git branch -M main
    git remote add origin https://github.com/<votre-nom-utilisateur>/<nom-du-repo>.git
    git push -u origin main
@@ -38,14 +38,14 @@ Cloudflare Pages offre un réseau CDN mondial ultra-véloce avec **bande passant
 1. Poussez votre code sur un dépôt GitHub (comme ci-dessus).
 2. Connectez-vous sur [Cloudflare Dashboard](https://dash.cloudflare.com/) (inscription gratuite).
 3. Rendez-vous dans **Workers & Pages** > **Create application** > onglet **Pages** > **Connect to Git**.
-4. Sélectionnez votre dépôt GitHub `trace-outdoor`.
+4. Sélectionnez votre dépôt GitHub `lux-outdoor` (ou le nom de votre dépôt).
 5. Configurez les options de build :
    - **Framework preset** : `Vite`
    - **Build command** : `npm run build`
    - **Build output directory** : `dist`
    - **Node.js version** : variable d'environnement `NODE_VERSION` = `20`
 6. Cliquez sur **Save and Deploy**.
-   - Cloudflare génère une URL du type `https://trace-outdoor.pages.dev` avec HTTPS gratuit et mises à jour automatiques à chaque commit.
+   - Cloudflare génère une URL du type `https://lux-outdoor.pages.dev` avec HTTPS gratuit et mises à jour automatiques à chaque commit.
 
 ---
 

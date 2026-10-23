@@ -10,7 +10,6 @@ import {
   Minimize2,
 } from 'lucide-react';
 import type { RouteSuggestions, RouteTrace } from '../types';
-import { REGIONAL_ZONES } from '../lib/localRouting';
 import { PlanTabContent } from './sidebar/PlanTabContent';
 import { RouteDetailView } from './sidebar/RouteDetailView';
 import { RouteCatalogList } from './sidebar/RouteCatalogList';
@@ -50,8 +49,8 @@ interface SidebarProps {
   setDistance: (d: [number, number]) => void;
   activeFilters: string[];
   setActiveFilters: (f: string[]) => void;
-  selectedZone: 'ALL' | 'LU' | 'BE' | 'DE' | 'NL' | 'FR';
-  onSelectZone: (zone: 'ALL' | 'LU' | 'BE' | 'DE' | 'NL' | 'FR') => void;
+  selectedZone?: 'ALL' | 'LU' | 'BE' | 'DE' | 'NL' | 'FR';
+  onSelectZone?: (zone: 'ALL' | 'LU' | 'BE' | 'DE' | 'NL' | 'FR') => void;
   onOpenInstallModal?: () => void;
   onOpenGpxModal?: () => void;
   isInstalled?: boolean;
@@ -174,7 +173,7 @@ export function Sidebar({
   };
 
   const handleFilter = () => {
-    onFilterMap(location, distance, activeFilters, activity, selectedZone);
+    onFilterMap(location, distance, activeFilters, activity, selectedZone || 'ALL');
     setTab('catalog');
   };
 
@@ -184,7 +183,7 @@ export function Sidebar({
   ) => {
     setLocation(locName);
     if (onLocationChange) onLocationChange(locName);
-    onFilterMap(locName, distance, activeFilters, activity, targetCountry || selectedZone);
+    onFilterMap(locName, distance, activeFilters, activity, targetCountry || selectedZone || 'ALL');
   };
 
   const toggleFilter = (id: string) => {
@@ -192,10 +191,8 @@ export function Sidebar({
       ? activeFilters.filter((f) => f !== id)
       : [...activeFilters, id];
     setActiveFilters(nextFilters);
-    onFilterMap(location, distance, nextFilters, activity, selectedZone);
+    onFilterMap(location, distance, nextFilters, activity, selectedZone || 'ALL');
   };
-
-  const activeZoneObj = REGIONAL_ZONES.find((z) => z.id === selectedZone) || REGIONAL_ZONES[0];
 
   const cycleMobileSize = () => {
     if (!onChangeMobileSheetSize) return;
@@ -213,11 +210,8 @@ export function Sidebar({
       <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-100 dark:border-slate-800/80 md:hidden shrink-0">
         <div className="flex items-center gap-1.5 min-w-0">
           <BrandLogo size="sm" />
-          <span className="font-extrabold text-xs text-slate-900 dark:text-white truncate">
-            Trace Outdoor
-          </span>
-          <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate">
-            · {activeZoneObj.flag} {activeZoneObj.name.split(' ')[0]}
+          <span className="font-extrabold text-xs text-slate-900 dark:white truncate">
+            Lux Outdoor
           </span>
         </div>
 
@@ -299,15 +293,14 @@ export function Sidebar({
           <div>
             <div className="flex items-center gap-1.5">
               <h1 className="font-extrabold text-sm tracking-tight text-slate-900 dark:text-white leading-tight">
-                Trace Outdoor
+                Lux Outdoor
               </h1>
               <span className="text-[9px] font-extrabold uppercase tracking-widest px-1.5 py-0.5 rounded-md bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
                 PRO
               </span>
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1 mt-0.5">
-              <span>{activeZoneObj.flag}</span>
-              <span>{activeZoneObj.name}</span>
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">
+              Circuits vélo & randonnée
             </p>
           </div>
         </div>

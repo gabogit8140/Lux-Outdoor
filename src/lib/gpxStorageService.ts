@@ -6,6 +6,7 @@ import type {
   RouteSuggestions,
   RouteTrace,
 } from '../types';
+import { APP_CONFIG } from './config/appConfig';
 
 export interface StoredGpxTrack {
   id: string;
@@ -215,7 +216,7 @@ export async function getAllStoredTripNames(): Promise<string[]> {
 export async function exportUserGpxLibraryJson(): Promise<string> {
   const tracks = await getAllStoredGpxTracks();
   const exportPayload = {
-    app: 'Trace Outdoor',
+    app: APP_CONFIG.name,
     version: '1.0.0',
     exportedAt: new Date().toISOString(),
     totalTracks: tracks.length,

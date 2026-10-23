@@ -37,7 +37,7 @@ export function PWAInstallModal({
                 Installer l'application
               </h2>
               <p className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold">
-                Trace Outdoor sur votre écran d'accueil
+                Lux Outdoor sur votre écran d'accueil
               </p>
             </div>
           </div>
@@ -54,7 +54,7 @@ export function PWAInstallModal({
           {isIOS ? (
             <div className="space-y-3.5">
               <p className="text-stone-600 leading-relaxed font-medium">
-                Sur iPhone & iPad (Safari), vous pouvez installer Trace Outdoor comme une vraie application native sans passer par l'App Store :
+                Sur iPhone & iPad (Safari), vous pouvez installer Lux Outdoor comme une vraie application native sans passer par l'App Store :
               </p>
 
               <div className="bg-stone-50 rounded-2xl p-3.5 border border-stone-200/80 space-y-3">

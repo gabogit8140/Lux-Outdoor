@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import type { UseOutdoorNavigationReturn } from '../../hooks/useOutdoorNavigation';
 import { formatNavDistance } from '../../lib/navigation/navigationMath';
+import { SAFE_AREA_TOP_BAR, SAFE_AREA_BOTTOM_DOCK } from '../../lib/layout/safeArea';
 
 interface NavigationCockpitProps {
   navigation: UseOutdoorNavigationReturn;
@@ -91,7 +92,7 @@ export function NavigationCockpit({ navigation, onRecenter }: NavigationCockpitP
       {/* 1. Bandeau supérieur tête-haute (Manoeuvre & Alerte hors-sentier) */}
       <div
         className="fixed left-2 right-2 sm:left-1/2 sm:-translate-x-1/2 sm:max-w-md z-[500] pointer-events-none flex flex-col items-center gap-1.5 transition-all"
-        style={{ top: 'calc(env(safe-area-inset-top, 0px) + 1.4rem)' }}
+        style={{ top: SAFE_AREA_TOP_BAR }}
       >
         {/* Alerte Hors-Sentier Flottante (si déviation > 35m) */}
         {isOffTrack && (
@@ -149,7 +150,7 @@ export function NavigationCockpit({ navigation, onRecenter }: NavigationCockpitP
       {/* 2. Cockpit inférieur (Vitesse, Distance restante, D+ restant, ETA) */}
       <div
         className="fixed left-2 right-2 sm:left-1/2 sm:-translate-x-1/2 sm:max-w-md z-[500] pointer-events-none flex flex-col gap-1.5 transition-all"
-        style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 0.65rem)' }}
+        style={{ bottom: SAFE_AREA_BOTTOM_DOCK }}
       >
         {/* Barre de progression visuelle le long de la trace */}
         <div className="w-full h-1.5 bg-slate-800/80 rounded-full overflow-hidden shadow-inner backdrop-blur-sm">

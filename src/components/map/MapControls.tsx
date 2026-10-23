@@ -3,6 +3,7 @@ import { useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import { Search } from 'lucide-react';
 import type { RouteTrace } from '../../types';
+import { SAFE_AREA_SEARCH_BANNER } from '../../lib/layout/safeArea';
 export { LocateControl } from './LocateControl';
 
 /**
@@ -56,8 +57,19 @@ export function SearchAreaControl({
   isGenerating: boolean;
 }) {
   const [visible, setVisible] = useState(false);
+  const userInteractedRef = useRef(false);
   const map = useMapEvents({
-    moveend: () => setVisible(true),
+    dragstart: () => {
+      userInteractedRef.current = true;
+    },
+    zoomstart: () => {
+      userInteractedRef.current = true;
+    },
+    moveend: () => {
+      if (userInteractedRef.current) {
+        setVisible(true);
+      }
+    },
   });
 
   const handleSearch = () => {
@@ -76,7 +88,7 @@ export function SearchAreaControl({
   return (
     <div
       className="absolute left-1/2 -translate-x-1/2 z-[400] animate-in fade-in slide-in-from-top-2"
-      style={{ top: 'calc(env(safe-area-inset-top, 0px) + 7.2rem)' }}
+      style={{ top: SAFE_AREA_SEARCH_BANNER }}
     >
       <button
         onClick={handleSearch}

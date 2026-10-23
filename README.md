@@ -1,4 +1,4 @@
-# Trace Outdoor — My personal trace finder 🚴‍♂️🥾
+# Lux Outdoor — Luxembourg & Greater Region Outdoor Trails 🦁🚴‍♂️🥾
 
 Une **Progressive Web App (PWA)** autonome, rapide, et **100% gratuite** (zéro API payante, zéro abonnement) conçue pour chercher, explorer et organiser vos parcours de cyclotourisme, gravel, VTT et randonnées pédestres.
 

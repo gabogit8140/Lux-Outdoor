@@ -2267,7 +2267,7 @@ function writeGpxFile(params: {
 
   const gpxLines: string[] = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<gpx version="1.1" creator="Trace Outdoor - Greater Region Official GPX" xmlns="http://www.topografix.com/GPX/1/1">',
+    '<gpx version="1.1" creator="Lux Outdoor - Greater Region Official GPX" xmlns="http://www.topografix.com/GPX/1/1">',
     '  <metadata>',
     `    <name>${escapeXml(name)}</name>`,
     `    <desc>${escapeXml(description)}</desc>`,

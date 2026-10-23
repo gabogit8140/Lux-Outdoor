@@ -787,7 +787,7 @@ export function GpxDatabaseModal({
                       Token GitHub (Personal Access Token - PAT)
                     </label>
                     <a
-                      href="https://github.com/settings/tokens/new?scopes=repo&description=Trace-Outdoor-PWA"
+                      href="https://github.com/settings/tokens/new?scopes=repo&description=Lux-Outdoor-PWA"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[10px] font-bold text-emerald-700 hover:underline flex items-center gap-0.5"

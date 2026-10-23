@@ -10,7 +10,9 @@ import { MapFilterBar } from './components/MapFilterBar';
 import { SaveTraceModal } from './components/editor/SaveTraceModal';
 import { LoopGeneratorModal } from './components/editor/LoopGeneratorModal';
 import { NavigationCockpit } from './components/navigation/NavigationCockpit';
-import { Heart, Menu, X, CheckCircle, Smartphone, Compass, FolderGit2, EyeOff, Moon, Sun, PenTool } from 'lucide-react';
+import { TopLeftCommandDock } from './components/navigation/TopLeftCommandDock';
+import { SAFE_AREA_TOP_BAR } from './lib/layout/safeArea';
+import { Heart, CheckCircle, Compass, EyeOff } from 'lucide-react';
 import { useRouteManager } from './hooks/useRouteManager';
 import { useRouteEditor } from './hooks/useRouteEditor';
 import { useOutdoorNavigation } from './hooks/useOutdoorNavigation';
@@ -281,7 +283,7 @@ export default function App() {
       {notification && (
         <div
           className="fixed left-1/2 -translate-x-1/2 z-[2000] bg-slate-900/95 dark:bg-slate-800/95 text-white px-4 py-2.5 rounded-full text-xs font-semibold shadow-[0_12px_32px_rgba(0,0,0,0.3)] border border-white/10 backdrop-blur-xl flex items-center gap-2.5 animate-in fade-in slide-in-from-top-3"
-          style={{ top: 'calc(env(safe-area-inset-top, 0px) + 1.4rem)' }}
+          style={{ top: SAFE_AREA_TOP_BAR }}
         >
           <span className="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center shrink-0">
             <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
@@ -292,108 +294,28 @@ export default function App() {
 
       {/* Main Map Viewport (Always visible: 100% when panel closed, 44%–70% top split on phone, 55%–75% left split on tablet/desktop) */}
       <main className="w-full relative flex-1 min-h-[42dvh] md:min-w-[55%] h-full z-0 overflow-hidden transition-all duration-300">
-        {/* Floating Top Left Frosted Glass Command Dock */}
-        <div
-          className="absolute z-[400] flex flex-col gap-1 sm:gap-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-white/70 dark:border-slate-700/80 rounded-2xl p-1 sm:p-1.5 shadow-[0_8px_32px_rgba(15,23,42,0.14)] transition-all"
-          style={{
-            top: 'calc(env(safe-area-inset-top, 0px) + 1.4rem)',
-            left: 'calc(env(safe-area-inset-left, 0px) + 0.65rem)',
-          }}
-        >
-          <button
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className={`rounded-xl p-2 transition-all cursor-pointer ${
-              isSidebarOpen
-                ? 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-sm shadow-emerald-600/30'
-                : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400'
-            }`}
-            title={isSidebarOpen ? 'Masquer le panneau (100% carte)' : 'Ouvrir le panneau des circuits'}
-          >
-            {isSidebarOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-          </button>
-
-          <div className="h-px bg-slate-200/80 dark:bg-slate-800 mx-1" />
-
-          <button
-            onClick={() => setIsFavoritesOpen(true)}
-            className="rounded-xl p-2 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all text-slate-600 dark:text-slate-300 hover:text-rose-600 relative cursor-pointer group"
-            title="Bibliothèque des favoris & carnet de terrain"
-          >
-            <Heart className="w-4 h-4 fill-rose-500/15 text-rose-500 group-hover:scale-110 transition-transform" />
-            {favorites.length > 0 && (
-              <span className="absolute -top-1 -right-1 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-[9px] w-4 h-4 rounded-full flex items-center justify-center shadow-xs ring-2 ring-white dark:ring-slate-900">
-                {favorites.length}
-              </span>
-            )}
-          </button>
-
-          {/* GPX Database & Offline Maintenance Button */}
-          <button
-            onClick={() => setIsGpxModalOpen(true)}
-            className="rounded-xl p-2 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-all text-slate-600 dark:text-slate-300 hover:text-emerald-600 relative group cursor-pointer"
-            title={`Base GPX & Carnets de voyage (${userTracks.length + CATALOG_ROUTES.length} traces)`}
-          >
-            <FolderGit2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform" />
-            <span className="absolute -top-1 -right-1 bg-slate-900 dark:bg-emerald-600 text-white font-mono-kpi font-bold text-[8px] px-1 rounded-full flex items-center justify-center shadow-xs ring-2 ring-white dark:ring-slate-900">
-              {userTracks.length + CATALOG_ROUTES.length}
-            </span>
-          </button>
-
-          {/* Nouveau tracé interactif sur la carte (Studio Création GPX) */}
-          <button
-            onClick={() => {
-              if (editor.isEditorActive) {
-                editor.cancel();
-              } else {
-                editor.startCreating(activity);
-                setIsSidebarOpen(false);
-              }
-            }}
-            className={`rounded-xl p-2 transition-all cursor-pointer group relative ${
-              editor.isEditorActive
-                ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-md shadow-indigo-600/30'
-                : 'hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-600 dark:text-slate-300 hover:text-indigo-600'
-            }`}
-            title={
-              editor.isEditorActive
-                ? 'Quitter le mode tracé'
-                : 'Tracer un parcours sur la carte (Création GPX)'
+        {/* Floating Top Left Command Dock (Sidebar, Favoris, Base GPX, Studio Tracé, Thème, PWA) */}
+        <TopLeftCommandDock
+          isSidebarOpen={isSidebarOpen}
+          onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+          favoritesCount={favorites.length}
+          onOpenFavorites={() => setIsFavoritesOpen(true)}
+          tracksCount={userTracks.length + CATALOG_ROUTES.length}
+          onOpenGpxModal={() => setIsGpxModalOpen(true)}
+          isEditorActive={editor.isEditorActive}
+          onToggleEditor={() => {
+            if (editor.isEditorActive) {
+              editor.cancel();
+            } else {
+              editor.startCreating(activity);
+              setIsSidebarOpen(false);
             }
-          >
-            <PenTool className="w-4 h-4 text-indigo-500 group-hover:scale-110 transition-transform" />
-            {editor.isEditorActive && (
-              <span className="absolute -top-1 -right-1 flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500" />
-              </span>
-            )}
-          </button>
-
-          {/* Dark / Light Cockpit Theme Toggle */}
-          <button
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className="rounded-xl p-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-slate-600 dark:text-amber-400 cursor-pointer group"
-            title={isDarkMode ? 'Passer en mode Clair (Alpine)' : 'Passer en mode Sombre (Cockpit Pro)'}
-            aria-label="Changer le thème"
-          >
-            {isDarkMode ? (
-              <Sun className="w-4 h-4 text-amber-400 group-hover:rotate-45 transition-transform" />
-            ) : (
-              <Moon className="w-4 h-4 text-slate-600 group-hover:-rotate-12 transition-transform" />
-            )}
-          </button>
-
-          {/* Install PWA Button on map (visible on mobile / desktop when not in standalone) */}
-          {!isInstalled && (
-            <button
-              onClick={() => setIsInstallModalOpen(true)}
-              className="rounded-xl p-2 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-all text-slate-600 dark:text-slate-300 hover:text-emerald-600 group cursor-pointer"
-              title="Installer sur iPhone / App mobile"
-            >
-              <Smartphone className="w-4 h-4 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform" />
-            </button>
-          )}
-        </div>
+          }}
+          isDarkMode={isDarkMode}
+          onToggleDarkMode={() => setIsDarkMode(!isDarkMode)}
+          isInstalled={isInstalled}
+          onOpenInstallModal={() => setIsInstallModalOpen(true)}
+        />
 
         {/* Floating On-Map Premium Circuit Filters */}
         {!editor.isEditorActive && (
@@ -405,8 +327,6 @@ export default function App() {
             activeFilters={activeFilters}
             onToggleFilter={handleToggleFilter}
             onClearFilters={handleClearFilters}
-            selectedZone={selectedZone}
-            onSelectZone={(z) => changeRegionalZone(z)}
             routesCount={routes.length}
             isGenerating={isGenerating}
             currentLocation={currentLocation}
@@ -571,8 +491,6 @@ export default function App() {
             setDistance={handleDistanceChange}
             activeFilters={activeFilters}
             setActiveFilters={setActiveFilters}
-            selectedZone={selectedZone}
-            onSelectZone={changeRegionalZone}
             onClearAllFilters={handleClearFilters}
             onOpenInstallModal={() => setIsInstallModalOpen(true)}
             onOpenGpxModal={() => setIsGpxModalOpen(true)}

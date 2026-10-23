@@ -23,7 +23,7 @@ const wifiOrLan = networkAddresses.find(
 
 console.log('');
 console.log('================================================================');
-console.log('       ⛰️  TRACE OUTDOOR - SERVEUR LOCAL DE TEST (HORS-LIGNE)     ');
+console.log('       🦁  LUX OUTDOOR - SERVEUR LOCAL DE TEST (PWA HORS-LIGNE)   ');
 console.log('================================================================');
 console.log('');
 console.log('  Mode local activé (contourne tout firewall ou blocage réseau)');

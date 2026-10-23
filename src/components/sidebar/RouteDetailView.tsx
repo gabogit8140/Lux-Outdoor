@@ -33,6 +33,8 @@ import {
 } from '../ui/PremiumPrimitives';
 import type { UseRouteEditorReturn } from '../../hooks/useRouteEditor';
 import { openWazeNavigation, getRouteStartCoordinates } from '../../lib/navigation/wazeNavigation';
+import { exportToKomoot } from '../../lib/navigation/komootExport';
+import { KomootIcon } from '../ui/KomootIcon';
 
 interface RouteDetailViewProps {
   route: RouteSuggestions;
@@ -84,11 +86,22 @@ export function RouteDetailView({
   isNavigating = false,
 }: RouteDetailViewProps) {
   const [showRoadbook, setShowRoadbook] = useState(false);
+  const [isExportingKomoot, setIsExportingKomoot] = useState(false);
   const semanticColor = getSemanticRouteColor(route.difficulty?.level);
 
   const handleExportGPX = () => {
     if (!trace) return;
     downloadGPX(route.title, trace.coordinates, trace.elevationProfile);
+  };
+
+  const handleExportKomoot = async () => {
+    if (!trace) return;
+    setIsExportingKomoot(true);
+    try {
+      await exportToKomoot(route.title, trace.coordinates, trace.elevationProfile);
+    } finally {
+      setIsExportingKomoot(false);
+    }
   };
 
   const startCoords = getRouteStartCoordinates(route, trace);
@@ -577,6 +590,21 @@ export function RouteDetailView({
           >
             <Car className="w-4 h-4 text-cyan-200" />
             <span>Y aller avec Waze (guidage voiture vers départ)</span>
+          </button>
+        )}
+
+        {trace && (
+          <button
+            type="button"
+            onClick={handleExportKomoot}
+            disabled={isExportingKomoot}
+            className="w-full py-2.5 px-3 bg-gradient-to-r from-[#7DB434] via-[#6ca028] to-[#588523] hover:from-[#71a52e] hover:to-[#4e771c] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-lime-950/25 active:scale-95 transition-all cursor-pointer border border-lime-300/35 disabled:opacity-60"
+            title="Ouvrir directement dans Komoot pour guidage Apple Watch & GPS (2 taps)"
+          >
+            <KomootIcon className="w-4 h-4 shrink-0" />
+            <span className="truncate">
+              {isExportingKomoot ? 'Préparation pour Komoot...' : 'Envoyer vers Komoot (Apple Watch & GPS)'}
+            </span>
           </button>
         )}
 

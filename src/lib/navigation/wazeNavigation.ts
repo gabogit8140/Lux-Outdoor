@@ -2,6 +2,7 @@
  * Utilitaires pour le guidage routier vers le point de départ d'une trace via Waze.
  */
 import type { RouteSuggestions, RouteTrace } from '../../types';
+import { distanceMeters } from './navigationMath';
 
 /**
  * Ouvre l'application Waze (sur smartphone iOS/Android via Deep Link) ou l'interface web Waze (sur PC)
@@ -38,22 +39,15 @@ export function getRouteStartCoordinates(
 
 /**
  * Calcule la distance à vol d'oiseau (formule de Haversine) entre deux coordonnées GPS en kilomètres.
+ * Reçoit des coordonnées géographiques au format [latitude, longitude].
  */
 export function calculateDistanceKm(
   coord1: [number, number], // [lat, lng]
   coord2: [number, number]  // [lat, lng]
 ): number {
-  const R = 6371; // Rayon moyen de la Terre en km
-  const lat1 = (coord1[0] * Math.PI) / 180;
-  const lat2 = (coord2[0] * Math.PI) / 180;
-  const dLat = ((coord2[0] - coord1[0]) * Math.PI) / 180;
-  const dLng = ((coord2[1] - coord1[1]) * Math.PI) / 180;
-
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
+  // Conversion [lat, lng] -> [lon, lat] pour le moteur géodésique standard
+  const meters = distanceMeters([coord1[1], coord1[0]], [coord2[1], coord2[0]]);
+  return meters / 1000;
 }
 
 /**

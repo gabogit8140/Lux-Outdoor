@@ -6,6 +6,8 @@ import {
   formatDriveDistance,
   getRouteStartCoordinates,
 } from '../../lib/navigation/wazeNavigation';
+import { exportToKomoot } from '../../lib/navigation/komootExport';
+import { KomootIcon } from '../ui/KomootIcon';
 
 interface MapRouteQuickDockProps {
   route: RouteSuggestions;
@@ -38,6 +40,10 @@ export function MapRouteQuickDock({
     if (!userCoords || !startCoords) return null;
     return calculateDistanceKm(userCoords, startCoords);
   }, [userCoords, startCoords]);
+
+  const handleExportKomoot = async () => {
+    await exportToKomoot(route.title, trace.coordinates, trace.elevationProfile);
+  };
 
   return (
     <div
@@ -91,30 +97,41 @@ export function MapRouteQuickDock({
           </button>
         </div>
 
-        {/* Ligne 2: Boutons d'actions rapides (Waze Voiture + Guidage Terrain) */}
-        <div className="grid grid-cols-2 gap-2 pt-0.5">
+        {/* Ligne 2: Boutons d'actions rapides (Waze + Komoot + Guidage Terrain) */}
+        <div className="grid grid-cols-3 gap-1.5 pt-0.5">
           {/* Bouton Waze pour le trajet voiture vers le départ */}
           {startCoords && (
             <button
               type="button"
               onClick={() => onOpenWaze(startCoords[0], startCoords[1])}
-              className="py-2.5 px-3 bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 active:scale-95 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-sky-600/30 transition-all cursor-pointer border border-sky-400/30"
-              title="Ouvrir Waze pour naviguer en voiture jusqu'au départ de la randonnée"
+              className="py-2 px-2 bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 active:scale-95 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-sky-600/30 transition-all cursor-pointer border border-sky-400/30"
+              title="Ouvrir Waze pour naviguer en voiture jusqu'au départ du circuit"
             >
-              <Car className="w-4 h-4 shrink-0 text-cyan-200" />
-              <span className="truncate">Waze vers départ</span>
+              <Car className="w-3.5 h-3.5 shrink-0 text-cyan-200" />
+              <span className="truncate">Waze départ</span>
             </button>
           )}
+
+          {/* Bouton Komoot (Apple Watch & GPS) */}
+          <button
+            type="button"
+            onClick={handleExportKomoot}
+            className="py-2 px-2 bg-gradient-to-r from-[#7DB434] to-[#588523] hover:from-[#71a52e] hover:to-[#4a721c] active:scale-95 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-lime-950/30 transition-all cursor-pointer border border-lime-300/35"
+            title="Envoyer vers Komoot pour guidage Apple Watch & GPS (2 taps)"
+          >
+            <KomootIcon className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Komoot</span>
+          </button>
 
           {/* Bouton Démarrer la navigation rando/vélo sur le terrain */}
           <button
             type="button"
             onClick={() => onStartNavigation(route, trace)}
-            className="py-2.5 px-3 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 active:scale-95 text-white rounded-xl text-xs font-black flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/35 transition-all cursor-pointer border border-emerald-400/40"
+            className="py-2 px-2 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 active:scale-95 text-white rounded-xl text-xs font-black flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/35 transition-all cursor-pointer border border-emerald-400/40"
             title="Lancer le guidage direct sur le terrain (100% hors-ligne, GPS)"
           >
-            <Navigation className="w-4 h-4 shrink-0 fill-white animate-pulse" />
-            <span className="truncate">Démarrer guidage</span>
+            <Navigation className="w-3.5 h-3.5 shrink-0 fill-white animate-pulse" />
+            <span className="truncate">Guidage</span>
           </button>
         </div>
 

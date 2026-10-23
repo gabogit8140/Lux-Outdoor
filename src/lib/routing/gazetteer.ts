@@ -7,8 +7,8 @@ export interface RegionalZone {
 }
 
 export const REGIONAL_ZONES: RegionalZone[] = [
-  { id: 'ALL', name: 'Grande Région (200 km)', flag: '🇪🇺', center: [6.1319, 49.6116], zoom: 8 },
-  { id: 'LU', name: 'Luxembourg', flag: '🇱🇺', center: [6.1319, 49.6116], zoom: 10 },
+  { id: 'ALL', name: 'Luxembourg & Alentours', flag: '🇱🇺', center: [6.13, 49.78], zoom: 10 },
+  { id: 'LU', name: 'Luxembourg', flag: '🇱🇺', center: [6.13, 49.78], zoom: 10 },
   { id: 'BE', name: 'Ardennes (Belgique)', flag: '🇧🇪', center: [5.7890, 50.1320], zoom: 9 },
   { id: 'DE', name: 'Eifel & Mosel (Allemagne)', flag: '🇩🇪', center: [6.6420, 49.7580], zoom: 9 },
   { id: 'NL', name: 'Zuid-Limburg (Pays-Bas)', flag: '🇳🇱', center: [5.8650, 50.8250], zoom: 10 },

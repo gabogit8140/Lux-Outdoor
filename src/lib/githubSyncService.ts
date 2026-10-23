@@ -4,6 +4,8 @@
  * Déclenche automatiquement GitHub Actions pour redéployer GitHub Pages.
  */
 
+import { APP_STORAGE_KEYS } from './config/appConfig';
+
 export interface GitHubConfig {
   owner: string;
   repo: string;
@@ -12,7 +14,7 @@ export interface GitHubConfig {
   autoSync: boolean;
 }
 
-const GITHUB_CONFIG_STORAGE_KEY = 'trace_outdoor_github_config';
+const GITHUB_CONFIG_STORAGE_KEY = APP_STORAGE_KEYS.githubConfig;
 
 const DEFAULT_CONFIG: GitHubConfig = {
   owner: 'gabogit8140',
@@ -31,7 +33,7 @@ export function getGitHubConfig(): GitHubConfig {
   }
 
   try {
-    const raw = window.localStorage.getItem(GITHUB_CONFIG_STORAGE_KEY);
+    const raw = window.localStorage.getItem(GITHUB_CONFIG_STORAGE_KEY) || window.localStorage.getItem(APP_STORAGE_KEYS.legacyGithubConfig);
     if (!raw) return { ...DEFAULT_CONFIG };
     const parsed = JSON.parse(raw);
     return {

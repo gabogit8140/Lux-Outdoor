@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import type { RouteSuggestions, RouteTrace } from '../types';
+import { APP_STORAGE_KEYS } from '../lib/config/appConfig';
 
 export interface SavedFavorite {
   id: string;
@@ -22,7 +23,7 @@ export function useFavorites() {
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('traceoutdoor-favorites');
+    const saved = localStorage.getItem(APP_STORAGE_KEYS.favorites) || localStorage.getItem(APP_STORAGE_KEYS.legacyFavorites);
     if (saved) {
       try {
         setFavorites(JSON.parse(saved));
@@ -34,7 +35,7 @@ export function useFavorites() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('traceoutdoor-favorites', JSON.stringify(favorites));
+      localStorage.setItem(APP_STORAGE_KEYS.favorites, JSON.stringify(favorites));
     } catch (e) {
       console.warn('Could not persist favorites to localStorage (quota or disabled)', e);
     }

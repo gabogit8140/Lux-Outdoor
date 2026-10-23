@@ -2,7 +2,12 @@ import React from 'react';
 import { TileLayer, Circle, WMSTileLayer } from 'react-leaflet';
 
 export type MapLayerType = 'cyclosm' | 'osmfr' | 'topo' | 'osm';
-export const LUXEMBOURG_CENTER: [number, number] = [49.6116, 6.1319]; // Luxembourg-Ville
+import { LUXEMBOURG_CENTER, LUXEMBOURG_BOUNDS } from '../../lib/layout/mapViewport';
+export { LUXEMBOURG_CENTER, LUXEMBOURG_BOUNDS };
+
+
+
+
 
 interface MapTileLayersProps {
   activity: 'bike' | 'hike';

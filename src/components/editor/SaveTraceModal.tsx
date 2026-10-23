@@ -70,7 +70,7 @@ export function SaveTraceModal({
         id: gpxId,
         fileName: `${title.trim().toLowerCase().replace(/[^a-z0-9_-]/g, '_')}.gpx`,
         title: title.trim(),
-        description: description.trim() || 'Circuit créé dans Trace Outdoor',
+        description: description.trim() || 'Circuit créé dans Lux Outdoor',
         tripName: tripName.trim() || undefined,
         activity,
         dateAdded: new Date().toISOString(),

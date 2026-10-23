@@ -8,7 +8,6 @@ import {
   TreePine,
   Mountain,
   Navigation,
-  Globe,
   RotateCcw,
   X,
   Check,
@@ -19,7 +18,8 @@ import {
   Repeat,
 } from 'lucide-react';
 import { TouchDistanceSelector } from './TouchDistanceSelector';
-import { REGIONAL_ZONES, isRegionalZoneLocation } from '../lib/localRouting';
+import { isRegionalZoneLocation } from '../lib/localRouting';
+import { SAFE_AREA_TOP_BAR, SAFE_AREA_TOP_POPOVER } from '../lib/layout/safeArea';
 
 export interface MapFilterOption {
   id: string;
@@ -105,8 +105,6 @@ interface MapFilterBarProps {
   activeFilters: string[];
   onToggleFilter: (filterId: string) => void;
   onClearFilters: () => void;
-  selectedZone: 'ALL' | 'LU' | 'BE' | 'DE' | 'NL' | 'FR';
-  onSelectZone: (zone: 'ALL' | 'LU' | 'BE' | 'DE' | 'NL' | 'FR') => void;
   routesCount: number;
   isGenerating: boolean;
   currentLocation?: string;
@@ -130,8 +128,6 @@ export function MapFilterBar({
   activeFilters,
   onToggleFilter,
   onClearFilters,
-  selectedZone,
-  onSelectZone,
   routesCount,
   isGenerating,
   currentLocation,
@@ -147,11 +143,9 @@ export function MapFilterBar({
   userTracksCount = 0,
 }: MapFilterBarProps) {
   const [isDistanceOpen, setIsDistanceOpen] = useState(false);
-  const [isZoneOpen, setIsZoneOpen] = useState(false);
   const [isAllFiltersOpen, setIsAllFiltersOpen] = useState(false);
 
   const distanceMenuRef = useRef<HTMLDivElement>(null);
-  const zoneMenuRef = useRef<HTMLDivElement>(null);
 
   // Close popovers on click outside
   useEffect(() => {
@@ -159,15 +153,10 @@ export function MapFilterBar({
       if (distanceMenuRef.current && !distanceMenuRef.current.contains(e.target as Node)) {
         setIsDistanceOpen(false);
       }
-      if (zoneMenuRef.current && !zoneMenuRef.current.contains(e.target as Node)) {
-        setIsZoneOpen(false);
-      }
     }
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
-
-  const activeZoneObj = REGIONAL_ZONES.find((z) => z.id === selectedZone) || REGIONAL_ZONES[0];
 
   const bikeDistancePresets: { label: string; range: [number, number]; desc: string }[] = [
     { label: '45–60 km', range: [45, 60], desc: 'Sortie classique (défaut)' },
@@ -204,10 +193,9 @@ export function MapFilterBar({
   const isFullDistanceRange = distance[0] <= minRange && distance[1] >= maxRange;
   const hasLocationFilter = !isRegionalZoneLocation(currentLocation);
 
-  // True whenever any filter, distance bracket, zone, or city restriction is active
+  // True whenever any filter, distance bracket, or city restriction is active
   const hasAnyActiveFilter =
     nonDefaultFiltersCount > 0 ||
-    selectedZone !== 'ALL' ||
     !isFullDistanceRange ||
     hasLocationFilter;
 
@@ -216,7 +204,7 @@ export function MapFilterBar({
       {/* Floating On-Map Bar Container */}
       <div
         className="absolute left-14 sm:left-16 right-14 sm:right-14 md:right-16 z-[420] pointer-events-none flex flex-col gap-1.5 transition-all"
-        style={{ top: 'calc(env(safe-area-inset-top, 0px) + 1.4rem)' }}
+        style={{ top: SAFE_AREA_TOP_BAR }}
       >
         <div className="w-full max-w-4xl mx-auto flex flex-col gap-1.5">
           {/* Primary Top Island: Activity Switcher + Zone Dropdown + Distance Chip + Full Filters Button + Circuit Count */}
@@ -280,7 +268,7 @@ export function MapFilterBar({
                 {isDistanceOpen && (
                   <div
                     className="fixed inset-x-3 sm:absolute sm:inset-x-auto sm:top-11 sm:right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-4 sm:w-80 z-[500] animate-in fade-in zoom-in-95"
-                    style={{ top: 'calc(env(safe-area-inset-top, 0px) + 5rem)' }}
+                    style={{ top: SAFE_AREA_TOP_POPOVER }}
                   >
                     <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-100 dark:border-slate-800">
                       <span className="text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
@@ -317,73 +305,6 @@ export function MapFilterBar({
                 )}
               </div>
 
-              {/* Transborder Zone Selector Button */}
-              <div className="relative" ref={zoneMenuRef}>
-                <button
-                  onClick={() => {
-                    setIsZoneOpen(!isZoneOpen);
-                    setIsDistanceOpen(false);
-                  }}
-                  className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
-                    isZoneOpen
-                      ? 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-400 dark:border-emerald-600 text-emerald-800 dark:text-emerald-300 shadow-xs'
-                      : 'bg-white/80 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-emerald-300 dark:hover:border-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-800'
-                  }`}
-                  title="Changer de zone transfrontalière (200 km)"
-                >
-                  <span className="text-sm">{activeZoneObj.flag}</span>
-                  <span className="hidden lg:inline font-bold text-slate-800 dark:text-slate-100">
-                    {activeZoneObj.id === 'ALL' ? 'Grande Région' : activeZoneObj.name.split(' ')[0]}
-                  </span>
-                  <ChevronDown
-                    className={`w-3 h-3 text-slate-400 transition-transform ${
-                      isZoneOpen ? 'rotate-180 text-emerald-600' : ''
-                    }`}
-                  />
-                </button>
-
-                {/* Zone Dropdown Popover */}
-                {isZoneOpen && (
-                  <div
-                    className="fixed inset-x-3 sm:absolute sm:inset-x-auto sm:top-11 sm:right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-2.5 sm:w-64 z-[500] animate-in fade-in zoom-in-95"
-                    style={{ top: 'calc(env(safe-area-inset-top, 0px) + 5rem)' }}
-                  >
-                    <div className="px-2 py-1 mb-1.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
-                        <Globe className="w-3 h-3 text-emerald-600" />
-                        Zone (Rayon 200 km)
-                      </span>
-                      <span className="text-[10px] font-semibold text-emerald-700 dark:text-emerald-400">BE · DE · NL · LU · FR</span>
-                    </div>
-
-                    <div className="space-y-1">
-                      {REGIONAL_ZONES.map((zone) => {
-                        const isSelected = selectedZone === zone.id;
-                        return (
-                          <button
-                            key={zone.id}
-                            onClick={() => {
-                              onSelectZone(zone.id);
-                              setIsZoneOpen(false);
-                            }}
-                            className={`w-full text-left px-2.5 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center justify-between cursor-pointer ${
-                              isSelected
-                                ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800'
-                                : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200'
-                            }`}
-                          >
-                            <div className="flex items-center gap-2">
-                              <span className="text-base">{zone.flag}</span>
-                              <span>{zone.name}</span>
-                            </div>
-                            {isSelected && <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-              </div>
 
               {/* Quick User Tracks Pill */}
               {userTracksCount > 0 && onSourceFilterChange && (
@@ -525,7 +446,7 @@ export function MapFilterBar({
                 <div>
                   <h3 className="font-bold text-stone-900 text-base">Filtres de sélection</h3>
                   <p className="text-[11px] text-stone-500">
-                    Circuits outdoor sur mesure · Grande Région (200 km)
+                    Circuits outdoor sur mesure · Vélo & Randonnée
                   </p>
                 </div>
               </div>
@@ -811,31 +732,6 @@ export function MapFilterBar({
                 </div>
               </section>
 
-              {/* Regional Zone Selector */}
-              <section>
-                <label className="text-[10px] uppercase font-bold tracking-wider text-stone-400 block mb-2">
-                  Secteur Géographique (Rayon 200 km)
-                </label>
-                <div className="grid grid-cols-3 gap-1.5">
-                  {REGIONAL_ZONES.map((zone) => {
-                    const isSelected = selectedZone === zone.id;
-                    return (
-                      <button
-                        key={zone.id}
-                        onClick={() => onSelectZone(zone.id)}
-                        className={`p-2 rounded-xl border text-center transition-all ${
-                          isSelected
-                            ? 'bg-emerald-600 text-white border-emerald-600 font-bold shadow-xs'
-                            : 'bg-stone-50 border-stone-200 text-stone-700 hover:bg-stone-100'
-                        }`}
-                      >
-                        <div className="text-base">{zone.flag}</div>
-                        <div className="text-[11px] font-bold mt-0.5 truncate">{zone.name.split(' ')[0]}</div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </section>
             </div>
 
             {/* Modal Footer */}

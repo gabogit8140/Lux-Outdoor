@@ -50,8 +50,8 @@ export function useRouteManager() {
     zoom: number;
     trigger: number;
   }>({
-    center: [49.6116, 6.1319],
-    zoom: 9,
+    center: [49.78, 6.13],
+    zoom: 10,
     trigger: 0,
   });
 

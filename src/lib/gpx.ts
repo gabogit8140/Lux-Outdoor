@@ -1,4 +1,5 @@
 import type { ElevationPoint } from '../types';
+import { APP_CONFIG } from './config/appConfig';
 
 export function generateGPXString(
   title: string,
@@ -46,7 +47,7 @@ export function generateGPXString(
   }
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<gpx version="1.1" creator="Trace Outdoor" xmlns="http://www.topografix.com/GPX/1/1">
+<gpx version="1.1" creator="${APP_CONFIG.creatorTag}" xmlns="http://www.topografix.com/GPX/1/1">
   <metadata>
     <name>${escapeXml(title)}</name>
     <time>${new Date().toISOString()}</time>
