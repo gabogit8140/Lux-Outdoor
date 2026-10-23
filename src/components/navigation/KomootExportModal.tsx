@@ -3,6 +3,12 @@ import type { RouteSuggestions, RouteTrace } from '../../types';
 import { KomootIcon } from '../ui/KomootIcon';
 import { downloadGPX } from '../../lib/gpx';
 import {
+  launchAppleShortcut,
+  launchKomootApp,
+  openKomootWebUpload,
+  MOBILE_SCHEMES,
+} from '../../lib/navigation/mobileSchemes';
+import {
   Download,
   ExternalLink,
   X,
@@ -11,6 +17,9 @@ import {
   Smartphone,
   Watch,
   FolderOpen,
+  Zap,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 
 interface KomootExportModalProps {
@@ -27,6 +36,7 @@ export function KomootExportModal({
   trace,
 }: KomootExportModalProps) {
   const [downloaded, setDownloaded] = useState(false);
+  const [showShortcutHelp, setShowShortcutHelp] = useState(false);
 
   if (!isOpen || !trace) return null;
 
@@ -37,13 +47,24 @@ export function KomootExportModal({
     setDownloaded(true);
   };
 
+  const handleRunShortcut = () => {
+    // Si le fichier n'a pas encore été téléchargé lors de ce clic, on le déclenche également
+    if (!downloaded) {
+      downloadGPX(route.title, trace.coordinates, trace.elevationProfile);
+      setDownloaded(true);
+    }
+    // Lance le raccourci iOS via l'URL Scheme natif d'Apple Shortcuts
+    setTimeout(() => {
+      launchAppleShortcut();
+    }, 300);
+  };
+
   const handleOpenKomootApp = () => {
-    // Tente d'ouvrir l'application native Komoot via son URL scheme
-    window.location.href = 'komoot://';
+    launchKomootApp();
   };
 
   const handleOpenKomootWeb = () => {
-    window.open('https://www.komoot.com/upload', '_blank', 'noopener,noreferrer');
+    openKomootWebUpload();
   };
 
   return (
@@ -96,7 +117,7 @@ export function KomootExportModal({
 
         {/* Modal Body */}
         <div className="p-5 space-y-4 text-xs text-slate-700 dark:text-slate-200 overflow-y-auto max-h-[75vh]">
-          {/* Étape 1 : Télécharger */}
+          {/* Étape 1 : Téléchargement propre du GPX */}
           <div className="bg-emerald-50/70 dark:bg-emerald-950/30 p-3.5 rounded-2xl border border-emerald-200/80 dark:border-emerald-800/80 space-y-2">
             <div className="flex items-center justify-between">
               <span className="font-extrabold text-emerald-900 dark:text-emerald-200 flex items-center gap-1.5 text-xs">
@@ -107,7 +128,7 @@ export function KomootExportModal({
               </span>
               {downloaded && (
                 <span className="text-[10px] text-emerald-700 dark:text-emerald-300 font-bold flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Fichier prêt
+                  <CheckCircle2 className="w-3.5 h-3.5" /> Fichier GPX prêt
                 </span>
               )}
             </div>
@@ -121,29 +142,96 @@ export function KomootExportModal({
               }`}
             >
               <Download className="w-4 h-4" />
-              <span>{downloaded ? 'Télécharger à nouveau le GPX' : 'Télécharger le fichier GPX'}</span>
+              <span>{downloaded ? 'Télécharger à nouveau le fichier unique GPX' : 'Télécharger le tracé (.GPX)'}</span>
             </button>
           </div>
 
-          {/* Étape 2 : Deux manières simples d'ouvrir dans Komoot */}
+          {/* Solution Automatique : Raccourci iOS */}
+          <div className="p-3.5 bg-gradient-to-br from-purple-50 via-indigo-50 to-purple-50/60 dark:from-purple-950/30 dark:via-indigo-950/20 dark:to-purple-950/30 rounded-2xl border border-purple-200/80 dark:border-purple-800/60 space-y-2.5">
+            <div className="flex items-center justify-between">
+              <span className="font-extrabold text-purple-900 dark:text-purple-200 flex items-center gap-1.5 text-xs">
+                <Zap className="w-4 h-4 text-purple-600 dark:text-purple-400 fill-purple-600/20" />
+                Automatisation Raccourci iOS (1 tap)
+              </span>
+              <span className="text-[10px] bg-purple-200/70 dark:bg-purple-900/60 text-purple-800 dark:text-purple-200 font-bold px-2 py-0.5 rounded-full">
+                Recommandé
+              </span>
+            </div>
+
+            <p className="text-[11px] text-purple-950 dark:text-purple-200 leading-relaxed">
+              Envoie automatiquement le dernier GPX téléchargé dans Komoot sans chercher dans vos dossiers.
+            </p>
+
+            <button
+              onClick={handleRunShortcut}
+              className="w-full py-2.5 px-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl font-extrabold flex items-center justify-center gap-2 shadow-md shadow-purple-600/20 active:scale-95 transition-all cursor-pointer"
+            >
+              <Zap className="w-4 h-4 text-yellow-300" />
+              <span>Lancer le Raccourci iOS Komoot</span>
+            </button>
+
+            {/* Accordéon expliquant la création du raccourci en 30 secondes */}
+            <div className="pt-1 border-t border-purple-200/60 dark:border-purple-800/40">
+              <button
+                type="button"
+                onClick={() => setShowShortcutHelp(!showShortcutHelp)}
+                className="w-full py-1 text-[11px] text-purple-700 dark:text-purple-300 hover:text-purple-900 dark:hover:text-purple-100 font-bold flex items-center justify-between cursor-pointer"
+              >
+                <span>Comment créer ce raccourci en 30s (gratuit) ?</span>
+                {showShortcutHelp ? (
+                  <ChevronUp className="w-3.5 h-3.5" />
+                ) : (
+                  <ChevronDown className="w-3.5 h-3.5" />
+                )}
+              </button>
+
+              {showShortcutHelp && (
+                <div className="mt-2 p-2.5 bg-white/80 dark:bg-slate-900/80 rounded-xl border border-purple-100 dark:border-purple-900/50 space-y-2 text-[11px] text-slate-700 dark:text-slate-300 animate-in fade-in duration-150">
+                  <p className="font-semibold text-purple-900 dark:text-purple-200">
+                    Dans l'application gratuite <strong>Raccourcis</strong> (Apple) sur votre iPhone :
+                  </p>
+                  <ol className="list-decimal list-inside space-y-1.5 pl-1 leading-relaxed">
+                    <li>Touchez <strong>+</strong> pour créer un raccourci.</li>
+                    <li>Nommez-le exactement : <span className="font-mono font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 px-1 py-0.5 rounded">{MOBILE_SCHEMES.DEFAULT_KOMOOT_SHORTCUT_NAME}</span></li>
+                    <li>
+                      Ajoutez l'action <strong>« Rechercher des fichiers »</strong> :
+                      <div className="pl-4 text-[10px] text-slate-600 dark:text-slate-400">
+                        • Emplacement : <em>Téléchargements</em><br />
+                        • Trier par : <em>Date de création</em> (Décroissant)<br />
+                        • Limite : <em>1 fichier</em>
+                      </div>
+                    </li>
+                    <li>
+                      Ajoutez l'action <strong>« Ouvrir le fichier dans »</strong> ➔ choisir l'application <strong>Komoot</strong>.
+                    </li>
+                  </ol>
+                  <p className="text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold pt-1">
+                    ✓ C'est tout ! À chaque clic sur le bouton ci-dessus, le tracé s'ouvrira immédiatement dans Komoot.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Solutions manuelles */}
           <div className="space-y-2.5">
             <span className="font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
               <span className="w-5 h-5 rounded-full bg-slate-700 text-white flex items-center justify-center text-[10px] font-bold">
                 2
               </span>
-              Ouvrir le tracé dans Komoot
+              Ou ouvrir manuellement dans Komoot
             </span>
 
-            {/* Méthode A : Depuis Safari / Fichiers (la plus rapide sur iPhone) */}
+            {/* Méthode A : Depuis Safari / Fichiers (la plus rapide sur iPhone sans raccourci) */}
             <div className="p-3 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200/80 dark:border-slate-700 space-y-1.5">
               <div className="font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
                 <FolderOpen className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 <span>Méthode A : Depuis les téléchargements Safari</span>
               </div>
               <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
-                1. Dans Safari, touchez la flèche bleue de téléchargement <span className="font-bold">↓</span> (en bas ou en haut de l'écran).<br />
+                1. Dans Safari, touchez la flèche bleue de téléchargement <span className="font-bold">↓</span>.<br />
                 2. Touchez le fichier <span className="font-mono text-[10px] text-emerald-700 dark:text-emerald-300">{safeFilename}</span>.<br />
-                3. Touchez le bouton <Share2 className="w-3 h-3 inline text-blue-600" /> Partager : <span className="font-bold text-slate-800 dark:text-white">Komoot</span> apparaît immédiatement en première option !
+                3. Touchez l'icône <Share2 className="w-3 h-3 inline text-blue-600" /> Partager ➔ sélectionnez <span className="font-bold text-slate-800 dark:text-white">Komoot</span>.
               </p>
             </div>
 

@@ -65,7 +65,8 @@ export function downloadGPX(
   elevationProfile?: ElevationPoint[]
 ) {
   const gpxString = generateGPXString(title, coordinates, elevationProfile);
-  const blob = new Blob([gpxString], { type: 'application/gpx+xml' });
+  // Utilisation de 'application/octet-stream' pour empêcher iOS Safari de renommer le fichier en .gpx.txt
+  const blob = new Blob([gpxString], { type: 'application/octet-stream' });
   const url = URL.createObjectURL(blob);
 
   const a = document.createElement('a');

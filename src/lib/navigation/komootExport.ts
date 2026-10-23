@@ -32,9 +32,9 @@ export async function exportToKomoot(
   // 1. Détection Web Share API Level 2 (Partage natif de fichier sous iOS 15+ / Safari / Android)
   if (typeof navigator !== 'undefined' && 'canShare' in navigator) {
     try {
-      const blob = new Blob([gpxContent], { type: 'application/gpx+xml' });
+      const blob = new Blob([gpxContent], { type: 'application/octet-stream' });
       const file = new File([blob], safeFilename, {
-        type: 'application/gpx+xml',
+        type: 'application/octet-stream',
         lastModified: Date.now(),
       });
 
@@ -57,7 +57,7 @@ export async function exportToKomoot(
 
   // 2. Fallback Desktop : Téléchargement direct + ouverture de la page d'import Komoot
   try {
-    const blob = new Blob([gpxContent], { type: 'application/gpx+xml' });
+    const blob = new Blob([gpxContent], { type: 'application/octet-stream' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;

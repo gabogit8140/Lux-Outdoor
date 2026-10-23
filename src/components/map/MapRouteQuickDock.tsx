@@ -6,7 +6,6 @@ import {
   formatDriveDistance,
   getRouteStartCoordinates,
 } from '../../lib/navigation/wazeNavigation';
-import { exportToKomoot } from '../../lib/navigation/komootExport';
 import { KomootIcon } from '../ui/KomootIcon';
 import { KomootExportModal } from '../navigation/KomootExportModal';
 
@@ -44,13 +43,8 @@ export function MapRouteQuickDock({
 
   const [isKomootModalOpen, setIsKomootModalOpen] = useState(false);
 
-  const handleExportKomoot = async () => {
+  const handleExportKomoot = () => {
     setIsKomootModalOpen(true);
-    try {
-      await exportToKomoot(route.title, trace.coordinates, trace.elevationProfile);
-    } catch {
-      // Modal handles fallback
-    }
   };
 
   return (
