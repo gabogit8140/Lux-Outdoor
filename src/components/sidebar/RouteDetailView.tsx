@@ -32,6 +32,7 @@ import {
   getSemanticRouteColor,
 } from '../ui/PremiumPrimitives';
 import type { UseRouteEditorReturn } from '../../hooks/useRouteEditor';
+import { openWazeNavigation, getRouteStartCoordinates } from '../../lib/navigation/wazeNavigation';
 
 interface RouteDetailViewProps {
   route: RouteSuggestions;
@@ -89,6 +90,8 @@ export function RouteDetailView({
     if (!trace) return;
     downloadGPX(route.title, trace.coordinates, trace.elevationProfile);
   };
+
+  const startCoords = getRouteStartCoordinates(route, trace);
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -562,6 +565,18 @@ export function RouteDetailView({
           >
             <Navigation className="w-4 h-4 fill-white animate-pulse" />
             <span>{isNavigating ? 'Reprendre le guidage terrain' : 'Démarrer le guidage terrain'}</span>
+          </button>
+        )}
+
+        {startCoords && (
+          <button
+            type="button"
+            onClick={() => openWazeNavigation(startCoords[0], startCoords[1])}
+            className="w-full py-2.5 px-3 bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-sky-600/25 active:scale-95 transition-all cursor-pointer border border-sky-400/30"
+            title="Ouvrir Waze pour naviguer en voiture jusqu'au départ de la trace"
+          >
+            <Car className="w-4 h-4 text-cyan-200" />
+            <span>Y aller avec Waze (guidage voiture vers départ)</span>
           </button>
         )}
 

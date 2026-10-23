@@ -3,6 +3,7 @@ import { useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import { Search } from 'lucide-react';
 import type { RouteTrace } from '../../types';
+export { LocateControl } from './LocateControl';
 
 /**
  * Desktop-only zoom buttons (+ and -).

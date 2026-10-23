@@ -10,6 +10,7 @@ import {
 import { MapLayersMenu } from './map/MapLayersMenu';
 import {
   DesktopZoomControl,
+  LocateControl,
   SearchAreaControl,
   MapResizer,
   MapCenterWatcher,
@@ -17,6 +18,8 @@ import {
   MapClicker,
 } from './map/MapControls';
 import { MapRoutesLayer } from './map/MapRoutesLayer';
+import { MapRouteQuickDock } from './map/MapRouteQuickDock';
+import { openWazeNavigation } from '../lib/navigation/wazeNavigation';
 import { MapEditorLayer } from './map/MapEditorLayer';
 import { TraceEditorBar } from './editor/TraceEditorBar';
 import { NavigationMapLayer } from './navigation/NavigationMapLayer';
@@ -57,6 +60,9 @@ interface MapProps {
   editor?: UseRouteEditorReturn;
   navigation?: UseOutdoorNavigationReturn;
   recenterTrigger?: number;
+  onStartNavigation?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  onDeselectRoute?: () => void;
+  onOpenDetails?: () => void;
 }
 
 export function MapDisplay({
@@ -85,10 +91,15 @@ export function MapDisplay({
   editor,
   navigation,
   recenterTrigger = 0,
+  onStartNavigation,
+  onDeselectRoute,
+  onOpenDetails,
 }: MapProps) {
   const [show200kmRadius, setShow200kmRadius] = useState(false);
+  const [userCoords, setUserCoords] = useState<[number, number] | null>(null);
   const lastLayerClickTimeRef = useRef<number>(0);
 
+  const selectedRoute = selectedRouteId ? routes.find((r) => r.id === selectedRouteId) || null : null;
   const selectedTrace = selectedRouteId ? traces[selectedRouteId] || null : null;
 
   // When switching to hike mode, seamlessly switch away from CyclOSM so cycleways are not shown
@@ -156,6 +167,7 @@ export function MapDisplay({
           lastLayerClickTimeRef={lastLayerClickTimeRef}
           activity={activity}
           isTraceVisible={isTraceVisible}
+          onStartNavigation={onStartNavigation}
         />
 
         {/* Panning Search Control */}
@@ -163,6 +175,7 @@ export function MapDisplay({
 
         {/* Controls Top Right:
             - Desktop Zoom Control: Hidden on mobile (touch devices zoom with 2 fingers)
+            - Locate Control: Geolocation button with smooth zoom to user position
             - Layer Selector Menu: Available on both desktop and mobile
             - Dedicated Hunting Rifle Button: Quick 1-click hunting battues toggle
         */}
@@ -171,6 +184,10 @@ export function MapDisplay({
           style={{ pointerEvents: 'auto' }}
         >
           <DesktopZoomControl />
+          <LocateControl
+            isNavigating={Boolean(navigation?.isNavigating)}
+            onLocationChange={setUserCoords}
+          />
           <MapLayersMenu
             activity={activity}
             mapLayer={mapLayer}
@@ -227,6 +244,24 @@ export function MapDisplay({
           onToggleTraceVisibility={onToggleTraceVisibility}
         />
       )}
+
+      {/* Floating Selected Route Quick Action Dock on Map (Waze + Navigation Terrain) */}
+      {selectedRoute &&
+        selectedTrace &&
+        !navigation?.isNavigating &&
+        !editor?.isEditorActive &&
+        onStartNavigation && (
+          <MapRouteQuickDock
+            route={selectedRoute}
+            trace={selectedTrace}
+            userCoords={userCoords}
+            onStartNavigation={onStartNavigation}
+            onOpenWaze={openWazeNavigation}
+            onClose={() => onDeselectRoute?.()}
+            onOpenDetails={onOpenDetails}
+            activity={activity}
+          />
+        )}
 
       {/* Floating Semantic Color Legend (Bottom-Left) */}
       <div className="absolute bottom-2.5 sm:bottom-4 left-2.5 md:left-4 z-[400] pointer-events-auto max-w-[calc(100%-1.25rem)]">

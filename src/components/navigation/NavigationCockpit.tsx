@@ -15,8 +15,6 @@ import {
   VolumeX,
   X,
   Crosshair,
-  Play,
-  Pause,
   Footprints,
   Bike,
 } from 'lucide-react';
@@ -46,9 +44,6 @@ export function NavigationCockpit({ navigation, onRecenter }: NavigationCockpitP
     toggleAudioAlerts,
     isCompassOriented,
     toggleCompassOrientation,
-    isSimulated,
-    startSimulation,
-    stopSimulation,
     stopNavigation,
   } = navigation;
 
@@ -259,29 +254,6 @@ export function NavigationCockpit({ navigation, onRecenter }: NavigationCockpitP
                 <Volume2 className="w-4 h-4 text-emerald-400" />
               ) : (
                 <VolumeX className="w-4 h-4 text-rose-400" />
-              )}
-            </button>
-
-            {/* Mode Test Simulation (pour tester sans être en forêt) */}
-            <button
-              onClick={() => (isSimulated ? stopSimulation() : startSimulation(1.5))}
-              className={`py-2 px-2.5 rounded-2xl border text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
-                isSimulated
-                  ? 'bg-amber-500 text-slate-950 border-amber-400 font-black animate-pulse'
-                  : 'bg-white/10 text-slate-300 border-white/10 hover:bg-white/20'
-              }`}
-              title="Tester la navigation en simulant la marche virtuelle le long de la trace"
-            >
-              {isSimulated ? (
-                <>
-                  <Pause className="w-3.5 h-3.5" />
-                  <span>Stop Simu</span>
-                </>
-              ) : (
-                <>
-                  <Play className="w-3.5 h-3.5 text-yellow-400" />
-                  <span>Simu</span>
-                </>
               )}
             </button>
           </div>

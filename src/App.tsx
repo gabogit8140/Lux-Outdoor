@@ -434,7 +434,9 @@ export default function App() {
             selectRoute(id);
             setPreviewRouteId(id);
             setMapInteractedTrigger((prev) => prev + 1);
-            setIsSidebarOpen(true);
+            if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
+              setIsSidebarOpen(true);
+            }
           }}
           onHoverRoute={(id) => {
             setHoveredRouteId(id);
@@ -468,22 +470,23 @@ export default function App() {
           editor={editor}
           navigation={navigation}
           recenterTrigger={navRecenterTrigger}
+          onStartNavigation={(r, t) => {
+            navigation.startNavigation(r, t);
+            setIsSidebarOpen(false);
+            showToast(`Guidage démarré : ${r.title}`);
+          }}
+          onDeselectRoute={handleDeselectAll}
+          onOpenDetails={() => setIsSidebarOpen(true)}
         />
 
-        {/* Bottom Elevation Profile Bar (Shown only when Sidebar is closed so it never duplicates or blocks the map in split view) */}
-        {!isSidebarOpen && selectedRoute && selectedTrace && (
+        {/* Bottom Elevation Profile Bar (Shown when Sidebar is closed and profile drawer is open) */}
+        {!isSidebarOpen && isProfileOpen && selectedRoute && selectedTrace && (
           <TraceProfile
             route={selectedRoute}
             trace={selectedTrace}
             isOpen={isProfileOpen}
             onClose={() => setIsProfileOpen(false)}
-            onOpen={() => {
-              if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-                setIsSidebarOpen(true);
-              } else {
-                setIsProfileOpen(true);
-              }
-            }}
+            onOpen={() => setIsProfileOpen(true)}
             onHoverDistance={setHoveredDistanceKm}
             isTraceVisible={isTraceVisibleOnMap}
             onToggleTraceVisibility={toggleTraceVisibility}

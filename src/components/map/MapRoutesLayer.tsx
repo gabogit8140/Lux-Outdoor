@@ -3,6 +3,8 @@ import { Polyline, Marker, Popup, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import type { RouteSuggestions, RouteTrace } from '../../types';
 import { getSemanticRouteColor } from '../ui/PremiumPrimitives';
+import { Car, Navigation } from 'lucide-react';
+import { openWazeNavigation } from '../../lib/navigation/wazeNavigation';
 import {
   getHaloUnderlayPathOptions,
   getRoadSegmentPathOptions,
@@ -51,6 +53,7 @@ interface MapRoutesLayerProps {
   lastLayerClickTimeRef: React.MutableRefObject<number>;
   activity: 'bike' | 'hike';
   isTraceVisible?: boolean;
+  onStartNavigation?: (route: RouteSuggestions, trace: RouteTrace) => void;
 }
 
 export function MapRoutesLayer({
@@ -65,6 +68,7 @@ export function MapRoutesLayer({
   lastLayerClickTimeRef,
   activity,
   isTraceVisible = true,
+  onStartNavigation,
 }: MapRoutesLayerProps) {
   const [internalHoveredId, setInternalHoveredId] = useState<string | null>(null);
   const hoveredRouteId =
@@ -395,7 +399,45 @@ export function MapRoutesLayer({
           )}
 
           {selectedPrepared.startPos && (
-            <Marker position={selectedPrepared.startPos} icon={createStartIcon()} interactive={false}>
+            <Marker position={selectedPrepared.startPos} icon={createStartIcon()} interactive={true}>
+              <Popup offset={[0, -10]} className="trail-start-popup">
+                <div className="p-1 min-w-[200px] text-slate-900 flex flex-col gap-2">
+                  <div>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-emerald-600 block">
+                      Point de départ
+                    </span>
+                    <span className="text-xs font-extrabold text-slate-900 line-clamp-1 block">
+                      {selectedPrepared.r.title}
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-1.5 pt-0.5">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openWazeNavigation(selectedPrepared.startPos![0], selectedPrepared.startPos![1]);
+                      }}
+                      className="w-full py-1.5 px-2.5 bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 text-white rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer"
+                    >
+                      <Car className="w-3.5 h-3.5" />
+                      <span>Waze (Voiture)</span>
+                    </button>
+                    {onStartNavigation && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onStartNavigation(selectedPrepared.r, selectedPrepared.t);
+                        }}
+                        className="w-full py-1.5 px-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg text-xs font-black flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer"
+                      >
+                        <Navigation className="w-3.5 h-3.5 fill-white" />
+                        <span>Démarrer le guidage</span>
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </Popup>
               <Tooltip direction="top" offset={[0, -10]}>
                 Point de départ ({selectedPrepared.r.title})
               </Tooltip>
