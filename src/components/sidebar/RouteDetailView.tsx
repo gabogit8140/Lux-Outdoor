@@ -20,6 +20,7 @@ import {
   Mountain,
   Clock,
   Wand2,
+  Navigation,
 } from 'lucide-react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
 import { downloadGPX } from '../../lib/gpx';
@@ -53,6 +54,8 @@ interface RouteDetailViewProps {
   onToggleHuntingBattues?: () => void;
   onEditRoute?: (route: RouteSuggestions, trace: RouteTrace) => void;
   editor?: UseRouteEditorReturn;
+  onStartNavigation?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  isNavigating?: boolean;
 }
 
 export function RouteDetailView({
@@ -76,6 +79,8 @@ export function RouteDetailView({
   onToggleHuntingBattues,
   onEditRoute,
   editor,
+  onStartNavigation,
+  isNavigating = false,
 }: RouteDetailViewProps) {
   const [showRoadbook, setShowRoadbook] = useState(false);
   const semanticColor = getSemanticRouteColor(route.difficulty?.level);
@@ -547,8 +552,19 @@ export function RouteDetailView({
         </section>
       )}
 
-      {/* Action Buttons: Edit/Variant, Reverse, Export GPX, Save Favorite */}
+      {/* Action Buttons: Start Navigation, Edit/Variant, Reverse, Export GPX, Save Favorite */}
       <div className="space-y-2 pt-1">
+        {onStartNavigation && trace && (
+          <button
+            onClick={() => onStartNavigation(route, trace)}
+            className="w-full py-3 px-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-2xl text-xs sm:text-sm font-black flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 active:scale-95 transition-all cursor-pointer border border-emerald-400/40"
+            title="Démarrer le guidage terrain tête-haute (100% hors-ligne, GPS direct)"
+          >
+            <Navigation className="w-4 h-4 fill-white animate-pulse" />
+            <span>{isNavigating ? 'Reprendre le guidage terrain' : 'Démarrer le guidage terrain'}</span>
+          </button>
+        )}
+
         {onEditRoute && trace && (
           <button
             onClick={() => onEditRoute(route, trace)}

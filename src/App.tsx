@@ -9,9 +9,11 @@ import { GpxDatabaseModal } from './components/GpxDatabaseModal';
 import { MapFilterBar } from './components/MapFilterBar';
 import { SaveTraceModal } from './components/editor/SaveTraceModal';
 import { LoopGeneratorModal } from './components/editor/LoopGeneratorModal';
+import { NavigationCockpit } from './components/navigation/NavigationCockpit';
 import { Heart, Menu, X, CheckCircle, Smartphone, Compass, FolderGit2, EyeOff, Moon, Sun, PenTool } from 'lucide-react';
 import { useRouteManager } from './hooks/useRouteManager';
 import { useRouteEditor } from './hooks/useRouteEditor';
+import { useOutdoorNavigation } from './hooks/useOutdoorNavigation';
 import { useFavorites } from './hooks/useFavorites';
 import { usePWAInstall } from './hooks/usePWAInstall';
 import { CATALOG_ROUTES } from './lib/routeCatalog';
@@ -115,6 +117,8 @@ export default function App() {
   } = useRouteManager();
 
   const editor = useRouteEditor(activity);
+  const navigation = useOutdoorNavigation();
+  const [navRecenterTrigger, setNavRecenterTrigger] = useState(0);
 
   const {
     favorites,
@@ -426,7 +430,6 @@ export default function App() {
           activity={activity}
           selectedRouteId={selectedRouteId}
           hoveredRouteId={hoveredRouteId}
-          editor={editor}
           onSelectRoute={(id) => {
             selectRoute(id);
             setPreviewRouteId(id);
@@ -462,6 +465,9 @@ export default function App() {
           clickedCoord={clickedCoord}
           isTraceVisible={isTraceVisibleOnMap}
           onToggleTraceVisibility={toggleTraceVisibility}
+          editor={editor}
+          navigation={navigation}
+          recenterTrigger={navRecenterTrigger}
         />
 
         {/* Bottom Elevation Profile Bar (Shown only when Sidebar is closed so it never duplicates or blocks the map in split view) */}
@@ -590,6 +596,12 @@ export default function App() {
               setIsSidebarOpen(true);
             }}
             editor={editor}
+            onStartNavigation={(r, t) => {
+              navigation.startNavigation(r, t);
+              setIsSidebarOpen(false); // Mode plein écran carte en navigation
+              showToast(`Guidage démarré : ${r.title}`);
+            }}
+            isNavigating={navigation.isNavigating}
           />
         </aside>
       )}
@@ -653,6 +665,12 @@ export default function App() {
       <LoopGeneratorModal
         editor={editor}
         mapCenter={mapCenterTarget ? [mapCenterTarget.lng, mapCenterTarget.lat] : [6.13, 49.61]}
+      />
+
+      {/* Cockpit de Guidage Terrain Tête-Haute (100% Hors-Ligne, 0 API) */}
+      <NavigationCockpit
+        navigation={navigation}
+        onRecenter={() => setNavRecenterTrigger((prev) => prev + 1)}
       />
     </div>
   );

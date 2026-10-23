@@ -19,8 +19,10 @@ import {
 import { MapRoutesLayer } from './map/MapRoutesLayer';
 import { MapEditorLayer } from './map/MapEditorLayer';
 import { TraceEditorBar } from './editor/TraceEditorBar';
+import { NavigationMapLayer } from './navigation/NavigationMapLayer';
 import { ROUTE_DIFFICULTY_LEGEND } from './ui/PremiumPrimitives';
 import type { UseRouteEditorReturn } from '../hooks/useRouteEditor';
+import type { UseOutdoorNavigationReturn } from '../hooks/useOutdoorNavigation';
 
 export { LUXEMBOURG_CENTER, type MapLayerType };
 
@@ -53,6 +55,8 @@ interface MapProps {
   isTraceVisible?: boolean;
   onToggleTraceVisibility?: () => void;
   editor?: UseRouteEditorReturn;
+  navigation?: UseOutdoorNavigationReturn;
+  recenterTrigger?: number;
 }
 
 export function MapDisplay({
@@ -79,6 +83,8 @@ export function MapDisplay({
   isTraceVisible = true,
   onToggleTraceVisibility,
   editor,
+  navigation,
+  recenterTrigger = 0,
 }: MapProps) {
   const [show200kmRadius, setShow200kmRadius] = useState(false);
   const lastLayerClickTimeRef = useRef<number>(0);
@@ -126,6 +132,14 @@ export function MapDisplay({
             editor={editor}
             lastLayerClickTimeRef={lastLayerClickTimeRef}
             isTraceVisible={isTraceVisible}
+          />
+        )}
+
+        {/* Real-time Offline GPS Outdoor Navigation Layer */}
+        {navigation?.isNavigating && (
+          <NavigationMapLayer
+            navigation={navigation}
+            recenterTrigger={recenterTrigger}
           />
         )}
 

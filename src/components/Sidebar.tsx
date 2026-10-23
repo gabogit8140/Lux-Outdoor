@@ -75,6 +75,8 @@ interface SidebarProps {
   onEditRoute?: (route: RouteSuggestions, trace: RouteTrace) => void;
   onStartCreateRoute?: () => void;
   editor?: UseRouteEditorReturn;
+  onStartNavigation?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  isNavigating?: boolean;
 }
 
 export function Sidebar({
@@ -121,6 +123,8 @@ export function Sidebar({
   onEditRoute,
   onStartCreateRoute,
   editor,
+  onStartNavigation,
+  isNavigating,
 }: SidebarProps) {
   const [location, setLocation] = useState(currentLocation || 'Luxembourg');
   const [tab, setTab] = useState<'plan' | 'result' | 'catalog'>('catalog');
@@ -430,6 +434,8 @@ export function Sidebar({
             onToggleHuntingBattues={onToggleHuntingBattues}
             onEditRoute={onEditRoute}
             editor={editor}
+            onStartNavigation={onStartNavigation}
+            isNavigating={isNavigating}
           />
         )}
 
