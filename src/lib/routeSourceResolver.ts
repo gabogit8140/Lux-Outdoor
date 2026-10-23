@@ -526,6 +526,16 @@ export function resolveRouteSource(params: {
     };
   }
 
+  // 2.9 Sentiers Locaux & Circuits Communaux (category 19 Geoportail)
+  if (lowerId.startsWith('lu-local') || lowerTitle.includes('circuit local') || lowerTitle.includes('sentier local')) {
+    return {
+      sourceUrl: 'https://map.geoportail.lu/theme/tourisme?lang=fr',
+      sourceLabel: `Sentier Local Communal : ${title}`,
+      geoportailUrl,
+      isSpecificPage: Boolean(geoportailUrl),
+    };
+  }
+
   // 2.8 CFL Randonnées en train
   if (lowerId.includes('cfl') || lowerTitle.includes('cfl')) {
     return {

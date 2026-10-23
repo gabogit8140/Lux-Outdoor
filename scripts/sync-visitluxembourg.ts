@@ -138,6 +138,14 @@ const CATEGORIES: DatasetCategory[] = [
     sourceLabel: 'Traumschleifen - Boucles de Rêve Sarre-Hunsrück / Luxembourg',
     sourceUrl: 'https://www.saar-hunsrueck-steig.de',
   },
+  {
+    dir: 'sentiers_locaux',
+    categoryId: '19',
+    activity: 'hike',
+    prefix: 'lu-local',
+    sourceLabel: 'Sentiers Pédestres Locaux & Circuits Communaux du Luxembourg',
+    sourceUrl: 'https://map.geoportail.lu/theme/tourisme',
+  },
 ];
 
 const PC_NAMES: Record<string, string> = {
@@ -223,6 +231,12 @@ function cleanTitle(raw: string, category: DatasetCategory, filename: string): s
   if (category.dir === 'guttland_trails') {
     if (!title.toLowerCase().startsWith('guttland')) {
       title = `Guttland.Trail ${title}`;
+    }
+  }
+
+  if (category.dir === 'sentiers_locaux') {
+    if (!title.toLowerCase().startsWith('circuit local') && !title.toLowerCase().startsWith('sentier local')) {
+      title = `Circuit Local ${title}`;
     }
   }
 

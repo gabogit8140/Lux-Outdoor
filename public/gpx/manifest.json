@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-23T10:18:57.496Z",
-  "totalTracks": 641,
+  "generatedAt": "2026-10-23T11:25:27.365Z",
+  "totalTracks": 876,
   "bikeTracks": 246,
-  "hikeTracks": 395,
+  "hikeTracks": 630,
   "tracks": [
     {
       "id": "be-bike-arlon-attert-boucle",
@@ -4659,6 +4659,1886 @@
       "activity": "hike",
       "country": "LU",
       "distanceKm": 26.9
+    },
+    {
+      "id": "lu-local-circuit-local-b1-beaufort",
+      "name": "Circuit Local B1 - Beaufort",
+      "file": "hike/lu-local-circuit-local-b1-beaufort.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.7
+    },
+    {
+      "id": "lu-local-circuit-local-b10-beaufort",
+      "name": "Circuit Local B10 - Beaufort",
+      "file": "hike/lu-local-circuit-local-b10-beaufort.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5
+    },
+    {
+      "id": "lu-local-circuit-local-b11-berdorf",
+      "name": "Circuit Local B11 - Berdorf",
+      "file": "hike/lu-local-circuit-local-b11-berdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 2.8
+    },
+    {
+      "id": "lu-local-circuit-local-b12-beaufort",
+      "name": "Circuit Local B12 - Beaufort",
+      "file": "hike/lu-local-circuit-local-b12-beaufort.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.2
+    },
+    {
+      "id": "lu-local-circuit-local-b13-berdorf",
+      "name": "Circuit Local B13 - Berdorf",
+      "file": "hike/lu-local-circuit-local-b13-berdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 2.9
+    },
+    {
+      "id": "lu-local-circuit-local-b14-beaufort",
+      "name": "Circuit Local B14 - Beaufort",
+      "file": "hike/lu-local-circuit-local-b14-beaufort.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.3
+    },
+    {
+      "id": "lu-local-circuit-local-b15-berdorf",
+      "name": "Circuit Local B15 - Berdorf",
+      "file": "hike/lu-local-circuit-local-b15-berdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.1
+    },
+    {
+      "id": "lu-local-circuit-local-b16-beaufort",
+      "name": "Circuit Local B16 - Beaufort",
+      "file": "hike/lu-local-circuit-local-b16-beaufort.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.3
+    },
+    {
+      "id": "lu-local-circuit-local-b17-berdorf",
+      "name": "Circuit Local B17 - Berdorf",
+      "file": "hike/lu-local-circuit-local-b17-berdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.1
+    },
+    {
+      "id": "lu-local-circuit-local-b18-beaufort",
+      "name": "Circuit Local B18 - Beaufort",
+      "file": "hike/lu-local-circuit-local-b18-beaufort.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.4
+    },
+    {
+      "id": "lu-local-circuit-local-b19-berdorf",
+      "name": "Circuit Local B19 - Berdorf",
+      "file": "hike/lu-local-circuit-local-b19-berdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.1
+    },
+    {
+      "id": "lu-local-circuit-local-b2-berdorf",
+      "name": "Circuit Local B2 - Berdorf",
+      "file": "hike/lu-local-circuit-local-b2-berdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.3
+    },
+    {
+      "id": "lu-local-circuit-local-b3-bech",
+      "name": "Circuit Local B3 - Bech",
+      "file": "hike/lu-local-circuit-local-b3-bech.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.8
+    },
+    {
+      "id": "lu-local-circuit-local-b4-beaufort",
+      "name": "Circuit Local B4 - Beaufort",
+      "file": "hike/lu-local-circuit-local-b4-beaufort.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.1
+    },
+    {
+      "id": "lu-local-circuit-local-b5-berdorf",
+      "name": "Circuit Local B5 - Berdorf",
+      "file": "hike/lu-local-circuit-local-b5-berdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.1
+    },
+    {
+      "id": "lu-local-circuit-local-b6-bech",
+      "name": "Circuit Local B6 - Bech",
+      "file": "hike/lu-local-circuit-local-b6-bech.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.7
+    },
+    {
+      "id": "lu-local-circuit-local-b7-beaufort",
+      "name": "Circuit Local B7 - Beaufort",
+      "file": "hike/lu-local-circuit-local-b7-beaufort.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.5
+    },
+    {
+      "id": "lu-local-circuit-local-b8-berdorf",
+      "name": "Circuit Local B8 - Berdorf",
+      "file": "hike/lu-local-circuit-local-b8-berdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.9
+    },
+    {
+      "id": "lu-local-circuit-local-b9-bech",
+      "name": "Circuit Local B9 - Bech",
+      "file": "hike/lu-local-circuit-local-b9-bech.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.3
+    },
+    {
+      "id": "lu-local-circuit-local-bl-1",
+      "name": "Circuit Local BL 1",
+      "file": "hike/lu-local-circuit-local-bl-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.8
+    },
+    {
+      "id": "lu-local-circuit-local-bl-2",
+      "name": "Circuit Local BL 2",
+      "file": "hike/lu-local-circuit-local-bl-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.7
+    },
+    {
+      "id": "lu-local-circuit-local-bl-3",
+      "name": "Circuit Local BL 3",
+      "file": "hike/lu-local-circuit-local-bl-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.7
+    },
+    {
+      "id": "lu-local-circuit-local-bl-4-sentier-de-l-independance",
+      "name": "Circuit Local BL 4/ Sentier de l’Indépendance",
+      "file": "hike/lu-local-circuit-local-bl-4-sentier-de-l-independance.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.5
+    },
+    {
+      "id": "lu-local-circuit-local-bl-5",
+      "name": "Circuit Local BL 5",
+      "file": "hike/lu-local-circuit-local-bl-5.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.1
+    },
+    {
+      "id": "lu-local-circuit-local-bs-1",
+      "name": "Circuit Local BS 1",
+      "file": "hike/lu-local-circuit-local-bs-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.4
+    },
+    {
+      "id": "lu-local-circuit-local-bs-2",
+      "name": "Circuit Local BS 2",
+      "file": "hike/lu-local-circuit-local-bs-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7
+    },
+    {
+      "id": "lu-local-circuit-local-bs-3",
+      "name": "Circuit Local BS 3",
+      "file": "hike/lu-local-circuit-local-bs-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.7
+    },
+    {
+      "id": "lu-local-circuit-local-bs-4",
+      "name": "Circuit Local BS 4",
+      "file": "hike/lu-local-circuit-local-bs-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.9
+    },
+    {
+      "id": "lu-local-circuit-local-bs-5",
+      "name": "Circuit Local BS 5",
+      "file": "hike/lu-local-circuit-local-bs-5.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.9
+    },
+    {
+      "id": "lu-local-circuit-local-bs-6",
+      "name": "Circuit Local BS 6",
+      "file": "hike/lu-local-circuit-local-bs-6.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 14.3
+    },
+    {
+      "id": "lu-local-circuit-local-c1-consdorf",
+      "name": "Circuit Local C1 - Consdorf",
+      "file": "hike/lu-local-circuit-local-c1-consdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 2
+    },
+    {
+      "id": "lu-local-circuit-local-c2-consdorf",
+      "name": "Circuit Local C2 - Consdorf",
+      "file": "hike/lu-local-circuit-local-c2-consdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.4
+    },
+    {
+      "id": "lu-local-circuit-local-c3-consdorf",
+      "name": "Circuit Local C3 - Consdorf",
+      "file": "hike/lu-local-circuit-local-c3-consdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.5
+    },
+    {
+      "id": "lu-local-circuit-local-c4-consdorf",
+      "name": "Circuit Local C4 - Consdorf",
+      "file": "hike/lu-local-circuit-local-c4-consdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.8
+    },
+    {
+      "id": "lu-local-circuit-local-c5-consdorf",
+      "name": "Circuit Local C5- Consdorf",
+      "file": "hike/lu-local-circuit-local-c5-consdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.5
+    },
+    {
+      "id": "lu-local-circuit-local-c6-consdorf",
+      "name": "Circuit Local C6 - Consdorf",
+      "file": "hike/lu-local-circuit-local-c6-consdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.9
+    },
+    {
+      "id": "lu-local-circuit-local-c7-consdorf",
+      "name": "Circuit Local C7 - Consdorf",
+      "file": "hike/lu-local-circuit-local-c7-consdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.8
+    },
+    {
+      "id": "lu-local-circuit-local-cb-1",
+      "name": "Circuit Local CB 1",
+      "file": "hike/lu-local-circuit-local-cb-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.6
+    },
+    {
+      "id": "lu-local-circuit-local-cl-1",
+      "name": "Circuit Local CL 1",
+      "file": "hike/lu-local-circuit-local-cl-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.3
+    },
+    {
+      "id": "lu-local-circuit-local-cl-2",
+      "name": "Circuit Local CL 2",
+      "file": "hike/lu-local-circuit-local-cl-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7
+    },
+    {
+      "id": "lu-local-circuit-local-cl-3",
+      "name": "Circuit Local CL 3",
+      "file": "hike/lu-local-circuit-local-cl-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.6
+    },
+    {
+      "id": "lu-local-circuit-local-cl-4",
+      "name": "Circuit Local CL 4",
+      "file": "hike/lu-local-circuit-local-cl-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.6
+    },
+    {
+      "id": "lu-local-circuit-local-cl-5",
+      "name": "Circuit Local CL 5",
+      "file": "hike/lu-local-circuit-local-cl-5.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 12.3
+    },
+    {
+      "id": "lu-local-circuit-local-dk-1",
+      "name": "Circuit Local DK 1",
+      "file": "hike/lu-local-circuit-local-dk-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.4
+    },
+    {
+      "id": "lu-local-circuit-local-dk-2",
+      "name": "Circuit Local DK 2",
+      "file": "hike/lu-local-circuit-local-dk-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.4
+    },
+    {
+      "id": "lu-local-circuit-local-dk-3",
+      "name": "Circuit Local DK 3",
+      "file": "hike/lu-local-circuit-local-dk-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.9
+    },
+    {
+      "id": "lu-local-circuit-local-e1-echternach",
+      "name": "Circuit Local E1 - Echternach",
+      "file": "hike/lu-local-circuit-local-e1-echternach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 13.5
+    },
+    {
+      "id": "lu-local-circuit-local-e4-echternach",
+      "name": "Circuit Local E4 - Echternach",
+      "file": "hike/lu-local-circuit-local-e4-echternach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.1
+    },
+    {
+      "id": "lu-local-circuit-local-e5-echternach",
+      "name": "Circuit Local E5 - Echternach",
+      "file": "hike/lu-local-circuit-local-e5-echternach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.3
+    },
+    {
+      "id": "lu-local-circuit-local-e6-ermsdorf",
+      "name": "Circuit Local E6 - Ermsdorf",
+      "file": "hike/lu-local-circuit-local-e6-ermsdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.5
+    },
+    {
+      "id": "lu-local-circuit-local-e8-ermsdorf",
+      "name": "Circuit Local E8 - Ermsdorf",
+      "file": "hike/lu-local-circuit-local-e8-ermsdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.3
+    },
+    {
+      "id": "lu-local-circuit-local-e9-ermsdorf",
+      "name": "Circuit Local E9 - Ermsdorf",
+      "file": "hike/lu-local-circuit-local-e9-ermsdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.3
+    },
+    {
+      "id": "lu-local-circuit-local-er-1",
+      "name": "Circuit Local ER 1",
+      "file": "hike/lu-local-circuit-local-er-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 19.9
+    },
+    {
+      "id": "lu-local-circuit-local-es-1",
+      "name": "Circuit Local ES 1",
+      "file": "hike/lu-local-circuit-local-es-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.7
+    },
+    {
+      "id": "lu-local-circuit-local-es-10",
+      "name": "Circuit Local ES 10",
+      "file": "hike/lu-local-circuit-local-es-10.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.5
+    },
+    {
+      "id": "lu-local-circuit-local-es-11",
+      "name": "Circuit Local ES 11",
+      "file": "hike/lu-local-circuit-local-es-11.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.5
+    },
+    {
+      "id": "lu-local-circuit-local-es-12",
+      "name": "Circuit Local ES 12",
+      "file": "hike/lu-local-circuit-local-es-12.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10
+    },
+    {
+      "id": "lu-local-circuit-local-es-13",
+      "name": "Circuit Local ES 13",
+      "file": "hike/lu-local-circuit-local-es-13.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.1
+    },
+    {
+      "id": "lu-local-circuit-local-es-14",
+      "name": "Circuit Local ES 14",
+      "file": "hike/lu-local-circuit-local-es-14.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 12.6
+    },
+    {
+      "id": "lu-local-circuit-local-es-2",
+      "name": "Circuit Local ES 2",
+      "file": "hike/lu-local-circuit-local-es-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5
+    },
+    {
+      "id": "lu-local-circuit-local-es-3",
+      "name": "Circuit Local ES 3",
+      "file": "hike/lu-local-circuit-local-es-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.4
+    },
+    {
+      "id": "lu-local-circuit-local-es-4",
+      "name": "Circuit Local ES 4",
+      "file": "hike/lu-local-circuit-local-es-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.4
+    },
+    {
+      "id": "lu-local-circuit-local-es-5",
+      "name": "Circuit Local ES 5",
+      "file": "hike/lu-local-circuit-local-es-5.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.7
+    },
+    {
+      "id": "lu-local-circuit-local-es-6",
+      "name": "Circuit Local ES 6",
+      "file": "hike/lu-local-circuit-local-es-6.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6
+    },
+    {
+      "id": "lu-local-circuit-local-es-7",
+      "name": "Circuit Local ES 7",
+      "file": "hike/lu-local-circuit-local-es-7.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.9
+    },
+    {
+      "id": "lu-local-circuit-local-es-8",
+      "name": "Circuit Local ES 8",
+      "file": "hike/lu-local-circuit-local-es-8.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.7
+    },
+    {
+      "id": "lu-local-circuit-local-es-9",
+      "name": "Circuit Local ES 9",
+      "file": "hike/lu-local-circuit-local-es-9.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.3
+    },
+    {
+      "id": "lu-local-circuit-local-et-1",
+      "name": "Circuit Local ET 1",
+      "file": "hike/lu-local-circuit-local-et-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.6
+    },
+    {
+      "id": "lu-local-circuit-local-et-2",
+      "name": "Circuit Local ET 2",
+      "file": "hike/lu-local-circuit-local-et-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.9
+    },
+    {
+      "id": "lu-local-circuit-local-f1-fischbach",
+      "name": "Circuit Local F1 - Fischbach",
+      "file": "hike/lu-local-circuit-local-f1-fischbach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.3
+    },
+    {
+      "id": "lu-local-circuit-local-f2-fischbach",
+      "name": "Circuit Local F2 - Fischbach",
+      "file": "hike/lu-local-circuit-local-f2-fischbach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.2
+    },
+    {
+      "id": "lu-local-circuit-local-f3-fischbach",
+      "name": "Circuit Local F3 - Fischbach",
+      "file": "hike/lu-local-circuit-local-f3-fischbach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 2.6
+    },
+    {
+      "id": "lu-local-circuit-local-f4-fischbach",
+      "name": "Circuit Local F4 - Fischbach",
+      "file": "hike/lu-local-circuit-local-f4-fischbach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.6
+    },
+    {
+      "id": "lu-local-circuit-local-fe-1",
+      "name": "Circuit Local FE 1",
+      "file": "hike/lu-local-circuit-local-fe-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.4
+    },
+    {
+      "id": "lu-local-circuit-local-fe-2",
+      "name": "Circuit Local FE 2",
+      "file": "hike/lu-local-circuit-local-fe-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 14.3
+    },
+    {
+      "id": "lu-local-circuit-local-go-1",
+      "name": "Circuit Local GO 1",
+      "file": "hike/lu-local-circuit-local-go-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.4
+    },
+    {
+      "id": "lu-local-circuit-local-go-2",
+      "name": "Circuit Local GO 2",
+      "file": "hike/lu-local-circuit-local-go-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.7
+    },
+    {
+      "id": "lu-local-circuit-local-h1-heffingen",
+      "name": "Circuit Local H1 - Heffingen",
+      "file": "hike/lu-local-circuit-local-h1-heffingen.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.5
+    },
+    {
+      "id": "lu-local-circuit-local-h2-heffingen",
+      "name": "Circuit Local H2 - Heffingen",
+      "file": "hike/lu-local-circuit-local-h2-heffingen.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.9
+    },
+    {
+      "id": "lu-local-circuit-local-ki-1",
+      "name": "Circuit Local KI 1",
+      "file": "hike/lu-local-circuit-local-ki-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.6
+    },
+    {
+      "id": "lu-local-circuit-local-ki-2",
+      "name": "Circuit Local KI 2",
+      "file": "hike/lu-local-circuit-local-ki-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.6
+    },
+    {
+      "id": "lu-local-circuit-local-ki-3",
+      "name": "Circuit Local KI 3",
+      "file": "hike/lu-local-circuit-local-ki-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.3
+    },
+    {
+      "id": "lu-local-circuit-local-ki-4",
+      "name": "Circuit Local KI 4",
+      "file": "hike/lu-local-circuit-local-ki-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.5
+    },
+    {
+      "id": "lu-local-circuit-local-ki-5",
+      "name": "Circuit Local KI 5",
+      "file": "hike/lu-local-circuit-local-ki-5.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.7
+    },
+    {
+      "id": "lu-local-circuit-local-ki-6",
+      "name": "Circuit Local KI 6",
+      "file": "hike/lu-local-circuit-local-ki-6.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.1
+    },
+    {
+      "id": "lu-local-circuit-local-ki-7",
+      "name": "Circuit Local KI 7",
+      "file": "hike/lu-local-circuit-local-ki-7.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.8
+    },
+    {
+      "id": "lu-local-circuit-local-ki-8",
+      "name": "Circuit Local KI 8",
+      "file": "hike/lu-local-circuit-local-ki-8.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 16.9
+    },
+    {
+      "id": "lu-local-circuit-local-l1-larochette",
+      "name": "Circuit Local L1 - Larochette",
+      "file": "hike/lu-local-circuit-local-l1-larochette.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 2.2
+    },
+    {
+      "id": "lu-local-circuit-local-l2-larochette",
+      "name": "Circuit Local L2 - Larochette",
+      "file": "hike/lu-local-circuit-local-l2-larochette.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.6
+    },
+    {
+      "id": "lu-local-circuit-local-l3-larochette",
+      "name": "Circuit Local L3 - Larochette",
+      "file": "hike/lu-local-circuit-local-l3-larochette.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.5
+    },
+    {
+      "id": "lu-local-circuit-local-l4-larochette",
+      "name": "Circuit Local L4 - Larochette",
+      "file": "hike/lu-local-circuit-local-l4-larochette.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.1
+    },
+    {
+      "id": "lu-local-circuit-local-l5-larochette",
+      "name": "Circuit Local L5 - Larochette",
+      "file": "hike/lu-local-circuit-local-l5-larochette.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.6
+    },
+    {
+      "id": "lu-local-circuit-local-lh-1",
+      "name": "Circuit Local LH 1",
+      "file": "hike/lu-local-circuit-local-lh-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.8
+    },
+    {
+      "id": "lu-local-circuit-local-lh-2",
+      "name": "Circuit Local LH 2",
+      "file": "hike/lu-local-circuit-local-lh-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.9
+    },
+    {
+      "id": "lu-local-circuit-local-lh-3",
+      "name": "Circuit Local LH 3",
+      "file": "hike/lu-local-circuit-local-lh-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.4
+    },
+    {
+      "id": "lu-local-circuit-local-lh-4",
+      "name": "Circuit Local LH 4",
+      "file": "hike/lu-local-circuit-local-lh-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.6
+    },
+    {
+      "id": "lu-local-circuit-local-lh-5",
+      "name": "Circuit Local LH 5",
+      "file": "hike/lu-local-circuit-local-lh-5.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.5
+    },
+    {
+      "id": "lu-local-circuit-local-lh-6",
+      "name": "Circuit Local LH 6",
+      "file": "hike/lu-local-circuit-local-lh-6.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.1
+    },
+    {
+      "id": "lu-local-circuit-local-lh-7",
+      "name": "Circuit Local LH 7",
+      "file": "hike/lu-local-circuit-local-lh-7.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.6
+    },
+    {
+      "id": "lu-local-circuit-local-lh-8",
+      "name": "Circuit Local LH 8",
+      "file": "hike/lu-local-circuit-local-lh-8.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10
+    },
+    {
+      "id": "lu-local-circuit-local-m1-mompach",
+      "name": "Circuit Local M1 - Mompach",
+      "file": "hike/lu-local-circuit-local-m1-mompach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.2
+    },
+    {
+      "id": "lu-local-circuit-local-m2-mompach",
+      "name": "Circuit Local M2 - Mompach",
+      "file": "hike/lu-local-circuit-local-m2-mompach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.2
+    },
+    {
+      "id": "lu-local-circuit-local-m3-mompach",
+      "name": "Circuit Local M3 - Mompach",
+      "file": "hike/lu-local-circuit-local-m3-mompach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4
+    },
+    {
+      "id": "lu-local-circuit-local-m4-medernach",
+      "name": "Circuit Local M4 - Medernach",
+      "file": "hike/lu-local-circuit-local-m4-medernach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 13.8
+    },
+    {
+      "id": "lu-local-circuit-local-m6-mompach",
+      "name": "Circuit Local M6 - Mompach",
+      "file": "hike/lu-local-circuit-local-m6-mompach.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.6
+    },
+    {
+      "id": "lu-local-circuit-local-n1-nommern",
+      "name": "Circuit Local N1 - Nommern",
+      "file": "hike/lu-local-circuit-local-n1-nommern.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4
+    },
+    {
+      "id": "lu-local-circuit-local-n2-nommern",
+      "name": "Circuit Local N2 - Nommern",
+      "file": "hike/lu-local-circuit-local-n2-nommern.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.8
+    },
+    {
+      "id": "lu-local-circuit-local-n3-nommern",
+      "name": "Circuit Local N3 - Nommern",
+      "file": "hike/lu-local-circuit-local-n3-nommern.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 2.9
+    },
+    {
+      "id": "lu-local-circuit-local-n4-nommern",
+      "name": "Circuit Local N4 - Nommern",
+      "file": "hike/lu-local-circuit-local-n4-nommern.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.2
+    },
+    {
+      "id": "lu-local-circuit-local-n5-nommern",
+      "name": "Circuit Local N5 - Nommern",
+      "file": "hike/lu-local-circuit-local-n5-nommern.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 2.9
+    },
+    {
+      "id": "lu-local-circuit-local-ph-1",
+      "name": "Circuit Local PH 1",
+      "file": "hike/lu-local-circuit-local-ph-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.7
+    },
+    {
+      "id": "lu-local-circuit-local-ph-2",
+      "name": "Circuit Local PH 2",
+      "file": "hike/lu-local-circuit-local-ph-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.9
+    },
+    {
+      "id": "lu-local-circuit-local-ph-3",
+      "name": "Circuit Local PH 3",
+      "file": "hike/lu-local-circuit-local-ph-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.3
+    },
+    {
+      "id": "lu-local-circuit-local-ph-4",
+      "name": "Circuit Local PH 4",
+      "file": "hike/lu-local-circuit-local-ph-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.7
+    },
+    {
+      "id": "lu-local-circuit-local-ph-5",
+      "name": "Circuit Local PH 5",
+      "file": "hike/lu-local-circuit-local-ph-5.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 12.9
+    },
+    {
+      "id": "lu-local-circuit-local-pu-1",
+      "name": "Circuit Local PU 1",
+      "file": "hike/lu-local-circuit-local-pu-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.2
+    },
+    {
+      "id": "lu-local-circuit-local-r1-reisdorf",
+      "name": "Circuit Local R1 - Reisdorf",
+      "file": "hike/lu-local-circuit-local-r1-reisdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.5
+    },
+    {
+      "id": "lu-local-circuit-local-r2-reisdorf",
+      "name": "Circuit Local R2 - Reisdorf",
+      "file": "hike/lu-local-circuit-local-r2-reisdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 2.9
+    },
+    {
+      "id": "lu-local-circuit-local-r3-reisdorf",
+      "name": "Circuit Local R3 - Reisdorf",
+      "file": "hike/lu-local-circuit-local-r3-reisdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7
+    },
+    {
+      "id": "lu-local-circuit-local-r4-reisdorf",
+      "name": "Circuit Local R4 - Reisdorf",
+      "file": "hike/lu-local-circuit-local-r4-reisdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.5
+    },
+    {
+      "id": "lu-local-circuit-local-r5-reisdorf",
+      "name": "Circuit Local R5 - Reisdorf",
+      "file": "hike/lu-local-circuit-local-r5-reisdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.5
+    },
+    {
+      "id": "lu-local-circuit-local-r6-reisdorf",
+      "name": "Circuit Local R6 - Reisdorf",
+      "file": "hike/lu-local-circuit-local-r6-reisdorf.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.8
+    },
+    {
+      "id": "lu-local-circuit-local-r7-rosport",
+      "name": "Circuit Local R7 - Rosport",
+      "file": "hike/lu-local-circuit-local-r7-rosport.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.5
+    },
+    {
+      "id": "lu-local-circuit-local-r8-rosport",
+      "name": "Circuit Local R8 - Rosport",
+      "file": "hike/lu-local-circuit-local-r8-rosport.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.1
+    },
+    {
+      "id": "lu-local-circuit-local-r9-rosport",
+      "name": "Circuit Local R9 - Rosport",
+      "file": "hike/lu-local-circuit-local-r9-rosport.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.7
+    },
+    {
+      "id": "lu-local-circuit-local-rb-1",
+      "name": "Circuit Local RB 1",
+      "file": "hike/lu-local-circuit-local-rb-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.2
+    },
+    {
+      "id": "lu-local-circuit-local-rb-10",
+      "name": "Circuit Local RB 10",
+      "file": "hike/lu-local-circuit-local-rb-10.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 14.2
+    },
+    {
+      "id": "lu-local-circuit-local-rb-2",
+      "name": "Circuit Local RB 2",
+      "file": "hike/lu-local-circuit-local-rb-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6
+    },
+    {
+      "id": "lu-local-circuit-local-rb-3",
+      "name": "Circuit Local RB 3",
+      "file": "hike/lu-local-circuit-local-rb-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6
+    },
+    {
+      "id": "lu-local-circuit-local-rb-4",
+      "name": "Circuit Local RB 4",
+      "file": "hike/lu-local-circuit-local-rb-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.1
+    },
+    {
+      "id": "lu-local-circuit-local-rb-5",
+      "name": "Circuit Local RB 5",
+      "file": "hike/lu-local-circuit-local-rb-5.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.8
+    },
+    {
+      "id": "lu-local-circuit-local-rb-6",
+      "name": "Circuit Local RB 6",
+      "file": "hike/lu-local-circuit-local-rb-6.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.9
+    },
+    {
+      "id": "lu-local-circuit-local-rb-7",
+      "name": "Circuit Local RB 7",
+      "file": "hike/lu-local-circuit-local-rb-7.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.6
+    },
+    {
+      "id": "lu-local-circuit-local-rb-8",
+      "name": "Circuit Local RB 8",
+      "file": "hike/lu-local-circuit-local-rb-8.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.7
+    },
+    {
+      "id": "lu-local-circuit-local-rb-9",
+      "name": "Circuit Local RB 9",
+      "file": "hike/lu-local-circuit-local-rb-9.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.7
+    },
+    {
+      "id": "lu-local-circuit-local-se1",
+      "name": "Circuit Local SE1",
+      "file": "hike/lu-local-circuit-local-se1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.9
+    },
+    {
+      "id": "lu-local-circuit-local-se4",
+      "name": "Circuit Local SE4",
+      "file": "hike/lu-local-circuit-local-se4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.5
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-buschrodt",
+      "name": "Circuit Local Sentiers locaux Guttland Buschrodt",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-buschrodt.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.8
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-grengewald-nature-culture-amp-histoire-1",
+      "name": "Circuit Local Sentiers locaux Guttland Gréngewald   Nature, culture & histoire 1",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-grengewald-nature-culture-amp-histoire-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.2
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-grengewald-nature-culture-amp-histoire-2",
+      "name": "Circuit Local Sentiers locaux Guttland Gréngewald   Nature, culture & histoire 2",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-grengewald-nature-culture-amp-histoire-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.1
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-grevels",
+      "name": "Circuit Local Sentiers locaux Guttland Grevels",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-grevels.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-grosbous-2",
+      "name": "Circuit Local Sentiers locaux Guttland Grosbous",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-grosbous-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.8
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-grosbous",
+      "name": "Circuit Local Sentiers locaux Guttland Grosbous",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-grosbous.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 14
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-heispelt",
+      "name": "Circuit Local Sentiers locaux Guttland Heispelt",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-heispelt.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.1
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-hesperange-bivange",
+      "name": "Circuit Local Sentiers locaux Guttland Hesperange-Bivange",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-hesperange-bivange.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 12.3
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-hesperange-sud-alzingen-fentange",
+      "name": "Circuit Local Sentiers locaux Guttland Hesperange-Süd-Alzingen-Fentange",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-hesperange-sud-alzingen-fentange.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.7
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-hostert-nature-culture-amp-histoire",
+      "name": "Circuit Local Sentiers locaux Guttland Hostert   Nature, culture & histoire",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-hostert-nature-culture-amp-histoire.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-kuborn",
+      "name": "Circuit Local Sentiers locaux Guttland Kuborn",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-kuborn.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.5
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-mamer-1",
+      "name": "Circuit Local Sentiers locaux Guttland Mamer 1",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-mamer-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.8
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-mamer-2",
+      "name": "Circuit Local Sentiers locaux Guttland Mamer 2",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-mamer-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.2
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-mamer-3",
+      "name": "Circuit Local Sentiers locaux Guttland Mamer 3",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-mamer-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-mamer-4",
+      "name": "Circuit Local Sentiers locaux Guttland Mamer 4",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-mamer-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.7
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-mamer-5",
+      "name": "Circuit Local Sentiers locaux Guttland Mamer 5",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-mamer-5.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.3
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-mamer-7",
+      "name": "Circuit Local Sentiers locaux Guttland  Mamer 7",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-mamer-7.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.3
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-medingen-chemin-pedestre-intercommunal",
+      "name": "Circuit Local Sentiers locaux Guttland Medingen   Chemin pédestre intercommunal",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-medingen-chemin-pedestre-intercommunal.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-mersch-hunnebour-1",
+      "name": "Circuit Local Sentiers locaux Guttland Mersch Hunnebour 1",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-mersch-hunnebour-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 1.5
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-mersch-hunnebour-2",
+      "name": "Circuit Local Sentiers locaux Guttland Mersch   Hunnebour 2",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-mersch-hunnebour-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 2.5
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-mersch-hunnebour-3",
+      "name": "Circuit Local Sentiers locaux Guttland Mersch   Hunnebour 3",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-mersch-hunnebour-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.7
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-mersch-hunnebour-4",
+      "name": "Circuit Local Sentiers locaux Guttland Mersch   Hunnebour 4",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-mersch-hunnebour-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.3
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-munsbach-neuhaeusgen",
+      "name": "Circuit Local Sentiers locaux Guttland Munsbach   Neuhaeusgen",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-munsbach-neuhaeusgen.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-niederanven-nature-culture-amp-histoire",
+      "name": "Circuit Local Sentiers locaux Guttland Niederanven   Nature, culture & histoire",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-niederanven-nature-culture-amp-histoire.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.9
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-oberanven-nature-culture-amp-histoire",
+      "name": "Circuit Local Sentiers locaux Guttland Oberanven   Nature, culture & histoire",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-oberanven-nature-culture-amp-histoire.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-schrassig",
+      "name": "Circuit Local Sentiers locaux Guttland Schrassig",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-schrassig.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.6
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-schuttrange-schetterhaard",
+      "name": "Circuit Local Sentiers locaux Guttland Schuttrange Schëtterhaard",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-schuttrange-schetterhaard.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.6
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-senningen-nature-culture-amp-histoire-1",
+      "name": "Circuit Local Sentiers locaux Guttland Senningen   Nature, culture & histoire 1",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-senningen-nature-culture-amp-histoire-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.8
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-senningen-nature-culture-amp-histoire-2",
+      "name": "Circuit Local Sentiers locaux Guttland Senningen   Nature, culture & histoire 2",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-senningen-nature-culture-amp-histoire-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.3
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-senningerberg-nature-culture-amp-histoire-1",
+      "name": "Circuit Local Sentiers locaux Guttland Senningerberg   Nature, culture & histoire 1",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-senningerberg-nature-culture-amp-histoire-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.1
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-senningerberg-nature-culture-amp-histoire-2",
+      "name": "Circuit Local Sentiers locaux Guttland Senningerberg   Nature, culture & histoire 2",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-senningerberg-nature-culture-amp-histoire-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-useldange-circuit-um-hiesel",
+      "name": "Circuit Local Sentiers locaux Guttland Useldange   Circuit Um Hiesel",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-useldange-circuit-um-hiesel.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-wahl-kraizer-kapellen-1",
+      "name": "Circuit Local Sentiers locaux Guttland Wahl    Kräizer, Kapellen 1",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-wahl-kraizer-kapellen-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-wahl-kraizer-kapellen-2",
+      "name": "Circuit Local Sentiers locaux Guttland Wahl   Kräizer Kapellen 2",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-wahl-kraizer-kapellen-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-wahl-tour-ronderem",
+      "name": "Circuit Local Sentiers locaux Guttland Wahl   Tour ronderëm",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-wahl-tour-ronderem.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 27.6
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-guttland-wahl",
+      "name": "Circuit Local Sentiers locaux Guttland Wahl",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-guttland-wahl.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.6
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-mamer-6",
+      "name": "Circuit Local Sentiers locaux Mamer 6",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-mamer-6.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.6
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-circuit-du-parc-grouwen",
+      "name": "Circuit Local Sentiers locaux Sud: Circuit du Parc Grouwen",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-circuit-du-parc-grouwen.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 2.5
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-circuit-veierharemaark",
+      "name": "Circuit Local Sentiers locaux Sud: Circuit Véierhäremaark",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-circuit-veierharemaark.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 37.9
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-de-kaweechelcherspad",
+      "name": "Circuit Local Sentiers locaux Sud: De Kaweechelcherspad",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-de-kaweechelcherspad.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 1.4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-de-saturn",
+      "name": "Circuit Local Sentiers locaux Sud: De Saturn",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-de-saturn.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-df1-korspronk-differdange",
+      "name": "Circuit Local Sentiers locaux Sud: DF1 - Korspronk Differdange",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-df1-korspronk-differdange.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-esch-bourgronn-3km-3-4h",
+      "name": "Circuit Local Sentiers locaux Sud: Esch - Bourgronn - 3km - 3/4h",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-esch-bourgronn-3km-3-4h.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-esch-gaalgebierg-4km-1h",
+      "name": "Circuit Local Sentiers locaux Sud: Esch - Gaalgebierg - 4km - 1h",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-esch-gaalgebierg-4km-1h.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.7
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-esch-haedefeldchen",
+      "name": "Circuit Local Sentiers locaux Sud: Esch - Haedefeldchen",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-esch-haedefeldchen.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-esch-reimerwee-4-km-1h",
+      "name": "Circuit Local Sentiers locaux Sud: Esch - Réimerwee-4 km-1h",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-esch-reimerwee-4-km-1h.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-esch-schlassboesch-5-5-km",
+      "name": "Circuit Local Sentiers locaux Sud: Esch-Schlassboesch -5,5 km",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-esch-schlassboesch-5-5-km.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.5
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-esch-sentier-pierre-wies",
+      "name": "Circuit Local Sentiers locaux Sud: Esch - Sentier Pierre Wies",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-esch-sentier-pierre-wies.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.6
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-fitness-titelberg",
+      "name": "Circuit Local Sentiers locaux Sud: Fitness Titelberg",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-fitness-titelberg.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.8
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-gaalgebierg-dudelange",
+      "name": "Circuit Local Sentiers locaux Sud:  Gaalgebierg Dudelange",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-gaalgebierg-dudelange.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.3
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-hondsbesch",
+      "name": "Circuit Local Sentiers locaux Sud: Hondsbësch",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-hondsbesch.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 12.2
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-kierchepad",
+      "name": "Circuit Local Sentiers locaux Sud: Kierchepad",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-kierchepad.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.6
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-kraizbierg",
+      "name": "Circuit Local Sentiers locaux Sud: Kräizbierg",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-kraizbierg.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.6
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-naturleierpad-bieles",
+      "name": "Circuit Local Sentiers locaux Sud: Naturléierpad Bieles",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-naturleierpad-bieles.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 1.3
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-promenade-architecturale",
+      "name": "Circuit Local Sentiers locaux Sud: Promenade Architecturale",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-promenade-architecturale.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-sentier-albert-ungeheuer",
+      "name": "Circuit Local Sentiers locaux Sud: Sentier Albert Ungeheuer",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-sentier-albert-ungeheuer.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.7
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-sentier-archeologique-n-theis",
+      "name": "Circuit Local Sentiers locaux Sud: Sentier archéologique N.Theis",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-sentier-archeologique-n-theis.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.1
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-sentier-de-la-crosniere",
+      "name": "Circuit Local Sentiers locaux Sud: Sentier de la Crosnière",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-sentier-de-la-crosniere.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.4
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-transfrontalier-minette",
+      "name": "Circuit Local Sentiers locaux Sud:  Transfrontalier Minette",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-transfrontalier-minette.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.6
+    },
+    {
+      "id": "lu-local-circuit-local-sentiers-locaux-sud-um-reimerwee",
+      "name": "Circuit Local Sentiers locaux Sud: Um Réimerwee",
+      "file": "hike/lu-local-circuit-local-sentiers-locaux-sud-um-reimerwee.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.5
+    },
+    {
+      "id": "lu-local-circuit-local-si-1",
+      "name": "Circuit Local SI 1",
+      "file": "hike/lu-local-circuit-local-si-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.9
+    },
+    {
+      "id": "lu-local-circuit-local-ta-1",
+      "name": "Circuit Local TA 1",
+      "file": "hike/lu-local-circuit-local-ta-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.5
+    },
+    {
+      "id": "lu-local-circuit-local-ta-2",
+      "name": "Circuit Local TA 2",
+      "file": "hike/lu-local-circuit-local-ta-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6
+    },
+    {
+      "id": "lu-local-circuit-local-ta-3",
+      "name": "Circuit Local TA 3",
+      "file": "hike/lu-local-circuit-local-ta-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.8
+    },
+    {
+      "id": "lu-local-circuit-local-ta-4",
+      "name": "Circuit Local TA 4",
+      "file": "hike/lu-local-circuit-local-ta-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.2
+    },
+    {
+      "id": "lu-local-circuit-local-tv-1",
+      "name": "Circuit Local TV 1",
+      "file": "hike/lu-local-circuit-local-tv-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.5
+    },
+    {
+      "id": "lu-local-circuit-local-tv-2",
+      "name": "Circuit Local TV 2",
+      "file": "hike/lu-local-circuit-local-tv-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.1
+    },
+    {
+      "id": "lu-local-circuit-local-tv-3",
+      "name": "Circuit Local TV 3",
+      "file": "hike/lu-local-circuit-local-tv-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.1
+    },
+    {
+      "id": "lu-local-circuit-local-uebersyren",
+      "name": "Circuit Local Uebersyren",
+      "file": "hike/lu-local-circuit-local-uebersyren.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.2
+    },
+    {
+      "id": "lu-local-circuit-local-vi-1",
+      "name": "Circuit Local VI 1",
+      "file": "hike/lu-local-circuit-local-vi-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.9
+    },
+    {
+      "id": "lu-local-circuit-local-vi-2",
+      "name": "Circuit Local VI 2",
+      "file": "hike/lu-local-circuit-local-vi-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.9
+    },
+    {
+      "id": "lu-local-circuit-local-vi-3",
+      "name": "Circuit Local VI 3",
+      "file": "hike/lu-local-circuit-local-vi-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.2
+    },
+    {
+      "id": "lu-local-circuit-local-w1-waldbillig",
+      "name": "Circuit Local W1 - Waldbillig",
+      "file": "hike/lu-local-circuit-local-w1-waldbillig.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.8
+    },
+    {
+      "id": "lu-local-circuit-local-w2-waldbillig",
+      "name": "Circuit Local W2 - Waldbillig",
+      "file": "hike/lu-local-circuit-local-w2-waldbillig.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.6
+    },
+    {
+      "id": "lu-local-circuit-local-w3-waldbillig",
+      "name": "Circuit Local W3 - Waldbillig",
+      "file": "hike/lu-local-circuit-local-w3-waldbillig.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.1
+    },
+    {
+      "id": "lu-local-circuit-local-w4-waldbillig",
+      "name": "Circuit Local W4 - Waldbillig",
+      "file": "hike/lu-local-circuit-local-w4-waldbillig.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.3
+    },
+    {
+      "id": "lu-local-circuit-local-w5-waldbillig",
+      "name": "Circuit Local W5 - Waldbillig",
+      "file": "hike/lu-local-circuit-local-w5-waldbillig.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.1
+    },
+    {
+      "id": "lu-local-circuit-local-w6-waldbillig",
+      "name": "Circuit Local W6 - Waldbillig",
+      "file": "hike/lu-local-circuit-local-w6-waldbillig.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.3
+    },
+    {
+      "id": "lu-local-circuit-local-w7-waldbillig",
+      "name": "Circuit Local W7 - Waldbillig",
+      "file": "hike/lu-local-circuit-local-w7-waldbillig.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 10.3
+    },
+    {
+      "id": "lu-local-circuit-local-w8-waldbillig",
+      "name": "Circuit Local W8 - Waldbillig",
+      "file": "hike/lu-local-circuit-local-w8-waldbillig.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 12.5
+    },
+    {
+      "id": "lu-local-circuit-local-wasserbillig-e",
+      "name": "Circuit Local Wasserbillig E",
+      "file": "hike/lu-local-circuit-local-wasserbillig-e.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.4
+    },
+    {
+      "id": "lu-local-circuit-local-wasserbillig-f",
+      "name": "Circuit Local Wasserbillig F",
+      "file": "hike/lu-local-circuit-local-wasserbillig-f.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.7
+    },
+    {
+      "id": "lu-local-circuit-local-wi-1",
+      "name": "Circuit Local WI 1",
+      "file": "hike/lu-local-circuit-local-wi-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.8
+    },
+    {
+      "id": "lu-local-circuit-local-wi-2",
+      "name": "Circuit Local WI 2",
+      "file": "hike/lu-local-circuit-local-wi-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 5.3
+    },
+    {
+      "id": "lu-local-circuit-local-wi-3",
+      "name": "Circuit Local WI 3",
+      "file": "hike/lu-local-circuit-local-wi-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.4
+    },
+    {
+      "id": "lu-local-circuit-local-wi-4",
+      "name": "Circuit Local WI 4",
+      "file": "hike/lu-local-circuit-local-wi-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.4
+    },
+    {
+      "id": "lu-local-circuit-local-wi-5",
+      "name": "Circuit Local WI 5",
+      "file": "hike/lu-local-circuit-local-wi-5.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.1
+    },
+    {
+      "id": "lu-local-circuit-local-wn-1",
+      "name": "Circuit Local WN 1",
+      "file": "hike/lu-local-circuit-local-wn-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 3.6
+    },
+    {
+      "id": "lu-local-circuit-local-wn-2",
+      "name": "Circuit Local WN 2",
+      "file": "hike/lu-local-circuit-local-wn-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.8
+    },
+    {
+      "id": "lu-local-circuit-local-wn-3",
+      "name": "Circuit Local WN 3",
+      "file": "hike/lu-local-circuit-local-wn-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7.7
+    },
+    {
+      "id": "lu-local-circuit-local-wn-4",
+      "name": "Circuit Local WN 4",
+      "file": "hike/lu-local-circuit-local-wn-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 9.4
+    },
+    {
+      "id": "lu-local-circuit-local-ws-1",
+      "name": "Circuit Local WS 1",
+      "file": "hike/lu-local-circuit-local-ws-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.3
+    },
+    {
+      "id": "lu-local-circuit-local-ws-2",
+      "name": "Circuit Local WS 2",
+      "file": "hike/lu-local-circuit-local-ws-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 4.4
+    },
+    {
+      "id": "lu-local-circuit-local-ws-3",
+      "name": "Circuit Local WS 3",
+      "file": "hike/lu-local-circuit-local-ws-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 7
+    },
+    {
+      "id": "lu-local-circuit-local-ws-4",
+      "name": "Circuit Local WS 4",
+      "file": "hike/lu-local-circuit-local-ws-4.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 8.1
+    },
+    {
+      "id": "lu-local-circuit-local-ww-1",
+      "name": "Circuit Local WW 1",
+      "file": "hike/lu-local-circuit-local-ww-1.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.2
+    },
+    {
+      "id": "lu-local-circuit-local-ww-2",
+      "name": "Circuit Local WW 2",
+      "file": "hike/lu-local-circuit-local-ww-2.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 6.5
+    },
+    {
+      "id": "lu-local-circuit-local-ww-3",
+      "name": "Circuit Local WW 3",
+      "file": "hike/lu-local-circuit-local-ww-3.gpx",
+      "activity": "hike",
+      "country": "LU",
+      "distanceKm": 11.2
     },
     {
       "id": "lu-mullerthal-cfl-01-new-troisvierges-maulusmuhle-clervaux",
