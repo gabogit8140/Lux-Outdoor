@@ -19,6 +19,7 @@ import {
   Route,
   Mountain,
   Clock,
+  Wand2,
 } from 'lucide-react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
 import { downloadGPX } from '../../lib/gpx';
@@ -29,6 +30,7 @@ import {
   SidebarElevationChart,
   getSemanticRouteColor,
 } from '../ui/PremiumPrimitives';
+import type { UseRouteEditorReturn } from '../../hooks/useRouteEditor';
 
 interface RouteDetailViewProps {
   route: RouteSuggestions;
@@ -49,6 +51,8 @@ interface RouteDetailViewProps {
   onBackToCatalog?: () => void;
   showHuntingBattues?: boolean;
   onToggleHuntingBattues?: () => void;
+  onEditRoute?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  editor?: UseRouteEditorReturn;
 }
 
 export function RouteDetailView({
@@ -70,6 +74,8 @@ export function RouteDetailView({
   onBackToCatalog,
   showHuntingBattues,
   onToggleHuntingBattues,
+  onEditRoute,
+  editor,
 }: RouteDetailViewProps) {
   const [showRoadbook, setShowRoadbook] = useState(false);
   const semanticColor = getSemanticRouteColor(route.difficulty?.level);
@@ -100,6 +106,56 @@ export function RouteDetailView({
 
   return (
     <div className="space-y-3.5">
+      {/* Live Trace Editor Status & Control Banner */}
+      {editor?.isEditorActive && (
+        <div className="p-3 rounded-2xl bg-gradient-to-r from-purple-500/10 via-indigo-500/15 to-purple-500/10 border border-purple-300 dark:border-purple-800 shadow-xs flex flex-col gap-2">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-purple-600 animate-pulse" />
+              <span className="text-xs font-black uppercase tracking-wider text-purple-800 dark:text-purple-300">
+                Mode Tracé en direct
+              </span>
+            </div>
+            {editor.isCalculating ? (
+              <span className="text-[10px] text-purple-600 dark:text-purple-400 font-semibold animate-pulse">
+                Calcul sentiers réels...
+              </span>
+            ) : (
+              <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400">
+                {editor.waypoints.length} étape(s) posée(s)
+              </span>
+            )}
+          </div>
+          <div className="text-[11px] text-slate-600 dark:text-slate-300">
+            Glissez les points sur la carte pour dévier le tracé. Les dénivelés et surfaces s'ajustent en direct ci-dessous.
+          </div>
+          <div className="flex items-center gap-1.5 pt-1 border-t border-purple-200 dark:border-purple-800/60">
+            <button
+              onClick={editor.openSaveModal}
+              disabled={!editor.calculatedResult || editor.waypoints.length < 2}
+              className="flex-1 py-1.5 px-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-xs transition-all flex items-center justify-center gap-1 cursor-pointer disabled:opacity-50"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Sauvegarder GPX</span>
+            </button>
+            <button
+              onClick={editor.openLoopModal}
+              className="py-1.5 px-2.5 rounded-xl text-xs font-bold bg-purple-600 hover:bg-purple-500 text-white shadow-xs transition-all flex items-center justify-center gap-1 cursor-pointer"
+              title="Générer automatiquement une boucle"
+            >
+              <Wand2 className="w-3.5 h-3.5 text-yellow-300" />
+              <span>Boucle auto</span>
+            </button>
+            <button
+              onClick={editor.cancel}
+              className="py-1.5 px-2.5 rounded-xl text-xs font-bold bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 transition-colors cursor-pointer"
+            >
+              Quitter
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Top quick navigation & Hover Preview banner */}
       <div className="flex items-center justify-between gap-2">
         {onBackToCatalog && (
@@ -204,12 +260,12 @@ export function RouteDetailView({
               {isTraceVisible ? (
                 <>
                   <EyeOff className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
-                  <span>Masquer la trace (voir routes)</span>
+                  <span>Masquer</span>
                 </>
               ) : (
                 <>
                   <Eye className="w-3.5 h-3.5 text-white" />
-                  <span>Réafficher la trace</span>
+                  <span>Démasquer</span>
                 </>
               )}
             </button>
@@ -491,8 +547,19 @@ export function RouteDetailView({
         </section>
       )}
 
-      {/* Action Buttons: Reverse, Export GPX, Save Favorite */}
+      {/* Action Buttons: Edit/Variant, Reverse, Export GPX, Save Favorite */}
       <div className="space-y-2 pt-1">
+        {onEditRoute && trace && (
+          <button
+            onClick={() => onEditRoute(route, trace)}
+            className="w-full py-2.5 px-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-indigo-600/25 active:scale-95 transition-all cursor-pointer"
+            title="Modifier ce tracé sur la carte et créer un nouveau parcours stocké dans un GPX séparé"
+          >
+            <Wand2 className="w-3.5 h-3.5" />
+            <span>Modifier ce parcours (Variante GPX)</span>
+          </button>
+        )}
+
         <button
           onClick={onReverseRoute}
           className="w-full py-2.5 px-3 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/80 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"

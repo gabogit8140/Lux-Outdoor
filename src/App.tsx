@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import type { RouteSuggestions, RouteTrace } from './types';
 import { Sidebar, type MobileSheetSize } from './components/Sidebar';
 import { MapDisplay } from './components/Map';
 import { Favorites } from './components/Favorites';
@@ -6,8 +7,11 @@ import { TraceProfile } from './components/TraceProfile';
 import { PWAInstallModal } from './components/PWAInstallModal';
 import { GpxDatabaseModal } from './components/GpxDatabaseModal';
 import { MapFilterBar } from './components/MapFilterBar';
-import { Heart, Menu, X, CheckCircle, Smartphone, Compass, FolderGit2, EyeOff, Moon, Sun } from 'lucide-react';
+import { SaveTraceModal } from './components/editor/SaveTraceModal';
+import { LoopGeneratorModal } from './components/editor/LoopGeneratorModal';
+import { Heart, Menu, X, CheckCircle, Smartphone, Compass, FolderGit2, EyeOff, Moon, Sun, PenTool } from 'lucide-react';
 import { useRouteManager } from './hooks/useRouteManager';
+import { useRouteEditor } from './hooks/useRouteEditor';
 import { useFavorites } from './hooks/useFavorites';
 import { usePWAInstall } from './hooks/usePWAInstall';
 import { CATALOG_ROUTES } from './lib/routeCatalog';
@@ -103,11 +107,14 @@ export default function App() {
     searchQuery,
     setSearchQuery,
     deleteUserTrack,
+    saveCustomTrack,
     markTrackSynced,
     exportLibrary,
     importLibraryBackup,
     clearAllFilters,
   } = useRouteManager();
+
+  const editor = useRouteEditor(activity);
 
   const {
     favorites,
@@ -123,10 +130,83 @@ export default function App() {
     setTimeout(() => setNotification(null), 3000);
   };
 
-  // Active route displayed in the right-hand profile (immediate on map hover or selection)
+  // Tracé en direct généré en temps réel au fur et à mesure que l'utilisateur clique ou glisse sur la carte
+  const editorActiveRoute = useMemo((): { route: RouteSuggestions; trace: RouteTrace } | null => {
+    if (!editor.isEditorActive) return null;
+    const res = editor.calculatedResult;
+    const distKm = res?.distanceKm ?? (editor.waypoints.length >= 2 ? 0.5 : 0);
+    const elevGain = res?.elevationGain ?? 35;
+
+    const liveRoute: RouteSuggestions = {
+      id: 'editor-live-route',
+      type: 'custom',
+      title: editor.originalRoute ? `${editor.originalRoute.title} (modifié)` : 'Nouveau parcours en direct',
+      description: res
+        ? `Tracé outdoor en temps réel sur les sentiers (${res.distanceKm} km, +${res.elevationGain}m D+)`
+        : 'Cliquez sur la carte ou glissez le tracé pour ajouter des étapes.',
+      highlights: [
+        editor.isLoop ? 'Boucle fermée automatique' : 'Itinéraire point à point',
+        res ? `${res.roadBreakdown?.carFreePercentage ?? 85}% sur voies et sentiers apaisés` : 'Tracé en cours de saisie',
+        res ? `${res.distanceKm} km sur sentiers réels` : `${editor.waypoints.length} point(s) posé(s)`,
+      ],
+      surfaceType: editor.activity === 'hike' ? 'Sentiers naturels & chemins forestiers' : 'Pistes cyclables & voies apaisées',
+      difficulty: res?.difficulty || {
+        level: 'moderate',
+        label: editor.isCalculating ? 'Calcul sentiers...' : 'En cours',
+        dotColor: '#7c3aed',
+        badgeBg: 'bg-purple-50 border-purple-200 dark:bg-purple-950/60 dark:border-purple-800',
+        badgeText: 'text-purple-800 dark:text-purple-300',
+        dPlusPerKm: 15,
+        effortScore: 40,
+      },
+      elevationGain: elevGain,
+      elevationLoss: res?.elevationLoss ?? elevGain,
+      minElevation: res?.elevationProfile?.length ? Math.min(...res.elevationProfile.map((p) => p.elevation)) : 250,
+      maxElevation: res?.elevationProfile?.length ? Math.max(...res.elevationProfile.map((p) => p.elevation)) : 380,
+      activity: editor.activity,
+      country: 'LU',
+      regionName: 'Parcours personnalisé',
+      surfaceDistribution: res?.surfaceDistribution || [
+        { type: editor.activity === 'hike' ? 'Sentier naturel' : 'Piste cyclable', percentage: 85 },
+        { type: 'Petite route apaisée', percentage: 15 },
+      ],
+      roadBreakdown: res?.roadBreakdown || {
+        carFreePercentage: 85,
+        sharedRoadPercentage: 15,
+        carFreeKm: Number((distKm * 0.85).toFixed(1)),
+        sharedRoadKm: Number((distKm * 0.15).toFixed(1)),
+        carFreeLabel: 'Sentiers & voies sans voiture',
+        sharedRoadLabel: 'Routes secondaires',
+        safetyRating: 'high',
+      },
+      waypoints: editor.waypoints,
+      instructions: [],
+      tags: ['custom', editor.activity],
+    };
+
+    const liveTrace: RouteTrace = {
+      distance: (res?.distanceKm ?? 0) * 1000,
+      duration: (res?.durationMinutes ?? 0) * 60,
+      coordinates: res?.coordinates ?? editor.waypoints,
+      elevationProfile: res?.elevationProfile ?? [],
+      segments: res?.segments,
+    };
+
+    return { route: liveRoute, trace: liveTrace };
+  }, [
+    editor.isEditorActive,
+    editor.calculatedResult,
+    editor.originalRoute,
+    editor.activity,
+    editor.isLoop,
+    editor.waypoints,
+    editor.isCalculating,
+  ]);
+
+  // Active route displayed in the right-hand profile (immediate on map hover, selection or live trace editor)
   const displayedRouteId = hoveredRouteId || selectedRouteId || previewRouteId;
-  const displayedRoute = routes.find((r) => r.id === displayedRouteId) || null;
-  const displayedTrace = displayedRouteId ? traces[displayedRouteId] || null : null;
+  const displayedRoute = editorActiveRoute ? editorActiveRoute.route : (routes.find((r) => r.id === displayedRouteId) || null);
+  const displayedTrace = editorActiveRoute ? editorActiveRoute.trace : (displayedRouteId ? traces[displayedRouteId] || null : null);
 
   const handleSaveFavorite = (userRating?: number, userNotes?: string) => {
     const targetId = selectedRouteId || displayedRouteId;
@@ -255,6 +335,36 @@ export default function App() {
             </span>
           </button>
 
+          {/* Nouveau tracé interactif sur la carte (Studio Création GPX) */}
+          <button
+            onClick={() => {
+              if (editor.isEditorActive) {
+                editor.cancel();
+              } else {
+                editor.startCreating(activity);
+                setIsSidebarOpen(false);
+              }
+            }}
+            className={`rounded-xl p-2 transition-all cursor-pointer group relative ${
+              editor.isEditorActive
+                ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-md shadow-indigo-600/30'
+                : 'hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-600 dark:text-slate-300 hover:text-indigo-600'
+            }`}
+            title={
+              editor.isEditorActive
+                ? 'Quitter le mode tracé'
+                : 'Tracer un parcours sur la carte (Création GPX)'
+            }
+          >
+            <PenTool className="w-4 h-4 text-indigo-500 group-hover:scale-110 transition-transform" />
+            {editor.isEditorActive && (
+              <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500" />
+              </span>
+            )}
+          </button>
+
           {/* Dark / Light Cockpit Theme Toggle */}
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
@@ -282,30 +392,32 @@ export default function App() {
         </div>
 
         {/* Floating On-Map Premium Circuit Filters */}
-        <MapFilterBar
-          activity={activity}
-          onActivityChange={handleActivityChange}
-          distance={distance}
-          onDistanceChange={handleDistanceChange}
-          activeFilters={activeFilters}
-          onToggleFilter={handleToggleFilter}
-          onClearFilters={handleClearFilters}
-          selectedZone={selectedZone}
-          onSelectZone={(z) => changeRegionalZone(z)}
-          routesCount={routes.length}
-          isGenerating={isGenerating}
-          currentLocation={currentLocation}
-          sourceFilter={sourceFilter}
-          onSourceFilterChange={setSourceFilter}
-          tripsList={tripsList}
-          selectedTrip={selectedTrip}
-          onSelectTrip={setSelectedTrip}
-          dPlusFilter={dPlusFilter}
-          onDPlusFilterChange={setDPlusFilter}
-          searchQuery={searchQuery}
-          onSearchQueryChange={setSearchQuery}
-          userTracksCount={userTracks.length}
-        />
+        {!editor.isEditorActive && (
+          <MapFilterBar
+            activity={activity}
+            onActivityChange={handleActivityChange}
+            distance={distance}
+            onDistanceChange={handleDistanceChange}
+            activeFilters={activeFilters}
+            onToggleFilter={handleToggleFilter}
+            onClearFilters={handleClearFilters}
+            selectedZone={selectedZone}
+            onSelectZone={(z) => changeRegionalZone(z)}
+            routesCount={routes.length}
+            isGenerating={isGenerating}
+            currentLocation={currentLocation}
+            sourceFilter={sourceFilter}
+            onSourceFilterChange={setSourceFilter}
+            tripsList={tripsList}
+            selectedTrip={selectedTrip}
+            onSelectTrip={setSelectedTrip}
+            dPlusFilter={dPlusFilter}
+            onDPlusFilterChange={setDPlusFilter}
+            searchQuery={searchQuery}
+            onSearchQueryChange={setSearchQuery}
+            userTracksCount={userTracks.length}
+          />
+        )}
 
         {/* Leaflet Map */}
         <MapDisplay
@@ -314,6 +426,7 @@ export default function App() {
           activity={activity}
           selectedRouteId={selectedRouteId}
           hoveredRouteId={hoveredRouteId}
+          editor={editor}
           onSelectRoute={(id) => {
             selectRoute(id);
             setPreviewRouteId(id);
@@ -348,24 +461,8 @@ export default function App() {
           mapCenterTarget={mapCenterTarget}
           clickedCoord={clickedCoord}
           isTraceVisible={isTraceVisibleOnMap}
+          onToggleTraceVisibility={toggleTraceVisibility}
         />
-
-        {/* Floating indicator when trace is hidden to inspect roads below */}
-        {!isTraceVisibleOnMap && selectedRoute && (
-          <div
-            className="absolute left-1/2 -translate-x-1/2 z-[420] bg-slate-900/95 text-white px-3.5 py-1.5 rounded-2xl text-xs font-semibold shadow-2xl border border-slate-700/80 backdrop-blur-xl flex items-center gap-2 animate-in fade-in transition-all max-w-[92%]"
-            style={{ top: 'calc(env(safe-area-inset-top, 0px) + 3.6rem)' }}
-          >
-            <EyeOff className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-            <span className="truncate">Trace masquée (routes visibles)</span>
-            <button
-              onClick={toggleTraceVisibility}
-              className="ml-1 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-sm transition-all cursor-pointer shrink-0"
-            >
-              Réafficher
-            </button>
-          </div>
-        )}
 
         {/* Bottom Elevation Profile Bar (Shown only when Sidebar is closed so it never duplicates or blocks the map in split view) */}
         {!isSidebarOpen && selectedRoute && selectedTrace && (
@@ -484,6 +581,15 @@ export default function App() {
             onChangeMobileSheetSize={setMobileSheetSize}
             showHuntingBattues={showHuntingBattues}
             onToggleHuntingBattues={() => setShowHuntingBattues(!showHuntingBattues)}
+            onEditRoute={(r, t) => {
+              editor.startEditing(r, t);
+              setIsSidebarOpen(true);
+            }}
+            onStartCreateRoute={() => {
+              editor.startCreating(activity);
+              setIsSidebarOpen(true);
+            }}
+            editor={editor}
           />
         </aside>
       )}
@@ -529,6 +635,24 @@ export default function App() {
           selectRoute(id);
           setIsSidebarOpen(true);
         }}
+      />
+
+      {/* Modal d'enregistrement GPX pour nouveaux parcours et variantes */}
+      <SaveTraceModal
+        editor={editor}
+        tripsList={tripsList}
+        onSaveTrack={saveCustomTrack}
+        onSelectSavedRoute={(id) => {
+          selectRoute(id);
+          setIsSidebarOpen(true);
+        }}
+        showToast={showToast}
+      />
+
+      {/* Modal de génération automatique de boucle outdoor */}
+      <LoopGeneratorModal
+        editor={editor}
+        mapCenter={mapCenterTarget ? [mapCenterTarget.lng, mapCenterTarget.lat] : [6.13, 49.61]}
       />
     </div>
   );

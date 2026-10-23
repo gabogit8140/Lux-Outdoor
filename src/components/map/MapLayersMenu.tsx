@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Layers, Compass, Globe, ExternalLink } from 'lucide-react';
+import { Layers, Compass, Globe, ExternalLink, ShieldAlert } from 'lucide-react';
 import { HuntingRifleIcon } from '../ui/HuntingRifleIcon';
 import type { MapLayerType } from './MapTileLayers';
 

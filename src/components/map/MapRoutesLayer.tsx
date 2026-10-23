@@ -3,6 +3,11 @@ import { Polyline, Marker, Popup, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import type { RouteSuggestions, RouteTrace } from '../../types';
 import { getSemanticRouteColor } from '../ui/PremiumPrimitives';
+import {
+  getHaloUnderlayPathOptions,
+  getRoadSegmentPathOptions,
+  getRoadSegmentBadge,
+} from '../../lib/routing/polylineStyles';
 
 const createIcon = (color: string, label?: string) => {
   const size = 16;
@@ -320,14 +325,7 @@ export function MapRoutesLayer({
             <>
               <Polyline
                 positions={selectedPrepared.polylinePositions}
-                pathOptions={{
-                  color: '#ffffff',
-                  weight: 11,
-                  opacity: 0.95,
-                  lineCap: 'round',
-                  lineJoin: 'round',
-                  interactive: false,
-                }}
+                pathOptions={getHaloUnderlayPathOptions()}
               />
               {selectedPrepared.t.segments && selectedPrepared.t.segments.length > 0 ? (
                 selectedPrepared.t.segments.map((seg, sIdx) => {
@@ -339,15 +337,7 @@ export function MapRoutesLayer({
                     <Polyline
                       key={`seg-${selectedPrepared.r.id}-${sIdx}`}
                       positions={segPositions}
-                      pathOptions={{
-                        color: isCarFree ? '#059669' : '#ea580c',
-                        weight: 6.5,
-                        opacity: 1,
-                        dashArray: isCarFree ? undefined : '10, 7',
-                        lineCap: 'round',
-                        lineJoin: 'round',
-                        interactive: true,
-                      }}
+                      pathOptions={getRoadSegmentPathOptions(isCarFree)}
                     >
                       <Tooltip sticky direction="top">
                         <div className="font-bold text-white flex items-center gap-1.5">

@@ -17,7 +17,10 @@ import {
   MapClicker,
 } from './map/MapControls';
 import { MapRoutesLayer } from './map/MapRoutesLayer';
+import { MapEditorLayer } from './map/MapEditorLayer';
+import { TraceEditorBar } from './editor/TraceEditorBar';
 import { ROUTE_DIFFICULTY_LEGEND } from './ui/PremiumPrimitives';
+import type { UseRouteEditorReturn } from '../hooks/useRouteEditor';
 
 export { LUXEMBOURG_CENTER, type MapLayerType };
 
@@ -48,6 +51,8 @@ interface MapProps {
   mapCenterTarget?: { center: [number, number]; zoom: number; trigger: number };
   clickedCoord?: { lat: number; lng: number; name: string } | null;
   isTraceVisible?: boolean;
+  onToggleTraceVisibility?: () => void;
+  editor?: UseRouteEditorReturn;
 }
 
 export function MapDisplay({
@@ -72,6 +77,8 @@ export function MapDisplay({
   mapCenterTarget,
   clickedCoord,
   isTraceVisible = true,
+  onToggleTraceVisibility,
+  editor,
 }: MapProps) {
   const [show200kmRadius, setShow200kmRadius] = useState(false);
   const lastLayerClickTimeRef = useRef<number>(0);
@@ -99,6 +106,7 @@ export function MapDisplay({
           onMapClick={onMapClick}
           isGenerating={isGenerating}
           lastLayerClickTimeRef={lastLayerClickTimeRef}
+          isEditorActive={editor?.isEditorActive}
         />
         <MapCenterWatcher target={mapCenterTarget} />
         <MapController selectedTrace={selectedTrace} focusTrigger={focusTrigger} />
@@ -111,6 +119,15 @@ export function MapDisplay({
           show200kmRadius={show200kmRadius}
           showHuntingBattues={showHuntingBattues}
         />
+
+        {/* Real-time Trail Route Editor Layer */}
+        {editor && (
+          <MapEditorLayer
+            editor={editor}
+            lastLayerClickTimeRef={lastLayerClickTimeRef}
+            isTraceVisible={isTraceVisible}
+          />
+        )}
 
         {/* Route Traces, Segments, Tooltips and Elevation Hover Pin */}
         <MapRoutesLayer
@@ -187,6 +204,15 @@ export function MapDisplay({
           )}
         </div>
       </MapContainer>
+
+      {/* Floating Route Editor Studio Bar */}
+      {editor?.isEditorActive && (
+        <TraceEditorBar
+          editor={editor}
+          isTraceVisible={isTraceVisible}
+          onToggleTraceVisibility={onToggleTraceVisibility}
+        />
+      )}
 
       {/* Floating Semantic Color Legend (Bottom-Left) */}
       <div className="absolute bottom-2.5 sm:bottom-4 left-2.5 md:left-4 z-[400] pointer-events-auto max-w-[calc(100%-1.25rem)]">

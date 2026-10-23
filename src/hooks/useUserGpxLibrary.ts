@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import {
   type StoredGpxTrack,
   getAllStoredGpxTracks,
+  saveStoredGpxTrack,
   saveMultipleStoredGpxTracks,
   deleteStoredGpxTrack,
   updateStoredGpxNotes,
@@ -195,11 +196,21 @@ export function useUserGpxLibrary() {
     return count;
   }, []);
 
+  // Enregistre un nouveau tracé personnalisé ou une variante modifiée
+  const saveCustomTrack = useCallback(async (track: StoredGpxTrack) => {
+    await saveStoredGpxTrack(track);
+    const refreshed = await getAllStoredGpxTracks();
+    setUserTracks(refreshed);
+    refreshTrips(refreshed);
+    return track;
+  }, []);
+
   return {
     userTracks,
     tripsList,
     isLoading,
     importAndPersistGpxFiles,
+    saveCustomTrack,
     deleteTrack,
     updateTrackNotes,
     markTrackSynced,

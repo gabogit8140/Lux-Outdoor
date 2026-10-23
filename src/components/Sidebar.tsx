@@ -15,6 +15,7 @@ import { PlanTabContent } from './sidebar/PlanTabContent';
 import { RouteDetailView } from './sidebar/RouteDetailView';
 import { RouteCatalogList } from './sidebar/RouteCatalogList';
 import { BrandLogo } from './ui/BrandLogo';
+import type { UseRouteEditorReturn } from '../hooks/useRouteEditor';
 
 export type MobileSheetSize = 'compact' | 'split' | 'tall';
 
@@ -71,6 +72,9 @@ interface SidebarProps {
   onClearAllFilters?: () => void;
   showHuntingBattues?: boolean;
   onToggleHuntingBattues?: () => void;
+  onEditRoute?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  onStartCreateRoute?: () => void;
+  editor?: UseRouteEditorReturn;
 }
 
 export function Sidebar({
@@ -114,6 +118,9 @@ export function Sidebar({
   onClearAllFilters,
   showHuntingBattues,
   onToggleHuntingBattues,
+  onEditRoute,
+  onStartCreateRoute,
+  editor,
 }: SidebarProps) {
   const [location, setLocation] = useState(currentLocation || 'Luxembourg');
   const [tab, setTab] = useState<'plan' | 'result' | 'catalog'>('catalog');
@@ -140,6 +147,14 @@ export function Sidebar({
       setTab('catalog');
     }
   }, [route?.id]);
+
+  // Bascule automatiquement sur la vue détaillée quand le mode éditeur de tracé s'active
+  useEffect(() => {
+    if (editor?.isEditorActive) {
+      setTab('result');
+      if (scrollRef.current) scrollRef.current.scrollTop = 0;
+    }
+  }, [editor?.isEditorActive]);
 
   // Whenever the user clicks or hovers a trace on the map, or selects a route, display the profile tab on the right
   useEffect(() => {
@@ -388,6 +403,8 @@ export function Sidebar({
             onClearAllFilters={onClearAllFilters}
             onGenerate={handleGenerate}
             isGenerating={isGenerating}
+            onStartCreateRoute={onStartCreateRoute}
+            onOpenLoopModal={editor?.openLoopModal}
           />
         )}
 
@@ -411,6 +428,8 @@ export function Sidebar({
             onBackToCatalog={() => setTab('catalog')}
             showHuntingBattues={showHuntingBattues}
             onToggleHuntingBattues={onToggleHuntingBattues}
+            onEditRoute={onEditRoute}
+            editor={editor}
           />
         )}
 

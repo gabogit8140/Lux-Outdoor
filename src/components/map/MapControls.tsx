@@ -273,13 +273,19 @@ export function MapClicker({
   onMapClick,
   isGenerating,
   lastLayerClickTimeRef,
+  isEditorActive = false,
 }: {
   onMapClick: (lat: number, lng: number) => void;
   isGenerating: boolean;
   lastLayerClickTimeRef: React.MutableRefObject<number>;
+  isEditorActive?: boolean;
 }) {
   useMapEvents({
     click: (e) => {
+      // Ignore click if user is in route creation / edition mode
+      if (isEditorActive) {
+        return;
+      }
       // Ignore click if a polyline or marker was just clicked
       if (Date.now() - lastLayerClickTimeRef.current < 300) {
         return;

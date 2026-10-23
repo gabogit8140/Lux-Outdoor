@@ -12,6 +12,7 @@ import {
   Sparkles,
   RotateCcw,
   Repeat,
+  PenTool,
 } from 'lucide-react';
 import { TouchDistanceSelector } from '../TouchDistanceSelector';
 import { getCountryFlag } from '../ui/PremiumPrimitives';
@@ -55,6 +56,8 @@ interface PlanTabContentProps {
   onClearAllFilters?: () => void;
   onGenerate: (isMapTracesOnly: boolean) => void;
   isGenerating: boolean;
+  onStartCreateRoute?: () => void;
+  onOpenLoopModal?: () => void;
 }
 
 export function PlanTabContent({
@@ -72,6 +75,8 @@ export function PlanTabContent({
   onClearAllFilters,
   onGenerate,
   isGenerating,
+  onStartCreateRoute,
+  onOpenLoopModal,
 }: PlanTabContentProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -136,6 +141,61 @@ export function PlanTabContent({
           </button>
         </div>
       </section>
+
+      {/* Nouveau tracé interactif & Générateur automatique de boucle */}
+      {(onStartCreateRoute || onOpenLoopModal) && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {onStartCreateRoute && (
+            <button
+              type="button"
+              onClick={onStartCreateRoute}
+              className="p-2.5 rounded-2xl bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-indigo-500/5 dark:from-indigo-950/40 dark:to-purple-950/30 border border-indigo-200/90 dark:border-indigo-800/80 hover:border-indigo-400 dark:hover:border-indigo-600 transition-all text-left flex items-center justify-between group cursor-pointer shadow-xs active:scale-98"
+            >
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <PenTool className="w-3.5 h-3.5" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[11px] font-bold text-slate-800 dark:text-slate-100 block truncate">
+                    Tracer sur carte
+                  </span>
+                  <span className="text-[9px] text-slate-500 dark:text-slate-400 block truncate">
+                    Point par point
+                  </span>
+                </div>
+              </div>
+              <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 shrink-0 ml-1">
+                →
+              </span>
+            </button>
+          )}
+
+          {onOpenLoopModal && (
+            <button
+              type="button"
+              onClick={onOpenLoopModal}
+              className="p-2.5 rounded-2xl bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-purple-500/5 dark:from-purple-950/40 dark:to-pink-950/30 border border-purple-200/90 dark:border-purple-800/80 hover:border-purple-400 dark:hover:border-purple-600 transition-all text-left flex items-center justify-between group cursor-pointer shadow-xs active:scale-98"
+            >
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[11px] font-bold text-slate-800 dark:text-slate-100 block truncate">
+                    Boucle auto
+                  </span>
+                  <span className="text-[9px] text-slate-500 dark:text-slate-400 block truncate">
+                    Départ + distance
+                  </span>
+                </div>
+              </div>
+              <span className="text-xs font-bold text-purple-600 dark:text-purple-400 shrink-0 ml-1">
+                →
+              </span>
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Location Input & Popular Shortcuts */}
       <section className="bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-3">
