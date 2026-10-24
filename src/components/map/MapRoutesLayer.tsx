@@ -11,6 +11,11 @@ import {
   getRoadSegmentBadge,
 } from '../../lib/routing/polylineStyles';
 import { TOUCH_POLYLINE_HIT_WEIGHT } from '../../lib/layout/touchDimensions';
+import {
+  computeDirectionArrows,
+  createDirectionArrowIcon,
+  distanceMeters,
+} from '../../lib/routing/routeDirectionArrows';
 
 const createIcon = (color: string, label?: string) => {
   const size = 16;
@@ -28,6 +33,14 @@ const createStartIcon = () =>
   L.divIcon({
     className: 'custom-start-icon',
     html: `<div style="background-color: #059669; width: 22px; height: 22px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; font-weight: bold;">D</div>`,
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+  });
+
+const createEndIcon = () =>
+  L.divIcon({
+    className: 'custom-end-icon',
+    html: `<div style="background-color: #e11d48; width: 22px; height: 22px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; font-weight: bold;">A</div>`,
     iconSize: [22, 22],
     iconAnchor: [11, 11],
   });
@@ -132,6 +145,39 @@ export function MapRoutesLayer({
         : null,
     [preparedRoutes, hoveredRouteId, selectedRouteId]
   );
+
+  // Directional arrows along the selected route (dynamically flips on inversion)
+  const selectedArrows = useMemo(() => {
+    if (!selectedPrepared || !isTraceVisible) return [];
+    return computeDirectionArrows(selectedPrepared.polylinePositions, 650);
+  }, [selectedPrepared, isTraceVisible]);
+
+  // End position of the selected route
+  const selectedEndPos = useMemo<[number, number] | null>(() => {
+    if (!selectedPrepared) return null;
+    const pos = selectedPrepared.polylinePositions;
+    if (Array.isArray(pos[0]?.[0])) {
+      const segs = pos as [number, number][][];
+      const lastSeg = segs[segs.length - 1];
+      return lastSeg && lastSeg.length > 0 ? (lastSeg[lastSeg.length - 1] as [number, number]) : null;
+    } else {
+      const pts = pos as [number, number][];
+      return pts && pts.length > 0 ? (pts[pts.length - 1] as [number, number]) : null;
+    }
+  }, [selectedPrepared]);
+
+  // Check if route is point-to-point (open line) rather than a closed loop
+  const isPointToPoint = useMemo(() => {
+    if (!selectedPrepared?.startPos || !selectedEndPos) return false;
+    return (
+      distanceMeters(
+        selectedPrepared.startPos[0],
+        selectedPrepared.startPos[1],
+        selectedEndPos[0],
+        selectedEndPos[1]
+      ) > 120
+    );
+  }, [selectedPrepared, selectedEndPos]);
 
   // Calculate coordinates of the hovered point on the elevation chart
   let hoverPointCoord: [number, number] | null = null;
@@ -327,7 +373,9 @@ export function MapRoutesLayer({
       )}
 
       {selectedPrepared && (
-        <React.Fragment key={`top-selected-${selectedPrepared.r.id}-${isTraceVisible ? 'vis' : 'hid'}`}>
+        <React.Fragment
+          key={`top-selected-${selectedPrepared.r.id}-${(selectedPrepared.t as any).reverseKey || 0}-${isTraceVisible ? 'vis' : 'hid'}`}
+        >
           {isTraceVisible ? (
             <>
               <Polyline
@@ -342,7 +390,7 @@ export function MapRoutesLayer({
                   );
                   return (
                     <Polyline
-                      key={`seg-${selectedPrepared.r.id}-${sIdx}`}
+                      key={`seg-${selectedPrepared.r.id}-${(selectedPrepared.t as any).reverseKey || 0}-${sIdx}`}
                       positions={segPositions}
                       pathOptions={getRoadSegmentPathOptions(isCarFree)}
                     >
@@ -401,6 +449,17 @@ export function MapRoutesLayer({
             </Polyline>
           )}
 
+          {/* Chevrons / Flèches directionnelles indiquant le sens du tracé */}
+          {isTraceVisible &&
+            selectedArrows.map((arrow, aIdx) => (
+              <Marker
+                key={`dir-arrow-${selectedPrepared.r.id}-${(selectedPrepared.t as any).reverseKey || 0}-${aIdx}-${arrow.bearing}`}
+                position={arrow.position}
+                icon={createDirectionArrowIcon(arrow.bearing, '#ffffff')}
+                interactive={false}
+              />
+            ))}
+
           {selectedPrepared.startPos && (
             <Marker position={selectedPrepared.startPos} icon={createStartIcon()} interactive={true}>
               <Popup offset={[0, -10]} className="trail-start-popup">
@@ -443,6 +502,25 @@ export function MapRoutesLayer({
               </Popup>
               <Tooltip direction="top" offset={[0, -10]}>
                 Point de départ ({selectedPrepared.r.title})
+              </Tooltip>
+            </Marker>
+          )}
+
+          {/* Point d'arrivée "A" si le parcours n'est pas une boucle fermée */}
+          {isPointToPoint && selectedEndPos && (
+            <Marker position={selectedEndPos} icon={createEndIcon()} interactive={true}>
+              <Popup offset={[0, -10]} className="trail-start-popup">
+                <div className="p-1 min-w-[180px] text-slate-900 flex flex-col gap-1">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-rose-600 block">
+                    Point d'arrivée
+                  </span>
+                  <span className="text-xs font-extrabold text-slate-900 line-clamp-1 block">
+                    {selectedPrepared.r.title}
+                  </span>
+                </div>
+              </Popup>
+              <Tooltip direction="top" offset={[0, -10]}>
+                Point d'arrivée ({selectedPrepared.r.title})
               </Tooltip>
             </Marker>
           )}

@@ -16,7 +16,9 @@ import { Heart, CheckCircle, Compass, EyeOff } from 'lucide-react';
 import { useRouteManager } from './hooks/useRouteManager';
 import { useRouteEditor } from './hooks/useRouteEditor';
 import { useOutdoorNavigation } from './hooks/useOutdoorNavigation';
-import { useFavorites } from './hooks/useFavorites';
+import { useFavorites, type SavedFavorite, type FavoriteCategory } from './hooks/useFavorites';
+import { useMushroomSpots } from './hooks/useMushroomSpots';
+import { NewMushroomSpotModal } from './components/mushrooms/NewMushroomSpotModal';
 import { usePWAInstall } from './hooks/usePWAInstall';
 import { CATALOG_ROUTES } from './lib/routeCatalog';
 
@@ -129,7 +131,21 @@ export default function App() {
     saveFavorite,
     updateFavorite,
     deleteFavorite,
+    pairingCode,
+    isSyncing,
+    connectPairingCode,
+    disconnectPairing,
   } = useFavorites();
+
+  const {
+    spots: mushroomSpots,
+    isSpottingMode,
+    setIsSpottingMode,
+    pendingSpotCoord,
+    setPendingSpotCoord,
+    addSpot: addMushroomSpot,
+    deleteSpot: deleteMushroomSpot,
+  } = useMushroomSpots();
 
   const showToast = (msg: string) => {
     setNotification(msg);
@@ -214,19 +230,20 @@ export default function App() {
   const displayedRoute = editorActiveRoute ? editorActiveRoute.route : (routes.find((r) => r.id === displayedRouteId) || null);
   const displayedTrace = editorActiveRoute ? editorActiveRoute.trace : (displayedRouteId ? traces[displayedRouteId] || null : null);
 
-  const handleSaveFavorite = (userRating?: number, userNotes?: string) => {
+  const handleSaveFavorite = (
+    category?: FavoriteCategory,
+    userNotes?: string,
+    hasMushrooms?: boolean,
+    userRating?: number
+  ) => {
     const targetId = selectedRouteId || displayedRouteId;
     const route = routes.find((r) => r.id === targetId);
     if (!route || !targetId) return;
     const trace = traces[targetId];
     if (!trace) return;
 
-    const saved = saveFavorite(route, trace, userRating, userNotes);
-    if (saved) {
-      showToast('Itinéraire et notes enregistrés dans vos favoris !');
-    } else {
-      showToast('Cet itinéraire est déjà présent dans vos favoris.');
-    }
+    saveFavorite(route, trace, category, userNotes, hasMushrooms, userRating);
+    showToast('Circuit et observations enregistrés dans vos favoris !');
   };
 
   const handleToggleFilter = (filterId: string) => {
@@ -398,6 +415,23 @@ export default function App() {
           onDeselectRoute={handleDeselectAll}
           onOpenDetails={() => setIsSidebarOpen(true)}
           isDetailsOpen={isSidebarOpen}
+          onReverseRoute={() => {
+            reverseCurrentRoute();
+            showToast('Sens de parcours inversé.');
+          }}
+          favorites={favorites}
+          onLoadFavorite={(r, t) => {
+            loadSavedRoute(r, t);
+            showToast(`Circuit "${r.title}" chargé sur la carte.`);
+          }}
+          mushroomSpots={mushroomSpots}
+          onDeleteMushroomSpot={(id) => {
+            deleteMushroomSpot(id);
+            showToast('Coin à champignons supprimé.');
+          }}
+          isSpottingMode={isSpottingMode}
+          onToggleSpottingMode={() => setIsSpottingMode((prev) => !prev)}
+          onMapClickSpotCoord={(coord) => setPendingSpotCoord(coord)}
         />
 
         {/* Bottom Elevation Profile Bar (Shown when Sidebar is closed and profile drawer is open) */}
@@ -539,6 +573,21 @@ export default function App() {
           showToast(`Tracé "${r.title}" chargé sur la carte.`);
         }}
         onUpdateFavorite={updateFavorite}
+        pairingCode={pairingCode}
+        isSyncing={isSyncing}
+        onConnectPairingCode={connectPairingCode}
+        onDisconnectPairing={disconnectPairing}
+      />
+
+      {/* Modal d'ajout d'un nouveau coin à champignons */}
+      <NewMushroomSpotModal
+        isOpen={Boolean(pendingSpotCoord)}
+        coordinate={pendingSpotCoord}
+        onClose={() => setPendingSpotCoord(null)}
+        onSave={(name, variety, coords, notes) => {
+          addMushroomSpot(name, variety, coords, notes);
+          showToast(`Coin à champignons "${name}" enregistré sur la carte ! 🍄`);
+        }}
       />
 
       {/* PWA Install Modal (Step-by-step for iPhone Safari and 1-click for Android/Desktop) */}

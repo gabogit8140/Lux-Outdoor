@@ -3,7 +3,7 @@
  * (Komoot, Apple Shortcuts, Waze, etc.)
  */
 
-import { downloadGPX, type ElevationPoint } from '../gpx';
+import { generateGPXString, downloadGPX, type ElevationPoint } from '../gpx';
 
 export const MOBILE_SCHEMES = {
   KOMOOT_APP: 'komoot://',
@@ -49,19 +49,51 @@ export function openKomootWebUpload(): void {
 
 /**
  * Exporte le circuit en 1 seul clic sans aucune modale :
- * 1. Télécharge immédiatement le fichier GPX propre (.gpx sans .txt)
- * 2. Sur appareil iOS, déclenche directement le Raccourci Apple "GPX vers Komoot"
+ * 1. Sur mobile / tablette (iOS / Android) : Partage direct natif via Web Share API avec le fichier GPX en mémoire vive.
+ *    -> Ouvre directement la feuille de partage système iOS avec Komoot et le raccourci Apple
+ *    -> Zéro enregistrement manuel dans « Téléchargements » requis !
+ * 2. Sur ordinateur de bureau ou si le partage n'est pas supporté : Téléchargement direct du fichier .gpx
  */
-export function exportGpxDirect(
+export async function exportGpxDirect(
   title: string,
   coordinates: [number, number][] | [number, number][][],
   elevationProfile?: ElevationPoint[],
   shortcutName: string = MOBILE_SCHEMES.DEFAULT_KOMOOT_SHORTCUT_NAME
-): void {
-  // 1. Téléchargement direct du fichier GPX propre
+): Promise<void> {
+  const gpxString = generateGPXString(title, coordinates, elevationProfile);
+  const cleanTitle = title.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+  const fileName = `${cleanTitle}.gpx`;
+
+  // 1. Sur iPhone / iPad / Android : Partage direct du fichier GPX en mémoire (évite l'étape Téléchargements)
+  if (typeof navigator !== 'undefined' && typeof window !== 'undefined') {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile && navigator.canShare) {
+      try {
+        const file = new File([gpxString], fileName, {
+          type: 'application/gpx+xml',
+        });
+
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            title: title,
+            files: [file],
+          });
+          return; // Partage direct réussi : Komoot ou le Raccourci s'ouvre sans passer par Téléchargements
+        }
+      } catch (err: any) {
+        if (err && err.name === 'AbortError') {
+          // L'utilisateur a simplement fermé la feuille de partage
+          return;
+        }
+        console.warn('Partage natif du fichier GPX indisponible, bascule sur le téléchargement classique:', err);
+      }
+    }
+  }
+
+  // 2. Mode classique (Desktop ou navigateur sans Web Share File) : Téléchargement du fichier GPX
   downloadGPX(title, coordinates, elevationProfile);
 
-  // 2. Sur iOS, déclenchement du Raccourci Apple
+  // 3. Fallback iOS si le Web Share n'était pas supporté par le navigateur
   if (typeof window !== 'undefined' && /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
     setTimeout(() => {
       launchAppleShortcut(shortcutName);

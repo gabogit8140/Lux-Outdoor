@@ -35,15 +35,29 @@ import { openWazeNavigation, getRouteStartCoordinates } from '../../lib/navigati
 import { KomootIcon } from '../ui/KomootIcon';
 import { exportGpxDirect } from '../../lib/navigation/mobileSchemes';
 
+import {
+  type FavoriteCategory,
+  FAVORITE_CATEGORIES,
+} from '../../lib/favorites/favoriteCategories';
+
 interface RouteDetailViewProps {
   route: RouteSuggestions;
   trace: RouteTrace | null;
   activity: 'bike' | 'hike';
-  pendingRating: number;
-  setPendingRating: (rating: number) => void;
+  pendingRating?: number;
+  setPendingRating?: (rating: number) => void;
+  pendingCategory?: FavoriteCategory | null;
+  setPendingCategory?: (category: FavoriteCategory | null) => void;
+  pendingHasMushrooms?: boolean;
+  setPendingHasMushrooms?: (has: boolean) => void;
   pendingNotes: string;
   setPendingNotes: (notes: string) => void;
-  onSaveFavorite: (userRating?: number, userNotes?: string) => void;
+  onSaveFavorite: (
+    category?: FavoriteCategory,
+    userNotes?: string,
+    hasMushrooms?: boolean,
+    userRating?: number
+  ) => void;
   onReverseRoute: () => void;
   isTraceVisible?: boolean;
   onToggleTraceVisibility?: () => void;
@@ -64,8 +78,12 @@ export function RouteDetailView({
   route,
   trace,
   activity,
-  pendingRating,
+  pendingRating = 0,
   setPendingRating,
+  pendingCategory = null,
+  setPendingCategory,
+  pendingHasMushrooms = false,
+  setPendingHasMushrooms,
   pendingNotes,
   setPendingNotes,
   onSaveFavorite,
@@ -376,6 +394,7 @@ export function RouteDetailView({
       {/* Interactive Elevation Profile Chart inside Right Sidebar */}
       {trace?.elevationProfile && trace.elevationProfile.length >= 2 && (
         <SidebarElevationChart
+          key={`${route.id}-${(trace as any)?.reverseKey || 0}`}
           profile={trace.elevationProfile}
           routeId={route.id}
           color={semanticColor}
@@ -486,34 +505,73 @@ export function RouteDetailView({
         </section>
       )}
 
-      {/* Personal Rating & Field Notes */}
-      <section className="bg-slate-50/80 dark:bg-slate-800/40 p-3.5 rounded-2xl border border-slate-200/70 dark:border-slate-700/70 flex flex-col gap-2">
+      {/* Personal Rating, Category & Field Notes */}
+      <section className="bg-slate-50/80 dark:bg-slate-800/40 p-3.5 rounded-2xl border border-slate-200/70 dark:border-slate-700/70 flex flex-col gap-2.5">
         <div className="flex items-center justify-between">
           <span className="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider flex items-center gap-1">
-            <Star className="w-3.5 h-3.5 text-amber-500" />
-            Votre avis personnel :
+            <Bookmark className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+            Évaluation & Carnet de terrain
           </span>
-          <div className="flex items-center gap-1">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <button
-                key={star}
-                onClick={() => setPendingRating(star)}
-                className="p-0.5 hover:scale-110 transition-transform cursor-pointer"
-                title={`Attribuer ${star} étoile(s)`}
-              >
-                <Star
-                  className={`w-4 h-4 ${
-                    pendingRating >= star
-                      ? 'text-amber-400 fill-amber-400'
-                      : 'text-slate-300 dark:text-slate-600 hover:text-amber-300'
-                  }`}
-                />
-              </button>
-            ))}
-          </div>
+          <span className="text-[10px] text-slate-400">
+            {pendingCategory ? 'Trace notée' : 'Trace à faire'}
+          </span>
         </div>
 
-        <div className="relative">
+        {/* Boutons de catégories d'évaluation (Top, Bien, Ne pas refaire) */}
+        <div className="grid grid-cols-3 gap-1.5">
+          {(['top', 'bien', 'ne_pas_refaire'] as FavoriteCategory[]).map((catKey) => {
+            const meta = FAVORITE_CATEGORIES[catKey];
+            const isSelected = pendingCategory === catKey;
+
+            return (
+              <button
+                key={catKey}
+                type="button"
+                onClick={() => {
+                  if (setPendingCategory) {
+                    setPendingCategory(isSelected ? null : catKey);
+                  }
+                }}
+                className={`py-2 px-2 rounded-xl text-xs font-bold flex flex-col items-center justify-center gap-0.5 border transition-all cursor-pointer ${
+                  isSelected
+                    ? `${meta.bgColor} ${meta.borderColor} ${meta.textColor} ring-2 ring-emerald-500/30 shadow-sm scale-102`
+                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/60'
+                }`}
+                title={meta.shortDescription}
+              >
+                <span className="text-base">{meta.icon}</span>
+                <span className="text-[11px] font-semibold">{meta.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Bouton additionnel Coin champignons */}
+        <div className="flex items-center justify-between pt-1 border-t border-slate-200/60 dark:border-slate-700/60">
+          <button
+            type="button"
+            onClick={() => {
+              if (setPendingHasMushrooms) {
+                setPendingHasMushrooms(!pendingHasMushrooms);
+              }
+            }}
+            className={`w-full py-1.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 border transition-all cursor-pointer ${
+              pendingHasMushrooms
+                ? 'bg-orange-500/15 border-orange-400 text-orange-800 dark:text-orange-300 ring-2 ring-orange-500/30'
+                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/60'
+            }`}
+          >
+            <span className="text-sm">🍄</span>
+            <span>Coin à champignons</span>
+            {pendingHasMushrooms && (
+              <span className="text-[10px] ml-auto font-normal text-orange-700 dark:text-orange-300">
+                Activé sur la carte
+              </span>
+            )}
+          </button>
+        </div>
+
+        <div className="relative mt-1">
           <textarea
             value={pendingNotes}
             onChange={(e) => setPendingNotes(e.target.value)}
@@ -619,12 +677,23 @@ export function RouteDetailView({
         </button>
 
         <button
-          onClick={() => onSaveFavorite(pendingRating, pendingNotes)}
+          onClick={() =>
+            onSaveFavorite(
+              pendingCategory || undefined,
+              pendingNotes,
+              pendingHasMushrooms,
+              pendingRating
+            )
+          }
           className="w-full py-2.5 px-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 active:scale-95 transition-all cursor-pointer"
           title="Enregistrer ce tracé dans vos favoris"
         >
           <Bookmark className="w-3.5 h-3.5" />
-          <span>Enregistrer dans mes favoris</span>
+          <span>
+            {pendingCategory
+              ? `Enregistrer comme trace notée (${FAVORITE_CATEGORIES[pendingCategory].icon})`
+              : 'Enregistrer dans "Traces à faire"'}
+          </span>
         </button>
 
         <button

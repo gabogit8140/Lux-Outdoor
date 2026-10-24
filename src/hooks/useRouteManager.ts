@@ -18,6 +18,7 @@ import {
 } from '../lib/geoUtils';
 import { useUserGpxLibrary } from './useUserGpxLibrary';
 import { storedTrackToRouteAndTrace, type StoredGpxTrack } from '../lib/gpxStorageService';
+import { reverseRouteTrace } from '../lib/routing/reverseRoute';
 
 export function useRouteManager() {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -546,34 +547,14 @@ export function useRouteManager() {
   const reverseCurrentRoute = useCallback(() => {
     if (!selectedRouteId || !traces[selectedRouteId]) return;
 
-    const currentTrace = traces[selectedRouteId];
-    const coords = currentTrace.coordinates;
-
-    let reversedCoords: [number, number][] | [number, number][][];
-    if (Array.isArray(coords[0][0])) {
-      reversedCoords = (coords as [number, number][][])
-        .slice()
-        .reverse()
-        .map((seg) => seg.slice().reverse());
-    } else {
-      reversedCoords = (coords as [number, number][]).slice().reverse();
-    }
-
-    const reversedProfile = currentTrace.elevationProfile.map((p, idx, arr) => ({
-      ...p,
-      distance: Number(
-        (currentTrace.distance / 1000 - (arr[arr.length - 1 - idx]?.distance || 0)).toFixed(1)
-      ),
-    }));
-
-    setTraces((prev) => ({
-      ...prev,
-      [selectedRouteId]: {
-        ...currentTrace,
-        coordinates: reversedCoords,
-        elevationProfile: reversedProfile,
-      },
-    }));
+    setTraces((prev) => {
+      const currentTrace = prev[selectedRouteId];
+      if (!currentTrace) return prev;
+      return {
+        ...prev,
+        [selectedRouteId]: reverseRouteTrace(currentTrace),
+      };
+    });
 
     setRoutes((prev) =>
       prev.map((r) =>

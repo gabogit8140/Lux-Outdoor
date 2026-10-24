@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MapContainer, useMap } from 'react-leaflet';
-import { Eye, EyeOff } from 'lucide-react';
+import L from 'leaflet';
+import { Eye, EyeOff, RefreshCw } from 'lucide-react';
 import { HuntingRifleIcon } from './ui/HuntingRifleIcon';
 import type { RouteSuggestions, RouteTrace } from '../types';
 import {
@@ -13,20 +14,23 @@ import { MapLayersMenu } from './map/MapLayersMenu';
 import {
   DesktopZoomControl,
   LocateControl,
-  SearchAreaControl,
   MapResizer,
   MapCenterWatcher,
   MapController,
   MapClicker,
 } from './map/MapControls';
 import { MapRoutesLayer } from './map/MapRoutesLayer';
+import { MapFavoritesLayer } from './map/MapFavoritesLayer';
+import { MapMushroomLayer } from './map/MapMushroomLayer';
+import type { SavedFavorite } from '../hooks/useFavorites';
+import type { MushroomSpot } from '../types/mushroom';
 import { MapRouteQuickDock } from './map/MapRouteQuickDock';
 import { openWazeNavigation } from '../lib/navigation/wazeNavigation';
 import { MapEditorLayer } from './map/MapEditorLayer';
 import { TraceEditorBar } from './editor/TraceEditorBar';
 import { NavigationMapLayer } from './navigation/NavigationMapLayer';
 import { ROUTE_DIFFICULTY_LEGEND } from './ui/PremiumPrimitives';
-import { SAFE_AREA_TOP_BAR } from '../lib/layout/safeArea';
+import { SAFE_AREA_TOP_BAR, SAFE_AREA_RIGHT_DOCK } from '../lib/layout/safeArea';
 import { TOUCH_MAP_BUTTON_CLASS } from '../lib/layout/touchDimensions';
 import { fitMapToLuxembourg } from '../lib/layout/mapViewport';
 import type { UseRouteEditorReturn } from '../hooks/useRouteEditor';
@@ -49,6 +53,36 @@ function InitialLuxembourgFitter() {
   }, [map]);
 
   return null;
+}
+
+/**
+ * Conteneur pour les boutons de contrôle situés en haut à droite de la carte.
+ * Utilise la classe Leaflet officielle `.leaflet-control` et désactive la propagation des clics
+ * vers le canvas Leaflet sous-jacent afin que tous les boutons soient 100% cliquables
+ * sur ordinateur comme sur écran tactile mobile / iPad.
+ */
+function MapRightControlsDock({ children }: { children: React.ReactNode }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      L.DomEvent.disableClickPropagation(containerRef.current);
+      L.DomEvent.disableScrollPropagation(containerRef.current);
+    }
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="absolute z-[450] flex flex-col gap-2 pointer-events-auto"
+      style={{
+        top: SAFE_AREA_TOP_BAR,
+        right: SAFE_AREA_RIGHT_DOCK,
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
 interface MapProps {
@@ -86,6 +120,14 @@ interface MapProps {
   onDeselectRoute?: () => void;
   onOpenDetails?: () => void;
   isDetailsOpen?: boolean;
+  onReverseRoute?: () => void;
+  favorites?: SavedFavorite[];
+  onLoadFavorite?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  mushroomSpots?: MushroomSpot[];
+  onDeleteMushroomSpot?: (id: string) => void;
+  isSpottingMode?: boolean;
+  onToggleSpottingMode?: () => void;
+  onMapClickSpotCoord?: (coord: [number, number]) => void;
 }
 
 export function MapDisplay({
@@ -118,6 +160,14 @@ export function MapDisplay({
   onDeselectRoute,
   onOpenDetails,
   isDetailsOpen = false,
+  onReverseRoute,
+  favorites,
+  onLoadFavorite,
+  mushroomSpots,
+  onDeleteMushroomSpot,
+  isSpottingMode = false,
+  onToggleSpottingMode,
+  onMapClickSpotCoord,
 }: MapProps) {
   const [show200kmRadius, setShow200kmRadius] = useState(false);
   const [userCoords, setUserCoords] = useState<[number, number] | null>(null);
@@ -125,6 +175,7 @@ export function MapDisplay({
 
   const selectedRoute = selectedRouteId ? routes.find((r) => r.id === selectedRouteId) || null : null;
   const selectedTrace = selectedRouteId ? traces[selectedRouteId] || null : null;
+  const isRouteReversed = Boolean((selectedTrace as any)?.isReversed);
 
   // When switching to hike mode, seamlessly switch away from CyclOSM so cycleways are not shown
   useEffect(() => {
@@ -150,6 +201,7 @@ export function MapDisplay({
           isGenerating={isGenerating}
           lastLayerClickTimeRef={lastLayerClickTimeRef}
           isEditorActive={editor?.isEditorActive}
+          isSpottingMode={isSpottingMode}
         />
         <MapCenterWatcher target={mapCenterTarget} />
         <MapController selectedTrace={selectedTrace} focusTrigger={focusTrigger} />
@@ -196,22 +248,32 @@ export function MapDisplay({
           onStartNavigation={onStartNavigation}
         />
 
-        {/* Panning Search Control */}
-        <SearchAreaControl onSearch={onSearchBounds} isGenerating={isGenerating} />
+        {/* Favoris notés et coins champignons affichés directement sur la carte avec leurs icônes dédiées */}
+        {favorites && favorites.length > 0 && onLoadFavorite && (
+          <MapFavoritesLayer
+            favorites={favorites}
+            onSelectFavorite={onLoadFavorite}
+            selectedRouteId={selectedRouteId}
+          />
+        )}
+
+        {/* Coins à champignons repérés sur la carte */}
+        <MapMushroomLayer
+          spots={mushroomSpots || []}
+          onDeleteSpot={onDeleteMushroomSpot || (() => {})}
+          isSpottingMode={isSpottingMode}
+          onMapClickSpotCoord={onMapClickSpotCoord || (() => {})}
+        />
 
         {/* Controls Top Right:
             - Desktop Zoom Control: Hidden on mobile (touch devices zoom with 2 fingers)
             - Locate Control: Geolocation button with smooth zoom to user position
             - Layer Selector Menu: Available on both desktop and mobile
             - Dedicated Hunting Rifle Button: Quick 1-click hunting battues toggle
+            - Trace Visibility Toggle (Eye / EyeOff)
+            - Reverse Circuit Button (RefreshCw)
         */}
-        <div
-          className="absolute right-2.5 md:right-4 z-[450] flex flex-col gap-2 pointer-events-auto"
-          style={{
-            top: SAFE_AREA_TOP_BAR,
-            pointerEvents: 'auto',
-          }}
-        >
+        <MapRightControlsDock>
           <DesktopZoomControl />
           <LocateControl
             isNavigating={Boolean(navigation?.isNavigating)}
@@ -228,19 +290,37 @@ export function MapDisplay({
             setShow200kmRadius={setShow200kmRadius}
             setShowHuntingBattues={setShowHuntingBattues}
           />
+
+          {/* 🍄 Bouton Spotter un coin à champignons */}
+          {onToggleSpottingMode && (
+            <button
+              type="button"
+              onClick={onToggleSpottingMode}
+              className={`${TOUCH_MAP_BUTTON_CLASS} relative group transition-all ${
+                isSpottingMode
+                  ? 'bg-gradient-to-br from-amber-500 to-orange-600 text-white border-orange-400 shadow-orange-600/35 ring-2 ring-orange-400/50 scale-105'
+                  : 'text-slate-700 dark:text-slate-200 bg-white/95 dark:bg-slate-900/95 border-white/80 dark:border-slate-700/80 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-950/40'
+              }`}
+              title={
+                isSpottingMode
+                  ? 'Mode repérage actif — Cliquez sur la carte pour poser un coin'
+                  : 'Spotter un coin à champignons sur la carte'
+              }
+              aria-label="Spotter un coin à champignons"
+            >
+              <span className="text-base leading-none">🍄</span>
+              {mushroomSpots && mushroomSpots.length > 0 && (
+                <span className="absolute -top-1 -right-1 min-w-[17px] h-[17px] px-1 rounded-full bg-orange-600 text-white text-[10px] font-black flex items-center justify-center border-2 border-white dark:border-slate-900 shadow-xs">
+                  {mushroomSpots.length}
+                </span>
+              )}
+            </button>
+          )}
           {/* Direct 1-Click Battues / Hunting Rifle Toggle Button */}
           {setShowHuntingBattues && (
             <button
               type="button"
-              style={{ pointerEvents: 'auto' }}
-              onPointerDown={(e) => e.stopPropagation()}
-              onMouseDown={(e) => e.stopPropagation()}
-              onTouchStart={(e) => e.stopPropagation()}
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setShowHuntingBattues(!showHuntingBattues);
-              }}
+              onClick={() => setShowHuntingBattues(!showHuntingBattues)}
               className={`${TOUCH_MAP_BUTTON_CLASS} relative group ${
                 showHuntingBattues
                   ? 'bg-gradient-to-br from-amber-500 to-amber-600 text-white border-amber-400 shadow-amber-600/35 ring-2 ring-amber-400/60'
@@ -267,15 +347,7 @@ export function MapDisplay({
           {selectedRouteId && onToggleTraceVisibility && (
             <button
               type="button"
-              style={{ pointerEvents: 'auto' }}
-              onPointerDown={(e) => e.stopPropagation()}
-              onMouseDown={(e) => e.stopPropagation()}
-              onTouchStart={(e) => e.stopPropagation()}
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                onToggleTraceVisibility();
-              }}
+              onClick={onToggleTraceVisibility}
               className={`${TOUCH_MAP_BUTTON_CLASS} relative group ${
                 isTraceVisible
                   ? 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-emerald-400 shadow-emerald-600/35 ring-2 ring-emerald-400/50'
@@ -295,8 +367,62 @@ export function MapDisplay({
               )}
             </button>
           )}
-        </div>
+
+          {/* Direct 1-Click Reverse Route Direction Button (Inverser le sens du circuit) */}
+          {selectedRouteId && onReverseRoute && (
+            <button
+              type="button"
+              onClick={onReverseRoute}
+              className={`${TOUCH_MAP_BUTTON_CLASS} relative group transition-all ${
+                isRouteReversed
+                  ? 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-emerald-400 shadow-emerald-600/35 ring-2 ring-emerald-400/50'
+                  : 'text-slate-700 dark:text-slate-200 bg-white/95 dark:bg-slate-900/95 border-white/80 dark:border-slate-700/80 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40'
+              }`}
+              title={
+                isRouteReversed
+                  ? 'Sens inversé activé — Cliquer pour rétablir le sens d’origine'
+                  : 'Inverser le sens du parcours (les flèches et le dénivelé s’inversent)'
+              }
+              aria-label="Inverser le sens du parcours"
+            >
+              <RefreshCw
+                className={`w-4 h-4 shrink-0 transition-transform duration-500 ${
+                  isRouteReversed ? 'rotate-180 text-white' : 'group-hover:rotate-180'
+                }`}
+              />
+            </button>
+          )}
+        </MapRightControlsDock>
       </MapContainer>
+
+      {/* Mushroom Spotting Active Banner */}
+      {isSpottingMode && (
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 z-[1000] bg-stone-900/95 dark:bg-black/95 text-white px-4 py-2.5 rounded-2xl shadow-xl border border-orange-500/60 flex items-center gap-3 backdrop-blur-md animate-in fade-in slide-in-from-top-4 duration-200 max-w-[90vw]">
+          <span className="text-xl animate-bounce">🍄</span>
+          <div className="text-left">
+            <div className="text-xs font-bold text-orange-300">Mode Repérage Champignons actif</div>
+            <div className="text-[11px] text-stone-200">Touchez la carte où vous avez trouvé des champignons</div>
+          </div>
+          {userCoords && onMapClickSpotCoord && (
+            <button
+              type="button"
+              onClick={() => onMapClickSpotCoord(userCoords)}
+              className="ml-1 px-2.5 py-1 rounded-lg bg-orange-600 hover:bg-orange-500 text-white text-[11px] font-bold shadow-xs transition-colors shrink-0 cursor-pointer"
+            >
+              À ma position GPS
+            </button>
+          )}
+          {onToggleSpottingMode && (
+            <button
+              type="button"
+              onClick={onToggleSpottingMode}
+              className="px-2 py-1 rounded-lg bg-white/20 hover:bg-white/30 text-[11px] font-semibold transition-colors shrink-0 cursor-pointer"
+            >
+              Annuler
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Floating Route Editor Studio Bar */}
       {editor?.isEditorActive && (
@@ -325,6 +451,7 @@ export function MapDisplay({
             activity={activity}
             isTraceVisible={isTraceVisible}
             onToggleTraceVisibility={onToggleTraceVisibility}
+            onReverseRoute={onReverseRoute}
           />
         )}
 

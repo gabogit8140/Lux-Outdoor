@@ -338,11 +338,11 @@ export function MapFilterBar({
               {hasAnyActiveFilter && (
                 <button
                   onClick={onClearFilters}
-                  className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl text-xs font-bold border border-rose-200/90 dark:border-rose-800/80 bg-rose-50/90 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 hover:bg-rose-100 dark:hover:bg-rose-900/80 hover:border-rose-300 transition-all shadow-2xs active:scale-95 cursor-pointer"
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold border border-rose-200/90 dark:border-rose-800/80 bg-rose-50/90 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 hover:bg-rose-100 dark:hover:bg-rose-900/80 hover:border-rose-300 transition-all shadow-2xs active:scale-95 cursor-pointer touch-manipulation"
                   title="Enlever tous les filtres et afficher toutes les traces"
                 >
                   <RotateCcw className="w-3.5 h-3.5 shrink-0" />
-                  <span className="hidden md:inline whitespace-nowrap">Sans filtre</span>
+                  <span className="whitespace-nowrap">Sans filtre</span>
                 </button>
               )}
 
@@ -390,18 +390,6 @@ export function MapFilterBar({
 
           {/* Secondary Horizontal Scrollable Quick-Filter Chips Bar (Visible on Phone, Tablet & Desktop) */}
           <div className="pointer-events-auto flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 px-0.5 scroll-smooth">
-            {/* Prominent "Enlever tous les filtres" Pill at the front of the bar whenever any filter is active */}
-            {hasAnyActiveFilter && (
-              <button
-                onClick={onClearFilters}
-                className="flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold text-rose-700 dark:text-rose-300 bg-white/95 dark:bg-slate-900/95 border border-rose-300/90 dark:border-rose-700/80 hover:bg-rose-50 dark:hover:bg-rose-950/60 transition-all whitespace-nowrap shrink-0 shadow-sm cursor-pointer active:scale-95"
-                title="Enlever tous les filtres (distances, critères, zone et lieu)"
-              >
-                <RotateCcw className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
-                <span>Enlever tous les filtres</span>
-              </button>
-            )}
-
             {MAP_FILTER_OPTIONS.map((opt) => {
               const isActive = activeFilters.includes(opt.id);
               const Icon = opt.icon;

@@ -225,7 +225,7 @@ export function TraceProfile({
         <div className="flex flex-col md:flex-row gap-3 md:gap-5 items-stretch">
           {/* Elevation Area Chart */}
           <div className="flex-1 h-28 md:h-36 relative">
-            <ResponsiveContainer key={`profile-container-${route.id}`} width="100%" height="100%">
+            <ResponsiveContainer key={`profile-container-${route.id}-${(trace as any)?.reverseKey || 0}`} width="100%" height="100%">
               <AreaChart
                 data={profile}
                 margin={{ top: 8, right: 10, left: -20, bottom: 0 }}

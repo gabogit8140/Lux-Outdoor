@@ -10,6 +10,7 @@ import {
   Minimize2,
 } from 'lucide-react';
 import type { RouteSuggestions, RouteTrace } from '../types';
+import { type FavoriteCategory, resolveFavoriteCategory } from '../lib/favorites/favoriteCategories';
 import { PlanTabContent } from './sidebar/PlanTabContent';
 import { RouteDetailView } from './sidebar/RouteDetailView';
 import { RouteCatalogList } from './sidebar/RouteCatalogList';
@@ -42,7 +43,12 @@ interface SidebarProps {
   route: RouteSuggestions | null;
   trace: RouteTrace | null;
   traces?: Record<string, RouteTrace>;
-  onSaveFavorite: (userRating?: number, userNotes?: string) => void;
+  onSaveFavorite: (
+    category?: FavoriteCategory,
+    userNotes?: string,
+    hasMushrooms?: boolean,
+    userRating?: number
+  ) => void;
   activity: 'bike' | 'hike';
   onActivityChange: (activity: 'bike' | 'hike') => void;
   distance: [number, number];
@@ -135,8 +141,10 @@ export function Sidebar({
     }
   }, [currentLocation]);
 
-  // Real user rating & notes
+  // Real user rating, category & notes
   const [pendingRating, setPendingRating] = useState<number>(0);
+  const [pendingCategory, setPendingCategory] = useState<FavoriteCategory | null>(null);
+  const [pendingHasMushrooms, setPendingHasMushrooms] = useState<boolean>(false);
   const [pendingNotes, setPendingNotes] = useState<string>('');
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -145,6 +153,8 @@ export function Sidebar({
   useEffect(() => {
     if (route) {
       setPendingRating(route.userRating || 0);
+      setPendingCategory(route.userCategory || resolveFavoriteCategory(undefined, route.userRating, route.hasMushrooms));
+      setPendingHasMushrooms(Boolean(route.hasMushrooms));
       setPendingNotes(route.userNotes || '');
     } else if (!route && tab === 'result') {
       setTab('catalog');
@@ -412,6 +422,10 @@ export function Sidebar({
             activity={activity}
             pendingRating={pendingRating}
             setPendingRating={setPendingRating}
+            pendingCategory={pendingCategory}
+            setPendingCategory={setPendingCategory}
+            pendingHasMushrooms={pendingHasMushrooms}
+            setPendingHasMushrooms={setPendingHasMushrooms}
             pendingNotes={pendingNotes}
             setPendingNotes={setPendingNotes}
             onSaveFavorite={onSaveFavorite}

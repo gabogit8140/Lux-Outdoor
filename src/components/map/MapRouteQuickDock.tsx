@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
-import { Navigation, Car, X, Footprints, Bike, ChevronRight, MapPin, Eye, EyeOff } from 'lucide-react';
+import { Navigation, Car, X, Footprints, Bike, ChevronRight, MapPin, Eye, EyeOff, RefreshCw } from 'lucide-react';
 import {
   calculateDistanceKm,
   formatDriveDistance,
@@ -20,6 +20,7 @@ interface MapRouteQuickDockProps {
   activity: 'bike' | 'hike';
   isTraceVisible?: boolean;
   onToggleTraceVisibility?: () => void;
+  onReverseRoute?: () => void;
 }
 
 export function MapRouteQuickDock({
@@ -33,6 +34,7 @@ export function MapRouteQuickDock({
   activity,
   isTraceVisible = true,
   onToggleTraceVisibility,
+  onReverseRoute,
 }: MapRouteQuickDockProps) {
   // Coordonnées GPS du point de départ de la trace (normalisées [lat, lng])
   const startCoords = useMemo<[number, number] | null>(() => {
@@ -100,6 +102,30 @@ export function MapRouteQuickDock({
           </div>
 
           <div className="flex items-center gap-1 shrink-0">
+            {onReverseRoute && (
+              <button
+                type="button"
+                onClick={onReverseRoute}
+                className={`p-1.5 rounded-xl transition-all border cursor-pointer active:scale-95 touch-manipulation group ${
+                  (trace as any)?.isReversed
+                    ? 'bg-emerald-500 text-white border-emerald-400 shadow-sm ring-1 ring-emerald-300'
+                    : 'bg-white/10 text-emerald-400 border-white/15 hover:bg-emerald-500/20'
+                }`}
+                title={
+                  (trace as any)?.isReversed
+                    ? 'Sens inversé activé — Cliquer pour rétablir le sens d’origine'
+                    : 'Inverser le sens du parcours (les flèches et le dénivelé s’inversent)'
+                }
+                aria-label="Inverser le sens"
+              >
+                <RefreshCw
+                  className={`w-4 h-4 transition-transform duration-500 ${
+                    (trace as any)?.isReversed ? 'rotate-180 text-white' : 'group-hover:rotate-180'
+                  }`}
+                />
+              </button>
+            )}
+
             {onToggleTraceVisibility && (
               <button
                 type="button"
