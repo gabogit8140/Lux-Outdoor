@@ -37,7 +37,7 @@ export default function App() {
   const [previewRouteId, setPreviewRouteId] = useState<string | null>(null);
   const [mapInteractedTrigger, setMapInteractedTrigger] = useState<number>(0);
   const [notification, setNotification] = useState<string | null>(null);
-  const [favoritesInitialTab, setFavoritesInitialTab] = useState<'todo' | 'rated' | 'sync'>('todo');
+  const [favoritesInitialTab, setFavoritesInitialTab] = useState<'tracks' | 'sync'>('tracks');
   const [isInstallModalOpen, setIsInstallModalOpen] = useState(false);
   const [isGpxModalOpen, setIsGpxModalOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
@@ -61,24 +61,6 @@ export default function App() {
       // Ignore storage error
     }
   }, [isDarkMode]);
-
-  // Détection automatique du paramètre ?sync=CODE lors du scan d'un QR Code
-  React.useEffect(() => {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const syncParam = params.get('sync');
-      if (syncParam) {
-        connectPairingCode(syncParam).then((res) => {
-          showToast(res.message);
-          window.history.replaceState({}, document.title, window.location.pathname);
-          setFavoritesInitialTab('sync');
-          setIsFavoritesOpen(true);
-        });
-      }
-    } catch {
-      // Ignore
-    }
-  }, [connectPairingCode]);
 
   const { isInstallable, isInstalled, isIOS, install } = usePWAInstall();
 
@@ -170,6 +152,24 @@ export default function App() {
     setNotification(msg);
     setTimeout(() => setNotification(null), 3000);
   };
+
+  // Détection automatique du paramètre ?sync=CODE lors du scan d'un QR Code
+  React.useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const syncParam = params.get('sync');
+      if (syncParam) {
+        connectPairingCode(syncParam).then((res) => {
+          showToast(res.message);
+          window.history.replaceState({}, document.title, window.location.pathname);
+          setFavoritesInitialTab('sync');
+          setIsFavoritesOpen(true);
+        });
+      }
+    } catch {
+      // Ignore
+    }
+  }, [connectPairingCode]);
 
   // Tracé en direct généré en temps réel au fur et à mesure que l'utilisateur clique ou glisse sur la carte
   const editorActiveRoute = useMemo((): { route: RouteSuggestions; trace: RouteTrace } | null => {
@@ -336,7 +336,7 @@ export default function App() {
           onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
           favoritesCount={favorites.length}
           onOpenFavorites={() => {
-            setFavoritesInitialTab('todo');
+            setFavoritesInitialTab('tracks');
             setIsFavoritesOpen(true);
           }}
           onOpenSyncModal={() => {
