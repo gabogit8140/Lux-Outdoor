@@ -395,9 +395,12 @@ export function MapDisplay({
         </MapRightControlsDock>
       </MapContainer>
 
-      {/* Mushroom Spotting Active Banner - Ancré en bas pour éviter tout chevauchement avec la barre de filtres et les boutons */}
+      {/* Mushroom Spotting Active Banner - Ancré en bas sans aucun élément concurrent */}
       {isSpottingMode && (
-        <div className="fixed md:absolute bottom-6 left-1/2 -translate-x-1/2 z-[1100] bg-stone-900/95 dark:bg-black/95 text-white px-4 py-3 rounded-2xl shadow-2xl border-2 border-orange-500 flex items-center gap-3.5 backdrop-blur-md animate-in fade-in slide-in-from-bottom-4 duration-200 max-w-[92vw] pointer-events-auto">
+        <div
+          className="fixed md:absolute left-1/2 -translate-x-1/2 z-[1000] bg-stone-900/95 dark:bg-black/95 text-white px-4 py-3 rounded-2xl shadow-2xl border-2 border-orange-500 flex items-center gap-3 backdrop-blur-md animate-in fade-in slide-in-from-bottom-4 duration-200 max-w-[92vw] pointer-events-auto"
+          style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 1.25rem)' }}
+        >
           <span className="text-2xl animate-bounce shrink-0">🍄</span>
           <div className="text-left min-w-0">
             <div className="text-xs font-bold text-orange-300">Mode Repérage Champignons actif</div>
@@ -457,45 +460,47 @@ export function MapDisplay({
           />
         )}
 
-      {/* Floating Semantic Color Legend (Bottom-Left) */}
-      <div className="absolute bottom-2.5 sm:bottom-4 left-2.5 md:left-4 z-[400] pointer-events-auto max-w-[calc(100%-1.25rem)]">
-        <div className="glass-topbar px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-lg flex items-center gap-2 sm:gap-2.5 text-[10px] sm:text-[11px] overflow-x-auto no-scrollbar whitespace-nowrap">
-          {selectedRouteId ? (
-            <>
-              <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-400">
-                Voirie :
-              </span>
-              <span className="inline-flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-200">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0" />
-                <span>Sans voiture</span>
-              </span>
-              <span className="inline-flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-200">
-                <span className="w-2.5 h-2.5 rounded-full bg-orange-600 shrink-0" />
-                <span>Route partagée</span>
-              </span>
-            </>
-          ) : (
-            <>
-              <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-400 hidden sm:inline">
-                Difficulté / Relief :
-              </span>
-              {ROUTE_DIFFICULTY_LEGEND.map((item) => (
-                <span
-                  key={item.level}
-                  className="inline-flex items-center gap-1 sm:gap-1.5 font-bold text-slate-700 dark:text-slate-200"
-                  title={`${item.label} — ${item.subLabel}`}
-                >
-                  <span
-                    className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full ring-1 ring-white dark:ring-slate-900 shrink-0"
-                    style={{ backgroundColor: item.color }}
-                  />
-                  <span>{item.label}</span>
+      {/* Floating Semantic Color Legend (Bottom-Left, masqué en mode repérage pour dégager totalement le bas) */}
+      {!isSpottingMode && (
+        <div className="absolute bottom-2.5 sm:bottom-4 left-2.5 md:left-4 z-[400] pointer-events-auto max-w-[calc(100%-1.25rem)]">
+          <div className="glass-topbar px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-lg flex items-center gap-2 sm:gap-2.5 text-[10px] sm:text-[11px] overflow-x-auto no-scrollbar whitespace-nowrap">
+            {selectedRouteId ? (
+              <>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-400">
+                  Voirie :
                 </span>
-              ))}
-            </>
-          )}
+                <span className="inline-flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-200">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0" />
+                  <span>Sans voiture</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-200">
+                  <span className="w-2.5 h-2.5 rounded-full bg-orange-600 shrink-0" />
+                  <span>Route partagée</span>
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-400 hidden sm:inline">
+                  Difficulté / Relief :
+                </span>
+                {ROUTE_DIFFICULTY_LEGEND.map((item) => (
+                  <span
+                    key={item.level}
+                    className="inline-flex items-center gap-1 sm:gap-1.5 font-bold text-slate-700 dark:text-slate-200"
+                    title={`${item.label} — ${item.subLabel}`}
+                  >
+                    <span
+                      className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full ring-1 ring-white dark:ring-slate-900 shrink-0"
+                      style={{ backgroundColor: item.color }}
+                    />
+                    <span>{item.label}</span>
+                  </span>
+                ))}
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

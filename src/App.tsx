@@ -449,8 +449,8 @@ export default function App() {
           />
         )}
 
-        {/* Mobile & Tablet Floating Quick Navigation Dock when panel is closed */}
-        {!isSidebarOpen && !isProfileOpen && !selectedRoute && (
+        {/* Mobile & Tablet Floating Quick Navigation Dock when panel is closed and not in mushroom spotting mode */}
+        {!isSidebarOpen && !isProfileOpen && !selectedRoute && !isSpottingMode && (
           <div
             className="absolute left-3 right-3 z-[410] lg:hidden pointer-events-none flex justify-center transition-all"
             style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 2.75rem)' }}
