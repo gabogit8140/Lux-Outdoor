@@ -395,32 +395,34 @@ export function MapDisplay({
         </MapRightControlsDock>
       </MapContainer>
 
-      {/* Mushroom Spotting Active Banner */}
+      {/* Mushroom Spotting Active Banner - Ancré en bas pour éviter tout chevauchement avec la barre de filtres et les boutons */}
       {isSpottingMode && (
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 z-[1000] bg-stone-900/95 dark:bg-black/95 text-white px-4 py-2.5 rounded-2xl shadow-xl border border-orange-500/60 flex items-center gap-3 backdrop-blur-md animate-in fade-in slide-in-from-top-4 duration-200 max-w-[90vw]">
-          <span className="text-xl animate-bounce">🍄</span>
-          <div className="text-left">
+        <div className="fixed md:absolute bottom-6 left-1/2 -translate-x-1/2 z-[1100] bg-stone-900/95 dark:bg-black/95 text-white px-4 py-3 rounded-2xl shadow-2xl border-2 border-orange-500 flex items-center gap-3.5 backdrop-blur-md animate-in fade-in slide-in-from-bottom-4 duration-200 max-w-[92vw] pointer-events-auto">
+          <span className="text-2xl animate-bounce shrink-0">🍄</span>
+          <div className="text-left min-w-0">
             <div className="text-xs font-bold text-orange-300">Mode Repérage Champignons actif</div>
-            <div className="text-[11px] text-stone-200">Touchez la carte où vous avez trouvé des champignons</div>
+            <div className="text-[11px] text-stone-200 truncate">Touchez la carte où vous avez trouvé des champignons</div>
           </div>
-          {userCoords && onMapClickSpotCoord && (
-            <button
-              type="button"
-              onClick={() => onMapClickSpotCoord(userCoords)}
-              className="ml-1 px-2.5 py-1 rounded-lg bg-orange-600 hover:bg-orange-500 text-white text-[11px] font-bold shadow-xs transition-colors shrink-0 cursor-pointer"
-            >
-              À ma position GPS
-            </button>
-          )}
-          {onToggleSpottingMode && (
-            <button
-              type="button"
-              onClick={onToggleSpottingMode}
-              className="px-2 py-1 rounded-lg bg-white/20 hover:bg-white/30 text-[11px] font-semibold transition-colors shrink-0 cursor-pointer"
-            >
-              Annuler
-            </button>
-          )}
+          <div className="flex items-center gap-2 shrink-0">
+            {userCoords && onMapClickSpotCoord && (
+              <button
+                type="button"
+                onClick={() => onMapClickSpotCoord(userCoords)}
+                className="px-3 py-1.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-white text-xs font-bold shadow-sm transition-colors cursor-pointer"
+              >
+                À ma position GPS
+              </button>
+            )}
+            {onToggleSpottingMode && (
+              <button
+                type="button"
+                onClick={onToggleSpottingMode}
+                className="px-2.5 py-1.5 rounded-xl bg-white/20 hover:bg-white/30 text-white text-xs font-semibold transition-colors cursor-pointer"
+              >
+                Annuler
+              </button>
+            )}
+          </div>
         </div>
       )}
 
