@@ -8,6 +8,7 @@ import {
   Sun,
   Moon,
   Smartphone,
+  QrCode,
 } from 'lucide-react';
 import { SAFE_AREA_TOP_BAR, SAFE_AREA_LEFT_DOCK } from '../../lib/layout/safeArea';
 import { TOUCH_DOCK_BUTTON_CLASS } from '../../lib/layout/touchDimensions';
@@ -17,6 +18,7 @@ interface TopLeftCommandDockProps {
   onToggleSidebar: () => void;
   favoritesCount: number;
   onOpenFavorites: () => void;
+  onOpenSyncModal?: () => void;
   tracksCount: number;
   onOpenGpxModal: () => void;
   isEditorActive: boolean;
@@ -32,6 +34,7 @@ export function TopLeftCommandDock({
   onToggleSidebar,
   favoritesCount,
   onOpenFavorites,
+  onOpenSyncModal,
   tracksCount,
   onOpenGpxModal,
   isEditorActive,
@@ -79,6 +82,18 @@ export function TopLeftCommandDock({
           </span>
         )}
       </button>
+
+      {/* Synchronisation Cloud & QR Code multi-appareils */}
+      {onOpenSyncModal && (
+        <button
+          onClick={onOpenSyncModal}
+          className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-600 dark:text-slate-300 hover:text-indigo-600 relative group`}
+          title="Synchroniser mes appareils (QR Code & Cloud)"
+          aria-label="Synchronisation QR Code"
+        >
+          <QrCode className="w-4 h-4 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" />
+        </button>
+      )}
 
       {/* Base GPX & Carnets de voyage */}
       <button

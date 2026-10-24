@@ -20,6 +20,7 @@ import {
   Cloud,
   Unlink,
   Radio,
+  QrCode,
 } from 'lucide-react';
 import type { SavedFavorite, FavoriteCategory } from '../hooks/useFavorites';
 import type { RouteSuggestions, RouteTrace } from '../types';
@@ -46,6 +47,7 @@ interface FavoritesProps {
   isSyncing?: boolean;
   onConnectPairingCode?: (code?: string) => Promise<{ success: boolean; message: string }>;
   onDisconnectPairing?: () => void;
+  initialTab?: TabType;
 }
 
 type TabType = 'todo' | 'rated' | 'sync';
@@ -61,8 +63,15 @@ export function Favorites({
   isSyncing,
   onConnectPairingCode,
   onDisconnectPairing,
+  initialTab = 'todo',
 }: FavoritesProps) {
-  const [activeTab, setActiveTab] = useState<TabType>('todo');
+  const [activeTab, setActiveTab] = useState<TabType>(initialTab);
+
+  React.useEffect(() => {
+    if (isOpen) {
+      setActiveTab(initialTab);
+    }
+  }, [isOpen, initialTab]);
   const [ratedSubFilter, setRatedSubFilter] = useState<'all' | FavoriteCategory>('all');
   const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
   const [tempNotes, setTempNotes] = useState<string>('');
@@ -336,12 +345,12 @@ export function Favorites({
             </div>
 
             {pairingCode ? (
-              /* Déjà jumelé */
+              /* Déjà jumelé avec affichage complet du QR Code scannable */
               <div className="bg-white dark:bg-slate-800/80 border border-emerald-300 dark:border-emerald-700 rounded-2xl p-5 shadow-sm space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold text-sm">
                     <CheckCheck className="w-5 h-5" />
-                    <span>Cet appareil est synchronisé en temps réel</span>
+                    <span>Synchronisation Cloud en temps réel active</span>
                   </div>
                   {isSyncing && (
                     <span className="text-xs text-stone-400 animate-pulse">
@@ -350,32 +359,55 @@ export function Favorites({
                   )}
                 </div>
 
-                <div className="text-center py-3 bg-stone-50 dark:bg-slate-900 rounded-xl border border-stone-200 dark:border-slate-700">
-                  <p className="text-xs text-stone-500 dark:text-slate-400 font-medium mb-1">
-                    Votre code de jumelage :
-                  </p>
-                  <div className="flex items-center justify-center gap-3">
-                    <span className="text-2xl font-black tracking-widest text-indigo-700 dark:text-indigo-300 font-mono">
-                      {pairingCode}
+                {/* QR Code Scannable et Code texte */}
+                <div className="flex flex-col sm:flex-row items-center gap-5 p-4 bg-stone-50 dark:bg-slate-900 rounded-2xl border border-stone-200 dark:border-slate-700">
+                  <div className="p-3 bg-white rounded-2xl shadow-md border border-stone-200 shrink-0 text-center">
+                    <img
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(
+                        typeof window !== 'undefined'
+                          ? `${window.location.origin}${window.location.pathname}?sync=${pairingCode}`
+                          : `https://gabogit8140.github.io/Trace-Outdoor/?sync=${pairingCode}`
+                      )}&margin=8`}
+                      alt={`QR Code de synchronisation ${pairingCode}`}
+                      className="w-40 h-40 mx-auto rounded-lg"
+                      loading="lazy"
+                    />
+                    <span className="text-[10px] text-stone-500 font-bold block mt-2 flex items-center justify-center gap-1">
+                      <QrCode className="w-3.5 h-3.5 text-indigo-600" /> Scanner avec la caméra
                     </span>
-                    <button
-                      type="button"
-                      onClick={() => handleCopyCode(pairingCode)}
-                      className="p-2 rounded-lg bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 hover:bg-stone-100 text-stone-600 dark:text-slate-300 transition-colors cursor-pointer"
-                      title="Copier le code"
-                    >
-                      {copiedCode ? (
-                        <Check className="w-4 h-4 text-emerald-600" />
-                      ) : (
-                        <Copy className="w-4 h-4" />
-                      )}
-                    </button>
+                  </div>
+
+                  <div className="space-y-3 text-left flex-1 min-w-0">
+                    <div>
+                      <h4 className="font-bold text-sm text-stone-900 dark:text-stone-100 flex items-center gap-1.5">
+                        <QrCode className="w-4 h-4 text-indigo-600" />
+                        <span>Jumelage instantané par QR Code</span>
+                      </h4>
+                      <p className="text-xs text-stone-600 dark:text-slate-400 mt-1 leading-relaxed">
+                        Pointez l'appareil photo de votre <strong>iPhone</strong> ou <strong>iPad</strong> vers ce QR code pour ouvrir l'application et synchroniser immédiatement tous vos favoris et vos coins à champignons.
+                      </p>
+                    </div>
+
+                    <div className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-stone-200 dark:border-slate-700 flex items-center justify-between gap-2">
+                      <div className="min-w-0">
+                        <span className="text-[10px] text-stone-400 block font-semibold truncate">
+                          Ou saisissez ce code sur votre autre appareil :
+                        </span>
+                        <span className="text-xl font-black font-mono tracking-widest text-indigo-700 dark:text-indigo-300">
+                          {pairingCode}
+                        </span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => handleCopyCode(pairingCode)}
+                        className="px-3 py-1.5 text-xs font-bold rounded-lg border border-stone-200 dark:border-slate-700 hover:bg-stone-100 dark:hover:bg-slate-700 flex items-center gap-1.5 transition-colors cursor-pointer shrink-0"
+                      >
+                        {copiedCode ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                        <span>{copiedCode ? 'Copié' : 'Copier'}</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-
-                <p className="text-xs text-stone-600 dark:text-slate-400 leading-relaxed">
-                  👉 Pour connecter votre iPad ou votre ordinateur, ouvrez <strong>Trace Outdoor</strong> dessus, venez dans cet onglet et saisissez le code <strong className="font-mono text-indigo-600 dark:text-indigo-400">{pairingCode}</strong>.
-                </p>
 
                 <div className="pt-2 flex justify-end">
                   <button
