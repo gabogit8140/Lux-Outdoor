@@ -10,6 +10,7 @@ import {
   getRoadSegmentPathOptions,
   getRoadSegmentBadge,
 } from '../../lib/routing/polylineStyles';
+import { TOUCH_POLYLINE_HIT_WEIGHT } from '../../lib/layout/touchDimensions';
 
 const createIcon = (color: string, label?: string) => {
   const size = 16;
@@ -222,14 +223,14 @@ export function MapRoutesLayer({
               }}
             />
 
-            {/* Permanently mounted wide invisible tap/hover target */}
+            {/* Permanently mounted wide invisible tap/hover target (optimized for mobile touch) */}
             <Polyline
               positions={polylinePositions}
               pathOptions={{
-                weight: 24,
+                weight: TOUCH_POLYLINE_HIT_WEIGHT,
                 color: 'transparent',
                 interactive: true,
-                className: 'cursor-pointer',
+                className: 'cursor-pointer touch-manipulation',
               }}
               eventHandlers={{
                 click: handleSelect,
@@ -241,33 +242,35 @@ export function MapRoutesLayer({
                 },
               }}
             >
-              <Tooltip sticky direction="top">
-                <div className="font-bold text-white text-xs flex items-center gap-1.5">
-                  <span
-                    className="w-2.5 h-2.5 rounded-full shrink-0 border border-white/80"
-                    style={{ backgroundColor: semanticColor }}
-                  />
-                  {r.country && (
-                    <span className="text-[10px] uppercase font-bold px-1.5 py-0.2 rounded bg-white/15 text-emerald-300">
-                      {r.country}
-                    </span>
-                  )}
-                  <span>{r.title}</span>
-                </div>
-                <div className="text-[11px] text-emerald-400 font-bold font-mono-kpi mt-0.5 flex items-center gap-1.5">
-                  <span>
-                    {(t.distance / 1000).toFixed(1)} km · +{r.elevationGain}m D+
-                  </span>
-                  {r.difficulty && (
+              {!isSelected && (
+                <Tooltip sticky direction="top">
+                  <div className="font-bold text-white text-xs flex items-center gap-1.5">
                     <span
-                      className="px-1.5 py-0.2 rounded text-[10px] text-white font-extrabold"
+                      className="w-2.5 h-2.5 rounded-full shrink-0 border border-white/80"
                       style={{ backgroundColor: semanticColor }}
-                    >
-                      {r.difficulty.label}
+                    />
+                    {r.country && (
+                      <span className="text-[10px] uppercase font-bold px-1.5 py-0.2 rounded bg-white/15 text-emerald-300">
+                        {r.country}
+                      </span>
+                    )}
+                    <span>{r.title}</span>
+                  </div>
+                  <div className="text-[11px] text-emerald-400 font-bold font-mono-kpi mt-0.5 flex items-center gap-1.5">
+                    <span>
+                      {(t.distance / 1000).toFixed(1)} km · +{r.elevationGain}m D+
                     </span>
-                  )}
-                </div>
-              </Tooltip>
+                    {r.difficulty && (
+                      <span
+                        className="px-1.5 py-0.2 rounded text-[10px] text-white font-extrabold"
+                        style={{ backgroundColor: semanticColor }}
+                      >
+                        {r.difficulty.label}
+                      </span>
+                    )}
+                  </div>
+                </Tooltip>
+              )}
             </Polyline>
 
             {/* Start dot marker on unselected routes */}

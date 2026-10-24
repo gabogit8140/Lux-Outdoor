@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MapContainer, useMap } from 'react-leaflet';
+import { Eye, EyeOff } from 'lucide-react';
 import { HuntingRifleIcon } from './ui/HuntingRifleIcon';
 import type { RouteSuggestions, RouteTrace } from '../types';
 import {
@@ -26,6 +27,7 @@ import { TraceEditorBar } from './editor/TraceEditorBar';
 import { NavigationMapLayer } from './navigation/NavigationMapLayer';
 import { ROUTE_DIFFICULTY_LEGEND } from './ui/PremiumPrimitives';
 import { SAFE_AREA_TOP_BAR } from '../lib/layout/safeArea';
+import { TOUCH_MAP_BUTTON_CLASS } from '../lib/layout/touchDimensions';
 import { fitMapToLuxembourg } from '../lib/layout/mapViewport';
 import type { UseRouteEditorReturn } from '../hooks/useRouteEditor';
 import type { UseOutdoorNavigationReturn } from '../hooks/useOutdoorNavigation';
@@ -83,6 +85,7 @@ interface MapProps {
   onStartNavigation?: (route: RouteSuggestions, trace: RouteTrace) => void;
   onDeselectRoute?: () => void;
   onOpenDetails?: () => void;
+  isDetailsOpen?: boolean;
 }
 
 export function MapDisplay({
@@ -114,6 +117,7 @@ export function MapDisplay({
   onStartNavigation,
   onDeselectRoute,
   onOpenDetails,
+  isDetailsOpen = false,
 }: MapProps) {
   const [show200kmRadius, setShow200kmRadius] = useState(false);
   const [userCoords, setUserCoords] = useState<[number, number] | null>(null);
@@ -237,7 +241,7 @@ export function MapDisplay({
                 e.stopPropagation();
                 setShowHuntingBattues(!showHuntingBattues);
               }}
-              className={`w-9 h-9 rounded-2xl shadow-lg backdrop-blur-xl flex items-center justify-center transition-all border cursor-pointer relative group ${
+              className={`${TOUCH_MAP_BUTTON_CLASS} relative group ${
                 showHuntingBattues
                   ? 'bg-gradient-to-br from-amber-500 to-amber-600 text-white border-amber-400 shadow-amber-600/35 ring-2 ring-amber-400/60'
                   : 'bg-white/95 dark:bg-slate-900/95 text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 border-white/80 dark:border-slate-700/80 hover:bg-amber-50 dark:hover:bg-amber-950/40 hover:border-amber-400/60'
@@ -258,6 +262,39 @@ export function MapDisplay({
               )}
             </button>
           )}
+
+          {/* Direct 1-Click Trace Visibility Toggle Button (Masquer / Démasquer la trace sur la carte) */}
+          {selectedRouteId && onToggleTraceVisibility && (
+            <button
+              type="button"
+              style={{ pointerEvents: 'auto' }}
+              onPointerDown={(e) => e.stopPropagation()}
+              onMouseDown={(e) => e.stopPropagation()}
+              onTouchStart={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onToggleTraceVisibility();
+              }}
+              className={`${TOUCH_MAP_BUTTON_CLASS} relative group ${
+                isTraceVisible
+                  ? 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-emerald-400 shadow-emerald-600/35 ring-2 ring-emerald-400/50'
+                  : 'bg-white/95 dark:bg-slate-900/95 text-rose-500 dark:text-rose-400 border-white/80 dark:border-slate-700/80 hover:bg-rose-50 dark:hover:bg-rose-950/40 hover:border-rose-400/60'
+              }`}
+              title={
+                isTraceVisible
+                  ? 'Masquer la trace sélectionnée sur la carte (pour voir le réseau sous-jacent)'
+                  : 'Afficher la trace sélectionnée sur la carte'
+              }
+              aria-label={isTraceVisible ? 'Masquer la trace' : 'Afficher la trace'}
+            >
+              {isTraceVisible ? (
+                <Eye className="w-4 h-4 shrink-0 transition-transform group-hover:scale-110" />
+              ) : (
+                <EyeOff className="w-4 h-4 shrink-0 transition-transform group-hover:scale-110" />
+              )}
+            </button>
+          )}
         </div>
       </MapContainer>
 
@@ -273,6 +310,7 @@ export function MapDisplay({
       {/* Floating Selected Route Quick Action Dock on Map (Waze + Navigation Terrain) */}
       {selectedRoute &&
         selectedTrace &&
+        !isDetailsOpen &&
         !navigation?.isNavigating &&
         !editor?.isEditorActive &&
         onStartNavigation && (
@@ -285,6 +323,8 @@ export function MapDisplay({
             onClose={() => onDeselectRoute?.()}
             onOpenDetails={onOpenDetails}
             activity={activity}
+            isTraceVisible={isTraceVisible}
+            onToggleTraceVisibility={onToggleTraceVisibility}
           />
         )}
 

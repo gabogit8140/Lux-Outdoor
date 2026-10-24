@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from 'react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
-import { Navigation, Car, X, Footprints, Bike, ChevronRight, MapPin } from 'lucide-react';
+import { Navigation, Car, X, Footprints, Bike, ChevronRight, MapPin, Eye, EyeOff } from 'lucide-react';
 import {
   calculateDistanceKm,
   formatDriveDistance,
   getRouteStartCoordinates,
 } from '../../lib/navigation/wazeNavigation';
 import { KomootIcon } from '../ui/KomootIcon';
-import { KomootExportModal } from '../navigation/KomootExportModal';
+import { exportGpxDirect } from '../../lib/navigation/mobileSchemes';
 
 interface MapRouteQuickDockProps {
   route: RouteSuggestions;
@@ -18,6 +18,8 @@ interface MapRouteQuickDockProps {
   onClose: () => void;
   onOpenDetails?: () => void;
   activity: 'bike' | 'hike';
+  isTraceVisible?: boolean;
+  onToggleTraceVisibility?: () => void;
 }
 
 export function MapRouteQuickDock({
@@ -29,6 +31,8 @@ export function MapRouteQuickDock({
   onClose,
   onOpenDetails,
   activity,
+  isTraceVisible = true,
+  onToggleTraceVisibility,
 }: MapRouteQuickDockProps) {
   // Coordonnées GPS du point de départ de la trace (normalisées [lat, lng])
   const startCoords = useMemo<[number, number] | null>(() => {
@@ -41,10 +45,17 @@ export function MapRouteQuickDock({
     return calculateDistanceKm(userCoords, startCoords);
   }, [userCoords, startCoords]);
 
-  const [isKomootModalOpen, setIsKomootModalOpen] = useState(false);
+  // Distance formatée du tracé (en km)
+  const formattedRouteDistance = useMemo<string>(() => {
+    if (trace && typeof trace.distance === 'number' && !isNaN(trace.distance) && trace.distance > 0) {
+      return `${(trace.distance / 1000).toFixed(1)} km`;
+    }
+    const fallbackKm = (route as any).distanceKm || (route as any).distance;
+    return fallbackKm ? `${fallbackKm} km` : '-- km';
+  }, [trace, route]);
 
   const handleExportKomoot = () => {
-    setIsKomootModalOpen(true);
+    exportGpxDirect(route.title, trace.coordinates, trace.elevationProfile);
   };
 
   return (
@@ -55,7 +66,7 @@ export function MapRouteQuickDock({
       onTouchStart={(e) => e.stopPropagation()}
     >
       <div className="bg-slate-900/95 dark:bg-slate-900/95 text-white backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.45)] border border-white/15 dark:border-slate-700/80 ring-1 ring-black/20 flex flex-col gap-2.5">
-        {/* Ligne 1: Titre, métriques et bouton fermer */}
+        {/* Ligne 1: Titre, métriques et boutons masquer/fermer */}
         <div className="flex items-start justify-between gap-2">
           <div className="flex items-center gap-2 min-w-0">
             <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shrink-0 shadow-sm text-white">
@@ -71,7 +82,7 @@ export function MapRouteQuickDock({
               </h3>
               <div className="flex items-center gap-2 text-[11px] text-slate-300 font-medium">
                 <span className="font-bold text-emerald-400">
-                  {route.distanceKm ? `${route.distanceKm} km` : `${route.distance} km`}
+                  {formattedRouteDistance}
                 </span>
                 <span>•</span>
                 <span className="font-semibold">+{route.elevationGain}m D+</span>
@@ -88,15 +99,41 @@ export function MapRouteQuickDock({
             </div>
           </div>
 
-          <button
-            type="button"
-            onClick={onClose}
-            className="p-1 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors shrink-0 cursor-pointer"
-            title="Désélectionner ce tracé"
-            aria-label="Fermer"
-          >
-            <X className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-1 shrink-0">
+            {onToggleTraceVisibility && (
+              <button
+                type="button"
+                onClick={onToggleTraceVisibility}
+                className={`p-1.5 rounded-xl transition-all border cursor-pointer ${
+                  isTraceVisible
+                    ? 'bg-emerald-500/20 text-emerald-300 border-emerald-400/40 hover:bg-emerald-500/30'
+                    : 'bg-rose-500/20 text-rose-300 border-rose-400/40 hover:bg-rose-500/30'
+                }`}
+                title={
+                  isTraceVisible
+                    ? 'Masquer le tracé sur la carte'
+                    : 'Afficher le tracé sur la carte'
+                }
+                aria-label={isTraceVisible ? 'Masquer la trace' : 'Afficher la trace'}
+              >
+                {isTraceVisible ? (
+                  <Eye className="w-4 h-4" />
+                ) : (
+                  <EyeOff className="w-4 h-4" />
+                )}
+              </button>
+            )}
+
+            <button
+              type="button"
+              onClick={onClose}
+              className="p-1.5 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              title="Désélectionner ce tracé"
+              aria-label="Fermer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
         {/* Ligne 2: Boutons d'actions rapides (Waze + Komoot + Guidage Terrain) */}
@@ -149,13 +186,6 @@ export function MapRouteQuickDock({
           </button>
         )}
       </div>
-
-      <KomootExportModal
-        isOpen={isKomootModalOpen}
-        onClose={() => setIsKomootModalOpen(false)}
-        route={route}
-        trace={trace}
-      />
     </div>
   );
 }

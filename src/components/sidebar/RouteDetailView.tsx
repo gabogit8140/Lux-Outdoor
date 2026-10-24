@@ -23,7 +23,6 @@ import {
   Navigation,
 } from 'lucide-react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
-import { downloadGPX } from '../../lib/gpx';
 import { HuntingSafetyAlert } from '../ui/HuntingSafetyAlert';
 import {
   KpiTelemetryCard,
@@ -34,7 +33,7 @@ import {
 import type { UseRouteEditorReturn } from '../../hooks/useRouteEditor';
 import { openWazeNavigation, getRouteStartCoordinates } from '../../lib/navigation/wazeNavigation';
 import { KomootIcon } from '../ui/KomootIcon';
-import { KomootExportModal } from '../navigation/KomootExportModal';
+import { exportGpxDirect } from '../../lib/navigation/mobileSchemes';
 
 interface RouteDetailViewProps {
   route: RouteSuggestions;
@@ -86,17 +85,11 @@ export function RouteDetailView({
   isNavigating = false,
 }: RouteDetailViewProps) {
   const [showRoadbook, setShowRoadbook] = useState(false);
-  const [isKomootModalOpen, setIsKomootModalOpen] = useState(false);
   const semanticColor = getSemanticRouteColor(route.difficulty?.level);
-
-  const handleExportGPX = () => {
-    if (!trace) return;
-    downloadGPX(route.title, trace.coordinates, trace.elevationProfile);
-  };
 
   const handleExportKomoot = () => {
     if (!trace) return;
-    setIsKomootModalOpen(true);
+    exportGpxDirect(route.title, trace.coordinates, trace.elevationProfile);
   };
 
   const startCoords = getRouteStartCoordinates(route, trace);
@@ -625,25 +618,14 @@ export function RouteDetailView({
           <span>Inverser le sens du circuit</span>
         </button>
 
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            onClick={handleExportGPX}
-            className="py-2.5 px-3 border border-emerald-600 dark:border-emerald-500 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
-            title="Exporter au format GPX pour GPS Garmin / Wahoo / Komoot"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>Exporter GPX</span>
-          </button>
-
-          <button
-            onClick={() => onSaveFavorite(pendingRating, pendingNotes)}
-            className="py-2.5 px-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 active:scale-95 transition-all cursor-pointer"
-            title="Enregistrer ce tracé dans vos favoris"
-          >
-            <Bookmark className="w-3.5 h-3.5" />
-            <span>Sauvegarder</span>
-          </button>
-        </div>
+        <button
+          onClick={() => onSaveFavorite(pendingRating, pendingNotes)}
+          className="w-full py-2.5 px-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 active:scale-95 transition-all cursor-pointer"
+          title="Enregistrer ce tracé dans vos favoris"
+        >
+          <Bookmark className="w-3.5 h-3.5" />
+          <span>Enregistrer dans mes favoris</span>
+        </button>
 
         <button
           onClick={handleShare}
@@ -653,14 +635,6 @@ export function RouteDetailView({
           <span>Partager ce parcours</span>
         </button>
       </div>
-
-      {/* Modale d'exportation assistée vers Komoot */}
-      <KomootExportModal
-        isOpen={isKomootModalOpen}
-        onClose={() => setIsKomootModalOpen(false)}
-        route={route}
-        trace={trace}
-      />
     </div>
   );
 }

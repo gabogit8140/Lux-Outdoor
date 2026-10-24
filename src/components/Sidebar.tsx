@@ -438,6 +438,7 @@ export function Sidebar({
             traces={traces}
             selectedRouteId={selectedRouteId}
             hoveredRouteId={hoveredRouteId}
+            scrollContainerRef={scrollRef}
             onSelectRoute={(id) => {
               onSelectRoute(id);
               setTab('result');

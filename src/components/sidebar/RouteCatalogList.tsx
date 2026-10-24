@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Star, Footprints, Bike, Globe, ExternalLink, ShieldCheck, RotateCcw, Repeat, ArrowRight } from 'lucide-react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
 import {
@@ -21,6 +21,18 @@ interface RouteCatalogListProps {
   activity: 'bike' | 'hike';
   clickedCoord?: { lat: number; lng: number; name: string } | null;
   onClearAllFilters?: () => void;
+  scrollContainerRef?: React.RefObject<HTMLDivElement | null>;
+}
+
+/** Détection des appareils tactiles sans souris (tablette iPad, téléphone iPhone / Android) */
+function isTouchDeviceWithoutMouse(): boolean {
+  if (typeof window === 'undefined') return false;
+  return (
+    window.matchMedia('(hover: none)').matches ||
+    window.matchMedia('(pointer: coarse)').matches ||
+    'ontouchstart' in window ||
+    navigator.maxTouchPoints > 0
+  );
 }
 
 export function RouteCatalogList({
@@ -35,7 +47,71 @@ export function RouteCatalogList({
   activity,
   clickedCoord,
   onClearAllFilters,
+  scrollContainerRef,
 }: RouteCatalogListProps) {
+  const lastActiveIdRef = useRef<string | null>(null);
+
+  // Synchronisation automatique de la trace supérieure au défilement sur tablette et smartphone
+  useEffect(() => {
+    const container = scrollContainerRef?.current;
+    if (!container || !isTouchDeviceWithoutMouse() || routes.length === 0) return;
+
+    // 1. Sélection par défaut de la trace supérieure au chargement
+    if (!hoveredRouteId || !routes.some((r) => r.id === hoveredRouteId)) {
+      const initialId = routes[0].id;
+      lastActiveIdRef.current = initialId;
+      onHoverRoute?.(initialId);
+    } else {
+      lastActiveIdRef.current = hoveredRouteId;
+    }
+
+    let rafId: number | null = null;
+
+    // 2. Détection de la carte située au sommet de la vue lors du défilement
+    const updateTopRouteOnScroll = () => {
+      const cardElements = container.querySelectorAll<HTMLElement>('[data-route-card-id]');
+      if (!cardElements.length) return;
+
+      const containerRect = container.getBoundingClientRect();
+      // Ligne de détection : 50px sous la limite supérieure du conteneur
+      const targetY = containerRect.top + 50;
+
+      let topCardId: string | null = null;
+
+      for (let i = 0; i < cardElements.length; i++) {
+        const el = cardElements[i];
+        const rect = el.getBoundingClientRect();
+
+        // Première carte dont la partie basse dépasse le seuil haut
+        if (rect.bottom >= targetY) {
+          topCardId = el.getAttribute('data-route-card-id');
+          break;
+        }
+      }
+
+      if (topCardId && topCardId !== lastActiveIdRef.current) {
+        lastActiveIdRef.current = topCardId;
+        onHoverRoute?.(topCardId);
+      }
+    };
+
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        updateTopRouteOnScroll();
+        rafId = null;
+      });
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
+  }, [scrollContainerRef, routes, onHoverRoute]);
   return (
     <div className="space-y-2.5">
       <div className="flex items-center justify-between gap-2 text-[11px] text-slate-500 dark:text-slate-400 font-medium px-1">
@@ -131,6 +207,7 @@ export function RouteCatalogList({
           return (
             <div
               key={r.id}
+              data-route-card-id={r.id}
               onClick={() => onSelectRoute(r.id)}
               onMouseEnter={() => onHoverRoute?.(r.id)}
               onMouseLeave={() => onHoverRoute?.(null)}
@@ -138,7 +215,7 @@ export function RouteCatalogList({
                 isSelected
                   ? 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-500 shadow-md shadow-emerald-600/10 ring-2 ring-emerald-500/20'
                   : isHovered
-                  ? 'bg-slate-50 dark:bg-slate-800 border-emerald-400 dark:border-emerald-500 shadow-md ring-1 ring-emerald-500/20'
+                  ? 'bg-emerald-50/50 dark:bg-emerald-950/30 border-emerald-400 dark:border-emerald-500 shadow-md ring-2 ring-emerald-500/25'
                   : 'bg-white dark:bg-slate-800/60 hover:bg-slate-50/80 dark:hover:bg-slate-800 border-slate-200/80 dark:border-slate-700/80 hover:border-emerald-400/70 dark:hover:border-emerald-500/60 hover:-translate-y-0.5 hover:shadow-md'
               }`}
             >
@@ -155,6 +232,11 @@ export function RouteCatalogList({
                     <h4 className="font-bold text-xs text-slate-900 dark:text-white truncate group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                       {r.title}
                     </h4>
+                    {isHovered && !isSelected && (
+                      <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-emerald-500/15 dark:bg-emerald-400/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 shrink-0">
+                        Sélectionné
+                      </span>
+                    )}
                   </div>
                   {r.regionName && (
                     <div className="text-[10px] text-slate-400 dark:text-slate-500 font-medium mt-0.5 truncate">

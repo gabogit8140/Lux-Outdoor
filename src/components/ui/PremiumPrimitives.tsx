@@ -232,10 +232,10 @@ export function SidebarElevationChart({
   const gradId = `sidebar-elev-grad-${routeId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const hoveredPoint = hoverIdx !== null && coords[hoverIdx] ? coords[hoverIdx] : null;
 
-  const handlePointerMove = (e: React.MouseEvent<SVGSVGElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+  const handlePointerScrub = (clientX: number, target: SVGSVGElement) => {
+    const rect = target.getBoundingClientRect();
     if (rect.width <= 0) return;
-    const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
     const idx = Math.min(profile.length - 1, Math.max(0, Math.round(ratio * (profile.length - 1))));
     setHoverIdx(idx);
     if (onHoverDistance) {
@@ -243,7 +243,23 @@ export function SidebarElevationChart({
     }
   };
 
-  const handlePointerLeave = () => {
+  const handlePointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
+    (e.target as Element).setPointerCapture?.(e.pointerId);
+    handlePointerScrub(e.clientX, e.currentTarget);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
+    if (e.buttons > 0 || e.pointerType === 'mouse') {
+      handlePointerScrub(e.clientX, e.currentTarget);
+    }
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<SVGSVGElement>) => {
+    try {
+      (e.target as Element).releasePointerCapture?.(e.pointerId);
+    } catch {
+      // Ignorer si non capturé
+    }
     setHoverIdx(null);
     if (onHoverDistance) {
       onHoverDistance(null);
@@ -283,9 +299,12 @@ export function SidebarElevationChart({
         <svg
           viewBox={`0 0 ${width} ${height}`}
           preserveAspectRatio="none"
-          className="w-full h-full overflow-visible cursor-crosshair"
-          onMouseMove={handlePointerMove}
-          onMouseLeave={handlePointerLeave}
+          className="w-full h-full overflow-visible cursor-crosshair touch-none"
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          onPointerLeave={handlePointerUp}
         >
           <defs>
             <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">

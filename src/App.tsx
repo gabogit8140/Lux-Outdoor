@@ -397,6 +397,7 @@ export default function App() {
           }}
           onDeselectRoute={handleDeselectAll}
           onOpenDetails={() => setIsSidebarOpen(true)}
+          isDetailsOpen={isSidebarOpen}
         />
 
         {/* Bottom Elevation Profile Bar (Shown when Sidebar is closed and profile drawer is open) */}

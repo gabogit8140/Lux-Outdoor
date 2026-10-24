@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useMap, Marker, Circle, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import { Locate, LocateFixed, Loader2 } from 'lucide-react';
+import { TOUCH_MAP_BUTTON_CLASS } from '../../lib/layout/touchDimensions';
 
 interface LocateControlProps {
   isNavigating?: boolean;
@@ -53,17 +54,49 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const watchIdRef = useRef<number | null>(null);
 
-  // Nettoyage de la surveillance GPS au démontage
+  // Démarre la surveillance GPS continue dès le chargement de l'application
   useEffect(() => {
+    if (!('geolocation' in navigator)) {
+      return;
+    }
+
+    setIsLocating(true);
+    const watchId = navigator.geolocation.watchPosition(
+      (position) => {
+        const userCoords: [number, number] = [
+          position.coords.latitude,
+          position.coords.longitude,
+        ];
+        setCoords(userCoords);
+        setAccuracy(position.coords.accuracy);
+        setIsLocating(false);
+        setIsActive(true);
+        onLocationChange?.(userCoords);
+      },
+      (error) => {
+        setIsLocating(false);
+        // Gestion discrète sans message bloquant au démarrage (l'erreur ne s'affichera que sur clic explicite)
+        console.debug('Acquisition position initiale en attente ou refusée:', error.message);
+      },
+      {
+        enableHighAccuracy: true,
+        maximumAge: 10000,
+        timeout: 15000,
+      }
+    );
+
+    watchIdRef.current = watchId;
+
     return () => {
       if (watchIdRef.current !== null && 'geolocation' in navigator) {
         navigator.geolocation.clearWatch(watchIdRef.current);
+        watchIdRef.current = null;
       }
     };
-  }, []);
+  }, [onLocationChange]);
 
-  // Déclenchement de la localisation et du zoom
-  const handleLocateMe = useCallback(
+  // Déclenchement du recentrage immédiat sur la position connue de l'utilisateur
+  const handleRecenterOnUser = useCallback(
     (e: React.MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
@@ -74,13 +107,15 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
       }
 
       setErrorMessage(null);
-      setIsLocating(true);
 
-      // Si nous avons déjà des coordonnées récentes, zoomer immédiatement
+      // Si les coordonnées sont déjà identifiées, recentrer instantanément
       if (coords) {
         flyToUserArea(map, coords);
+        return;
       }
 
+      // Si les coordonnées ne sont pas encore prêtes, forcer une acquisition rapide et recentrer
+      setIsLocating(true);
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const lat = position.coords.latitude;
@@ -93,28 +128,8 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
           setIsActive(true);
           onLocationChange?.(userCoords);
 
-          // Zoom fluide vers la position avec vue d'ensemble (~5 km visibles autour)
+          // Recentrer avec cadrage réactif
           flyToUserArea(map, userCoords);
-
-          // Lancer le suivi continu si pas déjà en cours
-          if (watchIdRef.current === null) {
-            watchIdRef.current = navigator.geolocation.watchPosition(
-              (updatedPos) => {
-                const updatedCoords: [number, number] = [
-                  updatedPos.coords.latitude,
-                  updatedPos.coords.longitude,
-                ];
-                setCoords(updatedCoords);
-                setAccuracy(updatedPos.coords.accuracy);
-                onLocationChange?.(updatedCoords);
-              },
-              () => {},
-              {
-                enableHighAccuracy: true,
-                maximumAge: 5000,
-              }
-            );
-          }
         },
         (error) => {
           setIsLocating(false);
@@ -134,7 +149,7 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
         }
       );
     },
-    [coords, map]
+    [coords, map, onLocationChange]
   );
 
   return (
@@ -143,12 +158,12 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
       <div className="relative group">
         <button
           type="button"
-          onClick={handleLocateMe}
+          onClick={handleRecenterOnUser}
           onPointerDown={(e) => e.stopPropagation()}
           onMouseDown={(e) => e.stopPropagation()}
           onTouchStart={(e) => e.stopPropagation()}
           disabled={isLocating}
-          className={`w-9 h-9 rounded-2xl shadow-lg backdrop-blur-xl flex items-center justify-center transition-all border cursor-pointer select-none ${
+          className={`${TOUCH_MAP_BUTTON_CLASS} ${
             isActive
               ? 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-emerald-400 shadow-emerald-600/35 ring-2 ring-emerald-400/50'
               : 'bg-white/95 dark:bg-slate-900/95 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 border-white/80 dark:border-slate-700/80 hover:bg-emerald-50/50 dark:hover:bg-slate-800'
@@ -156,9 +171,9 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
           title={
             isActive
               ? 'Recentrer la carte sur ma position'
-              : 'Me localiser sur la carte (zoom sur ma position)'
+              : 'Me localiser et recentrer la carte'
           }
-          aria-label="Me localiser sur la carte"
+          aria-label="Recentrer sur ma position"
         >
           {isLocating ? (
             <Loader2 className="w-4 h-4 animate-spin text-emerald-500" />

@@ -234,7 +234,20 @@ export function TraceProfile({
                     onHoverDistance(e.activePayload[0].payload.distance);
                   }
                 }}
+                onTouchMove={(e: any) => {
+                  if (e && e.activePayload && e.activePayload.length > 0 && onHoverDistance) {
+                    onHoverDistance(e.activePayload[0].payload.distance);
+                  }
+                }}
+                onTouchStart={(e: any) => {
+                  if (e && e.activePayload && e.activePayload.length > 0 && onHoverDistance) {
+                    onHoverDistance(e.activePayload[0].payload.distance);
+                  }
+                }}
                 onMouseLeave={() => {
+                  if (onHoverDistance) onHoverDistance(null);
+                }}
+                onTouchEnd={() => {
                   if (onHoverDistance) onHoverDistance(null);
                 }}
               >

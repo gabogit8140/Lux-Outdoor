@@ -22,6 +22,12 @@
     font-family: 'JetBrains Mono', monospace;
     font-variant-numeric: tabular-nums;
   }
+
+  /* Tactile UX: Réactivité instantanée sans délai 300ms et sans clignotement gris sur écran tactile */
+  button, a, input, select, textarea, [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 .leaflet-container {

@@ -10,6 +10,7 @@ import {
   Smartphone,
 } from 'lucide-react';
 import { SAFE_AREA_TOP_BAR, SAFE_AREA_LEFT_DOCK } from '../../lib/layout/safeArea';
+import { TOUCH_DOCK_BUTTON_CLASS } from '../../lib/layout/touchDimensions';
 
 interface TopLeftCommandDockProps {
   isSidebarOpen: boolean;
@@ -51,7 +52,7 @@ export function TopLeftCommandDock({
       {/* Bascule d'ouverture du volet latéral */}
       <button
         onClick={onToggleSidebar}
-        className={`rounded-xl p-2 transition-all cursor-pointer ${
+        className={`${TOUCH_DOCK_BUTTON_CLASS} ${
           isSidebarOpen
             ? 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-sm shadow-emerald-600/30'
             : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400'
@@ -67,7 +68,7 @@ export function TopLeftCommandDock({
       {/* Bibliothèque des favoris */}
       <button
         onClick={onOpenFavorites}
-        className="rounded-xl p-2 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all text-slate-600 dark:text-slate-300 hover:text-rose-600 relative cursor-pointer group"
+        className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-600 dark:text-slate-300 hover:text-rose-600 relative group`}
         title="Bibliothèque des favoris & carnet de terrain"
         aria-label="Favoris"
       >
@@ -82,7 +83,7 @@ export function TopLeftCommandDock({
       {/* Base GPX & Carnets de voyage */}
       <button
         onClick={onOpenGpxModal}
-        className="rounded-xl p-2 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-all text-slate-600 dark:text-slate-300 hover:text-emerald-600 relative group cursor-pointer"
+        className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-600 dark:text-slate-300 hover:text-emerald-600 relative group`}
         title={`Base GPX & Carnets de voyage (${tracksCount} traces)`}
         aria-label="Catalogue GPX"
       >
@@ -95,7 +96,7 @@ export function TopLeftCommandDock({
       {/* Nouveau tracé interactif sur la carte (Studio Création GPX) */}
       <button
         onClick={onToggleEditor}
-        className={`rounded-xl p-2 transition-all cursor-pointer group relative ${
+        className={`${TOUCH_DOCK_BUTTON_CLASS} group relative ${
           isEditorActive
             ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-md shadow-indigo-600/30'
             : 'hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-600 dark:text-slate-300 hover:text-indigo-600'
@@ -119,7 +120,7 @@ export function TopLeftCommandDock({
       {/* Bascule de thème Clair / Sombre */}
       <button
         onClick={onToggleDarkMode}
-        className="rounded-xl p-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-slate-600 dark:text-amber-400 cursor-pointer group"
+        className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-amber-400 group`}
         title={isDarkMode ? 'Passer en mode Clair (Alpine)' : 'Passer en mode Sombre (Cockpit Pro)'}
         aria-label="Changer le thème"
       >
@@ -134,7 +135,7 @@ export function TopLeftCommandDock({
       {!isInstalled && (
         <button
           onClick={onOpenInstallModal}
-          className="rounded-xl p-2 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-all text-slate-600 dark:text-slate-300 hover:text-emerald-600 group cursor-pointer"
+          className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-600 dark:text-slate-300 hover:text-emerald-600 group`}
           title="Installer sur iPhone / App mobile"
           aria-label="Installer l'application"
         >

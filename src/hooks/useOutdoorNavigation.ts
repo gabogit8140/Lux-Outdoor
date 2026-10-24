@@ -248,6 +248,23 @@ export function useOutdoorNavigation(): UseOutdoorNavigationReturn {
     setIsSimulated(false);
     deviceSensors.requestWakeLock();
     deviceSensors.playAlertBeep('turn');
+
+    // Demande de permission boussole/gyroscope iOS pour le cône directionnel
+    if (
+      typeof window !== 'undefined' &&
+      typeof (DeviceOrientationEvent as any)?.requestPermission === 'function'
+    ) {
+      (DeviceOrientationEvent as any)
+        .requestPermission()
+        .then((permissionState: string) => {
+          if (permissionState === 'granted') {
+            console.debug('[Navigation] Boussole matérielle autorisée');
+          }
+        })
+        .catch((err: any) => {
+          console.debug('[Navigation] Permission boussole ignorée ou refusée:', err);
+        });
+    }
   }, []);
 
   // Arrêt du guidage

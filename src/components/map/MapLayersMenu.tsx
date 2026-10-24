@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Layers, Compass, Globe, ExternalLink, ShieldAlert } from 'lucide-react';
 import { HuntingRifleIcon } from '../ui/HuntingRifleIcon';
 import type { MapLayerType } from './MapTileLayers';
+import { TOUCH_MAP_BUTTON_CLASS } from '../../lib/layout/touchDimensions';
 
 interface MapLayersMenuProps {
   activity: 'bike' | 'hike';
@@ -44,7 +45,7 @@ export function MapLayersMenu({
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-9 h-9 rounded-2xl shadow-lg backdrop-blur-xl flex items-center justify-center transition-all border cursor-pointer ${
+        className={`${TOUCH_MAP_BUTTON_CLASS} ${
           isOpen
             ? 'bg-gradient-to-br from-emerald-600 to-teal-600 text-white border-emerald-500 shadow-emerald-600/25'
             : 'bg-white/90 dark:bg-slate-900/90 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 border-white/70 dark:border-slate-700/80'
