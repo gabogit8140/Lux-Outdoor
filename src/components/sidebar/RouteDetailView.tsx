@@ -580,6 +580,28 @@ export function RouteDetailView({
             className="w-full text-xs p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 resize-none"
           />
         </div>
+
+        {/* Bouton d'enregistrement de l'évaluation et du carnet */}
+        <button
+          type="button"
+          onClick={() =>
+            onSaveFavorite(
+              pendingCategory || undefined,
+              pendingNotes,
+              pendingHasMushrooms,
+              pendingRating
+            )
+          }
+          className="w-full mt-1 py-2.5 px-3 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/25 active:scale-95 transition-all cursor-pointer border border-emerald-400/30"
+          title="Enregistrer ce tracé et votre appréciation"
+        >
+          <Bookmark className="w-3.5 h-3.5 fill-white/20" />
+          <span>
+            {pendingCategory
+              ? `Enregistrer comme trace notée (${FAVORITE_CATEGORIES[pendingCategory].icon})`
+              : 'Enregistrer dans "Traces à faire"'}
+          </span>
+        </button>
       </section>
 
       {/* Roadbook / Turn-by-Turn Accordion */}
@@ -676,25 +698,6 @@ export function RouteDetailView({
           <span>Inverser le sens du circuit</span>
         </button>
 
-        <button
-          onClick={() =>
-            onSaveFavorite(
-              pendingCategory || undefined,
-              pendingNotes,
-              pendingHasMushrooms,
-              pendingRating
-            )
-          }
-          className="w-full py-2.5 px-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 active:scale-95 transition-all cursor-pointer"
-          title="Enregistrer ce tracé dans vos favoris"
-        >
-          <Bookmark className="w-3.5 h-3.5" />
-          <span>
-            {pendingCategory
-              ? `Enregistrer comme trace notée (${FAVORITE_CATEGORIES[pendingCategory].icon})`
-              : 'Enregistrer dans "Traces à faire"'}
-          </span>
-        </button>
 
         <button
           onClick={handleShare}
