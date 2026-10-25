@@ -37,7 +37,7 @@ export default function App() {
   const [previewRouteId, setPreviewRouteId] = useState<string | null>(null);
   const [mapInteractedTrigger, setMapInteractedTrigger] = useState<number>(0);
   const [notification, setNotification] = useState<string | null>(null);
-  const [favoritesInitialTab, setFavoritesInitialTab] = useState<'tracks' | 'sync'>('tracks');
+  const [favoritesInitialTab, setFavoritesInitialTab] = useState<'tracks' | 'mushrooms' | 'sync'>('tracks');
   const [isInstallModalOpen, setIsInstallModalOpen] = useState(false);
   const [isGpxModalOpen, setIsGpxModalOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
@@ -244,6 +244,24 @@ export default function App() {
     editor.isCalculating,
   ]);
 
+  const favoriteRouteIds = useMemo(() => new Set(favorites.map((f) => f.route.id)), [favorites]);
+
+  const displayedRoutes = useMemo(() => {
+    let res = routes;
+    if (activeFilters.includes('favorites')) {
+      res = res.filter((r) => favoriteRouteIds.has(r.id) || (r as any).isFavorite);
+    }
+    if (activeFilters.includes('mushrooms')) {
+      res = res.filter(
+        (r) =>
+          r.hasMushrooms ||
+          r.tags?.includes('champignons') ||
+          /champignon|bolet|c[eè]pe|girolle|chanterelle/i.test(`${r.title} ${r.description}`)
+      );
+    }
+    return res;
+  }, [routes, activeFilters, favoriteRouteIds]);
+
   // Active route displayed in the right-hand profile (immediate on map hover, selection or live trace editor)
   const displayedRouteId = hoveredRouteId || selectedRouteId || previewRouteId;
   const displayedRoute = editorActiveRoute ? editorActiveRoute.route : (routes.find((r) => r.id === displayedRouteId) || null);
@@ -370,7 +388,7 @@ export default function App() {
             activeFilters={activeFilters}
             onToggleFilter={handleToggleFilter}
             onClearFilters={handleClearFilters}
-            routesCount={routes.length}
+            routesCount={displayedRoutes.length}
             isGenerating={isGenerating}
             currentLocation={currentLocation}
             sourceFilter={sourceFilter}
@@ -383,12 +401,14 @@ export default function App() {
             searchQuery={searchQuery}
             onSearchQueryChange={setSearchQuery}
             userTracksCount={userTracks.length}
+            favoritesCount={favorites.length}
+            mushroomSpotsCount={mushroomSpots.length}
           />
         )}
 
         {/* Leaflet Map */}
         <MapDisplay
-          routes={routes}
+          routes={displayedRoutes}
           traces={traces}
           activity={activity}
           selectedRouteId={selectedRouteId}
@@ -487,7 +507,7 @@ export default function App() {
                 className="flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-600/25 active:scale-95 transition-all cursor-pointer"
               >
                 <Compass className="w-4 h-4" />
-                <span>Explorer les circuits ({routes.length})</span>
+                <span>Explorer les circuits ({displayedRoutes.length})</span>
               </button>
               <button
                 onClick={() => setIsFavoritesOpen(true)}
@@ -531,7 +551,7 @@ export default function App() {
               reverseCurrentRoute();
               showToast('Sens de parcours inversé.');
             }}
-            routes={routes}
+            routes={displayedRoutes}
             selectedRouteId={selectedRouteId}
             hoveredRouteId={hoveredRouteId}
             onSelectRoute={(id) => {
@@ -604,6 +624,16 @@ export default function App() {
         onConnectPairingCode={connectPairingCode}
         onDisconnectPairing={disconnectPairing}
         initialTab={favoritesInitialTab}
+        mushroomSpots={mushroomSpots}
+        onDeleteMushroomSpot={deleteMushroomSpot}
+        onSelectMushroomSpot={(coords) => {
+          setMapCenterTarget({
+            center: coords,
+            zoom: 15,
+            trigger: Date.now(),
+          });
+          showToast(`Centré sur le coin à champignons.`);
+        }}
       />
 
       {/* Modal d'ajout d'un nouveau coin à champignons */}

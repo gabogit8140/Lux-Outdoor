@@ -5,9 +5,11 @@ import {
   ListTodo,
   Cloud,
   Radio,
+  ArrowRight,
 } from 'lucide-react';
 import type { SavedFavorite, FavoriteCategory } from '../hooks/useFavorites';
 import type { RouteSuggestions, RouteTrace } from '../types';
+import type { MushroomSpot } from '../types/mushroom';
 import { resolveFavoriteCategory } from '../lib/favorites/favoriteCategories';
 import {
   FavoritesFilterBar,
@@ -16,6 +18,7 @@ import {
 } from './favorites/FavoritesFilterBar';
 import { FavoriteCard } from './favorites/FavoriteCard';
 import { FavoritesSyncTab } from './favorites/FavoritesSyncTab';
+import { MushroomSpotsTab } from './favorites/MushroomSpotsTab';
 
 interface FavoritesProps {
   isOpen: boolean;
@@ -35,9 +38,12 @@ interface FavoritesProps {
   onConnectPairingCode?: (code?: string) => Promise<{ success: boolean; message: string }>;
   onDisconnectPairing?: () => void;
   initialTab?: TabType;
+  mushroomSpots?: MushroomSpot[];
+  onDeleteMushroomSpot?: (id: string) => void;
+  onSelectMushroomSpot?: (coordinates: [number, number]) => void;
 }
 
-type TabType = 'tracks' | 'sync' | 'todo' | 'rated' | 'favorites';
+type TabType = 'tracks' | 'mushrooms' | 'sync' | 'todo' | 'rated' | 'favorites';
 
 export function Favorites({
   isOpen,
@@ -51,14 +57,21 @@ export function Favorites({
   onConnectPairingCode,
   onDisconnectPairing,
   initialTab = 'tracks',
+  mushroomSpots = [],
+  onDeleteMushroomSpot,
+  onSelectMushroomSpot,
 }: FavoritesProps) {
-  const [activeTab, setActiveTab] = useState<'tracks' | 'sync'>(() =>
-    initialTab === 'sync' ? 'sync' : 'tracks'
-  );
+  const [activeTab, setActiveTab] = useState<'tracks' | 'mushrooms' | 'sync'>(() => {
+    if (initialTab === 'sync') return 'sync';
+    if (initialTab === 'mushrooms') return 'mushrooms';
+    return 'tracks';
+  });
 
   React.useEffect(() => {
     if (isOpen) {
-      setActiveTab(initialTab === 'sync' ? 'sync' : 'tracks');
+      if (initialTab === 'sync') setActiveTab('sync');
+      else if (initialTab === 'mushrooms') setActiveTab('mushrooms');
+      else setActiveTab('tracks');
     }
   }, [isOpen, initialTab]);
 
@@ -134,7 +147,7 @@ export function Favorites({
                 )}
               </div>
               <p className="text-xs text-stone-500 dark:text-slate-400">
-                {favorites.length} {favorites.length > 1 ? 'itinéraires enregistrés' : 'itinéraire enregistré'}
+                {favorites.length} {favorites.length > 1 ? 'circuits enregistrés' : 'circuit enregistré'} • {mushroomSpots.length} {mushroomSpots.length > 1 ? 'coins à champignons' : 'coin à champignons'}
               </p>
             </div>
           </div>
@@ -146,19 +159,20 @@ export function Favorites({
           </button>
         </div>
 
-        {/* 2 Clean Tabs: Mes circuits enregistrés | Synchronisation Cloud & QR Code */}
-        <div className="flex border-b border-stone-200 dark:border-slate-800 bg-stone-100/60 dark:bg-slate-950/40 px-4 pt-2 gap-2 overflow-x-auto">
+        {/* 3 Clean Tabs: Mes circuits enregistrés | Coins à champignons | Synchronisation Cloud & QR Code */}
+        <div className="flex border-b border-stone-200 dark:border-slate-800 bg-stone-100/60 dark:bg-slate-950/40 px-4 pt-2 gap-2 overflow-x-auto no-scrollbar whitespace-nowrap">
+          {/* Tab 1: Circuits enregistrés */}
           <button
             type="button"
             onClick={() => setActiveTab('tracks')}
-            className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-t-xl transition-all cursor-pointer border-b-2 shrink-0 ${
+            className={`flex items-center gap-2 px-3.5 py-2.5 text-xs font-bold rounded-t-xl transition-all cursor-pointer border-b-2 shrink-0 ${
               activeTab === 'tracks'
                 ? 'bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 border-emerald-600 dark:border-emerald-500 shadow-xs'
                 : 'text-stone-600 dark:text-slate-400 border-transparent hover:text-stone-900 dark:hover:text-stone-200'
             }`}
           >
             <ListTodo className="w-4 h-4" />
-            <span>Mes circuits enregistrés</span>
+            <span>Mes circuits</span>
             <span
               className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
                 activeTab === 'tracks'
@@ -170,10 +184,34 @@ export function Favorites({
             </span>
           </button>
 
+          {/* Tab 2: Coins à champignons */}
+          <button
+            type="button"
+            onClick={() => setActiveTab('mushrooms')}
+            className={`flex items-center gap-2 px-3.5 py-2.5 text-xs font-bold rounded-t-xl transition-all cursor-pointer border-b-2 shrink-0 ${
+              activeTab === 'mushrooms'
+                ? 'bg-white dark:bg-slate-900 text-orange-700 dark:text-orange-400 border-orange-500 dark:border-orange-400 shadow-xs'
+                : 'text-stone-600 dark:text-slate-400 border-transparent hover:text-stone-900 dark:hover:text-stone-200'
+            }`}
+          >
+            <span className="text-base leading-none">🍄</span>
+            <span>Coins champignons</span>
+            <span
+              className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
+                activeTab === 'mushrooms'
+                  ? 'bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-300'
+                  : 'bg-stone-200 text-stone-700 dark:bg-slate-800 dark:text-slate-400'
+              }`}
+            >
+              {mushroomSpots.length}
+            </span>
+          </button>
+
+          {/* Tab 3: Synchro */}
           <button
             type="button"
             onClick={() => setActiveTab('sync')}
-            className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-t-xl transition-all cursor-pointer border-b-2 shrink-0 ${
+            className={`flex items-center gap-2 px-3.5 py-2.5 text-xs font-bold rounded-t-xl transition-all cursor-pointer border-b-2 shrink-0 ml-auto ${
               activeTab === 'sync'
                 ? 'bg-white dark:bg-slate-900 text-indigo-700 dark:text-indigo-400 border-indigo-600 dark:border-indigo-500 shadow-xs'
                 : 'text-stone-600 dark:text-slate-400 border-transparent hover:text-stone-900 dark:hover:text-stone-200'
@@ -201,16 +239,56 @@ export function Favorites({
         {activeTab === 'tracks' && (
           <div className="p-4 md:p-5 overflow-y-auto flex-1 space-y-3.5">
             {favorites.length === 0 ? (
-              <div className="text-center py-12 px-4 text-stone-500 dark:text-slate-400">
-                <div className="w-16 h-16 mx-auto rounded-3xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3.5 shadow-xs">
+              <div className="p-6 md:p-8 text-center space-y-5">
+                <div className="w-16 h-16 mx-auto rounded-3xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shadow-xs">
                   <MapIcon className="w-8 h-8" />
                 </div>
-                <h3 className="text-base font-bold text-stone-800 dark:text-stone-200">
-                  Votre carnet de terrain est vide
-                </h3>
-                <p className="text-xs mt-1.5 text-stone-500 dark:text-slate-400 max-w-sm mx-auto leading-relaxed">
-                  Sélectionnez ou créez un parcours sur la carte, puis cliquez sur <strong>« Sauvegarder »</strong> pour l'ajouter à vos favoris, consigner vos impressions et l'exporter.
-                </p>
+                <div>
+                  <h3 className="text-base font-bold text-stone-800 dark:text-stone-200">
+                    Votre carnet de circuits est vide
+                  </h3>
+                  <p className="text-xs mt-1 text-stone-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
+                    Sur la carte, sélectionnez n'importe quel sentier parmi les 885 circuits disponibles et cliquez sur <strong>« Sauvegarder »</strong> pour lui attribuer une appréciation :
+                  </p>
+                </div>
+
+                {/* Explication visuelle des catégories de filtres */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-xl mx-auto text-left">
+                  <div className="p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/40">
+                    <div className="text-lg mb-1">🏆 Top</div>
+                    <div className="text-[11px] font-bold text-amber-900 dark:text-amber-200">Coup de cœur</div>
+                    <div className="text-[10px] text-amber-700/80 dark:text-amber-300/70 mt-0.5">Vos parcours d'exception</div>
+                  </div>
+
+                  <div className="p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-900/40">
+                    <div className="text-lg mb-1">👍 Bien</div>
+                    <div className="text-[11px] font-bold text-emerald-900 dark:text-emerald-200">Recommandé</div>
+                    <div className="text-[10px] text-emerald-700/80 dark:text-emerald-300/70 mt-0.5">Beaux sentiers validés</div>
+                  </div>
+
+                  <div className="p-3 rounded-2xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200/80 dark:border-rose-900/40">
+                    <div className="text-lg mb-1">⛔ À éviter</div>
+                    <div className="text-[11px] font-bold text-rose-900 dark:text-rose-200">Ne pas refaire</div>
+                    <div className="text-[10px] text-rose-700/80 dark:text-rose-300/70 mt-0.5">Parcours décevants</div>
+                  </div>
+
+                  <div className="p-3 rounded-2xl bg-orange-50 dark:bg-orange-950/30 border border-orange-200/80 dark:border-orange-900/40">
+                    <div className="text-lg mb-1">🍄 Champignons</div>
+                    <div className="text-[11px] font-bold text-orange-900 dark:text-orange-200">Sous-bois propices</div>
+                    <div className="text-[10px] text-orange-700/80 dark:text-orange-300/70 mt-0.5">Coins à cèpes & girolles</div>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    type="button"
+                    onClick={onClose}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-600/25 transition-all cursor-pointer"
+                  >
+                    <span>Explorer les sentiers sur la carte</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             ) : displayedFavorites.length === 0 ? (
               <div className="text-center py-10 px-4 text-stone-500 dark:text-slate-400">
@@ -240,7 +318,21 @@ export function Favorites({
           </div>
         )}
 
-        {/* Tab 2: Synchronisation Cloud & QR Code */}
+        {/* Tab 2: Coins à champignons */}
+        {activeTab === 'mushrooms' && (
+          <MushroomSpotsTab
+            mushroomSpots={mushroomSpots}
+            onDeleteSpot={onDeleteMushroomSpot}
+            onSelectSpot={(coords) => {
+              if (onSelectMushroomSpot) {
+                onSelectMushroomSpot(coords);
+              }
+              onClose();
+            }}
+          />
+        )}
+
+        {/* Tab 3: Synchronisation Cloud & QR Code */}
         {activeTab === 'sync' && (
           <FavoritesSyncTab
             pairingCode={pairingCode}

@@ -118,6 +118,8 @@ interface MapFilterBarProps {
   searchQuery?: string;
   onSearchQueryChange?: (q: string) => void;
   userTracksCount?: number;
+  favoritesCount?: number;
+  mushroomSpotsCount?: number;
 }
 
 export function MapFilterBar({
@@ -141,6 +143,8 @@ export function MapFilterBar({
   searchQuery = '',
   onSearchQueryChange,
   userTracksCount = 0,
+  favoritesCount = 0,
+  mushroomSpotsCount = 0,
 }: MapFilterBarProps) {
   const [isDistanceOpen, setIsDistanceOpen] = useState(false);
   const [isAllFiltersOpen, setIsAllFiltersOpen] = useState(false);
@@ -390,6 +394,42 @@ export function MapFilterBar({
 
           {/* Secondary Horizontal Scrollable Quick-Filter Chips Bar (Visible on Phone, Tablet & Desktop) */}
           <div className="pointer-events-auto flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 px-0.5 scroll-smooth">
+            {/* Quick Favorites Filter Chip */}
+            {favoritesCount > 0 && (
+              <button
+                type="button"
+                onClick={() => onToggleFilter('favorites')}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold whitespace-nowrap transition-all shrink-0 border backdrop-blur-xl cursor-pointer ${
+                  activeFilters.includes('favorites')
+                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white border-amber-400 shadow-md shadow-orange-500/25 ring-1 ring-amber-300'
+                    : 'bg-white/95 dark:bg-slate-900/95 text-amber-800 dark:text-amber-300 border-amber-300/80 dark:border-amber-900/60 hover:bg-amber-50 dark:hover:bg-amber-950/40 shadow-xs'
+                }`}
+                title="Filtrer pour n'afficher que mes circuits favoris enregistrés"
+              >
+                <span>⭐</span>
+                <span>Mes favoris ({favoritesCount})</span>
+                {activeFilters.includes('favorites') && <Check className="w-3 h-3 text-white" />}
+              </button>
+            )}
+
+            {/* Quick Mushroom Spots Filter Chip */}
+            {mushroomSpotsCount > 0 && (
+              <button
+                type="button"
+                onClick={() => onToggleFilter('mushrooms')}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold whitespace-nowrap transition-all shrink-0 border backdrop-blur-xl cursor-pointer ${
+                  activeFilters.includes('mushrooms')
+                    ? 'bg-gradient-to-r from-orange-600 to-amber-600 text-white border-orange-400 shadow-md shadow-orange-600/25 ring-1 ring-orange-300'
+                    : 'bg-white/95 dark:bg-slate-900/95 text-orange-800 dark:text-orange-300 border-orange-300/80 dark:border-orange-900/60 hover:bg-orange-50 dark:hover:bg-orange-950/40 shadow-xs'
+                }`}
+                title="Filtrer pour afficher les circuits étiquetés ou proches de mes coins à champignons"
+              >
+                <span>🍄</span>
+                <span>Coins champignons ({mushroomSpotsCount})</span>
+                {activeFilters.includes('mushrooms') && <Check className="w-3 h-3 text-white" />}
+              </button>
+            )}
+
             {MAP_FILTER_OPTIONS.map((opt) => {
               const isActive = activeFilters.includes(opt.id);
               const Icon = opt.icon;
