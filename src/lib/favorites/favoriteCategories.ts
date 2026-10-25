@@ -78,20 +78,27 @@ export function resolveFavoriteCategory(
   return null;
 }
 
+import { getAdaptiveMarkerDimensions } from '../layout/markerZoomScale';
+
 /**
  * Crée une icône HTML Leaflet percutante et visible pour la carte
+ * La taille s'adapte automatiquement au zoom (discrète sur le Luxembourg entier, détaillée sur sentier)
  */
 export function createFavoriteMarkerIcon(
   category: FavoriteCategory,
   hasMushrooms = false,
-  isSelected = false
+  isSelected = false,
+  zoom = 13
 ): L.DivIcon {
   const meta = FAVORITE_CATEGORIES[category] || FAVORITE_CATEGORIES.top;
-  const size = isSelected ? 38 : 32;
+  const { size, fontSize, borderWidth } = getAdaptiveMarkerDimensions(zoom, isSelected);
   const ring = meta.ringColor;
 
+  const badgeSize = size <= 20 ? 12 : 15;
+  const badgeFontSize = size <= 20 ? 7 : 9;
+
   const mushroomBadge = hasMushrooms && category !== 'champignons'
-    ? `<div style="position: absolute; top: -5px; right: -5px; width: 16px; height: 16px; background: #fff; border: 1.5px solid #ea580c; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);">🍄</div>`
+    ? `<div style="position: absolute; top: -3px; right: -3px; width: ${badgeSize}px; height: ${badgeSize}px; background: #fff; border: 1.5px solid #ea580c; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: ${badgeFontSize}px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);">🍄</div>`
     : '';
 
   const html = `
@@ -101,14 +108,14 @@ export function createFavoriteMarkerIcon(
         height: ${size}px;
         border-radius: 50%;
         background-color: #ffffff;
-        border: 2.5px solid ${ring};
-        box-shadow: 0 3px 10px rgba(0,0,0,0.25), 0 0 0 ${isSelected ? '3px' : '0px'} ${ring}55;
+        border: ${borderWidth}px solid ${ring};
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 0 0 ${isSelected ? '3px' : '0px'} ${ring}55;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: ${size * 0.52}px;
+        font-size: ${fontSize}px;
         line-height: 1;
-        transform: ${isSelected ? 'scale(1.15)' : 'scale(1)'};
+        transform: ${isSelected ? 'scale(1.1)' : 'scale(1)'};
       ">
         <span>${meta.icon}</span>
       </div>

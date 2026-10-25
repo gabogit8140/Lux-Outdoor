@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Marker, Popup, Tooltip, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import type { MushroomSpot } from '../../types/mushroom';
 import { openWazeNavigation } from '../../lib/navigation/wazeNavigation';
 import { Calendar, Navigation, Trash2, MapPin } from 'lucide-react';
+import { getAdaptiveMarkerDimensions } from '../../lib/layout/markerZoomScale';
+import { DEFAULT_MAP_ZOOM } from '../../lib/layout/mapViewport';
 
 interface MapMushroomLayerProps {
   spots: MushroomSpot[];
@@ -12,8 +14,8 @@ interface MapMushroomLayerProps {
   onMapClickSpotCoord: (coord: [number, number]) => void;
 }
 
-function createMushroomPinIcon(variety: string): L.DivIcon {
-  const size = 32;
+function createMushroomPinIcon(variety: string, zoom: number): { icon: L.DivIcon; size: number } {
+  const { size, fontSize, borderWidth } = getAdaptiveMarkerDimensions(zoom);
   const html = `
     <div style="position: relative; width: ${size}px; height: ${size}px; cursor: pointer; transition: transform 0.15s ease;">
       <div style="
@@ -21,12 +23,12 @@ function createMushroomPinIcon(variety: string): L.DivIcon {
         height: ${size}px;
         border-radius: 50%;
         background-color: #ffffff;
-        border: 2.5px solid #ea580c;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        border: ${borderWidth}px solid #ea580c;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
+        font-size: ${fontSize}px;
         line-height: 1;
       ">
         <span>🍄</span>
@@ -34,13 +36,15 @@ function createMushroomPinIcon(variety: string): L.DivIcon {
     </div>
   `;
 
-  return L.divIcon({
+  const icon = L.divIcon({
     className: 'mushroom-spot-pin',
     html,
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     popupAnchor: [0, -size / 2],
   });
+
+  return { icon, size };
 }
 
 export function MapMushroomLayer({
@@ -49,26 +53,40 @@ export function MapMushroomLayer({
   isSpottingMode,
   onMapClickSpotCoord,
 }: MapMushroomLayerProps) {
-  // Capture les clics pour poser un nouveau spot quand le mode est actif
-  useMapEvents({
+  const [currentZoom, setCurrentZoom] = useState<number>(DEFAULT_MAP_ZOOM);
+
+  // Capture les clics pour poser un nouveau spot et écoute le zoom pour adapter la taille des pastilles
+  const map = useMapEvents({
     click: (e) => {
       if (isSpottingMode) {
         onMapClickSpotCoord([e.latlng.lat, e.latlng.lng]);
       }
     },
+    zoomend: () => {
+      setCurrentZoom(map.getZoom());
+    },
   });
+
+  useEffect(() => {
+    if (map) {
+      setCurrentZoom(map.getZoom());
+    }
+  }, [map]);
+
+  const { icon, size } = createMushroomPinIcon('', currentZoom);
+  const { tier } = getAdaptiveMarkerDimensions(currentZoom);
 
   return (
     <>
       {spots.map((spot) => (
         <Marker
-          key={spot.id}
+          key={`${spot.id}-${tier}`}
           position={spot.coordinates}
-          icon={createMushroomPinIcon(spot.variety)}
+          icon={icon}
           zIndexOffset={850}
         >
           {/* Tooltip au survol */}
-          <Tooltip direction="top" offset={[0, -18]} opacity={0.95}>
+          <Tooltip direction="top" offset={[0, Math.round(-size / 2 - 2)]} opacity={0.95}>
             <div className="font-sans text-center">
               <div className="font-bold text-xs text-orange-900 dark:text-orange-300 flex items-center justify-center gap-1">
                 <span>🍄</span>

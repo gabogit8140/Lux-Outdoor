@@ -1,5 +1,5 @@
-import React from 'react';
-import { Marker, Popup, Tooltip } from 'react-leaflet';
+import React, { useState, useEffect } from 'react';
+import { Marker, Popup, Tooltip, useMapEvents } from 'react-leaflet';
 import type { SavedFavorite } from '../../hooks/useFavorites';
 import type { RouteSuggestions, RouteTrace } from '../../types';
 import {
@@ -8,6 +8,8 @@ import {
   FAVORITE_CATEGORIES,
 } from '../../lib/favorites/favoriteCategories';
 import { Mountain, Play, ArrowRight } from 'lucide-react';
+import { getAdaptiveMarkerDimensions } from '../../lib/layout/markerZoomScale';
+import { DEFAULT_MAP_ZOOM } from '../../lib/layout/mapViewport';
 
 interface MapFavoritesLayerProps {
   favorites: SavedFavorite[];
@@ -20,6 +22,22 @@ export function MapFavoritesLayer({
   onSelectFavorite,
   selectedRouteId,
 }: MapFavoritesLayerProps) {
+  const [currentZoom, setCurrentZoom] = useState<number>(DEFAULT_MAP_ZOOM);
+
+  const map = useMapEvents({
+    zoomend: () => {
+      setCurrentZoom(map.getZoom());
+    },
+  });
+
+  useEffect(() => {
+    if (map) {
+      setCurrentZoom(map.getZoom());
+    }
+  }, [map]);
+
+  const { tier, size } = getAdaptiveMarkerDimensions(currentZoom);
+
   // Sélectionne uniquement les traces notées ou associées au tag champignons
   const ratedFavorites = favorites.filter((fav) => {
     const cat = resolveFavoriteCategory(fav.category, fav.userRating, fav.hasMushrooms);
@@ -57,9 +75,9 @@ export function MapFavoritesLayer({
 
         return (
           <Marker
-            key={`fav-marker-${fav.id}-${cat}-${isSelected ? 'sel' : 'norm'}`}
+            key={`fav-marker-${fav.id}-${cat}-${isSelected ? 'sel' : 'norm'}-${tier}`}
             position={startPos}
-            icon={createFavoriteMarkerIcon(cat, fav.hasMushrooms, isSelected)}
+            icon={createFavoriteMarkerIcon(cat, fav.hasMushrooms, isSelected, currentZoom)}
             zIndexOffset={isSelected ? 1000 : 750}
             eventHandlers={{
               click: () => {
@@ -68,7 +86,7 @@ export function MapFavoritesLayer({
             }}
           >
             {/* Tooltip rapide au survol */}
-            <Tooltip direction="top" offset={[0, -18]} opacity={0.95}>
+            <Tooltip direction="top" offset={[0, Math.round(-size / 2 - 2)]} opacity={0.95}>
               <div className="text-center font-sans">
                 <div className="flex items-center justify-center gap-1 font-bold text-xs">
                   <span>{meta.icon}</span>
