@@ -55,6 +55,10 @@ export default function App() {
     } else {
       root.classList.remove('dark');
     }
+    const metaThemeColors = document.querySelectorAll('meta[name="theme-color"]');
+    metaThemeColors.forEach((m) => {
+      m.setAttribute('content', isDarkMode ? '#020617' : '#ffffff');
+    });
     try {
       localStorage.setItem('trace_outdoor_theme', isDarkMode ? 'dark' : 'light');
     } catch {

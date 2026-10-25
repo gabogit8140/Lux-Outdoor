@@ -213,7 +213,7 @@ export function Sidebar({
 
   return (
     <div
-      className="flex flex-col h-full bg-white dark:bg-slate-900 px-3 pt-2 pb-3 sm:p-4 text-slate-800 dark:text-slate-100 transition-colors"
+      className="sidebar-safe-container flex flex-col h-full bg-white dark:bg-slate-900 px-3 pt-2 pb-3 sm:p-4 text-slate-800 dark:text-slate-100 transition-colors"
       style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 0.75rem)' }}
     >
       {/* Mobile Interactive Split-View Bar (Tap to resize sheet while keeping map visible) */}
