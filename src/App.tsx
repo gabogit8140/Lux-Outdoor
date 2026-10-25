@@ -146,7 +146,7 @@ export default function App() {
     setPendingSpotCoord,
     addSpot: addMushroomSpot,
     deleteSpot: deleteMushroomSpot,
-  } = useMushroomSpots();
+  } = useMushroomSpots(pairingCode);
 
   const showToast = (msg: string) => {
     setNotification(msg);

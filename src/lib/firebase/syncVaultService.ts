@@ -40,6 +40,9 @@ export function setStoredPairingCode(code: string | null): void {
     } else {
       localStorage.removeItem(PAIRING_STORAGE_KEY);
     }
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('lux_pairing_change', { detail: code }));
+    }
   } catch {
     // Ignore storage quota error
   }
