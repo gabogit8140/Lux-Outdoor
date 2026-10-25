@@ -43,7 +43,8 @@ export const POPULAR_LOCATIONS = [
 
 interface PlanTabContentProps {
   activity: 'bike' | 'hike';
-  onActivityChange: (activity: 'bike' | 'hike') => void;
+  bikeType?: 'road' | 'vtt';
+  onActivityChange: (activity: 'bike' | 'hike', bikeType?: 'road' | 'vtt') => void;
   location: string;
   setLocation: (loc: string) => void;
   onSelectLocation?: (loc: string, country?: 'LU' | 'BE' | 'DE' | 'NL' | 'FR') => void;
@@ -62,6 +63,7 @@ interface PlanTabContentProps {
 
 export function PlanTabContent({
   activity,
+  bikeType = 'road',
   onActivityChange,
   location,
   setLocation,
@@ -118,26 +120,42 @@ export function PlanTabContent({
             </button>
           )}
         </div>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-3 gap-1.5">
           <button
-            onClick={() => onActivityChange('bike')}
-            className={`py-2.5 px-3 flex items-center justify-center gap-2 text-xs font-bold rounded-xl transition-all border cursor-pointer ${
-              activity === 'bike'
+            onClick={() => onActivityChange('bike', 'road')}
+            className={`py-2 px-1 flex flex-col items-center justify-center gap-1 text-[11px] font-bold rounded-xl transition-all border cursor-pointer ${
+              activity === 'bike' && bikeType !== 'vtt'
                 ? 'bg-gradient-to-r from-emerald-600 to-teal-600 border-emerald-600 text-white shadow-md shadow-emerald-600/20'
                 : 'bg-white dark:bg-slate-800 border-slate-200/90 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/80'
             }`}
+            title="Vélo de route & Pistes cyclables (Asphalte)"
           >
-            <Bike className="w-4 h-4" /> Vélo / Gravel
+            <Bike className="w-3.5 h-3.5" />
+            <span>Route</span>
+          </button>
+          <button
+            onClick={() => onActivityChange('bike', 'vtt')}
+            className={`py-2 px-1 flex flex-col items-center justify-center gap-1 text-[11px] font-bold rounded-xl transition-all border cursor-pointer ${
+              activity === 'bike' && bikeType === 'vtt'
+                ? 'bg-gradient-to-r from-amber-600 to-orange-600 border-amber-600 text-white shadow-md shadow-amber-600/20'
+                : 'bg-white dark:bg-slate-800 border-slate-200/90 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/80'
+            }`}
+            title="VTT / Mountain Bike (Sentiers & Bois)"
+          >
+            <Mountain className="w-3.5 h-3.5" />
+            <span>VTT</span>
           </button>
           <button
             onClick={() => onActivityChange('hike')}
-            className={`py-2.5 px-3 flex items-center justify-center gap-2 text-xs font-bold rounded-xl transition-all border cursor-pointer ${
+            className={`py-2 px-1 flex flex-col items-center justify-center gap-1 text-[11px] font-bold rounded-xl transition-all border cursor-pointer ${
               activity === 'hike'
                 ? 'bg-gradient-to-r from-emerald-600 to-teal-600 border-emerald-600 text-white shadow-md shadow-emerald-600/20'
                 : 'bg-white dark:bg-slate-800 border-slate-200/90 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/80'
             }`}
+            title="Randonnée à pied / Sentiers"
           >
-            <Footprints className="w-4 h-4" /> Rando à pied
+            <Footprints className="w-3.5 h-3.5" />
+            <span>À pied</span>
           </button>
         </div>
       </section>

@@ -22,8 +22,11 @@ import {
 import { MapRoutesLayer } from './map/MapRoutesLayer';
 import { MapFavoritesLayer } from './map/MapFavoritesLayer';
 import { MapMushroomLayer } from './map/MapMushroomLayer';
+import { SelectedPlaceMapLayer } from './map/SelectedPlaceMapLayer';
 import { MushroomDockButton } from './mushrooms/MushroomDockButton';
+import { HuntingBattuesDockButton } from './hunting/HuntingBattuesDockButton';
 import type { SavedFavorite } from '../hooks/useFavorites';
+import type { PlaceEntry } from '../lib/routing/gazetteer';
 import type { MushroomSpot } from '../types/mushroom';
 import { MapRouteQuickDock } from './map/MapRouteQuickDock';
 import { openWazeNavigation } from '../lib/navigation/wazeNavigation';
@@ -129,6 +132,9 @@ interface MapProps {
   isSpottingMode?: boolean;
   onToggleSpottingMode?: () => void;
   onMapClickSpotCoord?: (coord: [number, number]) => void;
+  selectedPlace?: PlaceEntry | null;
+  onClearSelectedPlace?: () => void;
+  onUserLocationChange?: (coords: [number, number]) => void;
 }
 
 export function MapDisplay({
@@ -169,6 +175,9 @@ export function MapDisplay({
   isSpottingMode = false,
   onToggleSpottingMode,
   onMapClickSpotCoord,
+  selectedPlace,
+  onClearSelectedPlace,
+  onUserLocationChange,
 }: MapProps) {
   const [show200kmRadius, setShow200kmRadius] = useState(false);
   const [userCoords, setUserCoords] = useState<[number, number] | null>(null);
@@ -268,6 +277,12 @@ export function MapDisplay({
           onMapClickSpotCoord={onMapClickSpotCoord || (() => {})}
         />
 
+        {/* Point remarquable / POI ou Ville sélectionnée */}
+        <SelectedPlaceMapLayer
+          selectedPlace={selectedPlace || null}
+          onClear={onClearSelectedPlace}
+        />
+
         {/* Controls Top Right:
             - Desktop Zoom Control: Hidden on mobile (touch devices zoom with 2 fingers)
             - Locate Control: Geolocation button with smooth zoom to user position
@@ -280,7 +295,10 @@ export function MapDisplay({
           <DesktopZoomControl />
           <LocateControl
             isNavigating={Boolean(navigation?.isNavigating)}
-            onLocationChange={setUserCoords}
+            onLocationChange={(coords) => {
+              setUserCoords(coords);
+              if (onUserLocationChange) onUserLocationChange(coords);
+            }}
           />
           <MapLayersMenu
             activity={activity}
@@ -300,31 +318,12 @@ export function MapDisplay({
             onToggleSpottingMode={onToggleSpottingMode}
             mushroomSpots={mushroomSpots}
           />
-          {/* Direct 1-Click Battues / Hunting Rifle Toggle Button */}
+          {/* 🎯 Bouton Battues de chasse (modulaire, conditionné à la saison de chasse au Luxembourg) */}
           {setShowHuntingBattues && (
-            <button
-              type="button"
-              onClick={() => setShowHuntingBattues(!showHuntingBattues)}
-              className={`${TOUCH_MAP_BUTTON_CLASS} relative group ${
-                showHuntingBattues
-                  ? 'bg-gradient-to-br from-amber-500 to-amber-600 text-white border-amber-400 shadow-amber-600/35 ring-2 ring-amber-400/60'
-                  : 'bg-white/95 dark:bg-slate-900/95 text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 border-white/80 dark:border-slate-700/80 hover:bg-amber-50 dark:hover:bg-amber-950/40 hover:border-amber-400/60'
-              }`}
-              title={
-                showHuntingBattues
-                  ? 'Battues de chasse activées — Cliquer pour désactiver'
-                  : 'Consulter les dates & zones de battues de chasse (Geoportail.lu)'
-              }
-              aria-label="Afficher ou masquer les battues de chasse"
-            >
-              <HuntingRifleIcon className="w-5 h-5 shrink-0 transition-transform group-hover:scale-110" />
-              {showHuntingBattues && (
-                <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500" />
-                </span>
-              )}
-            </button>
+            <HuntingBattuesDockButton
+              showHuntingBattues={Boolean(showHuntingBattues)}
+              onToggleHuntingBattues={() => setShowHuntingBattues(!showHuntingBattues)}
+            />
           )}
 
           {/* Direct 1-Click Trace Visibility Toggle Button (Masquer / Démasquer la trace sur la carte) */}

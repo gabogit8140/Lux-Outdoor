@@ -1,15 +1,20 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { useMap, Marker, Circle, Tooltip } from 'react-leaflet';
+import { useMap, useMapEvents, Marker, Circle, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import { Locate, LocateFixed, Loader2 } from 'lucide-react';
 import { TOUCH_MAP_BUTTON_CLASS } from '../../lib/layout/touchDimensions';
+import { createDirectionalUserIcon } from '../../lib/navigation/userLocationIcon';
+import { calculateBearing, distanceMeters } from '../../lib/navigation/navigationMath';
 
 interface LocateControlProps {
   isNavigating?: boolean;
   onLocationChange?: (coords: [number, number]) => void;
 }
 
-// Icône Leaflet pour le repère de position utilisateur (pastille bleue pulsante)
+// Seuil de zoom à partir duquel la carte affiche le niveau de détail d'un tracé/sentier
+const TRACE_ZOOM_THRESHOLD = 12;
+
+// Icône compacte pour le zoom pays (pastille bleue pulsante)
 const locateUserIcon = L.divIcon({
   className: 'locate-user-marker',
   html: `
@@ -29,8 +34,6 @@ const locateUserIcon = L.divIcon({
 
 /**
  * Zoom fluide vers la position de l'utilisateur tout en gardant une vision d'ensemble (~5 km visibles autour).
- * Une boîte englobante de 10 000 m (rayon de 5 km dans chaque direction) garantit un cadrage réactif parfait
- * sur smartphone en mode portrait comme sur tablette ou écran d'ordinateur.
  */
 const flyToUserArea = (map: L.Map, userCoords: [number, number]) => {
   const areaBounds = L.latLng(userCoords[0], userCoords[1]).toBounds(10000);
@@ -42,17 +45,47 @@ const flyToUserArea = (map: L.Map, userCoords: [number, number]) => {
 };
 
 /**
- * Bouton de géolocalisation autonome avec zoom fluide sur la position de l'utilisateur.
- * Affiche la position avec pastille animée et cercle de précision.
+ * Bouton de géolocalisation autonome avec affichage du cône directionnel d'orientation.
+ * Au niveau de zoom sentier (>= 12), affiche en permanence le faisceau lumineux d'orientation.
  */
 export function LocateControl({ isNavigating = false, onLocationChange }: LocateControlProps) {
   const map = useMap();
   const [coords, setCoords] = useState<[number, number] | null>(null);
   const [accuracy, setAccuracy] = useState<number | null>(null);
+  const [heading, setHeading] = useState<number>(0);
+  const [currentZoom, setCurrentZoom] = useState<number>(() => map.getZoom());
   const [isLocating, setIsLocating] = useState<boolean>(false);
   const [isActive, setIsActive] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const watchIdRef = useRef<number | null>(null);
+  const prevCoordsRef = useRef<[number, number] | null>(null);
+
+  // Surveillance dynamique du niveau de zoom de la carte
+  useMapEvents({
+    zoomend: () => {
+      setCurrentZoom(map.getZoom());
+    },
+  });
+
+  // Capteur d'orientation matériel continu (Boussole / Gyroscope iOS Safari et Android)
+  useEffect(() => {
+    const handleOrientation = (e: DeviceOrientationEvent) => {
+      let compass = 0;
+      if ((e as any).webkitCompassHeading) {
+        compass = (e as any).webkitCompassHeading;
+      } else if (e.alpha !== null) {
+        compass = 360 - e.alpha;
+      }
+      if (!isNaN(compass)) {
+        setHeading(Math.round(compass));
+      }
+    };
+
+    window.addEventListener('deviceorientation', handleOrientation, true);
+    return () => {
+      window.removeEventListener('deviceorientation', handleOrientation, true);
+    };
+  }, []);
 
   // Démarre la surveillance GPS continue dès le chargement de l'application
   useEffect(() => {
@@ -72,15 +105,26 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
         setIsLocating(false);
         setIsActive(true);
         onLocationChange?.(userCoords);
+
+        // Récupération du cap de déplacement GPS ou calcul géométrique
+        if (position.coords.heading !== null && !isNaN(position.coords.heading)) {
+          setHeading(Math.round(position.coords.heading));
+        } else if (prevCoordsRef.current) {
+          const dist = distanceMeters(prevCoordsRef.current, userCoords);
+          if (dist > 3) {
+            const calcBearing = calculateBearing(prevCoordsRef.current, userCoords);
+            setHeading(Math.round(calcBearing));
+          }
+        }
+        prevCoordsRef.current = userCoords;
       },
       (error) => {
         setIsLocating(false);
-        // Gestion discrète sans message bloquant au démarrage (l'erreur ne s'affichera que sur clic explicite)
         console.debug('Acquisition position initiale en attente ou refusée:', error.message);
       },
       {
         enableHighAccuracy: true,
-        maximumAge: 10000,
+        maximumAge: 5000,
         timeout: 15000,
       }
     );
@@ -100,6 +144,11 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
     (e: React.MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
+
+      // Sur iOS Safari, sollicite l'autorisation boussole lors du geste utilisateur
+      if (typeof (DeviceOrientationEvent as any)?.requestPermission === 'function') {
+        (DeviceOrientationEvent as any).requestPermission().catch(() => {});
+      }
 
       if (!('geolocation' in navigator)) {
         setErrorMessage("La géolocalisation n'est pas supportée par votre navigateur.");
@@ -128,7 +177,6 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
           setIsActive(true);
           onLocationChange?.(userCoords);
 
-          // Recentrer avec cadrage réactif
           flyToUserArea(map, userCoords);
         },
         (error) => {
@@ -151,6 +199,8 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
     },
     [coords, map, onLocationChange]
   );
+
+  const isTraceZoom = currentZoom >= TRACE_ZOOM_THRESHOLD;
 
   return (
     <>
@@ -192,7 +242,7 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
         )}
       </div>
 
-      {/* Marqueur et cercle de précision sur la carte (masqué si le guidage dynamique est actif car NavigationMapLayer s'en charge) */}
+      {/* Marqueur et cône directionnel (masqué si le guidage actif NavigationMapLayer est déjà en cours) */}
       {!isNavigating && coords && (
         <>
           {accuracy && accuracy > 10 && (
@@ -208,10 +258,22 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
               }}
             />
           )}
-          <Marker position={coords} icon={locateUserIcon}>
+          <Marker
+            position={coords}
+            icon={
+              isTraceZoom
+                ? createDirectionalUserIcon({
+                    heading,
+                    color: '#0284c7',
+                    glowColor: 'rgba(2, 132, 199, 0.45)',
+                  })
+                : locateUserIcon
+            }
+            zIndexOffset={950}
+          >
             <Tooltip direction="top" offset={[0, -10]}>
               <span className="text-xs font-semibold text-slate-900">
-                Vous êtes ici {accuracy ? `(±${Math.round(accuracy)}m)` : ''}
+                Vous êtes ici {accuracy ? `(±${Math.round(accuracy)}m)` : ''} · Cap {heading}°
               </span>
             </Tooltip>
           </Marker>

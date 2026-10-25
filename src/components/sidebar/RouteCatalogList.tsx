@@ -7,7 +7,7 @@ import {
   getSemanticRouteColor,
   ROUTE_DIFFICULTY_LEGEND,
 } from '../ui/PremiumPrimitives';
-import { isRouteLoop } from '../../lib/localRouting';
+import { isRouteLoop, isVttRoute } from '../../lib/localRouting';
 
 interface RouteCatalogListProps {
   routes: RouteSuggestions[];
@@ -283,6 +283,18 @@ export function RouteCatalogList({
                 {r.tripName && (
                   <span className="px-1.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 font-bold text-[9px]">
                     ✈️ {r.tripName}
+                  </span>
+                )}
+
+                {r.activity === 'bike' && (
+                  <span
+                    className={`px-1.5 py-0.5 rounded-md font-bold text-[9px] border ${
+                      isVttRoute(r)
+                        ? 'bg-amber-50 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-800 dark:text-amber-300'
+                        : 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300'
+                    }`}
+                  >
+                    {isVttRoute(r) ? '🚵 VTT' : '🚴 Route'}
                   </span>
                 )}
 

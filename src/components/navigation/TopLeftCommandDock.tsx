@@ -5,9 +5,7 @@ import {
   Heart,
   FolderGit2,
   PenTool,
-  Sun,
-  Moon,
-  Smartphone,
+  Settings,
 } from 'lucide-react';
 import { SAFE_AREA_TOP_BAR, SAFE_AREA_LEFT_DOCK } from '../../lib/layout/safeArea';
 import { TOUCH_DOCK_BUTTON_CLASS } from '../../lib/layout/touchDimensions';
@@ -17,15 +15,17 @@ interface TopLeftCommandDockProps {
   onToggleSidebar: () => void;
   favoritesCount: number;
   onOpenFavorites: () => void;
-  onOpenSyncModal?: () => void;
   tracksCount: number;
   onOpenGpxModal: () => void;
   isEditorActive: boolean;
   onToggleEditor: () => void;
-  isDarkMode: boolean;
-  onToggleDarkMode: () => void;
-  isInstalled: boolean;
-  onOpenInstallModal: () => void;
+  onOpenSettings: () => void;
+  // Propriétés de rétrocompatibilité optionnelles
+  onOpenSyncModal?: () => void;
+  isDarkMode?: boolean;
+  onToggleDarkMode?: () => void;
+  isInstalled?: boolean;
+  onOpenInstallModal?: () => void;
 }
 
 export function TopLeftCommandDock({
@@ -33,25 +33,22 @@ export function TopLeftCommandDock({
   onToggleSidebar,
   favoritesCount,
   onOpenFavorites,
-  onOpenSyncModal,
   tracksCount,
   onOpenGpxModal,
   isEditorActive,
   onToggleEditor,
-  isDarkMode,
-  onToggleDarkMode,
-  isInstalled,
-  onOpenInstallModal,
+  onOpenSettings,
 }: TopLeftCommandDockProps) {
   return (
-    <div
+    <nav
+      aria-label="Commandes principales carte"
       className="absolute z-[400] flex flex-col gap-1 sm:gap-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-white/70 dark:border-slate-700/80 rounded-2xl p-1 sm:p-1.5 shadow-[0_8px_32px_rgba(15,23,42,0.14)] transition-all"
       style={{
         top: SAFE_AREA_TOP_BAR,
         left: SAFE_AREA_LEFT_DOCK,
       }}
     >
-      {/* Bascule d'ouverture du volet latéral */}
+      {/* 1. Bascule d'ouverture du volet latéral */}
       <button
         onClick={onToggleSidebar}
         className={`${TOUCH_DOCK_BUTTON_CLASS} ${
@@ -67,7 +64,7 @@ export function TopLeftCommandDock({
 
       <div className="h-px bg-slate-200/80 dark:bg-slate-800 mx-1" />
 
-      {/* Bibliothèque des favoris */}
+      {/* 2. Bibliothèque des favoris & carnet de terrain */}
       <button
         onClick={onOpenFavorites}
         className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-600 dark:text-slate-300 hover:text-rose-600 relative group`}
@@ -82,19 +79,7 @@ export function TopLeftCommandDock({
         )}
       </button>
 
-      {/* Synchronisation Cloud multi-appareils */}
-      {onOpenSyncModal && (
-        <button
-          onClick={onOpenSyncModal}
-          className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-600 dark:text-slate-300 hover:text-indigo-600 relative group`}
-          title="Synchroniser mes appareils (iPhone, iPad, Mac)"
-          aria-label="Synchronisation multi-appareils"
-        >
-          <Smartphone className="w-4 h-4 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" />
-        </button>
-      )}
-
-      {/* Base GPX & Carnets de voyage */}
+      {/* 3. Base GPX & Carnets de voyage */}
       <button
         onClick={onOpenGpxModal}
         className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-600 dark:text-slate-300 hover:text-emerald-600 relative group`}
@@ -107,7 +92,7 @@ export function TopLeftCommandDock({
         </span>
       </button>
 
-      {/* Nouveau tracé interactif sur la carte (Studio Création GPX) */}
+      {/* 4. Nouveau tracé interactif sur la carte (Studio Création GPX) */}
       <button
         onClick={onToggleEditor}
         className={`${TOUCH_DOCK_BUTTON_CLASS} group relative ${
@@ -131,31 +116,15 @@ export function TopLeftCommandDock({
         )}
       </button>
 
-      {/* Bascule de thème Clair / Sombre */}
+      {/* 5. Paramètres de l'application (Synchronisation Cloud, Installation PWA, Thème, Stockage) */}
       <button
-        onClick={onToggleDarkMode}
-        className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-amber-400 group`}
-        title={isDarkMode ? 'Passer en mode Clair (Alpine)' : 'Passer en mode Sombre (Cockpit Pro)'}
-        aria-label="Changer le thème"
+        onClick={onOpenSettings}
+        className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 group`}
+        title="Paramètres, synchronisation & installation"
+        aria-label="Paramètres de l'application"
       >
-        {isDarkMode ? (
-          <Sun className="w-4 h-4 text-amber-400 group-hover:rotate-45 transition-transform" />
-        ) : (
-          <Moon className="w-4 h-4 text-slate-600 group-hover:-rotate-12 transition-transform" />
-        )}
+        <Settings className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
       </button>
-
-      {/* Bouton d'installation de la PWA mobile */}
-      {!isInstalled && (
-        <button
-          onClick={onOpenInstallModal}
-          className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-600 dark:text-slate-300 hover:text-emerald-600 group`}
-          title="Installer sur iPhone / App mobile"
-          aria-label="Installer l'application"
-        >
-          <Smartphone className="w-4 h-4 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform" />
-        </button>
-      )}
-    </div>
+    </nav>
   );
 }

@@ -3,7 +3,7 @@ import {
   X,
   Map as MapIcon,
   ListTodo,
-  Cloud,
+  RefreshCw,
   Radio,
   ArrowRight,
 } from 'lucide-react';
@@ -24,6 +24,8 @@ interface FavoritesProps {
   isOpen: boolean;
   onClose: () => void;
   favorites: SavedFavorite[];
+  totalAllFavoritesCount?: number;
+  activity?: 'bike' | 'hike';
   onDelete: (id: string) => void;
   onLoad: (route: RouteSuggestions, trace: RouteTrace) => void;
   onUpdateFavorite?: (
@@ -49,6 +51,8 @@ export function Favorites({
   isOpen,
   onClose,
   favorites,
+  totalAllFavoritesCount,
+  activity = 'hike',
   onDelete,
   onLoad,
   onUpdateFavorite,
@@ -147,7 +151,16 @@ export function Favorites({
                 )}
               </div>
               <p className="text-xs text-stone-500 dark:text-slate-400">
-                {favorites.length} {favorites.length > 1 ? 'circuits enregistrés' : 'circuit enregistré'} • {mushroomSpots.length} {mushroomSpots.length > 1 ? 'coins à champignons' : 'coin à champignons'}
+                {favorites.length}{' '}
+                {favorites.length > 1
+                  ? activity === 'bike'
+                    ? 'circuits vélo enregistrés'
+                    : 'circuits rando enregistrés'
+                  : activity === 'bike'
+                  ? 'circuit vélo enregistré'
+                  : 'circuit rando enregistré'}{' '}
+                • {mushroomSpots.length}{' '}
+                {mushroomSpots.length > 1 ? 'coins à champignons' : 'coin à champignons'}
               </p>
             </div>
           </div>
@@ -165,16 +178,21 @@ export function Favorites({
           <button
             type="button"
             onClick={() => setActiveTab('tracks')}
-            className={`flex items-center gap-2 px-3.5 py-2.5 text-xs font-bold rounded-t-xl transition-all cursor-pointer border-b-2 shrink-0 ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2.5 text-xs font-bold rounded-t-xl transition-all cursor-pointer border-b-2 shrink-0 ${
               activeTab === 'tracks'
                 ? 'bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-400 border-emerald-600 dark:border-emerald-500 shadow-xs'
                 : 'text-stone-600 dark:text-slate-400 border-transparent hover:text-stone-900 dark:hover:text-stone-200'
             }`}
           >
             <ListTodo className="w-4 h-4" />
-            <span>Mes circuits</span>
+            <span className="hidden sm:inline">
+              {activity === 'bike' ? 'Circuits Vélo' : 'Circuits À pied'}
+            </span>
+            <span className="sm:hidden">
+              {activity === 'bike' ? 'Vélo' : 'Rando'}
+            </span>
             <span
-              className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
+              className={`text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-extrabold ${
                 activeTab === 'tracks'
                   ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
                   : 'bg-stone-200 text-stone-700 dark:bg-slate-800 dark:text-slate-400'
@@ -188,16 +206,17 @@ export function Favorites({
           <button
             type="button"
             onClick={() => setActiveTab('mushrooms')}
-            className={`flex items-center gap-2 px-3.5 py-2.5 text-xs font-bold rounded-t-xl transition-all cursor-pointer border-b-2 shrink-0 ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2.5 text-xs font-bold rounded-t-xl transition-all cursor-pointer border-b-2 shrink-0 ${
               activeTab === 'mushrooms'
                 ? 'bg-white dark:bg-slate-900 text-orange-700 dark:text-orange-400 border-orange-500 dark:border-orange-400 shadow-xs'
                 : 'text-stone-600 dark:text-slate-400 border-transparent hover:text-stone-900 dark:hover:text-stone-200'
             }`}
           >
             <span className="text-base leading-none">🍄</span>
-            <span>Coins champignons</span>
+            <span className="hidden sm:inline">Coins champignons</span>
+            <span className="sm:hidden">Champignons</span>
             <span
-              className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
+              className={`text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-extrabold ${
                 activeTab === 'mushrooms'
                   ? 'bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-300'
                   : 'bg-stone-200 text-stone-700 dark:bg-slate-800 dark:text-slate-400'
@@ -211,15 +230,15 @@ export function Favorites({
           <button
             type="button"
             onClick={() => setActiveTab('sync')}
-            className={`flex items-center gap-2 px-3.5 py-2.5 text-xs font-bold rounded-t-xl transition-all cursor-pointer border-b-2 shrink-0 ml-auto ${
+            className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2.5 text-xs font-bold rounded-t-xl transition-all cursor-pointer border-b-2 shrink-0 sm:ml-auto ${
               activeTab === 'sync'
                 ? 'bg-white dark:bg-slate-900 text-indigo-700 dark:text-indigo-400 border-indigo-600 dark:border-indigo-500 shadow-xs'
                 : 'text-stone-600 dark:text-slate-400 border-transparent hover:text-stone-900 dark:hover:text-stone-200'
             }`}
           >
-            <Cloud className="w-4 h-4 text-indigo-500" />
+            <RefreshCw className="w-4 h-4 text-indigo-500" />
             <span className="hidden sm:inline">Synchronisation multi-appareils</span>
-            <span className="sm:hidden">Synchronisation</span>
+            <span className="sm:hidden">Sync</span>
             {pairingCode && (
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             )}
@@ -245,10 +264,14 @@ export function Favorites({
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-stone-800 dark:text-stone-200">
-                    Votre carnet de circuits est vide
+                    {activity === 'bike'
+                      ? 'Votre carnet de circuits vélo est vide'
+                      : 'Votre carnet de circuits à pied est vide'}
                   </h3>
                   <p className="text-xs mt-1 text-stone-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
-                    Sur la carte, sélectionnez n'importe quel sentier parmi les 885 circuits disponibles et cliquez sur <strong>« Sauvegarder »</strong> pour lui attribuer une appréciation :
+                    {activity === 'bike'
+                      ? "Sur la carte, sélectionnez n'importe quel parcours vélo (Route ou VTT) et cliquez sur « Sauvegarder » pour lui attribuer une appréciation :"
+                      : "Sur la carte, sélectionnez n'importe quel sentier parmi les circuits de randonnée disponibles et cliquez sur « Sauvegarder » pour lui attribuer une appréciation :"}
                   </p>
                 </div>
 
@@ -285,7 +308,11 @@ export function Favorites({
                     onClick={onClose}
                     className="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-600/25 transition-all cursor-pointer"
                   >
-                    <span>Explorer les sentiers sur la carte</span>
+                    <span>
+                      {activity === 'bike'
+                        ? 'Explorer les parcours vélo sur la carte'
+                        : 'Explorer les sentiers sur la carte'}
+                    </span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -337,7 +364,7 @@ export function Favorites({
           <FavoritesSyncTab
             pairingCode={pairingCode}
             isSyncing={isSyncing}
-            totalFavorites={favorites.length}
+            totalFavorites={totalAllFavoritesCount ?? favorites.length}
             onConnectPairingCode={onConnectPairingCode}
             onDisconnectPairing={onDisconnectPairing}
           />

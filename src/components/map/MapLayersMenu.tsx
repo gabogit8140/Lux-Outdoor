@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Layers, Compass, Globe, ExternalLink, ShieldAlert } from 'lucide-react';
 import { HuntingRifleIcon } from '../ui/HuntingRifleIcon';
+import { checkHuntingSeason } from '../../lib/safety/huntingService';
 import type { MapLayerType } from './MapTileLayers';
 import { TOUCH_MAP_BUTTON_CLASS } from '../../lib/layout/touchDimensions';
 
@@ -29,6 +30,7 @@ export function MapLayersMenu({
 }: MapLayersMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const { isHuntingSeason } = checkHuntingSeason();
 
   // Close when clicking outside
   useEffect(() => {
@@ -183,8 +185,8 @@ export function MapLayersMenu({
               </span>
             </button>
 
-            {/* In-app WMS Layer Toggle for Luxembourg Battues Layer 444 */}
-            {setShowHuntingBattues && (
+            {/* In-app WMS Layer Toggle for Luxembourg Battues Layer 444 (conditionné à la saison) */}
+            {isHuntingSeason && setShowHuntingBattues && (
               <button
                 onClick={() => setShowHuntingBattues(!showHuntingBattues)}
                 className={`w-full text-left px-2.5 py-1.5 rounded-xl transition-colors flex items-center justify-between cursor-pointer ${

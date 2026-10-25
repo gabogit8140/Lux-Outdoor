@@ -1,8 +1,11 @@
+export type BikeSubtype = 'road' | 'vtt';
+
 export interface RoutePrompt {
   location: string;
   distanceKm: [number, number];
   filters: string[];
   activity: 'bike' | 'hike';
+  bikeType?: 'road' | 'vtt';
   mapTracesOnly?: boolean;
   elevationGainRange?: [number, number];
   sourceFilter?: 'all' | 'imported' | 'official';
@@ -63,6 +66,7 @@ export interface RouteSuggestions {
   maxElevation?: number;
   minElevation?: number;
   activity: 'bike' | 'hike';
+  bikeType?: 'road' | 'vtt';
   country?: 'LU' | 'BE' | 'DE' | 'NL' | 'FR';
   regionName?: string;
   tripName?: string;          // e.g. 'Voyage Bretagne 2026', 'Trans-Ardennaise'

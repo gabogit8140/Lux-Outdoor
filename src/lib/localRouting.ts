@@ -18,17 +18,21 @@ export {
   GAZETTEER,
   type PlaceEntry,
   LOCAL_PLACES,
+  searchPlaces,
+  normalizeSearchText,
+  getCountryFlag,
+  getCountryLabel,
 } from './routing/gazetteer';
-import { GAZETTEER, REGIONAL_ZONES } from './routing/gazetteer';
+import { GAZETTEER, REGIONAL_ZONES, normalizeSearchText } from './routing/gazetteer';
 
 /**
  * Resolves a location name or partial query to [lon, lat] offline
  */
 export function resolveLocationOffline(locationName: string): [number, number] {
-  const norm = locationName.toLowerCase().trim();
+  const norm = normalizeSearchText(locationName);
   for (const place of GAZETTEER) {
-    const keyNorm = place.key.toLowerCase();
-    const nameNorm = place.name.toLowerCase();
+    const keyNorm = normalizeSearchText(place.key);
+    const nameNorm = normalizeSearchText(place.name);
     if (norm.includes(keyNorm) || keyNorm.includes(norm) || norm.includes(nameNorm) || nameNorm.includes(norm)) {
       return place.coords;
     }
@@ -45,8 +49,41 @@ export function resolveLocationOffline(locationName: string): [number, number] {
     return matchingRoute.route.waypoints[0];
   }
 
-  return GAZETTEER[0].coords; // Default Luxembourg
+  return GAZETTEER[0].coords;
 }
+/**
+ * Detects whether a route is intended for mountain biking (VTT/MTB)
+ * based on its tags, ID, title, and description.
+ */
+export function isVttRoute(route: {
+  id?: string;
+  title?: string;
+  tags?: string[];
+  description?: string;
+  surfaceType?: string;
+}): boolean {
+  if (!route) return false;
+  const tags = (route.tags || []).map((t) => t.toLowerCase());
+  if (tags.includes('vtt') || tags.includes('mtb') || tags.includes('mountain_bike')) {
+    return true;
+  }
+  const id = (route.id || '').toLowerCase();
+  const title = (route.title || '').toLowerCase();
+  const desc = (route.description || '').toLowerCase();
+
+  return (
+    id.includes('vtt') ||
+    id.includes('mtb') ||
+    title.includes('vtt') ||
+    title.includes('mountain bike') ||
+    title.includes('mountainbike') ||
+    title.includes('redrock') ||
+    desc.includes('circuit vtt') ||
+    desc.includes('marathon vtt') ||
+    desc.includes('mountain bike')
+  );
+}
+
 
 /**
  * Finds the nearest known geographic location for any GPS coordinates [lon, lat]
@@ -1018,6 +1055,7 @@ export function filterAndSearchOffline(params: {
   distanceKm: [number, number];
   filters: string[];
   activity: 'bike' | 'hike';
+    bikeType?: 'road' | 'vtt' | 'all';
   country?: 'LU' | 'BE' | 'DE' | 'NL' | 'FR' | 'ALL';
   bounds?: { north: number; south: number; east: number; west: number };
 }): { routes: RouteSuggestions[]; traces: Record<string, RouteTrace>; locationName?: string } {
@@ -1061,8 +1099,15 @@ export function filterAndSearchOffline(params: {
 
   // Filter curated catalogue routes
   const matchedCatalog = CATALOG_ROUTES.filter((item) => {
-    // Activity match
+        // Activity match
     if (item.route.activity !== activity) return false;
+
+    // Bike subtype match (Road vs VTT)
+    if (activity === 'bike' && params.bikeType && params.bikeType !== 'all') {
+      const isVtt = isVttRoute(item.route);
+      if (params.bikeType === 'vtt' && !isVtt) return false;
+      if (params.bikeType === 'road' && isVtt) return false;
+    }
 
     // Distance match within [effectiveMinD, effectiveMaxD]
     const distKm = item.trace.distance / 1000;
@@ -1147,6 +1192,7 @@ export async function searchAndGenerateRoutes(params: {
   distanceKm: [number, number];
   filters: string[];
   activity: 'bike' | 'hike';
+bikeType?: 'road' | 'vtt' | 'all';
   country?: 'LU' | 'BE' | 'DE' | 'NL' | 'FR' | 'ALL';
   bounds?: { north: number; south: number; east: number; west: number };
 }): Promise<{ routes: RouteSuggestions[]; traces: Record<string, RouteTrace>; locationName?: string }> {

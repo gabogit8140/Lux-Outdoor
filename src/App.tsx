@@ -20,7 +20,9 @@ import { useFavorites, type SavedFavorite, type FavoriteCategory } from './hooks
 import { useMushroomSpots } from './hooks/useMushroomSpots';
 import { NewMushroomSpotModal } from './components/mushrooms/NewMushroomSpotModal';
 import { usePWAInstall } from './hooks/usePWAInstall';
+import { SettingsModal } from './components/settings/SettingsModal';
 import { CATALOG_ROUTES } from './lib/routeCatalog';
+import { REGIONAL_ZONES, getCountryFlag, type PlaceEntry } from './lib/localRouting';
 
 export default function App() {
   // Desktop (>=1024px) opens side-by-side cockpit by default; Phone & Tablet (<1024px) start 100% map and open split-view on demand
@@ -39,7 +41,10 @@ export default function App() {
   const [notification, setNotification] = useState<string | null>(null);
   const [favoritesInitialTab, setFavoritesInitialTab] = useState<'tracks' | 'mushrooms' | 'sync'>('tracks');
   const [isInstallModalOpen, setIsInstallModalOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isGpxModalOpen, setIsGpxModalOpen] = useState(false);
+  const [selectedPlace, setSelectedPlace] = useState<PlaceEntry | null>(null);
+  const [userCoords, setUserCoords] = useState<[number, number] | null>(null);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
     try {
       return localStorage.getItem('trace_outdoor_theme') === 'dark';
@@ -82,6 +87,8 @@ export default function App() {
     deselectRoute,
     activity,
     setActivity,
+    bikeType,
+    setBikeType,
     generateRoute,
     filterMap,
     searchPublic,
@@ -104,6 +111,7 @@ export default function App() {
     selectedZone,
     changeRegionalZone,
     mapCenterTarget,
+    setMapCenterTarget,
     currentLocation,
     setCurrentLocation,
     clickedCoord,
@@ -248,7 +256,15 @@ export default function App() {
     editor.isCalculating,
   ]);
 
-  const favoriteRouteIds = useMemo(() => new Set(favorites.map((f) => f.route.id)), [favorites]);
+  // Filtre les favoris selon l'activité active (Vélo vs Randonnée à pied)
+  const activityFavorites = useMemo(() => {
+    return favorites.filter((f) => {
+      const favActivity = f.activity || f.route?.activity || 'hike';
+      return favActivity === activity;
+    });
+  }, [favorites, activity]);
+
+  const favoriteRouteIds = useMemo(() => new Set(activityFavorites.map((f) => f.route.id)), [activityFavorites]);
 
   const displayedRoutes = useMemo(() => {
     let res = routes;
@@ -300,10 +316,18 @@ export default function App() {
     filterMap(currentLocation, newDistance, activeFilters, activity, selectedZone);
   };
 
-  const handleActivityChange = (newActivity: 'bike' | 'hike') => {
-    if (activity === newActivity) return;
+  const handleActivityChange = (newActivity: 'bike' | 'hike', newBikeType?: 'road' | 'vtt') => {
+    const targetBikeType = newBikeType || (newActivity === 'bike' ? bikeType : 'road');
+    if (activity === newActivity && bikeType === targetBikeType) return;
     setActivity(newActivity);
-    const newDist: [number, number] = newActivity === 'bike' ? [45, 60] : [7, 10];
+    setBikeType(targetBikeType);
+
+    const newDist: [number, number] =
+      newActivity === 'bike'
+        ? targetBikeType === 'vtt'
+          ? [20, 35]
+          : [45, 60]
+        : [7, 10];
     setDistance(newDist);
     setSelectedRouteId(null);
     setHoveredRouteId(null);
@@ -317,13 +341,44 @@ export default function App() {
       setMapLayer('cyclosm');
     }
 
-    filterMap(currentLocation, newDist, activeFilters, newActivity, selectedZone);
-    showToast(newActivity === 'bike' ? 'Mode Vélo activé (45–60 km)' : 'Mode Randonnée à pied activé (7–10 km)');
+    filterMap(currentLocation, newDist, activeFilters, newActivity, selectedZone, targetBikeType);
+    showToast(
+      newActivity === 'bike'
+        ? targetBikeType === 'vtt'
+          ? 'Mode VTT & Tout-terrain activé (20–35 km)'
+          : 'Mode Vélo de route & Pistes activé (45–60 km)'
+        : 'Mode Randonnée à pied activé (7–10 km)'
+    );
   };
 
   const handleClearFilters = () => {
     clearAllFilters();
     showToast('Tous les filtres ont été enlevés — toutes les traces sont affichées');
+  };
+
+  const handleSelectCity = (city: PlaceEntry) => {
+    setSelectedPlace(city);
+    setCurrentLocation(city.name);
+    setMapCenterTarget({
+      center: [city.coords[1], city.coords[0]],
+      zoom: 14,
+      trigger: Date.now(),
+    });
+    filterMap(city.name, distance, activeFilters, activity, city.country);
+    showToast(`📍 Carte centrée sur ${city.name} (${getCountryFlag(city.country)})`);
+  };
+
+  const handleResetCity = () => {
+    setSelectedPlace(null);
+    const allZone = REGIONAL_ZONES[0];
+    setCurrentLocation(allZone.name);
+    setMapCenterTarget({
+      center: [allZone.center[1], allZone.center[0]],
+      zoom: allZone.zoom,
+      trigger: Date.now(),
+    });
+    filterMap(allZone.name, distance, activeFilters, activity, 'ALL');
+    showToast('📍 Vue réinitialisée sur toute la région');
   };
 
   const handleDeselectAll = () => {
@@ -352,17 +407,13 @@ export default function App() {
 
       {/* Main Map Viewport (Always visible: 100% when panel closed, 44%–70% top split on phone, 55%–75% left split on tablet/desktop) */}
       <main className="w-full relative flex-1 min-h-[42dvh] md:min-w-[55%] h-full z-0 overflow-hidden transition-all duration-300">
-        {/* Floating Top Left Command Dock (Sidebar, Favoris, Base GPX, Studio Tracé, Thème, PWA) */}
+        {/* Floating Top Left Command Dock (Sidebar, Favoris, Base GPX, Studio Tracé, Paramètres) */}
         <TopLeftCommandDock
           isSidebarOpen={isSidebarOpen}
           onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
-          favoritesCount={favorites.length}
+          favoritesCount={activityFavorites.length}
           onOpenFavorites={() => {
             setFavoritesInitialTab('tracks');
-            setIsFavoritesOpen(true);
-          }}
-          onOpenSyncModal={() => {
-            setFavoritesInitialTab('sync');
             setIsFavoritesOpen(true);
           }}
           tracksCount={userTracks.length + CATALOG_ROUTES.length}
@@ -376,16 +427,14 @@ export default function App() {
               setIsSidebarOpen(false);
             }
           }}
-          isDarkMode={isDarkMode}
-          onToggleDarkMode={() => setIsDarkMode(!isDarkMode)}
-          isInstalled={isInstalled}
-          onOpenInstallModal={() => setIsInstallModalOpen(true)}
+          onOpenSettings={() => setIsSettingsOpen(true)}
         />
 
         {/* Floating On-Map Premium Circuit Filters */}
         {!editor.isEditorActive && (
           <MapFilterBar
             activity={activity}
+            bikeType={bikeType}
             onActivityChange={handleActivityChange}
             distance={distance}
             onDistanceChange={handleDistanceChange}
@@ -395,6 +444,8 @@ export default function App() {
             routesCount={displayedRoutes.length}
             isGenerating={isGenerating}
             currentLocation={currentLocation}
+            onSelectCity={handleSelectCity}
+            onResetCity={handleResetCity}
             sourceFilter={sourceFilter}
             onSourceFilterChange={setSourceFilter}
             tripsList={tripsList}
@@ -405,8 +456,9 @@ export default function App() {
             searchQuery={searchQuery}
             onSearchQueryChange={setSearchQuery}
             userTracksCount={userTracks.length}
-            favoritesCount={favorites.length}
+            favoritesCount={activityFavorites.length}
             mushroomSpotsCount={mushroomSpots.length}
+            userCoords={userCoords}
           />
         )}
 
@@ -469,7 +521,7 @@ export default function App() {
             reverseCurrentRoute();
             showToast('Sens de parcours inversé.');
           }}
-          favorites={favorites}
+          favorites={activityFavorites}
           onLoadFavorite={(r, t) => {
             loadSavedRoute(r, t);
             showToast(`Circuit "${r.title}" chargé sur la carte.`);
@@ -482,6 +534,9 @@ export default function App() {
           isSpottingMode={isSpottingMode}
           onToggleSpottingMode={() => setIsSpottingMode((prev) => !prev)}
           onMapClickSpotCoord={(coord) => setPendingSpotCoord(coord)}
+          selectedPlace={selectedPlace}
+          onClearSelectedPlace={handleResetCity}
+          onUserLocationChange={setUserCoords}
         />
 
         {/* Bottom Elevation Profile Bar (Shown when Sidebar is closed and profile drawer is open) */}
@@ -519,9 +574,9 @@ export default function App() {
                 title="Mes favoris"
               >
                 <Heart className="w-4 h-4 fill-rose-500 text-rose-500" />
-                {favorites.length > 0 && (
+                {activityFavorites.length > 0 && (
                   <span className="absolute -top-1 -right-1 bg-emerald-600 text-white font-extrabold text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
-                    {favorites.length}
+                    {activityFavorites.length}
                   </span>
                 )}
               </button>
@@ -616,7 +671,9 @@ export default function App() {
       <Favorites
         isOpen={isFavoritesOpen}
         onClose={() => setIsFavoritesOpen(false)}
-        favorites={favorites}
+        favorites={activityFavorites}
+        totalAllFavoritesCount={favorites.length}
+        activity={activity}
         onDelete={deleteFavorite}
         onLoad={(r, t) => {
           loadSavedRoute(r, t);
@@ -658,6 +715,21 @@ export default function App() {
         isIOS={isIOS}
         isInstallable={isInstallable}
         onInstall={install}
+      />
+
+      {/* Modal Paramètres & Préférences (Synchronisation, Installation PWA, Thème, Stockage) */}
+      <SettingsModal
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+        onOpenSync={() => {
+          setFavoritesInitialTab('sync');
+          setIsFavoritesOpen(true);
+        }}
+        isInstalled={isInstalled}
+        onOpenInstall={() => setIsInstallModalOpen(true)}
+        isDarkMode={isDarkMode}
+        onToggleDarkMode={() => setIsDarkMode(!isDarkMode)}
+        totalTracksCount={userTracks.length + CATALOG_ROUTES.length}
       />
 
       {/* GPX Database, Batch Drop & GitHub Maintenance Modal */}

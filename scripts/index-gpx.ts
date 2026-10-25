@@ -391,6 +391,7 @@ function parseGpxFile(filePath: string, rootDir: string): ParsedGpxResult | null
       [
         country.toLowerCase(),
         activity,
+        isBike ? (id.includes('vtt') || id.includes('mtb') || metaName.toLowerCase().includes('vtt') || metaName.toLowerCase().includes('mountain bike') || metaName.toLowerCase().includes('redrock') ? 'vtt' : 'road') : '',
         carFreePct >= 75 ? 'low_traffic' : '',
         roundedGain < 200 ? 'flat' : roundedGain > 450 ? 'hilly' : '',
         id.includes('confort') || id.includes('ravel') || id.includes('radweg') || id.includes('voie-bleue')

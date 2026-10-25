@@ -3,7 +3,7 @@ import {
   Compass,
   Navigation,
   ListOrdered,
-  Smartphone,
+  Download,
   FolderGit2,
   X,
   Maximize2,
@@ -50,7 +50,8 @@ interface SidebarProps {
     userRating?: number
   ) => void;
   activity: 'bike' | 'hike';
-  onActivityChange: (activity: 'bike' | 'hike') => void;
+  bikeType?: 'road' | 'vtt';
+  onActivityChange: (activity: 'bike' | 'hike', bikeType?: 'road' | 'vtt') => void;
   distance: [number, number];
   setDistance: (d: [number, number]) => void;
   activeFilters: string[];
@@ -99,6 +100,7 @@ export function Sidebar({
   traces = {},
   onSaveFavorite,
   activity,
+  bikeType = 'road',
   onActivityChange,
   distance,
   setDistance,
@@ -333,7 +335,7 @@ export function Sidebar({
               title="Installer l'application hors-ligne"
               aria-label="Installer l'application"
             >
-              <Smartphone className="w-4 h-4" />
+              <Download className="w-4 h-4" />
             </button>
           )}
           {onClose && (
@@ -397,6 +399,7 @@ export function Sidebar({
         {tab === 'plan' && (
           <PlanTabContent
             activity={activity}
+            bikeType={bikeType}
             onActivityChange={onActivityChange}
             location={location}
             setLocation={setLocation}

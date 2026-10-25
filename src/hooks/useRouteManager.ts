@@ -9,6 +9,7 @@ import {
   REGIONAL_ZONES,
   routeMatchesFilter,
   isRegionalZoneLocation,
+  isVttRoute,
 } from '../lib/localRouting';
 import {
   parseGPXString,
@@ -27,6 +28,7 @@ export function useRouteManager() {
   const [selectedRouteId, setSelectedRouteId] = useState<string | null>(null);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [activity, setActivity] = useState<'bike' | 'hike'>('hike');
+  const [bikeType, setBikeType] = useState<'road' | 'vtt'>('road');
   const [focusTrigger, setFocusTrigger] = useState(0);
   const [showNetwork, setShowNetwork] = useState(false);
   const [showHuntingBattues, setShowHuntingBattues] = useState(false);
@@ -80,21 +82,29 @@ export function useRouteManager() {
 
   // Filtrage des traces locales importées selon les critères actuels
   const filterUserTracks = useCallback(
-    (
-      tracks: StoredGpxTrack[],
-      currentActivity: 'bike' | 'hike',
-      distRange: [number, number],
-      filters: string[],
-      trip: string | null,
-      dPlus: 'all' | 'flat' | 'moderate' | 'hilly',
-      query: string
-    ) => {
+      (
+        tracks: StoredGpxTrack[],
+        currentActivity: 'bike' | 'hike',
+        distRange: [number, number],
+        filters: string[],
+        trip: string | null,
+        dPlus: 'all' | 'flat' | 'moderate' | 'hilly',
+        query: string,
+        bikeTypeToUse: 'road' | 'vtt' = 'road'
+      ) => {
       const effectiveMinD = distRange[0] <= (currentActivity === 'bike' ? 15 : 3) ? 0 : distRange[0];
       const effectiveMaxD =
         distRange[1] >= (currentActivity === 'bike' ? 120 : 35) ? Infinity : distRange[1];
 
       return tracks.filter((t) => {
         if (t.activity !== currentActivity) return false;
+
+        // Filtre VTT vs Vélo de route
+        if (currentActivity === 'bike') {
+          const isVtt = isVttRoute({ id: t.id, title: t.title, tags: t.tags });
+          if (bikeTypeToUse === 'vtt' && !isVtt) return false;
+          if (bikeTypeToUse === 'road' && isVtt) return false;
+        }
 
         // Filtre de distance (ouvert aux extrémités du curseur)
         if (t.distanceKm < effectiveMinD || t.distanceKm > effectiveMaxD) {
@@ -165,6 +175,7 @@ export function useRouteManager() {
       dPlusToUse = dPlusFilter,
       queryToUse = searchQuery,
       boundsToUse: { north: number; south: number; east: number; west: number } | null | undefined = exploredBounds,
+      bikeTypeToUse: 'road' | 'vtt' = bikeType
     ) => {
       setIsGenerating(true);
       try {
@@ -180,7 +191,8 @@ export function useRouteManager() {
             filtersToUse,
             tripToUse,
             dPlusToUse,
-            queryToUse
+            queryToUse,
+            bikeTypeToUse
           );
 
           matchingUserTracks.forEach((t) => {
@@ -197,6 +209,7 @@ export function useRouteManager() {
             distanceKm: distToUse,
             filters: filtersToUse,
             activity: activityToUse,
+            bikeType: bikeTypeToUse,
             country: countryToUse || selectedZone,
             bounds: boundsToUse || undefined,
           });
@@ -257,6 +270,7 @@ export function useRouteManager() {
       userTracks,
       selectedZone,
       exploredBounds,
+      bikeType,
     ]
   );
 
@@ -272,7 +286,8 @@ export function useRouteManager() {
       selectedTrip,
       dPlusFilter,
       searchQuery,
-      exploredBounds
+      exploredBounds,
+      bikeType
     );
   }, [userTracks]);
 
@@ -312,7 +327,8 @@ export function useRouteManager() {
         selectedTrip,
         dPlusFilter,
         searchQuery,
-        null
+        null,
+        bikeType
       );
       setClickedCoord(null);
     },
@@ -330,7 +346,7 @@ export function useRouteManager() {
   );
 
   const clearAllFilters = useCallback(() => {
-    const fullDist: [number, number] = activity === 'bike' ? [15, 120] : [3, 35];
+    const fullDist: [number, number] = activity === 'bike' ? (bikeType === 'vtt' ? [10, 80] : [15, 120]) : [3, 35];
     const allZone = REGIONAL_ZONES[0];
     setActiveFilters([]);
     setDistance(fullDist);
@@ -359,7 +375,8 @@ export function useRouteManager() {
       null,
       'all',
       '',
-      null
+      null,
+      bikeType
     );
   }, [activity, applyCombinedFilter]);
 
@@ -430,8 +447,10 @@ export function useRouteManager() {
       distanceKm: [number, number],
       filters: string[],
       currentActivity: 'bike' | 'hike',
-      country?: 'ALL' | 'LU' | 'BE' | 'DE' | 'NL' | 'FR'
+      country?: 'ALL' | 'LU' | 'BE' | 'DE' | 'NL' | 'FR',
+      currentBikeType: 'road' | 'vtt' = bikeType
     ) => {
+      setBikeType(currentBikeType);
       setActivity(currentActivity);
       let nextBounds = exploredBounds;
       if (!isRegionalZoneLocation(location)) {
@@ -439,7 +458,7 @@ export function useRouteManager() {
         const center = resolveLocationOffline(location);
         setMapCenterTarget({
           center: [center[1], center[0]],
-          zoom: 11,
+          zoom: 12,
           trigger: Date.now(),
         });
         setExploredBounds(null);
@@ -455,7 +474,8 @@ export function useRouteManager() {
         selectedTrip,
         dPlusFilter,
         searchQuery,
-        nextBounds
+        nextBounds,
+        currentBikeType
       );
     },
     [applyCombinedFilter, selectedZone, sourceFilter, selectedTrip, dPlusFilter, searchQuery, exploredBounds]
@@ -478,7 +498,8 @@ export function useRouteManager() {
         selectedTrip,
         dPlusFilter,
         searchQuery,
-        bounds
+        bounds,
+        bikeType
       );
     },
     [
@@ -597,6 +618,8 @@ export function useRouteManager() {
     deselectRoute: () => selectRoute(null),
     activity,
     setActivity,
+    bikeType,
+    setBikeType,
     generateRoute,
     filterMap,
     clearAllFilters,
@@ -620,6 +643,7 @@ export function useRouteManager() {
     selectedZone,
     changeRegionalZone,
     mapCenterTarget,
+    setMapCenterTarget,
     currentLocation,
     setCurrentLocation,
     clickedCoord,

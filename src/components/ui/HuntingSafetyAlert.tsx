@@ -103,7 +103,7 @@ export function HuntingSafetyAlert({
 
       {/* Action Buttons: Direct in-app WMS Layer toggle + Official External Geoportail */}
       <div className="pt-1 flex flex-col items-stretch gap-2 min-w-0">
-        {isLuxembourg && onToggleHuntingBattues && (
+        {isLuxembourg && info.isHuntingSeason && onToggleHuntingBattues && (
           <button
             onClick={onToggleHuntingBattues}
             className={`w-full min-w-0 px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer ${
