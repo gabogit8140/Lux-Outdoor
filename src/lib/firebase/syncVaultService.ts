@@ -48,11 +48,98 @@ export function setStoredPairingCode(code: string | null): void {
   }
 }
 
+export interface SyncedFavoriteRecord {
+  id: string;
+  title: string;
+  description?: string;
+  dateSaved: string;
+  distanceKm: number;
+  elevationGain: number;
+  activity: 'bike' | 'hike';
+  country?: 'LU' | 'BE' | 'DE' | 'NL' | 'FR';
+  regionName?: string;
+  category?: string | null;
+  hasMushrooms?: boolean;
+  userRating?: number | null;
+  userNotes?: string;
+  routeId?: string;
+  // Les structures complexes contenant des tableaux imbriqués (ex: waypoints, coordonnées GPX)
+  // sont sérialisées en JSON afin de respecter l'interdiction stricte de Firestore sur les "nested arrays".
+  routeJson?: string;
+  traceJson?: string;
+}
+
+export function packFavoriteForSync(fav: SavedFavorite): SyncedFavoriteRecord {
+  return {
+    id: fav.id,
+    title: fav.title || '',
+    description: fav.description || '',
+    dateSaved: fav.dateSaved || new Date().toISOString(),
+    distanceKm: fav.distanceKm || 0,
+    elevationGain: fav.elevationGain || 0,
+    activity: fav.activity || 'hike',
+    country: fav.country || 'LU',
+    regionName: fav.regionName || '',
+    category: fav.category || null,
+    hasMushrooms: Boolean(fav.hasMushrooms),
+    userRating: fav.userRating || null,
+    userNotes: fav.userNotes || '',
+    routeId: fav.route?.id || fav.id,
+    routeJson: JSON.stringify(fav.route || {}),
+    traceJson: JSON.stringify(fav.trace || {}),
+  };
+}
+
+export function unpackFavoriteFromSync(raw: any): SavedFavorite {
+  let route = raw.route || {};
+  let trace = raw.trace || {};
+
+  if (raw.routeJson) {
+    try {
+      route = JSON.parse(raw.routeJson);
+    } catch {
+      // Garde l'existant
+    }
+  }
+
+  if (raw.traceJson) {
+    try {
+      trace = JSON.parse(raw.traceJson);
+    } catch {
+      // Garde l'existant
+    }
+  }
+
+  return {
+    id: raw.id,
+    title: raw.title || route.title || 'Circuit sans titre',
+    description: raw.description || route.description || '',
+    dateSaved: raw.dateSaved || new Date().toISOString(),
+    distanceKm:
+      typeof raw.distanceKm === 'number'
+        ? raw.distanceKm
+        : Number(((trace.distance || 0) / 1000).toFixed(1)),
+    elevationGain:
+      typeof raw.elevationGain === 'number' ? raw.elevationGain : (route.elevationGain || 0),
+    activity: raw.activity || route.activity || 'hike',
+    country: raw.country || route.country || 'LU',
+    regionName: raw.regionName || route.regionName || '',
+    category: raw.category || undefined,
+    hasMushrooms: Boolean(raw.hasMushrooms),
+    userRating: raw.userRating || undefined,
+    userNotes: raw.userNotes || '',
+    route: route.id ? route : { id: raw.routeId || raw.id, title: raw.title || '' },
+    trace: trace.distance
+      ? trace
+      : { distance: (raw.distanceKm || 0) * 1000, duration: 3600, coordinates: [] },
+  };
+}
+
 export interface VaultDocData {
   pairingCode: string;
   updatedAt: string;
   count: number;
-  favorites: SavedFavorite[];
+  favorites: SyncedFavoriteRecord[];
   mushroomSpots?: MushroomSpot[];
 }
 
@@ -76,7 +163,7 @@ export async function pushVaultData(
     };
 
     if (data.favorites !== undefined) {
-      payload.favorites = data.favorites;
+      payload.favorites = data.favorites.map(packFavoriteForSync);
       payload.count = data.favorites.length;
     }
     if (data.mushroomSpots !== undefined) {
@@ -125,10 +212,11 @@ export async function fetchVaultData(
     const snap = await getDoc(vaultRef);
 
     if (snap.exists()) {
-      const data = snap.data() as VaultDocData;
+      const data = snap.data();
+      const rawFavs = Array.isArray(data.favorites) ? data.favorites : [];
       return {
-        favorites: data.favorites || [],
-        mushroomSpots: data.mushroomSpots || [],
+        favorites: rawFavs.map(unpackFavoriteFromSync),
+        mushroomSpots: Array.isArray(data.mushroomSpots) ? data.mushroomSpots : [],
       };
     }
     return null;
@@ -163,9 +251,10 @@ export function subscribeToVault(
       vaultRef,
       (snap) => {
         if (snap.exists()) {
-          const data = snap.data() as VaultDocData;
+          const data = snap.data();
+          const rawFavs = Array.isArray(data.favorites) ? data.favorites : undefined;
           onRemoteUpdate({
-            favorites: Array.isArray(data.favorites) ? data.favorites : undefined,
+            favorites: rawFavs ? rawFavs.map(unpackFavoriteFromSync) : undefined,
             mushroomSpots: Array.isArray(data.mushroomSpots) ? data.mushroomSpots : undefined,
           });
         }
