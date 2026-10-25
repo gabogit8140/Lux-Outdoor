@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Marker, Popup, Tooltip, useMapEvents } from 'react-leaflet';
 import type { SavedFavorite } from '../../hooks/useFavorites';
 import type { RouteSuggestions, RouteTrace } from '../../types';
@@ -13,12 +13,14 @@ import { DEFAULT_MAP_ZOOM } from '../../lib/layout/mapViewport';
 
 interface MapFavoritesLayerProps {
   favorites: SavedFavorite[];
+  routes?: RouteSuggestions[];
   onSelectFavorite: (route: RouteSuggestions, trace: RouteTrace) => void;
   selectedRouteId?: string | null;
 }
 
 export function MapFavoritesLayer({
   favorites,
+  routes,
   onSelectFavorite,
   selectedRouteId,
 }: MapFavoritesLayerProps) {
@@ -38,34 +40,44 @@ export function MapFavoritesLayer({
 
   const { tier, size } = getAdaptiveMarkerDimensions(currentZoom);
 
-  // Sélectionne uniquement les traces notées ou associées au tag champignons
-  const ratedFavorites = favorites.filter((fav) => {
-    const cat = resolveFavoriteCategory(fav.category, fav.userRating, fav.hasMushrooms);
-    return Boolean(cat || fav.hasMushrooms);
-  });
+  // Identifiants des circuits actuellement visibles sur la carte
+  const displayedRouteIds = useMemo(() => new Set((routes || []).map((r) => r.id)), [routes]);
 
-  if (ratedFavorites.length === 0) return null;
+  // Sélectionne uniquement les favoris notés non présents dans routes (ceux dans routes sont gérés directement par MapRoutesLayer)
+  const standaloneRatedFavorites = useMemo(() => {
+    return favorites.filter((fav) => {
+      if (displayedRouteIds.has(fav.route.id)) return false;
+      const cat = resolveFavoriteCategory(fav.category, fav.userRating, fav.hasMushrooms);
+      return Boolean(cat || fav.hasMushrooms);
+    });
+  }, [favorites, displayedRouteIds]);
+
+  if (standaloneRatedFavorites.length === 0) return null;
 
   return (
     <>
-      {ratedFavorites.map((fav) => {
+      {standaloneRatedFavorites.map((fav) => {
         const cat = resolveFavoriteCategory(fav.category, fav.userRating, fav.hasMushrooms);
         if (!cat) return null;
 
         const coords = fav.trace?.coordinates;
-        if (!coords || coords.length === 0) return null;
-
         let startPos: [number, number] | null = null;
-        if (Array.isArray(coords[0]?.[0])) {
-          const firstSeg = coords[0] as [number, number][];
-          if (firstSeg.length > 0) {
-            startPos = [firstSeg[0][1], firstSeg[0][0]]; // [lat, lng]
+        if (coords && coords.length > 0) {
+          if (Array.isArray(coords[0]?.[0])) {
+            const firstSeg = coords[0] as [number, number][];
+            if (firstSeg.length > 0) {
+              startPos = [firstSeg[0][1], firstSeg[0][0]]; // [lat, lng]
+            }
+          } else {
+            const flatCoords = coords as [number, number][];
+            if (flatCoords.length > 0) {
+              startPos = [flatCoords[0][1], flatCoords[0][0]]; // [lat, lng]
+            }
           }
-        } else {
-          const flatCoords = coords as [number, number][];
-          if (flatCoords.length > 0) {
-            startPos = [flatCoords[0][1], flatCoords[0][0]]; // [lat, lng]
-          }
+        }
+
+        if (!startPos && fav.route?.waypoints && fav.route.waypoints.length > 0) {
+          startPos = [fav.route.waypoints[0][1], fav.route.waypoints[0][0]];
         }
 
         if (!startPos) return null;

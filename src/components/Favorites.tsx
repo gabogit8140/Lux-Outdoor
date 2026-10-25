@@ -159,7 +159,7 @@ export function Favorites({
           </button>
         </div>
 
-        {/* 3 Clean Tabs: Mes circuits enregistrés | Coins à champignons | Synchronisation Cloud & QR Code */}
+        {/* 3 Clean Tabs: Mes circuits enregistrés | Coins à champignons | Synchronisation multi-appareils */}
         <div className="flex border-b border-stone-200 dark:border-slate-800 bg-stone-100/60 dark:bg-slate-950/40 px-4 pt-2 gap-2 overflow-x-auto no-scrollbar whitespace-nowrap">
           {/* Tab 1: Circuits enregistrés */}
           <button
@@ -218,8 +218,8 @@ export function Favorites({
             }`}
           >
             <Cloud className="w-4 h-4 text-indigo-500" />
-            <span className="hidden sm:inline">Synchronisation Cloud & QR Code</span>
-            <span className="sm:hidden">Synchro & QR</span>
+            <span className="hidden sm:inline">Synchronisation multi-appareils</span>
+            <span className="sm:hidden">Synchronisation</span>
             {pairingCode && (
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             )}

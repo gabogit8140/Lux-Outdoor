@@ -8,7 +8,6 @@ import {
   Sun,
   Moon,
   Smartphone,
-  QrCode,
 } from 'lucide-react';
 import { SAFE_AREA_TOP_BAR, SAFE_AREA_LEFT_DOCK } from '../../lib/layout/safeArea';
 import { TOUCH_DOCK_BUTTON_CLASS } from '../../lib/layout/touchDimensions';
@@ -83,15 +82,15 @@ export function TopLeftCommandDock({
         )}
       </button>
 
-      {/* Synchronisation Cloud & QR Code multi-appareils */}
+      {/* Synchronisation Cloud multi-appareils */}
       {onOpenSyncModal && (
         <button
           onClick={onOpenSyncModal}
           className={`${TOUCH_DOCK_BUTTON_CLASS} hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-600 dark:text-slate-300 hover:text-indigo-600 relative group`}
-          title="Synchroniser mes appareils (QR Code & Cloud)"
-          aria-label="Synchronisation QR Code"
+          title="Synchroniser mes appareils (iPhone, iPad, Mac)"
+          aria-label="Synchronisation multi-appareils"
         >
-          <QrCode className="w-4 h-4 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" />
+          <Smartphone className="w-4 h-4 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform" />
         </button>
       )}
 

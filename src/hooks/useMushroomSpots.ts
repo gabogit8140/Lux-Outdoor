@@ -1,3 +1,4 @@
+import { mergeItemsById } from '../lib/sync/syncMerge';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import type { MushroomSpot } from '../types/mushroom';
 import {
@@ -73,11 +74,7 @@ export function useMushroomSpots(activePairingCode?: string | null) {
       const remoteSpots = vaultData?.mushroomSpots || [];
       const localSpots = spotsRef.current;
 
-      // Fusion intelligente par ID
-      const map = new Map<string, MushroomSpot>();
-      localSpots.forEach((s) => map.set(s.id, s));
-      remoteSpots.forEach((s) => map.set(s.id, s));
-      const merged = Array.from(map.values());
+      const merged = mergeItemsById(localSpots, remoteSpots);
 
       isRemoteUpdatingRef.current = true;
       setSpots(merged);
@@ -99,12 +96,7 @@ export function useMushroomSpots(activePairingCode?: string | null) {
       if (!isSubscribed) return;
       if (remoteData.mushroomSpots !== undefined) {
         isRemoteUpdatingRef.current = true;
-        setSpots((local) => {
-          const map = new Map<string, MushroomSpot>();
-          local.forEach((s) => map.set(s.id, s));
-          (remoteData.mushroomSpots || []).forEach((s) => map.set(s.id, s));
-          return Array.from(map.values());
-        });
+        setSpots((local) => mergeItemsById(local, remoteData.mushroomSpots || []));
         setTimeout(() => {
           isRemoteUpdatingRef.current = false;
         }, 300);

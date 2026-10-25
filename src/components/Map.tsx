@@ -247,12 +247,14 @@ export function MapDisplay({
           activity={activity}
           isTraceVisible={isTraceVisible}
           onStartNavigation={onStartNavigation}
+          favorites={favorites}
         />
 
         {/* Favoris notés et coins champignons affichés directement sur la carte avec leurs icônes dédiées */}
         {favorites && favorites.length > 0 && onLoadFavorite && (
           <MapFavoritesLayer
             favorites={favorites}
+            routes={routes}
             onSelectFavorite={onLoadFavorite}
             selectedRouteId={selectedRouteId}
           />

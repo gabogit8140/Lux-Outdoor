@@ -157,7 +157,7 @@ export default function App() {
     setTimeout(() => setNotification(null), 3000);
   };
 
-  // Détection automatique du paramètre ?sync=CODE lors du scan d'un QR Code
+  // Détection automatique du paramètre ?sync=CODE (lien de partage ou jumelage)
   React.useEffect(() => {
     try {
       const params = new URLSearchParams(window.location.search);
@@ -280,7 +280,7 @@ export default function App() {
     const targetId = selectedRouteId || displayedRouteId;
     const route = routes.find((r) => r.id === targetId);
     if (!route || !targetId) return;
-    const trace = traces[targetId];
+    const trace = traces[targetId] || displayedTrace;
     if (!trace) return;
 
     saveFavorite(route, trace, category, userNotes, hasMushrooms, userRating);

@@ -1,7 +1,16 @@
-import React, { useState, useMemo } from 'react';
-import { Polyline, Marker, Popup, Tooltip } from 'react-leaflet';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Polyline, Marker, Popup, Tooltip, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import type { RouteSuggestions, RouteTrace } from '../../types';
+import type { SavedFavorite } from '../../hooks/useFavorites';
+import {
+  createFavoriteMarkerIcon,
+  resolveFavoriteCategory,
+  FAVORITE_CATEGORIES,
+  type FavoriteCategory,
+} from '../../lib/favorites/favoriteCategories';
+import { getAdaptiveMarkerDimensions } from '../../lib/layout/markerZoomScale';
+import { DEFAULT_MAP_ZOOM } from '../../lib/layout/mapViewport';
 import { getSemanticRouteColor } from '../ui/PremiumPrimitives';
 import { Car, Navigation } from 'lucide-react';
 import { openWazeNavigation } from '../../lib/navigation/wazeNavigation';
@@ -55,6 +64,33 @@ const createRouteStartPin = (color: string, isHovered: boolean) => {
   });
 };
 
+function getRouteRatingMeta(
+  route: RouteSuggestions,
+  favoritesMap?: Map<string, SavedFavorite>
+): { category: FavoriteCategory; hasMushrooms: boolean } | null {
+  const fav = favoritesMap?.get(route.id);
+  if (fav) {
+    const cat = resolveFavoriteCategory(fav.category, fav.userRating, fav.hasMushrooms);
+    if (cat || fav.hasMushrooms) {
+      return {
+        category: cat || 'champignons',
+        hasMushrooms: Boolean(fav.hasMushrooms),
+      };
+    }
+  }
+
+  const routeCat = (route as any).userCategory || (route as any).category;
+  const cat = resolveFavoriteCategory(routeCat, route.userRating, route.hasMushrooms);
+  if (cat || route.hasMushrooms) {
+    return {
+      category: cat || 'champignons',
+      hasMushrooms: Boolean(route.hasMushrooms),
+    };
+  }
+
+  return null;
+}
+
 interface MapRoutesLayerProps {
   routes: RouteSuggestions[];
   traces: Record<string, RouteTrace>;
@@ -68,6 +104,7 @@ interface MapRoutesLayerProps {
   activity: 'bike' | 'hike';
   isTraceVisible?: boolean;
   onStartNavigation?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  favorites?: SavedFavorite[];
 }
 
 export function MapRoutesLayer({
@@ -83,7 +120,34 @@ export function MapRoutesLayer({
   activity,
   isTraceVisible = true,
   onStartNavigation,
+  favorites,
 }: MapRoutesLayerProps) {
+  const [currentZoom, setCurrentZoom] = useState<number>(DEFAULT_MAP_ZOOM);
+
+  const map = useMapEvents({
+    zoomend: () => {
+      setCurrentZoom(map.getZoom());
+    },
+  });
+
+  useEffect(() => {
+    if (map) {
+      setCurrentZoom(map.getZoom());
+    }
+  }, [map]);
+
+  const { tier, size } = getAdaptiveMarkerDimensions(currentZoom);
+
+  const favoritesMap = useMemo(() => {
+    const map = new Map<string, SavedFavorite>();
+    if (favorites) {
+      for (const fav of favorites) {
+        map.set(fav.route.id, fav);
+      }
+    }
+    return map;
+  }, [favorites]);
+
   const [internalHoveredId, setInternalHoveredId] = useState<string | null>(null);
   const hoveredRouteId =
     externalHoveredRouteId !== undefined ? externalHoveredRouteId : internalHoveredId;
@@ -319,27 +383,70 @@ export function MapRoutesLayer({
               )}
             </Polyline>
 
-            {/* Start dot marker on unselected routes */}
-            {!isSelected && !selectedRouteId && startPos && (!hoveredRouteId || isHovered) && (
-              <Marker
-                position={startPos}
-                icon={createRouteStartPin(semanticColor, isHovered)}
-                eventHandlers={{
-                  click: handleSelect,
-                  mouseover: () => handleHoverChange(r.id!),
-                  mouseout: () => {
-                    if (hoveredRouteId === r.id) handleHoverChange(null);
-                  },
-                }}
-              >
-                <Tooltip direction="top" offset={[0, -6]}>
-                  <span className="font-bold text-white">{r.title}</span>
-                  <span className="text-emerald-400 font-mono-kpi ml-1.5">
-                    ({(t.distance / 1000).toFixed(1)} km · {r.difficulty?.label})
-                  </span>
-                </Tooltip>
-              </Marker>
-            )}
+            {/* Start marker on routes:
+                - If the route is rated / categorized: ALWAYS render its distinctive badge (🏆, 👍, ⛔, 🍄)
+                - Otherwise: render the discreet start dot when unselected and hovered/exploring */}
+            {startPos && (() => {
+              const ratingMeta = getRouteRatingMeta(r, favoritesMap);
+              if (ratingMeta) {
+                return (
+                  <Marker
+                    key={`rated-pin-${r.id}-${ratingMeta.category}-${isSelected ? 'sel' : 'norm'}-${tier}`}
+                    position={startPos}
+                    icon={createFavoriteMarkerIcon(ratingMeta.category, ratingMeta.hasMushrooms, isSelected, currentZoom)}
+                    zIndexOffset={isSelected ? 1000 : 800}
+                    eventHandlers={{
+                      click: handleSelect,
+                      mouseover: () => handleHoverChange(r.id!),
+                      mouseout: () => {
+                        if (hoveredRouteId === r.id) handleHoverChange(null);
+                      },
+                    }}
+                  >
+                    <Tooltip direction="top" offset={[0, Math.round(-size / 2 - 2)]} opacity={0.95}>
+                      <div className="text-center font-sans">
+                        <div className="flex items-center justify-center gap-1 font-bold text-xs">
+                          <span>{FAVORITE_CATEGORIES[ratingMeta.category]?.icon}</span>
+                          <span>{FAVORITE_CATEGORIES[ratingMeta.category]?.label}</span>
+                          {ratingMeta.hasMushrooms && ratingMeta.category !== 'champignons' && <span>· 🍄</span>}
+                        </div>
+                        <div className="text-[11px] font-semibold text-slate-800 dark:text-slate-100 max-w-[180px] truncate">
+                          {r.title}
+                        </div>
+                        <div className="text-[10px] text-slate-500">
+                          {(t.distance / 1000).toFixed(1)} km · {r.elevationGain}m D+
+                        </div>
+                      </div>
+                    </Tooltip>
+                  </Marker>
+                );
+              }
+
+              if (!isSelected && !selectedRouteId && (!hoveredRouteId || isHovered)) {
+                return (
+                  <Marker
+                    position={startPos}
+                    icon={createRouteStartPin(semanticColor, isHovered)}
+                    eventHandlers={{
+                      click: handleSelect,
+                      mouseover: () => handleHoverChange(r.id!),
+                      mouseout: () => {
+                        if (hoveredRouteId === r.id) handleHoverChange(null);
+                      },
+                    }}
+                  >
+                    <Tooltip direction="top" offset={[0, -6]}>
+                      <span className="font-bold text-white">{r.title}</span>
+                      <span className="text-emerald-400 font-mono-kpi ml-1.5">
+                        ({(t.distance / 1000).toFixed(1)} km · {r.difficulty?.label})
+                      </span>
+                    </Tooltip>
+                  </Marker>
+                );
+              }
+
+              return null;
+            })()}
           </React.Fragment>
         );
       })}
@@ -460,51 +567,69 @@ export function MapRoutesLayer({
               />
             ))}
 
-          {selectedPrepared.startPos && (
-            <Marker position={selectedPrepared.startPos} icon={createStartIcon()} interactive={true}>
-              <Popup offset={[0, -10]} className="trail-start-popup">
-                <div className="p-1 min-w-[200px] text-slate-900 flex flex-col gap-2">
-                  <div>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-emerald-600 block">
-                      Point de départ
-                    </span>
-                    <span className="text-xs font-extrabold text-slate-900 line-clamp-1 block">
-                      {selectedPrepared.r.title}
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-1.5 pt-0.5">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openWazeNavigation(selectedPrepared.startPos![0], selectedPrepared.startPos![1]);
-                      }}
-                      className="w-full py-1.5 px-2.5 bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 text-white rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer"
-                    >
-                      <Car className="w-3.5 h-3.5" />
-                      <span>Waze (Voiture)</span>
-                    </button>
-                    {onStartNavigation && (
+          {selectedPrepared.startPos && (() => {
+            const selectedRatingMeta = getRouteRatingMeta(selectedPrepared.r, favoritesMap);
+            const selectedIcon = selectedRatingMeta
+              ? createFavoriteMarkerIcon(selectedRatingMeta.category, selectedRatingMeta.hasMushrooms, true, currentZoom)
+              : createStartIcon();
+
+            return (
+              <Marker position={selectedPrepared.startPos} icon={selectedIcon} interactive={true} zIndexOffset={1200}>
+                <Popup offset={[0, -10]} className="trail-start-popup">
+                  <div className="p-1 min-w-[200px] text-slate-900 flex flex-col gap-2">
+                    <div>
+                      {selectedRatingMeta && (
+                        <div className="mb-1">
+                          <span
+                            className={`inline-flex items-center gap-1 text-[10px] font-extrabold px-2 py-0.5 rounded-full border ${FAVORITE_CATEGORIES[selectedRatingMeta.category]?.bgColor} ${FAVORITE_CATEGORIES[selectedRatingMeta.category]?.borderColor} ${FAVORITE_CATEGORIES[selectedRatingMeta.category]?.textColor}`}
+                          >
+                            <span>{FAVORITE_CATEGORIES[selectedRatingMeta.category]?.icon}</span>
+                            <span>{FAVORITE_CATEGORIES[selectedRatingMeta.category]?.label}</span>
+                            {selectedRatingMeta.hasMushrooms && selectedRatingMeta.category !== 'champignons' && <span>· 🍄</span>}
+                          </span>
+                        </div>
+                      )}
+                      <span className="text-[10px] font-black uppercase tracking-wider text-emerald-600 block">
+                        Point de départ
+                      </span>
+                      <span className="text-xs font-extrabold text-slate-900 line-clamp-1 block">
+                        {selectedPrepared.r.title}
+                      </span>
+                    </div>
+                    <div className="flex flex-col gap-1.5 pt-0.5">
                       <button
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation();
-                          onStartNavigation(selectedPrepared.r, selectedPrepared.t);
+                          openWazeNavigation(selectedPrepared.startPos![0], selectedPrepared.startPos![1]);
                         }}
-                        className="w-full py-1.5 px-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg text-xs font-black flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer"
+                        className="w-full py-1.5 px-2.5 bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 text-white rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer"
                       >
-                        <Navigation className="w-3.5 h-3.5 fill-white" />
-                        <span>Démarrer le guidage</span>
+                        <Car className="w-3.5 h-3.5" />
+                        <span>Waze (Voiture)</span>
                       </button>
-                    )}
+                      {onStartNavigation && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onStartNavigation(selectedPrepared.r, selectedPrepared.t);
+                          }}
+                          className="w-full py-1.5 px-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-lg text-xs font-black flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer"
+                        >
+                          <Navigation className="w-3.5 h-3.5 fill-white" />
+                          <span>Démarrer le guidage</span>
+                        </button>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </Popup>
-              <Tooltip direction="top" offset={[0, -10]}>
-                Point de départ ({selectedPrepared.r.title})
-              </Tooltip>
-            </Marker>
-          )}
+                </Popup>
+                <Tooltip direction="top" offset={[0, -10]}>
+                  Point de départ ({selectedPrepared.r.title})
+                </Tooltip>
+              </Marker>
+            );
+          })()}
 
           {/* Point d'arrivée "A" si le parcours n'est pas une boucle fermée */}
           {isPointToPoint && selectedEndPos && (
