@@ -112,12 +112,22 @@ export function SearchAreaControl({
 export function MapResizer() {
   const map = useMap();
   useEffect(() => {
+    let rafId: number | null = null;
     const observer = new ResizeObserver(() => {
-      requestAnimationFrame(() => map.invalidateSize());
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        map.invalidateSize();
+        rafId = null;
+      });
     });
     const container = map.getContainer();
     observer.observe(container);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, [map]);
   return null;
 }

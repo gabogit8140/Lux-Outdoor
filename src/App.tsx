@@ -146,6 +146,8 @@ export default function App() {
     deleteFavorite,
     pairingCode,
     isSyncing,
+    connectedDevices,
+    refuseDevice,
     connectPairingCode,
     disconnectPairing,
   } = useFavorites();
@@ -164,6 +166,15 @@ export default function App() {
     setNotification(msg);
     setTimeout(() => setNotification(null), 3000);
   };
+
+  // Écoute de révocation ou de refus de connexion par l'administrateur
+  React.useEffect(() => {
+    const handleDeviceBlocked = () => {
+      showToast('⚠️ Accès à ce code LUX- refusé par l’administrateur.');
+    };
+    window.addEventListener('lux_device_blocked', handleDeviceBlocked);
+    return () => window.removeEventListener('lux_device_blocked', handleDeviceBlocked);
+  }, []);
 
   // Détection automatique du paramètre ?sync=CODE (lien de partage ou jumelage)
   React.useEffect(() => {
@@ -419,9 +430,14 @@ export default function App() {
           tracksCount={userTracks.length + CATALOG_ROUTES.length}
           onOpenGpxModal={() => setIsGpxModalOpen(true)}
           isEditorActive={editor.isEditorActive}
+          hasSelectedRoute={Boolean(selectedRoute && selectedTrace)}
           onToggleEditor={() => {
             if (editor.isEditorActive) {
               editor.cancel();
+            } else if (selectedRoute && selectedTrace) {
+              editor.startEditing(selectedRoute, selectedTrace);
+              setIsSidebarOpen(false);
+              showToast(`Mode modification : ${selectedRoute.title} (l'original reste intact)`);
             } else {
               editor.startCreating(activity);
               setIsSidebarOpen(false);
@@ -537,6 +553,12 @@ export default function App() {
           selectedPlace={selectedPlace}
           onClearSelectedPlace={handleResetCity}
           onUserLocationChange={setUserCoords}
+          onEditRoute={(r, t) => {
+            editor.startEditing(r, t);
+            setIsSidebarOpen(false);
+            setIsProfileOpen(false);
+            showToast(`Mode modification : ${r.title} (l'original reste intact)`);
+          }}
         />
 
         {/* Bottom Elevation Profile Bar (Shown when Sidebar is closed and profile drawer is open) */}
@@ -551,6 +573,12 @@ export default function App() {
             isTraceVisible={isTraceVisibleOnMap}
             onToggleTraceVisibility={toggleTraceVisibility}
             onDeselect={handleDeselectAll}
+            onEditRoute={(r, t) => {
+              editor.startEditing(r, t);
+              setIsSidebarOpen(false);
+              setIsProfileOpen(false);
+              showToast(`Mode modification : ${r.title} (l'original reste intact)`);
+            }}
           />
         )}
 
@@ -682,6 +710,8 @@ export default function App() {
         onUpdateFavorite={updateFavorite}
         pairingCode={pairingCode}
         isSyncing={isSyncing}
+        connectedDevices={connectedDevices}
+        onRefuseDevice={refuseDevice}
         onConnectPairingCode={connectPairingCode}
         onDisconnectPairing={disconnectPairing}
         initialTab={favoritesInitialTab}
@@ -730,6 +760,8 @@ export default function App() {
         isDarkMode={isDarkMode}
         onToggleDarkMode={() => setIsDarkMode(!isDarkMode)}
         totalTracksCount={userTracks.length + CATALOG_ROUTES.length}
+        pairingCode={pairingCode}
+        connectedDevicesCount={connectedDevices.filter((d) => d.status !== 'blocked').length}
       />
 
       {/* GPX Database, Batch Drop & GitHub Maintenance Modal */}

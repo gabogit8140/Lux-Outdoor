@@ -13,7 +13,10 @@ export interface UseRouteEditorReturn {
   activity: 'bike' | 'hike';
   setActivity: (a: 'bike' | 'hike') => void;
   originalRoute: RouteSuggestions | null;
+  originalTrace: RouteTrace | null;
   waypoints: [number, number][]; // [lon, lat]
+  selectedWaypointIndex: number | null;
+  setSelectedWaypointIndex: (index: number | null) => void;
   isLoop: boolean;
   calculatedResult: CalculatedRouteResult | null;
   isCalculating: boolean;
@@ -47,9 +50,13 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
   const [editorMode, setEditorMode] = useState<'create' | 'edit'>('create');
   const [activity, setActivity] = useState<'bike' | 'hike'>(defaultActivity);
   const [originalRoute, setOriginalRoute] = useState<RouteSuggestions | null>(null);
+  const [originalTrace, setOriginalTrace] = useState<RouteTrace | null>(null);
 
   // Liste ordonnée des points de passage [lon, lat]
   const [waypoints, setWaypoints] = useState<[number, number][]>([]);
+
+  // Étape sélectionnée activement comme point à déplacer
+  const [selectedWaypointIndex, setSelectedWaypointIndex] = useState<number | null>(null);
 
   // Par défaut, les nouvelles traces sont des boucles qui reviennent au point de départ
   const [isLoop, setIsLoop] = useState<boolean>(true);
@@ -92,6 +99,18 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
           });
           if (requestId === currentRequestIdRef.current) {
             setCalculatedResult(result);
+            // Synchronise les waypoints si des impasses/points isolés ont été nettoyés
+            if (result?.waypointsUsed && result.waypointsUsed.length >= 2) {
+              const hasRelocated = result.waypointsUsed.some((wp, idx) => {
+                const prev = pts[idx];
+                if (!prev) return false;
+                return Math.hypot(wp[0] - prev[0], wp[1] - prev[1]) > 0.0003;
+              });
+              if (hasRelocated) {
+                const cleanWps = result.waypointsUsed.slice(0, pts.length);
+                setWaypoints(cleanWps);
+              }
+            }
           }
         } catch (err) {
           console.error('[RouteEditor] Erreur de calcul de parcours:', err);
@@ -112,7 +131,9 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
       setEditorMode('create');
       setActivity(chosenAct);
       setOriginalRoute(null);
+      setOriginalTrace(null);
       setWaypoints([]);
+      setSelectedWaypointIndex(null);
       setHistory([]);
       setIsLoop(true); // Par défaut boucle fermée
       setCalculatedResult(null);
@@ -128,6 +149,8 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
       const routeAct = route.activity || defaultActivity;
       setActivity(routeAct);
       setOriginalRoute(route);
+      setOriginalTrace(trace);
+      setSelectedWaypointIndex(null);
 
       // Extraction des points de passage clés via simplification RDP
       let coords: [number, number][] = [];
@@ -137,7 +160,14 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
         coords = trace.coordinates as [number, number][];
       }
 
-      const initialWaypoints = simplifyRouteToWaypoints(coords, 7);
+      // Nombre de points adaptatif selon la distance pour préserver la fidélité de l'itinéraire initial
+      const distKm =
+        trace.distance && trace.distance > 0
+          ? trace.distance / 1000
+          : (route as any).distanceKm || 10;
+      const targetCount = Math.max(6, Math.min(18, Math.round(distKm / 2.2)));
+
+      const initialWaypoints = simplifyRouteToWaypoints(coords, targetCount);
       setWaypoints(initialWaypoints);
       setHistory([]);
 
@@ -163,6 +193,7 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
       setWaypoints((prev) => {
         setHistory((h) => [...h, prev]);
         const next = [...prev, newPoint];
+        setSelectedWaypointIndex(next.length - 1);
         triggerRecalculate(next, isLoop, activity);
         return next;
       });
@@ -179,6 +210,7 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
         const next = [...prev];
         const clampedIndex = Math.max(0, Math.min(index, next.length));
         next.splice(clampedIndex, 0, newPoint);
+        setSelectedWaypointIndex(clampedIndex);
         triggerRecalculate(next, isLoop, activity);
         return next;
       });
@@ -189,6 +221,7 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
   // Déplacement d'un point existant (drag & drop sur la carte)
   const updateWaypoint = useCallback(
     (index: number, lat: number, lng: number) => {
+      setSelectedWaypointIndex(index);
       setWaypoints((prev) => {
         if (index < 0 || index >= prev.length) return prev;
         setHistory((h) => [...h, prev]);
@@ -204,6 +237,7 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
   // Suppression d'un point
   const removeWaypoint = useCallback(
     (index: number) => {
+      setSelectedWaypointIndex(null);
       setWaypoints((prev) => {
         if (index < 0 || index >= prev.length) return prev;
         setHistory((h) => [...h, prev]);
@@ -217,6 +251,7 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
 
   // Annulation (Undo)
   const undo = useCallback(() => {
+    setSelectedWaypointIndex(null);
     setHistory((prevH) => {
       if (prevH.length === 0) return prevH;
       const lastState = prevH[prevH.length - 1];
@@ -228,6 +263,7 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
 
   // Tout effacer
   const clear = useCallback(() => {
+    setSelectedWaypointIndex(null);
     setWaypoints((prev) => {
       if (prev.length > 0) {
         setHistory((h) => [...h, prev]);
@@ -290,8 +326,10 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
   const cancel = useCallback(() => {
     setIsEditorActive(false);
     setWaypoints([]);
+    setSelectedWaypointIndex(null);
     setCalculatedResult(null);
     setOriginalRoute(null);
+    setOriginalTrace(null);
     setHistory([]);
     setIsSaveModalOpen(false);
     setIsLoopModalOpen(false);
@@ -313,7 +351,10 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
       triggerRecalculate(waypoints, isLoop, act);
     },
     originalRoute,
+    originalTrace,
     waypoints,
+    selectedWaypointIndex,
+    setSelectedWaypointIndex,
     isLoop,
     calculatedResult,
     isCalculating,

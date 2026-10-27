@@ -19,6 +19,7 @@ import {
   estimateRouteDuration,
   type ActivityType,
 } from './routingProfiles';
+import { removeIsolatedPointSpurs } from './loopGenerator';
 
 export interface CalculatedRouteResult {
   coordinates: [number, number][]; // [lon, lat]
@@ -84,18 +85,25 @@ export async function computeOutdoorRouteFromWaypoints(
       const rawCoords: [number, number, number][] = f?.geometry?.coordinates;
 
       if (rawCoords && rawCoords.length >= 4) {
-        const meters = Number(f.properties?.['track-length']) || 0;
-        const distanceKm = Number((meters / 1000).toFixed(2));
-        const elevationGain = Math.round(Number(f.properties?.['filtered ascend']) || 0);
-        const elevationLoss = Math.round(Number(f.properties?.['filtered descend']) || elevationGain);
+        let finalCoords: [number, number, number?][] = rawCoords;
+        let finalWaypoints = waypoints;
 
-        const coordinates: [number, number][] = rawCoords.map(([lon, lat]) => [lon, lat]);
+        // Détection et suppression automatique des antennes/spurs vers des points isolés en boucle
+        if (isLoop && rawCoords.length >= 10 && waypoints.length >= 3) {
+          const spurResult = removeIsolatedPointSpurs(rawCoords, waypoints);
+          if (spurResult.hasPrunedSpurs) {
+            finalCoords = spurResult.cleanedCoords;
+            finalWaypoints = spurResult.cleanedWaypoints;
+          }
+        }
 
-        // Calcul du profil altimétrique cumulé
+        const coordinates: [number, number][] = finalCoords.map(([lon, lat]) => [lon, lat]);
+
+        // Calcul du profil altimétrique cumulé et de la distance réelle sans les aller-retours parasites
         let accumMeters = 0;
-        const elevationProfile: ElevationPoint[] = rawCoords.map(([lon, lat, ele], idx) => {
+        const elevationProfile: ElevationPoint[] = finalCoords.map(([lon, lat, ele], idx) => {
           if (idx > 0) {
-            const prev = rawCoords[idx - 1];
+            const prev = finalCoords[idx - 1];
             accumMeters += haversineDistance([prev[0], prev[1]], [lon, lat]);
           }
           return {
@@ -103,6 +111,10 @@ export async function computeOutdoorRouteFromWaypoints(
             elevation: Math.round(ele || 300),
           };
         });
+
+        const distanceKm = Number((accumMeters / 1000).toFixed(2));
+        const elevationGain = Math.round(Number(f.properties?.['filtered ascend']) || 0);
+        const elevationLoss = Math.round(Number(f.properties?.['filtered descend']) || elevationGain);
 
         const surfaceDistribution = getProfileSurfaceDistribution(activity, 'brouter');
         const difficulty = calculateRouteDifficulty(distanceKm, elevationGain, activity);
@@ -120,7 +132,7 @@ export async function computeOutdoorRouteFromWaypoints(
           difficulty,
           segments,
           durationMinutes,
-          waypointsUsed: waypoints,
+          waypointsUsed: finalWaypoints,
         };
       }
     }
@@ -143,10 +155,25 @@ export async function computeOutdoorRouteFromWaypoints(
       const data = await res.json();
       if (data.code === 'Ok' && data.routes?.[0]) {
         const route = data.routes[0];
-        const coordinates: [number, number][] = route.geometry.coordinates;
-        const distanceKm = Number((route.distance / 1000).toFixed(2));
+        let rawCoords: [number, number][] = route.geometry.coordinates;
+        let finalWaypoints = waypoints;
 
-        const elevRes = computeElevationProfile(coordinates, Math.round(distanceKm * 18) + 120);
+        if (isLoop && rawCoords.length >= 10 && waypoints.length >= 3) {
+          const spurResult = removeIsolatedPointSpurs(rawCoords, waypoints);
+          if (spurResult.hasPrunedSpurs) {
+            rawCoords = spurResult.cleanedCoords as [number, number][];
+            finalWaypoints = spurResult.cleanedWaypoints;
+          }
+        }
+
+        const coordinates: [number, number][] = rawCoords;
+        const elevRes = computeElevationProfile(coordinates, Math.round(coordinates.length / 2) + 50);
+        const distanceKm = Number(
+          (
+            elevRes.profile[elevRes.profile.length - 1]?.distance ||
+            route.distance / 1000
+          ).toFixed(2)
+        );
         const elevationGain = Math.round(elevRes.gain);
         const elevationLoss = Math.round(elevRes.loss);
         const elevationProfile = elevRes.profile;
@@ -167,7 +194,7 @@ export async function computeOutdoorRouteFromWaypoints(
           difficulty,
           segments,
           durationMinutes,
-          waypointsUsed: waypoints,
+          waypointsUsed: finalWaypoints,
         };
       }
     }

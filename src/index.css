@@ -117,3 +117,18 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   }
 }
 
+/* Tactile / Touch Screen Optimization for Map Editor Waypoints & Midpoint Handles */
+.editor-waypoint-icon,
+.editor-midpoint-handle-icon,
+.leaflet-marker-draggable {
+  touch-action: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+.editor-waypoint-icon div,
+.editor-midpoint-handle-icon div {
+  touch-action: none !important;
+}
+

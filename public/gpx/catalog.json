@@ -57,8 +57,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitarlon.be",
-      "sourceLabel": "Visit Arlon &amp; Maison du Tourisme",
+      "sourceUrl": "https://www.visitarlon.be/balades-et-randonnees/",
+      "sourceLabel": "Circuit Cyclable Pays d’Arlon & Attert",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.68336/5.81668",
       "tags": [
         "be",
@@ -2754,8 +2754,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitarlon.be",
-      "sourceLabel": "Maison du Tourisme du Pays d&apos;Arlon",
+      "sourceUrl": "https://www.visitarlon.be/balades-et-randonnees/",
+      "sourceLabel": "Boucle Vélo Sources de la Semois (Arlon)",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.67179/5.81292",
       "tags": [
         "be",
@@ -5049,8 +5049,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitarlon.be",
-      "sourceLabel": "Maison du Tourisme du Pays d&apos;Arlon",
+      "sourceUrl": "https://www.visitarlon.be/balades-et-randonnees/",
+      "sourceLabel": "Cyclosportif Arlon - Attert - Anlier",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.68493/5.79573",
       "tags": [
         "be",
@@ -7918,8 +7918,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.paysdebastogne.be",
-      "sourceLabel": "Maison du Tourisme du Pays de Bastogne",
+      "sourceUrl": "https://ravel.wallonie.be/fr/lignes/ligne-163",
+      "sourceLabel": "RAVeL Ligne 163 Bastogne - Bizory",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.99788/5.73174",
       "tags": [
         "be",
@@ -10493,8 +10493,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.paysdebastogne.be",
-      "sourceLabel": "Maison du Tourisme du Pays de Bastogne",
+      "sourceUrl": "https://www.paysdebastogne.be/itineraires/",
+      "sourceLabel": "Boucle Cyclosportive Pays de Bastogne",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.01089/5.71498",
       "tags": [
         "be",
@@ -13426,8 +13426,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.paysdebastogne.be",
-      "sourceLabel": "Maison du Tourisme du Pays de Bastogne",
+      "sourceUrl": "https://ravel.wallonie.be/fr/lignes/ligne-163",
+      "sourceLabel": "RAVeL 163 Bastogne & Sainte-Ode",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.00053/5.71863",
       "tags": [
         "be",
@@ -16057,8 +16057,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.bouillon-tourisme.be",
-      "sourceLabel": "Pays de Bouillon en Ardenne",
+      "sourceUrl": "https://www.bouillon-tourisme.be/activites/randonnees/",
+      "sourceLabel": "Crêtes de la Semois Bouillon - Rochehaut",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.79440/5.06670",
       "tags": [
         "be",
@@ -19816,8 +19816,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.bouillon-tourisme.be",
-      "sourceLabel": "Pays de Bouillon en Ardenne",
+      "sourceUrl": "https://www.bouillon-tourisme.be/activites/randonnees/",
+      "sourceLabel": "Boucle Vélo Semois & Bouillon",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.79205/5.06689",
       "tags": [
         "be",
@@ -23031,8 +23031,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.bouillon-tourisme.be",
-      "sourceLabel": "Pays de Bouillon en Ardenne",
+      "sourceUrl": "https://www.bouillon-tourisme.be/activites/randonnees/",
+      "sourceLabel": "Parcours Sportif Ardenne & Semois",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.80493/5.05005",
       "tags": [
         "be",
@@ -26588,8 +26588,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ostbelgien.eu/fr/velo",
-      "sourceLabel": "Ostbelgien Vélo &amp; Vennbahn",
+      "sourceUrl": "https://www.ostbelgien.eu/fr/fiche/cycling/vennbahn",
+      "sourceLabel": "Vennbahn Burg-Reuland - Saint-Vith",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.26043/6.11692",
       "tags": [
         "be",
@@ -30045,8 +30045,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://ravel.wallonie.be",
-      "sourceLabel": "RAVeL Wallonie Ligne 163A",
+      "sourceUrl": "https://ravel.wallonie.be/fr/lignes/ligne-163a",
+      "sourceLabel": "RAVeL Ligne 163A Forêt de Chiny - Herbeumont",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.77573/5.24089",
       "tags": [
         "be",
@@ -32790,8 +32790,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://ravel.wallonie.be",
-      "sourceLabel": "RAVeL Wallonie Meuse &amp; Condroz",
+      "sourceUrl": "https://ravel.wallonie.be/fr/lignes/ligne-126",
+      "sourceLabel": "RAVeL Ligne 126 Dinant - Ciney",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.26120/4.91210",
       "tags": [
         "be",
@@ -35891,8 +35891,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.durbuyinfo.be",
-      "sourceLabel": "Terre de Durbuy Tourisme",
+      "sourceUrl": "https://durbuytourisme.be/balades-et-randonnees/",
+      "sourceLabel": "Boucle Cyclable Durbuy & Vallée de l’Ourthe",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.35284/5.45648",
       "tags": [
         "be",
@@ -38612,8 +38612,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Syndicat d&apos;Initiative de Florenville",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Boucle Vélo Florenville & Semois",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.69212/5.31798",
       "tags": [
         "be",
@@ -40835,8 +40835,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Syndicat d&apos;Initiative de Florenville",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Gravel & Vélo Florenville Épioux",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.70590/5.30171",
       "tags": [
         "be",
@@ -44080,8 +44080,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.haute-ardenne.be",
-      "sourceLabel": "Maison du Tourisme Haute-Ardenne",
+      "sourceUrl": "https://www.haute-ardenne.be/fr/a-voir-a-faire/itineraires",
+      "sourceLabel": "Boucle Vélo Haute-Ardenne Gouvy - Vielsalm",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.28501/5.91494",
       "tags": [
         "be",
@@ -47169,8 +47169,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Parc Naturel Haute-Sûre Forêt d&apos;Anlier",
+      "sourceUrl": "https://visitwallonia.be/fr-be/content/parc-naturel-haute-sure-foret-danlier",
+      "sourceLabel": "Gravel Grande Forêt d’Anlier",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.72796/5.64994",
       "tags": [
         "be",
@@ -49746,8 +49746,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Cœur de l&apos;Ardenne (Houffalize - La Roche)",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "Raid VTT Houffalize - Lac de Nisramont",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.13300/5.78920",
       "tags": [
         "be",
@@ -52985,8 +52985,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Cœur de l&apos;Ardenne (Houffalize)",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "Boucle Cyclable Houffalize & Ourthe",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.12801/5.79700",
       "tags": [
         "be",
@@ -55480,8 +55480,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Cœur de l&apos;Ardenne (Houffalize)",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "VTT Crêtes de l’Ourthe Houffalize",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.14065/5.78057",
       "tags": [
         "be",
@@ -58229,8 +58229,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Syndicat d&apos;Initiative de La Roche-en-Ardenne",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "Boucle Vélo La Roche-en-Ardenne",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.17701/5.58308",
       "tags": [
         "be",
@@ -61004,8 +61004,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Syndicat d&apos;Initiative de La Roche-en-Ardenne",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "La Chouffe Classic La Roche-en-Ardenne",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.19004/5.56542",
       "tags": [
         "be",
@@ -64441,8 +64441,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Cœur de l&apos;Ardenne Officiel",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "Classique Ardennaise Col de Haussire",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.18372/5.57532",
       "tags": [
         "be",
@@ -68440,8 +68440,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ostbelgien.eu",
-      "sourceLabel": "Maison du Tourisme des Hautes Fagnes (Malmedy)",
+      "sourceUrl": "https://ravel.wallonie.be/fr/lignes/ligne-45",
+      "sourceLabel": "RAVeL Ligne 45 Malmedy - Stavelot",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.42103/6.03506",
       "tags": [
         "be",
@@ -71007,8 +71007,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ostbelgien.eu",
-      "sourceLabel": "Maison du Tourisme des Hautes Fagnes (Malmedy)",
+      "sourceUrl": "https://www.ostbelgien.eu/fr/fiche/cycling/ligne-45",
+      "sourceLabel": "Parcours Cyclosportif Hautes Fagnes",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.43287/6.01725",
       "tags": [
         "be",
@@ -74012,8 +74012,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.famenneardenne.be",
-      "sourceLabel": "Famenne-Ardenne Tourisme",
+      "sourceUrl": "https://ravel.wallonie.be/fr/lignes/ligne-150",
+      "sourceLabel": "RAVeL Famenne Marche - Rochefort",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.16096/5.22179",
       "tags": [
         "be",
@@ -76537,8 +76537,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitarlon.be",
-      "sourceLabel": "Visit Arlon &amp; Sud-Luxembourg",
+      "sourceUrl": "https://www.visitarlon.be/balades-et-randonnees/",
+      "sourceLabel": "Circuit Cyclable Lac de Messancy",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.59201/5.81805",
       "tags": [
         "be",
@@ -78344,8 +78344,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://ravel.wallonie.be",
-      "sourceLabel": "RAVeL Wallonie &amp; Cœur de l&apos;Ardenne",
+      "sourceUrl": "https://visitwallonia.be/fr-be/content/maison-du-tourisme-de-la-foret-d-anlier",
+      "sourceLabel": "Boucle Cyclable Vallée du Lac de Neufchâteau",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.84003/5.43340",
       "tags": [
         "be",
@@ -80263,8 +80263,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Visit Gaume &amp; Semois",
+      "sourceUrl": "https://www.orval.be/fr/page/373-visite-des-ruines",
+      "sourceLabel": "Circuit Cyclable Abbaye d’Orval & Semois",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.69988/5.31673",
       "tags": [
         "be",
@@ -82870,8 +82870,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.foretdesainthubert-tourisme.be",
-      "sourceLabel": "Maison du Tourisme Forêt de Saint-Hubert",
+      "sourceUrl": "https://www.foretdesainthubert-tourisme.be/balades/",
+      "sourceLabel": "Tour Cyclable Forêt de Saint-Hubert",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.02598/5.37402",
       "tags": [
         "be",
@@ -85685,8 +85685,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ostbelgien.eu",
-      "sourceLabel": "Ostbelgien Tourisme (Saint-Vith)",
+      "sourceUrl": "https://www.ostbelgien.eu/fr/fiche/cycling/vennbahn",
+      "sourceLabel": "Boucle Cyclable Vallée de l’Our (Saint-Vith)",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.27499/6.13394",
       "tags": [
         "be",
@@ -89628,8 +89628,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ostbelgien.eu",
-      "sourceLabel": "Ostbelgien Tourisme (Saint-Vith)",
+      "sourceUrl": "https://www.ostbelgien.eu/fr/fiche/cycling/vennbahn",
+      "sourceLabel": "Cyclosportif Cantons de l’Est Saint-Vith",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.28763/6.11658",
       "tags": [
         "be",
@@ -92969,8 +92969,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.spatourisme.be",
-      "sourceLabel": "Spa-Hautes Fagnes Tourisme",
+      "sourceUrl": "https://www.spatourisme.be/fr/balades-et-randonnees",
+      "sourceLabel": "Circuit Vélo Sources de Spa & Amblève",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.49218/5.86672",
       "tags": [
         "be",
@@ -96416,8 +96416,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ostbelgien.eu/fr/velo",
-      "sourceLabel": "Tourisme Stavelot-Malmedy &amp; Cantons de l&apos;Est",
+      "sourceUrl": "https://www.ostbelgien.eu/fr/fiche/cycling/ligne-45",
+      "sourceLabel": "Classique Ardennaise Côte de Stockeu",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.39503/5.92801",
       "tags": [
         "be",
@@ -99437,8 +99437,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Maison du Tourisme de Gaume (Virton)",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Circuit Vélo de la Gaume (Virton - Torgny)",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.56673/5.53313",
       "tags": [
         "be",
@@ -102364,8 +102364,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Maison du Tourisme de Gaume",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Boucle Cyclable Vallée de Rabais (Virton)",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.58098/5.56081",
       "tags": [
         "be",
@@ -105003,8 +105003,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Maison du Tourisme de Gaume",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Raid Vélo Trois Côtes de Gaume",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.59529/5.54209",
       "tags": [
         "be",
@@ -107864,8 +107864,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ostbelgien.eu/fr/velo",
-      "sourceLabel": "Ostbelgien Réseau VéloTour Hautes Fagnes",
+      "sourceUrl": "https://www.ostbelgien.eu/fr/fiche/cycling/vennbahn",
+      "sourceLabel": "Tour des Lacs des Hautes Fagnes",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.45224/6.12636",
       "tags": [
         "be",
@@ -110833,8 +110833,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://ravel.wallonie.be",
-      "sourceLabel": "RAVeL Wallonie Officiel",
+      "sourceUrl": "https://ravel.wallonie.be/fr/lignes/ligne-126",
+      "sourceLabel": "RAVeL Ligne 126 Ciney - Statte",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.29505/5.10105",
       "tags": [
         "be",
@@ -112642,8 +112642,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://visitwallonia.be/fr-be/content/vallee-de-la-semois",
+      "sourceLabel": "Itinéraire Cyclable de la Semois",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.79506/5.06807",
       "tags": [
         "be",
@@ -114407,8 +114407,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "Circuit VTT Houffalize Coupe du Monde",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.13201/5.78900",
       "tags": [
         "be",
@@ -116992,8 +116992,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://ravel.wallonie.be",
-      "sourceLabel": "RAVeL Wallonie Officiel",
+      "sourceUrl": "https://ravel.wallonie.be/fr/lignes/ligne-150",
+      "sourceLabel": "RAVeL L150 Houyet - Rochefort - Ciney",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.18502/5.01205",
       "tags": [
         "be",
@@ -118715,8 +118715,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://ravel.wallonie.be",
-      "sourceLabel": "RAVeL Wallonie Officiel",
+      "sourceUrl": "https://ravel.wallonie.be/fr/lignes/ligne-163",
+      "sourceLabel": "RAVeL L163 Bastogne - Gouvy",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.00296/5.71794",
       "tags": [
         "be",
@@ -120732,8 +120732,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://ravel.wallonie.be",
-      "sourceLabel": "RAVeL Wallonie Officiel",
+      "sourceUrl": "https://ravel.wallonie.be/fr/lignes/ligne-45",
+      "sourceLabel": "RAVeL L45 Trois-Ponts - Stavelot - Malmedy",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.37173/5.87513",
       "tags": [
         "be",
@@ -121863,8 +121863,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.vennbahn.eu",
-      "sourceLabel": "Vennbahn Officiel",
+      "sourceUrl": "https://www.ostbelgien.eu/fr/fiche/cycling/vennbahn",
+      "sourceLabel": "RAVeL L47 Vennbahn Voie Verte",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.12008/5.99007",
       "tags": [
         "be",
@@ -124730,8 +124730,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.bernkastel.de",
-      "sourceLabel": "Wein- und Ferienregion Bernkastel-Kues",
+      "sourceUrl": "https://www.visitmosel.de/radfahren/mosel-radweg",
+      "sourceLabel": "Mosel-Radweg Bernkastel-Kues",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.90988/7.07605",
       "tags": [
         "de",
@@ -129641,8 +129641,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.bernkastel.de",
-      "sourceLabel": "Wein- und Ferienregion Bernkastel-Kues",
+      "sourceUrl": "https://www.bernkastel.de/aktiv-natur/wandern-an-der-mosel/",
+      "sourceLabel": "Vignobles & Crêtes de la Moselle",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.92276/7.05995",
       "tags": [
         "de",
@@ -136225,8 +136225,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Bitburger Land Tourist-Information",
+      "sourceUrl": "https://www.eifel.info/wandern/wanderwege/bitburger-land",
+      "sourceLabel": "Lac de Biersdorf & Südeifel",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.00212/6.50266",
       "tags": [
         "de",
@@ -140008,8 +140008,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Bitburger Land Tourist-Information",
+      "sourceUrl": "https://www.eifel.info/wandern/wanderwege/bitburger-land",
+      "sourceLabel": "Parcours Cyclosportif Bitburger Land",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.01618/6.48510",
       "tags": [
         "de",
@@ -147892,8 +147892,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.naturwanderpark.eu",
-      "sourceLabel": "Naturpark Südeifel (Bollendorf - Irrel)",
+      "sourceUrl": "https://www.eifel.info/radfahren/radwege/sauertal-radweg",
+      "sourceLabel": "Sauertal-Radweg Bollendorf - Wallendorf",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.84815/6.37296",
       "tags": [
         "de",
@@ -151979,8 +151979,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.naturwanderpark.eu",
-      "sourceLabel": "Naturpark Südeifel (Bollendorf - Irrel)",
+      "sourceUrl": "https://www.naturwanderpark.eu/rundwanderwege",
+      "sourceLabel": "Cyclosportif Ferschweiler Plateau",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.86097/6.35610",
       "tags": [
         "de",
@@ -155808,8 +155808,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ferienland-cochem.de",
-      "sourceLabel": "Ferienland Cochem an der Mosel",
+      "sourceUrl": "https://reichsburg-cochem.de/besichtigung/",
+      "sourceLabel": "Mosel-Radweg Château de Cochem & Beilstein",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.14690/7.16674",
       "tags": [
         "de",
@@ -159885,8 +159885,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.gesundland-vulkaneifel.de",
-      "sourceLabel": "GesundLand Vulkaneifel (Daun)",
+      "sourceUrl": "https://www.eifel.info/radfahren/radwege/maare-mosel-radweg",
+      "sourceLabel": "Maare-Mosel-Radweg Daun - Manderscheid",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.19212/6.83981",
       "tags": [
         "de",
@@ -163724,8 +163724,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.gesundland-vulkaneifel.de",
-      "sourceLabel": "GesundLand Vulkaneifel (Daun)",
+      "sourceUrl": "https://www.gesundland-vulkaneifel.de/wandern/",
+      "sourceLabel": "Vulkaneifel-Radweg Dauner Maare",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.20436/6.82254",
       "tags": [
         "de",
@@ -167409,8 +167409,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.maare-moselradweg.de",
-      "sourceLabel": "Maare-Mosel-Radweg Officiel",
+      "sourceUrl": "https://www.eifel.info/radfahren/radwege/maare-mosel-radweg",
+      "sourceLabel": "Maare-Mosel-Radweg Intégral",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.19820/6.83194",
       "tags": [
         "de",
@@ -171740,8 +171740,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.gesundland-vulkaneifel.de",
-      "sourceLabel": "GesundLand Vulkaneifel Officiel",
+      "sourceUrl": "https://www.gesundland-vulkaneifel.de/wandern/",
+      "sourceLabel": "Kalkeifel & Vulkaneifel-Radweg",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.22371/6.66193",
       "tags": [
         "de",
@@ -178602,8 +178602,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ruwer-hochwald-radweg.de",
-      "sourceLabel": "Ruwer-Hochwald-Radweg Officiel",
+      "sourceUrl": "https://www.ruwer-hochwald-radweg.de/strecke/",
+      "sourceLabel": "Ruwer-Hochwald-Radweg Kell am See",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.63319/6.82271",
       "tags": [
         "de",
@@ -181897,8 +181897,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.urlaub.saarland/aktivitaeten/radfahren-wandern",
-      "sourceLabel": "Tourismus Zentrale Saarland",
+      "sourceUrl": "https://www.urlaub.saarland/reisefuehrer/saar-radweg",
+      "sourceLabel": "Tour des Lacs de la Sarre Losheim",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.51135/6.74532",
       "tags": [
         "de",
@@ -185154,8 +185154,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.merzig.de",
-      "sourceLabel": "Merzig - Stadt der Wölfe &amp; Vergers",
+      "sourceUrl": "https://www.urlaub.saarland/reisefuehrer/saar-radweg",
+      "sourceLabel": "Boucle Cyclable Saar Merzig - Losheim",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.43657/6.64634",
       "tags": [
         "de",
@@ -188481,8 +188481,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.merzig.de",
-      "sourceLabel": "Merzig - Stadt der Wölfe &amp; Vergers",
+      "sourceUrl": "https://www.urlaub.saarland/aktivitaeten/wandern",
+      "sourceLabel": "Cyclosportif Hunsrück-Saar Merzig",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.44968/6.62930",
       "tags": [
         "de",
@@ -199516,8 +199516,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.urlaub.saarland",
-      "sourceLabel": "Saarschleifenland Touristik",
+      "sourceUrl": "https://www.tourismus.saarland.de/reisefuehrer/saarschleife",
+      "sourceLabel": "Boucle Cyclable Saarschleife Mettlach",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.49511/6.54982",
       "tags": [
         "de",
@@ -202587,8 +202587,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.urlaub.saarland",
-      "sourceLabel": "Saarschleifenland Touristik",
+      "sourceUrl": "https://www.tourismus.saarland.de/reisefuehrer/saarschleife",
+      "sourceLabel": "Tour Cyclosportif Saarschleife Cloef",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.50798/6.53274",
       "tags": [
         "de",
@@ -205664,8 +205664,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.urlaub.saarland/aktivitaeten/radfahren-wandern",
-      "sourceLabel": "Saarland Radeln &amp; Saarschleifenland",
+      "sourceUrl": "https://www.urlaub.saarland/reisefuehrer/saar-radweg",
+      "sourceLabel": "Boucle Transfrontalière Perl - Mettlach",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.49697/6.46867",
       "tags": [
         "de",
@@ -211878,8 +211878,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Ferienregion Prümer Land",
+      "sourceUrl": "https://www.eifel.info/wandern/wanderwege/pruemer-land",
+      "sourceLabel": "Boucle Vélo Prümer Land & Schneifel",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.20002/6.43347",
       "tags": [
         "de",
@@ -215333,8 +215333,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Ferienregion Prümer Land",
+      "sourceUrl": "https://www.eifel.info/wandern/wanderwege/pruemer-land",
+      "sourceLabel": "Cyclosportif Massif de la Schneifel",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.21300/6.41623",
       "tags": [
         "de",
@@ -218586,8 +218586,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.urlaub.saarland/aktivitaeten/radfahren-wandern",
-      "sourceLabel": "Saar-Radweg Officiel",
+      "sourceUrl": "https://voelklinger-huette.org/de/ausstellungen-besuch/",
+      "sourceLabel": "Saar-Radweg Saarlouis - Völklingen",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.31329/6.75221",
       "tags": [
         "de",
@@ -225200,8 +225200,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.trier-info.de",
-      "sourceLabel": "Trier Tourismus &amp; Moselland",
+      "sourceUrl": "https://www.saar-obermosel.de/poi/saarburger-wasserfall",
+      "sourceLabel": "Saar-Mosel-Radweg Trier - Saarburg",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.75227/6.64864",
       "tags": [
         "de",
@@ -229079,8 +229079,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.trier-info.de",
-      "sourceLabel": "Trier Tourismus &amp; Moselland",
+      "sourceUrl": "https://www.trier-info.de/aktiv/wandern",
+      "sourceLabel": "Cyclosportif Vignobles de la Sarre & Moselle",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.76525/6.63155",
       "tags": [
         "de",
@@ -237019,8 +237019,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Eifel Tourismus Officiel",
+      "sourceUrl": "https://www.eifel.info/radfahren/radwege/kyll-radweg",
+      "sourceLabel": "Kyll-Radweg Gerolstein - Trier",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.22379/6.66182",
       "tags": [
         "de",
@@ -242846,8 +242846,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Eifel Tourismus Officiel",
+      "sourceUrl": "https://www.eifel.info/radfahren/radwege/maare-mosel-radweg",
+      "sourceLabel": "Maare-Mosel-Radweg Daun - Bernkastel",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.19806/6.83519",
       "tags": [
         "de",
@@ -246633,8 +246633,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitmosel.de",
-      "sourceLabel": "Moselland Tourisme Officiel",
+      "sourceUrl": "https://www.visitmosel.de/radfahren/mosel-radweg",
+      "sourceLabel": "Mosel-Radweg Trier - Bernkastel",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.75792/6.64154",
       "tags": [
         "de",
@@ -249988,8 +249988,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitmosel.de",
-      "sourceLabel": "Moselland Tourisme Officiel",
+      "sourceUrl": "https://www.visitmosel.de/radfahren/mosel-radweg",
+      "sourceLabel": "Mosel-Radweg Perl - Trier",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.47340/6.38501",
       "tags": [
         "de",
@@ -252431,8 +252431,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ruwer-hochwald-radweg.de",
-      "sourceLabel": "Ruwer-Hochwald-Radweg Officiel",
+      "sourceUrl": "https://www.ruwer-hochwald-radweg.de/strecke/",
+      "sourceLabel": "Ruwer-Hochwald-Radweg Voie Verte",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.78270/6.70085",
       "tags": [
         "de",
@@ -254632,8 +254632,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.urlaub.saarland",
-      "sourceLabel": "Tourismus Zentrale Saarland",
+      "sourceUrl": "https://www.urlaub.saarland/reisefuehrer/saar-radweg",
+      "sourceLabel": "Saar-Radweg Section Sud",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.44397/6.63502",
       "tags": [
         "de",
@@ -256155,8 +256155,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.urlaub.saarland",
-      "sourceLabel": "Tourismus Zentrale Saarland",
+      "sourceUrl": "https://www.urlaub.saarland/reisefuehrer/saar-radweg",
+      "sourceLabel": "Saar-Radweg Sarrebruck - Konz",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.70199/6.57502",
       "tags": [
         "de",
@@ -258470,8 +258470,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-lorraine.fr",
-      "sourceLabel": "Tourisme Lorraine Nord",
+      "sourceUrl": "https://www.mosl-tourisme.fr/fr/bouger/randonnee-pedestre.html",
+      "sourceLabel": "Gravel Terres Rouges Villerupt",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.47329/5.95061",
       "tags": [
         "fr",
@@ -261693,8 +261693,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-lorraine.fr",
-      "sourceLabel": "Véloroute du Fil Bleu de l&apos;Orne",
+      "sourceUrl": "https://www.tourisme-metz.com/fr/que-faire/nature-et-balades",
+      "sourceLabel": "Fil Bleu Vallée de l’Orne Briey - Amnéville",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.24885/5.93985",
       "tags": [
         "fr",
@@ -264276,8 +264276,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.lameuse.fr",
-      "sourceLabel": "Tourisme Nord Meuse &amp; Grand Longwy",
+      "sourceUrl": "https://www.tourisme-paysdemontmedy.fr/randonnees/",
+      "sourceLabel": "Boucle Renaissance Marville & Longuyon",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.44691/5.60079",
       "tags": [
         "fr",
@@ -266785,8 +266785,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.longwy-tourisme.com",
-      "sourceLabel": "Office de Tourisme du Grand Longwy",
+      "sourceUrl": "https://www.longwy-tourisme.com/randonnees/",
+      "sourceLabel": "Boucle Vélo Pays de Longwy",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.50907/5.76892",
       "tags": [
         "fr",
@@ -270280,8 +270280,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.longwy-tourisme.com",
-      "sourceLabel": "Office de Tourisme du Grand Longwy",
+      "sourceUrl": "https://www.longwy-tourisme.com/randonnees/",
+      "sourceLabel": "Cyclosportif Pays Haut & Vauban",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.52209/5.75208",
       "tags": [
         "fr",
@@ -273605,8 +273605,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.longwy-tourisme.com",
-      "sourceLabel": "Office de Tourisme du Grand Longwy",
+      "sourceUrl": "https://www.longwy-tourisme.com/randonnees/",
+      "sourceLabel": "Boucle Vélo Remparts Vauban Longwy",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.51443/5.76075",
       "tags": [
         "fr",
@@ -277206,8 +277206,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.inspire-metz.com",
-      "sourceLabel": "Inspire Metz &amp; Parc Naturel Régional de Lorraine",
+      "sourceUrl": "https://www.tourisme-metz.com/fr/que-faire/nature-et-balades",
+      "sourceLabel": "Boucle Metz, Jouy & Gorze",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.11932/6.17570",
       "tags": [
         "fr",
@@ -280437,8 +280437,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.inspire-metz.com",
-      "sourceLabel": "Inspire Metz - Office de Tourisme",
+      "sourceUrl": "https://www.tourisme-metz.com/fr/que-faire/nature-et-balades",
+      "sourceLabel": "Boucle Cyclable Metz & Moselle",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.11297/6.18304",
       "tags": [
         "fr",
@@ -283412,8 +283412,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.inspire-metz.com",
-      "sourceLabel": "Inspire Metz - Office de Tourisme",
+      "sourceUrl": "https://www.tourisme-metz.com/fr/que-faire/nature-et-balades",
+      "sourceLabel": "Cyclosportif Côtes de Moselle & Scy",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.12608/6.16587",
       "tags": [
         "fr",
@@ -286441,8 +286441,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-montmedy.fr",
-      "sourceLabel": "Office de Tourisme du Pays de Montmédy",
+      "sourceUrl": "https://www.tourisme-paysdemontmedy.fr/randonnees/",
+      "sourceLabel": "Citadelle de Montmédy, Avioth & Stenay",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.51748/5.36590",
       "tags": [
         "fr",
@@ -289994,8 +289994,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.boucledelamoselle.fr",
-      "sourceLabel": "Boucle de la Moselle Officielle (Nancy - Toul)",
+      "sourceUrl": "https://www.boucledelamoselle.fr/le-circuit/",
+      "sourceLabel": "La Boucle de la Moselle Nancy - Toul",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/48.75117/6.06268",
       "tags": [
         "fr",
@@ -292649,8 +292649,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.lacmadine.com",
-      "sourceLabel": "Lac de Madine &amp; Parc Naturel Régional de Lorraine",
+      "sourceUrl": "https://lacdemadine.com/activites/randonnee/",
+      "sourceLabel": "Lac de Madine & Hattonchâtel",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/48.92743/5.74790",
       "tags": [
         "fr",
@@ -294178,8 +294178,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.paysdes3frontieres.com",
-      "sourceLabel": "Maison du Tourisme du Pays des Trois Frontières",
+      "sourceUrl": "https://www.mairie-rodemack.fr/tourisme/",
+      "sourceLabel": "Rodemack & Lac du Mirgenbach",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.46936/6.23622",
       "tags": [
         "fr",
@@ -296761,8 +296761,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.sarreguemines-tourisme.com",
-      "sourceLabel": "Sarreguemines Confluences &amp; EuroVelo 5",
+      "sourceUrl": "https://www.sarreguemines-tourisme.com/a-voir-a-faire/balades-et-randonnees/",
+      "sourceLabel": "Canal des Houillères de la Sarre",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.11074/7.06827",
       "tags": [
         "fr",
@@ -299816,8 +299816,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.paysdes3frontieres.com",
-      "sourceLabel": "Tourisme Pays de Sierck &amp; Trois Frontières",
+      "sourceUrl": "https://www.chateau-malbrouck.com/visiter/",
+      "sourceLabel": "Châteaux des 3 Frontières Sierck & Malbrouck",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.44230/6.35987",
       "tags": [
         "fr",
@@ -302887,8 +302887,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.thionvilletourisme.fr",
-      "sourceLabel": "Pays Thionvillois Tourisme",
+      "sourceUrl": "https://www.lavoiebleue.com/itineraire/thionville-metz",
+      "sourceLabel": "La Voie Bleue Thionville - Sierck",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.35186/6.17513",
       "tags": [
         "fr",
@@ -305950,8 +305950,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.thionvilletourisme.fr",
-      "sourceLabel": "Pays Thionvillois Tourisme",
+      "sourceUrl": "https://www.thionvilletourisme.fr/a-faire/randonnees/",
+      "sourceLabel": "Cyclosportif Pays des Trois Frontières",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.36476/6.15884",
       "tags": [
         "fr",
@@ -309707,8 +309707,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.thionvilletourisme.fr",
-      "sourceLabel": "Pays Thionvillois Tourisme &amp; Vallée de la Canner",
+      "sourceUrl": "https://www.tourisme-metz.com/fr/que-faire/nature-et-balades",
+      "sourceLabel": "Voie Verte Vallée de la Canner Vigy",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.35779/6.16857",
       "tags": [
         "fr",
@@ -312522,8 +312522,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-verdun.com",
-      "sourceLabel": "Grand Verdun Tourisme &amp; La Meuse à Vélo",
+      "sourceUrl": "https://www.tourisme-verdun.com/a-voir-a-faire/activites-de-pleine-nature/balades-et-randonnees/",
+      "sourceLabel": "EuroVelo 19 La Meuse à Vélo Verdun",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.15970/5.38470",
       "tags": [
         "fr",
@@ -314659,8 +314659,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-verdun.com",
-      "sourceLabel": "Grand Verdun Tourisme",
+      "sourceUrl": "https://www.tourisme-verdun.com/a-voir-a-faire/activites-de-pleine-nature/balades-et-randonnees/",
+      "sourceLabel": "Boucle Cyclable Verdun & Meuse",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.15416/5.39284",
       "tags": [
         "fr",
@@ -317202,8 +317202,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-verdun.com",
-      "sourceLabel": "Grand Verdun Tourisme",
+      "sourceUrl": "https://www.tourisme-verdun.com/a-voir-a-faire/activites-de-pleine-nature/balades-et-randonnees/",
+      "sourceLabel": "Cyclosportif Champs de Bataille de Verdun",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.16699/5.37600",
       "tags": [
         "fr",
@@ -319991,8 +319991,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-meuse.com",
-      "sourceLabel": "Tourisme Meuse Officiel",
+      "sourceUrl": "https://www.tourisme-meuse.com/decouvrir/les-incontournables/cotes-de-meuse/",
+      "sourceLabel": "Boucle Cyclable Côtes de Meuse",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/48.99531/5.70151",
       "tags": [
         "fr",
@@ -321170,8 +321170,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.nancy-tourisme.fr",
-      "sourceLabel": "Nancy Tourisme Officiel",
+      "sourceUrl": "https://www.nancy-tourisme.fr/decouvrir-nancy/nature-et-parcs/",
+      "sourceLabel": "Circuit VTT Forêt de Haye (Nancy)",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/48.66501/6.11491",
       "tags": [
         "fr",
@@ -322309,8 +322309,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-meuse.com",
-      "sourceLabel": "Tourisme Meuse Officiel",
+      "sourceUrl": "https://lacdemadine.com/activites/randonnee/",
+      "sourceLabel": "Tour du Lac de Madine à Vélo",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/48.94184/5.71511",
       "tags": [
         "fr",
@@ -323378,8 +323378,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-metz.com",
-      "sourceLabel": "Tourisme Metz Métropole",
+      "sourceUrl": "https://www.tourisme-metz.com/fr/que-faire/nature-et-balades",
+      "sourceLabel": "Voie Verte de la Vallée de la Canner",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.20505/6.29812",
       "tags": [
         "fr",
@@ -325127,8 +325127,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.lavoiebleue.com",
-      "sourceLabel": "La Voie Bleue V50 Officiel",
+      "sourceUrl": "https://www.lavoiebleue.com/itineraire/thionville-metz",
+      "sourceLabel": "La Voie Bleue V50 Thionville - Metz",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.35781/6.17474",
       "tags": [
         "fr",
@@ -326690,8 +326690,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.lavoiebleue.com",
-      "sourceLabel": "La Voie Bleue V50 Officiel",
+      "sourceUrl": "https://www.lavoiebleue.com/itineraire/apach-thionville",
+      "sourceLabel": "La Voie Bleue V50 Apach - Thionville",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.46500/6.36514",
       "tags": [
         "fr",
@@ -328117,8 +328117,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.lavoiebleue.com",
-      "sourceLabel": "La Voie Bleue V50 Officiel",
+      "sourceUrl": "https://www.lavoiebleue.com/itineraire/metz-pont-a-mousson",
+      "sourceLabel": "La Voie Bleue V50 Metz - Pont-à-Mousson",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/49.11992/6.17583",
       "tags": [
         "fr",
@@ -597011,8 +597011,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitzuidlimburg.nl",
-      "sourceLabel": "Visit Zuid-Limburg Heuvelland",
+      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/routes-in-zuid-limburg/",
+      "sourceLabel": "Tour du Heuvelland & Drielandenpunt",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.81451/5.88925",
       "tags": [
         "nl",
@@ -600260,8 +600260,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitzuidlimburg.nl",
-      "sourceLabel": "Visit Zuid-Limburg Fietsknooppunten",
+      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/routes-in-zuid-limburg/",
+      "sourceLabel": "Véloroute de la Meuse Maastricht - Eijsden",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.85169/5.69091",
       "tags": [
         "nl",
@@ -603009,8 +603009,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitzuidlimburg.nl",
-      "sourceLabel": "Visit Zuid-Limburg Officieel",
+      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/routes-in-zuid-limburg/",
+      "sourceLabel": "Boucle Cyclable Maastricht & Valkenburg",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.84512/5.69942",
       "tags": [
         "nl",
@@ -605760,8 +605760,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitzuidlimburg.nl",
-      "sourceLabel": "Visit Zuid-Limburg Officieel",
+      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/routes-in-zuid-limburg/",
+      "sourceLabel": "Cyclosportif Mergelland & Cauberg",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.85804/5.68207",
       "tags": [
         "nl",
@@ -608165,8 +608165,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/fietsen-wandelen/",
-      "sourceLabel": "Visit Zuid-Limburg (Amstel Gold Race Xperience)",
+      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/routes-in-zuid-limburg/detail/amstel-gold-race-lus-1/70868/",
+      "sourceLabel": "Amstel Gold Race Loop Valkenburg",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.86504/5.83151",
       "tags": [
         "nl",
@@ -611132,8 +611132,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitzuidlimburg.nl",
-      "sourceLabel": "Visit Zuid-Limburg Officieel",
+      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/routes-in-zuid-limburg/detail/amstel-gold-race-lus-1/70868/",
+      "sourceLabel": "Amstel Gold Race Fietslus",
       "geoportailUrl": "https://cycling.waymarkedtrails.org/#?map=14/50.86504/5.83151",
       "tags": [
         "nl",
@@ -614183,8 +614183,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitarlon.be",
-      "sourceLabel": "Maison du Tourisme du Pays d&apos;Arlon",
+      "sourceUrl": "https://www.visitarlon.be/balades-et-randonnees/",
+      "sourceLabel": "Boucle Pédestre Saint-Donat & Beynert",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.68285/5.80901",
       "tags": [
         "be",
@@ -615002,8 +615002,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitarlon.be",
-      "sourceLabel": "Maison du Tourisme du Pays d&apos;Arlon",
+      "sourceUrl": "https://www.visitarlon.be/balades-et-randonnees/",
+      "sourceLabel": "Traversée Forestière Arlon - Guirsch",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.67401/5.79903",
       "tags": [
         "be",
@@ -615963,8 +615963,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitarlon.be",
-      "sourceLabel": "Visit Arlon Randonnées",
+      "sourceUrl": "https://www.visitarlon.be/balades-et-randonnees/",
+      "sourceLabel": "Sentier Abbaye de Clairefontaine & Eischen",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.66531/5.86206",
       "tags": [
         "be",
@@ -616744,8 +616744,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.paysdebastogne.be",
-      "sourceLabel": "Pays de Bastogne Tourisme",
+      "sourceUrl": "https://www.paysdebastogne.be/itineraires/",
+      "sourceLabel": "Sentier du Bois de la Paix (Bastogne)",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.01199/5.74094",
       "tags": [
         "be",
@@ -617443,8 +617443,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.paysdebastogne.be",
-      "sourceLabel": "Maison du Tourisme du Pays de Bastogne",
+      "sourceUrl": "https://www.paysdebastogne.be/itineraires/",
+      "sourceLabel": "Boucle Pédestre Pays de Bastogne",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.00873/5.72818",
       "tags": [
         "be",
@@ -618158,8 +618158,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.paysdebastogne.be",
-      "sourceLabel": "Maison du Tourisme du Pays de Bastogne",
+      "sourceUrl": "https://www.paysdebastogne.be/itineraires/",
+      "sourceLabel": "Grande Randonnée de la Mémoire Bastogne",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.99997/5.71910",
       "tags": [
         "be",
@@ -619576,8 +619576,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.bouillon-tourisme.be",
-      "sourceLabel": "Maison du Tourisme du Pays de Bouillon",
+      "sourceUrl": "https://www.bouillon-tourisme.be/activites/randonnees/",
+      "sourceLabel": "Belvédère de Bouillon & Cordemois",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.79395/5.06705",
       "tags": [
         "be",
@@ -620501,8 +620501,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.bouillon-tourisme.be",
-      "sourceLabel": "Pays de Bouillon en Ardenne",
+      "sourceUrl": "https://www.bouillon-tourisme.be/activites/randonnees/",
+      "sourceLabel": "Boucle Pédestre Semois & Bouillon",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.80301/5.06334",
       "tags": [
         "be",
@@ -621720,8 +621720,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.bouillon-tourisme.be",
-      "sourceLabel": "Pays de Bouillon en Ardenne",
+      "sourceUrl": "https://www.bouillon-tourisme.be/activites/randonnees/",
+      "sourceLabel": "Crêtes Sauvages de Bouillon",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.79477/5.05317",
       "tags": [
         "be",
@@ -624086,8 +624086,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Syndicat d&apos;Initiative de Florenville",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Boucle de Chassepierre & Crêtes de Florenville",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.70626/5.26354",
       "tags": [
         "be",
@@ -624753,8 +624753,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Office du Tourisme de Chiny",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Pont Saint-Nicolas & Rocher du Hat (Chiny)",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.73846/5.34260",
       "tags": [
         "be",
@@ -625890,8 +625890,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.durbuyinfo.be",
-      "sourceLabel": "Terre de Durbuy Officiel",
+      "sourceUrl": "https://durbuytourisme.be/balades-et-randonnees/",
+      "sourceLabel": "Sentier des Mégalithes de Wéris & Durbuy",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.32598/5.53101",
       "tags": [
         "be",
@@ -626669,8 +626669,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Syndicat d&apos;Initiative de Florenville",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Boucle Pédestre Florenville & Semois",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.70219/5.31591",
       "tags": [
         "be",
@@ -627376,8 +627376,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Syndicat d&apos;Initiative de Florenville",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Sentier des Crêtes de Florenville",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.69498/5.30626",
       "tags": [
         "be",
@@ -628233,8 +628233,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Syndicat d&apos;Initiative d&apos;Habay",
+      "sourceUrl": "https://visitwallonia.be/fr-be/content/parc-naturel-haute-sure-foret-danlier",
+      "sourceLabel": "Sentier des Étangs du Châtelet (Habay)",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.74821/5.64146",
       "tags": [
         "be",
@@ -629058,8 +629058,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.famenneardenne.be",
-      "sourceLabel": "Famenne-Ardenne Tourisme",
+      "sourceUrl": "https://grotte-de-han.be/la-grotte",
+      "sourceLabel": "Sentier du Gouffre de Belvaux (Han)",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.12594/5.18717",
       "tags": [
         "be",
@@ -629949,8 +629949,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.herbeumont-tourisme.be",
-      "sourceLabel": "Syndicat d&apos;Initiative d&apos;Herbeumont",
+      "sourceUrl": "https://visitwallonia.be/fr-be/content/ruines-du-chateau-feodal-dherbeumont",
+      "sourceLabel": "Ruines Château d’Herbeumont & Semois",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.77528/5.23634",
       "tags": [
         "be",
@@ -630882,8 +630882,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Cœur de l&apos;Ardenne (Houffalize)",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "Boucle Pédestre Houffalize & Ourthe",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.13963/5.79219",
       "tags": [
         "be",
@@ -631693,8 +631693,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Cœur de l&apos;Ardenne (Houffalize)",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "Crêtes Boisées d’Houffalize",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.13003/5.78407",
       "tags": [
         "be",
@@ -633294,8 +633294,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Syndicat d&apos;Initiative de La Roche-en-Ardenne",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "Boucle Pédestre La Roche-en-Ardenne",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.18796/5.57871",
       "tags": [
         "be",
@@ -634393,8 +634393,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Syndicat d&apos;Initiative de La Roche-en-Ardenne",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "Crêtes & Forêts de La Roche-en-Ardenne",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.17898/5.56999",
       "tags": [
         "be",
@@ -635546,8 +635546,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Syndicat d&apos;Initiative de La Roche-en-Ardenne",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "Crêtes du Deister & Corumont La Roche",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.18410/5.57588",
       "tags": [
         "be",
@@ -637736,8 +637736,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ostbelgien.eu",
-      "sourceLabel": "Maison du Tourisme des Hautes Fagnes (Malmedy)",
+      "sourceUrl": "https://www.ostbelgien.eu/fr/randonnee",
+      "sourceLabel": "Boucle Pédestre Vallée de la Warche",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.43077/6.03096",
       "tags": [
         "be",
@@ -638971,8 +638971,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ostbelgien.eu",
-      "sourceLabel": "Maison du Tourisme des Hautes Fagnes (Malmedy)",
+      "sourceUrl": "https://www.ostbelgien.eu/fr/randonnee",
+      "sourceLabel": "Crêtes des Hautes Fagnes Malmedy",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.42180/6.02158",
       "tags": [
         "be",
@@ -640444,8 +640444,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Parc Naturel Haute-Sûre Forêt d&apos;Anlier",
+      "sourceUrl": "https://visitwallonia.be/fr-be/content/parc-naturel-haute-sure-foret-danlier",
+      "sourceLabel": "Ardoisières & Méandres de la Sûre Martelange",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.82943/5.72836",
       "tags": [
         "be",
@@ -641257,8 +641257,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.coeurdelardenne.be",
-      "sourceLabel": "Cœur de l&apos;Ardenne (Nadrin - Houffalize)",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/le-site-du-herou",
+      "sourceLabel": "Rocher du Hérou & Cheslé Nadrin",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.15226/5.68019",
       "tags": [
         "be",
@@ -642018,8 +642018,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Maison du Tourisme Ourthe-Vesdre-Amblève",
+      "sourceUrl": "https://walloniebelgiquetourisme.be/fr-be/content/promenade-du-ninglinspo-la-seule-riviere-de-montagne-de-belgique",
+      "sourceLabel": "Ninglinspo & Fonds de Quarreux",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.46806/5.74398",
       "tags": [
         "be",
@@ -642939,8 +642939,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Parc Naturel de la Vallée de l&apos;Attert",
+      "sourceUrl": "https://www.visitarlon.be/balades-et-randonnees/",
+      "sourceLabel": "Nobressart & Vallée de l’Attert",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.74127/5.72073",
       "tags": [
         "be",
@@ -643712,8 +643712,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Maison du Tourisme de Gaume",
+      "sourceUrl": "https://www.orval.be/fr/page/373-visite-des-ruines",
+      "sourceLabel": "Bois d’Orval & Chapelle Notre-Dame",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.63949/5.34903",
       "tags": [
         "be",
@@ -644723,8 +644723,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.bouillon-tourisme.be",
-      "sourceLabel": "Pays de Bouillon en Ardenne",
+      "sourceUrl": "https://visitwallonia.be/fr-be/content/promenade-des-echelles-de-rochehaut",
+      "sourceLabel": "Échelles de Rochehaut & Frahan",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.84037/5.00557",
       "tags": [
         "be",
@@ -645780,8 +645780,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.foretdesainthubert-tourisme.be",
-      "sourceLabel": "Forêt de Saint-Hubert Tourisme",
+      "sourceUrl": "https://www.foretdesainthubert-tourisme.be/balades/",
+      "sourceLabel": "Tourbière de la Fagne de Mochamps",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.07583/5.43210",
       "tags": [
         "be",
@@ -646547,8 +646547,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ostbelgien.eu",
-      "sourceLabel": "Ostbelgien Tourisme (Saint-Vith)",
+      "sourceUrl": "https://www.ostbelgien.eu/fr/randonnee",
+      "sourceLabel": "Boucle Pédestre Saint-Vith & Vallée de l’Our",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.28634/6.13012",
       "tags": [
         "be",
@@ -647406,8 +647406,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.ostbelgien.eu",
-      "sourceLabel": "Ostbelgien Tourisme (Saint-Vith)",
+      "sourceUrl": "https://www.ostbelgien.eu/fr/randonnee",
+      "sourceLabel": "Crêtes Sauvages des Cantons de l’Est",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.27700/6.12077",
       "tags": [
         "be",
@@ -648567,8 +648567,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Visit Gaume Officiel",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Réserve Raymond Mayné (Torgny)",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.50718/5.47560",
       "tags": [
         "be",
@@ -649250,8 +649250,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.haute-ardenne.be",
-      "sourceLabel": "Haute-Ardenne Tourisme",
+      "sourceUrl": "https://www.haute-ardenne.be/fr/a-voir-a-faire/itineraires",
+      "sourceLabel": "Bec du Corbeau & Lac des Doyards",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.28562/5.91512",
       "tags": [
         "be",
@@ -650087,8 +650087,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Maison du Tourisme de Gaume",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Trou des Fées & Lac de Rabais",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.59397/5.55557",
       "tags": [
         "be",
@@ -650794,8 +650794,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitgaume.be",
-      "sourceLabel": "Maison du Tourisme de Gaume",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Crêtes de Montquintin & Forêt de Bonlieu",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.58523/5.54730",
       "tags": [
         "be",
@@ -651819,8 +651819,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://durbuytourisme.be/balades-et-randonnees/",
+      "sourceLabel": "Circuit Pédestre Cité de Durbuy",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.35209/5.45594",
       "tags": [
         "be",
@@ -652928,8 +652928,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://visitwallonia.be/fr-be/content/promenade-des-echelles-de-rochehaut",
+      "sourceLabel": "Promenade des Échelles de Rochehaut",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.82496/4.98497",
       "tags": [
         "be",
@@ -654003,8 +654003,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://hautesfagnes.be/signal-de-botrange/",
+      "sourceLabel": "Sentier du Signal de Botrange & Fagnes",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.50173/6.09284",
       "tags": [
         "be",
@@ -654624,8 +654624,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/le-site-du-herou",
+      "sourceLabel": "Sentier du Site du Hérou & Ourthe",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.14197/5.67101",
       "tags": [
         "be",
@@ -655405,8 +655405,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://www.coeurdelardenne.be/nature/randonnees",
+      "sourceLabel": "Crêtes & Château de La Roche",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.18205/5.57502",
       "tags": [
         "be",
@@ -656434,8 +656434,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://walloniebelgiquetourisme.be/fr-be/content/promenade-du-ninglinspo-la-seule-riviere-de-montagne-de-belgique",
+      "sourceLabel": "Promenade Officielle du Ninglinspo",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.47300/5.67400",
       "tags": [
         "be",
@@ -657375,8 +657375,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://www.orval.be/fr/page/373-visite-des-ruines",
+      "sourceLabel": "Circuit de l’Abbaye d’Orval & Gaume",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.63804/5.34781",
       "tags": [
         "be",
@@ -658178,8 +658178,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://www.foretdesainthubert-tourisme.be/balades/",
+      "sourceLabel": "Grande Forêt de Saint-Hubert",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.02500/5.37200",
       "tags": [
         "be",
@@ -659487,8 +659487,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://www.spatourisme.be/fr/balades-et-randonnees",
+      "sourceLabel": "Sentier de la Fagne de Malchamps",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.49201/5.86506",
       "tags": [
         "be",
@@ -660178,8 +660178,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://visitwallonia.be/fr-be/content/point-de-vue-du-tombeau-du-geant-a-botassart",
+      "sourceLabel": "Belvédère & Sentier du Tombeau du Géant",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.79506/5.06807",
       "tags": [
         "be",
@@ -661423,8 +661423,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://visitwallonia.be",
-      "sourceLabel": "Visit Wallonia Officiel",
+      "sourceUrl": "https://www.visitgaume.be/randonnees/",
+      "sourceLabel": "Vallée de Rabais & Trou des Fées",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.56779/5.53221",
       "tags": [
         "be",
@@ -662246,8 +662246,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifelsteig.de",
-      "sourceLabel": "Eifelsteig (Site Officiel)",
+      "sourceUrl": "https://www.eifelsteig.de/etappen/etappe-14",
+      "sourceLabel": "Eifelsteig Etappe 14 Kordel - Trier",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.84191/6.63505",
       "tags": [
         "de",
@@ -664179,8 +664179,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifelsteig.de",
-      "sourceLabel": "Eifelsteig (Site Officiel)",
+      "sourceUrl": "https://www.eifelsteig.de/etappen/etappe-11",
+      "sourceLabel": "Eifelsteig Etappe 11 Daun - Manderscheid",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.09219/6.81199",
       "tags": [
         "de",
@@ -665928,8 +665928,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.saar-obermosel.de",
-      "sourceLabel": "Saar-Obermosel Tourisme",
+      "sourceUrl": "https://www.saar-obermosel.de/poi/felsenpfad-kastel-staadt",
+      "sourceLabel": "Traumschleife Felsenpfad Kastel-Staadt",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.56800/6.56807",
       "tags": [
         "de",
@@ -666821,8 +666821,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.bernkastel.de",
-      "sourceLabel": "Wein- und Ferienregion Bernkastel-Kues",
+      "sourceUrl": "https://www.visitmosel.de/wandern/moselsteig/moselsteig-etappen",
+      "sourceLabel": "Moselsteig Boucle Bernkastel-Kues",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.92099/7.07302",
       "tags": [
         "de",
@@ -667792,8 +667792,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.bernkastel.de",
-      "sourceLabel": "Wein- und Ferienregion Bernkastel-Kues",
+      "sourceUrl": "https://www.bernkastel.de/aktiv-natur/wandern-an-der-mosel/",
+      "sourceLabel": "Crêtes Panoramiques de la Moselle",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.91210/7.06374",
       "tags": [
         "de",
@@ -670606,8 +670606,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Bitburger Land Tourist-Information",
+      "sourceUrl": "https://www.eifel.info/wandern/wanderwege/bitburger-land",
+      "sourceLabel": "Boucle Pédestre Lac de Biersdorf",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.01279/6.49955",
       "tags": [
         "de",
@@ -671505,8 +671505,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Bitburger Land Tourist-Information",
+      "sourceUrl": "https://www.eifel.info/wandern/wanderwege/bitburger-land",
+      "sourceLabel": "Crêtes Boisées du Bitburger Land",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.00459/6.48995",
       "tags": [
         "de",
@@ -672730,8 +672730,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.naturwanderpark.eu",
-      "sourceLabel": "NaturWanderPark delux (Südeifel)",
+      "sourceUrl": "https://www.naturwanderpark.eu/rundwanderwege",
+      "sourceLabel": "Gorges de Bollendorf & Fraubillenkreuz",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.85276/6.36196",
       "tags": [
         "de",
@@ -673689,8 +673689,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.naturwanderpark.eu",
-      "sourceLabel": "Naturpark Südeifel (Bollendorf - Irrel)",
+      "sourceUrl": "https://www.naturwanderpark.eu/rundwanderwege",
+      "sourceLabel": "Sentier du NaturWanderPark delux Südeifel",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.85862/6.37065",
       "tags": [
         "de",
@@ -674508,8 +674508,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.naturwanderpark.eu",
-      "sourceLabel": "Naturpark Südeifel (Bollendorf - Irrel)",
+      "sourceUrl": "https://www.naturwanderpark.eu/rundwanderwege",
+      "sourceLabel": "Plateau du Ferschweiler & Südeifel",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.84991/6.36002",
       "tags": [
         "de",
@@ -676445,8 +676445,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.gesundland-vulkaneifel.de",
-      "sourceLabel": "GesundLand Vulkaneifel Officiel",
+      "sourceUrl": "https://www.eifel.info/a-dauner-maare",
+      "sourceLabel": "Circuit des Trois Maare de Daun",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.17800/6.85201",
       "tags": [
         "de",
@@ -677532,8 +677532,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.gesundland-vulkaneifel.de",
-      "sourceLabel": "GesundLand Vulkaneifel (Daun)",
+      "sourceUrl": "https://www.gesundland-vulkaneifel.de/wandern/",
+      "sourceLabel": "Boucle Pédestre Dauner Maare",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.20279/6.83577",
       "tags": [
         "de",
@@ -678775,8 +678775,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.gesundland-vulkaneifel.de",
-      "sourceLabel": "GesundLand Vulkaneifel (Daun)",
+      "sourceUrl": "https://www.gesundland-vulkaneifel.de/wandern/",
+      "sourceLabel": "Crêtes Volcaniques de la Vulkaneifel",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.19378/6.82709",
       "tags": [
         "de",
@@ -680624,8 +680624,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifelsteig.de",
-      "sourceLabel": "Eifelsteig &amp; Gerolsteiner Land",
+      "sourceUrl": "https://www.eifel.info/wandern/wanderwege/gerolsteiner-land",
+      "sourceLabel": "Eifelsteig Dolomites de Gerolstein",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.22232/6.65156",
       "tags": [
         "de",
@@ -682091,8 +682091,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.naturwanderpark.eu",
-      "sourceLabel": "NaturWanderPark delux Officiel",
+      "sourceUrl": "https://www.naturwanderpark.eu/rundwanderwege",
+      "sourceLabel": "Felsenweg 6 Falaises de Prümzurlay & Irrel",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.86899/6.44096",
       "tags": [
         "de",
@@ -685006,8 +685006,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifelsteig.de",
-      "sourceLabel": "Römerpfad &amp; Eifelsteig (Kordel)",
+      "sourceUrl": "https://www.eifelsteig.de/etappen/etappe-14",
+      "sourceLabel": "Römerpfad Butzerbachtal & Genovevahöhle",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.83981/6.63492",
       "tags": [
         "de",
@@ -686824,8 +686824,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.manderscheid.de",
-      "sourceLabel": "Manderscheider Burgenstieg Officiel",
+      "sourceUrl": "https://www.gesundland-vulkaneifel.de/wandern/",
+      "sourceLabel": "Manderscheider Burgenstieg & Lieserpfad",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.09264/6.80968",
       "tags": [
         "de",
@@ -687673,8 +687673,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.merzig.de",
-      "sourceLabel": "Merzig - Stadt der Wölfe &amp; Vergers",
+      "sourceUrl": "https://www.urlaub.saarland/aktivitaeten/wandern",
+      "sourceLabel": "Boucle Pédestre Merzig & Losheim",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.44795/6.64203",
       "tags": [
         "de",
@@ -688724,8 +688724,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.merzig.de",
-      "sourceLabel": "Merzig - Stadt der Wölfe &amp; Vergers",
+      "sourceUrl": "https://www.urlaub.saarland/aktivitaeten/wandern",
+      "sourceLabel": "Crêtes Boisées de Merzig-Wadern",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.43891/6.63271",
       "tags": [
         "de",
@@ -689797,8 +689797,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.monschau.de",
-      "sourceLabel": "Monschauer Land Touristik",
+      "sourceUrl": "https://www.eifel.info/a-historische-altstadt-monschau",
+      "sourceLabel": "Eifelsteig Jonquilles du Perlenbach & Monschau",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.55517/6.24273",
       "tags": [
         "de",
@@ -691096,8 +691096,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.naturwanderpark.eu",
-      "sourceLabel": "NaturWanderPark delux (Neuerburg)",
+      "sourceUrl": "https://www.naturwanderpark.eu/rundwanderwege",
+      "sourceLabel": "Neuerburger Kopf & Vallée de l’Enz",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.01080/6.29650",
       "tags": [
         "de",
@@ -695419,8 +695419,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.urlaub.saarland",
-      "sourceLabel": "Saarschleifenland Touristik",
+      "sourceUrl": "https://www.tourismus.saarland.de/reisefuehrer/saarschleife",
+      "sourceLabel": "Boucle Pédestre Cloef Saarschleife",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.50589/6.54602",
       "tags": [
         "de",
@@ -696110,8 +696110,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.urlaub.saarland",
-      "sourceLabel": "Saarschleifenland Touristik",
+      "sourceUrl": "https://www.tourismus.saarland.de/reisefuehrer/saarschleife",
+      "sourceLabel": "Crêtes & Falaises de la Saarschleife",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.49706/6.53702",
       "tags": [
         "de",
@@ -697479,8 +697479,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Ferienregion Prümer Land",
+      "sourceUrl": "https://www.eifel.info/wandern/wanderwege/pruemer-land",
+      "sourceLabel": "Boucle Pédestre Prümer Land",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.21091/6.42926",
       "tags": [
         "de",
@@ -698594,8 +698594,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Ferienregion Prümer Land",
+      "sourceUrl": "https://www.eifel.info/wandern/wanderwege/pruemer-land",
+      "sourceLabel": "Crêtes Sauvages de la Schneifel",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.20183/6.42014",
       "tags": [
         "de",
@@ -700550,8 +700550,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.saar-obermosel.de",
-      "sourceLabel": "Saar-Obermosel Touristik",
+      "sourceUrl": "https://www.saar-obermosel.de/poi/saarburger-wasserfall",
+      "sourceLabel": "Cascade Urbaine & Château de Saarburg",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.60558/6.55035",
       "tags": [
         "de",
@@ -702420,8 +702420,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.trier-info.de",
-      "sourceLabel": "Trier Tourismus &amp; Moselland",
+      "sourceUrl": "https://www.trier-info.de/aktiv/wandern",
+      "sourceLabel": "Boucle Pédestre Trier & Moselle",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.76298/6.64528",
       "tags": [
         "de",
@@ -703439,8 +703439,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.trier-info.de",
-      "sourceLabel": "Trier Tourismus &amp; Moselland",
+      "sourceUrl": "https://www.trier-info.de/aktiv/wandern",
+      "sourceLabel": "Crêtes Panoramiques du Trierer Land",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.75400/6.63600",
       "tags": [
         "de",
@@ -704728,8 +704728,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Eifel Tourismus Officiel",
+      "sourceUrl": "https://www.eifel.info/wandern/wanderwege/lieserpfad",
+      "sourceLabel": "Lieserpfad Daun - Wittlich",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.19806/6.83519",
       "tags": [
         "de",
@@ -707453,8 +707453,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitmosel.de",
-      "sourceLabel": "Moselsteig Officiel",
+      "sourceUrl": "https://www.visitmosel.de/wandern/moselsteig/moselsteig-etappe-03",
+      "sourceLabel": "Moselsteig Nittel - Konz",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.62569/6.44244",
       "tags": [
         "de",
@@ -708754,8 +708754,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitmosel.de",
-      "sourceLabel": "Moselsteig Officiel",
+      "sourceUrl": "https://www.visitmosel.de/wandern/moselsteig/moselsteig-etappe-05",
+      "sourceLabel": "Moselsteig Trier - Schweich",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.75818/6.64225",
       "tags": [
         "de",
@@ -709687,8 +709687,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.nationalpark-eifel.de",
-      "sourceLabel": "Nationalpark Eifel Officiel",
+      "sourceUrl": "https://www.nationalpark-eifel.de/de/nationalpark-erleben/unterwegs-im-nationalpark/",
+      "sourceLabel": "Plateau Dreiborn & Wollseifen",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.57525/6.42848",
       "tags": [
         "de",
@@ -711698,8 +711698,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.naturpark-suedeifel.de",
-      "sourceLabel": "Naturpark Südeifel Officiel",
+      "sourceUrl": "https://www.eifel.info/a-teufelsschlucht",
+      "sourceLabel": "Teufelsschlucht & Irreler Wasserfälle",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.85246/6.42560",
       "tags": [
         "de",
@@ -712581,8 +712581,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.saar-hunsrueck-steig.de",
-      "sourceLabel": "Saar-Hunsrück-Steig Officiel",
+      "sourceUrl": "https://www.saar-hunsrueck-steig.de/traumschleifen/cloef-pfad",
+      "sourceLabel": "Traumschleife Cloef-Pfad Saarschleife",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.49490/6.59208",
       "tags": [
         "de",
@@ -713946,8 +713946,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.eifel.info",
-      "sourceLabel": "Eifel Tourismus Officiel",
+      "sourceUrl": "https://www.gesundland-vulkaneifel.de/wandern/",
+      "sourceLabel": "Vulkanpfad Daun & Lacs de Maare",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.19806/6.83519",
       "tags": [
         "de",
@@ -714895,8 +714895,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-lorraine.fr",
-      "sourceLabel": "Conservatoire d&apos;Espaces Naturels de Lorraine",
+      "sourceUrl": "https://www.mosl-tourisme.fr/fr/bouger/randonnee-pedestre.html",
+      "sourceLabel": "Sentier des Carrières d’Audun-le-Tiche",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.47329/5.95061",
       "tags": [
         "fr",
@@ -715842,8 +715842,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-paysdebitche.fr",
-      "sourceLabel": "Office de Tourisme du Pays de Bitche",
+      "sourceUrl": "https://www.citadelle-bitche.com/fr/decouvrir-la-citadelle/",
+      "sourceLabel": "Étang de Hasselfurth & Citadelle de Bitche",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.05166/7.42535",
       "tags": [
         "fr",
@@ -716415,8 +716415,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.pnr-lorraine.com",
-      "sourceLabel": "Parc Naturel Régional de Lorraine",
+      "sourceUrl": "https://www.pnr-lorraine.com/decouvrir-le-parc/patrimoine-naturel/",
+      "sourceLabel": "Cirque de Parfond Val & Crêtes de Gorze",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.05405/5.99809",
       "tags": [
         "fr",
@@ -717168,8 +717168,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.lacmadine.com",
-      "sourceLabel": "Domaine du Lac de Madine",
+      "sourceUrl": "https://lacdemadine.com/activites/randonnee/",
+      "sourceLabel": "Sentier Ornithologique du Lac de Madine",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/48.92830/5.75832",
       "tags": [
         "fr",
@@ -718921,8 +718921,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.longwy-tourisme.com",
-      "sourceLabel": "Office de Tourisme du Grand Longwy",
+      "sourceUrl": "https://www.longwy-tourisme.com/randonnees/",
+      "sourceLabel": "Boucle Pédestre Pays de Longwy",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.51997/5.76504",
       "tags": [
         "fr",
@@ -719852,8 +719852,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.longwy-tourisme.com",
-      "sourceLabel": "Office de Tourisme du Grand Longwy",
+      "sourceUrl": "https://www.longwy-tourisme.com/randonnees/",
+      "sourceLabel": "Crêtes Fortifiées du Pays Haut Longwy",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.51093/5.75610",
       "tags": [
         "fr",
@@ -720845,8 +720845,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.longwy-tourisme.com",
-      "sourceLabel": "Office de Tourisme du Grand Longwy",
+      "sourceUrl": "https://www.longwy-tourisme.com/randonnees/",
+      "sourceLabel": "Fortifications Vauban UNESCO Longwy",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.51443/5.76075",
       "tags": [
         "fr",
@@ -721856,8 +721856,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.chateau-malbrouck.com",
-      "sourceLabel": "Domaine de Malbrouck &amp; Moselle Attractivité",
+      "sourceUrl": "https://www.chateau-malbrouck.com/visiter/",
+      "sourceLabel": "Sentier Orchidées Château de Malbrouck",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.45345/6.43696",
       "tags": [
         "fr",
@@ -722445,8 +722445,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.inspire-metz.com",
-      "sourceLabel": "Inspire Metz Randonnées",
+      "sourceUrl": "https://www.tourisme-metz.com/fr/que-faire/nature-et-balades",
+      "sourceLabel": "Tour du Mont Saint-Quentin & Plappeville",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.12395/6.11807",
       "tags": [
         "fr",
@@ -723544,8 +723544,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.inspire-metz.com",
-      "sourceLabel": "Inspire Metz - Office de Tourisme",
+      "sourceUrl": "https://www.tourisme-metz.com/fr/que-faire/nature-et-balades",
+      "sourceLabel": "Boucle Pédestre Metz & Moselle",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.12409/6.17887",
       "tags": [
         "fr",
@@ -724867,8 +724867,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.inspire-metz.com",
-      "sourceLabel": "Inspire Metz - Office de Tourisme",
+      "sourceUrl": "https://www.tourisme-metz.com/fr/que-faire/nature-et-balades",
+      "sourceLabel": "Crêtes du Pays Messin & Mont Saint-Quentin",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.11499/6.17001",
       "tags": [
         "fr",
@@ -726100,8 +726100,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-montmedy.fr",
-      "sourceLabel": "Office de Tourisme du Pays de Montmédy",
+      "sourceUrl": "https://www.tourisme-paysdemontmedy.fr/randonnees/",
+      "sourceLabel": "Remparts de la Citadelle de Montmédy",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.51748/5.36590",
       "tags": [
         "fr",
@@ -726879,8 +726879,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.paysdes3frontieres.com",
-      "sourceLabel": "Pays des Trois Frontières Tourisme",
+      "sourceUrl": "https://www.mairie-rodemack.fr/tourisme/",
+      "sourceLabel": "Remparts Médiévaux de Rodemack & Faulbach",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.46936/6.23622",
       "tags": [
         "fr",
@@ -727532,8 +727532,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-saint-avold.fr",
-      "sourceLabel": "Office de Tourisme Saint-Avold Cœur de Moselle",
+      "sourceUrl": "https://www.tourisme-saint-avold.fr/randonnees/",
+      "sourceLabel": "Crêtes de Grès Rose d’Oderfang",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.10432/6.70693",
       "tags": [
         "fr",
@@ -728339,8 +728339,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.paysdes3frontieres.com",
-      "sourceLabel": "Maison de la Nature du Pays de Sierck",
+      "sourceUrl": "https://www.mosl-tourisme.fr/fr/fiche/sitlor/reserve-naturelle-du-stromberg_924000302.html",
+      "sourceLabel": "Pelouses Calcaires du Stromberg Sierck",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.44230/6.35987",
       "tags": [
         "fr",
@@ -729248,8 +729248,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.thionvilletourisme.fr",
-      "sourceLabel": "Pays Thionvillois Tourisme",
+      "sourceUrl": "https://www.thionvilletourisme.fr/a-faire/randonnees/",
+      "sourceLabel": "Boucle Pédestre Thionville & Sierck",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.36303/6.17204",
       "tags": [
         "fr",
@@ -730035,8 +730035,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.thionvilletourisme.fr",
-      "sourceLabel": "Pays Thionvillois Tourisme",
+      "sourceUrl": "https://www.thionvilletourisme.fr/a-faire/randonnees/",
+      "sourceLabel": "Crêtes Mosellanes du Pays des 3 Frontières",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.35397/6.16297",
       "tags": [
         "fr",
@@ -731060,8 +731060,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.thionvilletourisme.fr",
-      "sourceLabel": "Pays Thionvillois Tourisme",
+      "sourceUrl": "https://maginot-hackenberg.com/visite/",
+      "sourceLabel": "Ouvrage du Hackenberg & Mont des Welsches",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.34120/6.37708",
       "tags": [
         "fr",
@@ -731779,8 +731779,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-verdun.com",
-      "sourceLabel": "ONF Forêt d&apos;Exception de Verdun",
+      "sourceUrl": "https://www.verdun-douaumont.com/le-fort-de-douaumont/",
+      "sourceLabel": "Forêt de Douaumont & Fort de Vaux",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.20799/5.42396",
       "tags": [
         "fr",
@@ -732596,8 +732596,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-verdun.com",
-      "sourceLabel": "Grand Verdun Tourisme",
+      "sourceUrl": "https://www.tourisme-verdun.com/a-voir-a-faire/activites-de-pleine-nature/balades-et-randonnees/",
+      "sourceLabel": "Boucle Pédestre Verdun & Meuse",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.16489/5.38760",
       "tags": [
         "fr",
@@ -733423,8 +733423,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-verdun.com",
-      "sourceLabel": "Grand Verdun Tourisme",
+      "sourceUrl": "https://www.tourisme-verdun.com/a-voir-a-faire/activites-de-pleine-nature/balades-et-randonnees/",
+      "sourceLabel": "Crêtes Héroïques de Verdun & Douaumont",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.15601/5.38008",
       "tags": [
         "fr",
@@ -734344,8 +734344,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.massif-des-vosges.com",
-      "sourceLabel": "Massif des Vosges Officiel",
+      "sourceUrl": "https://www.massif-des-vosges.com/randonnees/",
+      "sourceLabel": "Boucle du Ballon d’Alsace",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/47.82202/6.83445",
       "tags": [
         "fr",
@@ -738275,8 +738275,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.massif-des-vosges.com",
-      "sourceLabel": "Massif des Vosges Officiel",
+      "sourceUrl": "https://www.massif-des-vosges.com/randonnees/",
+      "sourceLabel": "Sentier des Crêtes Vosgiennes",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/48.06209/7.02414",
       "tags": [
         "fr",
@@ -740102,8 +740102,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.gerardmer.net",
-      "sourceLabel": "Gérardmer Hautes-Vosges Officiel",
+      "sourceUrl": "https://www.gerardmer.net/randonnees.php",
+      "sourceLabel": "Tour du Lac de Gérardmer & Mérelle",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/48.06753/6.86529",
       "tags": [
         "fr",
@@ -741371,8 +741371,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.chateaumalbrouck.com",
-      "sourceLabel": "Château de Malbrouck Officiel",
+      "sourceUrl": "https://www.chateau-malbrouck.com/visiter/",
+      "sourceLabel": "Circuit Pédestre Château de Malbrouck",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.45772/6.43460",
       "tags": [
         "fr",
@@ -742094,8 +742094,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.club-vosgien.eu",
-      "sourceLabel": "Club Vosgien Officiel",
+      "sourceUrl": "https://www.club-vosgien.eu/randonner/itineraires/",
+      "sourceLabel": "Sentier des Roches du Hohneck",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/48.06209/7.02414",
       "tags": [
         "fr",
@@ -743265,8 +743265,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-meuse.com",
-      "sourceLabel": "Tourisme Meuse Officiel",
+      "sourceUrl": "https://www.tourisme-meuse.com/randonnees/",
+      "sourceLabel": "Sentier des Roches de Saint-Mihiel",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/48.89202/5.54489",
       "tags": [
         "fr",
@@ -744310,8 +744310,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-lorraine.fr",
-      "sourceLabel": "Tourisme Lorraine Officiel",
+      "sourceUrl": "https://www.tourisme-lorraine.fr/decouvrir/patrimoine/colline-de-sion/",
+      "sourceLabel": "Colline Inspirée de Sion-Vaudémont",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/48.42717/6.08340",
       "tags": [
         "fr",
@@ -745177,8 +745177,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.paysdesierck.com",
-      "sourceLabel": "Office de Tourisme de Sierck",
+      "sourceUrl": "https://www.mosl-tourisme.fr/fr/fiche/sitlor/reserve-naturelle-du-stromberg_924000302.html",
+      "sourceLabel": "Falaises de Sierck & Réserve du Stromberg",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.44200/6.35500",
       "tags": [
         "fr",
@@ -745942,8 +745942,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.tourisme-verdun.com",
-      "sourceLabel": "Office de Tourisme de Verdun",
+      "sourceUrl": "https://www.tourisme-verdun.com/a-voir-a-faire/activites-de-pleine-nature/balades-et-randonnees/",
+      "sourceLabel": "Circuit de Mémoire de Verdun",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/49.20806/5.42514",
       "tags": [
         "fr",
@@ -789868,8 +789868,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.mullerthal-trail.lu/fr",
-      "sourceLabel": "Mullerthal Trail",
+      "sourceUrl": "https://www.visitluxembourg.com/fr/tour/circuit-auto-pedestre-consdorf",
+      "sourceLabel": "Circuit Auto-Pédestre Consdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.32791&lat=49.77884",
       "tags": [
         "lu",
@@ -982871,7 +982871,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28684&lat=49.83283",
       "sourceLabel": "Sentier Local Communal : Circuit Local B1 - Beaufort",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28684&lat=49.83283",
       "tags": [
@@ -984152,7 +984152,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28727&lat=49.84550",
       "sourceLabel": "Sentier Local Communal : Circuit Local B10 - Beaufort",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28727&lat=49.84550",
       "tags": [
@@ -984753,7 +984753,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34817&lat=49.81323",
       "sourceLabel": "Sentier Local Communal : Circuit Local B11 - Berdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34817&lat=49.81323",
       "tags": [
@@ -985226,7 +985226,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28724&lat=49.84550",
       "sourceLabel": "Sentier Local Communal : Circuit Local B12 - Beaufort",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28724&lat=49.84550",
       "tags": [
@@ -985723,7 +985723,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34500&lat=49.82304",
       "sourceLabel": "Sentier Local Communal : Circuit Local B13 - Berdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34500&lat=49.82304",
       "tags": [
@@ -986260,7 +986260,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28664&lat=49.84591",
       "sourceLabel": "Sentier Local Communal : Circuit Local B14 - Beaufort",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28664&lat=49.84591",
       "tags": [
@@ -986925,7 +986925,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35317&lat=49.82482",
       "sourceLabel": "Sentier Local Communal : Circuit Local B15 - Berdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35317&lat=49.82482",
       "tags": [
@@ -987398,7 +987398,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28941&lat=49.84420",
       "sourceLabel": "Sentier Local Communal : Circuit Local B16 - Beaufort",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28941&lat=49.84420",
       "tags": [
@@ -987863,7 +987863,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35804&lat=49.85002",
       "sourceLabel": "Sentier Local Communal : Circuit Local B17 - Berdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35804&lat=49.85002",
       "tags": [
@@ -988488,7 +988488,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.31876&lat=49.85275",
       "sourceLabel": "Sentier Local Communal : Circuit Local B18 - Beaufort",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.31876&lat=49.85275",
       "tags": [
@@ -989129,7 +989129,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35795&lat=49.85004",
       "sourceLabel": "Sentier Local Communal : Circuit Local B19 - Berdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35795&lat=49.85004",
       "tags": [
@@ -990338,7 +990338,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34271&lat=49.82687",
       "sourceLabel": "Sentier Local Communal : Circuit Local B2 - Berdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34271&lat=49.82687",
       "tags": [
@@ -991043,7 +991043,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.36319&lat=49.75194",
       "sourceLabel": "Sentier Local Communal : Circuit Local B3 - Bech",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.36319&lat=49.75194",
       "tags": [
@@ -991516,7 +991516,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28681&lat=49.83294",
       "sourceLabel": "Sentier Local Communal : Circuit Local B4 - Beaufort",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28681&lat=49.83294",
       "tags": [
@@ -992405,7 +992405,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34271&lat=49.82687",
       "sourceLabel": "Sentier Local Communal : Circuit Local B5 - Berdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34271&lat=49.82687",
       "tags": [
@@ -993294,7 +993294,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35463&lat=49.75323",
       "sourceLabel": "Sentier Local Communal : Circuit Local B6 - Bech",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35463&lat=49.75323",
       "tags": [
@@ -993943,7 +993943,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28682&lat=49.83299",
       "sourceLabel": "Sentier Local Communal : Circuit Local B7 - Beaufort",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28682&lat=49.83299",
       "tags": [
@@ -994976,7 +994976,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35317&lat=49.82483",
       "sourceLabel": "Sentier Local Communal : Circuit Local B8 - Berdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35317&lat=49.82483",
       "tags": [
@@ -996281,7 +996281,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.32820&lat=49.75011",
       "sourceLabel": "Sentier Local Communal : Circuit Local B9 - Bech",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.32820&lat=49.75011",
       "tags": [
@@ -996858,7 +996858,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.77808&lat=49.90223",
       "sourceLabel": "Sentier Local Communal : Circuit Local BL 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.77808&lat=49.90223",
       "tags": [
@@ -997571,7 +997571,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.81446&lat=49.88734",
       "sourceLabel": "Sentier Local Communal : Circuit Local BL 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.81446&lat=49.88734",
       "tags": [
@@ -998268,7 +998268,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.81445&lat=49.88734",
       "sourceLabel": "Sentier Local Communal : Circuit Local BL 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.81445&lat=49.88734",
       "tags": [
@@ -998965,7 +998965,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.81445&lat=49.88734",
       "sourceLabel": "Sentier Local Communal : Circuit Local BL 4/ Sentier de l’Indépendance",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.81445&lat=49.88734",
       "tags": [
@@ -999750,7 +999750,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.81881&lat=49.89805",
       "sourceLabel": "Sentier Local Communal : Circuit Local BL 5",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.81881&lat=49.89805",
       "tags": [
@@ -1000855,7 +1000855,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.09329&lat=49.92290",
       "sourceLabel": "Sentier Local Communal : Circuit Local BS 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.09329&lat=49.92290",
       "tags": [
@@ -1001672,7 +1001672,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.03647&lat=49.89988",
       "sourceLabel": "Sentier Local Communal : Circuit Local BS 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.03647&lat=49.89988",
       "tags": [
@@ -1002505,7 +1002505,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.07669&lat=49.91078",
       "sourceLabel": "Sentier Local Communal : Circuit Local BS 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.07669&lat=49.91078",
       "tags": [
@@ -1003338,7 +1003338,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.08760&lat=49.91341",
       "sourceLabel": "Sentier Local Communal : Circuit Local BS 4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.08760&lat=49.91341",
       "tags": [
@@ -1004467,7 +1004467,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.06606&lat=49.88706",
       "sourceLabel": "Sentier Local Communal : Circuit Local BS 5",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.06606&lat=49.88706",
       "tags": [
@@ -1005532,7 +1005532,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.06454&lat=49.90988",
       "sourceLabel": "Sentier Local Communal : Circuit Local BS 6",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.06454&lat=49.90988",
       "tags": [
@@ -1007077,7 +1007077,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.33168&lat=49.78086",
       "sourceLabel": "Sentier Local Communal : Circuit Local C1 - Consdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.33168&lat=49.78086",
       "tags": [
@@ -1007534,7 +1007534,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34107&lat=49.77207",
       "sourceLabel": "Sentier Local Communal : Circuit Local C2 - Consdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34107&lat=49.77207",
       "tags": [
@@ -1008239,7 +1008239,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34109&lat=49.77209",
       "sourceLabel": "Sentier Local Communal : Circuit Local C3 - Consdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34109&lat=49.77209",
       "tags": [
@@ -1009032,7 +1009032,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34109&lat=49.77207",
       "sourceLabel": "Sentier Local Communal : Circuit Local C4 - Consdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.34109&lat=49.77207",
       "tags": [
@@ -1009841,7 +1009841,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.32787&lat=49.77888",
       "sourceLabel": "Sentier Local Communal : Circuit Local C5- Consdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.32787&lat=49.77888",
       "tags": [
@@ -1010634,7 +1010634,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.33174&lat=49.78087",
       "sourceLabel": "Sentier Local Communal : Circuit Local C6 - Consdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.33174&lat=49.78087",
       "tags": [
@@ -1011483,7 +1011483,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35971&lat=49.78165",
       "sourceLabel": "Sentier Local Communal : Circuit Local C7 - Consdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.35971&lat=49.78165",
       "tags": [
@@ -1012044,7 +1012044,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.05197&lat=49.82059",
       "sourceLabel": "Sentier Local Communal : Circuit Local CB 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.05197&lat=49.82059",
       "tags": [
@@ -1013069,7 +1013069,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.11152&lat=50.10216",
       "sourceLabel": "Sentier Local Communal : Circuit Local CL 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.11152&lat=50.10216",
       "tags": [
@@ -1013734,7 +1013734,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.02776&lat=50.05808",
       "sourceLabel": "Sentier Local Communal : Circuit Local CL 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.02776&lat=50.05808",
       "tags": [
@@ -1014647,7 +1014647,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.08619&lat=50.09660",
       "sourceLabel": "Sentier Local Communal : Circuit Local CL 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.08619&lat=50.09660",
       "tags": [
@@ -1015928,7 +1015928,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.08210&lat=50.05516",
       "sourceLabel": "Sentier Local Communal : Circuit Local CL 4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.08210&lat=50.05516",
       "tags": [
@@ -1017161,7 +1017161,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.03095&lat=50.05365",
       "sourceLabel": "Sentier Local Communal : Circuit Local CL 5",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.03095&lat=50.05365",
       "tags": [
@@ -1018530,7 +1018530,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.13407&lat=49.89246",
       "sourceLabel": "Sentier Local Communal : Circuit Local DK 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.13407&lat=49.89246",
       "tags": [
@@ -1019155,7 +1019155,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.13406&lat=49.89245",
       "sourceLabel": "Sentier Local Communal : Circuit Local DK 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.13406&lat=49.89245",
       "tags": [
@@ -1019884,7 +1019884,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.15138&lat=49.86148",
       "sourceLabel": "Sentier Local Communal : Circuit Local DK 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.15138&lat=49.86148",
       "tags": [
@@ -1020829,7 +1020829,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.42093&lat=49.81315",
       "sourceLabel": "Sentier Local Communal : Circuit Local E1 - Echternach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.42093&lat=49.81315",
       "tags": [
@@ -1022550,7 +1022550,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.42086&lat=49.81341",
       "sourceLabel": "Sentier Local Communal : Circuit Local E4 - Echternach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.42086&lat=49.81341",
       "tags": [
@@ -1023991,7 +1023991,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.40865&lat=49.80392",
       "sourceLabel": "Sentier Local Communal : Circuit Local E5 - Echternach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.40865&lat=49.80392",
       "tags": [
@@ -1024704,7 +1024704,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.22427&lat=49.82684",
       "sourceLabel": "Sentier Local Communal : Circuit Local E6 - Ermsdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.22427&lat=49.82684",
       "tags": [
@@ -1025473,7 +1025473,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.16852&lat=49.82877",
       "sourceLabel": "Sentier Local Communal : Circuit Local E8 - Ermsdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.16852&lat=49.82877",
       "tags": [
@@ -1026010,7 +1026010,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.20219&lat=49.84211",
       "sourceLabel": "Sentier Local Communal : Circuit Local E9 - Ermsdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.20219&lat=49.84211",
       "tags": [
@@ -1026619,7 +1026619,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.11303&lat=49.86165",
       "sourceLabel": "Sentier Local Communal : Circuit Local ER 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.11303&lat=49.86165",
       "tags": [
@@ -1028554,7 +1028554,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.86000&lat=49.89537",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.86000&lat=49.89537",
       "tags": [
@@ -1029347,7 +1029347,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88279&lat=49.90389",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 10",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88279&lat=49.90389",
       "tags": [
@@ -1030436,7 +1030436,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.95578&lat=49.90454",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 11",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.95578&lat=49.90454",
       "tags": [
@@ -1031533,7 +1031533,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.97787&lat=49.88692",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 12",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.97787&lat=49.88692",
       "tags": [
@@ -1032574,7 +1032574,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93675&lat=49.90980",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 13",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93675&lat=49.90980",
       "tags": [
@@ -1033631,7 +1033631,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.96979&lat=49.87063",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 14",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.96979&lat=49.87063",
       "tags": [
@@ -1034920,7 +1034920,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93612&lat=49.88468",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93612&lat=49.88468",
       "tags": [
@@ -1035617,7 +1035617,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.03683&lat=49.92060",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.03683&lat=49.92060",
       "tags": [
@@ -1036410,7 +1036410,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.99326&lat=49.87775",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.99326&lat=49.87775",
       "tags": [
@@ -1037139,7 +1037139,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.92316&lat=49.89218",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 5",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.92316&lat=49.89218",
       "tags": [
@@ -1037828,7 +1037828,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93611&lat=49.88468",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 6",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93611&lat=49.88468",
       "tags": [
@@ -1038501,7 +1038501,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88388&lat=49.90073",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 7",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88388&lat=49.90073",
       "tags": [
@@ -1039326,7 +1039326,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93681&lat=49.90983",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 8",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93681&lat=49.90983",
       "tags": [
@@ -1040375,7 +1040375,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.99325&lat=49.87775",
       "sourceLabel": "Sentier Local Communal : Circuit Local ES 9",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.99325&lat=49.87775",
       "tags": [
@@ -1041312,7 +1041312,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.08048&lat=49.86005",
       "sourceLabel": "Sentier Local Communal : Circuit Local ET 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.08048&lat=49.86005",
       "tags": [
@@ -1041985,7 +1041985,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.08207&lat=49.84585",
       "sourceLabel": "Sentier Local Communal : Circuit Local ET 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.08207&lat=49.84585",
       "tags": [
@@ -1042730,7 +1042730,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.18539&lat=49.74591",
       "sourceLabel": "Sentier Local Communal : Circuit Local F1 - Fischbach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.18539&lat=49.74591",
       "tags": [
@@ -1043411,7 +1043411,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.18549&lat=49.74593",
       "sourceLabel": "Sentier Local Communal : Circuit Local F2 - Fischbach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.18549&lat=49.74593",
       "tags": [
@@ -1044572,7 +1044572,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.16974&lat=49.75178",
       "sourceLabel": "Sentier Local Communal : Circuit Local F3 - Fischbach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.16974&lat=49.75178",
       "tags": [
@@ -1045029,7 +1045029,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.15885&lat=49.76355",
       "sourceLabel": "Sentier Local Communal : Circuit Local F4 - Fischbach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.15885&lat=49.76355",
       "tags": [
@@ -1046006,7 +1046006,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.04576&lat=49.85433",
       "sourceLabel": "Sentier Local Communal : Circuit Local FE 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.04576&lat=49.85433",
       "tags": [
@@ -1046967,7 +1046967,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.04577&lat=49.85433",
       "sourceLabel": "Sentier Local Communal : Circuit Local FE 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.04577&lat=49.85433",
       "tags": [
@@ -1048320,7 +1048320,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.96636&lat=49.92141",
       "sourceLabel": "Sentier Local Communal : Circuit Local GO 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.96636&lat=49.92141",
       "tags": [
@@ -1048913,7 +1048913,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.96650&lat=49.92134",
       "sourceLabel": "Sentier Local Communal : Circuit Local GO 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.96650&lat=49.92134",
       "tags": [
@@ -1049850,7 +1049850,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.24096&lat=49.77010",
       "sourceLabel": "Sentier Local Communal : Circuit Local H1 - Heffingen",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.24096&lat=49.77010",
       "tags": [
@@ -1050643,7 +1050643,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.23000&lat=49.76803",
       "sourceLabel": "Sentier Local Communal : Circuit Local H2 - Heffingen",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.23000&lat=49.76803",
       "tags": [
@@ -1051292,7 +1051292,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.99065&lat=49.99895",
       "sourceLabel": "Sentier Local Communal : Circuit Local KI 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.99065&lat=49.99895",
       "tags": [
@@ -1051781,7 +1051781,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01743&lat=49.95251",
       "sourceLabel": "Sentier Local Communal : Circuit Local KI 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01743&lat=49.95251",
       "tags": [
@@ -1052598,7 +1052598,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.99065&lat=49.99895",
       "sourceLabel": "Sentier Local Communal : Circuit Local KI 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.99065&lat=49.99895",
       "tags": [
@@ -1053423,7 +1053423,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01062&lat=49.99290",
       "sourceLabel": "Sentier Local Communal : Circuit Local KI 4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01062&lat=49.99290",
       "tags": [
@@ -1054344,7 +1054344,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01252&lat=49.98307",
       "sourceLabel": "Sentier Local Communal : Circuit Local KI 5",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01252&lat=49.98307",
       "tags": [
@@ -1055489,7 +1055489,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.97355&lat=49.97161",
       "sourceLabel": "Sentier Local Communal : Circuit Local KI 6",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.97355&lat=49.97161",
       "tags": [
@@ -1056546,7 +1056546,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01742&lat=49.95251",
       "sourceLabel": "Sentier Local Communal : Circuit Local KI 7",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01742&lat=49.95251",
       "tags": [
@@ -1057843,7 +1057843,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01742&lat=49.95252",
       "sourceLabel": "Sentier Local Communal : Circuit Local KI 8",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01742&lat=49.95252",
       "tags": [
@@ -1059812,7 +1059812,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21943&lat=49.78422",
       "sourceLabel": "Sentier Local Communal : Circuit Local L1 - Larochette",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21943&lat=49.78422",
       "tags": [
@@ -1060197,7 +1060197,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21943&lat=49.78423",
       "sourceLabel": "Sentier Local Communal : Circuit Local L2 - Larochette",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21943&lat=49.78423",
       "tags": [
@@ -1061286,7 +1061286,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21942&lat=49.78423",
       "sourceLabel": "Sentier Local Communal : Circuit Local L3 - Larochette",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21942&lat=49.78423",
       "tags": [
@@ -1062431,7 +1062431,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21938&lat=49.78415",
       "sourceLabel": "Sentier Local Communal : Circuit Local L4 - Larochette",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21938&lat=49.78415",
       "tags": [
@@ -1063760,7 +1063760,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21943&lat=49.78423",
       "sourceLabel": "Sentier Local Communal : Circuit Local L5 - Larochette",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21943&lat=49.78423",
       "tags": [
@@ -1064473,7 +1064473,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.90709&lat=49.91824",
       "sourceLabel": "Sentier Local Communal : Circuit Local LH 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.90709&lat=49.91824",
       "tags": [
@@ -1065154,7 +1065154,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.90709&lat=49.91824",
       "sourceLabel": "Sentier Local Communal : Circuit Local LH 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.90709&lat=49.91824",
       "tags": [
@@ -1065835,7 +1065835,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.87734&lat=49.90914",
       "sourceLabel": "Sentier Local Communal : Circuit Local LH 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.87734&lat=49.90914",
       "tags": [
@@ -1066484,7 +1066484,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.84820&lat=49.92069",
       "sourceLabel": "Sentier Local Communal : Circuit Local LH 4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.84820&lat=49.92069",
       "tags": [
@@ -1067373,7 +1067373,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.87734&lat=49.90915",
       "sourceLabel": "Sentier Local Communal : Circuit Local LH 5",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.87734&lat=49.90915",
       "tags": [
@@ -1068454,7 +1068454,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.78688&lat=49.93044",
       "sourceLabel": "Sentier Local Communal : Circuit Local LH 6",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.78688&lat=49.93044",
       "tags": [
@@ -1069279,7 +1069279,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.87733&lat=49.90915",
       "sourceLabel": "Sentier Local Communal : Circuit Local LH 7",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.87733&lat=49.90915",
       "tags": [
@@ -1070536,7 +1070536,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.84820&lat=49.92070",
       "sourceLabel": "Sentier Local Communal : Circuit Local LH 8",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.84820&lat=49.92070",
       "tags": [
@@ -1071777,7 +1071777,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.51420&lat=49.76022",
       "sourceLabel": "Sentier Local Communal : Circuit Local M1 - Mompach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.51420&lat=49.76022",
       "tags": [
@@ -1072626,7 +1072626,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.48018&lat=49.74916",
       "sourceLabel": "Sentier Local Communal : Circuit Local M2 - Mompach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.48018&lat=49.74916",
       "tags": [
@@ -1073155,7 +1073155,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.46366&lat=49.75160",
       "sourceLabel": "Sentier Local Communal : Circuit Local M3 - Mompach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.46366&lat=49.75160",
       "tags": [
@@ -1073644,7 +1073644,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21489&lat=49.80819",
       "sourceLabel": "Sentier Local Communal : Circuit Local M4 - Medernach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.21489&lat=49.80819",
       "tags": [
@@ -1075085,7 +1075085,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.43220&lat=49.74528",
       "sourceLabel": "Sentier Local Communal : Circuit Local M6 - Mompach",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.43220&lat=49.74528",
       "tags": [
@@ -1075998,7 +1075998,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.16778&lat=49.78607",
       "sourceLabel": "Sentier Local Communal : Circuit Local N1 - Nommern",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.16778&lat=49.78607",
       "tags": [
@@ -1076735,7 +1076735,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.17370&lat=49.79461",
       "sourceLabel": "Sentier Local Communal : Circuit Local N2 - Nommern",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.17370&lat=49.79461",
       "tags": [
@@ -1077336,7 +1077336,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.17375&lat=49.79462",
       "sourceLabel": "Sentier Local Communal : Circuit Local N3 - Nommern",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.17375&lat=49.79462",
       "tags": [
@@ -1077873,7 +1077873,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.17374&lat=49.79461",
       "sourceLabel": "Sentier Local Communal : Circuit Local N4 - Nommern",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.17374&lat=49.79461",
       "tags": [
@@ -1078634,7 +1078634,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.16516&lat=49.80885",
       "sourceLabel": "Sentier Local Communal : Circuit Local N5 - Nommern",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.16516&lat=49.80885",
       "tags": [
@@ -1079091,7 +1079091,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.10003&lat=49.99317",
       "sourceLabel": "Sentier Local Communal : Circuit Local PH 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.10003&lat=49.99317",
       "tags": [
@@ -1079612,7 +1079612,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.07974&lat=49.94599",
       "sourceLabel": "Sentier Local Communal : Circuit Local PH 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.07974&lat=49.94599",
       "tags": [
@@ -1080461,7 +1080461,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.10003&lat=49.99317",
       "sourceLabel": "Sentier Local Communal : Circuit Local PH 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.10003&lat=49.99317",
       "tags": [
@@ -1081350,7 +1081350,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.09179&lat=50.01635",
       "sourceLabel": "Sentier Local Communal : Circuit Local PH 4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.09179&lat=50.01635",
       "tags": [
@@ -1082431,7 +1082431,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.09179&lat=50.01635",
       "sourceLabel": "Sentier Local Communal : Circuit Local PH 5",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.09179&lat=50.01635",
       "tags": [
@@ -1083728,7 +1083728,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.19306&lat=49.95957",
       "sourceLabel": "Sentier Local Communal : Circuit Local PU 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.19306&lat=49.95957",
       "tags": [
@@ -1084521,7 +1084521,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.26722&lat=49.86932",
       "sourceLabel": "Sentier Local Communal : Circuit Local R1 - Reisdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.26722&lat=49.86932",
       "tags": [
@@ -1085234,7 +1085234,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.26685&lat=49.86719",
       "sourceLabel": "Sentier Local Communal : Circuit Local R2 - Reisdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.26685&lat=49.86719",
       "tags": [
@@ -1085723,7 +1085723,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.26402&lat=49.86788",
       "sourceLabel": "Sentier Local Communal : Circuit Local R3 - Reisdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.26402&lat=49.86788",
       "tags": [
@@ -1086428,7 +1086428,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.26161&lat=49.86905",
       "sourceLabel": "Sentier Local Communal : Circuit Local R4 - Reisdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.26161&lat=49.86905",
       "tags": [
@@ -1087029,7 +1087029,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28712&lat=49.86002",
       "sourceLabel": "Sentier Local Communal : Circuit Local R5 - Reisdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28712&lat=49.86002",
       "tags": [
@@ -1087870,7 +1087870,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28712&lat=49.86002",
       "sourceLabel": "Sentier Local Communal : Circuit Local R6 - Reisdorf",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28712&lat=49.86002",
       "tags": [
@@ -1088447,7 +1088447,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.50913&lat=49.80229",
       "sourceLabel": "Sentier Local Communal : Circuit Local R7 - Rosport",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.50913&lat=49.80229",
       "tags": [
@@ -1089056,7 +1089056,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.47381&lat=49.81945",
       "sourceLabel": "Sentier Local Communal : Circuit Local R8 - Rosport",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.47381&lat=49.81945",
       "tags": [
@@ -1090137,7 +1090137,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.44289&lat=49.78664",
       "sourceLabel": "Sentier Local Communal : Circuit Local R9 - Rosport",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.44289&lat=49.78664",
       "tags": [
@@ -1090914,7 +1090914,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88686&lat=49.82298",
       "sourceLabel": "Sentier Local Communal : Circuit Local RB 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88686&lat=49.82298",
       "tags": [
@@ -1091515,7 +1091515,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.76487&lat=49.80962",
       "sourceLabel": "Sentier Local Communal : Circuit Local RB 10",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.76487&lat=49.80962",
       "tags": [
@@ -1092828,7 +1092828,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.87262&lat=49.81467",
       "sourceLabel": "Sentier Local Communal : Circuit Local RB 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.87262&lat=49.81467",
       "tags": [
@@ -1093629,7 +1093629,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.84302&lat=49.86041",
       "sourceLabel": "Sentier Local Communal : Circuit Local RB 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.84302&lat=49.86041",
       "tags": [
@@ -1094334,7 +1094334,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.82561&lat=49.85709",
       "sourceLabel": "Sentier Local Communal : Circuit Local RB 4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.82561&lat=49.85709",
       "tags": [
@@ -1095119,7 +1095119,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.84302&lat=49.86041",
       "sourceLabel": "Sentier Local Communal : Circuit Local RB 5",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.84302&lat=49.86041",
       "tags": [
@@ -1096016,7 +1096016,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.82561&lat=49.85709",
       "sourceLabel": "Sentier Local Communal : Circuit Local RB 6",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.82561&lat=49.85709",
       "tags": [
@@ -1097089,7 +1097089,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.84302&lat=49.86041",
       "sourceLabel": "Sentier Local Communal : Circuit Local RB 7",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.84302&lat=49.86041",
       "tags": [
@@ -1098178,7 +1098178,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.79134&lat=49.84897",
       "sourceLabel": "Sentier Local Communal : Circuit Local RB 8",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.79134&lat=49.84897",
       "tags": [
@@ -1099211,7 +1099211,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.79891&lat=49.84018",
       "sourceLabel": "Sentier Local Communal : Circuit Local RB 9",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.79891&lat=49.84018",
       "tags": [
@@ -1100164,7 +1100164,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.32038&lat=49.48429",
       "sourceLabel": "Sentier Local Communal : Circuit Local SE1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.32038&lat=49.48429",
       "tags": [
@@ -1100861,7 +1100861,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.31600&lat=49.50553",
       "sourceLabel": "Sentier Local Communal : Circuit Local SE4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.31600&lat=49.50553",
       "tags": [
@@ -1136985,7 +1136985,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.00643&lat=49.62465",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Mamer 6",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.00643&lat=49.62465",
       "tags": [
@@ -1137506,7 +1137506,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88022&lat=49.52258",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Circuit du Parc Grouwen",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88022&lat=49.52258",
       "tags": [
@@ -1137955,7 +1137955,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.14407&lat=49.49442",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Circuit Véierhäremaark",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.14407&lat=49.49442",
       "tags": [
@@ -1139568,7 +1139568,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01253&lat=49.50082",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: De Kaweechelcherspad",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01253&lat=49.50082",
       "tags": [
@@ -1139929,7 +1139929,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.00419&lat=49.50096",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: De Saturn",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.00419&lat=49.50096",
       "tags": [
@@ -1140538,7 +1140538,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88816&lat=49.51439",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: DF1 - Korspronk Differdange",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88816&lat=49.51439",
       "tags": [
@@ -1141403,7 +1141403,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.99101&lat=49.48357",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Esch - Bourgronn - 3km - 3/4h",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.99101&lat=49.48357",
       "tags": [
@@ -1141860,7 +1141860,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.98529&lat=49.47721",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Esch - Gaalgebierg - 4km - 1h",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.98529&lat=49.47721",
       "tags": [
@@ -1142477,7 +1142477,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.00105&lat=49.47495",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Esch - Haedefeldchen",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.00105&lat=49.47495",
       "tags": [
@@ -1143086,7 +1143086,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.98799&lat=49.46888",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Esch - Réimerwee-4 km-1h",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.98799&lat=49.46888",
       "tags": [
@@ -1143735,7 +1143735,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.98295&lat=49.46501",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Esch-Schlassboesch -5,5 km",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.98295&lat=49.46501",
       "tags": [
@@ -1144464,7 +1144464,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.98517&lat=49.47694",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Esch - Sentier Pierre Wies",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.98517&lat=49.47694",
       "tags": [
@@ -1145521,7 +1145521,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.86271&lat=49.54386",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Fitness Titelberg",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.86271&lat=49.54386",
       "tags": [
@@ -1146218,7 +1146218,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.06570&lat=49.48551",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud:  Gaalgebierg Dudelange",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.06570&lat=49.48551",
       "tags": [
@@ -1146795,7 +1146795,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.89065&lat=49.53295",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Hondsbësch",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.89065&lat=49.53295",
       "tags": [
@@ -1147876,7 +1147876,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.87611&lat=49.55775",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Kierchepad",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.87611&lat=49.55775",
       "tags": [
@@ -1148589,7 +1148589,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.10109&lat=49.47928",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Kräizbierg",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.10109&lat=49.47928",
       "tags": [
@@ -1149462,7 +1149462,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.92929&lat=49.51126",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Naturléierpad Bieles",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.92929&lat=49.51126",
       "tags": [
@@ -1149847,7 +1149847,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.98658&lat=49.49972",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Promenade Architecturale",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.98658&lat=49.49972",
       "tags": [
@@ -1150320,7 +1150320,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88066&lat=49.52331",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Sentier Albert Ungeheuer",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88066&lat=49.52331",
       "tags": [
@@ -1151305,7 +1151305,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.97766&lat=49.47657",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Sentier archéologique N.Theis",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.97766&lat=49.47657",
       "tags": [
@@ -1152170,7 +1152170,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.83807&lat=49.51964",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Sentier de la Crosnière",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.83807&lat=49.51964",
       "tags": [
@@ -1152715,7 +1152715,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.07599&lat=49.45026",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud:  Transfrontalier Minette",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.07599&lat=49.45026",
       "tags": [
@@ -1153628,7 +1153628,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01135&lat=49.50660",
       "sourceLabel": "Sentier Local Communal : Circuit Local Sentiers locaux Sud: Um Réimerwee",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.01135&lat=49.50660",
       "tags": [
@@ -1154781,7 +1154781,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.09637&lat=49.82997",
       "sourceLabel": "Sentier Local Communal : Circuit Local SI 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.09637&lat=49.82997",
       "tags": [
@@ -1155614,7 +1155614,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.15601&lat=49.90235",
       "sourceLabel": "Sentier Local Communal : Circuit Local TA 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.15601&lat=49.90235",
       "tags": [
@@ -1156303,7 +1156303,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.22210&lat=49.91931",
       "sourceLabel": "Sentier Local Communal : Circuit Local TA 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.22210&lat=49.91931",
       "tags": [
@@ -1156968,7 +1156968,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.17817&lat=49.91744",
       "sourceLabel": "Sentier Local Communal : Circuit Local TA 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.17817&lat=49.91744",
       "tags": [
@@ -1157777,7 +1157777,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.13772&lat=49.91163",
       "sourceLabel": "Sentier Local Communal : Circuit Local TA 4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.13772&lat=49.91163",
       "tags": [
@@ -1158730,7 +1158730,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.02879&lat=50.16075",
       "sourceLabel": "Sentier Local Communal : Circuit Local TV 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.02879&lat=50.16075",
       "tags": [
@@ -1159235,7 +1159235,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.00135&lat=50.11847",
       "sourceLabel": "Sentier Local Communal : Circuit Local TV 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.00135&lat=50.11847",
       "tags": [
@@ -1160156,7 +1160156,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.00135&lat=50.11847",
       "sourceLabel": "Sentier Local Communal : Circuit Local TV 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.00135&lat=50.11847",
       "tags": [
@@ -1161093,7 +1161093,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28732&lat=49.63338",
       "sourceLabel": "Sentier Local Communal : Circuit Local Uebersyren",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28732&lat=49.63338",
       "tags": [
@@ -1161822,7 +1161822,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.20717&lat=49.93371",
       "sourceLabel": "Sentier Local Communal : Circuit Local VI 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.20717&lat=49.93371",
       "tags": [
@@ -1162487,7 +1162487,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.20717&lat=49.93371",
       "sourceLabel": "Sentier Local Communal : Circuit Local VI 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.20717&lat=49.93371",
       "tags": [
@@ -1163376,7 +1163376,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.20398&lat=49.93827",
       "sourceLabel": "Sentier Local Communal : Circuit Local VI 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.20398&lat=49.93827",
       "tags": [
@@ -1164761,7 +1164761,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28590&lat=49.81565",
       "sourceLabel": "Sentier Local Communal : Circuit Local W1 - Waldbillig",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28590&lat=49.81565",
       "tags": [
@@ -1165466,7 +1165466,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.30650&lat=49.79092",
       "sourceLabel": "Sentier Local Communal : Circuit Local W2 - Waldbillig",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.30650&lat=49.79092",
       "tags": [
@@ -1166019,7 +1166019,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.30647&lat=49.79089",
       "sourceLabel": "Sentier Local Communal : Circuit Local W3 - Waldbillig",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.30647&lat=49.79089",
       "tags": [
@@ -1167500,7 +1167500,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28590&lat=49.81565",
       "sourceLabel": "Sentier Local Communal : Circuit Local W4 - Waldbillig",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28590&lat=49.81565",
       "tags": [
@@ -1168261,7 +1168261,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28590&lat=49.81566",
       "sourceLabel": "Sentier Local Communal : Circuit Local W5 - Waldbillig",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.28590&lat=49.81566",
       "tags": [
@@ -1169414,7 +1169414,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.30530&lat=49.78989",
       "sourceLabel": "Sentier Local Communal : Circuit Local W6 - Waldbillig",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.30530&lat=49.78989",
       "tags": [
@@ -1170215,7 +1170215,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.30541&lat=49.79003",
       "sourceLabel": "Sentier Local Communal : Circuit Local W7 - Waldbillig",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.30541&lat=49.79003",
       "tags": [
@@ -1171496,7 +1171496,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.30530&lat=49.78988",
       "sourceLabel": "Sentier Local Communal : Circuit Local W8 - Waldbillig",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.30530&lat=49.78988",
       "tags": [
@@ -1172849,7 +1172849,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.50609&lat=49.71364",
       "sourceLabel": "Sentier Local Communal : Circuit Local Wasserbillig E",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.50609&lat=49.71364",
       "tags": [
@@ -1173642,7 +1173642,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.50603&lat=49.71360",
       "sourceLabel": "Sentier Local Communal : Circuit Local Wasserbillig F",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.50603&lat=49.71360",
       "tags": [
@@ -1174523,7 +1174523,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93123&lat=49.96916",
       "sourceLabel": "Sentier Local Communal : Circuit Local WI 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93123&lat=49.96916",
       "tags": [
@@ -1175372,7 +1175372,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.95930&lat=49.98548",
       "sourceLabel": "Sentier Local Communal : Circuit Local WI 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.95930&lat=49.98548",
       "tags": [
@@ -1176005,7 +1176005,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.96239&lat=50.01110",
       "sourceLabel": "Sentier Local Communal : Circuit Local WI 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.96239&lat=50.01110",
       "tags": [
@@ -1176782,7 +1176782,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93757&lat=49.96644",
       "sourceLabel": "Sentier Local Communal : Circuit Local WI 4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.93757&lat=49.96644",
       "tags": [
@@ -1177679,7 +1177679,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.95931&lat=49.98549",
       "sourceLabel": "Sentier Local Communal : Circuit Local WI 5",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.95931&lat=49.98549",
       "tags": [
@@ -1178568,7 +1178568,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.90862&lat=50.11379",
       "sourceLabel": "Sentier Local Communal : Circuit Local WN 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.90862&lat=50.11379",
       "tags": [
@@ -1179073,7 +1179073,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.96481&lat=50.08784",
       "sourceLabel": "Sentier Local Communal : Circuit Local WN 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.96481&lat=50.08784",
       "tags": [
@@ -1179658,7 +1179658,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.90940&lat=50.02076",
       "sourceLabel": "Sentier Local Communal : Circuit Local WN 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.90940&lat=50.02076",
       "tags": [
@@ -1180435,7 +1180435,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.95420&lat=50.06182",
       "sourceLabel": "Sentier Local Communal : Circuit Local WN 4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.95420&lat=50.06182",
       "tags": [
@@ -1181348,7 +1181348,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88985&lat=49.96709",
       "sourceLabel": "Sentier Local Communal : Circuit Local WS 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.88985&lat=49.96709",
       "tags": [
@@ -1181925,7 +1181925,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.90920&lat=49.97911",
       "sourceLabel": "Sentier Local Communal : Circuit Local WS 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.90920&lat=49.97911",
       "tags": [
@@ -1182598,7 +1182598,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.85516&lat=49.95141",
       "sourceLabel": "Sentier Local Communal : Circuit Local WS 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.85516&lat=49.95141",
       "tags": [
@@ -1183455,7 +1183455,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.83731&lat=49.96996",
       "sourceLabel": "Sentier Local Communal : Circuit Local WS 4",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=5.83731&lat=49.96996",
       "tags": [
@@ -1184400,7 +1184400,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.10834&lat=50.16038",
       "sourceLabel": "Sentier Local Communal : Circuit Local WW 1",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.10834&lat=50.16038",
       "tags": [
@@ -1185049,7 +1185049,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.07624&lat=50.14192",
       "sourceLabel": "Sentier Local Communal : Circuit Local WW 2",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.07624&lat=50.14192",
       "tags": [
@@ -1185826,7 +1185826,7 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr",
+      "sourceUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.06737&lat=50.13666",
       "sourceLabel": "Sentier Local Communal : Circuit Local WW 3",
       "geoportailUrl": "https://map.geoportail.lu/theme/tourisme?lang=fr&zoom=14&lon=6.06737&lat=50.13666",
       "tags": [
@@ -1336498,8 +1336498,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitzuidlimburg.nl",
-      "sourceLabel": "Visit Zuid-Limburg Wandelroutes",
+      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/routes-in-zuid-limburg/",
+      "sourceLabel": "Dutch Mountain Trail Vallée de la Gueule",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.77634/5.91251",
       "tags": [
         "nl",
@@ -1338430,8 +1338430,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitzuidlimburg.nl",
-      "sourceLabel": "Visit Zuid-Limburg Officieel",
+      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/routes-in-zuid-limburg/",
+      "sourceLabel": "Boucle Pédestre Maastricht & Valkenburg",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.85601/5.69500",
       "tags": [
         "nl",
@@ -1339761,8 +1339761,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitzuidlimburg.nl",
-      "sourceLabel": "Visit Zuid-Limburg Officieel",
+      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/routes-in-zuid-limburg/",
+      "sourceLabel": "Crêtes Panoramiques du Zuid-Limburg",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.84689/5.68580",
       "tags": [
         "nl",
@@ -1340842,8 +1340842,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitzuidlimburg.nl",
-      "sourceLabel": "Visit Zuid-Limburg (Valkenburg)",
+      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/routes-in-zuid-limburg/",
+      "sourceLabel": "Château de Valkenburg & Vallée du Gerendal",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.86532/5.83168",
       "tags": [
         "nl",
@@ -1341861,8 +1341861,8 @@
         ]
       ],
       "instructions": [],
-      "sourceUrl": "https://www.visitzuidlimburg.nl",
-      "sourceLabel": "Visit Zuid-Limburg Officieel",
+      "sourceUrl": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/routes-in-zuid-limburg/",
+      "sourceLabel": "Sentier du Mergelland Valkenburg",
       "geoportailUrl": "https://hiking.waymarkedtrails.org/#?map=14/50.86494/5.83197",
       "tags": [
         "nl",

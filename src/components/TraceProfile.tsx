@@ -1,7 +1,7 @@
 import React from 'react';
 import { AreaChart, Area, Tooltip, ResponsiveContainer, YAxis, XAxis } from 'recharts';
 import type { RouteSuggestions, RouteTrace } from '../types';
-import { Mountain, ChevronDown, ChevronUp, ArrowUpRight, ArrowDownRight, Layers, ShieldCheck, ShieldAlert, Car, Globe, ExternalLink, MapPin, Eye, EyeOff, X } from 'lucide-react';
+import { Mountain, ChevronDown, ChevronUp, ArrowUpRight, ArrowDownRight, Layers, ShieldCheck, ShieldAlert, Car, Globe, ExternalLink, MapPin, Eye, EyeOff, X, Wand2 } from 'lucide-react';
 import { getHuntingSafetyInfo } from '../lib/safety/huntingService';
 
 interface TraceProfileProps {
@@ -14,6 +14,7 @@ interface TraceProfileProps {
   isTraceVisible?: boolean;
   onToggleTraceVisibility?: () => void;
   onDeselect?: () => void;
+  onEditRoute?: (route: RouteSuggestions, trace: RouteTrace) => void;
 }
 
 export function TraceProfile({
@@ -26,6 +27,7 @@ export function TraceProfile({
   isTraceVisible = true,
   onToggleTraceVisibility,
   onDeselect,
+  onEditRoute,
 }: TraceProfileProps) {
   const profile = trace.elevationProfile || [];
   const huntingInfo = getHuntingSafetyInfo({
@@ -198,6 +200,17 @@ export function TraceProfile({
                 <span className="hidden sm:inline">
                   {isTraceVisible ? 'Masquer la trace' : 'Afficher la trace'}
                 </span>
+              </button>
+            )}
+
+            {onEditRoute && (
+              <button
+                onClick={() => onEditRoute(route, trace)}
+                className="px-2.5 py-1 rounded-xl text-xs font-sans font-bold flex items-center gap-1.5 transition-all bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-xs cursor-pointer border border-purple-400/30"
+                title="Modifier ce tracé et créer une nouvelle variante (la trace d'origine reste intacte)"
+              >
+                <Wand2 className="w-3.5 h-3.5 text-yellow-300" />
+                <span>Modifier</span>
               </button>
             )}
 

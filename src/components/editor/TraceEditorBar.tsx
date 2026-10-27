@@ -35,6 +35,9 @@ export function TraceEditorBar({
     setActivity,
     originalRoute,
     waypoints,
+    selectedWaypointIndex,
+    setSelectedWaypointIndex,
+    removeWaypoint,
     isLoop,
     calculatedResult,
     isCalculating,
@@ -116,6 +119,28 @@ export function TraceEditorBar({
 
         {/* Tier 2: Responsive Action Buttons Toolbar (Horizontally scrollable on small mobile) */}
         <div className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5 sm:py-0 w-full sm:w-auto shrink-0">
+          {/* Étape active sélectionnée pour être déplacée */}
+          {selectedWaypointIndex !== null && (
+            <div className="flex items-center gap-1.5 bg-amber-500/15 border border-amber-500/30 px-2 py-1 rounded-xl text-xs font-bold text-amber-700 dark:text-amber-300 shrink-0 shadow-2xs animate-in fade-in duration-150">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping shrink-0" />
+              <span>Étape {selectedWaypointIndex + 1} à bouger</span>
+              {waypoints.length > 2 && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    removeWaypoint(selectedWaypointIndex);
+                    setSelectedWaypointIndex(null);
+                  }}
+                  className="ml-0.5 p-0.5 hover:bg-rose-100 dark:hover:bg-rose-950/60 rounded text-rose-600 dark:text-rose-400 cursor-pointer"
+                  title="Supprimer cette étape"
+                  aria-label="Supprimer cette étape"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+          )}
+
           {/* Sport Selector */}
           <button
             onClick={() => setActivity(activity === 'hike' ? 'bike' : 'hike')}
@@ -249,7 +274,15 @@ export function TraceEditorBar({
 
       {/* Floating Helper Pill: Hidden on small mobile screens to keep the map clean and visible */}
       <div className="hidden sm:flex bg-slate-900/90 text-white backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-medium shadow-md border border-slate-700/60 pointer-events-auto items-center gap-1.5">
-        <span>📍 Cliquez sur la carte ou glissez le tracé pour insérer une étape • Sentiers réels suivis en direct</span>
+        {editorMode === 'edit' && originalRoute ? (
+          selectedWaypointIndex !== null ? (
+            <span>🎯 <strong>Étape {selectedWaypointIndex + 1} prête à bouger :</strong> Glissez ce point sur la carte pour dévier le tracé à cet endroit exact.</span>
+          ) : (
+            <span>🎯 <strong>Choisissez l&apos;endroit à modifier :</strong> Touchez la trace ou une étape pour sélectionner le point à déplacer.</span>
+          )
+        ) : (
+          <span>📍 Cliquez sur la carte ou glissez le tracé pour insérer une étape • Sentiers réels suivis en direct</span>
+        )}
       </div>
     </div>
   );

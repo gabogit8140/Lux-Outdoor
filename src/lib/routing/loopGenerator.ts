@@ -22,8 +22,9 @@ export const LOOP_SINUOSITY_DIVISORS: Record<'hike' | 'bike', number> = {
 };
 
 /**
- * Calcule les points d'ancrage triangulaires d'une boucle fermée
- * visant une distance cible sur sentiers réels.
+ * Calcule les points d'ancrage d'une boucle fermée
+ * visant une distance cible sur sentiers réels sans angles aigus.
+ * Utilise 4 points cardinaux réguliers pour éviter les coupures de relief et impasses.
  */
 export function generateLoopAnchors({
   startCoords,
@@ -46,15 +47,110 @@ export function generateLoopAnchors({
   const centerLat = startLat + (rKm / kmPerLat) * Math.sin(theta);
   const centerLon = startLon + (rKm / kmPerLon) * Math.cos(theta);
 
-  // 3 points d'ancrage triangulaires naturels (Départ, Étape 1 à +120°, Étape 2 à -120°)
-  const angles = [
-    theta + Math.PI,      // Point de départ
-    theta + Math.PI / 3,  // Étape 1 (~120°)
-    theta - Math.PI / 3,  // Étape 2 (~240°)
+  // 4 points d'ancrage répartis à 90° autour du centre pour une boucle équilibrée
+  // Point 0 = départ exact préservé (sans dérive trigonométrique)
+  // Point 1 = quart de boucle (+90°)
+  // Point 2 = point opposé (0° depuis le centre)
+  // Point 3 = retour trois-quarts (-90°)
+  return [
+    [Number(startLon.toFixed(5)), Number(startLat.toFixed(5))],
+    [
+      Number((centerLon + (rKm / kmPerLon) * Math.cos(theta + Math.PI / 2)).toFixed(5)),
+      Number((centerLat + (rKm / kmPerLat) * Math.sin(theta + Math.PI / 2)).toFixed(5)),
+    ],
+    [
+      Number((centerLon + (rKm / kmPerLon) * Math.cos(theta)).toFixed(5)),
+      Number((centerLat + (rKm / kmPerLat) * Math.sin(theta)).toFixed(5)),
+    ],
+    [
+      Number((centerLon + (rKm / kmPerLon) * Math.cos(theta - Math.PI / 2)).toFixed(5)),
+      Number((centerLat + (rKm / kmPerLat) * Math.sin(theta - Math.PI / 2)).toFixed(5)),
+    ],
   ];
+}
 
-  return angles.map((a) => [
-    Number((centerLon + (rKm / kmPerLon) * Math.cos(a)).toFixed(5)),
-    Number((centerLat + (rKm / kmPerLat) * Math.sin(a)).toFixed(5)),
-  ]);
+/**
+ * Détecte et élimine tous les tronçons en aller-retour vers des points isolés (spurs / culs-de-sac).
+ * Si un point de passage se trouve au fond d'une impasse, il est automatiquement relocalisé
+ * sur la bifurcation du circuit principal, et le tronçon d'aller-retour parasite est supprimé.
+ */
+export function removeIsolatedPointSpurs(
+  rawCoords: [number, number, number?][],
+  waypoints: [number, number][],
+  toleranceMeters: number = 35
+): {
+  cleanedCoords: [number, number, number?][];
+  cleanedWaypoints: [number, number][];
+  hasPrunedSpurs: boolean;
+} {
+  let coords = [...rawCoords];
+  const cleanedWaypoints = waypoints.map((w) => [w[0], w[1]] as [number, number]);
+  let hasPrunedSpurs = false;
+
+  const distM = (a: [number, number, number?], b: [number, number, number?]) => {
+    const dLon = (a[0] - b[0]) * 71000;
+    const dLat = (a[1] - b[1]) * 111000;
+    return Math.hypot(dLon, dLat);
+  };
+
+  // 1. Trouver les index de passage des waypoints le long du tracé calculé
+  const wpIndices = cleanedWaypoints.map((wp) => {
+    let bestIdx = 0;
+    let bestD = Infinity;
+    for (let i = 0; i < coords.length; i++) {
+      const d = distM([wp[0], wp[1]], coords[i]);
+      if (d < bestD) {
+        bestD = d;
+        bestIdx = i;
+      }
+    }
+    return bestIdx;
+  });
+
+  // 2. Vérifier chaque waypoint intermédiaire (hors départ/arrivée)
+  for (let wIdx = 1; wIdx < cleanedWaypoints.length; wIdx++) {
+    const targetIdx = wpIndices[wIdx];
+    if (targetIdx <= 2 || targetIdx >= coords.length - 3) continue;
+
+    let maxBacktrackLen = 0;
+    let junctionBeforeIdx = targetIdx;
+    let junctionAfterIdx = targetIdx;
+
+    const maxSearch = Math.min(targetIdx, coords.length - 1 - targetIdx, 150);
+    for (let offset = 1; offset < maxSearch; offset++) {
+      const beforePt = coords[targetIdx - offset];
+      const afterPt = coords[targetIdx + offset];
+      if (distM(beforePt, afterPt) < toleranceMeters) {
+        maxBacktrackLen = offset;
+        junctionBeforeIdx = targetIdx - offset;
+        junctionAfterIdx = targetIdx + offset;
+      } else {
+        break;
+      }
+    }
+
+    // Si le tracé fait un aller-retour symétrique d'au moins 3 points (>= 45-50 mètres)
+    // vers ce point isolé : on élague l'antenne et on replace le waypoint sur la boucle
+    if (maxBacktrackLen >= 3) {
+      hasPrunedSpurs = true;
+      const junctionPt = coords[junctionBeforeIdx];
+      cleanedWaypoints[wIdx] = [
+        Number(junctionPt[0].toFixed(5)),
+        Number(junctionPt[1].toFixed(5)),
+      ];
+
+      // Supprime l'antenne parasite entre l'aller et le retour
+      coords.splice(junctionBeforeIdx + 1, junctionAfterIdx - junctionBeforeIdx);
+
+      // Ajuste les index des waypoints suivants
+      const delta = junctionAfterIdx - junctionBeforeIdx;
+      for (let k = wIdx + 1; k < cleanedWaypoints.length; k++) {
+        if (wpIndices[k] > junctionBeforeIdx) {
+          wpIndices[k] -= delta;
+        }
+      }
+    }
+  }
+
+  return { cleanedCoords: coords, cleanedWaypoints, hasPrunedSpurs };
 }

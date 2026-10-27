@@ -11,11 +11,15 @@ import {
   setStoredPairingCode,
   generatePairingCode,
   normalizePairingCode,
+  isValidPairingCode,
   pushFavoritesToVault,
   fetchFavoritesFromVault,
   fetchVaultData,
   subscribeToVault,
+  registerDeviceInVault,
+  refuseDeviceInVault,
 } from '../lib/firebase/syncVaultService';
+import { getDeviceId, type ConnectedDevice } from '../lib/sync/deviceIdentity';
 
 export type { FavoriteCategory };
 
@@ -65,6 +69,7 @@ export function useFavorites() {
   const [pairingCode, setPairingCode] = useState<string | null>(() => getStoredPairingCode());
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncStatusMessage, setSyncStatusMessage] = useState<string | null>(null);
+  const [connectedDevices, setConnectedDevices] = useState<ConnectedDevice[]>([]);
 
   const isRemoteUpdatingRef = useRef(false);
   const favoritesRef = useRef<SavedFavorite[]>(favorites);
@@ -104,6 +109,9 @@ export function useFavorites() {
     // 1. Récupération et fusion initiale avec le coffre distant
     fetchVaultData(pairingCode).then((vaultData) => {
       if (!isSubscribed) return;
+      if (vaultData?.devices) {
+        setConnectedDevices(vaultData.devices);
+      }
       const remoteFavs = vaultData?.favorites || [];
       const localFavs = favoritesRef.current;
 
@@ -133,6 +141,18 @@ export function useFavorites() {
     // 2. Écoute temps réel des ajouts/modifications distantes
     const unsubscribe = subscribeToVault(pairingCode, (remoteData) => {
       if (!isSubscribed) return;
+
+      if (remoteData.isRevoked) {
+        setPairingCode(null);
+        setConnectedDevices([]);
+        setSyncStatusMessage('Connexion LUX- révoquée ou refusée');
+        return;
+      }
+
+      if (remoteData.devices !== undefined) {
+        setConnectedDevices(remoteData.devices);
+      }
+
       if (remoteData.favorites !== undefined) {
         const remoteFavs = remoteData.favorites;
         const localFavs = favoritesRef.current;
@@ -309,10 +329,33 @@ export function useFavorites() {
   const connectPairingCode = useCallback(
     async (codeToJoin?: string): Promise<{ success: boolean; message: string }> => {
       const targetCode = normalizePairingCode(codeToJoin || pairingCode || generatePairingCode());
+      
+      if (!isValidPairingCode(targetCode)) {
+        return {
+          success: false,
+          message: "Format invalide : le code doit strictement respecter le format LUX-XXXX (ex: LUX-9482).",
+        };
+      }
+
       setIsSyncing(true);
 
+      // Enregistrement initial de l'appareil & vérification d'autorisation
+      const regSuccess = await registerDeviceInVault(targetCode);
+      if (!regSuccess) {
+        setIsSyncing(false);
+        return {
+          success: false,
+          message: 'La connexion à ce coffre LUX- a été refusée ou révoquée par l’administrateur.',
+        };
+      }
+
       const localFavs = favoritesRef.current;
-      const remoteFavs = (await fetchFavoritesFromVault(targetCode)) || [];
+      const vaultData = await fetchVaultData(targetCode);
+      const remoteFavs = vaultData?.favorites || [];
+
+      if (vaultData?.devices) {
+        setConnectedDevices(vaultData.devices);
+      }
 
       // Fusion bilatérale : on combine local + distant
       const merged = mergeItemsById(localFavs, remoteFavs);
@@ -343,11 +386,29 @@ export function useFavorites() {
   );
 
   /**
+   * Refuse / bloque un appareil connecté à ce coffre LUX-
+   */
+  const refuseDevice = useCallback(
+    async (deviceIdToRefuse: string): Promise<boolean> => {
+      if (!pairingCode) return false;
+      const ok = await refuseDeviceInVault(pairingCode, deviceIdToRefuse);
+      if (ok) {
+        setConnectedDevices((prev) =>
+          prev.map((d) => (d.id === deviceIdToRefuse ? { ...d, status: 'blocked' } : d))
+        );
+      }
+      return ok;
+    },
+    [pairingCode]
+  );
+
+  /**
    * Dissocie l'appareil du Cloud (sans supprimer les traces locales)
    */
   const disconnectPairing = useCallback(() => {
     setStoredPairingCode(null);
     setPairingCode(null);
+    setConnectedDevices([]);
     setSyncStatusMessage(null);
   }, []);
 
@@ -361,6 +422,8 @@ export function useFavorites() {
     pairingCode,
     isSyncing,
     syncStatusMessage,
+    connectedDevices,
+    refuseDevice,
     connectPairingCode,
     disconnectPairing,
   };

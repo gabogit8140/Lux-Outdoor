@@ -48,6 +48,20 @@
   </head>
   <body class="overscroll-none select-none">
     <div id="root"></div>
+    <script>
+      // Détecte les erreurs de scripts périmés en cache PWA (notamment sur Safari iOS / iPad)
+      window.addEventListener('error', function(event) {
+        var msg = (event && event.message) || '';
+        var target = event && event.target;
+        var isScriptError = target && target.tagName === 'SCRIPT';
+        if (isScriptError || msg.indexOf('dynamically imported module') !== -1 || msg.indexOf('Loading chunk') !== -1) {
+          if (!sessionStorage.getItem('pwa_sw_reloaded')) {
+            sessionStorage.setItem('pwa_sw_reloaded', '1');
+            window.location.reload();
+          }
+        }
+      }, true);
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

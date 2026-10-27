@@ -142,6 +142,19 @@ export function SaveTraceModal({
 
         {/* Form Body */}
         <form onSubmit={handleSave} className="p-4 space-y-3 overflow-y-auto flex-1">
+          {/* Reassurance banner: Original route remains completely unchanged */}
+          {editorMode === 'edit' && originalRoute && (
+            <div className="p-3 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 rounded-2xl flex items-start gap-2.5 text-xs text-purple-900 dark:text-purple-200">
+              <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0 mt-0.5" />
+              <div className="space-y-0.5 leading-snug">
+                <div className="font-bold">Tracé d&apos;origine protégé et inchangé</div>
+                <div className="text-[11px] text-purple-800/80 dark:text-purple-300/80">
+                  Le parcours <strong>« {originalRoute.title} »</strong> reste 100% intact. Votre circuit modifié sera enregistré comme une <strong>nouvelle trace</strong> distincte dans Mes Traces.
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Title */}
           <div>
             <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">

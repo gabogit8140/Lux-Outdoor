@@ -10,6 +10,7 @@ import {
 import type { SavedFavorite, FavoriteCategory } from '../hooks/useFavorites';
 import type { RouteSuggestions, RouteTrace } from '../types';
 import type { MushroomSpot } from '../types/mushroom';
+import type { ConnectedDevice } from '../lib/sync/deviceIdentity';
 import { resolveFavoriteCategory } from '../lib/favorites/favoriteCategories';
 import {
   FavoritesFilterBar,
@@ -37,6 +38,8 @@ interface FavoritesProps {
   ) => void;
   pairingCode?: string | null;
   isSyncing?: boolean;
+  connectedDevices?: ConnectedDevice[];
+  onRefuseDevice?: (deviceId: string) => Promise<boolean>;
   onConnectPairingCode?: (code?: string) => Promise<{ success: boolean; message: string }>;
   onDisconnectPairing?: () => void;
   initialTab?: TabType;
@@ -58,6 +61,8 @@ export function Favorites({
   onUpdateFavorite,
   pairingCode,
   isSyncing,
+  connectedDevices = [],
+  onRefuseDevice,
   onConnectPairingCode,
   onDisconnectPairing,
   initialTab = 'tracks',
@@ -365,6 +370,8 @@ export function Favorites({
             pairingCode={pairingCode}
             isSyncing={isSyncing}
             totalFavorites={totalAllFavoritesCount ?? favorites.length}
+            connectedDevices={connectedDevices}
+            onRefuseDevice={onRefuseDevice}
             onConnectPairingCode={onConnectPairingCode}
             onDisconnectPairing={onDisconnectPairing}
           />

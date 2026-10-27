@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useMap, useMapEvents, Marker, Circle, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import { Locate, LocateFixed, Loader2 } from 'lucide-react';
@@ -59,6 +59,14 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const watchIdRef = useRef<number | null>(null);
   const prevCoordsRef = useRef<[number, number] | null>(null);
+  const lastOrientationTimeRef = useRef<number>(0);
+  const lastHeadingRef = useRef<number>(0);
+  const lastGpsUpdateTimeRef = useRef<number>(0);
+  const onLocationChangeRef = useRef(onLocationChange);
+
+  useEffect(() => {
+    onLocationChangeRef.current = onLocationChange;
+  });
 
   // Surveillance dynamique du niveau de zoom de la carte
   useMapEvents({
@@ -68,8 +76,14 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
   });
 
   // Capteur d'orientation matériel continu (Boussole / Gyroscope iOS Safari et Android)
+  // Throttlé à 5Hz (200ms) et filtre à >= 4° pour préserver le CPU et la batterie iPhone
   useEffect(() => {
     const handleOrientation = (e: DeviceOrientationEvent) => {
+      const now = Date.now();
+      if (now - lastOrientationTimeRef.current < 200) {
+        return;
+      }
+
       let compass = 0;
       if ((e as any).webkitCompassHeading) {
         compass = (e as any).webkitCompassHeading;
@@ -77,17 +91,22 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
         compass = 360 - e.alpha;
       }
       if (!isNaN(compass)) {
-        setHeading(Math.round(compass));
+        const rounded = Math.round(compass);
+        if (Math.abs(rounded - lastHeadingRef.current) >= 4) {
+          lastOrientationTimeRef.current = now;
+          lastHeadingRef.current = rounded;
+          setHeading(rounded);
+        }
       }
     };
 
-    window.addEventListener('deviceorientation', handleOrientation, true);
+    window.addEventListener('deviceorientation', handleOrientation, { passive: true } as any);
     return () => {
-      window.removeEventListener('deviceorientation', handleOrientation, true);
+      window.removeEventListener('deviceorientation', handleOrientation);
     };
   }, []);
 
-  // Démarre la surveillance GPS continue dès le chargement de l'application
+  // Démarre la surveillance GPS continue UNE SEULE FOIS (sans boucle de redémarrage hardware)
   useEffect(() => {
     if (!('geolocation' in navigator)) {
       return;
@@ -100,23 +119,38 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
           position.coords.latitude,
           position.coords.longitude,
         ];
+
+        // Évite le réveil GPU/CPU sur micro-dérive GPS si l'utilisateur ne s'est pas déplacé
+        const now = Date.now();
+        const prev = prevCoordsRef.current;
+        const movedDistance = prev ? distanceMeters(prev, userCoords) : Infinity;
+
+        if (movedDistance < 2.5 && now - lastGpsUpdateTimeRef.current < 3000) {
+          return;
+        }
+
+        lastGpsUpdateTimeRef.current = now;
+        prevCoordsRef.current = userCoords;
         setCoords(userCoords);
         setAccuracy(position.coords.accuracy);
         setIsLocating(false);
         setIsActive(true);
-        onLocationChange?.(userCoords);
+        onLocationChangeRef.current?.(userCoords);
 
         // Récupération du cap de déplacement GPS ou calcul géométrique
-        if (position.coords.heading !== null && !isNaN(position.coords.heading)) {
-          setHeading(Math.round(position.coords.heading));
-        } else if (prevCoordsRef.current) {
-          const dist = distanceMeters(prevCoordsRef.current, userCoords);
-          if (dist > 3) {
-            const calcBearing = calculateBearing(prevCoordsRef.current, userCoords);
-            setHeading(Math.round(calcBearing));
+        if (position.coords.heading !== null && !isNaN(position.coords.heading) && position.coords.heading >= 0) {
+          const roundedHeading = Math.round(position.coords.heading);
+          if (Math.abs(roundedHeading - lastHeadingRef.current) >= 4) {
+            lastHeadingRef.current = roundedHeading;
+            setHeading(roundedHeading);
+          }
+        } else if (prev && movedDistance > 3) {
+          const calcBearing = Math.round(calculateBearing(prev, userCoords));
+          if (Math.abs(calcBearing - lastHeadingRef.current) >= 4) {
+            lastHeadingRef.current = calcBearing;
+            setHeading(calcBearing);
           }
         }
-        prevCoordsRef.current = userCoords;
       },
       (error) => {
         setIsLocating(false);
@@ -137,7 +171,7 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
         watchIdRef.current = null;
       }
     };
-  }, [onLocationChange]);
+  }, []);
 
   // Déclenchement du recentrage immédiat sur la position connue de l'utilisateur
   const handleRecenterOnUser = useCallback(
@@ -202,6 +236,14 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
 
   const isTraceZoom = currentZoom >= TRACE_ZOOM_THRESHOLD;
 
+  const directionalIcon = useMemo(() => {
+    return createDirectionalUserIcon({
+      heading,
+      color: '#0284c7',
+      glowColor: 'rgba(2, 132, 199, 0.45)',
+    });
+  }, [heading]);
+
   return (
     <>
       {/* Bouton de localisation dans la barre de contrôle */}
@@ -260,15 +302,7 @@ export function LocateControl({ isNavigating = false, onLocationChange }: Locate
           )}
           <Marker
             position={coords}
-            icon={
-              isTraceZoom
-                ? createDirectionalUserIcon({
-                    heading,
-                    color: '#0284c7',
-                    glowColor: 'rgba(2, 132, 199, 0.45)',
-                  })
-                : locateUserIcon
-            }
+            icon={isTraceZoom ? directionalIcon : locateUserIcon}
             zIndexOffset={950}
           >
             <Tooltip direction="top" offset={[0, -10]}>

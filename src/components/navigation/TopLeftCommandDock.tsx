@@ -20,6 +20,7 @@ interface TopLeftCommandDockProps {
   isEditorActive: boolean;
   onToggleEditor: () => void;
   onOpenSettings: () => void;
+  hasSelectedRoute?: boolean;
   // Propriétés de rétrocompatibilité optionnelles
   onOpenSyncModal?: () => void;
   isDarkMode?: boolean;
@@ -38,6 +39,7 @@ export function TopLeftCommandDock({
   isEditorActive,
   onToggleEditor,
   onOpenSettings,
+  hasSelectedRoute = false,
 }: TopLeftCommandDockProps) {
   return (
     <nav
@@ -92,28 +94,44 @@ export function TopLeftCommandDock({
         </span>
       </button>
 
-      {/* 4. Nouveau tracé interactif sur la carte (Studio Création GPX) */}
+      {/* 4. Nouveau tracé ou modification de la trace sélectionnée */}
       <button
         onClick={onToggleEditor}
-        className={`${TOUCH_DOCK_BUTTON_CLASS} group relative ${
+        className={`${TOUCH_DOCK_BUTTON_CLASS} group relative transition-all ${
           isEditorActive
-            ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-md shadow-indigo-600/30'
+            ? 'bg-gradient-to-br from-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-600/35 ring-2 ring-indigo-300 dark:ring-indigo-700'
+            : hasSelectedRoute
+            ? 'hover:bg-purple-50 dark:hover:bg-purple-950/40 text-purple-700 dark:text-purple-300 hover:text-purple-600 border border-purple-200/80 dark:border-purple-800/80 shadow-2xs'
             : 'hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-600 dark:text-slate-300 hover:text-indigo-600'
         }`}
         title={
           isEditorActive
             ? 'Quitter le mode tracé'
+            : hasSelectedRoute
+            ? 'Modifier ce tracé sur la carte (Créer une variante)'
             : 'Tracer un parcours sur la carte (Création GPX)'
         }
-        aria-label="Tracer un parcours GPX"
+        aria-label={hasSelectedRoute ? 'Modifier ce tracé' : 'Tracer un parcours GPX'}
       >
-        <PenTool className="w-4 h-4 text-indigo-500 group-hover:scale-110 transition-transform" />
-        {isEditorActive && (
-          <span className="absolute -top-1 -right-1 flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500" />
+        <PenTool
+          className={`w-4 h-4 transition-transform group-hover:scale-110 ${
+            isEditorActive
+              ? 'text-white'
+              : hasSelectedRoute
+              ? 'text-purple-600 dark:text-purple-400'
+              : 'text-indigo-600 dark:text-indigo-400'
+          }`}
+        />
+        {isEditorActive ? (
+          <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 ring-2 ring-white dark:ring-slate-900" />
           </span>
-        )}
+        ) : hasSelectedRoute ? (
+          <span className="absolute -top-1 -right-1 flex h-2 w-2">
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500 ring-1.5 ring-white dark:ring-slate-900" />
+          </span>
+        ) : null}
       </button>
 
       {/* 5. Paramètres de l'application (Synchronisation Cloud, Installation PWA, Thème, Stockage) */}

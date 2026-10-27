@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
-import { Navigation, Car, X, Footprints, Bike, ChevronRight, MapPin, Eye, EyeOff, RefreshCw } from 'lucide-react';
+import { Navigation, Car, X, Footprints, Bike, ChevronRight, MapPin, Eye, EyeOff, RefreshCw, Wand2 } from 'lucide-react';
 import {
   calculateDistanceKm,
   formatDriveDistance,
@@ -21,6 +21,7 @@ interface MapRouteQuickDockProps {
   isTraceVisible?: boolean;
   onToggleTraceVisibility?: () => void;
   onReverseRoute?: () => void;
+  onEditRoute?: (route: RouteSuggestions, trace: RouteTrace) => void;
 }
 
 export function MapRouteQuickDock({
@@ -35,6 +36,7 @@ export function MapRouteQuickDock({
   isTraceVisible = true,
   onToggleTraceVisibility,
   onReverseRoute,
+  onEditRoute,
 }: MapRouteQuickDockProps) {
   // Coordonnées GPS du point de départ de la trace (normalisées [lat, lng])
   const startCoords = useMemo<[number, number] | null>(() => {
@@ -162,18 +164,18 @@ export function MapRouteQuickDock({
           </div>
         </div>
 
-        {/* Ligne 2: Boutons d'actions rapides (Waze + Komoot + Guidage Terrain) */}
-        <div className="grid grid-cols-3 gap-1.5 pt-0.5">
+        {/* Ligne 2: Boutons d'actions rapides (Waze + Komoot + Modifier + Guidage Terrain) */}
+        <div className={`grid ${onEditRoute ? 'grid-cols-4' : 'grid-cols-3'} gap-1 sm:gap-1.5 pt-0.5`}>
           {/* Bouton Waze pour le trajet voiture vers le départ */}
           {startCoords && (
             <button
               type="button"
               onClick={() => onOpenWaze(startCoords[0], startCoords[1])}
-              className="py-2 px-2 bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 active:scale-95 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-sky-600/30 transition-all cursor-pointer border border-sky-400/30"
+              className="py-2 px-1.5 sm:px-2 bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 active:scale-95 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 shadow-md shadow-sky-600/30 transition-all cursor-pointer border border-sky-400/30"
               title="Ouvrir Waze pour naviguer en voiture jusqu'au départ du circuit"
             >
               <Car className="w-3.5 h-3.5 shrink-0 text-cyan-200" />
-              <span className="truncate">Waze départ</span>
+              <span className="truncate">Waze</span>
             </button>
           )}
 
@@ -181,18 +183,31 @@ export function MapRouteQuickDock({
           <button
             type="button"
             onClick={handleExportKomoot}
-            className="py-2 px-2 bg-gradient-to-r from-[#7DB434] to-[#588523] hover:from-[#71a52e] hover:to-[#4a721c] active:scale-95 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-lime-950/30 transition-all cursor-pointer border border-lime-300/35"
+            className="py-2 px-1.5 sm:px-2 bg-gradient-to-r from-[#7DB434] to-[#588523] hover:from-[#71a52e] hover:to-[#4a721c] active:scale-95 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 shadow-md shadow-lime-950/30 transition-all cursor-pointer border border-lime-300/35"
             title="Envoyer vers Komoot pour guidage Apple Watch & GPS (2 taps)"
           >
             <KomootIcon className="w-3.5 h-3.5 shrink-0" />
             <span className="truncate">Komoot</span>
           </button>
 
+          {/* Bouton Modifier (Créer une nouvelle variante sans modifier l'original) */}
+          {onEditRoute && (
+            <button
+              type="button"
+              onClick={() => onEditRoute(route, trace)}
+              className="py-2 px-1.5 sm:px-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 active:scale-95 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 shadow-md shadow-purple-900/30 transition-all cursor-pointer border border-purple-400/35"
+              title="Modifier ce parcours pour créer une nouvelle trace (le tracé d'origine reste intact)"
+            >
+              <Wand2 className="w-3.5 h-3.5 shrink-0 text-yellow-300" />
+              <span className="truncate">Modifier</span>
+            </button>
+          )}
+
           {/* Bouton Démarrer la navigation rando/vélo sur le terrain */}
           <button
             type="button"
             onClick={() => onStartNavigation(route, trace)}
-            className="py-2 px-2 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 active:scale-95 text-white rounded-xl text-xs font-black flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/35 transition-all cursor-pointer border border-emerald-400/40"
+            className="py-2 px-1.5 sm:px-2 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 active:scale-95 text-white rounded-xl text-xs font-black flex items-center justify-center gap-1 sm:gap-1.5 shadow-md shadow-emerald-600/35 transition-all cursor-pointer border border-emerald-400/40"
             title="Lancer le guidage direct sur le terrain (100% hors-ligne, GPS)"
           >
             <Navigation className="w-3.5 h-3.5 shrink-0 fill-white animate-pulse" />

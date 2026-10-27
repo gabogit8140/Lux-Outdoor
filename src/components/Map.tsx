@@ -135,6 +135,7 @@ interface MapProps {
   selectedPlace?: PlaceEntry | null;
   onClearSelectedPlace?: () => void;
   onUserLocationChange?: (coords: [number, number]) => void;
+  onEditRoute?: (route: RouteSuggestions, trace: RouteTrace) => void;
 }
 
 export function MapDisplay({
@@ -168,6 +169,7 @@ export function MapDisplay({
   onOpenDetails,
   isDetailsOpen = false,
   onReverseRoute,
+  onEditRoute,
   favorites,
   onLoadFavorite,
   mushroomSpots,
@@ -193,6 +195,14 @@ export function MapDisplay({
       setMapLayer('osmfr');
     }
   }, [activity, mapLayer, setMapLayer]);
+
+  const handleUserLocationChange = React.useCallback(
+    (coords: [number, number]) => {
+      setUserCoords(coords);
+      if (onUserLocationChange) onUserLocationChange(coords);
+    },
+    [onUserLocationChange]
+  );
 
   return (
     <div className="w-full h-full relative z-0">
@@ -295,10 +305,7 @@ export function MapDisplay({
           <DesktopZoomControl />
           <LocateControl
             isNavigating={Boolean(navigation?.isNavigating)}
-            onLocationChange={(coords) => {
-              setUserCoords(coords);
-              if (onUserLocationChange) onUserLocationChange(coords);
-            }}
+            onLocationChange={handleUserLocationChange}
           />
           <MapLayersMenu
             activity={activity}
@@ -440,6 +447,7 @@ export function MapDisplay({
             isTraceVisible={isTraceVisible}
             onToggleTraceVisibility={onToggleTraceVisibility}
             onReverseRoute={onReverseRoute}
+            onEditRoute={onEditRoute}
           />
         )}
 

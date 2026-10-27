@@ -322,6 +322,31 @@ export function RouteDetailView({
         </div>
       </div>
 
+      {/* Modification & Variante GPX Card (Tracé d'origine 100% protégé) */}
+      {onEditRoute && trace && (
+        <div className="p-3 bg-gradient-to-r from-purple-50 via-indigo-50 to-purple-50 dark:from-purple-950/40 dark:via-indigo-950/40 dark:to-purple-950/40 rounded-2xl border border-purple-200/90 dark:border-purple-800/80 space-y-2">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5 text-xs font-bold text-purple-900 dark:text-purple-200">
+              <Wand2 className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              <span>Créer une variante personnalisée</span>
+            </div>
+            <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-800 dark:text-purple-300">
+              Original intact
+            </span>
+          </div>
+          <p className="text-[11px] text-purple-800/80 dark:text-purple-300/80 leading-relaxed">
+            Modifiez ce parcours sur les sentiers réels. <strong>Le tracé d&apos;origine restera inchangé</strong> : votre circuit modifié sera sauvegardé comme une nouvelle trace dans Mes Traces.
+          </p>
+          <button
+            onClick={() => onEditRoute(route, trace)}
+            className="w-full py-2 px-3 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-purple-900/25 active:scale-95 transition-all cursor-pointer border border-purple-400/30"
+          >
+            <Wand2 className="w-3.5 h-3.5 text-yellow-300" />
+            <span>Modifier ce parcours (Nouvelle trace)</span>
+          </button>
+        </div>
+      )}
+
       {/* Official Source Website & Cadastral Geoportail.lu for the GPX */}
       {(route.sourceUrl || route.sourceLabel || route.geoportailUrl) && (
         <div className="bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/90 dark:border-emerald-800/70 rounded-2xl p-3 flex flex-col gap-2.5">
@@ -357,16 +382,16 @@ export function RouteDetailView({
             <div className="pt-2 border-t border-emerald-200/60 dark:border-emerald-800/60 flex items-center justify-between text-xs">
               <span className="text-[11px] text-emerald-900/80 dark:text-emerald-300 font-medium flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
-                <span>Cadastre & Topographie (ACT) :</span>
+                <span>{route.country === 'LU' ? 'Cadastre & Topographie (ACT) :' : 'Réseau Topo & Carte Dédiée :'}</span>
               </span>
               <a
                 href={route.geoportailUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:text-emerald-900 underline flex items-center gap-1"
-                title="Consulter le tracé sur la carte topographique officielle de Geoportail.lu"
+                title={route.country === 'LU' ? 'Consulter le tracé sur la carte topographique officielle de Geoportail.lu' : 'Consulter le tracé détaillé sur Waymarked Trails'}
               >
-                <span>Geoportail.lu</span>
+                <span>{route.country === 'LU' ? 'Geoportail.lu' : 'Waymarked Trails'}</span>
                 <ExternalLink className="w-3 h-3 opacity-70" />
               </a>
             </div>
