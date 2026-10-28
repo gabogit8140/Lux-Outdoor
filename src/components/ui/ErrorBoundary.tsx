@@ -23,7 +23,7 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('[TraceOutdoor ErrorBoundary] Uncaught runtime exception:', error, errorInfo);
+    console.error('[LuxOutdoor ErrorBoundary] Uncaught runtime exception:', error, errorInfo);
     this.setState({ errorInfo });
 
     // Si c'est une erreur de chargement de chunk (mise à jour d'assets PWA), recharge automatiquement une fois

@@ -1,6 +1,6 @@
 /**
  * types.ts
- * Types for the Trace Outdoor dataset ingestion and processing pipeline.
+ * Types for the Lux Outdoor dataset ingestion and processing pipeline.
  */
 
 export interface DatasetCategory {

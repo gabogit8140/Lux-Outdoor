@@ -55,8 +55,8 @@ export function SettingsModal({
   const handleShareApp = async () => {
     const shareUrl = typeof window !== 'undefined' ? window.location.origin : 'https://luxoutdoor.app';
     const shareData = {
-      title: 'Trace Outdoor · Circuits Vélo & Randonnée',
-      text: 'Découvrez Trace Outdoor : l’application outdoor pour explorer 885+ circuits de randonnée et vélo sur sentiers réels et voies sans voiture !',
+      title: 'Lux Outdoor · Circuits Vélo & Randonnée',
+      text: 'Découvrez Lux Outdoor : l’application outdoor pour explorer 885+ circuits de randonnée et vélo sur sentiers réels et voies sans voiture !',
       url: shareUrl,
     };
 
@@ -131,7 +131,7 @@ export function SettingsModal({
                       Partager l&apos;application
                     </h3>
                     <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed">
-                      Recommandez Trace Outdoor à vos amis ou proches pour leurs sorties rando, gravel et vélo.
+                      Recommandez Lux Outdoor à vos amis ou proches pour leurs sorties rando, gravel et vélo.
                     </p>
                   </div>
                 </div>
@@ -155,7 +155,7 @@ export function SettingsModal({
                   ) : (
                     <>
                       <Share2 className="w-4 h-4" />
-                      <span>Partager Trace Outdoor</span>
+                      <span>Partager Lux Outdoor</span>
                     </>
                   )}
                 </button>
@@ -363,7 +363,7 @@ export function SettingsModal({
             <BrandLogo size="sm" />
             <div>
               <span className="text-xs font-black text-slate-800 dark:text-white block leading-none">
-                Trace Outdoor
+                Lux Outdoor
               </span>
               <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono-kpi">
                 v1.2 · Sentiers 0 voiture

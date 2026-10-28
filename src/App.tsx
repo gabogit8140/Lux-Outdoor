@@ -47,7 +47,8 @@ export default function App() {
   const [userCoords, setUserCoords] = useState<[number, number] | null>(null);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
     try {
-      return localStorage.getItem('trace_outdoor_theme') === 'dark';
+      const stored = localStorage.getItem('lux_outdoor_theme') || localStorage.getItem('trace_outdoor_theme');
+      return stored === 'dark';
     } catch {
       return false;
     }
@@ -65,7 +66,7 @@ export default function App() {
       m.setAttribute('content', isDarkMode ? '#020617' : '#ffffff');
     });
     try {
-      localStorage.setItem('trace_outdoor_theme', isDarkMode ? 'dark' : 'light');
+      localStorage.setItem('lux_outdoor_theme', isDarkMode ? 'dark' : 'light');
     } catch {
       // Ignore storage error
     }

@@ -2441,7 +2441,7 @@ async function queryValhallaRaw(
         signal: controller.signal,
         headers: {
           'Content-Type': 'application/json',
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) TraceOutdoor/1.0',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) LuxOutdoor/1.0',
         },
         body: JSON.stringify(bodyObj),
       });
