@@ -14,6 +14,6 @@ if %errorlevel% equ 0 (
     timeout /t 2 /nobreak >nul
 )
 
-echo [Lux Outdoor] Ouverture dans Microsoft Edge...
-start msedge "http://localhost:3000/"
+echo [Lux Outdoor] Ouverture de l'application dediee dans Microsoft Edge...
+start msedge --app="http://localhost:3000/"
 exit
