@@ -94,6 +94,9 @@ export default defineConfig(() => {
       rollupOptions: {
         output: {
           manualChunks(id) {
+            if (id.includes('generatedGpxCatalog')) {
+              return 'gpx-catalog';
+            }
             if (
               id.includes('node_modules/react') ||
               id.includes('node_modules/react-dom') ||
@@ -104,6 +107,9 @@ export default defineConfig(() => {
             }
             if (id.includes('node_modules/lucide-react')) {
               return 'icons-vendor';
+            }
+            if (id.includes('node_modules/recharts')) {
+              return 'charts-vendor';
             }
           },
         },

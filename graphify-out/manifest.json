@@ -582,9 +582,9 @@
     "semantic_hash": ""
   },
   "src/hooks/useUserGpxLibrary.ts": {
-    "mtime": 1792767006.1954286,
-    "seen": 1793207818.7978632,
-    "ast_hash": "6184677d8a4dff55ef94b0b65bba03f2",
+    "mtime": 1793209314.7893875,
+    "seen": 1793209609.6505294,
+    "ast_hash": "de4fe174f178d72fba978b525b6be44c",
     "semantic_hash": ""
   },
   "src/lib/config/appConfig.ts": {
@@ -792,9 +792,9 @@
     "semantic_hash": ""
   },
   "src/lib/routing/spurPruner.ts": {
-    "mtime": 1793178822.73138,
-    "seen": 1793207818.79791,
-    "ast_hash": "a863840c9a4aee6961d936f5336aef9a",
+    "mtime": 1793208971.9370725,
+    "seen": 1793209609.650708,
+    "ast_hash": "e294d0a828b46d7eb73168871576e200",
     "semantic_hash": ""
   },
   "src/lib/routing/subSection.ts": {
@@ -804,9 +804,9 @@
     "semantic_hash": ""
   },
   "src/lib/safety/huntingService.ts": {
-    "mtime": 1792738170.833639,
-    "seen": 1793207818.7979126,
-    "ast_hash": "dcf08bb5e7125ed705117f2f26966636",
+    "mtime": 1793209255.9706416,
+    "seen": 1793209609.6507218,
+    "ast_hash": "1325b4f70eb8e6dfa4d004b0818eac86",
     "semantic_hash": ""
   },
   "src/lib/sync/deviceIdentity.ts": {
@@ -840,9 +840,9 @@
     "semantic_hash": ""
   },
   "vite.config.ts": {
-    "mtime": 1793207117.8092432,
-    "seen": 1793207818.7979207,
-    "ast_hash": "da8d1c967eb79bf5d4cbb596c274938c",
+    "mtime": 1793209046.5000374,
+    "seen": 1793209609.650766,
+    "ast_hash": "d12ada6ed24a7ab4923fceccaa6c19aa",
     "semantic_hash": ""
   },
   "DEPLOYMENT.md": {
@@ -899,10 +899,58 @@
     "ast_hash": "e92604cbfb5798e80b869d64d6dce0b9",
     "semantic_hash": ""
   },
+  "src/lib/geoUtils.test.ts": {
+    "mtime": 1793208984.803775,
+    "seen": 1793209609.6505663,
+    "ast_hash": "f6029064d9e2d7e34a2d2384b873abfd",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/spurPruner.test.ts": {
+    "mtime": 1793209400.3741777,
+    "seen": 1793209609.6507025,
+    "ast_hash": "2ab7262060099d03fd0dfb6052aaeb6f",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/subSection.test.ts": {
+    "mtime": 1793209498.687231,
+    "seen": 1793209609.6507123,
+    "ast_hash": "11d60f1f9ea2cb52a9be3e4656f72020",
+    "semantic_hash": ""
+  },
+  "src/lib/safety/index.ts": {
+    "mtime": 1793209269.060617,
+    "seen": 1793209609.650726,
+    "ast_hash": "02b6e715829f4392af10da8cd85545df",
+    "semantic_hash": ""
+  },
+  "src/lib/safety/sanitize.test.ts": {
+    "mtime": 1793209250.9116938,
+    "seen": 1793209609.6507308,
+    "ast_hash": "2038e247ce52c684abefd58d1b66f5e9",
+    "semantic_hash": ""
+  },
+  "src/lib/safety/sanitize.ts": {
+    "mtime": 1793209150.0110168,
+    "seen": 1793209609.650735,
+    "ast_hash": "880360c1c4b189530a384ac093111a6c",
+    "semantic_hash": ""
+  },
+  "vitest.config.ts": {
+    "mtime": 1793208859.8533702,
+    "seen": 1793209609.6507702,
+    "ast_hash": "1ca8e97819bdce2e647d29f5977ed4a5",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1793208509.8586307,
+    "seen": 1793209609.6507745,
+    "ast_hash": "d848b356e6af012091647542309346ac",
+    "semantic_hash": ""
+  },
   "package-lock.json": {
-    "mtime": 1793191953.3978918,
-    "seen": 1793207818.797934,
-    "ast_hash": "22d3cc13fd32d8b1d5245f26ecf2462e",
+    "mtime": 1793209192.5993025,
+    "seen": 1793209609.6508226,
+    "ast_hash": "c5ef2972112ab46e25ea4729a0305229",
     "semantic_hash": ""
   }
 }

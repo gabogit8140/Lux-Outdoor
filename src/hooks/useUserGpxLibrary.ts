@@ -18,6 +18,7 @@ import {
   generateTrackSegments,
 } from '../lib/geoUtils';
 import type { RouteSuggestions, RouteTrace } from '../types';
+import { sanitizePlainText, sanitizeHtml } from '../lib/safety';
 
 export function useUserGpxLibrary() {
   const [userTracks, setUserTracks] = useState<StoredGpxTrack[]>([]);
@@ -92,8 +93,8 @@ export function useUserGpxLibrary() {
           const stored: StoredGpxTrack = {
             id,
             fileName: name,
-            title: parsed.title || name.replace(/\.gpx$/i, ''),
-            description: parsed.description || `Tracé GPX importé comprenant ${parsed.coordinates.length} points GPS et ${parsed.elevationGain}m de D+.`,
+            title: sanitizePlainText(parsed.title) || name.replace(/\.gpx$/i, ''),
+            description: sanitizeHtml(parsed.description) || `Tracé GPX importé comprenant ${parsed.coordinates.length} points GPS et ${parsed.elevationGain}m de D+.`,
             tripName: cleanTrip,
             activity,
             dateAdded: new Date().toISOString(),

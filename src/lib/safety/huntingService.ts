@@ -33,7 +33,6 @@ export function checkHuntingSeason(date: Date = new Date()): {
   label: string;
 } {
   const month = date.getMonth(); // 0 = Jan, 9 = Oct, 11 = Dec
-  const day = date.getDate();
 
   // Peak battue period: October 1st to end of February
   const isPeak = month === 9 || month === 10 || month === 11 || month === 0 || month === 1;
@@ -93,8 +92,7 @@ export function getHuntingSafetyInfo(params: {
     // Centers map directly on route starting point with hunting layer pre-activated (EPSG:3857 Web Mercator meters)
     const x = Math.round((lon * 20037508.34) / 180);
     const y = Math.round(
-      (Math.log(Math.tan(((90 + lat) * Math.PI) / 360)) / (Math.PI / 180)) *
-        (20037508.34 / 180)
+      (Math.log(Math.tan(((90 + lat) * Math.PI) / 360)) / (Math.PI / 180)) * (20037508.34 / 180),
     );
     const geoportailBattuesUrl = `https://map.geoportail.lu/theme/main?version=3&zoom=13&X=${x}&Y=${y}&lang=fr&layers=444&opacities=1`;
 
@@ -206,7 +204,8 @@ export function getHuntingSafetyInfo(params: {
     seasonPeriod: 'Automne / Hiver',
     riskLevel: 'low',
     riskDescription: 'Consultez les affichages locaux et restez sur les chemins balisés.',
-    officialMapUrl: 'https://map.geoportail.lu/theme/main?version=3&zoom=9&X=682599&Y=6379000&lang=fr&layers=444&opacities=1',
+    officialMapUrl:
+      'https://map.geoportail.lu/theme/main?version=3&zoom=9&X=682599&Y=6379000&lang=fr&layers=444&opacities=1',
     officialMapLabel: 'Portail Cartographique Grande Région',
     officialMapBadge: 'Info Randonnée',
     safetyGuidelines: defaultGuidelines,

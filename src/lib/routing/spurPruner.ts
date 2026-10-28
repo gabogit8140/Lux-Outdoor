@@ -74,7 +74,7 @@ export function snapPointToTrack(
 /**
  * Calcule les abscisses curvilignes cumulées (en mètres) le long d'une polyligne.
  */
-function computeCumulativeArcLengths(coords: [number, number, number?][]): number[] {
+export function computeCumulativeArcLengths(coords: [number, number, number?][]): number[] {
   const cum: number[] = new Array(coords.length).fill(0);
   let total = 0;
   for (let i = 1; i < coords.length; i++) {
