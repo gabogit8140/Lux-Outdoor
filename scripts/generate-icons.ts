@@ -339,9 +339,31 @@ function renderIconToFile(outPath: string, size: number, fullBleed: boolean) {
   const png = encodePNG(size, size, rgba);
   fs.writeFileSync(outPath, png);
   console.log(`[Icon Generator] Wrote ${path.basename(outPath)} (${size}x${size}, ${png.length} bytes)`);
+  return png;
+}
+
+function writeFaviconIco(outPath: string, pngBuffer: Buffer, size: number) {
+  const icoHeader = Buffer.alloc(22);
+  icoHeader.writeUInt16LE(0, 0); // reserved
+  icoHeader.writeUInt16LE(1, 2); // type 1 = icon
+  icoHeader.writeUInt16LE(1, 4); // count = 1
+  icoHeader.writeUInt8(size >= 256 ? 0 : size, 6); // width
+  icoHeader.writeUInt8(size >= 256 ? 0 : size, 7); // height
+  icoHeader.writeUInt8(0, 8); // color count
+  icoHeader.writeUInt8(0, 9); // reserved
+  icoHeader.writeUInt16LE(1, 10); // color planes
+  icoHeader.writeUInt16LE(32, 12); // bits per pixel
+  icoHeader.writeUInt32LE(pngBuffer.length, 14); // data size
+  icoHeader.writeUInt32LE(22, 18); // offset to image
+
+  const ico = Buffer.concat([icoHeader, pngBuffer]);
+  fs.writeFileSync(outPath, ico);
+  console.log(`[Icon Generator] Wrote ${path.basename(outPath)} (${size}x${size}, ${ico.length} bytes)`);
 }
 
 const publicDir = path.resolve(process.cwd(), 'public');
+const favPng = renderIconToFile(path.join(publicDir, 'favicon-48.png'), 48, false);
+writeFaviconIco(path.join(publicDir, 'favicon.ico'), favPng, 48);
 renderIconToFile(path.join(publicDir, 'apple-touch-icon.png'), 180, true);
 renderIconToFile(path.join(publicDir, 'pwa-192x192.png'), 192, false);
 renderIconToFile(path.join(publicDir, 'pwa-512x512.png'), 512, false);
