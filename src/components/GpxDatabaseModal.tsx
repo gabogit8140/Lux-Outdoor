@@ -763,7 +763,7 @@ export function GpxDatabaseModal({
                       type="text"
                       value={ghConfig.repo}
                       onChange={(e) => handleSaveGhConfig({ repo: e.target.value })}
-                      placeholder="Trace-Outdoor"
+                      placeholder="Lux-Outdoor"
                       className="w-full px-3 py-1.5 bg-white border border-stone-300 rounded-xl font-mono text-xs focus:outline-emerald-600"
                     />
                   </div>

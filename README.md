@@ -39,7 +39,7 @@ Le dépôt intègre un workflow GitHub Actions (`.github/workflows/deploy.yml`) 
 2. Dans **Source**, sélectionnez **GitHub Actions**.
 3. Votre application est immédiatement accessible à l'adresse :
    ```
-   https://gabogit8140.github.io/Trace-Outdoor/
+   https://gabogit8140.github.io/Lux-Outdoor/
    ```
 
 ---
@@ -48,8 +48,8 @@ Le dépôt intègre un workflow GitHub Actions (`.github/workflows/deploy.yml`) 
 
 ```bash
 # 1. Cloner le dépôt
-git clone https://github.com/gabogit8140/Trace-Outdoor.git
-cd Trace-Outdoor
+git clone https://github.com/gabogit8140/Lux-Outdoor.git
+cd Lux-Outdoor
 
 # 2. Installer les dépendances
 npm install

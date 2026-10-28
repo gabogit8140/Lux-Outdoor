@@ -18,7 +18,7 @@ const GITHUB_CONFIG_STORAGE_KEY = APP_STORAGE_KEYS.githubConfig;
 
 const DEFAULT_CONFIG: GitHubConfig = {
   owner: 'gabogit8140',
-  repo: 'Trace-Outdoor',
+  repo: 'Lux-Outdoor',
   branch: 'main',
   token: '',
   autoSync: false,
