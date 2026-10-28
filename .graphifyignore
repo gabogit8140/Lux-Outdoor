@@ -1,0 +1,8 @@
+# Ignorer les traces GPX brutes et les catalogues volumineux
+public/gpx/
+src/lib/generatedGpxCatalog.ts
+dist/
+node_modules/
+.git/
+*.gpx
+*.json

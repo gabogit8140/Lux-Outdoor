@@ -1,0 +1,908 @@
+{
+  ".github/workflows/deploy.yml": {
+    "mtime": 1791892217.2388422,
+    "seen": 1793207818.7977152,
+    "ast_hash": "df5076e1d1bbf513b7ccc7f4cf8c7877",
+    "semantic_hash": ""
+  },
+  "scripts/apply_all_fixes.cjs": {
+    "mtime": 1793188892.0196543,
+    "seen": 1793207818.797724,
+    "ast_hash": "5988b5515726d4a18d471e8e54bf6da2",
+    "semantic_hash": ""
+  },
+  "scripts/apply_authentic_cleanup.mjs": {
+    "mtime": 1792048689.031277,
+    "seen": 1793207818.797728,
+    "ast_hash": "bd100e188deddcb91a9ffedfce3c9d7d",
+    "semantic_hash": ""
+  },
+  "scripts/check_jumps.mjs": {
+    "mtime": 1791910398.010514,
+    "seen": 1793207818.7977304,
+    "ast_hash": "1528bc03082403f5d551629d562ab9a0",
+    "semantic_hash": ""
+  },
+  "scripts/check_missing_curated.mjs": {
+    "mtime": 1791909736.6173787,
+    "seen": 1793207818.7977345,
+    "ast_hash": "049ee877cd75ac7480c6cb269224865c",
+    "semantic_hash": ""
+  },
+  "scripts/check_overlap.mjs": {
+    "mtime": 1791909933.9519925,
+    "seen": 1793207818.7977362,
+    "ast_hash": "408afd75e448df4c12b0675207afdbe6",
+    "semantic_hash": ""
+  },
+  "scripts/classify_synthetic.mjs": {
+    "mtime": 1792048558.7844934,
+    "seen": 1793207818.7977383,
+    "ast_hash": "2d15abb9e91e2f3de53091ee6a0cfc1b",
+    "semantic_hash": ""
+  },
+  "scripts/cleanup_routes.cjs": {
+    "mtime": 1793188735.064984,
+    "seen": 1793207818.7977397,
+    "ast_hash": "c0e38bc761ffcd60131cac0903737ac5",
+    "semantic_hash": ""
+  },
+  "scripts/creer-raccourci.ps1": {
+    "mtime": 1793195467.9783027,
+    "seen": 1793207818.7977414,
+    "ast_hash": "cb75384bb4a604963c1d3bc42378080d",
+    "semantic_hash": ""
+  },
+  "scripts/find_matched_word.ts": {
+    "mtime": 1792068549.173185,
+    "seen": 1793207818.7977428,
+    "ast_hash": "71ea032a4666c1064cb3607e403155c7",
+    "semantic_hash": ""
+  },
+  "scripts/find_near_ansembourg.mjs": {
+    "mtime": 1792048544.010219,
+    "seen": 1793207818.7977443,
+    "ast_hash": "08c0bd06fa40e58cdffc9a6d7745c1f7",
+    "semantic_hash": ""
+  },
+  "scripts/generate-greater-region-gpx.ts": {
+    "mtime": 1793193266.559261,
+    "seen": 1793207818.7977462,
+    "ast_hash": "5d3b123fa62d7d671541f049534509fb",
+    "semantic_hash": ""
+  },
+  "scripts/generate-icons.js": {
+    "mtime": 1791891813.2596564,
+    "seen": 1793207818.7977476,
+    "ast_hash": "110d5bea7699811a52f58bbe0695e46d",
+    "semantic_hash": ""
+  },
+  "scripts/generate-icons.ts": {
+    "mtime": 1793207106.1404698,
+    "seen": 1793207818.7977493,
+    "ast_hash": "808c8d246be38091376e1b4c37d859b4",
+    "semantic_hash": ""
+  },
+  "scripts/generate-official-gpx.ts": {
+    "mtime": 1791891813.2636802,
+    "seen": 1793207818.7977505,
+    "ast_hash": "e524896a9d790309ad76a0e8955866c5",
+    "semantic_hash": ""
+  },
+  "scripts/generate_app_icons.py": {
+    "mtime": 1792766549.9412467,
+    "seen": 1793207818.7977521,
+    "ast_hash": "f06b48a42da6c2f3e4e1611104c2ba87",
+    "semantic_hash": ""
+  },
+  "scripts/import-sentiers-locaux.ts": {
+    "mtime": 1792757106.7091885,
+    "seen": 1793207818.7977536,
+    "ast_hash": "9b082fb1c714339d1fd2b5e7ce5f9168",
+    "semantic_hash": ""
+  },
+  "scripts/index-gpx.ts": {
+    "mtime": 1792946035.4780352,
+    "seen": 1793207818.7977548,
+    "ast_hash": "fd6cb8aced3ae85f84542f8e44545cc8",
+    "semantic_hash": ""
+  },
+  "scripts/inspect_lines.mjs": {
+    "mtime": 1791909900.3053794,
+    "seen": 1793207818.7977564,
+    "ast_hash": "04792afb3c9dd47432bd06699e011737",
+    "semantic_hash": ""
+  },
+  "scripts/inspect_links.ts": {
+    "mtime": 1792070869.3404589,
+    "seen": 1793207818.7977576,
+    "ast_hash": "a1b444f949d5b1d05607bd9fe65c62da",
+    "semantic_hash": ""
+  },
+  "scripts/inspect_pc1.mjs": {
+    "mtime": 1791909880.968415,
+    "seen": 1793207818.797759,
+    "ast_hash": "ff24a5b3be981e745316c2251a055248",
+    "semantic_hash": ""
+  },
+  "scripts/inspect_pc3.mjs": {
+    "mtime": 1791909830.4755244,
+    "seen": 1793207818.7977602,
+    "ast_hash": "d33beaaf6bd76110ed64cfea56164595",
+    "semantic_hash": ""
+  },
+  "scripts/pipeline/categories.ts": {
+    "mtime": 1792757057.9870305,
+    "seen": 1793207818.7977624,
+    "ast_hash": "db254ac9faf7d14270944f0a98d6c79d",
+    "semantic_hash": ""
+  },
+  "scripts/pipeline/gpxTransformer.ts": {
+    "mtime": 1793193221.344739,
+    "seen": 1793207818.7977636,
+    "ast_hash": "87d81ce6dcec9793f3809d3e7d395dd8",
+    "semantic_hash": ""
+  },
+  "scripts/pipeline/syncAll.ts": {
+    "mtime": 1792757091.8292727,
+    "seen": 1793207818.7977648,
+    "ast_hash": "b89621e9165172312a5542d9c3a8a603",
+    "semantic_hash": ""
+  },
+  "scripts/pipeline/types.ts": {
+    "mtime": 1793193240.7323923,
+    "seen": 1793207818.7977662,
+    "ast_hash": "715b52a67857343809da608727483a9f",
+    "semantic_hash": ""
+  },
+  "scripts/qa-browser-test.mjs": {
+    "mtime": 1792862060.8227186,
+    "seen": 1793207818.7977674,
+    "ast_hash": "c3d8c4f3b8787b2b9807b2f0af7550b2",
+    "semantic_hash": ""
+  },
+  "scripts/resolve-urls.js": {
+    "mtime": 1792071766.1479266,
+    "seen": 1793207818.7977686,
+    "ast_hash": "3c100c4e53b9c0b358cf7d74f6d490e4",
+    "semantic_hash": ""
+  },
+  "scripts/scan_all_jumps.mjs": {
+    "mtime": 1791909861.272651,
+    "seen": 1793207818.79777,
+    "ast_hash": "4a098747b800c43e1b1692592c856965",
+    "semantic_hash": ""
+  },
+  "scripts/start-local.mjs": {
+    "mtime": 1792767075.8785079,
+    "seen": 1793207818.7977715,
+    "ast_hash": "12528f51b71f12ea2b1316050b374d03",
+    "semantic_hash": ""
+  },
+  "scripts/sync-visitluxembourg.ts": {
+    "mtime": 1792757097.6724823,
+    "seen": 1793207818.797773,
+    "ast_hash": "ab1feb64e591d2fd0783dc207c40dc9e",
+    "semantic_hash": ""
+  },
+  "scripts/test_all_rechain.mjs": {
+    "mtime": 1791910026.754253,
+    "seen": 1793207818.7977738,
+    "ast_hash": "c8c5d5d3044711894a617e1e47ffb560",
+    "semantic_hash": ""
+  },
+  "scripts/test_dist_margin.ts": {
+    "mtime": 1792068593.534163,
+    "seen": 1793207818.7977753,
+    "ast_hash": "b1a4c2cc9dfbfbc30d9faafda3de2ba5",
+    "semantic_hash": ""
+  },
+  "scripts/test_filter_combos.ts": {
+    "mtime": 1792068525.2771356,
+    "seen": 1793207818.7977767,
+    "ast_hash": "17f82e6c3e5c39d2da6214094f6b144d",
+    "semantic_hash": ""
+  },
+  "scripts/test_filters.ts": {
+    "mtime": 1792069930.216724,
+    "seen": 1793207818.797778,
+    "ast_hash": "1a0d6cd5d3dd62361fcc0d7c75da19d6",
+    "semantic_hash": ""
+  },
+  "scripts/test_forest_keywords.ts": {
+    "mtime": 1792068407.5249753,
+    "seen": 1793207818.797779,
+    "ast_hash": "f43982f56725d3217d1f8f7a77a9cdb4",
+    "semantic_hash": ""
+  },
+  "scripts/test_full_index_sim.mjs": {
+    "mtime": 1791910111.8793688,
+    "seen": 1793207818.7977805,
+    "ast_hash": "717081d21f9f427a7e5c55c5f4a1e099",
+    "semantic_hash": ""
+  },
+  "scripts/test_full_sync_simulation.mjs": {
+    "mtime": 1792047883.0183692,
+    "seen": 1793207818.7977817,
+    "ast_hash": "79a5d36a591e5fd8898c814b56a13f16",
+    "semantic_hash": ""
+  },
+  "scripts/test_inspect_catalog.ts": {
+    "mtime": 1792068265.7453253,
+    "seen": 1793207818.7977831,
+    "ast_hash": "07fd362219130214b4bb76a333b97a77",
+    "semantic_hash": ""
+  },
+  "scripts/test_preference_classification.ts": {
+    "mtime": 1792068359.5801208,
+    "seen": 1793207818.7977843,
+    "ast_hash": "b39f70541c986251aeb6a4e13ee6e40f",
+    "semantic_hash": ""
+  },
+  "scripts/test_specific_forest.ts": {
+    "mtime": 1792068571.2683654,
+    "seen": 1793207818.7977855,
+    "ast_hash": "ea4e4118a38d503207dcebb7e361000f",
+    "semantic_hash": ""
+  },
+  "scripts/test_sync_check.mjs": {
+    "mtime": 1792047864.3665545,
+    "seen": 1793207818.797787,
+    "ast_hash": "c01297d2ddd75a5f7cef44cc46480a6d",
+    "semantic_hash": ""
+  },
+  "scripts/test_tolerance.mjs": {
+    "mtime": 1791910146.3507679,
+    "seen": 1793207818.7977881,
+    "ast_hash": "867f960071d7354bda0683f771f075e1",
+    "semantic_hash": ""
+  },
+  "scripts/test_trace_cleaner.mjs": {
+    "mtime": 1791910010.1712384,
+    "seen": 1793207818.7977903,
+    "ast_hash": "ca7161debb1740bae862b52c9c3e3d96",
+    "semantic_hash": ""
+  },
+  "scripts/verify_all.cjs": {
+    "mtime": 1793189124.4137616,
+    "seen": 1793207818.7977915,
+    "ast_hash": "7a69fd7a8d826cd7cbf03f16773c5c14",
+    "semantic_hash": ""
+  },
+  "scripts/verify_gaz.cjs": {
+    "mtime": 1793188951.1921802,
+    "seen": 1793207818.7977927,
+    "ast_hash": "ea01cb2632be3353932e37a50092ef8d",
+    "semantic_hash": ""
+  },
+  "src/App.tsx": {
+    "mtime": 1793193202.688629,
+    "seen": 1793207818.7977943,
+    "ast_hash": "1d041acc3d4cab20e0129eb95a7fbe90",
+    "semantic_hash": ""
+  },
+  "src/components/Favorites.tsx": {
+    "mtime": 1793108031.812537,
+    "seen": 1793207818.7977955,
+    "ast_hash": "f51e1d60c0b7b67fc97a8f2366de89a6",
+    "semantic_hash": ""
+  },
+  "src/components/GpxDatabaseModal.tsx": {
+    "mtime": 1793206707.0338051,
+    "seen": 1793207818.7977972,
+    "ast_hash": "5d17aee1097e3dbc966004672771533e",
+    "semantic_hash": ""
+  },
+  "src/components/Map.tsx": {
+    "mtime": 1793179019.9369707,
+    "seen": 1793207818.7977984,
+    "ast_hash": "5865e812cfbf38a498609e1b7108c1d3",
+    "semantic_hash": ""
+  },
+  "src/components/MapFilterBar.tsx": {
+    "mtime": 1792950367.566685,
+    "seen": 1793207818.7977996,
+    "ast_hash": "8cf317bd28fb21ebf50fe98ea0788cd3",
+    "semantic_hash": ""
+  },
+  "src/components/PWAInstallModal.tsx": {
+    "mtime": 1792766973.2170315,
+    "seen": 1793207818.797801,
+    "ast_hash": "d4db056c890a814d7d704411a16dd938",
+    "semantic_hash": ""
+  },
+  "src/components/Sidebar.tsx": {
+    "mtime": 1793192078.5923855,
+    "seen": 1793207818.7978024,
+    "ast_hash": "99c20645f5e2c86c9bba89c088c0abd6",
+    "semantic_hash": ""
+  },
+  "src/components/TouchDistanceSelector.tsx": {
+    "mtime": 1792415560.9181514,
+    "seen": 1793207818.7978039,
+    "ast_hash": "05eede79b595b697889f71c1cf56a7a0",
+    "semantic_hash": ""
+  },
+  "src/components/TraceProfile.tsx": {
+    "mtime": 1793188895.6777918,
+    "seen": 1793207818.797805,
+    "ast_hash": "5e176c373afc5308699bf9c922bee02d",
+    "semantic_hash": ""
+  },
+  "src/components/editor/LoopGeneratorModal.tsx": {
+    "mtime": 1793174824.448249,
+    "seen": 1793207818.7978063,
+    "ast_hash": "b048aabb9f280e5d50bcc7d2d527e0cf",
+    "semantic_hash": ""
+  },
+  "src/components/editor/SaveTraceModal.tsx": {
+    "mtime": 1793190870.6216655,
+    "seen": 1793207818.7978077,
+    "ast_hash": "ceb0f465aeb3e0f2081c9706726e0cb2",
+    "semantic_hash": ""
+  },
+  "src/components/editor/SegmentOrderDashboard.tsx": {
+    "mtime": 1793177484.4540513,
+    "seen": 1793207818.7978091,
+    "ast_hash": "72bf3b7b64180370022dda6ce576e77b",
+    "semantic_hash": ""
+  },
+  "src/components/editor/SubTraceSlicerDashboard.tsx": {
+    "mtime": 1793190621.885524,
+    "seen": 1793207818.7978103,
+    "ast_hash": "3159a0058066c3164b462b8787abf0b7",
+    "semantic_hash": ""
+  },
+  "src/components/editor/TraceEditorBar.tsx": {
+    "mtime": 1793190822.4776447,
+    "seen": 1793207818.7978117,
+    "ast_hash": "e7d36beede570a7ee0ceca93e9aca3c3",
+    "semantic_hash": ""
+  },
+  "src/components/favorites/FavoriteCard.tsx": {
+    "mtime": 1792862198.2372296,
+    "seen": 1793207818.797813,
+    "ast_hash": "86ee42badf1a99478555877e0c20c686",
+    "semantic_hash": ""
+  },
+  "src/components/favorites/FavoritesFilterBar.tsx": {
+    "mtime": 1792862162.7968442,
+    "seen": 1793207818.7978141,
+    "ast_hash": "b24d7a1c28555f9f85e68922f7e7ae58",
+    "semantic_hash": ""
+  },
+  "src/components/favorites/FavoritesSyncTab.tsx": {
+    "mtime": 1793108253.6014585,
+    "seen": 1793207818.7978153,
+    "ast_hash": "baac97e534782e773716af4a94c15c34",
+    "semantic_hash": ""
+  },
+  "src/components/favorites/MushroomSpotsTab.tsx": {
+    "mtime": 1792926326.4272149,
+    "seen": 1793207818.7978165,
+    "ast_hash": "f5cc253a52eb58e16d022b93b8e6d578",
+    "semantic_hash": ""
+  },
+  "src/components/hunting/HuntingBattuesDockButton.tsx": {
+    "mtime": 1792944252.0652769,
+    "seen": 1793207818.797818,
+    "ast_hash": "36216a510086778b8c16bc6a0b964f5e",
+    "semantic_hash": ""
+  },
+  "src/components/map/LocateControl.tsx": {
+    "mtime": 1793102034.6752715,
+    "seen": 1793207818.7978194,
+    "ast_hash": "51d73b60df0d896ce8a48ecceb188d9b",
+    "semantic_hash": ""
+  },
+  "src/components/map/MapControls.tsx": {
+    "mtime": 1793101878.811636,
+    "seen": 1793207818.7978206,
+    "ast_hash": "1b0ce238df7a9ca6ecaf3c85b31eb481",
+    "semantic_hash": ""
+  },
+  "src/components/map/MapEditorLayer.tsx": {
+    "mtime": 1793190718.6230624,
+    "seen": 1793207818.797822,
+    "ast_hash": "b56f33f7bd3f53e1d17f2ebcb0b2ed1e",
+    "semantic_hash": ""
+  },
+  "src/components/map/MapFavoritesLayer.tsx": {
+    "mtime": 1792929000.3637161,
+    "seen": 1793207818.7978232,
+    "ast_hash": "8bae5531b33a3f674258bc05a71c9310",
+    "semantic_hash": ""
+  },
+  "src/components/map/MapLayersMenu.tsx": {
+    "mtime": 1792944214.5238917,
+    "seen": 1793207818.7978246,
+    "ast_hash": "b6300d5026d9a184a00e7784a32502de",
+    "semantic_hash": ""
+  },
+  "src/components/map/MapMushroomLayer.tsx": {
+    "mtime": 1792927322.6504107,
+    "seen": 1793207818.7978258,
+    "ast_hash": "e8fe7711e22e783723a030e6ff5013f9",
+    "semantic_hash": ""
+  },
+  "src/components/map/MapRouteQuickDock.tsx": {
+    "mtime": 1793105210.097574,
+    "seen": 1793207818.7978268,
+    "ast_hash": "605ee35fe88d57f25d509306764afa05",
+    "semantic_hash": ""
+  },
+  "src/components/map/MapRoutesLayer.tsx": {
+    "mtime": 1792927983.0698504,
+    "seen": 1793207818.7978282,
+    "ast_hash": "8e7bb0a75a2988c553c7b7e590c35fad",
+    "semantic_hash": ""
+  },
+  "src/components/map/MapTileLayers.tsx": {
+    "mtime": 1792770720.2808435,
+    "seen": 1793207818.7978294,
+    "ast_hash": "54fe66785ba956982fffe7af7d1a4b46",
+    "semantic_hash": ""
+  },
+  "src/components/map/SelectedPlaceMapLayer.tsx": {
+    "mtime": 1793188895.689809,
+    "seen": 1793207818.7978306,
+    "ast_hash": "09fe894e55168e5ff94234016c18321a",
+    "semantic_hash": ""
+  },
+  "src/components/mushrooms/MushroomDockButton.tsx": {
+    "mtime": 1792862131.2192786,
+    "seen": 1793207818.797832,
+    "ast_hash": "0bb606997c080af81f467591464b1f15",
+    "semantic_hash": ""
+  },
+  "src/components/mushrooms/NewMushroomSpotModal.tsx": {
+    "mtime": 1792860184.702206,
+    "seen": 1793207818.7978334,
+    "ast_hash": "82045fd25d08aa2760d1a1e434a285d5",
+    "semantic_hash": ""
+  },
+  "src/components/navigation/NavigationCockpit.tsx": {
+    "mtime": 1792764664.160898,
+    "seen": 1793207818.7978346,
+    "ast_hash": "5bf753382555ba54206271847087e193",
+    "semantic_hash": ""
+  },
+  "src/components/navigation/NavigationMapLayer.tsx": {
+    "mtime": 1792943649.5026622,
+    "seen": 1793207818.7978363,
+    "ast_hash": "de735bb643a13358d9636c7404df0717",
+    "semantic_hash": ""
+  },
+  "src/components/navigation/TopLeftCommandDock.tsx": {
+    "mtime": 1793105832.0609777,
+    "seen": 1793207818.7978375,
+    "ast_hash": "04e23d89961585a456d9df3d56a57139",
+    "semantic_hash": ""
+  },
+  "src/components/search/CitySearchModal.tsx": {
+    "mtime": 1793188895.6926055,
+    "seen": 1793207818.797839,
+    "ast_hash": "17f987abab6371f6333d82d3ee449052",
+    "semantic_hash": ""
+  },
+  "src/components/settings/SettingsModal.tsx": {
+    "mtime": 1793193193.588583,
+    "seen": 1793207818.79784,
+    "ast_hash": "589da6584fec57611126b800c93523ea",
+    "semantic_hash": ""
+  },
+  "src/components/sidebar/PlanTabContent.tsx": {
+    "mtime": 1793192086.93483,
+    "seen": 1793207818.7978413,
+    "ast_hash": "5254482981e669179241e92ba594ccd0",
+    "semantic_hash": ""
+  },
+  "src/components/sidebar/RouteCatalogList.tsx": {
+    "mtime": 1793188895.682616,
+    "seen": 1793207818.7978427,
+    "ast_hash": "8fdd08037eb06ce62c42631ae2c4d7ef",
+    "semantic_hash": ""
+  },
+  "src/components/sidebar/RouteDetailView.tsx": {
+    "mtime": 1793190939.5893273,
+    "seen": 1793207818.7978442,
+    "ast_hash": "5b6ce77d392d5b4cfc291d8d930d5277",
+    "semantic_hash": ""
+  },
+  "src/components/ui/BrandLogo.tsx": {
+    "mtime": 1792772427.2765312,
+    "seen": 1793207818.7978456,
+    "ast_hash": "62bd5e8517b5ab110797b274b64feb75",
+    "semantic_hash": ""
+  },
+  "src/components/ui/ErrorBoundary.tsx": {
+    "mtime": 1793193211.873157,
+    "seen": 1793207818.797848,
+    "ast_hash": "2dba80d24d5705b5c490b83eb876b2b1",
+    "semantic_hash": ""
+  },
+  "src/components/ui/HuntingRifleIcon.tsx": {
+    "mtime": 1792740357.5053089,
+    "seen": 1793207818.7978494,
+    "ast_hash": "84031c14a8af3cebb59790351df159a9",
+    "semantic_hash": ""
+  },
+  "src/components/ui/HuntingSafetyAlert.tsx": {
+    "mtime": 1792944223.6165738,
+    "seen": 1793207818.7978508,
+    "ast_hash": "d95346e1b1772ac88b41c53d82adc066",
+    "semantic_hash": ""
+  },
+  "src/components/ui/KomootIcon.tsx": {
+    "mtime": 1792769468.0979702,
+    "seen": 1793207818.7978523,
+    "ast_hash": "febae59d25f0b8fd1c228bcd4c563edb",
+    "semantic_hash": ""
+  },
+  "src/components/ui/PremiumPrimitives.tsx": {
+    "mtime": 1792854409.434967,
+    "seen": 1793207818.7978535,
+    "ast_hash": "4908ea704f248c6aaaff4b88b13866a9",
+    "semantic_hash": ""
+  },
+  "src/hooks/useFavorites.ts": {
+    "mtime": 1793107932.3622925,
+    "seen": 1793207818.7978547,
+    "ast_hash": "d54cfb3474f419a32d76feaca68be5ec",
+    "semantic_hash": ""
+  },
+  "src/hooks/useMushroomSpots.ts": {
+    "mtime": 1792930331.1003325,
+    "seen": 1793207818.797856,
+    "ast_hash": "05b66cc0802d561a74288eb0df26c888",
+    "semantic_hash": ""
+  },
+  "src/hooks/useOutdoorNavigation.ts": {
+    "mtime": 1792853771.7833638,
+    "seen": 1793207818.7978573,
+    "ast_hash": "1b747aa729ff3314a1c4563d752952ca",
+    "semantic_hash": ""
+  },
+  "src/hooks/usePWAInstall.ts": {
+    "mtime": 1791891813.3381362,
+    "seen": 1793207818.7978587,
+    "ast_hash": "28799a75cd323f937db270c7ee285a7d",
+    "semantic_hash": ""
+  },
+  "src/hooks/useRouteEditor.ts": {
+    "mtime": 1793190546.7191422,
+    "seen": 1793207818.7978601,
+    "ast_hash": "d264a1ce959fc1d2e288e16e723d5f58",
+    "semantic_hash": ""
+  },
+  "src/hooks/useRouteManager.ts": {
+    "mtime": 1792947268.0738025,
+    "seen": 1793207818.7978613,
+    "ast_hash": "2f605934ad4a970e6b86df1917b5252a",
+    "semantic_hash": ""
+  },
+  "src/hooks/useUserGpxLibrary.ts": {
+    "mtime": 1792767006.1954286,
+    "seen": 1793207818.7978632,
+    "ast_hash": "6184677d8a4dff55ef94b0b65bba03f2",
+    "semantic_hash": ""
+  },
+  "src/lib/config/appConfig.ts": {
+    "mtime": 1792770670.3983507,
+    "seen": 1793207818.7978647,
+    "ast_hash": "600ed40a7114c66b83960869b48a73ba",
+    "semantic_hash": ""
+  },
+  "src/lib/curatedTracksData.ts": {
+    "mtime": 1791891813.3508291,
+    "seen": 1793207818.7978663,
+    "ast_hash": "73f97b1d98f6770a9297874df437b5a4",
+    "semantic_hash": ""
+  },
+  "src/lib/elevationService.ts": {
+    "mtime": 1791891813.3536873,
+    "seen": 1793207818.7978675,
+    "ast_hash": "ff4306eb2939d69154551cc302ca9f3c",
+    "semantic_hash": ""
+  },
+  "src/lib/favorites/favoriteCategories.ts": {
+    "mtime": 1792927335.9282966,
+    "seen": 1793207818.7978687,
+    "ast_hash": "3ef71c81a6d9d4914d39c017761d06a5",
+    "semantic_hash": ""
+  },
+  "src/lib/firebase/firebaseClient.ts": {
+    "mtime": 1792859779.2212145,
+    "seen": 1793207818.7978702,
+    "ast_hash": "19af275189eb8dc6663e85c0cb334c08",
+    "semantic_hash": ""
+  },
+  "src/lib/firebase/firebaseConfig.ts": {
+    "mtime": 1792859772.4751215,
+    "seen": 1793207818.7978716,
+    "ast_hash": "f24850c975542e17ca35cb54fa7172c0",
+    "semantic_hash": ""
+  },
+  "src/lib/firebase/syncVaultService.ts": {
+    "mtime": 1793121545.0044267,
+    "seen": 1793207818.7978728,
+    "ast_hash": "359f4787d747521005f48f0d2f23dd96",
+    "semantic_hash": ""
+  },
+  "src/lib/geoUtils.ts": {
+    "mtime": 1792416986.4204094,
+    "seen": 1793207818.7978742,
+    "ast_hash": "a81d556fe9df437cefa5c6b9ed6b3a28",
+    "semantic_hash": ""
+  },
+  "src/lib/githubSyncService.ts": {
+    "mtime": 1793206703.2130268,
+    "seen": 1793207818.7978754,
+    "ast_hash": "776089849f35aa482af24a6489527eed",
+    "semantic_hash": ""
+  },
+  "src/lib/gpx.ts": {
+    "mtime": 1793191844.146981,
+    "seen": 1793207818.7978768,
+    "ast_hash": "1dbf90d39602d80e96fa444fac5ffd5b",
+    "semantic_hash": ""
+  },
+  "src/lib/gpxStorageService.ts": {
+    "mtime": 1792770825.6692019,
+    "seen": 1793207818.797878,
+    "ast_hash": "bd833b14f7bdef51c45dec3be9cb12a2",
+    "semantic_hash": ""
+  },
+  "src/lib/layout/mapViewport.ts": {
+    "mtime": 1792770679.9023688,
+    "seen": 1793207818.7978795,
+    "ast_hash": "cb7a969c0c5b7d6754f5b5c8bd0f6374",
+    "semantic_hash": ""
+  },
+  "src/lib/layout/markerZoomScale.ts": {
+    "mtime": 1792927303.7688513,
+    "seen": 1793207818.7978811,
+    "ast_hash": "cfd4476a3350364ea0f38b4786e36a8b",
+    "semantic_hash": ""
+  },
+  "src/lib/layout/safeArea.ts": {
+    "mtime": 1792853435.763903,
+    "seen": 1793207818.7978826,
+    "ast_hash": "b234fc3923f1ab96e37f9ebd23648e3d",
+    "semantic_hash": ""
+  },
+  "src/lib/layout/touchDimensions.ts": {
+    "mtime": 1792854804.0268152,
+    "seen": 1793207818.797884,
+    "ast_hash": "bf54580f041430833588478672c516e8",
+    "semantic_hash": ""
+  },
+  "src/lib/localRouting.ts": {
+    "mtime": 1792946017.9363587,
+    "seen": 1793207818.7978852,
+    "ast_hash": "33559cc71c0f45db60dc2df6de757e10",
+    "semantic_hash": ""
+  },
+  "src/lib/navigation/deviceSensors.ts": {
+    "mtime": 1792758997.7236352,
+    "seen": 1793207818.7978864,
+    "ast_hash": "a26ff7e21bb3494a0d8b1625eec9698e",
+    "semantic_hash": ""
+  },
+  "src/lib/navigation/komootExport.ts": {
+    "mtime": 1792773142.840934,
+    "seen": 1793207818.7978878,
+    "ast_hash": "e84c6d02493c70fecc9f1c15cc81694a",
+    "semantic_hash": ""
+  },
+  "src/lib/navigation/mobileSchemes.ts": {
+    "mtime": 1792856298.197419,
+    "seen": 1793207818.797889,
+    "ast_hash": "bc574015a01820da1c4746aa7a0f68c0",
+    "semantic_hash": ""
+  },
+  "src/lib/navigation/navigationMath.ts": {
+    "mtime": 1792758985.710882,
+    "seen": 1793207818.7978902,
+    "ast_hash": "fc6a1f072022234f64016b1cc0facb85",
+    "semantic_hash": ""
+  },
+  "src/lib/navigation/userLocationIcon.ts": {
+    "mtime": 1792943633.340025,
+    "seen": 1793207818.7978916,
+    "ast_hash": "b6038fcba8ace14944093ef473174cfa",
+    "semantic_hash": ""
+  },
+  "src/lib/navigation/wazeNavigation.ts": {
+    "mtime": 1792764682.8475442,
+    "seen": 1793207818.7978928,
+    "ast_hash": "0bc60e697b38bdb696895a84eccaa233",
+    "semantic_hash": ""
+  },
+  "src/lib/routeCatalog.ts": {
+    "mtime": 1793188895.6702607,
+    "seen": 1793207818.7978945,
+    "ast_hash": "cc80291297e2d0a905fcc9f2a4aa644f",
+    "semantic_hash": ""
+  },
+  "src/lib/routeSourceResolver.ts": {
+    "mtime": 1793189000.672954,
+    "seen": 1793207818.7978957,
+    "ast_hash": "c6b5a3bcdd4a7733a69e3f307c2cb070",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/elasticTraceEditor.ts": {
+    "mtime": 1793191801.3439994,
+    "seen": 1793207818.7978969,
+    "ast_hash": "101c7700526c81b03d8336a89ee571f6",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/gazetteer.ts": {
+    "mtime": 1793189052.7536535,
+    "seen": 1793207818.7978983,
+    "ast_hash": "1a1fb4dba3edef9bf08f5404c8a268e8",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/loopGenerator.ts": {
+    "mtime": 1793174322.0483408,
+    "seen": 1793207818.7978995,
+    "ast_hash": "08a0ab87fdc5049566072aa945808dab",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/outdoorRouter.ts": {
+    "mtime": 1793178605.982236,
+    "seen": 1793207818.797901,
+    "ast_hash": "7646fe264dfc72664e9563a091bc48e2",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/polylineStyles.ts": {
+    "mtime": 1792747280.9482749,
+    "seen": 1793207818.797902,
+    "ast_hash": "2645fc355f90ca97a5683dde56c3ef4b",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/reverseRoute.ts": {
+    "mtime": 1792858420.3300633,
+    "seen": 1793207818.7979035,
+    "ast_hash": "61cbb33a3d075470859ac166df0e4e8f",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/routeDirectionArrows.ts": {
+    "mtime": 1792856689.8939764,
+    "seen": 1793207818.7979047,
+    "ast_hash": "980594d0c39d01cbacedb5a5ce937022",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/routeGeometry.ts": {
+    "mtime": 1793177315.1597211,
+    "seen": 1793207818.7979062,
+    "ast_hash": "698ae8176060a7826125b9b71a43caa3",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/routingProfiles.ts": {
+    "mtime": 1792745222.0916157,
+    "seen": 1793207818.7979074,
+    "ast_hash": "abd6816937096fc757117f3c926be8ca",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/segmentRouter.ts": {
+    "mtime": 1793190308.0349216,
+    "seen": 1793207818.7979088,
+    "ast_hash": "40807cdc355c2a7510d2ed65809fabec",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/spurPruner.ts": {
+    "mtime": 1793178822.73138,
+    "seen": 1793207818.79791,
+    "ast_hash": "a863840c9a4aee6961d936f5336aef9a",
+    "semantic_hash": ""
+  },
+  "src/lib/routing/subSection.ts": {
+    "mtime": 1792946903.6965039,
+    "seen": 1793207818.7979114,
+    "ast_hash": "678548f1da4d046bf75a4502dc6948fb",
+    "semantic_hash": ""
+  },
+  "src/lib/safety/huntingService.ts": {
+    "mtime": 1792738170.833639,
+    "seen": 1793207818.7979126,
+    "ast_hash": "dcf08bb5e7125ed705117f2f26966636",
+    "semantic_hash": ""
+  },
+  "src/lib/sync/deviceIdentity.ts": {
+    "mtime": 1793121491.845459,
+    "seen": 1793207818.797914,
+    "ast_hash": "81830e5a66fea9f39134532828e7b20c",
+    "semantic_hash": ""
+  },
+  "src/lib/sync/syncMerge.ts": {
+    "mtime": 1792930236.5476236,
+    "seen": 1793207818.7979155,
+    "ast_hash": "61fa57b737ae1b18890eea4fab967b6c",
+    "semantic_hash": ""
+  },
+  "src/main.tsx": {
+    "mtime": 1793101743.4007034,
+    "seen": 1793207818.7979167,
+    "ast_hash": "7d795382911f3d37b4820004f823799e",
+    "semantic_hash": ""
+  },
+  "src/types.ts": {
+    "mtime": 1793191888.5292416,
+    "seen": 1793207818.7979178,
+    "ast_hash": "e8c358d65dacc4f66a3897278f47dcd6",
+    "semantic_hash": ""
+  },
+  "src/types/mushroom.ts": {
+    "mtime": 1792861328.9299862,
+    "seen": 1793207818.7979195,
+    "ast_hash": "b2d765e8c0451dc7cb1330c64c7f36c7",
+    "semantic_hash": ""
+  },
+  "vite.config.ts": {
+    "mtime": 1793207117.8092432,
+    "seen": 1793207818.7979207,
+    "ast_hash": "da8d1c967eb79bf5d4cbb596c274938c",
+    "semantic_hash": ""
+  },
+  "DEPLOYMENT.md": {
+    "mtime": 1792767197.4200225,
+    "seen": 1793207818.7979224,
+    "ast_hash": "e4023dc539ef8f4cd0ae2bfea79b2d4c",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1793206713.060694,
+    "seen": 1793207818.7979233,
+    "ast_hash": "94395bbd829916bba14495d1b65daa02",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1793194880.7406702,
+    "seen": 1793207818.7979245,
+    "ast_hash": "a8a209086d29f071e21962c1bc1a3cc7",
+    "semantic_hash": ""
+  },
+  "public/apple-touch-icon.png": {
+    "mtime": 1793207047.4973016,
+    "seen": 1793207818.797926,
+    "ast_hash": "f1c315f609c3b55b5d4d9b9868d92508",
+    "semantic_hash": ""
+  },
+  "public/favicon-48.png": {
+    "mtime": 1793207047.499604,
+    "seen": 1793207818.7979274,
+    "ast_hash": "87d0a99879fa76ccddd52fea227d807a",
+    "semantic_hash": ""
+  },
+  "public/icon.svg": {
+    "mtime": 1792766563.4500887,
+    "seen": 1793207818.7979288,
+    "ast_hash": "ea9c139025e32f643befccec2006dab5",
+    "semantic_hash": ""
+  },
+  "public/pwa-192x192.png": {
+    "mtime": 1793207047.499604,
+    "seen": 1793207818.79793,
+    "ast_hash": "87d0a99879fa76ccddd52fea227d807a",
+    "semantic_hash": ""
+  },
+  "public/pwa-512x512.png": {
+    "mtime": 1793207047.5017369,
+    "seen": 1793207818.7979312,
+    "ast_hash": "40472e0470b9dd6e24df933fac7a9212",
+    "semantic_hash": ""
+  },
+  "public/pwa-maskable-512x512.png": {
+    "mtime": 1793207047.5047386,
+    "seen": 1793207818.7979326,
+    "ast_hash": "e92604cbfb5798e80b869d64d6dce0b9",
+    "semantic_hash": ""
+  },
+  "package-lock.json": {
+    "mtime": 1793191953.3978918,
+    "seen": 1793207818.797934,
+    "ast_hash": "22d3cc13fd32d8b1d5245f26ecf2462e",
+    "semantic_hash": ""
+  }
+}

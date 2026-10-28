@@ -14,7 +14,8 @@
     "build": "tsx scripts/index-gpx.ts && vite build",
     "preview": "vite preview --port=3000 --host=0.0.0.0",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "graph": "python -m graphify update ."
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
