@@ -138,15 +138,18 @@ function buildCuratedRoute(params: {
         ? [finalCoords[0], finalCoords[Math.floor(finalCoords.length / 2)], finalCoords[finalCoords.length - 1]]
         : params.anchors,
     tags: params.tags,
-    sourceUrl:
-      params.sourceUrl ||
-      resolveRouteSource({
+    sourceUrl: (() => {
+      const res = resolveRouteSource({
         id: params.id,
         title: params.title,
         activity: params.activity,
         country: params.country,
         coords: finalCoords,
-      }).sourceUrl,
+        customUrl: params.sourceUrl,
+        customLabel: params.sourceLabel,
+      });
+      return res.isSpecificPage ? res.sourceUrl : undefined;
+    })(),
     sourceLabel:
       params.sourceLabel ||
       resolveRouteSource({

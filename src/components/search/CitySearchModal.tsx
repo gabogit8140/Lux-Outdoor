@@ -1,3 +1,4 @@
+import { isGenericHomepageUrl } from '../../lib/routeSourceResolver';
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   Search,
@@ -436,7 +437,7 @@ export function CitySearchModal({
                       )}
 
                       {/* Official Web Link for POI / Attraction */}
-                      {place.url && (
+                      {place.url && !isGenericHomepageUrl(place.url) && (
                         <div className="mt-2">
                           <a
                             href={place.url}

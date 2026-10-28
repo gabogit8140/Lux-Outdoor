@@ -43,8 +43,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château fort féodal",
     "description": "L’un des plus majestueux châteaux forts d’Europe, perché sur un promontoire rocheux dominant l’Our.",
-    "url": "https://castle-vianden.net/visiter/",
-    "urlLabel": "Visite & Tarifs Château de Vianden"
+    "url": "https://www.visitluxembourg.com/fr/attraction/chateau-vianden",
+    "urlLabel": "Fiche Officielle Château de Vianden"
   },
   {
     "key": "bourscheid-chateau",
@@ -58,8 +58,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château fort médiéval",
     "description": "Imposante forteresse médiévale ceinturée de 11 tours dominant la boucle de la Sûre à 150 mètres de haut.",
-    "url": "https://www.castle-bourscheid.lu/fr/visites-et-tarifs/",
-    "urlLabel": "Visites & Tarifs Château de Bourscheid"
+    "url": "https://www.visitluxembourg.com/fr/attraction/chateau-bourscheid",
+    "urlLabel": "Fiche Officielle Château de Bourscheid"
   },
   {
     "key": "beaufort-chateaux",
@@ -73,7 +73,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Châteaux & Ruines",
     "description": "Ruines romantiques du château médiéval du XIe siècle bordées d’un étang et château Renaissance meublé.",
-    "url": "https://www.visitluxembourg.com/fr/adresse/chateaux-de-beaufort",
+    "url": "https://www.visitluxembourg.com/fr/attraction/chateau-beaufort",
     "urlLabel": "Guide Officiel Châteaux de Beaufort"
   },
   {
@@ -88,8 +88,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Forteresse médiévale",
     "description": "Forteresse perchée sur un éperon de grès dominant le bourg médiéval de Larochette.",
-    "url": "https://www.visitluxembourg.com/fr/adresse/chateau-de-larochette",
-    "urlLabel": "Guide Visit Luxembourg"
+    "url": "https://www.visitluxembourg.com/fr/attraction/chateau-larochette",
+    "urlLabel": "Guide Officiel Château de Larochette"
   },
   {
     "key": "clervaux-chateau",
@@ -104,7 +104,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "categoryLabel": "Château & Patrimoine UNESCO",
     "description": "Château féodal du XIIe siècle abritant la célèbre collection photo UNESCO d’Edward Steichen.",
     "url": "https://www.clervauximage.lu/the-family-of-man",
-    "urlLabel": "Fiche UNESCO Family of Man"
+    "urlLabel": "Château & The Family of Man"
   },
   {
     "key": "vallee-sept-chateaux",
@@ -117,9 +117,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "castle",
     "categoryLabel": "Circuit des Châteaux",
-    "description": "Vallée verdoyante de l’Eisch jalonnée de 7 forteresses féodales (Mersch, Schoenfels, Hollenfels, Ansembourg, Septfontaines, Koerich).",
-    "url": "https://www.visitguttland.lu/fr/decouvrir-guttland/la-vallee-des-sept-chateaux",
-    "urlLabel": "Guide Vallée des 7 Châteaux"
+    "description": "Vallée verdoyante de l’Eisch jalonnée de 7 forteresses féodales (Mersch, Schoenfels, Hollenfels, Ansembourg, Septfontaines, Koerich)."
   },
   {
     "key": "casemates-bock",
@@ -133,8 +131,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Forteresse & Patrimoine UNESCO",
     "description": "Réseau souterrain de défense militaire taillé dans la roche de la falaise du Bock, classé UNESCO.",
-    "url": "https://www.luxembourg-city.com/fr/choses-a-faire/visites-guidees/casemates-du-bock",
-    "urlLabel": "Visite officielle Casemates"
+    "url": "https://www.visitluxembourg.com/fr/attraction/casemates-du-bock",
+    "urlLabel": "Fiche Officielle Casemates du Bock"
   },
   {
     "key": "schiessentuempel-cascade",
@@ -148,8 +146,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "lake",
     "categoryLabel": "Cascade pittoresque",
     "description": "Pont romantique en pierre enjambant les trois cascades de l’Ernz Noire, emblème du Mullerthal.",
-    "url": "https://www.mullerthal.lu/fr/decouvrir/nature/schiessentuempel",
-    "urlLabel": "Fiche Schiessentümpel Mullerthal"
+    "url": "https://www.mullerthal.lu/place/schiessentumpel-waterfalls",
+    "urlLabel": "Guide Officiel Cascade du Schiessentümpel"
   },
   {
     "key": "wolfsschlucht-echternach",
@@ -162,9 +160,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "nature",
     "categoryLabel": "Canyon de grès spectaculaire",
-    "description": "Canyon de grès impressionnant aux parois vertigineuses de 50 mètres de haut sculptées par l’érosion.",
-    "url": "https://www.mullerthal.lu/fr/decouvrir/nature/wolfsschlucht",
-    "urlLabel": "Guide Wolfsschlucht"
+    "description": "Canyon de grès impressionnant aux parois vertigineuses de 50 mètres de haut sculptées par l’érosion."
   },
   {
     "key": "kuelscheier-consdorf",
@@ -177,9 +173,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "nature",
     "categoryLabel": "Fissure rocheuse sombre",
-    "description": "Faille rocheuse étroite et sombre de 100 mètres de long à traverser à la lampe de poche.",
-    "url": "https://www.mullerthal.lu/fr/adresse/poi/passage-rocheux-kuelscheier",
-    "urlLabel": "Fiche aventure Kuelscheier"
+    "description": "Faille rocheuse étroite et sombre de 100 mètres de long à traverser à la lampe de poche."
   },
   {
     "key": "hohllay-berdorf",
@@ -192,9 +186,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "nature",
     "categoryLabel": "Grotte taillée & Théâtre de verdure",
-    "description": "Vaste caverne de grès d’où étaient extraites les meules de moulin depuis l’époque romaine.",
-    "url": "https://www.mullerthal.lu/fr/decouvrir/nature/hohllay",
-    "urlLabel": "Fiche Hohllay Berdorf"
+    "description": "Vaste caverne de grès d’où étaient extraites les meules de moulin depuis l’époque romaine."
   },
   {
     "key": "lac-haute-sure-burfelt",
@@ -208,8 +200,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "lake",
     "categoryLabel": "Grand lac & Belvédère panoramique",
     "description": "Plus grand plan d’eau du Luxembourg avec passerelle panoramique suspendue à 70 m au-dessus des eaux.",
-    "url": "https://www.visit-eislek.lu/fr/fiche/bathing/lac-de-la-haute-sure",
-    "urlLabel": "Guide Lac & Belvédère Burfelt"
+    "url": "https://www.visit-eislek.lu/fr/stausei",
+    "urlLabel": "Guide Officiel Lac de la Haute-Sûre"
   },
   {
     "key": "fond-de-gras-minett",
@@ -223,8 +215,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Patrimoine minier & Train à vapeur",
     "description": "Vallée industrielle historique avec train à vapeur 1900, train minier Minièresbunn et galeries souterraines.",
-    "url": "https://minettpark.lu/le-parc/",
-    "urlLabel": "Découvrir Minett Park & Train 1900"
+    "url": "https://minettpark.lu/?lang=fr",
+    "urlLabel": "Minett Park & Train 1900"
   },
   {
     "key": "belval-hauts-fourneaux",
@@ -238,7 +230,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Patrimoine sidérurgique",
     "description": "Ascension sur les passerelles des anciens géants d’acier à 40 m de haut avec vue à 360° sur le sud.",
-    "url": "https://fonds-belval.lu/hauts-fourneaux/",
+    "url": "https://www.fonds-belval.lu/index.php?lang=fr&page=1&sub=1",
     "urlLabel": "Visite des Hauts Fourneaux de Belval"
   },
   {
@@ -252,9 +244,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "nature",
     "categoryLabel": "Réserve naturelle UNESCO Biosphère",
-    "description": "Ancien bassin minier à ciel ouvert reconquis par la nature avec falaises de minerai rouge et orchidées sauvages.",
-    "url": "https://www.visitminett.lu/fr/adresse/nature/reserve-naturelle-haard",
-    "urlLabel": "Guide Réserve Naturelle Haard"
+    "description": "Ancien bassin minier à ciel ouvert reconquis par la nature avec falaises de minerai rouge et orchidées sauvages."
   },
   {
     "key": "haff-reimech-schengen",
@@ -268,7 +258,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "nature",
     "categoryLabel": "Zone humide & Réserve ornithologique",
     "description": "Plus importante zone humide du Grand-Duché, paradis des oiseaux migrateurs avec sentiers sur pilotis.",
-    "url": "https://naturemwelt.lu/biodiversum/",
+    "url": "https://naturemwelt.lu/",
     "urlLabel": "Site officiel Biodiversum"
   },
   {
@@ -282,9 +272,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "heritage",
     "categoryLabel": "Basilique & Abbaye historique",
-    "description": "Berceau de la plus ancienne ville du Luxembourg, célèbre pour sa crypte du VIIIe siècle et sa Procession Dansante UNESCO.",
-    "url": "https://www.mullerthal.lu/fr/adresse/culture/abbaye-dechternach",
-    "urlLabel": "Fiche Abbaye d’Echternach"
+    "description": "Berceau de la plus ancienne ville du Luxembourg, célèbre pour sa crypte du VIIIe siècle et sa Procession Dansante UNESCO."
   },
   {
     "key": "ascenseur-pfaffenthal",
@@ -327,8 +315,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Capitale & Forteresse UNESCO",
-    "url": "https://www.luxembourg-city.com/fr/choses-a-faire/visites-guidees",
-    "urlLabel": "Guide Ville de Luxembourg (UNESCO)"
+    "url": "https://www.vdl.lu/fr",
+    "urlLabel": "Ville de Luxembourg (Site Officiel)"
   },
   {
     "key": "echternach",
@@ -341,8 +329,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Cité abbatiale historique",
-    "url": "https://www.mullerthal.lu/fr/decouvrir/villes-et-villages/echternach",
-    "urlLabel": "Guide Ville Historique d’Echternach"
+    "url": "https://echternach.lu/",
+    "urlLabel": "Ville d’Echternach (Site Officiel)"
   },
   {
     "key": "vianden",
@@ -355,8 +343,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Cité médiévale de l’Our",
-    "url": "https://www.visit-eislek.lu/fr/decouvrir/villes-et-villages/vianden",
-    "urlLabel": "Guide Cité Médiévale de Vianden"
+    "url": "https://vianden.lu/",
+    "urlLabel": "Ville de Vianden (Site Officiel)"
   },
   {
     "key": "clervaux",
@@ -369,8 +357,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Cité ardennaise",
-    "url": "https://www.visit-eislek.lu/fr/decouvrir/villes-et-villages/clervaux",
-    "urlLabel": "Guide Cité Touristique de Clervaux"
+    "url": "https://clervaux.lu/",
+    "urlLabel": "Commune de Clervaux (Site Officiel)"
   },
   {
     "key": "esch-sur-alzette",
@@ -383,8 +371,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Métropole du Sud",
-    "url": "https://www.visitminett.lu/fr/decouvrir-la-region/villes/esch-sur-alzette",
-    "urlLabel": "Guide Capitale du Sud Esch-sur-Alzette"
+    "url": "https://esch.lu/",
+    "urlLabel": "Ville d’Esch-sur-Alzette (Site Officiel)"
   },
   {
     "key": "differdange",
@@ -397,8 +385,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Cité du Fer & Fond-de-Gras",
-    "url": "https://www.visitminett.lu/fr/decouvrir-la-region/villes/differdange",
-    "urlLabel": "Guide Ville de Differdange & Fond-de-Gras"
+    "url": "https://differdange.lu/",
+    "urlLabel": "Ville de Differdange (Site Officiel)"
   },
   {
     "key": "dudelange",
@@ -411,8 +399,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Cité de la Forge",
-    "url": "https://www.visitminett.lu/fr/decouvrir-la-region/villes/dudelange",
-    "urlLabel": "Guide Ville de Dudelange & Parc Haard"
+    "url": "https://www.dudelange.lu/",
+    "urlLabel": "Ville de Dudelange (Site Officiel)"
   },
   {
     "key": "petange",
@@ -792,8 +780,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Porte de la Moselle",
-    "url": "https://www.visitmoselle.lu/fr/destination/remich",
-    "urlLabel": "Guide Perle de la Moselle Remich"
+    "url": "https://remich.lu/",
+    "urlLabel": "Ville de Remich (Site Officiel)"
   },
   {
     "key": "stadtbredimus",
@@ -852,8 +840,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Chef-lieu mosellan",
-    "url": "https://www.visitmoselle.lu/fr/destination/grevenmacher",
-    "urlLabel": "Guide Ville Mosellane de Grevenmacher"
+    "url": "https://grevenmacher.lu/",
+    "urlLabel": "Ville de Grevenmacher (Site Officiel)"
   },
   {
     "key": "mertert",
@@ -1050,8 +1038,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Patton Town",
-    "url": "https://www.visit-eislek.lu/fr/decouvrir/villes-et-villages/ettelbruck",
-    "urlLabel": "Guide Cité Patton Ettelbruck"
+    "url": "https://ettelbruck.lu/",
+    "urlLabel": "Ville d’Ettelbruck (Site Officiel)"
   },
   {
     "key": "erpeldange-sure",
@@ -1109,8 +1097,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Coeur géographique du pays",
-    "url": "https://www.visitguttland.lu/fr/decouvrir-guttland/villes-villages/mersch",
-    "urlLabel": "Guide Cœur du Luxembourg Mersch"
+    "url": "https://mersch.lu/",
+    "urlLabel": "Commune de Mersch (Site Officiel)"
   },
   {
     "key": "lintgen",
@@ -1167,8 +1155,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Bourg castral",
-    "url": "https://www.mullerthal.lu/fr/decouvrir/villes-et-villages/larochette",
-    "urlLabel": "Guide Bourg Médiéval de Larochette"
+    "url": "https://larochette.lu/",
+    "urlLabel": "Commune de Larochette (Site Officiel)"
   },
   {
     "key": "nommern",
@@ -1283,8 +1271,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Moulin historique & Source",
-    "url": "https://www.visitguttland.lu/fr/decouvrir-guttland/villes-villages/beckerich",
-    "urlLabel": "Guide D’Millen Beckerich"
+    "url": "https://beckerich.lu/",
+    "urlLabel": "Commune de Beckerich (Site Officiel)"
   },
   {
     "key": "ell",
@@ -1342,8 +1330,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Cité du Genêt & Château de Wiltz",
-    "url": "https://www.visit-eislek.lu/fr/decouvrir/villes-et-villages/wiltz",
-    "urlLabel": "Guide Cité Martyre & Capitale des Ardennes Wiltz"
+    "url": "https://wiltz.lu/",
+    "urlLabel": "Ville de Wiltz (Site Officiel)"
   },
   {
     "key": "winseler",
@@ -1507,7 +1495,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Forteresse de Godefroy de Bouillon",
     "description": "Le plus ancien et le plus fascinant vestige de féodalité en Belgique surplombant la Semois.",
-    "url": "https://www.bouillon-initiative.be/le-chateau-fort",
+    "url": "https://www.chateaudebouillon.com/",
     "urlLabel": "Site officiel Château de Bouillon"
   },
   {
@@ -1522,8 +1510,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "viewpoint",
     "categoryLabel": "Panorama classé patrimoine exceptionnel",
     "description": "L’un des panoramas les plus célèbres et photographiés de Belgique, ceinturé par un méandre parfait de la Semois.",
-    "url": "https://www.visitwallonia.be/fr-be/content/point-de-vue-du-tombeau-du-geant-a-botassart",
-    "urlLabel": "Guide Visit Wallonia"
+    "url": "https://www.visitbouillon-ardenne.be/touristic_sheet/le-point-de-vue-du-tombeau-du-geant-botassart-bouillon-fr-6496617/",
+    "urlLabel": "Guide Officiel Panorama du Tombeau du Géant"
   },
   {
     "key": "bastogne-war-museum",
@@ -1537,7 +1525,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Mémorial Bataille des Ardennes",
     "description": "Centre de mémoire de référence sur la Seconde Guerre mondiale et la célèbre Bataille des Ardennes de l’hiver 1944.",
-    "url": "https://www.bastognewarmuseum.be/le-musee/",
+    "url": "https://www.bastognewarmuseum.be/",
     "urlLabel": "Visite Bastogne War Museum"
   },
   {
@@ -1552,7 +1540,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Abbaye cistercienne & Bière Trappiste",
     "description": "Ruines médiévales grandioses dans un vallon préservé, célèbre pour son fromage et sa bière trappiste authentique.",
-    "url": "https://www.orval.be/fr/page/373-visite-des-ruines",
+    "url": "https://www.orval.be/",
     "urlLabel": "Visite Ruines de l’Abbaye d’Orval"
   },
   {
@@ -1567,8 +1555,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "nature",
     "categoryLabel": "Crête rocheuse vertigineuse & Confluent",
     "description": "Éperon rocheux sauvage de 1 000 m de long plongeant à pic sur l’Ourthe et barrage-lac de Nisramont.",
-    "url": "https://www.coeurdelardenne.be/nature/le-site-du-herou",
-    "urlLabel": "Guide Le Hérou"
+    "url": "https://visitwallonia.be/fr-be/content/randonnee-incontournable-le-herou-l-echine-d-un-rocher",
+    "urlLabel": "Guide Officiel Le Hérou (VisitWallonia)"
   },
   {
     "key": "signal-botrange-fagnes",
@@ -1597,8 +1585,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "lake",
     "categoryLabel": "Seule rivière de montagne de Belgique",
     "description": "Torrent tumultueux créant de splendides vasques d’eau (bains de Diane et de Vénus) et passerelles en bois.",
-    "url": "https://walloniebelgiquetourisme.be/fr-be/content/promenade-du-ninglinspo-la-seule-riviere-de-montagne-de-belgique",
-    "urlLabel": "Guide Rando Ninglinspo"
+    "url": "https://visitwallonia.be/fr-be/content/randonnee-pedestre-incontournable-le-ruisseau-enchante",
+    "urlLabel": "Guide Officiel Randonnée du Ninglinspo"
   },
   {
     "key": "dinant-citadelle",
@@ -1627,7 +1615,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "nature",
     "categoryLabel": "Grottes monumentales & Gouffre de Belvaux",
     "description": "Une des plus belles grottes d’Europe où la Lesse disparaît sous terre, avec spectacle son et lumière Origin.",
-    "url": "https://grotte-de-han.be/la-grotte",
+    "url": "https://grotte-de-han.be/",
     "urlLabel": "Visite Domaine des Grottes de Han"
   },
   {
@@ -1657,8 +1645,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "city",
     "categoryLabel": "Cité médiévale & Rocher d’Homalius",
     "description": "Magnifique bourg médiéval aux ruelles pavées du XVIIe siècle et anticlinal rocheux en U.",
-    "url": "https://durbuytourisme.be/decouvrir/",
-    "urlLabel": "Guide Cité Historique de Durbuy"
+    "url": "https://www.durbuy.be/",
+    "urlLabel": "Site Officiel Ville de Durbuy"
   },
   {
     "key": "chateau-veves",
@@ -1672,7 +1660,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château de conte de fées",
     "description": "Véritable château de la Belle au Bois Dormant avec ses cinq tours effilées parfaitement préservées.",
-    "url": "https://chateau-de-veves.be/visiter/",
+    "url": "https://chateau-de-veves.be/",
     "urlLabel": "Visite Château de Vêves"
   },
   {
@@ -1687,7 +1675,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château perché le plus haut de Belgique",
     "description": "Forteresse médiévale nichée dans un ravin escarpé au-dessus de la cascade du Warche (la plus haute de Belgique).",
-    "url": "https://www.reinhardstein.net/visiter/",
+    "url": "https://www.reinhardstein.net/",
     "urlLabel": "Visite Château de Reinhardstein"
   },
   {
@@ -1701,8 +1689,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Cité romaine la plus ancienne de Belgique",
-    "url": "https://www.visitarlon.be/decouvrir/",
-    "urlLabel": "Découvrir Arlon & Pays d’Arlon"
+    "url": "https://www.arlon.be/",
+    "urlLabel": "Site Officiel Ville d’Arlon"
   },
   {
     "key": "bastogne",
@@ -1715,8 +1703,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Capitale historique de la Bataille des Ardennes",
-    "url": "https://www.paysdebastogne.be/decouvrir/",
-    "urlLabel": "Découvrir le Pays de Bastogne"
+    "url": "https://bastogne.be/",
+    "urlLabel": "Ville de Bastogne (Site Officiel)"
   },
   {
     "key": "houffalize",
@@ -1743,8 +1731,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Cité de Godefroy de Bouillon",
-    "url": "https://www.bouillon-tourisme.be/decouvrir/",
-    "urlLabel": "Découvrir Bouillon & la Semois"
+    "url": "https://www.bouillon.be/",
+    "urlLabel": "Ville de Bouillon (Site Officiel)"
   },
   {
     "key": "saint-hubert",
@@ -1781,8 +1769,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Capitale de la Gaume",
-    "url": "https://www.visitgaume.be/decouvrir/",
-    "urlLabel": "Découvrir Virton & la Gaume"
+    "url": "https://virton.be/",
+    "urlLabel": "Ville de Virton (Site Officiel)"
   },
   {
     "key": "neufchateau",
@@ -1844,7 +1832,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Perle des châteaux médiévaux allemands",
     "description": "Joyau architectural féodal caché dans une combe forestière, préservé intact depuis plus de 850 ans.",
-    "url": "https://burg-eltz.de/de/burg-eltz-besichtigen/burgfuehrung.html",
+    "url": "https://burg-eltz.de/",
     "urlLabel": "Besichtigung Burg Eltz"
   },
   {
@@ -1859,8 +1847,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "viewpoint",
     "categoryLabel": "Merveille naturelle & Sentier des Cimes",
     "description": "Le méandre le plus spectaculaire d’Allemagne avec passerelle en bois au sommet des arbres et belvédère Cloef.",
-    "url": "https://www.tourismus.saarland.de/reisefuehrer/saarschleife",
-    "urlLabel": "Guide Saarschleife Tourisme"
+    "url": "https://www.urlaub.saarland/aktivitaeten-erlebnisse/ausflugsziele-im-saarland/saarschleife",
+    "urlLabel": "Guide Officiel Saarschleife (Cloef)"
   },
   {
     "key": "porta-nigra-trier",
@@ -1903,9 +1891,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "lake",
     "categoryLabel": "Chute d’eau urbaine & Forteresse",
-    "description": "Impressionnante chute d’eau naturelle de 20 m en plein centre historique actionnant des moulins à eau médiévaux.",
-    "url": "https://www.saar-obermosel.de/poi/saarburger-wasserfall",
-    "urlLabel": "Guide Cascade & Château de Saarburg"
+    "description": "Impressionnante chute d’eau naturelle de 20 m en plein centre historique actionnant des moulins à eau médiévaux."
   },
   {
     "key": "cochem-reichsburg",
@@ -1919,7 +1905,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château impérial au-dessus du vignoble",
     "description": "Forteresse néogothique dominant de plus de 100 m les méandres de la Moselle et ses vignobles escarpés.",
-    "url": "https://reichsburg-cochem.de/besichtigung/",
+    "url": "https://reichsburg-cochem.de/",
     "urlLabel": "Besichtigung Reichsburg Cochem"
   },
   {
@@ -1934,7 +1920,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "viewpoint",
     "categoryLabel": "Pont suspendu vertigineux (360 m)",
     "description": "Spectaculaire passerelle suspendue de 360 m de long oscillant à 100 m de haut au-dessus de la vallée boisée.",
-    "url": "https://geierlay.de/die-bruecke/",
+    "url": "https://geierlay.de/",
     "urlLabel": "Guide Hängebrücke Geierlay"
   },
   {
@@ -1948,9 +1934,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "lake",
     "categoryLabel": "Lacs volcaniques & Yeux bleus de l’Eifel",
-    "description": "Cratères volcaniques d’explosion remplis d’eau turquoise pure (Gemündener, Weinfelder et Schalkenmehrener Maar).",
-    "url": "https://www.eifel.info/a-dauner-maare",
-    "urlLabel": "Guide Géoparc des Maare de Daun"
+    "description": "Cratères volcaniques d’explosion remplis d’eau turquoise pure (Gemündener, Weinfelder et Schalkenmehrener Maar)."
   },
   {
     "key": "monschau-altstadt",
@@ -2016,8 +2000,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Petite Venise de la Sarre",
-    "url": "https://www.saar-obermosel.de/saarburg",
-    "urlLabel": "Entdecken Saarburg & Leukbach"
+    "url": "https://saarburg.de/",
+    "urlLabel": "Stadt Saarburg (Offizielle Seite)"
   },
   {
     "key": "bitburg",
@@ -2107,7 +2091,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Forteresse des 3 Frontières (XVe s.)",
     "description": "Château fort restauré du XVe siècle dressé sur les hauteurs du pays des 3 frontières avec expositions d’art.",
-    "url": "https://www.chateau-malbrouck.com/visiter/",
+    "url": "https://www.chateau-malbrouck.com/",
     "urlLabel": "Visiter le Château de Malbrouck"
   },
   {
@@ -2122,7 +2106,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Chef d’oeuvre de fortification Vauban",
     "description": "Vaisseau de grès rose imprenable juché sur un piton rocheux ayant héroïquement résisté au siège de 1870.",
-    "url": "https://www.citadelle-bitche.com/fr/decouvrir-la-citadelle/",
+    "url": "https://www.citadelle-bitche.com/",
     "urlLabel": "Découvrir la Citadelle de Bitche"
   },
   {
@@ -2136,9 +2120,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "castle",
     "categoryLabel": "Place forte espagnole & Vauban",
-    "description": "Forteresse spectaculaire ceinturée de remparts vertigineux offrant un tour des chemins de ronde unique.",
-    "url": "https://www.tourisme-paysdemontmedy.fr/la-citadelle/",
-    "urlLabel": "Guide Citadelle de Montmédy"
+    "description": "Forteresse spectaculaire ceinturée de remparts vertigineux offrant un tour des chemins de ronde unique."
   },
   {
     "key": "verdun-douaumont",
@@ -2152,7 +2134,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Mémorial mondial 1914-1918",
     "description": "Haut lieu de la Grande Guerre, ossuaire monumental et fort blindé souterrain au coeur des forêts meurtries.",
-    "url": "https://www.verdun-douaumont.com/le-fort-de-douaumont/",
+    "url": "https://www.verdun-douaumont.com/",
     "urlLabel": "Visite Fort de Douaumont & Ossuaire"
   },
   {
@@ -2166,9 +2148,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "heritage",
     "categoryLabel": "Patrimoine mondial de l’UNESCO",
-    "description": "Considérée comme l’une des plus belles places royales du monde avec ses grilles dorées de Jean Lamour.",
-    "url": "https://www.nancy-tourisme.fr/decouvrir-nancy/patrimoine-unesco/place-stanislas/",
-    "urlLabel": "Guide UNESCO Place Stanislas"
+    "description": "Considérée comme l’une des plus belles places royales du monde avec ses grilles dorées de Jean Lamour."
   },
   {
     "key": "pompidou-metz",
@@ -2182,7 +2162,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Art contemporain & Lanterne du Bon Dieu",
     "description": "Audacieux musée d’art contemporain à la toiture inspirée d’un chapeau chinois et cathédrale aux 6 500 m² de vitraux.",
-    "url": "https://www.centrepompidou-metz.fr/fr/programme/expositions",
+    "url": "https://www.centrepompidou-metz.fr/",
     "urlLabel": "Expositions Centre Pompidou-Metz"
   },
   {
@@ -2197,7 +2177,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Plus Beaux Villages de France",
     "description": "Surnommée « La Petite Carcassonne Lorraine », ceinte de 700 m de remparts médiévaux et pavillons d’époque.",
-    "url": "https://www.mairie-rodemack.fr/tourisme/",
+    "url": "https://mairie-rodemack.fr/",
     "urlLabel": "Fiche Touristique Rodemack"
   },
   {
@@ -2212,7 +2192,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Le monstre de la Ligne Maginot",
     "description": "Le plus puissant fort de la Ligne Maginot avec 10 km de galeries souterraines et train électrique d’époque en service.",
-    "url": "https://maginot-hackenberg.com/visite/",
+    "url": "https://maginot-hackenberg.com/",
     "urlLabel": "Visite Ouvrage Maginot Hackenberg"
   },
   {
@@ -2227,7 +2207,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "lake",
     "categoryLabel": "Grand lac de loisirs & Mémorial américain",
     "description": "Vaste lac de 1 100 hectares niché au pied des Côtes de Meuse avec plages, voile et observatoires ornithologiques.",
-    "url": "https://lacdemadine.com/activites/",
+    "url": "https://lacmadine.com/",
     "urlLabel": "Activités & Nature Lac de Madine"
   },
   {
@@ -2241,9 +2221,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "viewpoint",
     "categoryLabel": "Pitonnage de grès rose & Chapelle St-Léon",
-    "description": "Spectaculaire rocher de grès rose s’élevant à 664 m au-dessus des forêts vosgiennes, couronné par une chapelle romane.",
-    "url": "https://www.paysdephalsbourg.com/le-rocher-de-dabo/",
-    "urlLabel": "Guide Rocher de Dabo"
+    "description": "Spectaculaire rocher de grès rose s’élevant à 664 m au-dessus des forêts vosgiennes, couronné par une chapelle romane."
   },
   {
     "key": "thionville",
@@ -2256,8 +2234,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Porte de la Moselle française",
-    "url": "https://www.thionvilletourisme.fr/decouvrir/",
-    "urlLabel": "Découvrir Thionville & Pays des 3 Frontières"
+    "url": "https://www.thionville.fr/",
+    "urlLabel": "Site Officiel Ville de Thionville"
   },
   {
     "key": "metz",
@@ -2270,8 +2248,8 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "city",
     "categoryLabel": "Cité d’art et d’histoire",
-    "url": "https://www.tourisme-metz.com/fr/decouvrir",
-    "urlLabel": "Découvrir Metz & Patrimoine"
+    "url": "https://metz.fr/",
+    "urlLabel": "Ville de Metz (Site Officiel)"
   },
   {
     "key": "nancy",
@@ -2384,7 +2362,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "viewpoint",
     "categoryLabel": "Point des 3 Frontières & Sommet des Pays-Bas (322 m)",
     "description": "Point de rencontre de 3 pays et toit des Pays-Bas avec tour panoramique Wilhelminatoren et labyrinthe.",
-    "url": "https://www.drielandenpunt.nl/attracties/",
+    "url": "https://www.drielandenpunt.nl/",
     "urlLabel": "Attracties Drielandenpunt Vaals"
   },
   {
@@ -2399,7 +2377,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Seul château en ruine de hauteur des Pays-Bas",
     "description": "Ruines féodales dominant Valkenburg et galeries souterraines de carrières de marne jaune Fluweelengrot.",
-    "url": "https://www.kasteelvalkenburg.nl/bezoekersinfo/",
+    "url": "https://www.kasteelvalkenburg.nl/",
     "urlLabel": "Bezoekersinfo Kasteel Valkenburg"
   },
   {
@@ -2428,9 +2406,7 @@ export const GAZETTEER: PlaceEntry[] = [
     ],
     "category": "viewpoint",
     "categoryLabel": "Haut lieu de l’Amstel Gold Race",
-    "description": "Célèbre côte cycliste des championnats du monde, thermes de Thermae 2000 et panorama sur la vallée de la Geul.",
-    "url": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/attracties-bezienswaardigheden/detail/cauberg/48906/",
-    "urlLabel": "Fiche Cauberg Valkenburg"
+    "description": "Célèbre côte cycliste des championnats du monde, thermes de Thermae 2000 et panorama sur la vallée de la Geul."
   },
   {
     "key": "maastricht",
@@ -2442,9 +2418,7 @@ export const GAZETTEER: PlaceEntry[] = [
       50.8514
     ],
     "category": "city",
-    "categoryLabel": "Plus ancienne ville des Pays-Bas & Vrijthof",
-    "url": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/maastricht/",
-    "urlLabel": "Découvrir Maastricht & Meuse"
+    "categoryLabel": "Plus ancienne ville des Pays-Bas & Vrijthof"
   },
   {
     "key": "valkenburg",
@@ -2456,9 +2430,7 @@ export const GAZETTEER: PlaceEntry[] = [
       50.865
     ],
     "category": "city",
-    "categoryLabel": "Cité thermale & Grottes de marne",
-    "url": "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/valkenburg/",
-    "urlLabel": "Ontdek Vestingstad Valkenburg"
+    "categoryLabel": "Cité thermale & Grottes de marne"
   },
   {
     "key": "vaals",
@@ -2519,8 +2491,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château de conte de fées & île",
     "description": "Véritable château de conte de fées édifié pierre par pierre sur 40 ans par Pol Gilson sur une île au cœur des étangs et forêts de Mertzig. Visible depuis l'Auto-Pédestre Mertzig.",
-    "url": "https://www.visitguttland.lu/fr/adresse/chateau-de-turelbaach",
-    "urlLabel": "Fiche officielle Visit Guttland",
     "aliases": [
       "chateau de tuchelbach",
       "tuchelbach",
@@ -2544,7 +2514,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Forteresse médiévale & Château Renaissance",
     "description": "Impressionnant ensemble castral : ruines imposantes du château fort du XIe siècle bordant l'étang et splendide château Renaissance préservé avec sa célèbre liqueur de cassis Cassero.",
-    "url": "https://www.visitluxembourg.com/fr/adresse/chateaux-de-beaufort",
+    "url": "https://www.visitluxembourg.com/fr/attraction/chateau-beaufort",
     "urlLabel": "Guide Officiel Châteaux de Beaufort",
     "aliases": [
       "beaufort",
@@ -2565,8 +2535,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château néo-renaissance & Vallée secrète",
     "description": "Splendide château de style néo-renaissance niché au creux d'une vallée verdoyante et paisible, point de passage incontournable du Mullerthal Trail et de l'Auto-Pédestre.",
-    "url": "https://www.mullerthal.lu/fr/adresse/poi/chateau-de-meysembourg",
-    "urlLabel": "Fiche Château de Meysembourg",
     "aliases": [
       "meysembourg",
       "meisemburg",
@@ -2585,7 +2553,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Palais baroque & Jardins à la française",
     "description": "Joyau de la Vallée des Sept Châteaux avec ses terrasses ornées de statues mythologiques, fontaines, allée des charmes et jardins baroquaux du XVIIIe siècle classés.",
-    "url": "https://gcansembourg.eu/jardins/",
+    "url": "https://gcansembourg.eu/",
     "urlLabel": "Visite Jardins Grand Château d’Ansembourg",
     "aliases": [
       "ansembourg",
@@ -2606,8 +2574,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château fort médiéval",
     "description": "Nid d'aigle médiéval du XIIe siècle surplombant la rivière de l'Eisch, berceau de la seigneurie d'Ansembourg.",
-    "url": "https://www.visitguttland.lu/fr/adresse/vieux-chateau-d-ansembourg",
-    "urlLabel": "Fiche Vieux Château d’Ansembourg",
     "aliases": [
       "vieux chateau ansembourg",
       "ansembourg medieval"
@@ -2625,8 +2591,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Donjon médiéval & Grotte",
     "description": "Imposant donjon de 40 m de haut dominant la vallée encaissée de l'Eisch et sa falaise de grès percée de cavités et grottes légendaires.",
-    "url": "https://www.visitguttland.lu/fr/adresse/chateau-de-hollenfels",
-    "urlLabel": "Fiche Château de Hollenfels",
     "aliases": [
       "hollenfels",
       "chateau hollenfels",
@@ -2645,8 +2609,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Donjon féodal & Centre Nature",
     "description": "Superbe donjon résidentiel du XIIIe siècle entouré d'un parc paysager au bord de la Mamer, porte d'entrée de la Vallée des Sept Châteaux.",
-    "url": "https://www.visitguttland.lu/fr/adresse/chateau-de-schoenfels",
-    "urlLabel": "Fiche Château de Schoenfels",
     "aliases": [
       "schoenfels",
       "schonfels",
@@ -2665,8 +2627,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Ruines du château fort de Simmern",
     "description": "Château fort des XIIe-XVIe siècles dominant le ravissant village fleuri de Septfontaines au cœur de la Vallée des Sept Châteaux.",
-    "url": "https://www.visitguttland.lu/fr/adresse/chateau-de-septfontaines",
-    "urlLabel": "Fiche Château de Septfontaines",
     "aliases": [
       "septfontaines",
       "simmern",
@@ -2685,8 +2645,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château de plaine & Tour Saint-Michel",
     "description": "Château de plaine médiéval exceptionnel au Luxembourg, doté d'une tour résidentielle de style roman tardif et de douves aménagées pour la promenade.",
-    "url": "https://www.visitguttland.lu/fr/adresse/greiweschlass-chateau-de-koerich",
-    "urlLabel": "Fiche Gréiweschlass Koerich",
     "aliases": [
       "koerich",
       "greiweschlass",
@@ -2705,8 +2663,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Forteresse en nid d’aigle",
     "description": "Ruines romantiques d'un puissant château fort du Xe siècle juché sur une arête rocheuse escarpée au-dessus du village de Brandenbourg.",
-    "url": "https://www.visit-eislek.lu/fr/fiche/castle/ruines-du-chateau-de-brandenbourg",
-    "urlLabel": "Fiche Château de Brandenbourg",
     "aliases": [
       "brandenbourg",
       "brandenburg",
@@ -2725,8 +2681,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château Renaissance & Festival",
     "description": "Ancienne résidence des comtes de Wiltz avec son splendide amphithéâtre en plein air, musée de la bière et mémorial national de la Grève générale de 1942.",
-    "url": "https://www.visit-eislek.lu/fr/fiche/castle/chateau-de-wiltz",
-    "urlLabel": "Fiche Château de Wiltz",
     "aliases": [
       "wiltz",
       "chateau wiltz"
@@ -2744,8 +2698,8 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château médiéval & Gastronomie étoilée",
     "description": "Ensemble féodal des XIIe-XVe siècles admirablement restauré avec ses cours pavées, galeries d'art et restaurant gastronomique étoilé Michelin.",
-    "url": "https://www.visitluxembourg.com/fr/adresse/chateau-de-bourglinster",
-    "urlLabel": "Fiche Château de Bourglinster",
+    "url": "https://www.visitluxembourg.com/fr/attraction/chateau-bourglinster",
+    "urlLabel": "Guide Officiel Château de Bourglinster",
     "aliases": [
       "bourglinster",
       "buerglenser",
@@ -2764,8 +2718,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château fort aquatique à douves",
     "description": "Rare exemple de château fort de plaine à douves entouré d'eau du XIIIe siècle, doté de quatre tours d'angle circulaires impressionnantes.",
-    "url": "https://www.visitguttland.lu/fr/adresse/chateau-de-pettingen",
-    "urlLabel": "Fiche Château de Pettingen",
     "aliases": [
       "pettingen",
       "petten",
@@ -2785,8 +2737,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Ruines féodales & Méandre de la Sûre",
     "description": "Ruines du château fort de 927 dominant le méandre spectaculaire de la rivière de la Sûre enserrant le village pittoresque d'Esch-sur-Sûre.",
-    "url": "https://www.visit-eislek.lu/fr/fiche/castle/chateau-fort-esch-sur-sure",
-    "urlLabel": "Fiche Château d’Esch-sur-Sûre",
     "aliases": [
       "esch sur sure",
       "esch sauer",
@@ -2805,8 +2755,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "nature",
     "categoryLabel": "Monolithe de grès & Échelles vertigineuses",
     "description": "Immense monolithe de grès surplombant la gorge avec des escaliers vertigineux taillés dans la roche menant à un belvédère panoramique.",
-    "url": "https://www.mullerthal.lu/fr/adresse/nature/rocher-perekop",
-    "urlLabel": "Fiche Rocher Perekop",
     "aliases": [
       "perekop",
       "berdorf perekop",
@@ -2825,8 +2773,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "nature",
     "categoryLabel": "Labyrinthe géologique & Camp romain",
     "description": "Extraordinaire labyrinthe de blocs de grès érodés aux formes sculptées, ravins étroits et vestiges d'un ancien camp romain sur les hauteurs.",
-    "url": "https://www.mullerthal.lu/fr/adresse/nature/noumerleeen",
-    "urlLabel": "Fiche Falaises des Noumerleeën",
     "aliases": [
       "noumerleeen",
       "noumerleeën",
@@ -2845,7 +2791,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château princier & Réserve naturelle",
     "description": "Splendide résidence seigneuriale du XVIIe siècle juchée sur un piton rocheux dominant la réserve naturelle du Hoyoux de 60 mètres.",
-    "url": "https://www.modave-castle.be/visite/",
+    "url": "https://www.modave-castle.be/",
     "urlLabel": "Visite Château de Modave",
     "aliases": [
       "modave",
@@ -2865,8 +2811,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château perché sur falaise à pic de 50 m",
     "description": "L'une des vues les plus emblématiques de Belgique : château néo-gothique dressé au sommet d'une falaise vertigineuse surplombant la Lesse.",
-    "url": "https://walloniebelgiquetourisme.be/fr-be/content/chateau-de-walzin-sur-son-eperon-rocheux-surplombant-la-lesse",
-    "urlLabel": "Fiche Château de Walzin & Semois",
     "aliases": [
       "walzin",
       "chateau de walzin",
@@ -2885,7 +2829,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Petit Versailles meusan & Falaises d'escalade",
     "description": "Ancienne résidence ducale Renaissance avec jardins classiques à la Le Nôtre, orangers tricenténaires et vue magistrale sur les falaises de Freÿr dominant la Meuse.",
-    "url": "https://www.freyr.be/visite/",
+    "url": "https://www.freyr.be/",
     "urlLabel": "Visite Château & Jardins de Freÿr",
     "aliases": [
       "freyr",
@@ -2944,8 +2888,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "lake",
     "categoryLabel": "Plus haute chute d’eau naturelle de Belgique (15 m)",
     "description": "Spectaculaire chute d'eau de 15 m aménagée au XVIIIe siècle par les moines de l'abbaye de Stavelot sur un méandre recoupé de l'Amblève.",
-    "url": "https://walloniebelgiquetourisme.be/fr-be/content/les-cascades-de-coo-dans-les-ardennes-belges",
-    "urlLabel": "Guide Cascades de Coo",
     "aliases": [
       "cascade de coo",
       "coo",
@@ -2984,7 +2926,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Forteresse des Ducs de Lorraine du XVe siècle",
     "description": "Forteresse entièrement restaurée aux 4 tours d'angle dominant la vallée de la Moselle aux confins de la France, du Luxembourg et de l'Allemagne.",
-    "url": "https://www.chateau-malbrouck.com/visiter/",
+    "url": "https://www.chateau-malbrouck.com/",
     "urlLabel": "Visiter le Château de Malbrouck",
     "aliases": [
       "malbrouck",
@@ -3004,7 +2946,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Forteresse féodale sur promontoire rocheux",
     "description": "Imposante forteresse médiévale des XIe-XVe siècles juchée sur un éperon rocheux surveillant la boucle de la Moselle aux Trois Frontières.",
-    "url": "https://www.chateau-sierck.com/visiter/",
+    "url": "https://www.chateau-sierck.com/",
     "urlLabel": "Visiter Château des Ducs de Lorraine",
     "aliases": [
       "sierck",
@@ -3044,8 +2986,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Le Versailles Lorrain & Palais de Stanislas",
     "description": "Splendide palais des Ducs de Lorraine et du Roi Stanislas Leszczynski du XVIIIe siècle, entouré de ses jardins réguliers des Bosquets.",
-    "url": "https://chateau-luneville.meurthe-et-moselle.fr/fr/visiter",
-    "urlLabel": "Visite Château des Lumières de Lunéville",
     "aliases": [
       "luneville",
       "chateau de luneville",
@@ -3064,7 +3004,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Mémorial mondial de la Bataille de Verdun 1916",
     "description": "Plus puissant ouvrage fortifié de la place de Verdun et nécropole nationale commémorant les combats héroïques de la Première Guerre mondiale.",
-    "url": "https://www.verdun-douaumont.com/le-fort-de-douaumont/",
+    "url": "https://www.verdun-douaumont.com/",
     "urlLabel": "Visite Fort de Douaumont & Ossuaire",
     "aliases": [
       "douaumont",
@@ -3085,7 +3025,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Le monstre de la Ligne Maginot",
     "description": "Le plus grand ouvrage fortifié de toute la Ligne Maginot avec ses 19 blocs de combat, 10 km de galeries souterraines et son train électrique d'époque.",
-    "url": "https://maginot-hackenberg.com/visite/",
+    "url": "https://maginot-hackenberg.com/",
     "urlLabel": "Visite Ouvrage Maginot Hackenberg",
     "aliases": [
       "hackenberg",
@@ -3105,7 +3045,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Forteresse aux deux donjons jumeaux",
     "description": "Impressionnant château fort du XIIe siècle surplombant la Moselle, doté de deux donjons distincts construits par l'archevêque de Trèves et celui de Cologne.",
-    "url": "https://thurant.de/burgfuehrung/",
+    "url": "https://thurant.de/",
     "urlLabel": "Burgführung Burg Thurant",
     "aliases": [
       "thurant",
@@ -3125,7 +3065,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Plus grande ruine de forteresse de la vallée du Rhin",
     "description": "Gigantesque complexe fortifié fondé en 1245 au sommet des falaises du Rhin en face du rocher de la Lorelei, avec labyrinthe de mines souterraines.",
-    "url": "https://www.burg-rheinfels.com/besichtigung/",
+    "url": "https://www.burg-rheinfels.com/",
     "urlLabel": "Besichtigung Burg Rheinfels",
     "aliases": [
       "rheinfels",
@@ -3146,7 +3086,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Seul château fort du Rhin jamais détruit",
     "description": "Le seul château de hauteur de toute la vallée du Rhin moyen à avoir traversé le Moyen Âge sans jamais avoir été détruit, siège de l'Association des Châteaux Allemands.",
-    "url": "https://www.marksburg.de/besichtigung/",
+    "url": "https://www.marksburg.de/",
     "urlLabel": "Besichtigung Marksburg Braubach",
     "aliases": [
       "marksburg",
@@ -3166,8 +3106,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "castle",
     "categoryLabel": "Château fort des Comtes de Luxembourg & Cascade urbaine",
     "description": "Ruines du château fondé en 964 par Siegfried de Luxembourg dominant la magnifique cascade de 18 m en plein cœur historique de la vieille ville.",
-    "url": "https://www.saar-obermosel.de/poi/saarburger-wasserfall",
-    "urlLabel": "Guide Cascade & Château de Saarburg",
     "aliases": [
       "saarburg",
       "chateau de saarburg",
@@ -3186,7 +3124,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "nature",
     "categoryLabel": "Passerelle suspendue himalayenne de 360 m",
     "description": "Spectaculaire pont de singe piétonnier suspendu à 100 m au-dessus du ravin forestier, long de 360 m au cœur des sentiers de randonnée du Saar-Hunsrück-Steig.",
-    "url": "https://geierlay.de/die-bruecke/",
+    "url": "https://geierlay.de/",
     "urlLabel": "Guide Hängebrücke Geierlay",
     "aliases": [
       "geierlay",
@@ -3206,8 +3144,6 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "lake",
     "categoryLabel": "Cascade pétrifiante vivante en tuf calcaire",
     "description": "Curiosité géologique fascinante : cascade pétrifiante qui avance de plusieurs centimètres par an grâce au dépôt continu de carbonate de calcium sur les mousses.",
-    "url": "https://www.eifel.info/a-wasserfall-dreimuehlen",
-    "urlLabel": "Guide Naturdenkmal Dreimühlen",
     "aliases": [
       "dreimuhlen",
       "dreimuehlen",
@@ -3227,7 +3163,7 @@ export const GAZETTEER: PlaceEntry[] = [
     "category": "heritage",
     "categoryLabel": "Patrimoine mondial de l’humanité UNESCO",
     "description": "Unique usine sidérurgique au monde conservée dans son intégralité depuis l'âge d'or de l'industrie du fer, inscrite au patrimoine mondial UNESCO.",
-    "url": "https://voelklinger-huette.org/de/ausstellungen-besuch/",
+    "url": "https://voelklinger-huette.org/",
     "urlLabel": "Besuch Weltkulturerbe Völklinger Hütte",
     "aliases": [
       "volklinger hutte",

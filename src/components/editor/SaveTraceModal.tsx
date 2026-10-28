@@ -25,6 +25,7 @@ export function SaveTraceModal({
     calculatedResult,
     editorMode,
     originalRoute,
+    subTraceInfo,
     activity,
     cancel,
   } = editor;
@@ -38,7 +39,10 @@ export function SaveTraceModal({
   // Initialise un titre par défaut intelligent à l'ouverture
   useEffect(() => {
     if (isSaveModalOpen && calculatedResult) {
-      if (editorMode === 'edit' && originalRoute) {
+      if (subTraceInfo) {
+        setTitle(subTraceInfo.suggestedTitle);
+        setDescription(subTraceInfo.suggestedDescription);
+      } else if (editorMode === 'edit' && originalRoute) {
         setTitle(`${originalRoute.title} (Variante perso)`);
         setDescription(`Variante personnalisée créée à partir de ${originalRoute.title}.`);
       } else {
@@ -47,7 +51,7 @@ export function SaveTraceModal({
         setDescription(`Itinéraire personnalisé créé sur les sentiers (${calculatedResult.distanceKm} km, +${calculatedResult.elevationGain}m D+).`);
       }
     }
-  }, [isSaveModalOpen, editorMode, originalRoute, calculatedResult, activity]);
+  }, [isSaveModalOpen, editorMode, originalRoute, subTraceInfo, calculatedResult, activity]);
 
   if (!isSaveModalOpen || !calculatedResult) {
     return null;
@@ -84,7 +88,8 @@ export function SaveTraceModal({
         segments: calculatedResult.segments,
         tags: [
           'Personnalisé',
-          editorMode === 'edit' ? 'Variante' : 'Création',
+          subTraceInfo ? 'Sous-trace' : editorMode === 'edit' ? 'Variante' : 'Création',
+          ...(subTraceInfo && subTraceInfo.returnMode !== 'one_way' ? ['Retour inclus'] : []),
           activity === 'bike' ? 'Vélo' : 'Randonnée',
         ],
         rawGpxContent: rawGpx,
@@ -125,7 +130,11 @@ export function SaveTraceModal({
             </div>
             <div>
               <h2 className="text-sm font-bold text-slate-800 dark:text-slate-100">
-                {editorMode === 'edit' ? 'Enregistrer la variante GPX' : 'Enregistrer le nouveau tracé'}
+                {subTraceInfo
+                  ? 'Enregistrer la sous-trace (avec retour)'
+                  : editorMode === 'edit'
+                  ? 'Enregistrer la variante GPX'
+                  : 'Enregistrer le nouveau tracé'}
               </h2>
               <p className="text-[11px] text-slate-500">
                 {calculatedResult.distanceKm} km • +{calculatedResult.elevationGain}m D+

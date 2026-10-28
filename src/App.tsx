@@ -204,8 +204,14 @@ export default function App() {
     const liveRoute: RouteSuggestions = {
       id: 'editor-live-route',
       type: 'custom',
-      title: editor.originalRoute ? `${editor.originalRoute.title} (modifié)` : 'Nouveau parcours en direct',
-      description: res
+      title: editor.subTraceInfo
+        ? editor.subTraceInfo.suggestedTitle
+        : editor.originalRoute
+        ? `${editor.originalRoute.title} (modifié)`
+        : 'Nouveau parcours en direct',
+      description: editor.subTraceInfo
+        ? editor.subTraceInfo.suggestedDescription
+        : res
         ? `Tracé outdoor en temps réel sur les sentiers (${res.distanceKm} km, +${res.elevationGain}m D+)`
         : 'Cliquez sur la carte ou glissez le tracé pour ajouter des étapes.',
       highlights: [
@@ -261,6 +267,7 @@ export default function App() {
     editor.isEditorActive,
     editor.calculatedResult,
     editor.originalRoute,
+    editor.subTraceInfo,
     editor.activity,
     editor.isLoop,
     editor.waypoints,
@@ -582,8 +589,8 @@ export default function App() {
           />
         )}
 
-        {/* Mobile & Tablet Floating Quick Navigation Dock when panel is closed and not in mushroom spotting mode */}
-        {!isSidebarOpen && !isProfileOpen && !selectedRoute && !isSpottingMode && (
+        {/* Mobile & Tablet Floating Quick Navigation Dock when panel is closed and not in mushroom spotting or editor mode */}
+        {!isSidebarOpen && !isProfileOpen && !selectedRoute && !isSpottingMode && !editor.isEditorActive && (
           <div
             className="absolute left-3 right-3 z-[410] lg:hidden pointer-events-none flex justify-center transition-all"
             style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 2.75rem)' }}
@@ -629,8 +636,8 @@ export default function App() {
           <Sidebar
             onGenerate={generateRoute}
             onFilterMap={filterMap}
-            onImportGPX={(content) => {
-              const ok = importGPX(content);
+            onImportGPX={async (content) => {
+              const ok = await importGPX(content);
               if (ok) showToast('Fichier GPX importé avec succès !');
               return ok;
             }}
@@ -800,7 +807,13 @@ export default function App() {
       {/* Modal de génération automatique de boucle outdoor */}
       <LoopGeneratorModal
         editor={editor}
-        mapCenter={mapCenterTarget ? [mapCenterTarget.lng, mapCenterTarget.lat] : [6.13, 49.61]}
+        mapCenter={
+          mapCenterTarget?.center
+            ? [mapCenterTarget.center[1], mapCenterTarget.center[0]]
+            : userCoords
+            ? [userCoords[1], userCoords[0]]
+            : [6.13, 49.61]
+        }
       />
 
       {/* Cockpit de Guidage Terrain Tête-Haute (100% Hors-Ligne, 0 API) */}

@@ -3,6 +3,7 @@ import {
   PenTool,
   Wand2,
   RotateCcw,
+  RotateCw,
   Repeat,
   Save,
   X,
@@ -15,8 +16,16 @@ import {
   Sparkles,
   Eye,
   EyeOff,
+  Route,
+  Compass,
+  CheckCircle2,
+  ListOrdered,
+  AlertTriangle,
+  Scissors,
 } from 'lucide-react';
 import type { UseRouteEditorReturn } from '../../hooks/useRouteEditor';
+import { SegmentOrderDashboard } from './SegmentOrderDashboard';
+import { SubTraceSlicerDashboard } from './SubTraceSlicerDashboard';
 
 interface TraceEditorBarProps {
   editor: UseRouteEditorReturn;
@@ -33,16 +42,33 @@ export function TraceEditorBar({
     editorMode,
     activity,
     setActivity,
+    routingMode,
+    setRoutingMode,
     originalRoute,
     waypoints,
+    segmentMetas,
     selectedWaypointIndex,
     setSelectedWaypointIndex,
+    orderAnomalies,
+    swapWaypoints,
     removeWaypoint,
+    toggleSelectedWaypointDirectMode,
+    resetToOriginalTrace,
     isLoop,
     calculatedResult,
     isCalculating,
+    loopCalibrationPass,
+    targetLoopDistanceKm,
+    isSegmentsDashboardOpen,
+    toggleSegmentsDashboard,
+    isSubTracePanelOpen,
+    toggleSubTracePanel,
+    subTraceInfo,
+    subTracePickTarget,
     canUndo,
+    canRedo,
     undo,
+    redo,
     clear,
     toggleLoop,
     reverseDirection,
@@ -51,18 +77,91 @@ export function TraceEditorBar({
     cancel,
   } = editor;
 
+  // Vérifie si le point sélectionné est en mode liaison directe
+  const isSelectedPointDirect = React.useMemo(() => {
+    if (selectedWaypointIndex === null || waypoints.length < 2) return false;
+    const totalSegs = isLoop ? waypoints.length : waypoints.length - 1;
+    const incomingIdx =
+      selectedWaypointIndex > 0
+        ? selectedWaypointIndex - 1
+        : isLoop
+        ? totalSegs - 1
+        : 0;
+    return segmentMetas[incomingIdx]?.source === 'direct';
+  }, [selectedWaypointIndex, waypoints.length, isLoop, segmentMetas]);
+
+  // Compte combien de segments ont été modifiés en mode édition
+  const modifiedSegmentsCount = React.useMemo(() => {
+    if (editorMode !== 'edit') return 0;
+    return segmentMetas.filter((m) => m.source !== 'original').length;
+  }, [editorMode, segmentMetas]);
+
+  const totalSegmentsCount = isLoop
+    ? waypoints.length
+    : Math.max(0, waypoints.length - 1);
+
+  // Message de guidage contextuel adapté à l'action en cours
+  const helperMessage = React.useMemo(() => {
+    if (subTracePickTarget === 'start') {
+      return '🎯 Touchez la trace pointillée sur la carte pour placer votre point de Départ (A)';
+    }
+    if (subTracePickTarget === 'end') {
+      return '🎯 Touchez la trace pointillée sur la carte pour placer votre Demi-tour (B)';
+    }
+    if (isCalculating) {
+      if (loopCalibrationPass) {
+        return `Calibrage de la boucle sans impasse (passe ${loopCalibrationPass}/3)...`;
+      }
+      return 'Adaptation précise sur les sentiers réels...';
+    }
+    if (selectedWaypointIndex !== null) {
+      return `Étape ${selectedWaypointIndex + 1} active : glissez-la ou touchez la carte pour la déplacer exactement là.`;
+    }
+    if (subTraceInfo) {
+      return `Sous-trace active : ${subTraceInfo.startPlaceName} ${
+        subTraceInfo.returnMode === 'one_way' ? '→' : '⇄'
+      } ${subTraceInfo.endPlaceName} (km ${subTraceInfo.startKm} à ${subTraceInfo.endKm})`;
+    }
+    if (editorMode === 'edit') {
+      return modifiedSegmentsCount === 0
+        ? 'Trace GPX 100% intacte • Touchez « Sous-trace » pour extraire une portion avec retour'
+        : `${modifiedSegmentsCount} tronçon(s) adapté(s) • Le reste de la trace originale est verrouillé`;
+    }
+    if (waypoints.length === 0) {
+      return 'Touchez la carte pour placer votre point de départ (1) ou lancez Boucle auto';
+    }
+    if (waypoints.length === 1) {
+      return 'Touchez un 2e point sur la carte pour tracer sur les sentiers';
+    }
+    return 'Touchez la carte pour prolonger • Touchez « Segments » pour réordonner librement';
+  }, [
+    subTracePickTarget,
+    isCalculating,
+    loopCalibrationPass,
+    selectedWaypointIndex,
+    subTraceInfo,
+    editorMode,
+    modifiedSegmentsCount,
+    waypoints.length,
+  ]);
+
   return (
-    <div
-      className="absolute left-14 right-2 sm:left-16 sm:right-16 md:left-24 md:right-24 z-[460] pointer-events-none flex flex-col items-center gap-1.5 transition-all"
-      style={{ top: 'calc(env(safe-area-inset-top, 0px) + 0.65rem)' }}
-    >
-      {/* Main Studio Toolbar */}
-      <div className="pointer-events-auto bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl rounded-2xl shadow-[0_12px_45px_-5px_rgba(15,23,42,0.28)] border border-indigo-200/80 dark:border-indigo-800/80 p-2 sm:p-2.5 max-w-4xl w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-        {/* Tier 1: Title, Live KPIs & Close Button (mobile always fits on 1 line) */}
-        <div className="flex items-center justify-between gap-2 min-w-0 w-full sm:w-auto">
-          {/* Mode Title */}
+    <>
+      {/* Dashboard flottant de réorganisation manuelle & automatique des segments */}
+      <SegmentOrderDashboard editor={editor} />
+
+      {/* Dashboard flottant de création de Sous-Trace (avec retour inclus) */}
+      <SubTraceSlicerDashboard editor={editor} />
+
+      {/* ZONE 1 (HAUT) : Pilule de Télémétrie Compacte (Zéro collision avec les docks gauche et droite) */}
+      <div
+        className="absolute left-14 right-14 sm:left-16 sm:right-16 md:left-24 md:right-24 z-[460] pointer-events-none flex flex-col items-center transition-all"
+        style={{ top: 'calc(env(safe-area-inset-top, 0px) + 0.65rem)' }}
+      >
+        <div className="pointer-events-auto bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl rounded-2xl shadow-[0_10px_35px_-5px_rgba(15,23,42,0.28)] border border-indigo-200/80 dark:border-indigo-800/80 px-2.5 py-1.5 sm:px-3.5 sm:py-2 max-w-xl w-full flex items-center justify-between gap-2">
+          {/* Icône & Titre du mode */}
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-indigo-500/25">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm shadow-indigo-500/25">
               {editorMode === 'create' ? (
                 <PenTool className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               ) : (
@@ -71,219 +170,386 @@ export function TraceEditorBar({
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-                  {editorMode === 'create' ? 'Tracé' : 'Variante'}
+                <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+                  {editorMode === 'create'
+                    ? 'Tracé Précis'
+                    : subTraceInfo
+                    ? 'Sous-Trace (Retour inclus)'
+                    : 'Modification Locale'}
                 </span>
                 {isCalculating && (
-                  <span className="flex items-center gap-1 text-[10px] text-indigo-500 font-semibold animate-pulse">
+                  <span className="inline-flex items-center gap-1 text-[10px] text-indigo-500 font-bold animate-pulse">
                     <Loader2 className="w-3 h-3 animate-spin" />
-                    <span className="hidden xs:inline">Calcul...</span>
                   </span>
                 )}
               </div>
-              <h3 className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate max-w-[140px] sm:max-w-[200px]">
+              <h3 className="text-[11px] sm:text-xs font-bold text-slate-800 dark:text-slate-100 truncate max-w-[115px] xs:max-w-[150px] sm:max-w-[220px]">
                 {editorMode === 'create'
-                  ? 'Tracé sur sentiers'
-                  : originalRoute?.title || 'Variante perso'}
+                  ? targetLoopDistanceKm
+                    ? `Boucle calibrée (${targetLoopDistanceKm} km)`
+                    : 'Tracé sur sentiers'
+                  : subTraceInfo
+                  ? `${subTraceInfo.startPlaceName} ⇄ ${subTraceInfo.endPlaceName}`
+                  : originalRoute?.title || 'Variante sur mesure'}
               </h3>
             </div>
           </div>
 
-          {/* Live KPIs (Distance, D+) */}
-          {calculatedResult ? (
-            <div className="flex items-center gap-1.5 bg-slate-100/90 dark:bg-slate-800/90 px-2 py-0.5 sm:py-1 rounded-xl text-xs font-mono-kpi shrink-0 border border-slate-200/70 dark:border-slate-700/70">
-              <span className="font-extrabold text-slate-900 dark:text-white">
-                {calculatedResult.distanceKm} <span className="font-sans text-[10px] text-slate-500">km</span>
-              </span>
-              <span className="text-slate-300 dark:text-slate-600">•</span>
-              <span className="font-extrabold text-emerald-700 dark:text-emerald-400">
-                +{calculatedResult.elevationGain}m
-              </span>
-            </div>
-          ) : (
-            <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 italic px-1 shrink-0">
-              {waypoints.length === 0 ? '1er clic = départ' : `${waypoints.length} pt(s)`}
-            </div>
-          )}
+          {/* KPIs Temps Réel (Distance, D+ & Précision de boucle) */}
+          <div className="flex items-center gap-1.5 shrink-0">
+            {calculatedResult ? (
+              <div className="flex items-center gap-1.5 bg-slate-100/95 dark:bg-slate-800/95 px-2.5 py-1 rounded-xl text-xs font-mono-kpi border border-slate-200/80 dark:border-slate-700/80">
+                <span className="font-black text-slate-900 dark:text-white">
+                  {calculatedResult.distanceKm}{' '}
+                  <span className="font-sans text-[10px] text-slate-500">km</span>
+                </span>
+                <span className="text-slate-300 dark:text-slate-600">•</span>
+                <span className="font-extrabold text-emerald-700 dark:text-emerald-400">
+                  +{calculatedResult.elevationGain}m
+                </span>
+              </div>
+            ) : (
+              <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-semibold px-2 py-1 rounded-xl bg-slate-100/70 dark:bg-slate-800/70">
+                {waypoints.length === 0 ? '0 étape' : `${waypoints.length} étape(s)`}
+              </div>
+            )}
 
-          {/* Close button visible in tier 1 on mobile */}
-          <button
-            onClick={cancel}
-            className="sm:hidden p-1.5 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer shrink-0"
-            title="Quitter le mode tracé"
-            aria-label="Fermer le mode tracé"
-          >
-            <X className="w-4 h-4" />
-          </button>
+            <button
+              type="button"
+              onClick={cancel}
+              className="p-1.5 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer shrink-0"
+              title="Quitter l'éditeur de trace"
+              aria-label="Fermer l'éditeur"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
+      </div>
 
-        {/* Tier 2: Responsive Action Buttons Toolbar (Horizontally scrollable on small mobile) */}
-        <div className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5 sm:py-0 w-full sm:w-auto shrink-0">
-          {/* Étape active sélectionnée pour être déplacée */}
-          {selectedWaypointIndex !== null && (
-            <div className="flex items-center gap-1.5 bg-amber-500/15 border border-amber-500/30 px-2 py-1 rounded-xl text-xs font-bold text-amber-700 dark:text-amber-300 shrink-0 shadow-2xs animate-in fade-in duration-150">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping shrink-0" />
-              <span>Étape {selectedWaypointIndex + 1} à bouger</span>
-              {waypoints.length > 2 && (
+      {/* ZONE 2 (BAS - ZONE DU POUCE) : Dock Ergonomique Mobile & Desktop */}
+      <div
+        className="absolute left-2 right-2 sm:left-6 sm:right-6 z-[460] pointer-events-none flex flex-col items-center gap-1.5"
+        style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 0.65rem)' }}
+      >
+        {/* Bandeau d'alerte rapide si deux segments semblent intervertis (quand le dashboard est fermé) */}
+        {!isSegmentsDashboardOpen && orderAnomalies.length > 0 && (
+          <div className="pointer-events-auto bg-amber-500 text-slate-950 px-3 py-1.5 rounded-2xl shadow-lg border border-amber-300 max-w-xl w-full flex items-center justify-between gap-2 animate-in fade-in slide-in-from-bottom-2">
+            <div className="flex items-center gap-1.5 min-w-0 text-xs font-extrabold">
+              <AlertTriangle className="w-4 h-4 shrink-0" />
+              <span className="truncate">{orderAnomalies[0].description}</span>
+            </div>
+            <div className="flex items-center gap-1 shrink-0">
+              <button
+                type="button"
+                onClick={() =>
+                  swapWaypoints(
+                    orderAnomalies[0].waypointIndex,
+                    orderAnomalies[0].swapWithIndex
+                  )
+                }
+                className="px-2.5 py-1 rounded-xl bg-slate-950 text-white text-[11px] font-bold cursor-pointer hover:bg-slate-800 transition-colors"
+              >
+                Intervertir
+              </button>
+              <button
+                type="button"
+                onClick={toggleSegmentsDashboard}
+                className="px-2 py-1 rounded-xl bg-white/80 text-slate-900 text-[11px] font-bold cursor-pointer hover:bg-white transition-colors"
+              >
+                Dashboard
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Panneau contextuel d'action directe lorsqu'un point est sélectionné */}
+        {selectedWaypointIndex !== null && (
+          <div className="pointer-events-auto bg-slate-900/95 dark:bg-slate-900/98 text-white backdrop-blur-xl px-3 py-2 rounded-2xl shadow-xl border border-amber-400/50 max-w-xl w-full flex items-center justify-between gap-2 animate-in fade-in slide-in-from-bottom-2 duration-150">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping shrink-0" />
+              <div className="min-w-0">
+                <div className="text-xs font-extrabold text-amber-300 truncate">
+                  Étape {selectedWaypointIndex + 1} sélectionnée
+                </div>
+                <div className="text-[10px] text-slate-300 truncate">
+                  Glissez ce point ou touchez un sentier sur la carte
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-1.5 shrink-0">
+              {/* Bascule Sentier / Ligne directe sur ce point */}
+              {waypoints.length >= 2 && (
                 <button
                   type="button"
-                  onClick={() => {
-                    removeWaypoint(selectedWaypointIndex);
-                    setSelectedWaypointIndex(null);
-                  }}
-                  className="ml-0.5 p-0.5 hover:bg-rose-100 dark:hover:bg-rose-950/60 rounded text-rose-600 dark:text-rose-400 cursor-pointer"
-                  title="Supprimer cette étape"
-                  aria-label="Supprimer cette étape"
+                  onClick={toggleSelectedWaypointDirectMode}
+                  className={`px-2.5 py-1.5 rounded-xl text-[11px] font-bold border transition-all flex items-center gap-1 cursor-pointer min-h-[34px] ${
+                    isSelectedPointDirect
+                      ? 'bg-amber-500 text-slate-950 border-amber-300'
+                      : 'bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-700'
+                  }`}
+                  title="Basculer ce tronçon entre suivi des sentiers et ligne droite hors-sentier"
                 >
-                  <Trash2 className="w-3.5 h-3.5" />
+                  <Compass className="w-3.5 h-3.5" />
+                  <span>{isSelectedPointDirect ? 'Direct actif' : 'Hors-sentier'}</span>
                 </button>
               )}
-            </div>
-          )}
 
-          {/* Sport Selector */}
-          <button
-            onClick={() => setActivity(activity === 'hike' ? 'bike' : 'hike')}
-            className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer shrink-0 min-h-[36px]"
-            title={`Mode actuel : ${activity === 'hike' ? 'À pied' : 'Vélo'}. Cliquer pour basculer.`}
-          >
-            {activity === 'hike' ? (
-              <Footprints className="w-3.5 h-3.5 text-emerald-600" />
-            ) : (
-              <Bike className="w-3.5 h-3.5 text-teal-600" />
-            )}
-            <span className="text-[11px] font-semibold">{activity === 'hike' ? 'À pied' : 'Vélo'}</span>
-          </button>
-
-          {/* Loop Generator Modal Trigger */}
-          <button
-            onClick={openLoopModal}
-            className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-xs transition-all cursor-pointer active:scale-95 shrink-0 min-h-[36px]"
-            title="Générer automatiquement une boucle selon un point de départ et une distance"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
-            <span className="text-[11px]">Boucle auto</span>
-          </button>
-
-          {/* Loop Mode Toggle */}
-          <button
-            onClick={toggleLoop}
-            className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 min-h-[36px] ${
-              isLoop
-                ? 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border-indigo-300 dark:border-indigo-700 shadow-2xs'
-                : 'bg-white dark:bg-slate-800 text-slate-500 border-slate-200 dark:border-slate-700 hover:text-slate-800'
-            }`}
-            title="Activer ou désactiver la fermeture automatique en boucle vers le point de départ"
-          >
-            <Repeat className="w-3 h-3" />
-            <span className="text-[11px]">Boucle</span>
-            {isLoop && <Check className="w-3 h-3 text-indigo-600" />}
-          </button>
-
-          {/* Afficher / Masquer la trace pour voir les sentiers de la carte */}
-          {onToggleTraceVisibility && waypoints.length >= 2 && (
-            <button
-              onClick={onToggleTraceVisibility}
-              className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 min-h-[36px] ${
-                isTraceVisible
-                  ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700'
-                  : 'bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 border-amber-300 dark:border-amber-700 shadow-xs'
-              }`}
-              title={
-                isTraceVisible
-                  ? 'Masquer la trace pour voir les sentiers sous-jacents'
-                  : 'Démasquer la trace'
-              }
-            >
-              {isTraceVisible ? (
-                <>
-                  <EyeOff className="w-3.5 h-3.5 text-slate-500" />
-                  <span className="text-[11px]">Masquer</span>
-                </>
-              ) : (
-                <>
-                  <Eye className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
-                  <span className="text-[11px]">Démasquer</span>
-                </>
+              {/* Supprimer ce point */}
+              {waypoints.length > 1 && (
+                <button
+                  type="button"
+                  onClick={() => removeWaypoint(selectedWaypointIndex)}
+                  className="px-2.5 py-1.5 rounded-xl text-[11px] font-bold bg-rose-600 hover:bg-rose-500 text-white transition-colors flex items-center gap-1 cursor-pointer min-h-[34px]"
+                  title="Supprimer cette étape"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  <span className="hidden xs:inline">Supprimer</span>
+                </button>
               )}
-            </button>
-          )}
 
-          {/* Reverse Direction */}
-          {waypoints.length >= 2 && (
+              {/* Terminer / Désélectionner */}
+              <button
+                type="button"
+                onClick={() => setSelectedWaypointIndex(null)}
+                className="px-2.5 py-1.5 rounded-xl text-[11px] font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center gap-1 cursor-pointer min-h-[34px]"
+                title="Valider la position de ce point"
+              >
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>OK</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Barre principale d'outils tactiles au pouce */}
+        <div className="pointer-events-auto bg-white/96 dark:bg-slate-900/96 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-[0_16px_45px_rgba(15,23,42,0.35)] border border-slate-200/90 dark:border-slate-700/90 p-2 sm:p-2.5 max-w-2xl w-full flex flex-col gap-1.5">
+          {/* Bandeau d'instruction permanent (visible sur mobile et desktop) */}
+          <div className="flex items-center justify-between gap-2 px-1 text-[11px] text-slate-600 dark:text-slate-300 font-medium">
+            <span className="truncate">{helperMessage}</span>
+            {targetLoopDistanceKm && calculatedResult && (
+              <span className="text-[10px] font-extrabold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800 shrink-0">
+                Cible {targetLoopDistanceKm} km ✓
+              </span>
+            )}
+          </div>
+
+          {/* Rangée de boutons d'action ergonomiques (min-h-40px pour le pouce) */}
+          <div className="flex items-center justify-between gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+              {/* Undo */}
+              <button
+                type="button"
+                onClick={undo}
+                disabled={!canUndo}
+                className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-35 transition-all cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
+                title="Annuler la dernière action (Undo)"
+                aria-label="Annuler"
+              >
+                <RotateCcw className="w-4 h-4" />
+              </button>
+
+              {/* Redo */}
+              <button
+                type="button"
+                onClick={redo}
+                disabled={!canRedo}
+                className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-35 transition-all cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
+                title="Rétablir l'action annulée (Redo)"
+                aria-label="Rétablir"
+              >
+                <RotateCw className="w-4 h-4" />
+              </button>
+
+              {/* Bouton Studio Sous-Trace (avec retour inclus) */}
+              {editorMode === 'edit' && (
+                <button
+                  type="button"
+                  onClick={toggleSubTracePanel}
+                  className={`relative flex items-center gap-1.5 px-2.5 py-2 rounded-xl text-xs font-extrabold border transition-all cursor-pointer shrink-0 min-h-[40px] ${
+                    isSubTracePanelOpen
+                      ? 'bg-teal-600 text-white border-teal-500 shadow-md shadow-teal-600/30'
+                      : subTraceInfo
+                      ? 'bg-teal-100 dark:bg-teal-950/70 text-teal-900 dark:text-teal-300 border-teal-400'
+                      : 'bg-teal-50 dark:bg-teal-950/50 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-800 hover:bg-teal-100'
+                  }`}
+                  title="Extraire une sous-trace personnalisée avec retour inclus (Aller-Retour sur piste ou Boucle)"
+                >
+                  <Scissors className="w-3.5 h-3.5" />
+                  <span className="text-[11px]">Sous-trace</span>
+                  {subTraceInfo && !isSubTracePanelOpen && (
+                    <span className="w-2 h-2 rounded-full bg-teal-500" />
+                  )}
+                </button>
+              )}
+
+              {/* Bouton Dashboard d'Organisation des Segments */}
+              {waypoints.length >= 2 && (
+                <button
+                  type="button"
+                  onClick={toggleSegmentsDashboard}
+                  className={`relative flex items-center gap-1.5 px-2.5 py-2 rounded-xl text-xs font-extrabold border transition-all cursor-pointer shrink-0 min-h-[40px] ${
+                    isSegmentsDashboardOpen
+                      ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-600/30'
+                      : orderAnomalies.length > 0
+                      ? 'bg-amber-100 dark:bg-amber-950/70 text-amber-900 dark:text-amber-300 border-amber-400'
+                      : 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100'
+                  }`}
+                  title="Ouvrir le dashboard pour réorganiser l'ordre des segments et étapes"
+                >
+                  <ListOrdered className="w-3.5 h-3.5" />
+                  <span className="text-[11px]">Segments ({totalSegmentsCount})</span>
+                  {orderAnomalies.length > 0 && (
+                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
+                  )}
+                </button>
+              )}
+
+              {/* Sport Selector */}
+              <button
+                type="button"
+                onClick={() => setActivity(activity === 'hike' ? 'bike' : 'hike')}
+                className="flex items-center gap-1 px-2.5 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer shrink-0 min-h-[40px]"
+                title={`Activité : ${activity === 'hike' ? 'À pied' : 'Vélo'}`}
+              >
+                {activity === 'hike' ? (
+                  <Footprints className="w-4 h-4 text-emerald-600" />
+                ) : (
+                  <Bike className="w-4 h-4 text-teal-600" />
+                )}
+                <span className="text-[11px]">{activity === 'hike' ? 'À pied' : 'Vélo'}</span>
+              </button>
+
+              {/* Mode Sentiers vs Direct */}
+              <button
+                type="button"
+                onClick={() => setRoutingMode(routingMode === 'trail' ? 'direct' : 'trail')}
+                className={`flex items-center gap-1 px-2.5 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 min-h-[40px] ${
+                  routingMode === 'trail'
+                    ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800'
+                    : 'bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border-amber-400 dark:border-amber-700'
+                }`}
+                title={
+                  routingMode === 'trail'
+                    ? 'Mode Suivi des Sentiers actif (cliquer pour passer en liaison directe hors-sentier)'
+                    : 'Mode Liaison Directe hors-sentier actif (cliquer pour revenir au suivi des sentiers)'
+                }
+              >
+                <Route className="w-3.5 h-3.5" />
+                <span className="text-[11px]">
+                  {routingMode === 'trail' ? 'Sentiers' : 'Direct'}
+                </span>
+              </button>
+
+              {/* Boucle Auto Calibrée */}
+              <button
+                type="button"
+                onClick={openLoopModal}
+                className="flex items-center gap-1 px-2.5 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-xs transition-all cursor-pointer active:scale-95 shrink-0 min-h-[40px]"
+                title="Générer une boucle automatique calibrée sans impasse"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
+                <span className="text-[11px]">Boucle auto</span>
+              </button>
+
+              {/* Fermeture en boucle On/Off */}
+              <button
+                type="button"
+                onClick={toggleLoop}
+                className={`flex items-center gap-1 px-2.5 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 min-h-[40px] ${
+                  isLoop
+                    ? 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border-indigo-300 dark:border-indigo-700'
+                    : 'bg-white dark:bg-slate-800 text-slate-500 border-slate-200 dark:border-slate-700'
+                }`}
+                title="Activer ou désactiver le retour automatique au point de départ"
+              >
+                <Repeat className="w-3.5 h-3.5" />
+                <span className="text-[11px]">Boucle</span>
+                {isLoop && <Check className="w-3 h-3 text-indigo-600" />}
+              </button>
+
+              {/* Inverser le sens */}
+              {waypoints.length >= 2 && (
+                <button
+                  type="button"
+                  onClick={reverseDirection}
+                  className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer shrink-0 min-h-[40px] min-w-[40px] flex items-center justify-center"
+                  title="Inverser le sens du parcours"
+                  aria-label="Inverser le sens"
+                >
+                  <ArrowLeftRight className="w-4 h-4" />
+                </button>
+              )}
+
+              {/* Masquer / Démasquer la trace pour inspecter les sentiers sous-jacents */}
+              {onToggleTraceVisibility && waypoints.length >= 2 && (
+                <button
+                  type="button"
+                  onClick={onToggleTraceVisibility}
+                  className={`p-2 rounded-xl border transition-all cursor-pointer shrink-0 min-h-[40px] min-w-[40px] flex items-center justify-center ${
+                    isTraceVisible
+                      ? 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-transparent'
+                      : 'bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border-amber-400'
+                  }`}
+                  title={
+                    isTraceVisible
+                      ? 'Masquer la trace pour voir les sentiers de la carte'
+                      : 'Réafficher la trace'
+                  }
+                >
+                  {isTraceVisible ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
+                </button>
+              )}
+
+              {/* Réinitialiser l'original (mode édition) ou Tout effacer (mode création) */}
+              {editorMode === 'edit' && modifiedSegmentsCount > 0 ? (
+                <button
+                  type="button"
+                  onClick={resetToOriginalTrace}
+                  className="px-2.5 py-2 rounded-xl text-[11px] font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800 hover:bg-purple-100 transition-colors cursor-pointer shrink-0 min-h-[40px]"
+                  title="Rétablir la trace GPX originale intacte"
+                >
+                  Rétablir original
+                </button>
+              ) : (
+                waypoints.length > 0 &&
+                editorMode === 'create' && (
+                  <button
+                    type="button"
+                    onClick={clear}
+                    className="p-2 rounded-xl text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors cursor-pointer shrink-0 min-h-[40px] min-w-[40px] flex items-center justify-center"
+                    title="Effacer tous les points"
+                    aria-label="Effacer tout"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                )
+              )}
+            </div>
+
+            {/* Bouton Principal Enregistrer GPX */}
             <button
-              onClick={reverseDirection}
-              className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer shrink-0 min-h-[36px] min-w-[36px] flex items-center justify-center"
-              title="Inverser le sens du parcours"
-              aria-label="Inverser le sens du parcours"
+              type="button"
+              onClick={openSaveModal}
+              disabled={!calculatedResult || waypoints.length < 2}
+              className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-extrabold text-white shadow-md transition-all cursor-pointer shrink-0 min-h-[40px] ${
+                calculatedResult && waypoints.length >= 2
+                  ? 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-emerald-600/30 active:scale-95'
+                  : 'bg-slate-300 dark:bg-slate-700 opacity-50 cursor-not-allowed'
+              }`}
+              title="Enregistrer ce tracé dans vos parcours GPX"
             >
-              <ArrowLeftRight className="w-3.5 h-3.5" />
+              <Save className="w-4 h-4" />
+              <span>Enregistrer</span>
             </button>
-          )}
-
-          {/* Undo Point */}
-          {canUndo && (
-            <button
-              onClick={undo}
-              className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer shrink-0 min-h-[36px] min-w-[36px] flex items-center justify-center"
-              title="Annuler le dernier point placé"
-              aria-label="Annuler le dernier point"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-            </button>
-          )}
-
-          {/* Clear All */}
-          {waypoints.length > 0 && (
-            <button
-              onClick={clear}
-              className="p-2 rounded-xl text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors cursor-pointer shrink-0 min-h-[36px] min-w-[36px] flex items-center justify-center"
-              title="Effacer tous les points"
-              aria-label="Effacer tous les points"
-            >
-              <Trash2 className="w-3.5 h-3.5" />
-            </button>
-          )}
-
-          {/* Save Button */}
-          <button
-            onClick={openSaveModal}
-            disabled={!calculatedResult || waypoints.length < 2}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-white shadow-md transition-all cursor-pointer shrink-0 min-h-[36px] ${
-              calculatedResult && waypoints.length >= 2
-                ? 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-emerald-600/30 active:scale-95'
-                : 'bg-slate-300 dark:bg-slate-700 opacity-60 cursor-not-allowed'
-            }`}
-            title="Enregistrer ce tracé dans un fichier GPX séparé"
-          >
-            <Save className="w-3.5 h-3.5" />
-            <span>Enregistrer GPX</span>
-          </button>
-
-          {/* Close Button on Desktop/Tablet */}
-          <button
-            onClick={cancel}
-            className="hidden sm:flex p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer shrink-0"
-            title="Quitter le mode tracé"
-            aria-label="Fermer le mode tracé"
-          >
-            <X className="w-4 h-4" />
-          </button>
+          </div>
         </div>
       </div>
-
-      {/* Floating Helper Pill: Hidden on small mobile screens to keep the map clean and visible */}
-      <div className="hidden sm:flex bg-slate-900/90 text-white backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-medium shadow-md border border-slate-700/60 pointer-events-auto items-center gap-1.5">
-        {editorMode === 'edit' && originalRoute ? (
-          selectedWaypointIndex !== null ? (
-            <span>🎯 <strong>Étape {selectedWaypointIndex + 1} prête à bouger :</strong> Glissez ce point sur la carte pour dévier le tracé à cet endroit exact.</span>
-          ) : (
-            <span>🎯 <strong>Choisissez l&apos;endroit à modifier :</strong> Touchez la trace ou une étape pour sélectionner le point à déplacer.</span>
-          )
-        ) : (
-          <span>📍 Cliquez sur la carte ou glissez le tracé pour insérer une étape • Sentiers réels suivis en direct</span>
-        )}
-      </div>
-    </div>
+    </>
   );
 }

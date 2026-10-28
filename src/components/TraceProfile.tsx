@@ -1,3 +1,4 @@
+import { isGenericHomepageUrl } from '../lib/routeSourceResolver';
 import React from 'react';
 import { AreaChart, Area, Tooltip, ResponsiveContainer, YAxis, XAxis } from 'recharts';
 import type { RouteSuggestions, RouteTrace } from '../types';
@@ -116,7 +117,7 @@ export function TraceProfile({
               <h3 className="text-xs md:text-sm font-extrabold text-slate-900 dark:text-white truncate max-w-[150px] sm:max-w-xs md:max-w-sm">
                 {route.title}
               </h3>
-              {route.sourceUrl && (
+              {route.sourceUrl && !isGenericHomepageUrl(route.sourceUrl) && (
                 <a
                   href={route.sourceUrl}
                   target="_blank"

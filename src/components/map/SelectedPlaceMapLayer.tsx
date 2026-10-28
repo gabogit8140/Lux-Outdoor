@@ -1,3 +1,4 @@
+import { isGenericHomepageUrl } from '../../lib/routeSourceResolver';
 import React from 'react';
 import { Marker, Popup, Circle, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
@@ -106,7 +107,7 @@ export function SelectedPlaceMapLayer({ selectedPlace, onClear }: SelectedPlaceM
             )}
 
             <div className="pt-1 flex items-center justify-between gap-2">
-              {selectedPlace.url ? (
+              {selectedPlace.url && !isGenericHomepageUrl(selectedPlace.url) ? (
                 <a
                   href={selectedPlace.url}
                   target="_blank"

@@ -1,3 +1,4 @@
+import { isGenericHomepageUrl } from '../../lib/routeSourceResolver';
 import React, { useState } from 'react';
 import {
   Download,
@@ -21,6 +22,7 @@ import {
   Clock,
   Wand2,
   Navigation,
+  Scissors,
 } from 'lucide-react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
 import { HuntingSafetyAlert } from '../ui/HuntingSafetyAlert';
@@ -157,7 +159,21 @@ export function RouteDetailView({
           <div className="text-[11px] text-slate-600 dark:text-slate-300">
             Glissez les points sur la carte pour dévier le tracé. Les dénivelés et surfaces s'ajustent en direct ci-dessous.
           </div>
-          <div className="flex items-center gap-1.5 pt-1 border-t border-purple-200 dark:border-purple-800/60">
+          <div className="flex items-center gap-1.5 pt-1 border-t border-purple-200 dark:border-purple-800/60 flex-wrap">
+            {editor.editorMode === 'edit' && (
+              <button
+                onClick={editor.toggleSubTracePanel}
+                className={`py-1.5 px-2.5 rounded-xl text-xs font-bold shadow-xs transition-all flex items-center justify-center gap-1 cursor-pointer ${
+                  editor.isSubTracePanelOpen
+                    ? 'bg-teal-600 text-white'
+                    : 'bg-teal-50 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 border border-teal-300 dark:border-teal-700 hover:bg-teal-100'
+                }`}
+                title="Extraire une sous-trace de ce parcours avec retour inclus"
+              >
+                <Scissors className="w-3.5 h-3.5" />
+                <span>Sous-trace (A/R)</span>
+              </button>
+            )}
             <button
               onClick={editor.openSaveModal}
               disabled={!editor.calculatedResult || editor.waypoints.length < 2}
@@ -322,33 +338,44 @@ export function RouteDetailView({
         </div>
       </div>
 
-      {/* Modification & Variante GPX Card (Tracé d'origine 100% protégé) */}
-      {onEditRoute && trace && (
-        <div className="p-3 bg-gradient-to-r from-purple-50 via-indigo-50 to-purple-50 dark:from-purple-950/40 dark:via-indigo-950/40 dark:to-purple-950/40 rounded-2xl border border-purple-200/90 dark:border-purple-800/80 space-y-2">
+      {/* Studio Sous-Trace (Retour inclus) & Variante GPX Card (Tracé d'origine 100% protégé) */}
+      {onEditRoute && trace && !editor?.isEditorActive && (
+        <div className="p-3 bg-gradient-to-r from-purple-50 via-indigo-50 to-teal-50/80 dark:from-purple-950/40 dark:via-indigo-950/40 dark:to-teal-950/40 rounded-2xl border border-purple-200/90 dark:border-purple-800/80 space-y-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5 text-xs font-bold text-purple-900 dark:text-purple-200">
-              <Wand2 className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-              <span>Créer une variante personnalisée</span>
+              <Scissors className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+              <span>Studio Sous-Trace & Variante</span>
             </div>
             <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-800 dark:text-purple-300">
               Original intact
             </span>
           </div>
           <p className="text-[11px] text-purple-800/80 dark:text-purple-300/80 leading-relaxed">
-            Modifiez ce parcours sur les sentiers réels. <strong>Le tracé d&apos;origine restera inchangé</strong> : votre circuit modifié sera sauvegardé comme une nouvelle trace dans Mes Traces.
+            Vous ne faites qu&apos;une partie de ce tracé ? Extrayez une <strong>sous-trace sur mesure (avec retour inclus A⇄B ou boucle)</strong>, ou déviez le parcours. L&apos;original reste inchangé.
           </p>
-          <button
-            onClick={() => onEditRoute(route, trace)}
-            className="w-full py-2 px-3 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-purple-900/25 active:scale-95 transition-all cursor-pointer border border-purple-400/30"
-          >
-            <Wand2 className="w-3.5 h-3.5 text-yellow-300" />
-            <span>Modifier ce parcours (Nouvelle trace)</span>
-          </button>
+          <div className="flex flex-col gap-1.5 pt-0.5">
+            {editor && (
+              <button
+                onClick={() => editor.startSubTraceSlicing(route, trace, 'out_and_back')}
+                className="w-full py-2 px-3 bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-600 hover:from-teal-500 hover:to-emerald-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-teal-900/25 active:scale-95 transition-all cursor-pointer border border-teal-400/30"
+              >
+                <Scissors className="w-3.5 h-3.5 text-amber-200" />
+                <span>Créer une sous-trace (avec retour inclus)</span>
+              </button>
+            )}
+            <button
+              onClick={() => onEditRoute(route, trace)}
+              className="w-full py-2 px-3 bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-purple-900/25 active:scale-95 transition-all cursor-pointer border border-purple-400/30"
+            >
+              <Wand2 className="w-3.5 h-3.5 text-yellow-300" />
+              <span>Modifier ce parcours (Variante complète)</span>
+            </button>
+          </div>
         </div>
       )}
 
       {/* Official Source Website & Cadastral Geoportail.lu for the GPX */}
-      {(route.sourceUrl || route.sourceLabel || route.geoportailUrl) && (
+      {((route.sourceUrl && !isGenericHomepageUrl(route.sourceUrl)) || route.geoportailUrl) && (
         <div className="bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/90 dark:border-emerald-800/70 rounded-2xl p-3 flex flex-col gap-2.5">
           <div className="flex items-center justify-between gap-2.5">
             <div className="flex items-center gap-2.5 min-w-0">
@@ -364,7 +391,7 @@ export function RouteDetailView({
                 </span>
               </div>
             </div>
-            {route.sourceUrl && (
+            {route.sourceUrl && !isGenericHomepageUrl(route.sourceUrl) && (
               <a
                 href={route.sourceUrl}
                 target="_blank"

@@ -1,3 +1,4 @@
+import { isGenericHomepageUrl } from '../../lib/routeSourceResolver';
 import React, { useEffect, useRef } from 'react';
 import { Star, Footprints, Bike, Globe, ExternalLink, ShieldCheck, RotateCcw, Repeat, ArrowRight } from 'lucide-react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
@@ -345,7 +346,7 @@ export function RouteCatalogList({
               </div>
 
               {/* Source website link */}
-              {r.sourceUrl && (
+              {r.sourceUrl && !isGenericHomepageUrl(r.sourceUrl) && (
                 <div className="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-[10px]">
                   <span className="text-slate-400 dark:text-slate-500 font-medium">Fiche officielle :</span>
                   <a

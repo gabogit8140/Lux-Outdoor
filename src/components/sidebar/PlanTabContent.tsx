@@ -52,7 +52,7 @@ interface PlanTabContentProps {
   setDistance: (d: [number, number]) => void;
   activeFilters: string[];
   toggleFilter: (id: string) => void;
-  onImportGPX: (content: string) => boolean;
+  onImportGPX: (content: string) => boolean | Promise<boolean>;
   onFilterMap: () => void;
   onClearAllFilters?: () => void;
   onGenerate: (isMapTracesOnly: boolean) => void;
@@ -87,10 +87,10 @@ export function PlanTabContent({
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (event) => {
+    reader.onload = async (event) => {
       const content = event.target?.result as string;
       if (content) {
-        const ok = onImportGPX(content);
+        const ok = await onImportGPX(content);
         if (!ok) {
           alert('Impossible de lire le fichier GPX. Vérifiez le format.');
         }

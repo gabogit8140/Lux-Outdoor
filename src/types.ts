@@ -61,6 +61,8 @@ export interface RouteSuggestions {
   difficulty: RouteDifficulty;
   userRating?: number; // 1-5 personal stars given by user
   userNotes?: string;  // personal field notes written by user
+  userCategory?: any;
+  hasMushrooms?: boolean;
   elevationGain: number;
   elevationLoss?: number;
   maxElevation?: number;

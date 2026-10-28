@@ -252,25 +252,27 @@ export function MapDisplay({
           />
         )}
 
-        {/* Route Traces, Segments, Tooltips and Elevation Hover Pin */}
-        <MapRoutesLayer
-          routes={routes}
-          traces={traces}
-          selectedRouteId={selectedRouteId}
-          hoveredRouteId={hoveredRouteId}
-          onSelectRoute={onSelectRoute}
-          onHoverRoute={onHoverRoute}
-          hoveredDistanceKm={hoveredDistanceKm}
-          clickedCoord={clickedCoord}
-          lastLayerClickTimeRef={lastLayerClickTimeRef}
-          activity={activity}
-          isTraceVisible={isTraceVisible}
-          onStartNavigation={onStartNavigation}
-          favorites={favorites}
-        />
+        {/* Route Traces, Segments, Tooltips and Elevation Hover Pin (strictement masqués pendant la création/modification d'une trace) */}
+        {!editor?.isEditorActive && (
+          <MapRoutesLayer
+            routes={routes}
+            traces={traces}
+            selectedRouteId={selectedRouteId}
+            hoveredRouteId={hoveredRouteId}
+            onSelectRoute={onSelectRoute}
+            onHoverRoute={onHoverRoute}
+            hoveredDistanceKm={hoveredDistanceKm}
+            clickedCoord={clickedCoord}
+            lastLayerClickTimeRef={lastLayerClickTimeRef}
+            activity={activity}
+            isTraceVisible={isTraceVisible}
+            onStartNavigation={onStartNavigation}
+            favorites={favorites}
+          />
+        )}
 
-        {/* Favoris notés et coins champignons affichés directement sur la carte avec leurs icônes dédiées */}
-        {favorites && favorites.length > 0 && onLoadFavorite && (
+        {/* Favoris notés affichés sur la carte (masqués pendant l'édition de trace pour garder la carte lisible) */}
+        {!editor?.isEditorActive && favorites && favorites.length > 0 && onLoadFavorite && (
           <MapFavoritesLayer
             favorites={favorites}
             routes={routes}
@@ -334,7 +336,7 @@ export function MapDisplay({
           )}
 
           {/* Direct 1-Click Trace Visibility Toggle Button (Masquer / Démasquer la trace sur la carte) */}
-          {selectedRouteId && onToggleTraceVisibility && (
+          {!editor?.isEditorActive && selectedRouteId && onToggleTraceVisibility && (
             <button
               type="button"
               onClick={onToggleTraceVisibility}
@@ -359,7 +361,7 @@ export function MapDisplay({
           )}
 
           {/* Direct 1-Click Reverse Route Direction Button (Inverser le sens du circuit) */}
-          {selectedRouteId && onReverseRoute && (
+          {!editor?.isEditorActive && selectedRouteId && onReverseRoute && (
             <button
               type="button"
               onClick={onReverseRoute}
@@ -451,8 +453,8 @@ export function MapDisplay({
           />
         )}
 
-      {/* Floating Semantic Color Legend (Bottom-Left, masqué en mode repérage pour dégager totalement le bas) */}
-      {!isSpottingMode && (
+      {/* Floating Semantic Color Legend (Bottom-Left, masqué en mode repérage ou éditeur pour dégager totalement le bas) */}
+      {!isSpottingMode && !editor?.isEditorActive && (
         <div className="absolute bottom-2.5 sm:bottom-4 left-2.5 md:left-4 z-[400] pointer-events-auto max-w-[calc(100%-1.25rem)]">
           <div className="glass-topbar px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-lg flex items-center gap-2 sm:gap-2.5 text-[10px] sm:text-[11px] overflow-x-auto no-scrollbar whitespace-nowrap">
             {selectedRouteId ? (

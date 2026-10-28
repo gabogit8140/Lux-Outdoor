@@ -34,7 +34,7 @@ interface SidebarProps {
     activity: 'bike' | 'hike',
     country?: 'ALL' | 'LU' | 'BE' | 'DE' | 'NL' | 'FR'
   ) => void;
-  onImportGPX: (content: string) => boolean;
+  onImportGPX: (content: string) => boolean | Promise<boolean>;
   onReverseRoute: () => void;
   routes: RouteSuggestions[];
   selectedRouteId: string | null;

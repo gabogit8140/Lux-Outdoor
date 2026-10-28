@@ -1,3 +1,4 @@
+export type { ElevationPoint } from '../types';
 import type { ElevationPoint } from '../types';
 import { APP_CONFIG } from './config/appConfig';
 
