@@ -25,6 +25,7 @@ import { MapMushroomLayer } from './map/MapMushroomLayer';
 import { SelectedPlaceMapLayer } from './map/SelectedPlaceMapLayer';
 import { MushroomDockButton } from './mushrooms/MushroomDockButton';
 import { HuntingBattuesDockButton } from './hunting/HuntingBattuesDockButton';
+import { CycleNetworkDockButton } from './cycleways/CycleNetworkDockButton';
 import type { SavedFavorite } from '../hooks/useFavorites';
 import type { PlaceEntry } from '../lib/routing/gazetteer';
 import type { MushroomSpot } from '../types/mushroom';
@@ -290,13 +291,15 @@ export function MapDisplay({
           />
         )}
 
-        {/* Coins à champignons repérés sur la carte */}
-        <MapMushroomLayer
-          spots={mushroomSpots || []}
-          onDeleteSpot={onDeleteMushroomSpot || (() => {})}
-          isSpottingMode={isSpottingMode}
-          onMapClickSpotCoord={onMapClickSpotCoord || (() => {})}
-        />
+        {/* Coins à champignons repérés sur la carte (réservé exclusivement à la randonnée pédestre) */}
+        {activity === 'hike' && (
+          <MapMushroomLayer
+            spots={mushroomSpots || []}
+            onDeleteSpot={onDeleteMushroomSpot || (() => {})}
+            isSpottingMode={isSpottingMode}
+            onMapClickSpotCoord={onMapClickSpotCoord || (() => {})}
+          />
+        )}
 
         {/* Point remarquable / POI ou Ville sélectionnée */}
         <SelectedPlaceMapLayer
@@ -332,12 +335,22 @@ export function MapDisplay({
             onToggleCycleways={onToggleCyclewaysVisibility}
           />
 
-          {/* 🍄 Bouton Spotter un coin à champignons (modulaire, saisonnier Luxembourg) */}
-          <MushroomDockButton
-            isSpottingMode={isSpottingMode}
-            onToggleSpottingMode={onToggleSpottingMode}
-            mushroomSpots={mushroomSpots}
-          />
+          {/* 🚴 Bouton Réseau Pistes Cyclables & Véloroutes (1-clic direct sur la carte en mode vélo) */}
+          {activity === 'bike' && setShowNetwork && (
+            <CycleNetworkDockButton
+              showNetwork={Boolean(showNetwork)}
+              onToggle={() => setShowNetwork(!showNetwork)}
+            />
+          )}
+
+          {/* 🍄 Bouton Spotter un coin à champignons (réservé exclusivement à la randonnée pédestre) */}
+          {activity === 'hike' && (
+            <MushroomDockButton
+              isSpottingMode={isSpottingMode}
+              onToggleSpottingMode={onToggleSpottingMode}
+              mushroomSpots={mushroomSpots}
+            />
+          )}
           {/* 🎯 Bouton Battues de chasse (modulaire, conditionné à la saison de chasse au Luxembourg) */}
           {setShowHuntingBattues && (
             <HuntingBattuesDockButton
@@ -402,8 +415,8 @@ export function MapDisplay({
         </MapRightControlsDock>
       </MapContainer>
 
-      {/* Mushroom Spotting Active Banner - Ancré en bas sans aucun élément concurrent */}
-      {isSpottingMode && (
+      {/* Mushroom Spotting Active Banner (strictement réservé à la randonnée pédestre) */}
+      {activity === 'hike' && isSpottingMode && (
         <div
           className="fixed md:absolute left-1/2 -translate-x-1/2 z-[1000] bg-stone-900/95 dark:bg-black/95 text-white px-4 py-3 rounded-2xl shadow-2xl border-2 border-orange-500 flex items-center gap-3 backdrop-blur-md animate-in fade-in slide-in-from-bottom-4 duration-200 max-w-[92vw] pointer-events-auto"
           style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 1.25rem)' }}

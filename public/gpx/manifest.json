@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-29T10:35:57.909Z",
-  "totalTracks": 885,
-  "bikeTracks": 246,
+  "generatedAt": "2026-10-29T11:45:54.497Z",
+  "totalTracks": 896,
+  "bikeTracks": 257,
   "hikeTracks": 639,
   "tracks": [
     {
@@ -333,6 +333,54 @@
       "distanceKm": 34
     },
     {
+      "id": "be-ev4-kustfietsroute",
+      "name": "EuroVelo 4 - Kustroute (Belgique)",
+      "file": "bike/be-ev4-kustfietsroute.gpx",
+      "activity": "bike",
+      "country": "BE",
+      "distanceKm": 169
+    },
+    {
+      "id": "be-fietssnelweg-f102-turnhout-herentals",
+      "name": "Fietssnelweg F102 (Turnhout - Herentals)",
+      "file": "bike/be-fietssnelweg-f102-turnhout-herentals.gpx",
+      "activity": "bike",
+      "country": "BE",
+      "distanceKm": 24.4
+    },
+    {
+      "id": "be-fietssnelweg-f310-brugge-sluis",
+      "name": "Fietssnelweg F310 (Brugge - Damme - Sluis)",
+      "file": "bike/be-fietssnelweg-f310-brugge-sluis.gpx",
+      "activity": "bike",
+      "country": "BE",
+      "distanceKm": 15.6
+    },
+    {
+      "id": "be-fietssnelweg-f311-knokke-eeklo",
+      "name": "Fietssnelweg F311 (Knokke-Heist - Eeklo)",
+      "file": "bike/be-fietssnelweg-f311-knokke-eeklo.gpx",
+      "activity": "bike",
+      "country": "BE",
+      "distanceKm": 50.6
+    },
+    {
+      "id": "be-fietssnelweg-f34-kust-knokke",
+      "name": "Fietssnelweg F34 (Knokke-Heist - Zeebrugge - Kust)",
+      "file": "bike/be-fietssnelweg-f34-kust-knokke.gpx",
+      "activity": "bike",
+      "country": "BE",
+      "distanceKm": 88.1
+    },
+    {
+      "id": "be-fietssnelweg-f6-brugge-gent",
+      "name": "Fietssnelweg F6 (Gent - Brugge)",
+      "file": "bike/be-fietssnelweg-f6-brugge-gent.gpx",
+      "activity": "bike",
+      "country": "BE",
+      "distanceKm": 28.8
+    },
+    {
       "id": "be-ravel-l150",
       "name": "RAVeL L150 (Houyet - Rochefort - Ciney)",
       "file": "bike/be-ravel-l150.gpx",
@@ -613,6 +661,14 @@
       "distanceKm": 49
     },
     {
+      "id": "de-hunsrueck-radweg",
+      "name": "Hunsrück-Radweg (H) : Saarburg - Irsch - Kell am See - Hermeskeil",
+      "file": "bike/de-hunsrueck-radweg.gpx",
+      "activity": "bike",
+      "country": "DE",
+      "distanceKm": 157.1
+    },
+    {
       "id": "de-kylltalradweg",
       "name": "Kylltalradweg (Gerolstein - Kyllburg - Bitburg - Trier)",
       "file": "bike/de-kylltalradweg.gpx",
@@ -643,6 +699,14 @@
       "activity": "bike",
       "country": "DE",
       "distanceKm": 51.4
+    },
+    {
+      "id": "de-rlp-radroute-trier-saarburg",
+      "name": "Rheinland-Pfalz Radroute (RLP) : Konz - Saarburg - Irsch - Kell am See",
+      "file": "bike/de-rlp-radroute-trier-saarburg.gpx",
+      "activity": "bike",
+      "country": "DE",
+      "distanceKm": 98.9
     },
     {
       "id": "de-ruwer-hochwald-radweg",
@@ -1971,6 +2035,30 @@
       "activity": "bike",
       "country": "NL",
       "distanceKm": 52.7
+    },
+    {
+      "id": "nl-euroroute-r1-zeeland",
+      "name": "Euroroute R1 - Zeeland (Kustroute)",
+      "file": "bike/nl-euroroute-r1-zeeland.gpx",
+      "activity": "bike",
+      "country": "NL",
+      "distanceKm": 143.8
+    },
+    {
+      "id": "nl-ev12-lf-kustroute-zeeland",
+      "name": "EV12 / LF Kustroute (Zeeland - Delta)",
+      "file": "bike/nl-ev12-lf-kustroute-zeeland.gpx",
+      "activity": "bike",
+      "country": "NL",
+      "distanceKm": 143.9
+    },
+    {
+      "id": "nl-lf13-schelde-rheinroute",
+      "name": "LF13 Schelde-Rheinroute (Zeeland - Brabant)",
+      "file": "bike/nl-lf13-schelde-rheinroute.gpx",
+      "activity": "bike",
+      "country": "NL",
+      "distanceKm": 77.2
     },
     {
       "id": "be-hike-arlon-sesselich-loop",

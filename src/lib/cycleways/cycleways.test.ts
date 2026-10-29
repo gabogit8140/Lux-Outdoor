@@ -7,6 +7,7 @@ import {
   projectPointToTraceKm,
   resolveCyclewayWebReference,
   findCatalogCyclewayAtPoint,
+  fetchSelectableCyclewayAtPoint,
 } from './index';
 import { isGenericHomepageUrl } from '../routeSourceResolver';
 import { CATALOG_ROUTES } from '../routeCatalog';
@@ -263,5 +264,108 @@ describe('Cycleways Module — Distinction Traces vs Pistes Cyclables, Catégori
     });
     expect(onlyCycleways.routes.length).toBeGreaterThan(0);
     expect(onlyCycleways.routes.every((r) => isCyclewayRoute(r))).toBe(true);
+  });
+
+  it('integre la Rheinland-Pfalz Radroute (RLP) et le Hunsruck-Radweg (H) comme PC cliquables', () => {
+    // 1. RLP
+    const rlp = CATALOG_ROUTES.find((c) => c.route.id === 'de-rlp-radroute-trier-saarburg');
+    expect(rlp).toBeDefined();
+    expect(isCyclewayRoute(rlp!.route)).toBe(true);
+    expect(rlp!.route.cyclewayCategory).toBe('veloroute_regionale');
+    expect(rlp!.route.cyclewayRef).toBe('RLP');
+
+    const rlpWeb = resolveCyclewayWebReference({
+      id: rlp!.route.id,
+      title: rlp!.route.title,
+      cyclewayRef: rlp!.route.cyclewayRef,
+      cyclewayCategory: rlp!.route.cyclewayCategory,
+      country: 'DE',
+    });
+    expect(rlpWeb.sourceUrl).toContain('radwanderland.de');
+
+    // 2. Hunsrück-Radweg (H)
+    const h = CATALOG_ROUTES.find((c) => c.route.id === 'de-hunsrueck-radweg');
+    expect(h).toBeDefined();
+    expect(isCyclewayRoute(h!.route)).toBe(true);
+    expect(h!.route.cyclewayCategory).toBe('veloroute_regionale');
+    expect(h!.route.cyclewayRef).toBe('H');
+
+    // 3. Détection immédiate au clic carte à Irsch
+    const hit = findCatalogCyclewayAtPoint(49.605, 6.595, 200);
+    expect(hit).not.toBeNull();
+    expect(isCyclewayRoute(hit!.route)).toBe(true);
+  });
+
+  it('integre les pistes cyclables de Zelande et de Flandre (EV12, LF13, R1, F6, F102) comme PC cliquables', () => {
+    // 1. EV12 / LF Kustroute (Zélande)
+    const ev12 = CATALOG_ROUTES.find((c) => c.route.id === 'nl-ev12-lf-kustroute-zeeland');
+    expect(ev12).toBeDefined();
+    expect(isCyclewayRoute(ev12!.route)).toBe(true);
+    expect(ev12!.route.cyclewayCategory).toBe('veloroute_internationale');
+    expect(ev12!.route.cyclewayRef).toBe('EV12');
+    expect(ev12!.route.sourceUrl).toContain('nederlandfietsland.nl');
+
+    // 2. LF13 Schelde-Rheinroute
+    const lf13 = CATALOG_ROUTES.find((c) => c.route.id === 'nl-lf13-schelde-rheinroute');
+    expect(lf13).toBeDefined();
+    expect(isCyclewayRoute(lf13!.route)).toBe(true);
+    expect(lf13!.route.cyclewayCategory).toBe('piste_nationale');
+    expect(lf13!.route.cyclewayRef).toBe('LF13');
+    expect(lf13!.route.sourceUrl).toContain('nederlandfietsland.nl');
+
+    // 3. Fietssnelweg F6 (Gent - Brugge)
+    const f6 = CATALOG_ROUTES.find((c) => c.route.id === 'be-fietssnelweg-f6-brugge-gent');
+    expect(f6).toBeDefined();
+    expect(isCyclewayRoute(f6!.route)).toBe(true);
+    expect(f6!.route.cyclewayCategory).toBe('veloroute_regionale');
+    expect(f6!.route.cyclewayRef).toBe('F6');
+    expect(f6!.route.sourceUrl).toContain('fietssnelwegen.be');
+
+    // 4. Fietssnelweg F102 (Turnhout - Herentals)
+    const f102 = CATALOG_ROUTES.find((c) => c.route.id === 'be-fietssnelweg-f102-turnhout-herentals');
+    expect(f102).toBeDefined();
+    expect(isCyclewayRoute(f102!.route)).toBe(true);
+    expect(f102!.route.cyclewayCategory).toBe('veloroute_regionale');
+    expect(f102!.route.cyclewayRef).toBe('F102');
+    expect(f102!.route.sourceUrl).toContain('fietssnelwegen.be');
+
+    // 5. Clic carte précis sur l'EV12 en Zélande (près de Vlissingen / Domburg)
+    const ev12Coords = ev12!.trace.coordinates as [number, number][];
+    const testPt = ev12Coords[Math.floor(ev12Coords.length / 2)];
+    const hitEv12 = findCatalogCyclewayAtPoint(testPt[1], testPt[0], 200);
+    expect(hitEv12).not.toBeNull();
+    expect(isCyclewayRoute(hitEv12!.route)).toBe(true);
+
+    // 6. Fietssnelwegen et EuroVelo 4 du littoral (Knokke, Damme, Sluis, Zeebrugge : F310, F311, F34, EV4)
+    const f310 = CATALOG_ROUTES.find((c) => c.route.id === 'be-fietssnelweg-f310-brugge-sluis');
+    expect(f310).toBeDefined();
+    expect(f310!.route.cyclewayRef).toBe('F310');
+
+    const f311 = CATALOG_ROUTES.find((c) => c.route.id === 'be-fietssnelweg-f311-knokke-eeklo');
+    expect(f311).toBeDefined();
+    expect(f311!.route.cyclewayRef).toBe('F311');
+
+    const f34 = CATALOG_ROUTES.find((c) => c.route.id === 'be-fietssnelweg-f34-kust-knokke');
+    expect(f34).toBeDefined();
+    expect(f34!.route.cyclewayRef).toBe('F34');
+
+    const ev4 = CATALOG_ROUTES.find((c) => c.route.id === 'be-ev4-kustfietsroute');
+    expect(ev4).toBeDefined();
+    expect(ev4!.route.cyclewayRef).toBe('EV4');
+  });
+
+  it('detecte et extrait une piste cyclable au clic carte via fetchSelectableCyclewayAtPoint avec fallback securise', async () => {
+    // 1. Clic sur une piste existante du catalogue (V50 le long de la Moselle)
+    const v50 = CATALOG_ROUTES.find((c) => c.route.id === 'fr-voie-bleue-v50-nord')!;
+    const v50Coords = v50.trace.coordinates as [number, number][];
+    const midPt = v50Coords[Math.floor(v50Coords.length / 2)];
+    const hitCatalog = await fetchSelectableCyclewayAtPoint(midPt[1], midPt[0]);
+    expect(hitCatalog).not.toBeNull();
+    expect(hitCatalog!.route.routeKind).toBe('cycleway');
+    expect(hitCatalog!.trace.coordinates.length).toBeGreaterThan(10);
+
+    // 2. Clic en pleine forêt isolée sans piste cyclable ni réseau : doit retourner null proprement
+    const hitEmpty = await fetchSelectableCyclewayAtPoint(49.8001, 5.0001);
+    expect(hitEmpty).toBeNull();
   });
 });

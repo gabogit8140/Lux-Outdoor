@@ -667,8 +667,8 @@ export function MapFilterBar({
               </button>
             )}
 
-            {/* Quick Mushroom Spots Filter Chip */}
-            {mushroomSpotsCount > 0 && (
+            {/* Quick Mushroom Spots Filter Chip (strictement réservé à la randonnée pédestre) */}
+            {activity === 'hike' && mushroomSpotsCount > 0 && (
               <button
                 type="button"
                 onClick={() => onToggleFilter('mushrooms')}

@@ -140,6 +140,34 @@ export function extractCyclewayRef(text: string, osmRef?: string): string | unde
     return 'VENN';
   }
 
+  if (/\brlp\b/i.test(text) || /\brheinland[-\s]*pfalz[-\s]*radroute\b/i.test(text)) {
+    return 'RLP';
+  }
+
+  if (/\bhunsr[üu]ck/i.test(text)) {
+    return 'H';
+  }
+
+  // LF-routes néerlandaises (LF13, LF1, LF-K, LF Kustroute...)
+  const lfMatch = text.match(/\b(LF\s*\d{1,2}[a-z]?|LF-K)\b/i);
+  if (lfMatch) {
+    return lfMatch[1].replace(/\s+/g, '').toUpperCase();
+  }
+  if (/\bkustroute\b/i.test(text)) {
+    return 'LF-K';
+  }
+
+  // Fietssnelwegen belges / flamandes (F102, F6, F40, F1...)
+  const fietssnelwegMatch = text.match(/\b(F\d{1,3})\b/i);
+  if (fietssnelwegMatch) {
+    return fietssnelwegMatch[1].toUpperCase();
+  }
+
+  // Euroroute R1
+  if (/\b(?:euroroute\s*)?R1\b/i.test(text)) {
+    return 'R1';
+  }
+
   return undefined;
 }
 
@@ -219,12 +247,14 @@ export function classifyBikeRoute(
     };
   }
 
-  // 2. Axes Internationaux / EuroVelo / Voie Bleue V50 / Vennbahn (hors boucles annexes)
+  // 2. Axes Internationaux / EuroVelo / Voie Bleue V50 / Vennbahn / Euroroute R1 (hors boucles annexes)
   if (
     !isExplicitCircuitLoop &&
     (id.startsWith('fr-voie-bleue-') ||
       id === 'be-ravel-vennbahn' ||
-      /\b(eurovelo|voie bleue|v50|vennbahn|meuse à vélo)\b/i.test(title))
+      id.includes('ev12') ||
+      id.includes('euroroute-r1') ||
+      /\b(eurovelo|voie bleue|v50|vennbahn|meuse à vélo|euroroute|kustroute)\b/i.test(title))
   ) {
     return {
       routeKind: 'cycleway',
@@ -248,19 +278,34 @@ export function classifyBikeRoute(
     };
   }
 
-  // 4. Véloroutes Régionales & Radwege linéaires (Mosel-Radweg, Saar-Radweg, Maare-Mosel-Radweg, Prümtal-Radweg...)
+  // 4. Réseaux Nationaux & Régionaux (LF-routes néerlandaises, Fietssnelwegen belges, Radwege, RLP)
   if (
     !isExplicitCircuitLoop &&
-    (/\b(radweg|véloroute|veloroute|felsenroute)\b/i.test(title) ||
-      id.includes('-radweg'))
+    (id.includes('fietssnelweg') ||
+      id.includes('lf13') ||
+      id.includes('-radweg') ||
+      id.includes('-radroute') ||
+      id.includes('rlp') ||
+      /\b(fietssnelweg|schelde-rheinroute|radweg|véloroute|veloroute|felsenroute|radroute|rlp|hunsr[üu]ck)\b/i.test(
+        title
+      ))
   ) {
+    // Les LF-routes (Landelijke Fietsroutes) sont le réseau national néerlandais
+    if (id.includes('lf') || /\b(lf\s*\d+|schelde-rheinroute)\b/i.test(combined)) {
+      return {
+        routeKind: 'cycleway',
+        cyclewayCategory: 'piste_nationale',
+        cyclewayRef: extractCyclewayRef(combined) || 'LF',
+      };
+    }
+
     const isInternationalAxis = /\b(mosel-radweg|saar-radweg)\b/i.test(title);
     return {
       routeKind: 'cycleway',
       cyclewayCategory: isInternationalAxis
         ? 'veloroute_internationale'
         : 'veloroute_regionale',
-      cyclewayRef: extractCyclewayRef(combined),
+      cyclewayRef: extractCyclewayRef(combined) || (id.includes('rlp') ? 'RLP' : undefined),
     };
   }
 

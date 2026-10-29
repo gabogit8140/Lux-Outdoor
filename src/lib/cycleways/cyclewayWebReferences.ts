@@ -279,10 +279,18 @@ export function resolveCyclewayWebReference(params: {
     };
   }
 
-  // 4. EuroVelo (EV5, EV19 Meuse à Vélo, EV15 Rhin, EV3...)
+  // 4. EuroVelo (EV5, EV12 North Sea, EV19 Meuse à Vélo, EV15 Rhin, EV3...)
   const evMatch = refUpper.match(/^EV(\d{1,2})$/) || combined.match(/\b(?:EuroVelo\s*|EV\s*)(\d{1,2})\b/i);
   if (evMatch || /\bmeuse à vélo\b/i.test(combined)) {
     const evNum = evMatch ? evMatch[1] : '19';
+    if (evNum === '12' || /\b(north sea|kustroute)\b/i.test(combined)) {
+      return {
+        sourceUrl: 'https://www.nederlandfietsland.nl/fietsroute/lf-kustroute/',
+        sourceLabel: 'Nederland Fietsland & EuroVelo 12 — North Sea Cycle Route / LF Kustroute',
+        geoportailUrl,
+        portalBadge: 'EuroVelo 12',
+      };
+    }
     if (evNum === '19' || /\bmeuse à vélo\b/i.test(combined)) {
       return {
         sourceUrl:
@@ -306,6 +314,48 @@ export function resolveCyclewayWebReference(params: {
       sourceLabel: `Portail Officiel EuroVelo ${evNum} — ${title}`,
       geoportailUrl,
       portalBadge: `EuroVelo ${evNum}`,
+    };
+  }
+
+  // 4b. Euroroute R1 (Boulogne-sur-Mer - Saint-Pétersbourg / Pays-Bas / Zeeland)
+  if (refUpper === 'R1' || /\b(?:euroroute\s*)?r1\b/i.test(combined)) {
+    return {
+      sourceUrl: 'https://euroroute-r1.de/die-laender/niederlande/',
+      sourceLabel: `Euroroute R1 Officiel (Section Pays-Bas & Zélande) — ${title}`,
+      geoportailUrl,
+      portalBadge: 'Euroroute R1',
+    };
+  }
+
+  // 4c. Landelijke Fietsroutes (LF-routes néerlandaises : LF13, LF Kustroute...)
+  if (refUpper.startsWith('LF') || /\b(lf\s*\d+|schelde-rheinroute|kustroute)\b/i.test(combined)) {
+    let lfUrl = 'https://www.nederlandfietsland.nl/fietsroutes/';
+    let lfLabel = `Nederland Fietsland (LF-routes) — ${title}`;
+    if (/lf13|schelde-rhein/i.test(combined)) {
+      lfUrl = 'https://www.nederlandfietsland.nl/fietsroute/lf13-schelde-rheinroute/';
+      lfLabel = 'Nederland Fietsland — LF13 Schelde-Rheinroute Officiel';
+    } else if (/kustroute|lf-k/i.test(combined)) {
+      lfUrl = 'https://www.nederlandfietsland.nl/fietsroute/lf-kustroute/';
+      lfLabel = 'Nederland Fietsland — LF Kustroute Officiel';
+    }
+    return {
+      sourceUrl: lfUrl,
+      sourceLabel: lfLabel,
+      geoportailUrl,
+      portalBadge: refUpper || 'LF Route',
+    };
+  }
+
+  // 4d. Fietssnelwegen de Flandre (Belgique : F6 Gent-Brugge, F102 Kempen, F-routes)
+  const fietssnelwegMatch =
+    refUpper.match(/^F(\d{1,3})$/) || combined.match(/\bfietssnelweg\s*(?:f\s*)?(\d{1,3})\b/i);
+  if (fietssnelwegMatch) {
+    const fNum = fietssnelwegMatch[1];
+    return {
+      sourceUrl: `https://fietssnelwegen.be/fietssnelwegen/F${fNum}`,
+      sourceLabel: `Fietssnelwegen Vlaanderen Officiel — F${fNum} (${title})`,
+      geoportailUrl,
+      portalBadge: `Fietssnelweg F${fNum}`,
     };
   }
 
@@ -345,8 +395,24 @@ export function resolveCyclewayWebReference(params: {
     };
   }
 
-  // 6. Véloroutes & Radwege d'Allemagne (Moselle, Sarre, Eifel)
-  if (country === 'DE' || /\bradweg\b/i.test(combined)) {
+  // 6. Véloroutes & Radwege d'Allemagne (Moselle, Sarre, Eifel, Rhénanie-Palatinat RLP)
+  if (country === 'DE' || /\bradweg\b|\bradroute\b|\brlp\b/i.test(combined)) {
+    if (/rheinland[-\s]*pfalz|rlp/i.test(combined)) {
+      return {
+        sourceUrl: 'https://www.radwanderland.de/radrouten/Rheinland-Pfalz%20Radroute',
+        sourceLabel: 'Portail Officiel Radwanderland — Rheinland-Pfalz Radroute (RLP)',
+        geoportailUrl,
+        portalBadge: 'RLP Radroute',
+      };
+    }
+    if (/hunsr[üu]ck/i.test(combined)) {
+      return {
+        sourceUrl: 'https://www.hunsruecktouristik.de/reisethemen/radfahren/radwege-im-hunsrueck/radrouten-hunsrueck/hunsrueck-radweg',
+        sourceLabel: 'Hunsrück Touristik — Hunsrück-Radweg Officiel (H)',
+        geoportailUrl,
+        portalBadge: 'Hunsrück-Radweg',
+      };
+    }
     if (/maare[-\s]*mosel/i.test(combined)) {
       return {
         sourceUrl: 'https://www.maare-moselradweg.de/strecke/',

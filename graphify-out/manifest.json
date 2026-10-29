@@ -102,9 +102,9 @@
     "semantic_hash": ""
   },
   "scripts/index-gpx.ts": {
-    "mtime": 1792946035.4780352,
-    "seen": 1793207818.7977548,
-    "ast_hash": "fd6cb8aced3ae85f84542f8e44545cc8",
+    "mtime": 1793271958.099535,
+    "seen": 1793272125.387847,
+    "ast_hash": "789c73e24002b7a40d3de83a9cf7fc38",
     "semantic_hash": ""
   },
   "scripts/inspect_lines.mjs": {
@@ -276,9 +276,9 @@
     "semantic_hash": ""
   },
   "src/App.tsx": {
-    "mtime": 1793267207.6883337,
-    "seen": 1793267359.5023248,
-    "ast_hash": "403335646801054e9a5faddb38c3a485",
+    "mtime": 1793273049.0474625,
+    "seen": 1793273116.0553076,
+    "ast_hash": "f0a452e2c78546052bd67b832fd21ea0",
     "semantic_hash": ""
   },
   "src/components/Favorites.tsx": {
@@ -294,15 +294,15 @@
     "semantic_hash": ""
   },
   "src/components/Map.tsx": {
-    "mtime": 1793270125.3802156,
-    "seen": 1793270196.8017502,
-    "ast_hash": "fce4edc75e65f6d9d7b3fa2f8435ea50",
+    "mtime": 1793273031.1585014,
+    "seen": 1793273116.055316,
+    "ast_hash": "d0cb40a499f9a89009f41a92bdf15a7c",
     "semantic_hash": ""
   },
   "src/components/MapFilterBar.tsx": {
-    "mtime": 1793267031.5326576,
-    "seen": 1793267359.5023422,
-    "ast_hash": "7a7a7d7fa3a477c4cb164b51f5e94cc5",
+    "mtime": 1793270351.4433687,
+    "seen": 1793270439.4086258,
+    "ast_hash": "2b2277efae175e88b92d0bba0c982ad8",
     "semantic_hash": ""
   },
   "src/components/PWAInstallModal.tsx": {
@@ -954,9 +954,9 @@
     "semantic_hash": ""
   },
   "src/lib/cycleways/cyclewayClassifier.ts": {
-    "mtime": 1793264911.0236175,
-    "seen": 1793266110.7803712,
-    "ast_hash": "cca3fd05a7fdbfcf55e3e3c2d497cc25",
+    "mtime": 1793271890.342217,
+    "seen": 1793272125.3880715,
+    "ast_hash": "c6f14ce69498d7b5b4acf104aa2c7c40",
     "semantic_hash": ""
   },
   "src/lib/cycleways/cyclewayGeometry.ts": {
@@ -966,15 +966,15 @@
     "semantic_hash": ""
   },
   "src/lib/cycleways/cyclewayWebReferences.ts": {
-    "mtime": 1793264883.3915882,
-    "seen": 1793266110.7803802,
-    "ast_hash": "f476a926b579f8bcb2af3a1640a722a5",
+    "mtime": 1793272071.078349,
+    "seen": 1793272125.388077,
+    "ast_hash": "1a20a0844d995e62443edfd2662ba67d",
     "semantic_hash": ""
   },
   "src/lib/cycleways/cycleways.test.ts": {
-    "mtime": 1793267310.6088386,
-    "seen": 1793267359.5026186,
-    "ast_hash": "c73db35158a2f0eeeff36981ad86c702",
+    "mtime": 1793274336.7469003,
+    "seen": 1793274398.2807426,
+    "ast_hash": "c5b48421661e232e18480bbccc001a2c",
     "semantic_hash": ""
   },
   "src/lib/cycleways/index.ts": {
@@ -984,9 +984,15 @@
     "semantic_hash": ""
   },
   "src/lib/cycleways/osmCyclewayExtractor.ts": {
-    "mtime": 1793266013.54029,
-    "seen": 1793266110.7803917,
-    "ast_hash": "2ae3fdf3dcf57b246fe6504b6ec165b0",
+    "mtime": 1793274322.2713008,
+    "seen": 1793274398.280751,
+    "ast_hash": "9d9b7aea5c05f5688b74ec4ce5c13612",
+    "semantic_hash": ""
+  },
+  "src/components/cycleways/CycleNetworkDockButton.tsx": {
+    "mtime": 1793273007.5710132,
+    "seen": 1793273116.055332,
+    "ast_hash": "f5ab3468713e515c0513f15cd465d87d",
     "semantic_hash": ""
   },
   "package-lock.json": {

@@ -363,14 +363,28 @@ export default function App() {
     setPreviewRouteId(null);
     setIsProfileOpen(false);
 
+    // En mode vélo ou VTT : désactiver le repérage et le filtre de coins à champignons
+    let nextFilters = activeFilters;
+    if (newActivity === 'bike') {
+      if (isSpottingMode) {
+        setIsSpottingMode(false);
+      }
+      if (activeFilters.includes('mushrooms')) {
+        nextFilters = activeFilters.filter((f) => f !== 'mushrooms');
+        setActiveFilters(nextFilters);
+      }
+    }
+
     // Switch base map layer away from CyclOSM when entering hiking mode so cycle paths are not displayed
     if (newActivity === 'hike' && mapLayer === 'cyclosm') {
       setMapLayer('osmfr');
-    } else if (newActivity === 'bike' && mapLayer === 'osmfr') {
-      setMapLayer('cyclosm');
+    } else if (newActivity === 'bike') {
+      if (mapLayer === 'osmfr') setMapLayer('cyclosm');
+      // Afficher immédiatement tout le réseau officiel des pistes cyclables & véloroutes (EV, PC, Fietssnelwegen)
+      setShowNetwork(true);
     }
 
-    filterMap(currentLocation, newDist, activeFilters, newActivity, selectedZone, targetBikeType);
+    filterMap(currentLocation, newDist, nextFilters, newActivity, selectedZone, targetBikeType);
     showToast(
       newActivity === 'bike'
         ? targetBikeType === 'vtt'

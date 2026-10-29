@@ -95,6 +95,8 @@ function detectRegion(country: string, coords: [number, number][], metaRegion?: 
     return 'Centre / Guttland';
   }
   if (country === 'BE') {
+    if (cLat > 50.8 && cLon < 4.5) return 'Flandre, Gand & Bruges (BE)';
+    if (cLat > 51.0 && cLon >= 4.5) return 'Anvers & Campine anversoise (BE)';
     if (cLat > 50.32) return 'Hautes Fagnes & Cantons de l\'Est (BE)';
     if (cLat < 49.82) return 'Gaume, Pays d\'Arlon & Vallée de la Semois (BE)';
     return 'Ardenne belge, Bastogne & Vallée de l\'Ourthe (BE)';
@@ -110,6 +112,8 @@ function detectRegion(country: string, coords: [number, number][], metaRegion?: 
     return 'Vallée de la Moselle & Trèves (DE)';
   }
   if (country === 'NL') {
+    if (cLon < 5.0 && cLat > 51.2) return 'Zélande, Delta & Hollande-Méridionale (NL)';
+    if (cLat > 51.4) return 'Brabant-Septentrional & Delta (NL)';
     return 'Zuid-Limburg, Maastricht & Heuvelland (NL)';
   }
   return 'Grande Région';

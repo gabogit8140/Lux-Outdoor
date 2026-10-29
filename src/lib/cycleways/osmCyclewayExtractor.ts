@@ -55,6 +55,122 @@ export interface ExtractedCyclewayResult {
 
 const extractionCache = new Map<string, ExtractedCyclewayResult>();
 
+/**
+ * Interroge directement l'API OpenStreetMap (Bbox ~120m) pour une réponse en ~200ms
+ * sans dépendre des limites de charge des serveurs Overpass.
+ */
+async function queryOsmMapBbox(lat: number, lng: number, timeoutMs = 4000): Promise<OverpassResponse | null> {
+  const dLat = 0.0009; // ~100m
+  const dLng = 0.0014;
+  const minLat = (lat - dLat).toFixed(5);
+  const minLng = (lng - dLng).toFixed(5);
+  const maxLat = (lat + dLat).toFixed(5);
+  const maxLng = (lng + dLng).toFixed(5);
+  const url = `https://api.openstreetmap.org/api/0.6/map.json?bbox=${minLng},${minLat},${maxLng},${maxLat}`;
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'LuxOutdoor/1.0 (contact@luxoutdoor.local)' },
+      signal: controller.signal,
+    });
+    if (!res.ok) return null;
+    const json = (await res.json()) as OverpassResponse;
+    if (json && Array.isArray(json.elements)) {
+      return json;
+    }
+  } catch {
+    // ignore
+  } finally {
+    clearTimeout(timer);
+  }
+  return null;
+}
+
+/**
+ * Récupère l'intégralité des ways et nodes d'une relation cyclable via l'API officielle OSM.
+ */
+async function fetchOsmRelationFull(relationId: number, timeoutMs = 5000): Promise<Coord3D[][]> {
+  const url = `https://api.openstreetmap.org/api/0.6/relation/${relationId}/full.json`;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'LuxOutdoor/1.0 (contact@luxoutdoor.local)' },
+      signal: controller.signal,
+    });
+    if (!res.ok) return [];
+    const json = await res.json();
+    if (!json?.elements) return [];
+
+    const nodes = new Map<number, { lat: number; lon: number }>();
+    for (const el of json.elements) {
+      if (el.type === 'node') {
+        nodes.set(el.id, { lat: el.lat, lon: el.lon });
+      }
+    }
+
+    const ways: Coord3D[][] = [];
+    for (const el of json.elements) {
+      if (el.type === 'way' && Array.isArray(el.nodes)) {
+        const pts: Coord3D[] = [];
+        for (const nid of el.nodes) {
+          const pt = nodes.get(nid);
+          if (pt) pts.push([pt.lon, pt.lat]);
+        }
+        if (pts.length >= 2) {
+          ways.push(pts);
+        }
+      }
+    }
+    return ways;
+  } catch {
+    return [];
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Récupère les points géométriques complets d'un way cyclable via l'API officielle OSM.
+ */
+async function fetchOsmWayFull(wayId: number, timeoutMs = 3500): Promise<Coord3D[]> {
+  const url = `https://api.openstreetmap.org/api/0.6/way/${wayId}/full.json`;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'LuxOutdoor/1.0 (contact@luxoutdoor.local)' },
+      signal: controller.signal,
+    });
+    if (!res.ok) return [];
+    const json = await res.json();
+    if (!json?.elements) return [];
+
+    const nodes = new Map<number, { lat: number; lon: number }>();
+    for (const el of json.elements) {
+      if (el.type === 'node') {
+        nodes.set(el.id, { lat: el.lat, lon: el.lon });
+      }
+    }
+
+    const wayEl = json.elements.find((el: any) => el.type === 'way' && el.id === wayId);
+    if (!wayEl || !Array.isArray(wayEl.nodes)) return [];
+
+    const pts: Coord3D[] = [];
+    for (const nid of wayEl.nodes) {
+      const pt = nodes.get(nid);
+      if (pt) pts.push([pt.lon, pt.lat]);
+    }
+    return pts;
+  } catch {
+    return [];
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function queryOverpass(query: string, timeoutMs: number = 5500): Promise<OverpassResponse | null> {
   for (const endpoint of OVERPASS_ENDPOINTS) {
     const controller = new AbortController();
@@ -178,8 +294,72 @@ export async function fetchSelectableCyclewayAtPoint(
   const cached = extractionCache.get(cacheKey);
   if (cached) return cached;
 
-  // 1. Interroger Overpass API autour du clic (rayon 80m) pour capter toute piste cyclable visible sur CyclOSM
-  const discoveryQuery = `[out:json][timeout:6];
+  // 0. Vérification prioritaire instantanée (0 ms hors-ligne) sur le catalogue local
+  const catalogHit = findCatalogCyclewayAtPoint(lat, lng, 75);
+  if (catalogHit) {
+    extractionCache.set(cacheKey, catalogHit);
+    return catalogHit;
+  }
+
+  let rawSegments: Coord3D[][] = [];
+  let chosenTags: Record<string, string> = {};
+  let isRelation = false;
+  let osmId = 0;
+  let maxGapMeters = 800;
+
+  // 1. ÉTAPE ULTRA-RAPIDE : Interrogation directe de l'API OpenStreetMap (Bbox ~100m, réponse en ~200ms)
+  try {
+    const osmBbox = await queryOsmMapBbox(lat, lng, 3500);
+    if (osmBbox?.elements && osmBbox.elements.length > 0) {
+      const bikeRels = osmBbox.elements.filter(
+        (e) =>
+          e.type === 'relation' &&
+          (e.tags?.route === 'bicycle' ||
+            e.tags?.route === 'mtb' ||
+            (e.tags?.network && /^[inrl]cn$/i.test(e.tags.network)))
+      );
+
+      if (bikeRels.length > 0) {
+        bikeRels.sort((a, b) => scoreRelationPriority(b.tags) - scoreRelationPriority(a.tags));
+        const bestRel = bikeRels[0];
+        const ways = await fetchOsmRelationFull(bestRel.id, 4500);
+        if (ways.length > 0) {
+          rawSegments = ways;
+          chosenTags = bestRel.tags || {};
+          isRelation = true;
+          osmId = bestRel.id;
+          maxGapMeters = 1600;
+        }
+      }
+
+      if (rawSegments.length === 0) {
+        const bikeWays = osmBbox.elements.filter(
+          (e) =>
+            e.type === 'way' &&
+            (e.tags?.highway === 'cycleway' ||
+              e.tags?.bicycle === 'designated' ||
+              Boolean(e.tags?.cycleway))
+        );
+        if (bikeWays.length > 0) {
+          const seed = bikeWays[0];
+          const seedPts = await fetchOsmWayFull(seed.id, 3000);
+          if (seedPts.length >= 2) {
+            rawSegments = [seedPts];
+            chosenTags = seed.tags || {};
+            isRelation = false;
+            osmId = seed.id;
+            maxGapMeters = 200;
+          }
+        }
+      }
+    }
+  } catch {
+    // Passer au fallback Overpass
+  }
+
+  // 2. ÉTAPE SECONDAIRE : Overpass API (fallback si l'API directe OSM n'a pas répondu ou géométrie incomplète)
+  if (rawSegments.length === 0) {
+    const discoveryQuery = `[out:json][timeout:6];
 (
   rel(around:85,${lat},${lng})["type"="route"]["route"="bicycle"];
   way(around:85,${lat},${lng})["highway"="cycleway"];
@@ -191,66 +371,51 @@ export async function fetchSelectableCyclewayAtPoint(
 );
 out tags;`;
 
-  const discovery = await queryOverpass(discoveryQuery, 5500);
+    const discovery = await queryOverpass(discoveryQuery, 5500);
 
-  if (!discovery || !discovery.elements || discovery.elements.length === 0) {
-    // Fallback hors-ligne sur les pistes cyclables du catalogue
-    const fallback = findCatalogCyclewayAtPoint(lat, lng, 120);
-    if (fallback) extractionCache.set(cacheKey, fallback);
-    return fallback;
-  }
+    if (discovery?.elements && discovery.elements.length > 0) {
+      const relations = discovery.elements.filter((el) => el.type === 'relation');
+      const ways = discovery.elements.filter((el) => el.type === 'way');
 
-  const relations = discovery.elements.filter((el) => el.type === 'relation');
-  const ways = discovery.elements.filter((el) => el.type === 'way');
+      if (relations.length > 0) {
+        relations.sort((a, b) => scoreRelationPriority(b.tags) - scoreRelationPriority(a.tags));
+        const bestRel = relations[0];
+        chosenTags = bestRel.tags || {};
+        isRelation = true;
+        osmId = bestRel.id;
+        maxGapMeters = 1600;
 
-  let rawSegments: Coord3D[][] = [];
-  let chosenTags: Record<string, string> = {};
-  let isRelation = false;
-  let osmId = 0;
-  let maxGapMeters = 800;
+        const south = (lat - 0.18).toFixed(4);
+        const north = (lat + 0.18).toFixed(4);
+        const west = (lng - 0.26).toFixed(4);
+        const east = (lng + 0.26).toFixed(4);
 
-  if (relations.length > 0) {
-    // Trier les relations cyclables pour choisir la plus pertinente (PC nationale, RAVeL, EuroVelo/V50...)
-    relations.sort((a, b) => scoreRelationPriority(b.tags) - scoreRelationPriority(a.tags));
-    const bestRel = relations[0];
-    chosenTags = bestRel.tags || {};
-    isRelation = true;
-    osmId = bestRel.id;
-    maxGapMeters = 1600;
-
-    // Extraire les ways de cette relation dans un corridor généreux (~40 km autour du clic)
-    const south = (lat - 0.18).toFixed(4);
-    const north = (lat + 0.18).toFixed(4);
-    const west = (lng - 0.26).toFixed(4);
-    const east = (lng + 0.26).toFixed(4);
-
-    const relGeomQuery = `[out:json][timeout:6];
+        const relGeomQuery = `[out:json][timeout:6];
 rel(${bestRel.id});
 way(r)(${south},${west},${north},${east});
 out geom;`;
 
-    const relGeom = await queryOverpass(relGeomQuery, 6000);
-    if (relGeom?.elements) {
-      rawSegments = relGeom.elements
-        .filter((el) => el.type === 'way' && Array.isArray(el.geometry) && el.geometry.length >= 2)
-        .map((el) => el.geometry!.map((pt) => [pt.lon, pt.lat] as Coord3D));
-    }
-  }
+        const relGeom = await queryOverpass(relGeomQuery, 6000);
+        if (relGeom?.elements) {
+          rawSegments = relGeom.elements
+            .filter((el) => el.type === 'way' && Array.isArray(el.geometry) && el.geometry.length >= 2)
+            .map((el) => el.geometry!.map((pt) => [pt.lon, pt.lat] as Coord3D));
+        }
+      }
 
-  // Si pas de relation (ou géométrie relation vide), assembler la piste cyclable locale continue autour du clic
-  if (rawSegments.length === 0 && ways.length > 0) {
-    const seedWay = ways[0];
-    chosenTags = seedWay.tags || {};
-    isRelation = false;
-    osmId = seedWay.id;
-    maxGapMeters = 140; // Connexion stricte pour une piste cyclable locale sans fusionner toute une ville
+      if (rawSegments.length === 0 && ways.length > 0) {
+        const seedWay = ways[0];
+        chosenTags = seedWay.tags || {};
+        isRelation = false;
+        osmId = seedWay.id;
+        maxGapMeters = 140;
 
-    const south = (lat - 0.055).toFixed(4);
-    const north = (lat + 0.055).toFixed(4);
-    const west = (lng - 0.08).toFixed(4);
-    const east = (lng + 0.08).toFixed(4);
+        const south = (lat - 0.055).toFixed(4);
+        const north = (lat + 0.055).toFixed(4);
+        const west = (lng - 0.08).toFixed(4);
+        const east = (lng + 0.08).toFixed(4);
 
-    const localWaysQuery = `[out:json][timeout:6];
+        const localWaysQuery = `[out:json][timeout:6];
 (
   way(${south},${west},${north},${east})["highway"="cycleway"];
   way(${south},${west},${north},${east})["bicycle"="designated"];
@@ -261,11 +426,13 @@ out geom;`;
 );
 out tags geom;`;
 
-    const localGeom = await queryOverpass(localWaysQuery, 6000);
-    if (localGeom?.elements) {
-      rawSegments = localGeom.elements
-        .filter((el) => el.type === 'way' && Array.isArray(el.geometry) && el.geometry.length >= 2)
-        .map((el) => el.geometry!.map((pt) => [pt.lon, pt.lat] as Coord3D));
+        const localGeom = await queryOverpass(localWaysQuery, 6000);
+        if (localGeom?.elements) {
+          rawSegments = localGeom.elements
+            .filter((el) => el.type === 'way' && Array.isArray(el.geometry) && el.geometry.length >= 2)
+            .map((el) => el.geometry!.map((pt) => [pt.lon, pt.lat] as Coord3D));
+        }
+      }
     }
   }
 
