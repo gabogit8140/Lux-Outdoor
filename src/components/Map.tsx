@@ -95,7 +95,7 @@ interface MapProps {
   activity: 'bike' | 'hike';
   selectedRouteId: string | null;
   hoveredRouteId?: string | null;
-  onSelectRoute: (id: string) => void;
+  onSelectRoute: (id: string, clickedLatLng?: [number, number]) => void;
   onHoverRoute?: (id: string | null) => void;
   onSearchBounds: (bounds: {
     north: number;
@@ -136,6 +136,10 @@ interface MapProps {
   onClearSelectedPlace?: () => void;
   onUserLocationChange?: (coords: [number, number]) => void;
   onEditRoute?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  onSliceSubTrace?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  isDetectingCycleway?: boolean;
+  isCyclewaysVisible?: boolean;
+  onToggleCyclewaysVisibility?: () => void;
 }
 
 export function MapDisplay({
@@ -180,6 +184,10 @@ export function MapDisplay({
   selectedPlace,
   onClearSelectedPlace,
   onUserLocationChange,
+  onSliceSubTrace,
+  isDetectingCycleway = false,
+  isCyclewaysVisible = true,
+  onToggleCyclewaysVisibility,
 }: MapProps) {
   const [show200kmRadius, setShow200kmRadius] = useState(false);
   const [userCoords, setUserCoords] = useState<[number, number] | null>(null);
@@ -266,6 +274,7 @@ export function MapDisplay({
             lastLayerClickTimeRef={lastLayerClickTimeRef}
             activity={activity}
             isTraceVisible={isTraceVisible}
+            isCyclewaysVisible={isCyclewaysVisible}
             onStartNavigation={onStartNavigation}
             favorites={favorites}
           />
@@ -319,6 +328,8 @@ export function MapDisplay({
             showHuntingBattues={showHuntingBattues}
             setShow200kmRadius={setShow200kmRadius}
             setShowHuntingBattues={setShowHuntingBattues}
+            isCyclewaysVisible={isCyclewaysVisible}
+            onToggleCycleways={onToggleCyclewaysVisibility}
           />
 
           {/* 🍄 Bouton Spotter un coin à champignons (modulaire, saisonnier Luxembourg) */}
@@ -335,8 +346,10 @@ export function MapDisplay({
             />
           )}
 
-          {/* Direct 1-Click Trace Visibility Toggle Button (Masquer / Démasquer la trace sur la carte) */}
-          {!editor?.isEditorActive && selectedRouteId && onToggleTraceVisibility && (
+          {/* Direct 1-Click Trace Visibility Toggle Button (Masquer / Démasquer la trace sur la carte, y compris en Mode Studio) */}
+          {((!editor?.isEditorActive && selectedRouteId) ||
+            (editor?.isEditorActive && (editor.waypoints.length > 0 || editor.originalTrace))) &&
+            onToggleTraceVisibility && (
             <button
               type="button"
               onClick={onToggleTraceVisibility}
@@ -347,8 +360,8 @@ export function MapDisplay({
               }`}
               title={
                 isTraceVisible
-                  ? 'Masquer la trace sélectionnée sur la carte (pour voir le réseau sous-jacent)'
-                  : 'Afficher la trace sélectionnée sur la carte'
+                  ? 'Masquer la trace sur la carte (pour voir le réseau sous-jacent)'
+                  : 'Afficher la trace sur la carte'
               }
               aria-label={isTraceVisible ? 'Masquer la trace' : 'Afficher la trace'}
             >
@@ -450,8 +463,19 @@ export function MapDisplay({
             onToggleTraceVisibility={onToggleTraceVisibility}
             onReverseRoute={onReverseRoute}
             onEditRoute={onEditRoute}
+            onSliceSubTrace={onSliceSubTrace}
           />
         )}
+
+      {/* Floating Cycleway Detection Indicator (Bike Layer Click) */}
+      {isDetectingCycleway && (
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 z-[460] pointer-events-none animate-in fade-in zoom-in-95 duration-150">
+          <div className="bg-slate-900/92 text-white backdrop-blur-xl px-3.5 py-2 rounded-2xl shadow-xl border border-sky-400/40 flex items-center gap-2 text-xs font-bold">
+            <span className="animate-spin h-3.5 w-3.5 border-2 border-sky-400 rounded-full border-t-transparent shrink-0" />
+            <span>🛤️ Identification de la piste cyclable sur la couche vélo...</span>
+          </div>
+        </div>
+      )}
 
       {/* Floating Semantic Color Legend (Bottom-Left, masqué en mode repérage ou éditeur pour dégager totalement le bas) */}
       {!isSpottingMode && !editor?.isEditorActive && (

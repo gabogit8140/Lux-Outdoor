@@ -11,6 +11,7 @@ import {
 } from './segmentRouter';
 import { countSharedPassagePoints } from './spurPruner';
 import type { ActivityType } from './routingProfiles';
+import { chainMultiSegmentsToContinuousLine } from '../cycleways/cyclewayGeometry';
 
 export type SubTraceReturnMode = 'out_and_back' | 'loop_trail' | 'one_way';
 
@@ -56,7 +57,9 @@ export function extract3DCoordinatesFromTrace(
 ): [number, number, number?][] {
   let raw: [number, number, number?][] = [];
   if (Array.isArray(trace.coordinates[0]?.[0])) {
-    raw = (trace.coordinates as unknown as [number, number, number?][][]).flat();
+    raw = chainMultiSegmentsToContinuousLine(
+      trace.coordinates as unknown as [number, number, number?][][]
+    );
   } else {
     raw = trace.coordinates as [number, number, number?][];
   }
@@ -245,14 +248,18 @@ export async function computeSurgicalRoute(
       const mode: SegmentRoutingMode =
         meta?.source === 'direct'
           ? 'direct'
+          : meta?.source === 'free'
+          ? 'free'
           : defaultRoutingMode === 'direct'
           ? 'direct'
+          : defaultRoutingMode === 'free'
+          ? 'free'
           : 'trail';
-      legModes[i] = mode === 'direct' ? 'direct' : 'trail';
+      legModes[i] = mode;
     }
   }
 
-  // 2. Router séquentiellement les segments modifiés en évitant tous les tronçons déjà empruntés
+  // 2. Router séquentiellement les segments modifiés en évitant tous les tronçons déjà empruntés (en mode 'trail')
   for (let i = 0; i < totalLegs; i++) {
     if (legModes[i] === 'skip' || legModes[i] === 'original') {
       continue;
@@ -260,7 +267,7 @@ export async function computeSurgicalRoute(
 
     const from = waypoints[i];
     const to = waypoints[(i + 1) % waypoints.length];
-    const mode = legModes[i] === 'direct' ? 'direct' : 'trail';
+    const mode = legModes[i];
 
     let leg = await routeSingleLeg(from, to, {
       activity,
@@ -323,7 +330,9 @@ export async function computeSurgicalRoute(
   }
 
   const finalLegs = legs.filter((l): l is RoutedLegResult => l !== null);
-  return assembleLegsIntoRouteResult(finalLegs, waypoints, activity);
+  return assembleLegsIntoRouteResult(finalLegs, waypoints, activity, {
+    preserveOutAndBack: true,
+  });
 }
 
 /**

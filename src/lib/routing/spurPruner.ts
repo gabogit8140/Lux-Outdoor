@@ -117,8 +117,37 @@ export function countSharedPassagePoints(
 }
 
 /**
+ * Vérifie si une portion de trace [startIdx .. endIdx] contient ou longe
+ * un waypoint volontaire posé par l'utilisateur.
+ */
+function doesRangeContainWaypoint(
+  waypoints: [number, number][],
+  coords: [number, number, number?][],
+  startIdx: number,
+  endIdx: number,
+  thresholdMeters: number = 38
+): boolean {
+  if (!waypoints || waypoints.length === 0) return false;
+  const clampedStart = Math.max(0, startIdx);
+  const clampedEnd = Math.min(coords.length - 1, endIdx);
+
+  for (const wp of waypoints) {
+    for (let k = clampedStart; k <= clampedEnd; k++) {
+      const c = coords[k];
+      if (c && haversineDistance(wp, [c[0], c[1]]) <= thresholdMeters) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+/**
  * Détecte et élimine tous les aller-retours (spurs / impasses / passages répétés par le même point)
  * par abscisse curviligne, puis projette chaque étape sur le circuit nettoyé.
+ *
+ * RÈGLE D'OR : Les tronçons contenant un waypoint utilisateur explicite (ex: antenne de départ
+ * d'un circuit en sucette / lollipop, belvédère en aller-retour) ne sont JAMAIS élagués.
  */
 export function pruneLoopSpursAndOrphans(
   rawCoords: [number, number, number?][],
@@ -165,7 +194,10 @@ export function pruneLoopSpursAndOrphans(
         const neckDist = haversineDistance([pi[0], pi[1]], [pj[0], pj[1]]);
 
         if (neckDist <= neckToleranceMeters && arcLen > Math.max(30, neckDist * 2.1)) {
-          bestEndJ = j;
+          // Si ce tronçon contient un waypoint utilisateur explicite, NE PAS l'élaguer (ex: détour point de vue)
+          if (!doesRangeContainWaypoint(waypoints, coords, i + 1, j)) {
+            bestEndJ = j;
+          }
         }
       }
 
@@ -183,7 +215,9 @@ export function pruneLoopSpursAndOrphans(
   }
 
   // Si la trace est une boucle fermée, vérifier aussi qu'il n'y a pas d'aller-retour (spur)
-  // à cheval sur le point de départ/arrivée (début coords[0..i] et fin coords[j..N-1] qui se superposent)
+  // à cheval sur le point de départ/arrivée (début coords[0..i] et fin coords[j..N-1] qui se superposent).
+  // PROTECTION : Si l'antenne d'accès de départ/arrivée contient le point de départ de l'utilisateur
+  // (circuit en sucette / lollipop), elle ne doit JAMAIS être coupée.
   if (coords.length >= 8) {
     const first = coords[0];
     const last = coords[coords.length - 1];
@@ -218,28 +252,32 @@ export function pruneLoopSpursAndOrphans(
       }
 
       if (bestHeadIdx !== -1 && bestTailIdx !== -1) {
-        totalPrunedMeters += bestWrapArc;
-        hasPrunedSpurs = true;
-        const trimmedLoop = coords.slice(bestHeadIdx, bestTailIdx + 1);
-        if (
-          trimmedLoop.length >= 3 &&
-          haversineDistance(
-            [trimmedLoop[0][0], trimmedLoop[0][1]],
-            [trimmedLoop[trimmedLoop.length - 1][0], trimmedLoop[trimmedLoop.length - 1][1]]
-          ) > 2
-        ) {
-          trimmedLoop.push([...trimmedLoop[0]]);
+        // Si le début (coords[0..bestHeadIdx]) ou la fin (coords[bestTailIdx..N-1]) contient
+        // un waypoint utilisateur (ex: départ en sucette / parking), ne JAMAIS couper cette antenne !
+        const containsDepartureWp = doesRangeContainWaypoint(waypoints, coords, 0, bestHeadIdx);
+        const containsArrivalWp = doesRangeContainWaypoint(waypoints, coords, bestTailIdx, coords.length - 1);
+
+        if (!containsDepartureWp && !containsArrivalWp) {
+          totalPrunedMeters += bestWrapArc;
+          hasPrunedSpurs = true;
+          const trimmedLoop = coords.slice(bestHeadIdx, bestTailIdx + 1);
+          if (
+            trimmedLoop.length >= 3 &&
+            haversineDistance(
+              [trimmedLoop[0][0], trimmedLoop[0][1]],
+              [trimmedLoop[trimmedLoop.length - 1][0], trimmedLoop[trimmedLoop.length - 1][1]]
+            ) > 2
+          ) {
+            trimmedLoop.push([...trimmedLoop[0]]);
+          }
+          coords = trimmedLoop;
         }
-        coords = trimmedLoop;
       }
     }
   }
 
   // Projection des waypoints sur le tracé sans aller-retour
-  const cleanedWaypoints: [number, number][] = waypoints.map((wp, idx) => {
-    if (idx === 0 && coords.length > 0) {
-      return [Number(coords[0][0].toFixed(6)), Number(coords[0][1].toFixed(6))];
-    }
+  const cleanedWaypoints: [number, number][] = waypoints.map((wp) => {
     const snapped = snapPointToTrack(wp, coords);
     if (snapped.distanceMeters > 8) {
       hasPrunedSpurs = true;

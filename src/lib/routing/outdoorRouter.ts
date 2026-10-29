@@ -87,7 +87,7 @@ export async function computeOutdoorRouteFromWaypoints(
         activity,
         mode,
         filters,
-        forbiddenCoords: usedCoords.length > 0 ? usedCoords : undefined,
+        forbiddenCoords: mode === 'trail' && usedCoords.length > 0 ? usedCoords : undefined,
       });
 
       // Si malgré tout le segment `idx` partage des points avec le segment précédent `idx - 1`
@@ -141,7 +141,9 @@ export async function computeOutdoorRouteFromWaypoints(
       usedCoords.push(...leg.coordinates);
     }
 
-    return assembleLegsIntoRouteResult(routedLegs, rawWaypoints, activity);
+    return assembleLegsIntoRouteResult(routedLegs, rawWaypoints, activity, {
+      preserveOutAndBack: !options.pruneSpurs,
+    });
   }
 
   // 2. Mode Boucle Automatique (`pruneSpurs = true`)

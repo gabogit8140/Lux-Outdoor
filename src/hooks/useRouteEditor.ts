@@ -67,7 +67,8 @@ export interface UseRouteEditorReturn {
   startSubTraceSlicing: (
     route: RouteSuggestions,
     trace: RouteTrace,
-    initialReturnMode?: SubTraceReturnMode
+    initialReturnMode?: SubTraceReturnMode,
+    focusKmHint?: number
   ) => void;
   openSubTracePanel: () => void;
   closeSubTracePanel: () => void;
@@ -296,7 +297,13 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
               const syncedWps = pts.map((pt, idx) => {
                 if (idx === selIdx) return pt;
                 const usedPt = result!.waypointsUsed[idx];
-                if (usedPt && haversineDistance(pt, usedPt) > 25) {
+                // Micro-recalage uniquement si le point routé est très proche du clic (<= 35m)
+                // Ne JAMAIS déplacer arbitrairement un point au-delà de 35m de la position choisie
+                if (
+                  usedPt &&
+                  haversineDistance(pt, usedPt) > 4 &&
+                  haversineDistance(pt, usedPt) <= 35
+                ) {
                   hasSnapped = true;
                   return usedPt;
                 }
@@ -459,12 +466,13 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
     [pushSnapshot, triggerRecalculate]
   );
 
-  // Démarrer directement le Studio de Sous-Trace (avec retour inclus) depuis une fiche parcours
+  // Démarrer directement le Studio de Sous-Trace (avec retour inclus) depuis une fiche parcours ou un clic piste cyclable
   const startSubTraceSlicing = useCallback(
     (
       route: RouteSuggestions,
       trace: RouteTrace,
-      initialReturnMode: SubTraceReturnMode = 'out_and_back'
+      initialReturnMode: SubTraceReturnMode = 'out_and_back',
+      focusKmHint?: number
     ) => {
       setEditorMode('edit');
       const routeAct = route.activity || defaultActivity;
@@ -482,8 +490,24 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
       setRedoStack([]);
 
       const totalKm = Math.max(1, computeTraceTotalDistanceKm(trace));
-      const defaultStartKm = 0;
-      const defaultEndKm = Math.max(1, Number((totalKm * 0.5).toFixed(1)));
+      const idealLegKm =
+        routeAct === 'bike'
+          ? Math.min(12.5, Math.max(2, Number((totalKm * 0.45).toFixed(1))))
+          : Math.min(4.5, Math.max(1, Number((totalKm * 0.45).toFixed(1))));
+
+      let defaultStartKm = 0;
+      let defaultEndKm = Math.max(0.8, Number(Math.min(totalKm, idealLegKm).toFixed(1)));
+
+      if (typeof focusKmHint === 'number' && !isNaN(focusKmHint) && totalKm > 2) {
+        const clampedFocus = Math.max(0, Math.min(totalKm, focusKmHint));
+        if (clampedFocus + idealLegKm <= totalKm) {
+          defaultStartKm = Number(clampedFocus.toFixed(1));
+          defaultEndKm = Number((clampedFocus + idealLegKm).toFixed(1));
+        } else {
+          defaultEndKm = Number(totalKm.toFixed(1));
+          defaultStartKm = Number(Math.max(0, totalKm - idealLegKm).toFixed(1));
+        }
+      }
 
       setIsEditorActive(true);
       setIsSubTracePanelOpen(true);
@@ -928,8 +952,14 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
       }
 
       const currentSource = nextMetas[segmentIndex]?.source;
+      const targetSource: SegmentRoutingMode =
+        currentSource === 'trail'
+          ? 'free'
+          : currentSource === 'free'
+          ? 'direct'
+          : 'trail';
       nextMetas[segmentIndex] = {
-        source: currentSource === 'direct' ? 'trail' : 'direct',
+        source: targetSource,
       };
 
       setSegmentMetas(nextMetas);
@@ -1078,7 +1108,12 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
 
     const incomingIdx = selIdx > 0 ? selIdx - 1 : loop ? totalSegs - 1 : 0;
     const currentSource = nextMetas[incomingIdx]?.source;
-    const targetSource: SegmentRoutingMode = currentSource === 'direct' ? 'trail' : 'direct';
+    const targetSource: SegmentRoutingMode =
+      currentSource === 'trail'
+        ? 'free'
+        : currentSource === 'free'
+        ? 'direct'
+        : 'trail';
 
     if (incomingIdx >= 0 && incomingIdx < totalSegs) {
       nextMetas[incomingIdx] = { source: targetSource };
@@ -1354,8 +1389,26 @@ export function useRouteEditor(defaultActivity: 'bike' | 'hike' = 'hike'): UseRo
       );
     },
     routingMode,
-    setRoutingMode: (mode) => {
+    setRoutingMode: (mode: SegmentRoutingMode) => {
       setRoutingMode(mode);
+      stateRef.current.routingMode = mode;
+      const {
+        waypoints: wps,
+        segmentMetas: prevMetas,
+        isLoop: loop,
+        activity: act,
+      } = stateRef.current;
+      if (wps.length >= 2) {
+        const totalSegs = loop ? wps.length : wps.length - 1;
+        const nextMetas: SurgicalSegmentMeta[] = prevMetas.map((m) =>
+          m.source === 'original' ? m : { source: mode }
+        );
+        while (nextMetas.length < totalSegs) {
+          nextMetas.push({ source: mode });
+        }
+        setSegmentMetas(nextMetas);
+        triggerRecalculate(wps, nextMetas, loop, act, mode, true);
+      }
     },
     originalRoute,
     originalTrace,

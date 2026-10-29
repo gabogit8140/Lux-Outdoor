@@ -1,8 +1,12 @@
-import { useState, useCallback, useEffect, useMemo } from 'react';
-import type { RouteSuggestions, RouteTrace } from '../types';
+import { useState, useCallback, useEffect, useRef } from 'react';
+import type {
+  RouteSuggestions,
+  RouteTrace,
+  BikeContentFilter,
+  CyclewayCategory,
+} from '../types';
 import type { MapLayerType } from '../components/Map';
 import {
-  filterAndSearchOffline,
   searchAndGenerateRoutes,
   resolveLocationOffline,
   findNearestLocationOffline,
@@ -11,15 +15,17 @@ import {
   isRegionalZoneLocation,
   isVttRoute,
 } from '../lib/localRouting';
-import {
-  parseGPXString,
-  calculateRouteDifficulty,
-  computeRoadBreakdown,
-  generateTrackSegments,
-} from '../lib/geoUtils';
 import { useUserGpxLibrary } from './useUserGpxLibrary';
 import { storedTrackToRouteAndTrace, type StoredGpxTrack } from '../lib/gpxStorageService';
 import { reverseRouteTrace } from '../lib/routing/reverseRoute';
+import {
+  enrichRouteWithCyclewayMeta,
+  isCyclewayRoute,
+} from '../lib/cycleways/cyclewayClassifier';
+import {
+  fetchSelectableCyclewayAtPoint,
+  findCatalogCyclewayAtPoint,
+} from '../lib/cycleways/osmCyclewayExtractor';
 
 export function useRouteManager() {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -61,11 +67,17 @@ export function useRouteManager() {
   const [distance, setDistance] = useState<[number, number]>([7, 10]);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
-  // Nouveaux filtres personnels
+  // Nouveaux filtres personnels & distinction Traces vs Pistes Cyclables
   const [sourceFilter, setSourceFilter] = useState<'all' | 'imported' | 'official'>('all');
   const [selectedTrip, setSelectedTrip] = useState<string | null>(null);
   const [dPlusFilter, setDPlusFilter] = useState<'all' | 'flat' | 'moderate' | 'hilly'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [bikeContentFilter, setBikeContentFilterState] = useState<BikeContentFilter>('all');
+  const [cyclewayCategoryFilter, setCyclewayCategoryFilterState] =
+    useState<CyclewayCategory | 'all'>('all');
+  const [isDetectingCycleway, setIsDetectingCycleway] = useState<boolean>(false);
+  const [lastClickedCyclewayKm, setLastClickedCyclewayKm] = useState<number | null>(null);
+  const cyclewayClickReqIdRef = useRef<number>(0);
 
   // Intégration du gestionnaire de base de données locale IndexedDB
   const {
@@ -175,7 +187,9 @@ export function useRouteManager() {
       dPlusToUse = dPlusFilter,
       queryToUse = searchQuery,
       boundsToUse: { north: number; south: number; east: number; west: number } | null | undefined = exploredBounds,
-      bikeTypeToUse: 'road' | 'vtt' = bikeType
+      bikeTypeToUse: 'road' | 'vtt' = bikeType,
+      bikeContentToUse: BikeContentFilter = bikeContentFilter,
+      cyclewayCatToUse: CyclewayCategory | 'all' = cyclewayCategoryFilter
     ) => {
       setIsGenerating(true);
       try {
@@ -196,13 +210,22 @@ export function useRouteManager() {
           );
 
           matchingUserTracks.forEach((t) => {
-            const { route, trace } = storedTrackToRouteAndTrace(t);
+            const { route: rawRoute, trace } = storedTrackToRouteAndTrace(t);
+            const route = enrichRouteWithCyclewayMeta(rawRoute, trace);
+            const isCw = isCyclewayRoute(route);
+            if (activityToUse === 'bike') {
+              if (bikeContentToUse === 'traces' && isCw) return;
+              if (bikeContentToUse === 'cycleways' && !isCw) return;
+              if (cyclewayCatToUse !== 'all' && route.cyclewayCategory !== cyclewayCatToUse) {
+                return;
+              }
+            }
             combinedRoutes.push(route);
             combinedTraces[route.id] = trace;
           });
         }
 
-        // 2. Traces officielles du catalogue statique
+        // 2. Traces officielles & pistes cyclables du catalogue statique
         if (srcFilterToUse !== 'imported' && !tripToUse) {
           const officialResult = await searchAndGenerateRoutes({
             location: locationToUse,
@@ -210,6 +233,8 @@ export function useRouteManager() {
             filters: filtersToUse,
             activity: activityToUse,
             bikeType: bikeTypeToUse,
+            bikeContentFilter: bikeContentToUse,
+            cyclewayCategoryFilter: cyclewayCatToUse,
             country: countryToUse || selectedZone,
             bounds: boundsToUse || undefined,
           });
@@ -271,6 +296,89 @@ export function useRouteManager() {
       selectedZone,
       exploredBounds,
       bikeType,
+      bikeContentFilter,
+      cyclewayCategoryFilter,
+    ]
+  );
+
+  const setBikeContentFilter = useCallback(
+    (next: BikeContentFilter) => {
+      setBikeContentFilterState(next);
+      const nextCat = next === 'traces' ? 'all' : cyclewayCategoryFilter;
+      if (next === 'traces') {
+        setCyclewayCategoryFilterState('all');
+      }
+      applyCombinedFilter(
+        currentLocation,
+        distance,
+        activeFilters,
+        activity,
+        selectedZone,
+        sourceFilter,
+        selectedTrip,
+        dPlusFilter,
+        searchQuery,
+        exploredBounds,
+        bikeType,
+        next,
+        nextCat
+      );
+    },
+    [
+      cyclewayCategoryFilter,
+      applyCombinedFilter,
+      currentLocation,
+      distance,
+      activeFilters,
+      activity,
+      selectedZone,
+      sourceFilter,
+      selectedTrip,
+      dPlusFilter,
+      searchQuery,
+      exploredBounds,
+      bikeType,
+    ]
+  );
+
+  const setCyclewayCategoryFilter = useCallback(
+    (nextCat: CyclewayCategory | 'all') => {
+      setCyclewayCategoryFilterState(nextCat);
+      const nextContent =
+        nextCat !== 'all' && bikeContentFilter === 'traces' ? 'cycleways' : bikeContentFilter;
+      if (nextContent !== bikeContentFilter) {
+        setBikeContentFilterState(nextContent);
+      }
+      applyCombinedFilter(
+        currentLocation,
+        distance,
+        activeFilters,
+        activity,
+        selectedZone,
+        sourceFilter,
+        selectedTrip,
+        dPlusFilter,
+        searchQuery,
+        exploredBounds,
+        bikeType,
+        nextContent,
+        nextCat
+      );
+    },
+    [
+      bikeContentFilter,
+      applyCombinedFilter,
+      currentLocation,
+      distance,
+      activeFilters,
+      activity,
+      selectedZone,
+      sourceFilter,
+      selectedTrip,
+      dPlusFilter,
+      searchQuery,
+      exploredBounds,
+      bikeType,
     ]
   );
 
@@ -292,9 +400,12 @@ export function useRouteManager() {
   }, [userTracks]);
 
   const [isTraceVisibleOnMap, setIsTraceVisibleOnMap] = useState<boolean>(true);
+  const [isCyclewaysVisible, setIsCyclewaysVisible] = useState<boolean>(true);
+  const toggleCyclewaysVisibility = useCallback(() => setIsCyclewaysVisible((prev) => !prev), []);
 
   const selectRoute = useCallback((id: string | null) => {
     setSelectedRouteId(id);
+    setLastClickedCyclewayKm(null);
     setIsTraceVisibleOnMap(true);
     if (id) {
       setFocusTrigger((prev) => prev + 1);
@@ -358,6 +469,9 @@ export function useRouteManager() {
     setSelectedTrip(null);
     setDPlusFilter('all');
     setSearchQuery('');
+    setBikeContentFilterState('all');
+    setCyclewayCategoryFilterState('all');
+    setLastClickedCyclewayKm(null);
 
     setMapCenterTarget({
       center: [allZone.center[1], allZone.center[0]],
@@ -376,19 +490,73 @@ export function useRouteManager() {
       'all',
       '',
       null,
-      bikeType
+      bikeType,
+      'all',
+      'all'
     );
-  }, [activity, applyCombinedFilter]);
+  }, [activity, bikeType, applyCombinedFilter]);
 
   const selectRouteFromClick = useCallback(
-    (_lat: number, _lng: number) => {
-      // Clicking on the map background outside a trace simply deselects the active trace
-      // without altering the visible catalog or generating new traces.
+    async (lat: number, lng: number): Promise<RouteSuggestions | null> => {
+      // En mode vélo (couche CyclOSM ou Réseau Véloroutes), un clic sur une piste cyclable
+      // visible sur la carte la détecte, l'extrait et la sélectionne comme une trace !
+      if (activity === 'bike') {
+        const reqId = ++cyclewayClickReqIdRef.current;
+
+        // 1. Vérification locale instantanée sur le catalogue des pistes cyclables (<= 65m)
+        const quickCatalogHit = findCatalogCyclewayAtPoint(lat, lng, 65);
+        if (quickCatalogHit) {
+          setRoutes((prev) =>
+            prev.some((r) => r.id === quickCatalogHit.route.id)
+              ? prev
+              : [quickCatalogHit.route, ...prev]
+          );
+          setTraces((prev) => ({
+            ...prev,
+            [quickCatalogHit.route.id]: quickCatalogHit.trace,
+          }));
+          setSelectedRouteId(quickCatalogHit.route.id);
+          setLastClickedCyclewayKm(quickCatalogHit.clickedProjectedKm);
+          setIsTraceVisibleOnMap(true);
+          return quickCatalogHit.route;
+        }
+
+        // 2. Interrogation en direct de la couche vélo OpenStreetMap / CyclOSM (toutes pistes cyclables)
+        setIsDetectingCycleway(true);
+        try {
+          const osmHit = await fetchSelectableCyclewayAtPoint(lat, lng);
+          if (reqId !== cyclewayClickReqIdRef.current) return null;
+
+          if (osmHit) {
+            setRoutes((prev) =>
+              prev.some((r) => r.id === osmHit.route.id)
+                ? prev.map((r) => (r.id === osmHit.route.id ? osmHit.route : r))
+                : [osmHit.route, ...prev]
+            );
+            setTraces((prev) => ({
+              ...prev,
+              [osmHit.route.id]: osmHit.trace,
+            }));
+            setSelectedRouteId(osmHit.route.id);
+            setLastClickedCyclewayKm(osmHit.clickedProjectedKm);
+            setIsTraceVisibleOnMap(true);
+            return osmHit.route;
+          }
+        } finally {
+          if (reqId === cyclewayClickReqIdRef.current) {
+            setIsDetectingCycleway(false);
+          }
+        }
+      }
+
+      // Clic dans une zone sans piste cyclable : désélectionner proprement le parcours actif
       setSelectedRouteId(null);
+      setLastClickedCyclewayKm(null);
       setIsProfileOpen(false);
       setClickedCoord(null);
+      return null;
     },
-    []
+    [activity]
   );
 
   const generateRoute = useCallback(
@@ -615,6 +783,9 @@ export function useRouteManager() {
     isTraceVisibleOnMap,
     setIsTraceVisibleOnMap,
     toggleTraceVisibility: () => setIsTraceVisibleOnMap((prev) => !prev),
+    isCyclewaysVisible,
+    setIsCyclewaysVisible,
+    toggleCyclewaysVisibility,
     deselectRoute: () => selectRoute(null),
     activity,
     setActivity,
@@ -658,6 +829,13 @@ export function useRouteManager() {
     setDPlusFilter,
     searchQuery,
     setSearchQuery,
+    bikeContentFilter,
+    setBikeContentFilter,
+    cyclewayCategoryFilter,
+    setCyclewayCategoryFilter,
+    isDetectingCycleway,
+    lastClickedCyclewayKm,
+    setLastClickedCyclewayKm,
     deleteUserTrack,
     updateTrackNotes,
     saveCustomTrack,

@@ -15,6 +15,8 @@ interface MapLayersMenuProps {
   setShow200kmRadius: (show: boolean) => void;
   showHuntingBattues?: boolean;
   setShowHuntingBattues?: (show: boolean) => void;
+  isCyclewaysVisible?: boolean;
+  onToggleCycleways?: () => void;
 }
 
 export function MapLayersMenu({
@@ -27,6 +29,8 @@ export function MapLayersMenu({
   setShow200kmRadius,
   showHuntingBattues = false,
   setShowHuntingBattues,
+  isCyclewaysVisible = true,
+  onToggleCycleways,
 }: MapLayersMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -184,6 +188,38 @@ export function MapLayersMenu({
                 {showNetwork ? 'Actif' : 'Masqué'}
               </span>
             </button>
+
+            {/* Pistes Cyclables (PC) Layer Toggle (Mode Vélo) */}
+            {activity === 'bike' && onToggleCycleways && (
+              <button
+                type="button"
+                onClick={onToggleCycleways}
+                className={`w-full text-left px-2.5 py-1.5 rounded-xl transition-colors flex items-center justify-between cursor-pointer ${
+                  isCyclewaysVisible
+                    ? 'bg-sky-50 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 font-bold border border-sky-200 dark:border-sky-800'
+                    : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium'
+                }`}
+                title={
+                  isCyclewaysVisible
+                    ? 'Masquer toutes les pistes cyclables (PC)'
+                    : 'Afficher les pistes cyclables (PC)'
+                }
+              >
+                <div className="flex items-center gap-1.5">
+                  <span className="text-sm">🛤️</span>
+                  <span>Pistes Cyclables (PC)</span>
+                </div>
+                <span
+                  className={`text-[9px] px-1.5 py-0.5 rounded-md font-bold ${
+                    isCyclewaysVisible
+                      ? 'bg-sky-600 text-white'
+                      : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                  }`}
+                >
+                  {isCyclewaysVisible ? 'Actif' : 'Masqué'}
+                </span>
+              </button>
+            )}
 
             {/* In-app WMS Layer Toggle for Luxembourg Battues Layer 444 (conditionné à la saison) */}
             {isHuntingSeason && setShowHuntingBattues && (

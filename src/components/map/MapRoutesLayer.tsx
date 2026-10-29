@@ -25,6 +25,10 @@ import {
   createDirectionArrowIcon,
   distanceMeters,
 } from '../../lib/routing/routeDirectionArrows';
+import {
+  CYCLEWAY_CATEGORIES,
+  isCyclewayRoute,
+} from '../../lib/cycleways/cyclewayClassifier';
 
 const createIcon = (color: string, label?: string) => {
   const size = 16;
@@ -64,6 +68,17 @@ const createRouteStartPin = (color: string, isHovered: boolean) => {
   });
 };
 
+const createCyclewayShieldPin = (refCode: string, color: string, isHovered: boolean) => {
+  const cleanRef = (refCode || 'PC').slice(0, 6);
+  const scale = isHovered ? 1.12 : 1;
+  return L.divIcon({
+    className: 'cycleway-shield-pin',
+    html: `<div style="background-color: ${color}; color: #ffffff; padding: 1px 5px; min-width: 24px; height: 18px; border-radius: 5px; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(15,23,42,0.42); display: inline-flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 900; letter-spacing: 0.02em; white-space: nowrap; transform: scale(${scale}); transition: transform 150ms ease;">${cleanRef}</div>`,
+    iconSize: [34, 20],
+    iconAnchor: [17, 10],
+  });
+};
+
 function getRouteRatingMeta(
   route: RouteSuggestions,
   favoritesMap?: Map<string, SavedFavorite>
@@ -96,13 +111,14 @@ interface MapRoutesLayerProps {
   traces: Record<string, RouteTrace>;
   selectedRouteId: string | null;
   hoveredRouteId?: string | null;
-  onSelectRoute: (id: string) => void;
+  onSelectRoute: (id: string, clickedLatLng?: [number, number]) => void;
   onHoverRoute?: (id: string | null) => void;
   hoveredDistanceKm?: number | null;
   clickedCoord?: { lat: number; lng: number; name: string } | null;
   lastLayerClickTimeRef: React.MutableRefObject<number>;
   activity: 'bike' | 'hike';
   isTraceVisible?: boolean;
+  isCyclewaysVisible?: boolean;
   onStartNavigation?: (route: RouteSuggestions, trace: RouteTrace) => void;
   favorites?: SavedFavorite[];
 }
@@ -119,6 +135,7 @@ export function MapRoutesLayer({
   lastLayerClickTimeRef,
   activity,
   isTraceVisible = true,
+  isCyclewaysVisible = true,
   onStartNavigation,
   favorites,
 }: MapRoutesLayerProps) {
@@ -174,6 +191,7 @@ export function MapRoutesLayer({
 
         let polylinePositions: [number, number][] | [number, number][][] = [];
         let startPos: [number, number] | null = null;
+        let midPos: [number, number] | null = null;
 
         if (Array.isArray(t.coordinates[0][0])) {
           polylinePositions = (t.coordinates as [number, number][][]).map((segment) =>
@@ -181,6 +199,10 @@ export function MapRoutesLayer({
           );
           if (polylinePositions.length > 0 && polylinePositions[0].length > 0) {
             startPos = polylinePositions[0][0] as [number, number];
+            const midSeg = polylinePositions[Math.floor(polylinePositions.length / 2)];
+            if (midSeg && midSeg.length > 0) {
+              midPos = midSeg[Math.floor(midSeg.length / 2)] as [number, number];
+            }
           }
         } else {
           polylinePositions = (t.coordinates as [number, number][]).map(
@@ -188,11 +210,31 @@ export function MapRoutesLayer({
           );
           if (polylinePositions.length > 0) {
             startPos = polylinePositions[0] as [number, number];
+            midPos = polylinePositions[Math.floor(polylinePositions.length / 2)] as [
+              number,
+              number,
+            ];
           }
         }
 
-        const semanticColor = getSemanticRouteColor(r.difficulty?.level);
-        return { r, t, polylinePositions, startPos, semanticColor };
+        const isCycleway = isCyclewayRoute(r);
+        const cyclewayCatMeta = isCycleway
+          ? CYCLEWAY_CATEGORIES[r.cyclewayCategory || 'veloroute_regionale']
+          : null;
+        const semanticColor =
+          isCycleway && cyclewayCatMeta
+            ? cyclewayCatMeta.mapColor
+            : getSemanticRouteColor(r.difficulty?.level);
+        return {
+          r,
+          t,
+          polylinePositions,
+          startPos,
+          midPos,
+          semanticColor,
+          isCycleway,
+          cyclewayCatMeta,
+        };
       })
       .filter((item): item is NonNullable<typeof item> => item !== null);
   }, [routes, traces]);
@@ -275,7 +317,10 @@ export function MapRoutesLayer({
   return (
     <>
       {/* PASS 1 (Bottom SVG Layer): Permanently mounted white under-casings for all routes */}
-      {preparedRoutes.map(({ r, polylinePositions }) => {
+      {preparedRoutes.map(({ r, polylinePositions, isCycleway }) => {
+        if (isCycleway && !isCyclewaysVisible && r.id !== selectedRouteId) {
+          return null;
+        }
         const isSelected = selectedRouteId === r.id;
         const isHovered = hoveredRouteId === r.id;
         const isAnotherFocused =
@@ -299,157 +344,223 @@ export function MapRoutesLayer({
       })}
 
       {/* PASS 2 (Middle SVG Layer): Permanently mounted semantic colored strokes + interactive hit targets */}
-      {preparedRoutes.map(({ r, t, polylinePositions, startPos, semanticColor }) => {
-        const isSelected = selectedRouteId === r.id;
-        const isHovered = hoveredRouteId === r.id;
-        const isAnotherFocused =
-          Boolean(selectedRouteId && !isSelected) ||
-          Boolean(hoveredRouteId && !isHovered && !isSelected);
-
-        const strokeColor = selectedRouteId && !isSelected ? '#94a3b8' : semanticColor;
-
-        const handleSelect = (e: L.LeafletMouseEvent) => {
-          lastLayerClickTimeRef.current = Date.now();
-          L.DomEvent.stop(e);
-          if (e.originalEvent) {
-            e.originalEvent.stopPropagation();
+      {preparedRoutes.map(
+        ({ r, t, polylinePositions, startPos, midPos, semanticColor, isCycleway, cyclewayCatMeta }) => {
+          if (isCycleway && !isCyclewaysVisible && r.id !== selectedRouteId) {
+            return null;
           }
-          onSelectRoute(r.id!);
-        };
+          const isSelected = selectedRouteId === r.id;
+          const isHovered = hoveredRouteId === r.id;
+          const isAnotherFocused =
+            Boolean(selectedRouteId && !isSelected) ||
+            Boolean(hoveredRouteId && !isHovered && !isSelected);
 
-        return (
-          <React.Fragment key={`route-fg-${r.id}`}>
-            {/* Foreground polyline (unconditionally mounted so SVG DOM z-order is permanently above Pass 1) */}
-            <Polyline
-              positions={polylinePositions}
-              pathOptions={{
-                color: strokeColor,
-                weight: isSelected || isHovered ? 0 : isAnotherFocused ? 2.2 : 3.2,
-                opacity: isSelected || isHovered ? 0 : isAnotherFocused ? 0.42 : 0.92,
-                lineCap: 'round',
-                lineJoin: 'round',
-                dashArray: r.type === 'custom' ? '6, 5' : undefined,
-                interactive: false,
-              }}
-            />
+          const strokeColor = selectedRouteId && !isSelected ? '#94a3b8' : semanticColor;
 
-            {/* Permanently mounted wide invisible tap/hover target (optimized for mobile touch) */}
-            <Polyline
-              positions={polylinePositions}
-              pathOptions={{
-                weight: TOUCH_POLYLINE_HIT_WEIGHT,
-                color: 'transparent',
-                interactive: true,
-                className: 'cursor-pointer touch-manipulation',
-              }}
-              eventHandlers={{
-                click: handleSelect,
-                mouseover: () => {
-                  if (!isSelected) handleHoverChange(r.id!);
-                },
-                mouseout: () => {
-                  if (hoveredRouteId === r.id) handleHoverChange(null);
-                },
-              }}
-            >
-              {!isSelected && (
-                <Tooltip sticky direction="top">
-                  <div className="font-bold text-white text-xs flex items-center gap-1.5">
-                    <span
-                      className="w-2.5 h-2.5 rounded-full shrink-0 border border-white/80"
-                      style={{ backgroundColor: semanticColor }}
-                    />
-                    {r.country && (
-                      <span className="text-[10px] uppercase font-bold px-1.5 py-0.2 rounded bg-white/15 text-emerald-300">
-                        {r.country}
-                      </span>
-                    )}
-                    <span>{r.title}</span>
-                  </div>
-                  <div className="text-[11px] text-emerald-400 font-bold font-mono-kpi mt-0.5 flex items-center gap-1.5">
-                    <span>
-                      {(t.distance / 1000).toFixed(1)} km · +{r.elevationGain}m D+
-                    </span>
-                    {r.difficulty && (
+          const handleSelect = (e: L.LeafletMouseEvent) => {
+            lastLayerClickTimeRef.current = Date.now();
+            L.DomEvent.stop(e);
+            if (e.originalEvent) {
+              e.originalEvent.stopPropagation();
+            }
+            onSelectRoute(
+              r.id!,
+              e.latlng ? [e.latlng.lat, e.latlng.lng] : undefined
+            );
+          };
+
+          return (
+            <React.Fragment key={`route-fg-${r.id}`}>
+              {/* Foreground polyline (unconditionally mounted so SVG DOM z-order is permanently above Pass 1) */}
+              <Polyline
+                positions={polylinePositions}
+                pathOptions={{
+                  color: strokeColor,
+                  weight: isSelected || isHovered ? 0 : isAnotherFocused ? 2.2 : isCycleway ? 3.8 : 3.2,
+                  opacity: isSelected || isHovered ? 0 : isAnotherFocused ? 0.42 : 0.94,
+                  lineCap: 'round',
+                  lineJoin: 'round',
+                  dashArray:
+                    r.type === 'custom'
+                      ? '6, 5'
+                      : isCycleway
+                        ? '10, 4'
+                        : undefined,
+                  interactive: false,
+                }}
+              />
+
+              {/* Permanently mounted wide invisible tap/hover target (optimized for mobile touch) */}
+              <Polyline
+                positions={polylinePositions}
+                pathOptions={{
+                  weight: TOUCH_POLYLINE_HIT_WEIGHT,
+                  color: 'transparent',
+                  interactive: true,
+                  className: 'cursor-pointer touch-manipulation',
+                }}
+                eventHandlers={{
+                  click: handleSelect,
+                  mouseover: () => {
+                    if (!isSelected) handleHoverChange(r.id!);
+                  },
+                  mouseout: () => {
+                    if (hoveredRouteId === r.id) handleHoverChange(null);
+                  },
+                }}
+              >
+                {!isSelected && (
+                  <Tooltip sticky direction="top">
+                    <div className="font-bold text-white text-xs flex items-center gap-1.5 flex-wrap">
                       <span
-                        className="px-1.5 py-0.2 rounded text-[10px] text-white font-extrabold"
+                        className="w-2.5 h-2.5 rounded-full shrink-0 border border-white/80"
                         style={{ backgroundColor: semanticColor }}
-                      >
-                        {r.difficulty.label}
-                      </span>
-                    )}
-                  </div>
-                </Tooltip>
-              )}
-            </Polyline>
-
-            {/* Start marker on routes:
-                - If the route is rated / categorized: ALWAYS render its distinctive badge (🏆, 👍, ⛔, 🍄)
-                - Otherwise: render the discreet start dot when unselected and hovered/exploring */}
-            {startPos && (() => {
-              const ratingMeta = getRouteRatingMeta(r, favoritesMap);
-              if (ratingMeta) {
-                return (
-                  <Marker
-                    key={`rated-pin-${r.id}-${ratingMeta.category}-${isSelected ? 'sel' : 'norm'}-${tier}`}
-                    position={startPos}
-                    icon={createFavoriteMarkerIcon(ratingMeta.category, ratingMeta.hasMushrooms, isSelected, currentZoom)}
-                    zIndexOffset={isSelected ? 1000 : 800}
-                    eventHandlers={{
-                      click: handleSelect,
-                      mouseover: () => handleHoverChange(r.id!),
-                      mouseout: () => {
-                        if (hoveredRouteId === r.id) handleHoverChange(null);
-                      },
-                    }}
-                  >
-                    <Tooltip direction="top" offset={[0, Math.round(-size / 2 - 2)]} opacity={0.95}>
-                      <div className="text-center font-sans">
-                        <div className="flex items-center justify-center gap-1 font-bold text-xs">
-                          <span>{FAVORITE_CATEGORIES[ratingMeta.category]?.icon}</span>
-                          <span>{FAVORITE_CATEGORIES[ratingMeta.category]?.label}</span>
-                          {ratingMeta.hasMushrooms && ratingMeta.category !== 'champignons' && <span>· 🍄</span>}
-                        </div>
-                        <div className="text-[11px] font-semibold text-slate-800 dark:text-slate-100 max-w-[180px] truncate">
-                          {r.title}
-                        </div>
-                        <div className="text-[10px] text-slate-500">
-                          {(t.distance / 1000).toFixed(1)} km · {r.elevationGain}m D+
-                        </div>
+                      />
+                      {isCycleway ? (
+                        <span
+                          className="text-[10px] uppercase font-extrabold px-1.5 py-0.5 rounded text-white"
+                          style={{ backgroundColor: semanticColor }}
+                        >
+                          {r.cyclewayRef ? `🛤️ ${r.cyclewayRef}` : '🛤️ Piste cyclable'}
+                        </span>
+                      ) : (
+                        r.country && (
+                          <span className="text-[10px] uppercase font-bold px-1.5 py-0.2 rounded bg-white/15 text-emerald-300">
+                            {r.country}
+                          </span>
+                        )
+                      )}
+                      <span>{r.title}</span>
+                    </div>
+                    {isCycleway && cyclewayCatMeta && (
+                      <div className="text-[10px] text-sky-300 font-bold mt-0.5 flex items-center gap-1.5">
+                        <span>
+                          {cyclewayCatMeta.icon} {cyclewayCatMeta.label}
+                        </span>
+                        {r.sourceUrl && <span>· 🌐 Site web officiel</span>}
                       </div>
-                    </Tooltip>
-                  </Marker>
-                );
-              }
-
-              if (!isSelected && !selectedRouteId && (!hoveredRouteId || isHovered)) {
-                return (
-                  <Marker
-                    position={startPos}
-                    icon={createRouteStartPin(semanticColor, isHovered)}
-                    eventHandlers={{
-                      click: handleSelect,
-                      mouseover: () => handleHoverChange(r.id!),
-                      mouseout: () => {
-                        if (hoveredRouteId === r.id) handleHoverChange(null);
-                      },
-                    }}
-                  >
-                    <Tooltip direction="top" offset={[0, -6]}>
-                      <span className="font-bold text-white">{r.title}</span>
-                      <span className="text-emerald-400 font-mono-kpi ml-1.5">
-                        ({(t.distance / 1000).toFixed(1)} km · {r.difficulty?.label})
+                    )}
+                    <div className="text-[11px] text-emerald-400 font-bold font-mono-kpi mt-0.5 flex items-center gap-1.5">
+                      <span>
+                        {(t.distance / 1000).toFixed(1)} km · +{r.elevationGain}m D+
                       </span>
-                    </Tooltip>
-                  </Marker>
-                );
-              }
+                      {!isCycleway && r.difficulty && (
+                        <span
+                          className="px-1.5 py-0.2 rounded text-[10px] text-white font-extrabold"
+                          style={{ backgroundColor: semanticColor }}
+                        >
+                          {r.difficulty.label}
+                        </span>
+                      )}
+                      {isCycleway && (
+                        <span className="text-[10px] text-amber-300 font-sans font-semibold">
+                          · ✂️ Sous-trace possible
+                        </span>
+                      )}
+                    </div>
+                  </Tooltip>
+                )}
+              </Polyline>
 
-              return null;
-            })()}
-          </React.Fragment>
-        );
-      })}
+              {/* Start / Shield marker on routes:
+                  - If rated / categorized: ALWAYS render its distinctive badge (🏆, 👍, ⛔, 🍄)
+                  - If Piste Cyclable: render its rectangular highway/cycleway shield ([PC1], [V50], [L163], etc.) at midpoint
+                  - Otherwise (Trace / Circuit): render the discreet circular start dot */}
+              {startPos && (() => {
+                const ratingMeta = getRouteRatingMeta(r, favoritesMap);
+                if (ratingMeta) {
+                  return (
+                    <Marker
+                      key={`rated-pin-${r.id}-${ratingMeta.category}-${isSelected ? 'sel' : 'norm'}-${tier}`}
+                      position={startPos}
+                      icon={createFavoriteMarkerIcon(ratingMeta.category, ratingMeta.hasMushrooms, isSelected, currentZoom)}
+                      zIndexOffset={isSelected ? 1000 : 800}
+                      eventHandlers={{
+                        click: handleSelect,
+                        mouseover: () => handleHoverChange(r.id!),
+                        mouseout: () => {
+                          if (hoveredRouteId === r.id) handleHoverChange(null);
+                        },
+                      }}
+                    >
+                      <Tooltip direction="top" offset={[0, Math.round(-size / 2 - 2)]} opacity={0.95}>
+                        <div className="text-center font-sans">
+                          <div className="flex items-center justify-center gap-1 font-bold text-xs">
+                            <span>{FAVORITE_CATEGORIES[ratingMeta.category]?.icon}</span>
+                            <span>{FAVORITE_CATEGORIES[ratingMeta.category]?.label}</span>
+                            {ratingMeta.hasMushrooms && ratingMeta.category !== 'champignons' && <span>· 🍄</span>}
+                          </div>
+                          <div className="text-[11px] font-semibold text-slate-800 dark:text-slate-100 max-w-[180px] truncate">
+                            {r.title}
+                          </div>
+                          <div className="text-[10px] text-slate-500">
+                            {(t.distance / 1000).toFixed(1)} km · {r.elevationGain}m D+
+                          </div>
+                        </div>
+                      </Tooltip>
+                    </Marker>
+                  );
+                }
+
+                if (!isSelected && !selectedRouteId && (!hoveredRouteId || isHovered)) {
+                  if (isCycleway && (midPos || startPos)) {
+                    return (
+                      <Marker
+                        position={(midPos || startPos)!}
+                        icon={createCyclewayShieldPin(
+                          r.cyclewayRef || '🚲',
+                          semanticColor,
+                          isHovered
+                        )}
+                        zIndexOffset={isHovered ? 650 : 350}
+                        eventHandlers={{
+                          click: handleSelect,
+                          mouseover: () => handleHoverChange(r.id!),
+                          mouseout: () => {
+                            if (hoveredRouteId === r.id) handleHoverChange(null);
+                          },
+                        }}
+                      >
+                        <Tooltip direction="top" offset={[0, -10]}>
+                          <span className="font-bold text-white">
+                            🛤️ {r.title}
+                          </span>
+                          <span className="text-sky-300 font-semibold ml-1.5">
+                            ({cyclewayCatMeta?.shortLabel} · {(t.distance / 1000).toFixed(1)} km)
+                          </span>
+                        </Tooltip>
+                      </Marker>
+                    );
+                  }
+
+                  return (
+                    <Marker
+                      position={startPos}
+                      icon={createRouteStartPin(semanticColor, isHovered)}
+                      eventHandlers={{
+                        click: handleSelect,
+                        mouseover: () => handleHoverChange(r.id!),
+                        mouseout: () => {
+                          if (hoveredRouteId === r.id) handleHoverChange(null);
+                        },
+                      }}
+                    >
+                      <Tooltip direction="top" offset={[0, -6]}>
+                        <span className="font-bold text-white">{r.title}</span>
+                        <span className="text-emerald-400 font-mono-kpi ml-1.5">
+                          ({(t.distance / 1000).toFixed(1)} km · {r.difficulty?.label})
+                        </span>
+                      </Tooltip>
+                    </Marker>
+                  );
+                }
+
+                return null;
+              })()}
+            </React.Fragment>
+          );
+        }
+      )}
 
       {/* PASS 3 (Top Active SVG Layer): Hovered and Selected routes rendered last so they ALWAYS sit on top of all other traces */}
       {hoveredPrepared && (

@@ -1,5 +1,14 @@
-import type { RouteSuggestions, RouteTrace, RouteInstruction, RoadTypeBreakdown, ElevationPoint } from '../types';
+import type {
+  RouteSuggestions,
+  RouteTrace,
+  RouteInstruction,
+  RoadTypeBreakdown,
+  ElevationPoint,
+  BikeContentFilter,
+  CyclewayCategory,
+} from '../types';
 import { CATALOG_ROUTES, type CatalogItem } from './routeCatalog';
+import { isCyclewayRoute } from './cycleways/cyclewayClassifier';
 import {
   catmullRomSpline,
   calculatePathDistance,
@@ -1055,11 +1064,22 @@ export function filterAndSearchOffline(params: {
   distanceKm: [number, number];
   filters: string[];
   activity: 'bike' | 'hike';
-    bikeType?: 'road' | 'vtt' | 'all';
+  bikeType?: 'road' | 'vtt' | 'all';
+  bikeContentFilter?: BikeContentFilter;
+  cyclewayCategoryFilter?: CyclewayCategory | 'all';
   country?: 'LU' | 'BE' | 'DE' | 'NL' | 'FR' | 'ALL';
   bounds?: { north: number; south: number; east: number; west: number };
 }): { routes: RouteSuggestions[]; traces: Record<string, RouteTrace>; locationName?: string } {
-  const { location, distanceKm, filters, activity, country, bounds } = params;
+  const {
+    location,
+    distanceKm,
+    filters,
+    activity,
+    country,
+    bounds,
+    bikeContentFilter = 'all',
+    cyclewayCategoryFilter = 'all',
+  } = params;
 
   const minD = distanceKm[0];
   const maxD = distanceKm[1];
@@ -1097,21 +1117,57 @@ export function filterAndSearchOffline(params: {
   const resolvedLocName =
     location || (nearestLoc.distanceKm <= 20 ? nearestLoc.name : `Secteur ${nearestLoc.name}`);
 
+  const allCatalogIds = new Set(CATALOG_ROUTES.map((c) => c.route.id));
+
   // Filter curated catalogue routes
   const matchedCatalog = CATALOG_ROUTES.filter((item) => {
-        // Activity match
+    // Activity match
     if (item.route.activity !== activity) return false;
 
-    // Bike subtype match (Road vs VTT)
-    if (activity === 'bike' && params.bikeType && params.bikeType !== 'all') {
-      const isVtt = isVttRoute(item.route);
-      if (params.bikeType === 'vtt' && !isVtt) return false;
-      if (params.bikeType === 'road' && isVtt) return false;
+    const isCycleway = activity === 'bike' && isCyclewayRoute(item.route);
+    const distKm = item.trace.distance / 1000;
+
+    // Exclure les sous-tronçons techniques ("-troncon-01") quand la piste cyclable complète existe
+    if (isCycleway && item.route.id.includes('-troncon-')) {
+      const parentId = item.route.id.replace(/-troncon-\d+$/i, '');
+      if (allCatalogIds.has(parentId) || distKm < 2.2) {
+        return false;
+      }
     }
 
-    // Distance match within [effectiveMinD, effectiveMaxD]
-    const distKm = item.trace.distance / 1000;
-    if (distKm < effectiveMinD || distKm > effectiveMaxD) return false;
+    // Distinction Traces (circuits) vs Pistes Cyclables + filtre par catégorie de piste cyclable
+    if (activity === 'bike') {
+      if (bikeContentFilter === 'traces' && isCycleway) return false;
+      if (bikeContentFilter === 'cycleways' && !isCycleway) return false;
+      if (
+        cyclewayCategoryFilter !== 'all' &&
+        (!isCycleway || item.route.cyclewayCategory !== cyclewayCategoryFilter)
+      ) {
+        return false;
+      }
+    }
+
+    // Bike subtype match (Road vs VTT) — les pistes cyclables restent accessibles en mode Route & Pistes
+    if (activity === 'bike' && params.bikeType && params.bikeType !== 'all') {
+      if (isCycleway) {
+        if (params.bikeType === 'vtt' && bikeContentFilter !== 'cycleways') return false;
+      } else {
+        const isVtt = isVttRoute(item.route);
+        if (params.bikeType === 'vtt' && !isVtt) return false;
+        if (params.bikeType === 'road' && isVtt) return false;
+      }
+    }
+
+    // Distance match :
+    // - Pour une Trace / Boucle : respect strict de la fourchette [effectiveMinD, effectiveMaxD]
+    // - Pour une Piste Cyclable : c'est une infrastructure linéaire découpable en sous-traces de toute longueur !
+    //   On l'affiche donc sans blocage de longueur max (dès 4 km en vue mixte, ou dès 2 km en vue Pistes Cyclables).
+    if (isCycleway) {
+      const minCyclewayKm = bikeContentFilter === 'cycleways' ? 1.5 : 4.5;
+      if (distKm < minCyclewayKm) return false;
+    } else {
+      if (distKm < effectiveMinD || distKm > effectiveMaxD) return false;
+    }
 
     // Spatial check
     if (bounds) {
@@ -1128,16 +1184,31 @@ export function filterAndSearchOffline(params: {
           lon <= bounds.east + 0.04
       );
       if (!hasPointInBounds) return false;
-    } else if (params.center) {
-      const startCoord = item.route.waypoints[0];
-      const distToCenter = haversineDistance(startCoord, params.center) / 1000;
-      const maxRadius = activity === 'bike' ? 35 : 25;
-      if (distToCenter > maxRadius) return false;
-    } else if (hasSpecificLocation) {
-      const startCoord = item.route.waypoints[0];
-      const distToLoc = haversineDistance(startCoord, targetCenter) / 1000;
-      const maxRadius = activity === 'bike' ? 35 : 22;
-      if (distToLoc > maxRadius) return false;
+    } else if (params.center || hasSpecificLocation) {
+      const refPoint = params.center || targetCenter;
+      const maxRadius = activity === 'bike' ? (params.center ? 35 : 35) : (params.center ? 25 : 22);
+      if (isCycleway) {
+        const flatCoords = Array.isArray(item.trace.coordinates[0]?.[0])
+          ? (item.trace.coordinates as [number, number][][]).flat()
+          : (item.trace.coordinates as [number, number][]);
+        const step = Math.max(1, Math.floor(flatCoords.length / 25));
+        let passesNear = false;
+        for (let idx = 0; idx < flatCoords.length; idx += step) {
+          if (haversineDistance(flatCoords[idx], refPoint) / 1000 <= maxRadius) {
+            passesNear = true;
+            break;
+          }
+        }
+        if (!passesNear && flatCoords.length > 0) {
+          passesNear =
+            haversineDistance(flatCoords[flatCoords.length - 1], refPoint) / 1000 <= maxRadius;
+        }
+        if (!passesNear) return false;
+      } else {
+        const startCoord = item.route.waypoints[0];
+        const distToLoc = haversineDistance(startCoord, refPoint) / 1000;
+        if (distToLoc > maxRadius) return false;
+      }
     } else if (country && country !== 'ALL') {
       if (item.country !== country) return false;
     }
@@ -1192,7 +1263,9 @@ export async function searchAndGenerateRoutes(params: {
   distanceKm: [number, number];
   filters: string[];
   activity: 'bike' | 'hike';
-bikeType?: 'road' | 'vtt' | 'all';
+  bikeType?: 'road' | 'vtt' | 'all';
+  bikeContentFilter?: BikeContentFilter;
+  cyclewayCategoryFilter?: CyclewayCategory | 'all';
   country?: 'LU' | 'BE' | 'DE' | 'NL' | 'FR' | 'ALL';
   bounds?: { north: number; south: number; east: number; west: number };
 }): Promise<{ routes: RouteSuggestions[]; traces: Record<string, RouteTrace>; locationName?: string }> {

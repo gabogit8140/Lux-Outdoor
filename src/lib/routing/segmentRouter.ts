@@ -20,7 +20,7 @@ import {
 } from './routingProfiles';
 import { pruneLoopSpursAndOrphans } from './spurPruner';
 
-export type SegmentRoutingMode = 'trail' | 'direct' | 'original';
+export type SegmentRoutingMode = 'trail' | 'free' | 'direct' | 'original';
 
 export interface RoutedLegResult {
   coordinates: [number, number, number?][]; // [lon, lat, ele?]
@@ -127,16 +127,16 @@ function enforceExactEndpoints(
   const last = result[result.length - 1];
 
   const distStart = haversineDistance([first[0], first[1]], from);
-  if (distStart > 4 && distStart <= 90) {
+  if (distStart > 4) {
     result.unshift([from[0], from[1], first[2] ?? 300]);
-  } else if (distStart <= 4) {
+  } else {
     result[0] = [from[0], from[1], first[2] ?? 300];
   }
 
   const distEnd = haversineDistance([last[0], last[1]], to);
-  if (distEnd > 4 && distEnd <= 90) {
+  if (distEnd > 4) {
     result.push([to[0], to[1], last[2] ?? 300]);
-  } else if (distEnd <= 4) {
+  } else {
     result[result.length - 1] = [to[0], to[1], last[2] ?? 300];
   }
 
@@ -240,7 +240,8 @@ async function fetchBRouterLeg(
   from: [number, number],
   to: [number, number],
   bProfile: string,
-  nogosParam: string
+  nogosParam: string,
+  mode: SegmentRoutingMode = 'trail'
 ): Promise<RoutedLegResult | null> {
   try {
     const lonlats = `${from[0].toFixed(6)},${from[1].toFixed(6)}|${to[0].toFixed(6)},${to[1].toFixed(6)}`;
@@ -274,7 +275,7 @@ async function fetchBRouterLeg(
             distanceMeters: metrics.distanceMeters,
             elevationGain: bGain,
             elevationLoss: bLoss,
-            mode: 'trail',
+            mode,
             engine: 'brouter',
           };
         }
@@ -287,9 +288,10 @@ async function fetchBRouterLeg(
 }
 
 /**
- * Calcule le tracé d'un segment unique (from -> to) sur les sentiers réels
- * en interdisant de repasser par les coordonnées déjà empruntées (`forbiddenCoords`)
- * afin de relier les étapes par une vraie boucle sans jamais repasser par le même point.
+ * Calcule le tracé d'un segment unique (from -> to) sur les sentiers réels.
+ * - Mode 'trail' : cherche une boucle en interdisant les coordonnées déjà empruntées (`forbiddenCoords`)
+ * - Mode 'free' : sentiers libres au plus court, sans aucune interdiction de repassage (aller-retours permis)
+ * - Mode 'direct' : ligne droite point par point (hors-sentier)
  */
 export async function routeSingleLeg(
   from: [number, number],
@@ -308,9 +310,12 @@ export async function routeSingleLeg(
     return buildDirectLeg(from, to);
   }
 
-  const nogosStr = forbiddenCoords
-    ? buildAntiOverlapNogos(forbiddenCoords, from, to, 165, 32)
-    : '';
+  // En mode 'free' (sentiers libres), on n'impose AUCUN nogos anti-repassage :
+  // l'utilisateur peut repasser sur le même sentier (aller-retour, circuit en 8, trèfle...)
+  const nogosStr =
+    mode === 'trail' && forbiddenCoords
+      ? buildAntiOverlapNogos(forbiddenCoords, from, to, 165, 32)
+      : '';
   const nogosHash = nogosStr ? `${nogosStr.length}_${nogosStr.slice(0, 24)}` : '0';
 
   const cacheKey = makeLegCacheKey(from, to, activity, mode, nogosHash);
@@ -321,17 +326,17 @@ export async function routeSingleLeg(
 
   const bProfile = resolveBRouterProfile(activity, filters);
 
-  // 1a. Moteur principal BRouter AVEC contrainte anti-repassage (`nogos`) pour forcer une boucle propre
+  // 1a. Moteur principal BRouter AVEC contrainte anti-repassage (`nogos`) pour forcer une boucle propre (mode 'trail' uniquement)
   if (nogosStr) {
-    const disjointLeg = await fetchBRouterLeg(from, to, bProfile, nogosStr);
+    const disjointLeg = await fetchBRouterLeg(from, to, bProfile, nogosStr, mode);
     if (disjointLeg) {
       storeInLegCache(cacheKey, disjointLeg);
       return disjointLeg;
     }
   }
 
-  // 1b. Repli BRouter sans `nogos` si aucune sortie secondaire n'existe à cet endroit
-  const standardLeg = await fetchBRouterLeg(from, to, bProfile, '');
+  // 1b. Repli BRouter sans `nogos` (utilisé directement en mode 'free', ou en secours 'trail' si aucune autre sortie)
+  const standardLeg = await fetchBRouterLeg(from, to, bProfile, '', mode);
   if (standardLeg) {
     storeInLegCache(cacheKey, standardLeg);
     return standardLeg;
@@ -373,7 +378,7 @@ export async function routeSingleLeg(
           distanceMeters: metrics.distanceMeters,
           elevationGain: Math.round(elevRes.gain),
           elevationLoss: Math.round(elevRes.loss),
-          mode: 'trail',
+          mode,
           engine: 'osrm',
         };
         storeInLegCache(cacheKey, legResult);

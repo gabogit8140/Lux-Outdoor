@@ -74,4 +74,64 @@ describe('spurPruner (Élagage des boucles & élimination des passages redondant
     expect(result.cleanedCoords.length).toBeGreaterThanOrEqual(4);
     expect(result.hasPrunedSpurs).toBe(false);
   });
+
+  it('pruneLoopSpursAndOrphans préserve l antenne d acces de depart d un circuit en sucette (lollipop)', () => {
+    // Tracé de type sucette : départ à [6.3268, 49.4504], descente sur [6.3190, 49.4425],
+    // boucle [6.3100, 49.4350] -> [6.3190, 49.4425], et remontée au départ [6.3268, 49.4504]
+    const lollipopCoords: [number, number, number?][] = [
+      [6.3268, 49.4504],
+      [6.3245, 49.4485],
+      [6.3210, 49.4450],
+      [6.3190, 49.4425],
+      [6.3150, 49.4380],
+      [6.3100, 49.4350],
+      [6.3120, 49.4390],
+      [6.3190, 49.4425],
+      [6.3210, 49.4450],
+      [6.3245, 49.4485],
+      [6.3268, 49.4504],
+    ];
+
+    const waypoints: [number, number][] = [
+      [6.3268, 49.4504], // Point de départ explicite posé par l'utilisateur
+      [6.3100, 49.4350], // Fond de boucle
+    ];
+
+    const result = pruneLoopSpursAndOrphans(lollipopCoords, waypoints, 42);
+
+    // Le tracé nettoyé DOIT conserver le point de départ exact posé par l'utilisateur
+    expect(result.cleanedCoords[0][0]).toBeCloseTo(6.3268, 3);
+    expect(result.cleanedCoords[0][1]).toBeCloseTo(49.4504, 3);
+    expect(result.cleanedWaypoints[0][0]).toBeCloseTo(6.3268, 3);
+    expect(result.cleanedWaypoints[0][1]).toBeCloseTo(49.4504, 3);
+  });
+
+  it('pruneLoopSpursAndOrphans préserve un détour en cul-de-sac vers un belvédère si un waypoint y est posé', () => {
+    const coordsWithDetour: [number, number, number?][] = [
+      [6.10, 49.60],
+      [6.12, 49.60],
+      // Détour aller-retour vers un point de vue à [6.12, 49.61]
+      [6.12, 49.605],
+      [6.12, 49.61],
+      [6.12, 49.605],
+      [6.12, 49.60],
+      [6.14, 49.60],
+      [6.14, 49.62],
+      [6.10, 49.62],
+      [6.10, 49.60],
+    ];
+
+    const waypointsWithDetour: [number, number][] = [
+      [6.10, 49.60],
+      [6.12, 49.61], // Waypoint explicite au sommet / belvédère
+      [6.14, 49.62],
+    ];
+
+    const result = pruneLoopSpursAndOrphans(coordsWithDetour, waypointsWithDetour, 42);
+    // Le détour contenant le waypoint utilisateur ne doit pas être supprimé
+    const hasViewpoint = result.cleanedCoords.some(
+      ([lon, lat]) => Math.abs(lon - 6.12) < 0.001 && Math.abs(lat - 49.61) < 0.001
+    );
+    expect(hasViewpoint).toBe(true);
+  });
 });

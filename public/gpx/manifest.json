@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T17:45:52.228Z",
+  "generatedAt": "2026-10-29T10:15:07.759Z",
   "totalTracks": 885,
   "bikeTracks": 246,
   "hikeTracks": 639,
@@ -878,11 +878,11 @@
     },
     {
       "id": "fr-voie-bleue-v50-nord",
-      "name": "La Voie Bleue Moselle V50 (Apach - Sierck - Thionville)",
+      "name": "La Voie Bleue V50 : Apach - Sierck - Koenigsmacker - Thionville",
       "file": "bike/fr-voie-bleue-v50-nord.gpx",
       "activity": "bike",
       "country": "FR",
-      "distanceKm": 25.6
+      "distanceKm": 30.5
     },
     {
       "id": "fr-voie-bleue-v50-sud",

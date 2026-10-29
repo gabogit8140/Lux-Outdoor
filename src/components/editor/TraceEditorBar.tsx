@@ -22,8 +22,11 @@ import {
   ListOrdered,
   AlertTriangle,
   Scissors,
+  Flag,
+  GitFork,
 } from 'lucide-react';
 import type { UseRouteEditorReturn } from '../../hooks/useRouteEditor';
+import type { SegmentRoutingMode } from '../../lib/routing/segmentRouter';
 import { SegmentOrderDashboard } from './SegmentOrderDashboard';
 import { SubTraceSlicerDashboard } from './SubTraceSlicerDashboard';
 
@@ -51,6 +54,7 @@ export function TraceEditorBar({
     setSelectedWaypointIndex,
     orderAnomalies,
     swapWaypoints,
+    setStartWaypoint,
     removeWaypoint,
     toggleSelectedWaypointDirectMode,
     resetToOriginalTrace,
@@ -77,9 +81,9 @@ export function TraceEditorBar({
     cancel,
   } = editor;
 
-  // Vérifie si le point sélectionné est en mode liaison directe
-  const isSelectedPointDirect = React.useMemo(() => {
-    if (selectedWaypointIndex === null || waypoints.length < 2) return false;
+  // Mode de routage du segment lié au point sélectionné ('trail' | 'free' | 'direct' | 'original')
+  const selectedPointMode = React.useMemo<SegmentRoutingMode>(() => {
+    if (selectedWaypointIndex === null || waypoints.length < 2) return routingMode;
     const totalSegs = isLoop ? waypoints.length : waypoints.length - 1;
     const incomingIdx =
       selectedWaypointIndex > 0
@@ -87,8 +91,8 @@ export function TraceEditorBar({
         : isLoop
         ? totalSegs - 1
         : 0;
-    return segmentMetas[incomingIdx]?.source === 'direct';
-  }, [selectedWaypointIndex, waypoints.length, isLoop, segmentMetas]);
+    return segmentMetas[incomingIdx]?.source || routingMode;
+  }, [selectedWaypointIndex, waypoints.length, isLoop, segmentMetas, routingMode]);
 
   // Compte combien de segments ont été modifiés en mode édition
   const modifiedSegmentsCount = React.useMemo(() => {
@@ -214,6 +218,30 @@ export function TraceEditorBar({
               </div>
             )}
 
+            {onToggleTraceVisibility && (
+              <button
+                type="button"
+                onClick={onToggleTraceVisibility}
+                className={`p-1.5 rounded-xl transition-all cursor-pointer shrink-0 ${
+                  isTraceVisible
+                    ? 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    : 'text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/60 ring-1 ring-amber-400'
+                }`}
+                title={
+                  isTraceVisible
+                    ? 'Masquer la trace pour voir les sentiers de la carte'
+                    : 'Réafficher la trace'
+                }
+                aria-label={isTraceVisible ? 'Masquer la trace' : 'Afficher la trace'}
+              >
+                {isTraceVisible ? (
+                  <Eye className="w-4 h-4" />
+                ) : (
+                  <EyeOff className="w-4 h-4" />
+                )}
+              </button>
+            )}
+
             <button
               type="button"
               onClick={cancel}
@@ -270,29 +298,60 @@ export function TraceEditorBar({
               <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping shrink-0" />
               <div className="min-w-0">
                 <div className="text-xs font-extrabold text-amber-300 truncate">
-                  Étape {selectedWaypointIndex + 1} sélectionnée
+                  {selectedWaypointIndex === 0
+                    ? '🚩 Point de départ (#1) sélectionné'
+                    : `Étape ${selectedWaypointIndex + 1} sélectionnée`}
                 </div>
                 <div className="text-[10px] text-slate-300 truncate">
-                  Glissez ce point ou touchez un sentier sur la carte
+                  {selectedWaypointIndex === 0
+                    ? 'Glissez-le ou touchez la carte pour déplacer le départ'
+                    : 'Glissez ce point ou touchez un sentier sur la carte'}
                 </div>
               </div>
             </div>
 
             <div className="flex items-center gap-1.5 shrink-0">
-              {/* Bascule Sentier / Ligne directe sur ce point */}
+              {/* Définir cette étape comme nouveau point de départ de la boucle (#1) */}
+              {isLoop && selectedWaypointIndex > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setStartWaypoint(selectedWaypointIndex)}
+                  className="px-2.5 py-1.5 rounded-xl text-[11px] font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 transition-colors flex items-center gap-1 cursor-pointer min-h-[34px] shadow-sm"
+                  title="Définir cette étape comme nouveau point de départ de la boucle (#1)"
+                >
+                  <Flag className="w-3.5 h-3.5" />
+                  <span>Nouveau départ</span>
+                </button>
+              )}
+
+              {/* Cycle d'assistance sur ce tronçon : Boucle auto -> Sentier libre A-R -> Hors-sentier */}
               {waypoints.length >= 2 && (
                 <button
                   type="button"
                   onClick={toggleSelectedWaypointDirectMode}
-                  className={`px-2.5 py-1.5 rounded-xl text-[11px] font-bold border transition-all flex items-center gap-1 cursor-pointer min-h-[34px] ${
-                    isSelectedPointDirect
-                      ? 'bg-amber-500 text-slate-950 border-amber-300'
-                      : 'bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-700'
+                  className={`px-2.5 py-1.5 rounded-xl text-[11px] font-bold border transition-all flex items-center gap-1.5 cursor-pointer min-h-[34px] ${
+                    selectedPointMode === 'direct'
+                      ? 'bg-amber-500 text-slate-950 border-amber-300 shadow-sm'
+                      : selectedPointMode === 'free'
+                      ? 'bg-sky-500 text-slate-950 border-sky-300 shadow-sm'
+                      : 'bg-emerald-600 text-white border-emerald-400 hover:bg-emerald-500'
                   }`}
-                  title="Basculer ce tronçon entre suivi des sentiers et ligne droite hors-sentier"
+                  title="Changer le mode de ce tronçon : Boucle auto -> Sentier libre (A-R autorisé) -> Hors-sentier direct"
                 >
-                  <Compass className="w-3.5 h-3.5" />
-                  <span>{isSelectedPointDirect ? 'Direct actif' : 'Hors-sentier'}</span>
+                  {selectedPointMode === 'direct' ? (
+                    <Compass className="w-3.5 h-3.5 shrink-0" />
+                  ) : selectedPointMode === 'free' ? (
+                    <GitFork className="w-3.5 h-3.5 shrink-0" />
+                  ) : (
+                    <Route className="w-3.5 h-3.5 shrink-0" />
+                  )}
+                  <span>
+                    {selectedPointMode === 'direct'
+                      ? 'Hors-sentier'
+                      : selectedPointMode === 'free'
+                      ? 'Sentier libre (A-R)'
+                      : 'Boucle auto'}
+                  </span>
                 </button>
               )}
 
@@ -362,6 +421,31 @@ export function TraceEditorBar({
                 <RotateCw className="w-4 h-4" />
               </button>
 
+              {/* Masquer / Démasquer la trace en Mode Studio pour inspecter les sentiers sous-jacents */}
+              {onToggleTraceVisibility && (waypoints.length >= 1 || editorMode === 'edit') && (
+                <button
+                  type="button"
+                  onClick={onToggleTraceVisibility}
+                  className={`p-2 rounded-xl border transition-all cursor-pointer shrink-0 min-h-[40px] min-w-[40px] flex items-center justify-center ${
+                    isTraceVisible
+                      ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-transparent hover:bg-slate-200'
+                      : 'bg-amber-500 text-slate-950 border-amber-300 shadow-md ring-2 ring-amber-400/50'
+                  }`}
+                  title={
+                    isTraceVisible
+                      ? 'Masquer la trace pour voir les sentiers de la carte'
+                      : 'Réafficher la trace'
+                  }
+                  aria-label={isTraceVisible ? 'Masquer la trace' : 'Afficher la trace'}
+                >
+                  {isTraceVisible ? (
+                    <Eye className="w-4 h-4" />
+                  ) : (
+                    <EyeOff className="w-4 h-4" />
+                  )}
+                </button>
+              )}
+
               {/* Bouton Studio Sous-Trace (avec retour inclus) */}
               {editorMode === 'edit' && (
                 <button
@@ -421,25 +505,52 @@ export function TraceEditorBar({
                 <span className="text-[11px]">{activity === 'hike' ? 'À pied' : 'Vélo'}</span>
               </button>
 
-              {/* Mode Sentiers vs Direct */}
+              {/* Sélecteur Ergonomique de Mode d'Assistance (Boucle auto / Sentiers libres A-R / Hors-sentier) */}
               <button
                 type="button"
-                onClick={() => setRoutingMode(routingMode === 'trail' ? 'direct' : 'trail')}
-                className={`flex items-center gap-1 px-2.5 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 min-h-[40px] ${
+                onClick={() => {
+                  const nextMode: SegmentRoutingMode =
+                    routingMode === 'trail'
+                      ? 'free'
+                      : routingMode === 'free'
+                      ? 'direct'
+                      : 'trail';
+                  setRoutingMode(nextMode);
+                }}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer shrink-0 min-h-[40px] shadow-xs active:scale-95 ${
                   routingMode === 'trail'
                     ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800'
+                    : routingMode === 'free'
+                    ? 'bg-sky-50 dark:bg-sky-950/50 text-sky-800 dark:text-sky-300 border-sky-300 dark:border-sky-800'
                     : 'bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border-amber-400 dark:border-amber-700'
                 }`}
                 title={
                   routingMode === 'trail'
-                    ? 'Mode Suivi des Sentiers actif (cliquer pour passer en liaison directe hors-sentier)'
-                    : 'Mode Liaison Directe hors-sentier actif (cliquer pour revenir au suivi des sentiers)'
+                    ? 'Mode Boucle Auto : l’algorithme cherche des sentiers distincts pour former une boucle sans repasser par le même chemin. Touchez pour passer en Sentiers Libres (Aller-retour permis).'
+                    : routingMode === 'free'
+                    ? 'Mode Sentiers Libres : suit les sentiers au plus court sans forcer de boucle (allers-retours et repassages 100% permis). Touchez pour passer en Hors-sentier direct.'
+                    : 'Mode Hors-sentier : liaison directe manuelle en ligne droite point par point (à travers champs/bois). Touchez pour revenir en Boucle Auto.'
                 }
               >
-                <Route className="w-3.5 h-3.5" />
-                <span className="text-[11px]">
-                  {routingMode === 'trail' ? 'Sentiers' : 'Direct'}
-                </span>
+                {routingMode === 'trail' && <Route className="w-3.5 h-3.5 text-emerald-600 shrink-0" />}
+                {routingMode === 'free' && <GitFork className="w-3.5 h-3.5 text-sky-600 shrink-0" />}
+                {routingMode === 'direct' && <Compass className="w-3.5 h-3.5 text-amber-600 shrink-0" />}
+                <div className="flex flex-col text-left leading-tight">
+                  <span className="text-[11px] font-extrabold">
+                    {routingMode === 'trail'
+                      ? 'Boucle auto'
+                      : routingMode === 'free'
+                      ? 'Sentier libre'
+                      : 'Hors-sentier'}
+                  </span>
+                  <span className="text-[9px] opacity-75 font-normal hidden sm:inline">
+                    {routingMode === 'trail'
+                      ? 'Anti-doublon'
+                      : routingMode === 'free'
+                      ? 'A-R permis'
+                      : 'Ligne droite'}
+                  </span>
+                </div>
               </button>
 
               {/* Boucle Auto Calibrée */}
@@ -479,30 +590,6 @@ export function TraceEditorBar({
                   aria-label="Inverser le sens"
                 >
                   <ArrowLeftRight className="w-4 h-4" />
-                </button>
-              )}
-
-              {/* Masquer / Démasquer la trace pour inspecter les sentiers sous-jacents */}
-              {onToggleTraceVisibility && waypoints.length >= 2 && (
-                <button
-                  type="button"
-                  onClick={onToggleTraceVisibility}
-                  className={`p-2 rounded-xl border transition-all cursor-pointer shrink-0 min-h-[40px] min-w-[40px] flex items-center justify-center ${
-                    isTraceVisible
-                      ? 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-transparent'
-                      : 'bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border-amber-400'
-                  }`}
-                  title={
-                    isTraceVisible
-                      ? 'Masquer la trace pour voir les sentiers de la carte'
-                      : 'Réafficher la trace'
-                  }
-                >
-                  {isTraceVisible ? (
-                    <EyeOff className="w-4 h-4" />
-                  ) : (
-                    <Eye className="w-4 h-4" />
-                  )}
                 </button>
               )}
 

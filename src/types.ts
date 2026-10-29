@@ -1,11 +1,25 @@
 export type BikeSubtype = 'road' | 'vtt';
 
+export type RouteKind = 'trace' | 'cycleway';
+
+export type CyclewayCategory =
+  | 'veloroute_internationale'
+  | 'piste_nationale'
+  | 'voie_verte_ravel'
+  | 'veloroute_regionale'
+  | 'piste_locale';
+
+export type BikeContentFilter = 'all' | 'traces' | 'cycleways';
+
 export interface RoutePrompt {
   location: string;
   distanceKm: [number, number];
   filters: string[];
   activity: 'bike' | 'hike';
   bikeType?: 'road' | 'vtt';
+  routeKind?: RouteKind;               // 'trace' (circuit/boucle) vs 'cycleway' (piste cyclable / véloroute)
+  cyclewayCategory?: CyclewayCategory; // Catégorie détaillée si routeKind === 'cycleway'
+  cyclewayRef?: string;                // Code officiel (ex: 'PC1', 'V50', 'EV5', 'L163')
   mapTracesOnly?: boolean;
   elevationGainRange?: [number, number];
   sourceFilter?: 'all' | 'imported' | 'official';
@@ -69,6 +83,9 @@ export interface RouteSuggestions {
   minElevation?: number;
   activity: 'bike' | 'hike';
   bikeType?: 'road' | 'vtt';
+  routeKind?: RouteKind;               // 'trace' (circuit/boucle) vs 'cycleway' (piste cyclable / véloroute)
+  cyclewayCategory?: CyclewayCategory; // Catégorie détaillée si routeKind === 'cycleway'
+  cyclewayRef?: string;                // Code officiel (ex: 'PC1', 'V50', 'EV5', 'L163')
   country?: 'LU' | 'BE' | 'DE' | 'NL' | 'FR';
   regionName?: string;
   tripName?: string;          // e.g. 'Voyage Bretagne 2026', 'Trans-Ardennaise'

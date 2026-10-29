@@ -13,6 +13,8 @@ import {
 
 import { GENERATED_GPX_CATALOG } from './generatedGpxCatalog';
 import { resolveRouteSource } from './routeSourceResolver';
+import { enrichRouteWithCyclewayMeta } from './cycleways/cyclewayClassifier';
+import { normalizeCyclewayTrace } from './cycleways/cyclewayGeometry';
 
 export interface CatalogItem {
   route: RouteSuggestions;
@@ -907,9 +909,22 @@ const CURATED_STATIC_ROUTES: CatalogItem[] = [
   }),
 ];
 
-// Export all official GPX traces parsed from public/gpx/
-export const CATALOG_ROUTES: CatalogItem[] = [
-  ...GENERATED_GPX_CATALOG,
-];
+// Export all official GPX traces parsed from public/gpx/, enriched with cycleway category & official web references
+export const CATALOG_ROUTES: CatalogItem[] = GENERATED_GPX_CATALOG.map((item) => {
+  if (item.route.activity !== 'bike') return item;
+  const enrichedRoute = enrichRouteWithCyclewayMeta(item.route, item.trace);
+  if (enrichedRoute.routeKind === 'cycleway') {
+    const normalizedTrace = normalizeCyclewayTrace(item.trace, enrichedRoute);
+    return {
+      ...item,
+      route: enrichRouteWithCyclewayMeta(enrichedRoute, normalizedTrace),
+      trace: normalizedTrace,
+    };
+  }
+  return {
+    ...item,
+    route: enrichedRoute,
+  };
+});
 
 

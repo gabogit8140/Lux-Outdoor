@@ -23,6 +23,7 @@ import { usePWAInstall } from './hooks/usePWAInstall';
 import { SettingsModal } from './components/settings/SettingsModal';
 import { CATALOG_ROUTES } from './lib/routeCatalog';
 import { REGIONAL_ZONES, getCountryFlag, type PlaceEntry } from './lib/localRouting';
+import { projectPointToTraceKm } from './lib/cycleways/cyclewayGeometry';
 
 export default function App() {
   // Desktop (>=1024px) opens side-by-side cockpit by default; Phone & Tablet (<1024px) start 100% map and open split-view on demand
@@ -126,6 +127,15 @@ export default function App() {
     setDPlusFilter,
     searchQuery,
     setSearchQuery,
+    bikeContentFilter,
+    setBikeContentFilter,
+    cyclewayCategoryFilter,
+    setCyclewayCategoryFilter,
+    isDetectingCycleway,
+    isCyclewaysVisible,
+    toggleCyclewaysVisibility,
+    lastClickedCyclewayKm,
+    setLastClickedCyclewayKm,
     deleteUserTrack,
     saveCustomTrack,
     markTrackSynced,
@@ -375,6 +385,22 @@ export default function App() {
     showToast('Tous les filtres ont été enlevés — toutes les traces sont affichées');
   };
 
+  const handleSliceSubTrace = (r: RouteSuggestions, t: RouteTrace) => {
+    const focusHint =
+      selectedRouteId === r.id && lastClickedCyclewayKm !== null
+        ? lastClickedCyclewayKm
+        : undefined;
+    selectRoute(r.id);
+    editor.startSubTraceSlicing(r, t, 'out_and_back', focusHint);
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      setIsSidebarOpen(false);
+    }
+    setIsProfileOpen(false);
+    showToast(
+      `✂️ Sous-trace ouverte sur "${r.title}" — ajustez les bornes A et B ou le mode retour`
+    );
+  };
+
   const handleSelectCity = (city: PlaceEntry) => {
     setSelectedPlace(city);
     setCurrentLocation(city.name);
@@ -483,6 +509,12 @@ export default function App() {
             favoritesCount={activityFavorites.length}
             mushroomSpotsCount={mushroomSpots.length}
             userCoords={userCoords}
+            bikeContentFilter={bikeContentFilter}
+            onBikeContentFilterChange={setBikeContentFilter}
+            cyclewayCategoryFilter={cyclewayCategoryFilter}
+            onCyclewayCategoryFilterChange={setCyclewayCategoryFilter}
+            isCyclewaysVisible={isCyclewaysVisible}
+            onToggleCyclewaysVisibility={toggleCyclewaysVisibility}
           />
         )}
 
@@ -493,8 +525,16 @@ export default function App() {
           activity={activity}
           selectedRouteId={selectedRouteId}
           hoveredRouteId={hoveredRouteId}
-          onSelectRoute={(id) => {
+          onSelectRoute={(id, clickedLatLng) => {
             selectRoute(id);
+            if (clickedLatLng && traces[id]) {
+              const proj = projectPointToTraceKm(
+                traces[id],
+                clickedLatLng[0],
+                clickedLatLng[1]
+              );
+              setLastClickedCyclewayKm(proj.projectedKm);
+            }
             setPreviewRouteId(id);
             setMapInteractedTrigger((prev) => prev + 1);
             if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
@@ -514,8 +554,18 @@ export default function App() {
           onSearchBounds={(bounds) => {
             searchPublic(bounds, distance, activeFilters);
           }}
-          onMapClick={(lat, lng) => {
-            selectRouteFromClick(lat, lng);
+          onMapClick={async (lat, lng) => {
+            const detected = await selectRouteFromClick(lat, lng);
+            if (detected) {
+              setPreviewRouteId(detected.id);
+              setMapInteractedTrigger((prev) => prev + 1);
+              if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
+                setIsSidebarOpen(true);
+              }
+              showToast(
+                `🛤️ Piste cyclable sélectionnée : ${detected.title} — cliquez sur "Sous-trace" pour créer votre promenade !`
+              );
+            }
           }}
           isGenerating={isGenerating}
           focusTrigger={focusTrigger}
@@ -530,6 +580,8 @@ export default function App() {
           clickedCoord={clickedCoord}
           isTraceVisible={isTraceVisibleOnMap}
           onToggleTraceVisibility={toggleTraceVisibility}
+          isCyclewaysVisible={isCyclewaysVisible}
+          onToggleCyclewaysVisibility={toggleCyclewaysVisibility}
           editor={editor}
           navigation={navigation}
           recenterTrigger={navRecenterTrigger}
@@ -567,6 +619,8 @@ export default function App() {
             setIsProfileOpen(false);
             showToast(`Mode modification : ${r.title} (l'original reste intact)`);
           }}
+          onSliceSubTrace={handleSliceSubTrace}
+          isDetectingCycleway={isDetectingCycleway}
         />
 
         {/* Bottom Elevation Profile Bar (Shown when Sidebar is closed and profile drawer is open) */}
@@ -699,6 +753,12 @@ export default function App() {
               showToast(`Guidage démarré : ${r.title}`);
             }}
             isNavigating={navigation.isNavigating}
+            bikeContentFilter={bikeContentFilter}
+            onBikeContentFilterChange={setBikeContentFilter}
+            cyclewayCategoryFilter={cyclewayCategoryFilter}
+            onCyclewayCategoryFilterChange={setCyclewayCategoryFilter}
+            onSliceSubTrace={handleSliceSubTrace}
+            initialSubTraceKm={lastClickedCyclewayKm}
           />
         </aside>
       )}

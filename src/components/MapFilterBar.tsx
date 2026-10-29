@@ -19,11 +19,15 @@ import {
   Repeat,
   Search,
   MapPin,
+  Eye,
+  EyeOff,
 } from 'lucide-react';
 import { TouchDistanceSelector } from './TouchDistanceSelector';
 import { isRegionalZoneLocation, type PlaceEntry } from '../lib/localRouting';
 import { CitySearchModal } from './search/CitySearchModal';
 import { SAFE_AREA_TOP_BAR, SAFE_AREA_TOP_POPOVER } from '../lib/layout/safeArea';
+import type { BikeContentFilter, CyclewayCategory } from '../types';
+import { CYCLEWAY_CATEGORY_LIST } from '../lib/cycleways/cyclewayClassifier';
 
 export interface MapFilterOption {
   id: string;
@@ -128,6 +132,12 @@ interface MapFilterBarProps {
   onSelectCity?: (city: PlaceEntry) => void;
   onResetCity?: () => void;
   userCoords?: [number, number] | null;
+  bikeContentFilter?: BikeContentFilter;
+  onBikeContentFilterChange?: (v: BikeContentFilter) => void;
+  cyclewayCategoryFilter?: CyclewayCategory | 'all';
+  onCyclewayCategoryFilterChange?: (v: CyclewayCategory | 'all') => void;
+  isCyclewaysVisible?: boolean;
+  onToggleCyclewaysVisibility?: () => void;
 }
 
 export function MapFilterBar({
@@ -157,6 +167,12 @@ export function MapFilterBar({
   onSelectCity,
   onResetCity,
   userCoords,
+  bikeContentFilter = 'all',
+  onBikeContentFilterChange,
+  cyclewayCategoryFilter = 'all',
+  onCyclewayCategoryFilterChange,
+  isCyclewaysVisible = true,
+  onToggleCyclewaysVisibility,
 }: MapFilterBarProps) {
   const [isDistanceOpen, setIsDistanceOpen] = useState(false);
   const [showCustomDistance, setShowCustomDistance] = useState(false);
@@ -215,7 +231,9 @@ export function MapFilterBar({
     (sourceFilter !== 'all' ? 1 : 0) +
     (selectedTrip ? 1 : 0) +
     (dPlusFilter !== 'all' ? 1 : 0) +
-    (searchQuery.trim().length > 0 ? 1 : 0);
+    (searchQuery.trim().length > 0 ? 1 : 0) +
+    (activity === 'bike' && bikeContentFilter !== 'all' ? 1 : 0) +
+    (activity === 'bike' && cyclewayCategoryFilter !== 'all' ? 1 : 0);
 
   const isFullDistanceRange = distance[0] <= minRange && distance[1] >= maxRange;
   const hasLocationFilter = !isRegionalZoneLocation(currentLocation);
@@ -535,6 +553,102 @@ export function MapFilterBar({
 
           {/* Secondary Horizontal Scrollable Quick-Filter Chips Bar (Visible on Phone, Tablet & Desktop) */}
           <div className="pointer-events-auto flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 px-0.5 scroll-smooth">
+            {/* Distinction Traces vs Pistes Cyclables + Catégories (Mode Vélo) */}
+            {activity === 'bike' && onBikeContentFilterChange && (
+              <>
+                <div className="inline-flex items-center bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-0.5 rounded-xl border border-slate-200/90 dark:border-slate-700/80 shadow-xs shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => onBikeContentFilterChange('all')}
+                    className={`px-2 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer whitespace-nowrap ${
+                      bikeContentFilter === 'all'
+                        ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900 shadow-2xs'
+                        : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                    }`}
+                    title="Afficher à la fois les traces (boucles) et les pistes cyclables"
+                  >
+                    Tout
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onBikeContentFilterChange('traces')}
+                    className={`px-2 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1 ${
+                      bikeContentFilter === 'traces'
+                        ? 'bg-emerald-600 text-white shadow-2xs'
+                        : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                    }`}
+                    title="Afficher uniquement les traces / circuits vélo (boucles et parcours sportifs)"
+                  >
+                    <span>🔄</span>
+                    <span>Traces</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onBikeContentFilterChange('cycleways')}
+                    className={`px-2 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1 ${
+                      bikeContentFilter === 'cycleways'
+                        ? 'bg-sky-600 text-white shadow-2xs'
+                        : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                    }`}
+                    title="Afficher uniquement les pistes cyclables et voies vertes (sélectionnables pour créer des sous-traces)"
+                  >
+                    <span>🛤️</span>
+                    <span>Pistes cyclables</span>
+                  </button>
+                </div>
+
+                {onCyclewayCategoryFilterChange &&
+                  (bikeContentFilter === 'cycleways' || cyclewayCategoryFilter !== 'all') &&
+                  CYCLEWAY_CATEGORY_LIST.map((cat) => {
+                    const isCatActive = cyclewayCategoryFilter === cat.id;
+                    return (
+                      <button
+                        key={cat.id}
+                        type="button"
+                        onClick={() =>
+                          onCyclewayCategoryFilterChange(isCatActive ? 'all' : cat.id)
+                        }
+                        className={`flex items-center gap-1 px-2.5 py-1 rounded-xl text-[11px] font-bold whitespace-nowrap transition-all shrink-0 border backdrop-blur-xl cursor-pointer ${
+                          isCatActive
+                            ? 'text-white border-transparent shadow-md'
+                            : 'bg-white/95 dark:bg-slate-900/95 text-slate-700 dark:text-slate-200 border-sky-200/90 dark:border-slate-700 hover:border-sky-400 shadow-xs'
+                        }`}
+                        style={isCatActive ? { backgroundColor: cat.mapColor } : undefined}
+                        title={cat.description}
+                      >
+                        <span>{cat.icon}</span>
+                        <span>{cat.shortLabel}</span>
+                        {isCatActive && <Check className="w-3 h-3 text-white" />}
+                      </button>
+                    );
+                  })}
+
+                {/* Bouton 1-clic Masquer / Démasquer les PC */}
+                {onToggleCyclewaysVisibility && (
+                  <button
+                    type="button"
+                    onClick={onToggleCyclewaysVisibility}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-[11px] font-bold border transition-all cursor-pointer shrink-0 shadow-xs backdrop-blur-xl ${
+                      isCyclewaysVisible
+                        ? 'bg-white/95 dark:bg-slate-900/95 text-sky-800 dark:text-sky-300 border-sky-300/80 dark:border-sky-800 hover:bg-sky-50 dark:hover:bg-slate-800'
+                        : 'bg-rose-50/95 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 border-rose-300 dark:border-rose-800'
+                    }`}
+                    title={
+                      isCyclewaysVisible
+                        ? 'Masquer toutes les pistes cyclables (PC)'
+                        : 'Afficher les pistes cyclables (PC)'
+                    }
+                  >
+                    {isCyclewaysVisible ? (
+                      <EyeOff className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+                    ) : (
+                      <Eye className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
+                    )}
+                    <span>{isCyclewaysVisible ? 'Masquer PC' : 'Démasquer PC'}</span>
+                  </button>
+                )}
+              </>
+            )}
             {/* Quick Favorites Filter Chip */}
             {favoritesCount > 0 && (
               <button
@@ -670,6 +784,105 @@ export function MapFilterBar({
                   </button>
                 </div>
               </section>
+
+              {/* Distinction Traces vs Pistes Cyclables + Catégories (Mode Vélo) */}
+              {activity === 'bike' && onBikeContentFilterChange && (
+                <section className="bg-sky-50/60 p-3.5 rounded-2xl border border-sky-200/80 space-y-3">
+                  <div>
+                    <label className="text-[10px] uppercase font-bold tracking-wider text-sky-900 block mb-1.5">
+                      Traces & Pistes cyclables
+                    </label>
+                    <div className="grid grid-cols-3 gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => onBikeContentFilterChange('all')}
+                        className={`py-2 px-2 rounded-xl text-[11px] font-bold border transition-all cursor-pointer ${
+                          bikeContentFilter === 'all'
+                            ? 'bg-slate-800 text-white border-slate-800 shadow-xs'
+                            : 'bg-white border-stone-200 text-stone-700 hover:bg-stone-100'
+                        }`}
+                      >
+                        Tout afficher
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => onBikeContentFilterChange('traces')}
+                        className={`py-2 px-2 rounded-xl text-[11px] font-bold border transition-all cursor-pointer ${
+                          bikeContentFilter === 'traces'
+                            ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
+                            : 'bg-white border-stone-200 text-stone-700 hover:bg-stone-100'
+                        }`}
+                      >
+                        🔄 Traces / Boucles
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => onBikeContentFilterChange('cycleways')}
+                        className={`py-2 px-2 rounded-xl text-[11px] font-bold border transition-all cursor-pointer ${
+                          bikeContentFilter === 'cycleways'
+                            ? 'bg-sky-600 text-white border-sky-600 shadow-xs'
+                            : 'bg-white border-stone-200 text-stone-700 hover:bg-stone-100'
+                        }`}
+                      >
+                        🛤️ Pistes cyclables
+                      </button>
+                    </div>
+                  </div>
+
+                  {onCyclewayCategoryFilterChange && bikeContentFilter !== 'traces' && (
+                    <div>
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="text-[10px] uppercase font-bold tracking-wider text-sky-800">
+                          Catégorie de piste cyclable
+                        </span>
+                        {cyclewayCategoryFilter !== 'all' && (
+                          <button
+                            type="button"
+                            onClick={() => onCyclewayCategoryFilterChange('all')}
+                            className="text-[10px] font-bold text-rose-600 hover:underline cursor-pointer"
+                          >
+                            Toutes les catégories
+                          </button>
+                        )}
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                        {CYCLEWAY_CATEGORY_LIST.map((cat) => {
+                          const isSelectedCat = cyclewayCategoryFilter === cat.id;
+                          return (
+                            <button
+                              key={cat.id}
+                              type="button"
+                              onClick={() =>
+                                onCyclewayCategoryFilterChange(isSelectedCat ? 'all' : cat.id)
+                              }
+                              className={`p-2 rounded-xl border text-left transition-all cursor-pointer flex items-start gap-2 ${
+                                isSelectedCat
+                                  ? 'bg-white border-sky-500 ring-2 ring-sky-400/40 shadow-xs'
+                                  : 'bg-white/80 border-stone-200 hover:bg-white'
+                              }`}
+                            >
+                              <span
+                                className="w-5 h-5 rounded-md flex items-center justify-center text-xs shrink-0 text-white font-bold mt-0.5"
+                                style={{ backgroundColor: cat.mapColor }}
+                              >
+                                {cat.icon}
+                              </span>
+                              <div className="min-w-0 flex-1">
+                                <div className="text-[11px] font-bold text-stone-900 truncate">
+                                  {cat.label}
+                                </div>
+                                <div className="text-[10px] text-stone-500 line-clamp-1">
+                                  {cat.description}
+                                </div>
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </section>
+              )}
 
               {/* Ville / Commune de référence */}
               <section className="bg-stone-50/70 dark:bg-slate-800/50 p-3.5 rounded-2xl border border-stone-200/70 dark:border-slate-700/70">

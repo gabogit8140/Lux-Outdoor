@@ -9,7 +9,12 @@ import {
   Maximize2,
   Minimize2,
 } from 'lucide-react';
-import type { RouteSuggestions, RouteTrace } from '../types';
+import type {
+  RouteSuggestions,
+  RouteTrace,
+  BikeContentFilter,
+  CyclewayCategory,
+} from '../types';
 import { type FavoriteCategory, resolveFavoriteCategory } from '../lib/favorites/favoriteCategories';
 import { PlanTabContent } from './sidebar/PlanTabContent';
 import { RouteDetailView } from './sidebar/RouteDetailView';
@@ -83,6 +88,12 @@ interface SidebarProps {
   editor?: UseRouteEditorReturn;
   onStartNavigation?: (route: RouteSuggestions, trace: RouteTrace) => void;
   isNavigating?: boolean;
+  bikeContentFilter?: BikeContentFilter;
+  onBikeContentFilterChange?: (v: BikeContentFilter) => void;
+  cyclewayCategoryFilter?: CyclewayCategory | 'all';
+  onCyclewayCategoryFilterChange?: (v: CyclewayCategory | 'all') => void;
+  onSliceSubTrace?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  initialSubTraceKm?: number | null;
 }
 
 export function Sidebar({
@@ -132,6 +143,12 @@ export function Sidebar({
   editor,
   onStartNavigation,
   isNavigating,
+  bikeContentFilter = 'all',
+  onBikeContentFilterChange,
+  cyclewayCategoryFilter = 'all',
+  onCyclewayCategoryFilterChange,
+  onSliceSubTrace,
+  initialSubTraceKm,
 }: SidebarProps) {
   const [location, setLocation] = useState(currentLocation || 'Luxembourg');
   const [tab, setTab] = useState<'plan' | 'result' | 'catalog'>('catalog');
@@ -387,7 +404,7 @@ export function Sidebar({
           }`}
         >
           <ListOrdered className="w-3.5 h-3.5" />
-          <span>Traces</span>
+          <span>{activity === 'bike' ? 'Traces & Pistes' : 'Traces'}</span>
           <span className="text-[10px] font-mono-kpi px-1.5 py-0.2 rounded-full bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-700 dark:text-emerald-300">
             {routes.length}
           </span>
@@ -446,6 +463,8 @@ export function Sidebar({
             editor={editor}
             onStartNavigation={onStartNavigation}
             isNavigating={isNavigating}
+            onSliceSubTrace={onSliceSubTrace}
+            initialSubTraceKm={initialSubTraceKm}
           />
         )}
 
@@ -466,6 +485,11 @@ export function Sidebar({
             activity={activity}
             clickedCoord={clickedCoord}
             onClearAllFilters={onClearAllFilters}
+            bikeContentFilter={bikeContentFilter}
+            onBikeContentFilterChange={onBikeContentFilterChange}
+            cyclewayCategoryFilter={cyclewayCategoryFilter}
+            onCyclewayCategoryFilterChange={onCyclewayCategoryFilterChange}
+            onSliceSubTrace={onSliceSubTrace}
           />
         )}
       </div>

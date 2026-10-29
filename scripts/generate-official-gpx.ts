@@ -946,7 +946,17 @@ export const OFFICIAL_SEEDS: OfficialRouteSeed[] = [
     surfaceType: 'Voie verte enrobée 100% le long de l\'eau',
     highlights: ['Château des Ducs de Lorraine Sierck', 'Pont-écluse de Thionville', 'Réserve du Stromberg'],
     baseGain: 85,
-    anchors: [[6.3650, 49.4650], [6.3550, 49.4420], [6.2850, 49.3850], [6.1750, 49.3580]],
+    anchors: [
+      [6.3650, 49.4650], // Apach / frontière LU/DE/FR
+      [6.3550, 49.4420], // Sierck-les-Bains
+      [6.3280, 49.4410], // Rettel
+      [6.3080, 49.4310], // Malling - Boucle du Chemin de la Moselle (Plan d'eau / Camping)
+      [6.2970, 49.4250], // Malling - Chemin de la Moselle
+      [6.2640, 49.4010], // Koenigsmacker canal (Chemin de la Moselle)
+      [6.2250, 49.3900], // Cattenom canal
+      [6.2080, 49.3760], // Basse-Ham Nautic
+      [6.1750, 49.3580], // Thionville
+    ],
     targetDistanceKm: 33.0,
   },
   {

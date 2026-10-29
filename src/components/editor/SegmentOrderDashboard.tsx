@@ -14,6 +14,7 @@ import {
   CheckCircle2,
   ArrowLeftRight,
   Lock,
+  GitFork,
 } from 'lucide-react';
 import type { UseRouteEditorReturn } from '../../hooks/useRouteEditor';
 import { findNearestGazetteerPlace } from '../../lib/routing/subSection';
@@ -223,12 +224,18 @@ export function SegmentOrderDashboard({ editor }: SegmentOrderDashboardProps) {
                   }
                 : meta?.source === 'direct'
                 ? {
-                    label: 'Direct',
+                    label: 'Hors-sentier',
                     cls: 'bg-amber-100 text-amber-800 dark:bg-amber-950/70 dark:text-amber-300 border-amber-300 dark:border-amber-800',
                     icon: Compass,
                   }
+                : meta?.source === 'free'
+                ? {
+                    label: 'Sentier libre (A-R)',
+                    cls: 'bg-sky-100 text-sky-800 dark:bg-sky-950/70 dark:text-sky-300 border-sky-300 dark:border-sky-800',
+                    icon: GitFork,
+                  }
                 : {
-                    label: 'Sentier OSM',
+                    label: 'Boucle auto',
                     cls: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800',
                     icon: Route,
                   };

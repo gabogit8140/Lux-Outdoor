@@ -354,6 +354,25 @@ export function MapEditorLayer({
             );
           })}
 
+          {/* Surbrillance distinctive des segments en mode 'free' (sentier libre / aller-retour permis) */}
+          {calculatedResult?.legs?.map((leg, lIdx) => {
+            if (leg.mode !== 'free') return null;
+            const pos = leg.coordinates.map(([lon, lat]) => [lat, lon] as [number, number]);
+            return (
+              <Polyline
+                key={`free-leg-${lIdx}`}
+                positions={pos}
+                interactive={false}
+                pathOptions={{
+                  color: '#0284c7',
+                  weight: 4,
+                  dashArray: '8, 5',
+                  opacity: 0.9,
+                }}
+              />
+            );
+          })}
+
           {/* Surbrillance lumineuse du segment sélectionné ou survolé dans le Dashboard d'organisation */}
           {editor.highlightedSegmentIndex !== null &&
             calculatedResult?.legs?.[editor.highlightedSegmentIndex] && (

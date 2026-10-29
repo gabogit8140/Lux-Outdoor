@@ -42,6 +42,10 @@ import {
   FAVORITE_CATEGORIES,
 } from '../../lib/favorites/favoriteCategories';
 import { isVttRoute } from '../../lib/localRouting';
+import {
+  CYCLEWAY_CATEGORIES,
+  isCyclewayRoute,
+} from '../../lib/cycleways/cyclewayClassifier';
 
 interface RouteDetailViewProps {
   route: RouteSuggestions;
@@ -75,6 +79,8 @@ interface RouteDetailViewProps {
   editor?: UseRouteEditorReturn;
   onStartNavigation?: (route: RouteSuggestions, trace: RouteTrace) => void;
   isNavigating?: boolean;
+  onSliceSubTrace?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  initialSubTraceKm?: number | null;
 }
 
 export function RouteDetailView({
@@ -104,9 +110,18 @@ export function RouteDetailView({
   editor,
   onStartNavigation,
   isNavigating = false,
+  onSliceSubTrace,
+  initialSubTraceKm,
 }: RouteDetailViewProps) {
   const [showRoadbook, setShowRoadbook] = useState(false);
-  const semanticColor = getSemanticRouteColor(route.difficulty?.level);
+  const isCycleway = route.activity === 'bike' && isCyclewayRoute(route);
+  const cyclewayCatMeta = isCycleway
+    ? CYCLEWAY_CATEGORIES[route.cyclewayCategory || 'veloroute_regionale']
+    : null;
+  const semanticColor =
+    isCycleway && cyclewayCatMeta
+      ? cyclewayCatMeta.mapColor
+      : getSemanticRouteColor(route.difficulty?.level);
 
   const handleExportKomoot = () => {
     if (!trace) return;
@@ -232,10 +247,43 @@ export function RouteDetailView({
       </div>
 
       {/* Route Hero Header Card */}
-      <div className="bg-gradient-to-br from-slate-50 via-white to-emerald-50/40 dark:from-slate-800/80 dark:via-slate-800/50 dark:to-emerald-950/30 border border-slate-200/90 dark:border-slate-700/80 rounded-2xl p-3.5 space-y-2.5 shadow-2xs">
+      <div
+        className={`border rounded-2xl p-3.5 space-y-2.5 shadow-2xs ${
+          isCycleway
+            ? 'bg-gradient-to-br from-sky-50/80 via-white to-indigo-50/40 dark:from-slate-800/90 dark:via-slate-800/60 dark:to-sky-950/35 border-sky-200/90 dark:border-sky-800/70'
+            : 'bg-gradient-to-br from-slate-50 via-white to-emerald-50/40 dark:from-slate-800/80 dark:via-slate-800/50 dark:to-emerald-950/30 border-slate-200/90 dark:border-slate-700/80'
+        }`}
+      >
         <div className="flex items-start justify-between gap-2">
           <div className="space-y-1">
             <div className="flex items-center gap-1.5 flex-wrap">
+              {route.activity === 'bike' &&
+                (isCycleway ? (
+                  <>
+                    <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-sky-600 text-white shadow-2xs">
+                      🛤️ Piste Cyclable
+                    </span>
+                    {route.cyclewayRef && (
+                      <span
+                        className="text-[10px] font-black px-2 py-0.5 rounded-md text-white shadow-2xs"
+                        style={{ backgroundColor: semanticColor }}
+                      >
+                        {route.cyclewayRef}
+                      </span>
+                    )}
+                    {cyclewayCatMeta && (
+                      <span
+                        className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${cyclewayCatMeta.badgeClass}`}
+                      >
+                        {cyclewayCatMeta.icon} {cyclewayCatMeta.label}
+                      </span>
+                    )}
+                  </>
+                ) : (
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                    {isVttRoute(route) ? '🚵 Trace VTT' : '🔄 Trace / Circuit'}
+                  </span>
+                ))}
               {route.isUserImported && (
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-2xs">
                   📍 Mon Tracé
@@ -252,32 +300,18 @@ export function RouteDetailView({
                   <span>{route.country}</span>
                 </span>
               )}
-              <span
-                className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${route.difficulty.badgeBg} ${route.difficulty.badgeText}`}
-              >
-                {route.difficulty.label}
-              </span>
-              <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border flex items-center gap-1 ${
-                activity === 'hike'
-                  ? 'bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/20'
-                  : isVttRoute(route)
-                  ? 'bg-amber-500/10 dark:bg-amber-400/15 text-amber-800 dark:text-amber-300 border-amber-500/20'
-                  : 'bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/20'
-              }`}>
-                {activity === 'hike' ? (
-                  <>
-                    <Footprints className="w-3 h-3" /> Rando
-                  </>
-                ) : isVttRoute(route) ? (
-                  <>
-                    <Mountain className="w-3 h-3" /> VTT
-                  </>
-                ) : (
-                  <>
-                    <Bike className="w-3 h-3" /> Vélo route
-                  </>
-                )}
-              </span>
+              {!isCycleway && (
+                <span
+                  className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${route.difficulty.badgeBg} ${route.difficulty.badgeText}`}
+                >
+                  {route.difficulty.label}
+                </span>
+              )}
+              {activity === 'hike' && (
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full border flex items-center gap-1 bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-800 dark:text-emerald-300 border-emerald-500/20">
+                  <Footprints className="w-3 h-3" /> Rando
+                </span>
+              )}
             </div>
             <h2 className="text-sm font-extrabold text-slate-900 dark:text-white leading-snug pt-0.5">
               {route.title}
@@ -288,6 +322,13 @@ export function RouteDetailView({
         <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
           {route.description}
         </p>
+
+        {isCycleway && cyclewayCatMeta && (
+          <div className="text-[11px] bg-sky-100/60 dark:bg-sky-950/40 text-sky-900 dark:text-sky-200 px-2.5 py-1.5 rounded-xl border border-sky-200/80 dark:border-sky-800/70 font-medium">
+            <span className="font-bold">{cyclewayCatMeta.icon} Catégorie :</span>{' '}
+            {cyclewayCatMeta.description}
+          </div>
+        )}
 
         {/* Surface type description */}
         <div className="text-[11px] text-slate-500 dark:text-slate-400 font-medium pt-1.5 border-t border-slate-200/60 dark:border-slate-700/60 flex items-center gap-1.5">
@@ -344,23 +385,50 @@ export function RouteDetailView({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5 text-xs font-bold text-purple-900 dark:text-purple-200">
               <Scissors className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-              <span>Studio Sous-Trace & Variante</span>
+              <span>
+                {isCycleway
+                  ? 'Idée Promenade Vélo · Sous-Trace Piste Cyclable'
+                  : 'Studio Sous-Trace & Variante'}
+              </span>
             </div>
             <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-800 dark:text-purple-300">
               Original intact
             </span>
           </div>
           <p className="text-[11px] text-purple-800/80 dark:text-purple-300/80 leading-relaxed">
-            Vous ne faites qu&apos;une partie de ce tracé ? Extrayez une <strong>sous-trace sur mesure (avec retour inclus A⇄B ou boucle)</strong>, ou déviez le parcours. L&apos;original reste inchangé.
+            {isCycleway ? (
+              <>
+                Transformez cette piste cyclable en <strong>idée de balade à vélo sur mesure</strong> : découpez le tronçon de votre choix en <strong>Aller-Retour (A⇄B)</strong>, en <strong>Boucle (A→B→A)</strong> ou en <strong>Aller simple</strong>.
+              </>
+            ) : (
+              <>
+                Vous ne faites qu&apos;une partie de ce tracé ? Extrayez une <strong>sous-trace sur mesure (avec retour inclus A⇄B ou boucle)</strong>, ou déviez le parcours. L&apos;original reste inchangé.
+              </>
+            )}
           </p>
           <div className="flex flex-col gap-1.5 pt-0.5">
             {editor && (
               <button
-                onClick={() => editor.startSubTraceSlicing(route, trace, 'out_and_back')}
+                onClick={() => {
+                  if (onSliceSubTrace) {
+                    onSliceSubTrace(route, trace);
+                  } else {
+                    editor.startSubTraceSlicing(
+                      route,
+                      trace,
+                      'out_and_back',
+                      initialSubTraceKm ?? undefined
+                    );
+                  }
+                }}
                 className="w-full py-2 px-3 bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-600 hover:from-teal-500 hover:to-emerald-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-teal-900/25 active:scale-95 transition-all cursor-pointer border border-teal-400/30"
               >
                 <Scissors className="w-3.5 h-3.5 text-amber-200" />
-                <span>Créer une sous-trace (avec retour inclus)</span>
+                <span>
+                  {isCycleway
+                    ? 'Créer une promenade / sous-trace sur cette piste'
+                    : 'Créer une sous-trace (avec retour inclus)'}
+                </span>
               </button>
             )}
             <button
@@ -374,20 +442,40 @@ export function RouteDetailView({
         </div>
       )}
 
-      {/* Official Source Website & Cadastral Geoportail.lu for the GPX */}
+      {/* Official Source Website & Cadastral Geoportail.lu / Cycleway Network Map */}
       {((route.sourceUrl && !isGenericHomepageUrl(route.sourceUrl)) || route.geoportailUrl) && (
-        <div className="bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/90 dark:border-emerald-800/70 rounded-2xl p-3 flex flex-col gap-2.5">
+        <div
+          className={`border rounded-2xl p-3 flex flex-col gap-2.5 ${
+            isCycleway
+              ? 'bg-sky-50/80 dark:bg-sky-950/35 border-sky-200/90 dark:border-sky-800/70'
+              : 'bg-emerald-50/70 dark:bg-emerald-950/30 border-emerald-200/90 dark:border-emerald-800/70'
+          }`}
+        >
           <div className="flex items-center justify-between gap-2.5">
             <div className="flex items-center gap-2.5 min-w-0">
-              <div className="w-8 h-8 rounded-xl bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-700 flex items-center justify-center shrink-0 shadow-2xs">
+              <div
+                className={`w-8 h-8 rounded-xl bg-white dark:bg-slate-800 border flex items-center justify-center shrink-0 shadow-2xs ${
+                  isCycleway
+                    ? 'text-sky-700 dark:text-sky-400 border-sky-200/80 dark:border-sky-700'
+                    : 'text-emerald-700 dark:text-emerald-400 border-emerald-200/80 dark:border-emerald-700'
+                }`}
+              >
                 <Globe className="w-4 h-4" />
               </div>
               <div className="min-w-0">
-                <span className="text-[10px] uppercase font-bold text-emerald-800/80 dark:text-emerald-400 tracking-wider block">
-                  Fiche officielle & Source du tracé
+                <span
+                  className={`text-[10px] uppercase font-bold tracking-wider block ${
+                    isCycleway
+                      ? 'text-sky-800 dark:text-sky-400'
+                      : 'text-emerald-800/80 dark:text-emerald-400'
+                  }`}
+                >
+                  {isCycleway
+                    ? 'Site Web Officiel de la Piste Cyclable'
+                    : 'Fiche officielle & Source du tracé'}
                 </span>
                 <span className="text-xs font-bold text-slate-900 dark:text-white truncate block">
-                  {route.sourceLabel || 'Page officielle du parcours'}
+                  {route.sourceLabel || 'Page officielle de référence'}
                 </span>
               </div>
             </div>
@@ -396,27 +484,55 @@ export function RouteDetailView({
                 href={route.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-2.5 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shrink-0 shadow-sm active:scale-95 transition-all cursor-pointer"
-                title="Ouvrir la page officielle dédiée à ce tracé"
+                className={`px-2.5 py-1.5 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shrink-0 shadow-sm active:scale-95 transition-all cursor-pointer ${
+                  isCycleway
+                    ? 'bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500'
+                    : 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500'
+                }`}
+                title="Ouvrir le site web officiel référençant cette piste cyclable / ce tracé"
               >
-                <span>Fiche officielle</span>
+                <span>{isCycleway ? 'Site officiel' : 'Fiche officielle'}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             )}
           </div>
 
           {route.geoportailUrl && (
-            <div className="pt-2 border-t border-emerald-200/60 dark:border-emerald-800/60 flex items-center justify-between text-xs">
-              <span className="text-[11px] text-emerald-900/80 dark:text-emerald-300 font-medium flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
-                <span>{route.country === 'LU' ? 'Cadastre & Topographie (ACT) :' : 'Réseau Topo & Carte Dédiée :'}</span>
+            <div
+              className={`pt-2 border-t flex items-center justify-between text-xs ${
+                isCycleway
+                  ? 'border-sky-200/60 dark:border-sky-800/60'
+                  : 'border-emerald-200/60 dark:border-emerald-800/60'
+              }`}
+            >
+              <span
+                className={`text-[11px] font-medium flex items-center gap-1.5 ${
+                  isCycleway
+                    ? 'text-sky-900/85 dark:text-sky-300'
+                    : 'text-emerald-900/80 dark:text-emerald-300'
+                }`}
+              >
+                <MapPin className="w-3.5 h-3.5 shrink-0" />
+                <span>
+                  {isCycleway
+                    ? route.country === 'LU'
+                      ? 'Carte officielle Pistes Cyclables (ACT) :'
+                      : 'Carte interactive du réseau cyclable :'
+                    : route.country === 'LU'
+                      ? 'Cadastre & Topographie (ACT) :'
+                      : 'Réseau Topo & Carte Dédiée :'}
+                </span>
               </span>
               <a
                 href={route.geoportailUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:text-emerald-900 underline flex items-center gap-1"
-                title={route.country === 'LU' ? 'Consulter le tracé sur la carte topographique officielle de Geoportail.lu' : 'Consulter le tracé détaillé sur Waymarked Trails'}
+                className={`text-xs font-bold underline flex items-center gap-1 ${
+                  isCycleway
+                    ? 'text-sky-700 dark:text-sky-400 hover:text-sky-900'
+                    : 'text-emerald-700 dark:text-emerald-400 hover:text-emerald-900'
+                }`}
+                title="Consulter sur la carte interactive officielle"
               >
                 <span>{route.country === 'LU' ? 'Geoportail.lu' : 'Waymarked Trails'}</span>
                 <ExternalLink className="w-3 h-3 opacity-70" />

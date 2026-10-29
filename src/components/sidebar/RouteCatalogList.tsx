@@ -1,7 +1,24 @@
 import { isGenericHomepageUrl } from '../../lib/routeSourceResolver';
 import React, { useEffect, useRef } from 'react';
-import { Star, Footprints, Bike, Globe, ExternalLink, ShieldCheck, RotateCcw, Repeat, ArrowRight } from 'lucide-react';
-import type { RouteSuggestions, RouteTrace } from '../../types';
+import {
+  Star,
+  Footprints,
+  Bike,
+  Globe,
+  ExternalLink,
+  ShieldCheck,
+  RotateCcw,
+  Repeat,
+  ArrowRight,
+  Scissors,
+  Map as MapIcon,
+} from 'lucide-react';
+import type {
+  RouteSuggestions,
+  RouteTrace,
+  BikeContentFilter,
+  CyclewayCategory,
+} from '../../types';
 import {
   getCountryFlag,
   MiniElevationSparkline,
@@ -9,6 +26,11 @@ import {
   ROUTE_DIFFICULTY_LEGEND,
 } from '../ui/PremiumPrimitives';
 import { isRouteLoop, isVttRoute } from '../../lib/localRouting';
+import {
+  CYCLEWAY_CATEGORIES,
+  CYCLEWAY_CATEGORY_LIST,
+  isCyclewayRoute,
+} from '../../lib/cycleways/cyclewayClassifier';
 
 interface RouteCatalogListProps {
   routes: RouteSuggestions[];
@@ -23,6 +45,11 @@ interface RouteCatalogListProps {
   clickedCoord?: { lat: number; lng: number; name: string } | null;
   onClearAllFilters?: () => void;
   scrollContainerRef?: React.RefObject<HTMLDivElement | null>;
+  bikeContentFilter?: BikeContentFilter;
+  onBikeContentFilterChange?: (v: BikeContentFilter) => void;
+  cyclewayCategoryFilter?: CyclewayCategory | 'all';
+  onCyclewayCategoryFilterChange?: (v: CyclewayCategory | 'all') => void;
+  onSliceSubTrace?: (route: RouteSuggestions, trace: RouteTrace) => void;
 }
 
 /** Détection des appareils tactiles sans souris (tablette iPad, téléphone iPhone / Android) */
@@ -49,8 +76,16 @@ export function RouteCatalogList({
   clickedCoord,
   onClearAllFilters,
   scrollContainerRef,
+  bikeContentFilter = 'all',
+  onBikeContentFilterChange,
+  cyclewayCategoryFilter = 'all',
+  onCyclewayCategoryFilterChange,
+  onSliceSubTrace,
 }: RouteCatalogListProps) {
   const lastActiveIdRef = useRef<string | null>(null);
+  const cyclewayCount =
+    activity === 'bike' ? routes.filter((item) => isCyclewayRoute(item)).length : 0;
+  const traceOnlyCount = activity === 'bike' ? routes.length - cyclewayCount : routes.length;
 
   // Synchronisation automatique de la trace supérieure au défilement sur tablette et smartphone
   useEffect(() => {
@@ -123,8 +158,10 @@ export function RouteCatalogList({
             <Bike className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
           )}
           <span className="truncate">
-            {routes.length} trace{routes.length > 1 ? 's' : ''}{' '}
-            {location ? `· ${location}` : 'disponibles'}
+            {activity === 'bike'
+              ? `${traceOnlyCount} trace${traceOnlyCount > 1 ? 's' : ''} · ${cyclewayCount} piste${cyclewayCount > 1 ? 's' : ''}`
+              : `${routes.length} trace${routes.length > 1 ? 's' : ''}`}{' '}
+            {location ? `· ${location}` : ''}
           </span>
         </span>
         <div className="flex items-center gap-1.5 shrink-0">
@@ -144,6 +181,85 @@ export function RouteCatalogList({
           )}
         </div>
       </div>
+
+      {/* Distinction Traces vs Pistes Cyclables + Catégories (Mode Vélo) */}
+      {activity === 'bike' && onBikeContentFilterChange && (
+        <div className="space-y-1.5 bg-sky-50/60 dark:bg-slate-800/70 p-2 rounded-2xl border border-sky-200/70 dark:border-slate-700/80">
+          <div className="grid grid-cols-3 gap-1">
+            <button
+              type="button"
+              onClick={() => onBikeContentFilterChange('all')}
+              className={`py-1.5 px-2 rounded-xl text-[11px] font-bold transition-all cursor-pointer ${
+                bikeContentFilter === 'all'
+                  ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900 shadow-2xs'
+                  : 'bg-white/80 dark:bg-slate-900/60 text-slate-600 dark:text-slate-300 hover:bg-white'
+              }`}
+            >
+              Tout ({routes.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => onBikeContentFilterChange('traces')}
+              className={`py-1.5 px-2 rounded-xl text-[11px] font-bold transition-all cursor-pointer ${
+                bikeContentFilter === 'traces'
+                  ? 'bg-emerald-600 text-white shadow-2xs'
+                  : 'bg-white/80 dark:bg-slate-900/60 text-slate-600 dark:text-slate-300 hover:bg-white'
+              }`}
+            >
+              🔄 Traces
+            </button>
+            <button
+              type="button"
+              onClick={() => onBikeContentFilterChange('cycleways')}
+              className={`py-1.5 px-2 rounded-xl text-[11px] font-bold transition-all cursor-pointer ${
+                bikeContentFilter === 'cycleways'
+                  ? 'bg-sky-600 text-white shadow-2xs'
+                  : 'bg-white/80 dark:bg-slate-900/60 text-slate-600 dark:text-slate-300 hover:bg-white'
+              }`}
+            >
+              🛤️ Pistes
+            </button>
+          </div>
+
+          {onCyclewayCategoryFilterChange && bikeContentFilter !== 'traces' && (
+            <div className="flex items-center gap-1 overflow-x-auto no-scrollbar pt-0.5">
+              <button
+                type="button"
+                onClick={() => onCyclewayCategoryFilterChange('all')}
+                className={`px-2 py-0.5 rounded-lg text-[10px] font-bold whitespace-nowrap border cursor-pointer transition-all ${
+                  cyclewayCategoryFilter === 'all'
+                    ? 'bg-sky-700 text-white border-sky-700'
+                    : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                }`}
+              >
+                Toutes catégories
+              </button>
+              {CYCLEWAY_CATEGORY_LIST.map((cat) => {
+                const isActiveCat = cyclewayCategoryFilter === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() =>
+                      onCyclewayCategoryFilterChange(isActiveCat ? 'all' : cat.id)
+                    }
+                    className={`px-2 py-0.5 rounded-lg text-[10px] font-bold whitespace-nowrap border cursor-pointer transition-all flex items-center gap-1 ${
+                      isActiveCat
+                        ? 'text-white border-transparent shadow-2xs'
+                        : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-sky-400'
+                    }`}
+                    style={isActiveCat ? { backgroundColor: cat.mapColor } : undefined}
+                    title={cat.description}
+                  >
+                    <span>{cat.icon}</span>
+                    <span>{cat.shortLabel}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Semantic Difficulty Color Code Guide */}
       <div className="flex items-center justify-between gap-1 px-2.5 py-1.5 rounded-xl bg-slate-50/90 dark:bg-slate-800/70 border border-slate-200/70 dark:border-slate-700/70 text-[10px]">
@@ -202,7 +318,14 @@ export function RouteCatalogList({
           const diff = r.difficulty;
           const tr = traces[r.id];
           const distKm = tr ? (tr.distance / 1000).toFixed(1) : undefined;
-          const routeColor = getSemanticRouteColor(diff?.level);
+          const isCycleway = r.activity === 'bike' && isCyclewayRoute(r);
+          const cyclewayCatMeta = isCycleway
+            ? CYCLEWAY_CATEGORIES[r.cyclewayCategory || 'veloroute_regionale']
+            : null;
+          const routeColor =
+            isCycleway && cyclewayCatMeta
+              ? cyclewayCatMeta.mapColor
+              : getSemanticRouteColor(diff?.level);
           const isLoop = isRouteLoop({ route: r, trace: tr });
 
           return (
@@ -214,21 +337,35 @@ export function RouteCatalogList({
               onMouseLeave={() => onHoverRoute?.(null)}
               className={`group p-3.5 rounded-2xl border cursor-pointer transition-all duration-200 ${
                 isSelected
-                  ? 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-500 shadow-md shadow-emerald-600/10 ring-2 ring-emerald-500/20'
+                  ? isCycleway
+                    ? 'bg-sky-50/90 dark:bg-sky-950/40 border-sky-500 shadow-md shadow-sky-600/10 ring-2 ring-sky-500/20'
+                    : 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-500 shadow-md shadow-emerald-600/10 ring-2 ring-emerald-500/20'
                   : isHovered
                   ? 'bg-emerald-50/50 dark:bg-emerald-950/30 border-emerald-400 dark:border-emerald-500 shadow-md ring-2 ring-emerald-500/25'
+                  : isCycleway
+                  ? 'bg-sky-50/35 dark:bg-slate-800/75 hover:bg-sky-50/70 dark:hover:bg-slate-800 border-sky-200/90 dark:border-sky-900/60 hover:border-sky-400 hover:-translate-y-0.5 hover:shadow-md'
                   : 'bg-white dark:bg-slate-800/60 hover:bg-slate-50/80 dark:hover:bg-slate-800 border-slate-200/80 dark:border-slate-700/80 hover:border-emerald-400/70 dark:hover:border-emerald-500/60 hover:-translate-y-0.5 hover:shadow-md'
               }`}
             >
-              {/* Top Row: Color Dot + Flag + Title + Telemetry Metrics */}
+              {/* Top Row: Shield / Color Dot + Flag + Title + Telemetry Metrics */}
               <div className="flex items-start justify-between gap-2.5">
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1.5 min-w-0">
-                    <span
-                      className="w-2.5 h-2.5 rounded-full shrink-0 ring-2 ring-white dark:ring-slate-900 shadow-2xs"
-                      style={{ backgroundColor: routeColor }}
-                      title={`Difficulté : ${diff?.label || 'Modéré'} (${diff?.dPlusPerKm || 0} m D+/km)`}
-                    />
+                    {isCycleway && r.cyclewayRef ? (
+                      <span
+                        className="px-1.5 py-0.5 rounded-md text-[9px] font-black text-white shrink-0 shadow-2xs tracking-tight"
+                        style={{ backgroundColor: routeColor }}
+                        title={cyclewayCatMeta?.label}
+                      >
+                        {r.cyclewayRef}
+                      </span>
+                    ) : (
+                      <span
+                        className="w-2.5 h-2.5 rounded-full shrink-0 ring-2 ring-white dark:ring-slate-900 shadow-2xs"
+                        style={{ backgroundColor: routeColor }}
+                        title={`Difficulté : ${diff?.label || 'Modéré'} (${diff?.dPlusPerKm || 0} m D+/km)`}
+                      />
+                    )}
                     <span className="text-sm shrink-0">{getCountryFlag(r.country)}</span>
                     <h4 className="font-bold text-xs text-slate-900 dark:text-white truncate group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                       {r.title}
@@ -275,6 +412,28 @@ export function RouteCatalogList({
 
               {/* Badges Row */}
               <div className="flex items-center gap-1.5 mt-2.5 text-[10px] font-semibold text-slate-500 flex-wrap">
+                {r.activity === 'bike' &&
+                  (isCycleway ? (
+                    <>
+                      <span className="px-2 py-0.5 rounded-md bg-sky-600 text-white font-extrabold text-[9px] shadow-2xs">
+                        🛤️ Piste cyclable
+                      </span>
+                      {cyclewayCatMeta && (
+                        <span
+                          className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md font-bold text-[9px] border ${cyclewayCatMeta.badgeClass}`}
+                          title={cyclewayCatMeta.description}
+                        >
+                          <span>{cyclewayCatMeta.icon}</span>
+                          <span>{cyclewayCatMeta.label}</span>
+                        </span>
+                      )}
+                    </>
+                  ) : (
+                    <span className="px-1.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 font-bold text-[9px]">
+                      {isVttRoute(r) ? '🚵 Trace VTT' : '🔄 Trace / Circuit'}
+                    </span>
+                  ))}
+
                 {r.isUserImported && (
                   <span className="px-2 py-0.5 rounded-md bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-[9px] shadow-2xs">
                     📍 Mon tracé
@@ -345,22 +504,58 @@ export function RouteCatalogList({
                 )}
               </div>
 
-              {/* Source website link */}
-              {r.sourceUrl && !isGenericHomepageUrl(r.sourceUrl) && (
-                <div className="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-[10px]">
-                  <span className="text-slate-400 dark:text-slate-500 font-medium">Fiche officielle :</span>
-                  <a
-                    href={r.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="text-emerald-700 dark:text-emerald-400 hover:text-emerald-900 dark:hover:text-emerald-300 font-bold flex items-center gap-1 hover:underline truncate max-w-[210px]"
-                    title={`Visiter ${r.sourceLabel || r.sourceUrl}`}
-                  >
-                    <Globe className="w-3 h-3 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                    <span className="truncate">{r.sourceLabel || 'Site source'}</span>
-                    <ExternalLink className="w-2.5 h-2.5 shrink-0 opacity-70" />
-                  </a>
+              {/* Official reference websites & 1-click Sub-Trace Slicer */}
+              {((r.sourceUrl && !isGenericHomepageUrl(r.sourceUrl)) ||
+                (isCycleway && onSliceSubTrace && tr)) && (
+                <div className="mt-2.5 pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between gap-2 text-[10px] flex-wrap">
+                  {r.sourceUrl && !isGenericHomepageUrl(r.sourceUrl) ? (
+                    <div className="flex items-center gap-2 min-w-0">
+                      <a
+                        href={r.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-sky-700 dark:text-sky-400 hover:text-sky-900 dark:hover:text-sky-300 font-bold flex items-center gap-1 hover:underline truncate max-w-[195px]"
+                        title={`Site officiel : ${r.sourceLabel || r.sourceUrl}`}
+                      >
+                        <Globe className="w-3 h-3 shrink-0" />
+                        <span className="truncate">
+                          {r.sourceLabel || 'Site web officiel'}
+                        </span>
+                        <ExternalLink className="w-2.5 h-2.5 shrink-0 opacity-75" />
+                      </a>
+                      {isCycleway && r.geoportailUrl && (
+                        <a
+                          href={r.geoportailUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-slate-500 dark:text-slate-400 hover:text-sky-600 font-semibold inline-flex items-center gap-0.5 hover:underline shrink-0"
+                          title="Voir sur la carte officielle du réseau cyclable"
+                        >
+                          <MapIcon className="w-2.5 h-2.5" />
+                          <span>Carte</span>
+                        </a>
+                      )}
+                    </div>
+                  ) : (
+                    <span className="text-slate-400">Idée promenade vélo</span>
+                  )}
+
+                  {isCycleway && onSliceSubTrace && tr && (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSliceSubTrace(r, tr);
+                      }}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[10px] shadow-2xs transition-all cursor-pointer shrink-0 ml-auto"
+                      title="Découper une sous-trace (Aller-Retour ou Boucle) sur cette piste cyclable"
+                    >
+                      <Scissors className="w-3 h-3" />
+                      <span>Sous-trace</span>
+                    </button>
+                  )}
                 </div>
               )}
             </div>

@@ -231,6 +231,16 @@ export function isGenericHomepageUrl(url?: string): boolean {
   try {
     const u = new URL(url);
     const host = u.hostname.replace(/^www\./, '');
+    if (
+      host.endsWith('waymarkedtrails.org') &&
+      u.hash &&
+      u.hash.includes('route')
+    ) {
+      return false;
+    }
+    if (host === 'openstreetmap.org' && u.pathname.length > 1) {
+      return false;
+    }
     const pathname = u.pathname.replace(/\/+$/, '');
     const isRoot =
       pathname === '' ||

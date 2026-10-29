@@ -1,6 +1,21 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import type { RouteSuggestions, RouteTrace } from '../../types';
-import { Navigation, Car, X, Footprints, Bike, ChevronRight, MapPin, Eye, EyeOff, RefreshCw, Wand2 } from 'lucide-react';
+import {
+  Navigation,
+  Car,
+  X,
+  Footprints,
+  Bike,
+  ChevronRight,
+  MapPin,
+  Eye,
+  EyeOff,
+  RefreshCw,
+  Wand2,
+  Scissors,
+  Globe,
+  ExternalLink,
+} from 'lucide-react';
 import {
   calculateDistanceKm,
   formatDriveDistance,
@@ -8,6 +23,11 @@ import {
 } from '../../lib/navigation/wazeNavigation';
 import { KomootIcon } from '../ui/KomootIcon';
 import { exportGpxDirect } from '../../lib/navigation/mobileSchemes';
+import { isGenericHomepageUrl } from '../../lib/routeSourceResolver';
+import {
+  CYCLEWAY_CATEGORIES,
+  isCyclewayRoute,
+} from '../../lib/cycleways/cyclewayClassifier';
 
 interface MapRouteQuickDockProps {
   route: RouteSuggestions;
@@ -22,6 +42,7 @@ interface MapRouteQuickDockProps {
   onToggleTraceVisibility?: () => void;
   onReverseRoute?: () => void;
   onEditRoute?: (route: RouteSuggestions, trace: RouteTrace) => void;
+  onSliceSubTrace?: (route: RouteSuggestions, trace: RouteTrace) => void;
 }
 
 export function MapRouteQuickDock({
@@ -37,7 +58,12 @@ export function MapRouteQuickDock({
   onToggleTraceVisibility,
   onReverseRoute,
   onEditRoute,
+  onSliceSubTrace,
 }: MapRouteQuickDockProps) {
+  const isCycleway = activity === 'bike' && isCyclewayRoute(route);
+  const cyclewayCatMeta = isCycleway
+    ? CYCLEWAY_CATEGORIES[route.cyclewayCategory || 'veloroute_regionale']
+    : null;
   // Coordonnées GPS du point de départ de la trace (normalisées [lat, lng])
   const startCoords = useMemo<[number, number] | null>(() => {
     return getRouteStartCoordinates(route, trace);
@@ -70,17 +96,61 @@ export function MapRouteQuickDock({
       onTouchStart={(e) => e.stopPropagation()}
     >
       <div className="bg-slate-900/95 dark:bg-slate-900/95 text-white backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.45)] border border-white/15 dark:border-slate-700/80 ring-1 ring-black/20 flex flex-col gap-2.5">
-        {/* Ligne 1: Titre, métriques et boutons masquer/fermer */}
+        {/* Ligne 1: Titre, type (Trace vs Piste cyclable + catégorie), site web officiel et boutons */}
         <div className="flex items-start justify-between gap-2">
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shrink-0 shadow-sm text-white">
-              {activity === 'bike' ? (
+            <div
+              className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 shadow-sm text-white font-black text-[10px]"
+              style={{
+                background:
+                  isCycleway && cyclewayCatMeta
+                    ? cyclewayCatMeta.mapColor
+                    : 'linear-gradient(135deg, #10b981, #0d9488)',
+              }}
+            >
+              {isCycleway && route.cyclewayRef ? (
+                <span>{route.cyclewayRef.slice(0, 5)}</span>
+              ) : activity === 'bike' ? (
                 <Bike className="w-4 h-4" />
               ) : (
                 <Footprints className="w-4 h-4" />
               )}
             </div>
             <div className="min-w-0">
+              {activity === 'bike' && (
+                <div className="flex items-center gap-1.5 mb-0.5 flex-wrap">
+                  {isCycleway ? (
+                    <>
+                      <span className="text-[9px] font-extrabold uppercase tracking-wider px-1.5 py-0.2 rounded bg-sky-500/25 text-sky-300 border border-sky-400/35">
+                        🛤️ Piste cyclable
+                      </span>
+                      {cyclewayCatMeta && (
+                        <span className="text-[9px] font-bold text-slate-300 truncate">
+                          {cyclewayCatMeta.icon} {cyclewayCatMeta.shortLabel}
+                        </span>
+                      )}
+                    </>
+                  ) : (
+                    <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+                      🔄 Trace / Circuit
+                    </span>
+                  )}
+                  {route.sourceUrl && !isGenericHomepageUrl(route.sourceUrl) && (
+                    <a
+                      href={route.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1 text-[9px] font-bold text-amber-300 hover:text-amber-200 underline truncate max-w-[155px]"
+                      title={`Site web officiel : ${route.sourceLabel || route.sourceUrl}`}
+                    >
+                      <Globe className="w-2.5 h-2.5 shrink-0" />
+                      <span className="truncate">{route.sourceLabel || 'Site web'}</span>
+                      <ExternalLink className="w-2.5 h-2.5 shrink-0" />
+                    </a>
+                  )}
+                </div>
+              )}
               <h3 className="text-xs sm:text-sm font-extrabold text-white truncate leading-tight">
                 {route.title}
               </h3>
@@ -164,8 +234,29 @@ export function MapRouteQuickDock({
           </div>
         </div>
 
-        {/* Ligne 2: Boutons d'actions rapides (Waze + Komoot + Modifier + Guidage Terrain) */}
-        <div className={`grid ${onEditRoute ? 'grid-cols-4' : 'grid-cols-3'} gap-1 sm:gap-1.5 pt-0.5`}>
+        {/* Ligne 2: Boutons d'actions rapides (Sous-trace + Waze + Komoot + Modifier + Guidage) */}
+        <div
+          className={`grid ${
+            onSliceSubTrace && onEditRoute
+              ? 'grid-cols-5'
+              : onSliceSubTrace || onEditRoute
+                ? 'grid-cols-4'
+                : 'grid-cols-3'
+          } gap-1 sm:gap-1.5 pt-0.5`}
+        >
+          {/* Bouton Sous-trace (Idée de promenade à vélo / aller-retour ou boucle) */}
+          {onSliceSubTrace && (
+            <button
+              type="button"
+              onClick={() => onSliceSubTrace(route, trace)}
+              className="py-2 px-1 sm:px-2 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 active:scale-95 text-white rounded-xl text-xs font-extrabold flex items-center justify-center gap-1 shadow-md shadow-teal-900/35 transition-all cursor-pointer border border-teal-400/40"
+              title="Créer une sous-trace / idée de promenade à partir de cette piste cyclable ou trace (Aller-Retour ou Boucle)"
+            >
+              <Scissors className="w-3.5 h-3.5 shrink-0 text-amber-200" />
+              <span className="truncate">Sous-trace</span>
+            </button>
+          )}
+
           {/* Bouton Waze pour le trajet voiture vers le départ */}
           {startCoords && (
             <button
