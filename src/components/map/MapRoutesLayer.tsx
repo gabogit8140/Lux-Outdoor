@@ -317,10 +317,11 @@ export function MapRoutesLayer({
   return (
     <>
       {/* PASS 1 (Bottom SVG Layer): Permanently mounted white under-casings for all routes */}
-      {preparedRoutes.map(({ r, polylinePositions, isCycleway }) => {
-        if (isCycleway && !isCyclewaysVisible && r.id !== selectedRouteId) {
-          return null;
-        }
+      {isTraceVisible &&
+        preparedRoutes.map(({ r, polylinePositions, isCycleway }) => {
+          if (isCycleway && !isCyclewaysVisible && r.id !== selectedRouteId) {
+            return null;
+          }
         const isSelected = selectedRouteId === r.id;
         const isHovered = hoveredRouteId === r.id;
         const isAnotherFocused =
@@ -344,11 +345,12 @@ export function MapRoutesLayer({
       })}
 
       {/* PASS 2 (Middle SVG Layer): Permanently mounted semantic colored strokes + interactive hit targets */}
-      {preparedRoutes.map(
-        ({ r, t, polylinePositions, startPos, midPos, semanticColor, isCycleway, cyclewayCatMeta }) => {
-          if (isCycleway && !isCyclewaysVisible && r.id !== selectedRouteId) {
-            return null;
-          }
+      {isTraceVisible &&
+        preparedRoutes.map(
+          ({ r, t, polylinePositions, startPos, midPos, semanticColor, isCycleway, cyclewayCatMeta }) => {
+            if (isCycleway && !isCyclewaysVisible && r.id !== selectedRouteId) {
+              return null;
+            }
           const isSelected = selectedRouteId === r.id;
           const isHovered = hoveredRouteId === r.id;
           const isAnotherFocused =

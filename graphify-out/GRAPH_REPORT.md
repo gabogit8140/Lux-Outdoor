@@ -1,7 +1,7 @@
 # Graph Report - Trace Outdoor  (2026-10-29)
 
 ## Corpus Check
-- 158 files · ~179,717 words
+- 158 files · ~179,734 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 14 file(s) not represented in the graph (top: .bat 5, (none) 3, .vbs 2)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e2af80c1`
+- Built from commit: `6e3be802`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

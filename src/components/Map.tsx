@@ -346,24 +346,26 @@ export function MapDisplay({
             />
           )}
 
-          {/* Direct 1-Click Trace Visibility Toggle Button (Masquer / Démasquer la trace sur la carte, y compris en Mode Studio) */}
-          {((!editor?.isEditorActive && selectedRouteId) ||
-            (editor?.isEditorActive && (editor.waypoints.length > 0 || editor.originalTrace))) &&
-            onToggleTraceVisibility && (
+          {/* Direct 1-Click Trace Visibility Toggle Button (Masquer / Démasquer les traces sur la carte, TOUJOURS PRÉSENT) */}
+          {onToggleTraceVisibility && (
             <button
               type="button"
               onClick={onToggleTraceVisibility}
-              className={`${TOUCH_MAP_BUTTON_CLASS} relative group ${
+              className={`${TOUCH_MAP_BUTTON_CLASS} relative group transition-all ${
                 isTraceVisible
                   ? 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-emerald-400 shadow-emerald-600/35 ring-2 ring-emerald-400/50'
-                  : 'bg-white/95 dark:bg-slate-900/95 text-rose-500 dark:text-rose-400 border-white/80 dark:border-slate-700/80 hover:bg-rose-50 dark:hover:bg-rose-950/40 hover:border-rose-400/60'
+                  : 'bg-white/95 dark:bg-slate-900/95 text-rose-500 dark:text-rose-400 border-rose-300 dark:border-rose-800 hover:bg-rose-50 dark:hover:bg-rose-950/40 hover:border-rose-400/60'
               }`}
               title={
                 isTraceVisible
-                  ? 'Masquer la trace sur la carte (pour voir le réseau sous-jacent)'
-                  : 'Afficher la trace sur la carte'
+                  ? selectedRouteId || editor?.isEditorActive
+                    ? 'Masquer la trace sur la carte (pour voir le réseau sous-jacent)'
+                    : 'Masquer les traces sur la carte (pour voir la carte vierge)'
+                  : selectedRouteId || editor?.isEditorActive
+                    ? 'Afficher la trace sur la carte'
+                    : 'Afficher les traces sur la carte'
               }
-              aria-label={isTraceVisible ? 'Masquer la trace' : 'Afficher la trace'}
+              aria-label={isTraceVisible ? 'Masquer les traces' : 'Afficher les traces'}
             >
               {isTraceVisible ? (
                 <Eye className="w-4 h-4 shrink-0 transition-transform group-hover:scale-110" />
